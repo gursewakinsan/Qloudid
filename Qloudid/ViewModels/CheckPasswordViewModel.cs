@@ -27,11 +27,13 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Password is required.");
 			else
 			{
+				DependencyService.Get<IProgressBar>().Show();
 				ILoginService service = new LoginService();
 				var response = await service.CheckPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
 				if (response != null)
 				{
 				}
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion

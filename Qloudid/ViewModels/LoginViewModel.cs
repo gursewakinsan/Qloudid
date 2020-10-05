@@ -23,6 +23,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteLoginCommand(string id)
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			Helper.Helper.QrCertificateKey = id;
 			ILoginService service = new LoginService();
 			int response = await service.LoginAsync(id);
@@ -38,6 +39,7 @@ namespace Qloudid.ViewModels
 			}
 			else
 				await Helper.Alert.DisplayAlert("This QR code is invalid.");
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
