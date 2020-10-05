@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -96,7 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Qloudid\Qloudid.csproj">
-      <Project>{98FD9B65-9D1A-4A7E-BFF4-81E5F8729FAA}</Project>
+      <Project>{C98BC8DE-A7F1-4189-A834-E5A0CE309C1F}</Project>
       <Name>Qloudid</Name>
     </ProjectReference>
   </ItemGroup>
