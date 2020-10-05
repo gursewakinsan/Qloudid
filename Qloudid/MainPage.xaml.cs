@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Qloudid.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,9 +15,11 @@ namespace Qloudid
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
+		LoginViewModel loginViewModel;
 		public MainPage()
 		{
 			InitializeComponent();
+			BindingContext = loginViewModel = new LoginViewModel(this.Navigation);
 		}
 
 		protected override void OnAppearing()
@@ -28,7 +31,8 @@ namespace Qloudid
 		{
 			Device.BeginInvokeOnMainThread(async () =>
 			{
-				await DisplayAlert("Scanned result", "The barcode's text is " + result.Text + ". The barcode's format is " + result.BarcodeFormat, "OK");
+				//await DisplayAlert("Scanned result", "The barcode's text is " + result.Text + ". The barcode's format is " + result.BarcodeFormat, "OK");
+				loginViewModel.LoginCommand.Execute(result.Text);
 			});
 		}
 	}
