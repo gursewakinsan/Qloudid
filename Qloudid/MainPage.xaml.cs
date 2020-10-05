@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZXing;
 
 namespace Qloudid
 {
@@ -16,6 +17,19 @@ namespace Qloudid
 		public MainPage()
 		{
 			InitializeComponent();
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			_scanView.IsScanning = true;
+		}
+		public void Handle_OnScanResult(Result result)
+		{
+			Device.BeginInvokeOnMainThread(async () =>
+			{
+				await DisplayAlert("Scanned result", "The barcode's text is " + result.Text + ". The barcode's format is " + result.BarcodeFormat, "OK");
+			});
 		}
 	}
 }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qloudid.Android", "Qloudid.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qloudid.iOS", "Qloudid.iOS\Qloudid.iOS.csproj", "{B7DF47AB-1019-4BED-8E54-1463FBEAC4C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qloudid", "Qloudid\Qloudid.csproj", "{C98BC8DE-A7F1-4189-A834-E5A0CE309C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qloudid", "Qloudid\Qloudid.csproj", "{C98BC8DE-A7F1-4189-A834-E5A0CE309C1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
