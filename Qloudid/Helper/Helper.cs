@@ -11,5 +11,7 @@
 			return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
 		}
 		public static string QrCertificateKey { get; set; }
+		public static Models.User UserInfo { get; set; }
+		public static bool IsFirstTime { get; set; } = true;
 	}
 }

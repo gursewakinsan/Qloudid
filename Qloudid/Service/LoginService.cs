@@ -16,11 +16,20 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<string> CheckPasswordAsync(string tokenKey, SetPassword password)
+		public Task<Models.User> CheckPasswordAsync(string tokenKey, SetPassword password)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<string>(HttpWebRequest.Create(string.Format(EndPointsList.CheckPasswordUrl, tokenKey)), string.Empty, password.ToJson());
+				var res = RestClient.Post<Models.User>(HttpWebRequest.Create(string.Format(EndPointsList.CheckPasswordUrl, tokenKey)), string.Empty, password.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> CheckValidQrAsync(string qrCode)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.CheckQrValidityUrl, qrCode)));
 				return res;
 			});
 		}

@@ -24,21 +24,41 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteLoginCommand(string id)
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			Helper.Helper.QrCertificateKey = id;
 			ILoginService service = new LoginService();
 			int response = await service.LoginAsync(id);
 			if (response > 0)
 			{
-				Application.Current.MainPage = new NavigationPage(new Views.CheckPasswordPage());
-				//Go to passwor pag & call api 
-				//https://www.qloudid.com/user/index.php/QloudidApp/checkPassword/{tokn}
-				//[password=>123456]
+				Helper.Helper.QrCertificateKey = id;
+				if (Application.Current.Properties.ContainsKey("QrCode"))
+					Application.Current.Properties.Remove("QrCode");
+				Application.Current.Properties.Add("QrCode", id);
+				await Application.Current.SavePropertiesAsync();
 
-				//rsult - o - wrong pass
-				// rsult - 1 - gt pass
+				Application.Current.MainPage = new NavigationPage(new Views.CheckPasswordPage());
 			}
 			else
 				await Helper.Alert.DisplayAlert("This QR code is invalid.");
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Is Already Login Command.
+		private ICommand isAlreadyLoginCommand;
+		public ICommand IsAlreadyLoginCommand
+		{
+			get => isAlreadyLoginCommand ?? (isAlreadyLoginCommand = new Command(async () => await ExecuteIsAlreadyLoginCommand()));
+		}
+		private async Task ExecuteIsAlreadyLoginCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+			{
+				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+				//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			}
+			else
+			{ 
+			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

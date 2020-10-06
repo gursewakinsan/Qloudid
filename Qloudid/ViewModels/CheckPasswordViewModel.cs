@@ -30,9 +30,21 @@ namespace Qloudid.ViewModels
 				DependencyService.Get<IProgressBar>().Show();
 				ILoginService service = new LoginService();
 				var response = await service.CheckPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
-				if (response != null)
+				if (response.result > 0)
 				{
+					Helper.Helper.UserInfo = response;
+					if (Application.Current.Properties.Count > 0)
+						Application.Current.Properties.Clear();
+
+					Application.Current.Properties.Add("QrCode", Helper.Helper.QrCertificateKey);
+					Application.Current.Properties.Add("FirstName", response.first_name);
+					Application.Current.Properties.Add("LastName", response.last_name);
+					Application.Current.Properties.Add("UserId", response.user_id);
+					await Application.Current.SavePropertiesAsync();
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
+				else
+					await Helper.Alert.DisplayAlert("Wrong Password");
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

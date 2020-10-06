@@ -5,14 +5,14 @@ using Qloudid.ViewModels;
 namespace Qloudid.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CheckPasswordPage : ContentPage
+	public partial class VerifyPasswordPage : ContentPage
 	{
-		CheckPasswordViewModel checkPasswordViewModel;
-		public CheckPasswordPage()
+		VerifyPasswordPageViewModel viewModel;
+		public VerifyPasswordPage()
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
-			BindingContext = checkPasswordViewModel = new CheckPasswordViewModel(this.Navigation);
+			BindingContext = viewModel = new VerifyPasswordPageViewModel(this.Navigation);
 		}
 	}
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.DashboardPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Dashboard"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<StackLayout Padding="20" Spacing="20">
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="10"
+				VerticalOptions="CenterAndExpand">
+				<Label
+					FontSize="15"
+					Text="Welcome : "
+					TextColor="Red" />
+
+				<Label
+					FontSize="12"
+					Text="{Binding UserInfo.DisplayUserName}"
+					TextColor="Black" />
+			</StackLayout>
+			<controls:CustomButton Clicked="OnLoginToDesktopClicked" Text="Login to Desktop" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
