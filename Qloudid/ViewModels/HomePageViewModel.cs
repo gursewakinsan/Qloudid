@@ -61,6 +61,8 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserInfo = user;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
+				else
+					await Navigation.PushAsync(new Views.InvalidCertificatePage());
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}

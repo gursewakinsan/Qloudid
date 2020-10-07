@@ -44,7 +44,7 @@ namespace Qloudid.ViewModels
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
 				else
-					await Helper.Alert.DisplayAlert("Wrong Password");
+					await Navigation.PushAsync(new Views.WrongPasswordPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

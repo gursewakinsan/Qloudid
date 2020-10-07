@@ -11,7 +11,8 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode)), string.Empty, ip.ToJson());
+				//var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode)), string.Empty, ip.ToJson());
+				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode, ip.ip)));
 				return res;
 			});
 		}
@@ -20,7 +21,8 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode)), string.Empty, password.ToJson());
+				//var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode)), string.Empty, password.ToJson());
+				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode, password.password)));
 				return res;
 			});
 		}

@@ -9,7 +9,7 @@ namespace Qloudid.Controls
 			FontSize = 17;
 			CornerRadius = 0;
 			HeightRequest = 50;
-			BackgroundColor = Color.FromHex("#2196F3");
+			BackgroundColor = Color.FromHex("#FF2728");
 		}
 	}
 }

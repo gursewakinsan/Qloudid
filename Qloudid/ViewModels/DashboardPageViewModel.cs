@@ -28,9 +28,9 @@ namespace Qloudid.ViewModels
 			IDashboardService service = new DashboardService();
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = qrCode });
 			if (response > 0)
-				await Helper.Alert.DisplayAlert("Login process has been already started to anothor device.");
-			else
 				await Navigation.PushAsync(new Views.VerifyPasswordPage());
+			else
+				await Helper.Alert.DisplayAlert("Login process has been already started to anothor device.");
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
