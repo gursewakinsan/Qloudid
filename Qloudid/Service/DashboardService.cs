@@ -11,8 +11,7 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				//var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode)), string.Empty, ip.ToJson());
-				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode, ip.ip)));
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginIpUrl, qrCode)), string.Empty, ip.ToJson());
 				return res;
 			});
 		}
@@ -21,8 +20,16 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				//var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode)), string.Empty, password.ToJson());
-				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode, password.password)));
+				var res = RestClient.Post<int>(HttpWebRequest.Create(string.Format(EndPointsList.VerifyPasswordUrl, qrCode)), string.Empty, password.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> ClearIpsAsync(string qrCode)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.ClearIpsUrl, qrCode)));
 				return res;
 			});
 		}

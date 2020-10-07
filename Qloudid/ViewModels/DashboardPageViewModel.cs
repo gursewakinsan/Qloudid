@@ -30,7 +30,7 @@ namespace Qloudid.ViewModels
 			if (response > 0)
 				await Navigation.PushAsync(new Views.VerifyPasswordPage());
 			else
-				await Helper.Alert.DisplayAlert("Login process has been already started to anothor device.");
+				await Navigation.PushAsync(new Views.UserAlertPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

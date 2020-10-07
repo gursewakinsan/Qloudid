@@ -23,19 +23,31 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteVerifyPasswordCommand()
 		{
-			if (string.IsNullOrWhiteSpace(Password))
-				await Helper.Alert.DisplayAlert("Password is required.");
+			Helper.Helper.IsBack = false;
+			if (Password == null) Password = string.Empty;
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
+			if (response > 0)
+				await Navigation.PushAsync(new Views.SuccessfulPage());
 			else
-			{
-				DependencyService.Get<IProgressBar>().Show();
-				IDashboardService service = new DashboardService();
-				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
-				if (response > 0)
-					await Navigation.PushAsync(new Views.SuccessfulPage());
-				else
-					await Navigation.PushAsync(new Views.WrongPasswordPage());
-				DependencyService.Get<IProgressBar>().Hide();
-			}
+				await Navigation.PushAsync(new Views.WrongPasswordPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Clear Ips Command.
+		private ICommand clearIpsCommand;
+		public ICommand ClearIpsCommand
+		{
+			get => clearIpsCommand ?? (clearIpsCommand = new Command(async () => await ExecuteClearIpsCommand()));
+		}
+		private async Task ExecuteClearIpsCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			int response = await service.ClearIpsAsync(Helper.Helper.QrCertificateKey);
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

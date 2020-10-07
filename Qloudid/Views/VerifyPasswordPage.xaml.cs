@@ -14,5 +14,12 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new VerifyPasswordPageViewModel(this.Navigation);
 		}
+
+		protected override void OnDisappearing()
+		{
+			if (Helper.Helper.IsBack)
+				viewModel.ClearIpsCommand.Execute(null);
+			base.OnDisappearing();
+		}
 	}
 }

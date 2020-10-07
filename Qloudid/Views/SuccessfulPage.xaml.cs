@@ -11,5 +11,12 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			Helper.Helper.IsBack = true;
+			Application.Current.MainPage = new NavigationPage(new DashboardPage());
+		}
 	}
 }

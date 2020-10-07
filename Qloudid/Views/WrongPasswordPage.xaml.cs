@@ -11,5 +11,11 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 		}
+
+		protected override void OnDisappearing()
+		{
+			Helper.Helper.IsBack = true;
+			base.OnDisappearing();
+		}
 	}
 }
