@@ -37,7 +37,6 @@ namespace Qloudid.Views
 					viewModel.ValidateQrCodeCommand.Execute(result.Text);
 				});
 			};
-			scanPage.IsScanning = true;
 			await Navigation.PushModalAsync(scanPage);
 		}
 	}

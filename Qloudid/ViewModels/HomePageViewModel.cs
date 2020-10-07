@@ -67,5 +67,17 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
+
+		#region Scan QR Code Command.
+		private ICommand scanQrCodeCommand;
+		public ICommand ScanQrCodeCommand
+		{
+			get => scanQrCodeCommand ?? (scanQrCodeCommand = new Command(async () => await ExecuteScanQrCodeCommand()));
+		}
+		private async Task ExecuteScanQrCodeCommand()
+		{
+			await Navigation.PushAsync(new Views.HomeScannerPage());
+		}
+		#endregion
 	}
 }
