@@ -15,6 +15,12 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new VerifyPasswordPageViewModel(this.Navigation);
 		}
 
+		protected override void OnAppearing()
+		{
+			Helper.Helper.IsBack = true;
+			base.OnAppearing();
+		}
+
 		protected override void OnDisappearing()
 		{
 			if (Helper.Helper.IsBack)

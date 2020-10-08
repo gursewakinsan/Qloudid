@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
-	class VerifyPasswordPageViewModel : BaseViewModel
+	public class VerifyPasswordPageViewModel : BaseViewModel
 	{
 		#region Constructor.
 		public VerifyPasswordPageViewModel(INavigation navigation)
@@ -28,10 +28,12 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
-			if (response > 0)
+			if (response ==1)
 				await Navigation.PushAsync(new Views.SuccessfulPage());
+			else if(response == 2)
+				Application.Current.MainPage = new NavigationPage(new Views.TimeOutPage());
 			else
-				await Navigation.PushAsync(new Views.WrongPasswordPage());
+				await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

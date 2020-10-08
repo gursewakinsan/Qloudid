@@ -33,7 +33,7 @@ namespace Qloudid.ViewModels
 				await Navigation.PushAsync(new Views.CheckPasswordPage());
 			}
 			else
-				await Helper.Alert.DisplayAlert("This QR code is invalid.");
+				await Navigation.PushAsync(new Views.InvalidQrCodePage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

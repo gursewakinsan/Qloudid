@@ -33,5 +33,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateLoginStatusAsync(string qrCode)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.UpdateLoginStatusUrl, qrCode)));
+				return res;
+			});
+		}
 	}
 }
