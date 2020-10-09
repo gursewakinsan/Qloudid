@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 using ZXing.Net.Mobile.Forms;
@@ -26,9 +27,27 @@ namespace Qloudid.Views
 				viewModel.IsAlreadyLoginCommand.Execute(null);
 			}
 		}
-		private async void OnScanQrCodeClicked(object sender, System.EventArgs e)
+		private async void OnScanQrCodeClicked(object sender, EventArgs e)
 		{
-			scanPage = new ZXingScannerPage();
+			var customOverlay = new StackLayout
+			{
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				VerticalOptions = LayoutOptions.StartAndExpand
+			};
+
+			var back = new ImageButton
+			{
+				BackgroundColor = Color.FromHex("#F9F9F9"),
+				Source= "iconBack.png", Padding=10,
+				HeightRequest=50, WidthRequest=50,
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				VerticalOptions = LayoutOptions.StartAndExpand
+			};
+
+			back.Clicked += OnBackClicked;
+			customOverlay.Children.Add(back);
+
+			this.scanPage = new ZXingScannerPage(customOverlay: customOverlay);
 			scanPage.OnScanResult += (result) => {
 				scanPage.IsScanning = false;
 				Device.BeginInvokeOnMainThread(async () => {
@@ -38,6 +57,15 @@ namespace Qloudid.Views
 				});
 			};
 			await Navigation.PushModalAsync(scanPage);
+		}
+
+		private void OnBackClicked(object sender, EventArgs e)
+		{
+			Device.BeginInvokeOnMainThread(async () =>
+			{
+				this.scanPage.IsScanning = false;
+				await Navigation.PopModalAsync();
+			});
 		}
 	}
 }

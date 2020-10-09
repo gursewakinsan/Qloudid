@@ -147,4 +147,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconQrCode.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconBack.png" />
+  </ItemGroup>
 </Project>

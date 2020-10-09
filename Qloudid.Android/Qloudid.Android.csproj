@@ -95,7 +95,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iconBack.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Qloudid\Qloudid.csproj">
       <Project>{C98BC8DE-A7F1-4189-A834-E5A0CE309C1F}</Project>
