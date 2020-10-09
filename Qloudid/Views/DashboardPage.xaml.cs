@@ -27,7 +27,8 @@ namespace Qloudid.Views
 
 			var back = new ImageButton
 			{
-				BackgroundColor = Color.FromHex("#F9F9F9"),
+				Margin = new Thickness(15, 20, 0, 0),
+				BackgroundColor = Color.Transparent,
 				Source = "iconBack.png",
 				Padding = 10,
 				HeightRequest = 50,
