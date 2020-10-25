@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.SuccessfulPage"
+	x:Class="Qloudid.Views.PurchaseSuccessfulPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -14,26 +14,19 @@
 			<StackLayout
 				Padding="20"
 				HorizontalOptions="CenterAndExpand"
-				Spacing="0"
+				Spacing="20"
 				VerticalOptions="CenterAndExpand">
 				<Label
 					FontSize="60"
 					HorizontalOptions="CenterAndExpand"
-					Text="Success"
+					Text="Thanks"
 					TextColor="Black" />
 
 				<Label
 					FontSize="20"
 					HorizontalOptions="CenterAndExpand"
-					Text="Login successful"
-					TextColor="Black" />
-
-				<Label
-					Margin="0,20,0,40"
-					FontSize="25"
-					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
-					Text="You can continue using your qloudid profile now. Thanks for connecting with us."
+					Text="You have successfully place your order. Please continue."
 					TextColor="Black" />
 
 				<controls:CustomButton

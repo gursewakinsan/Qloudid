@@ -5,14 +5,14 @@ using Qloudid.ViewModels;
 namespace Qloudid.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SuccessfulPage : ContentPage
+	public partial class PurchaseSuccessfulPage : ContentPage
 	{
-		SuccessfulPageViewModel viewModel;
-		public SuccessfulPage()
+		PurchaseSuccessfulViewModel viewModel;
+		public PurchaseSuccessfulPage()
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
-			BindingContext = viewModel = new SuccessfulPageViewModel(this.Navigation);
+			BindingContext = viewModel = new PurchaseSuccessfulViewModel(this.Navigation);
 		}
 	}
 }

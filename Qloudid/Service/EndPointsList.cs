@@ -9,5 +9,7 @@
 		public const string VerifyPasswordUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyPassword/{0}";
 		public const string ClearIpsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/clearIps/{0}";
 		public const string UpdateLoginStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLoginStatus/{0}";
+		public const string ProfileDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/profileDetail";
+		public const string PurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/purchaseDetail";
 	}
 }

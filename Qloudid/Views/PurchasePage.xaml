@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PurchasePage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Qloudid"
+	BackgroundColor="White"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="50" />
+			</Grid.RowDefinitions>
+
+			<ListView
+				x:Name="listCompany"
+				Grid.Row="0"
+				BackgroundColor="White"
+				HasUnevenRows="true"
+				ItemTapped="OnCompanyItemTapped"
+				ItemsSource="{Binding CompanyList}"
+				RowHeight="50"
+				SeparatorVisibility="None"
+				VerticalOptions="FillAndExpand"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid
+								BackgroundColor="White"
+								ColumnSpacing="10"
+								RowSpacing="0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="49" />
+									<RowDefinition Height="1" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="40" />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Row="0"
+									Grid.Column="0"
+									Margin="10,0,0,0"
+									FontAttributes="Bold"
+									FontSize="18"
+									HorizontalTextAlignment="Start"
+									LineBreakMode="TailTruncation"
+									Text="{Binding company_name}"
+									TextColor="Black"
+									VerticalTextAlignment="Center" />
+
+								<Image
+									Grid.Row="0"
+									Grid.Column="1"
+									Margin="0,0,20,0"
+									Aspect="AspectFit"
+									HeightRequest="25"
+									HorizontalOptions="CenterAndExpand"
+									Source="{Binding IsSelectImageUrl}"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="25" />
+
+								<BoxView
+									Grid.Row="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="LightGray" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<controls:CustomButton
+				Grid.Row="1"
+				Command="{Binding SubmitSelectedCompanyCommand}"
+				Text="Submit" />
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
