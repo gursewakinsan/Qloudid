@@ -21,11 +21,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>11.0</string>
+	<string>10.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>Qloudid</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.Qloudid</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -36,5 +34,18 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow access to the camera to scan barcodes</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.Qloudid</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.Qloudid.Url</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QloudidUrl</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
