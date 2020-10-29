@@ -18,6 +18,7 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			Helper.Helper.IsBack = true;
+			Helper.Helper.IpFromURL = string.Empty;
 			base.OnAppearing();
 		}
 

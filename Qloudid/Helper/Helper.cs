@@ -14,5 +14,6 @@
 		public static Models.User UserInfo { get; set; }
 		public static bool IsFirstTime { get; set; } = true;
 		public static bool IsBack { get; set; } = true;
+		public static string IpFromURL { get; set; }
 	}
 }

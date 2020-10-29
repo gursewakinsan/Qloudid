@@ -6,10 +6,23 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
+using Android.Content;
 
 namespace Qloudid.Droid
 {
     [Activity(Label = "Qloudid", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [IntentFilter(new[] { Intent.ActionView },
+                  DataScheme = "https",
+                  DataHost = "qloudid.com",
+                  DataPathPrefix = "/ip",
+                  AutoVerify = true,
+                  Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
+    [IntentFilter(new[] { Intent.ActionView },
+                  DataScheme = "http",
+                  DataHost = "qloudid.com",
+                  AutoVerify = true,
+                  DataPathPrefix = "/ip",
+                  Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable })]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private bool mayBeExit = false;
@@ -17,12 +30,9 @@ namespace Qloudid.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(savedInstanceState);
-
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             LoadApplication(new App());
         }
@@ -32,7 +42,6 @@ namespace Qloudid.Droid
             global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
 		public override void OnBackPressed()
 		{
             if (App.Current.MainPage.Navigation.NavigationStack.Count > 0)
@@ -54,7 +63,6 @@ namespace Qloudid.Droid
             else
                 base.OnBackPressed();
 		}
-
         private bool PressBackTwiceToExit()
         {
             if (mayBeExit) return false;
@@ -68,5 +76,10 @@ namespace Qloudid.Droid
             });
             return true;
         }
-    }
+
+		protected override void OnNewIntent(Intent intent)
+		{
+			base.OnNewIntent(intent);
+		}
+	}
 }

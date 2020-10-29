@@ -46,9 +46,9 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteIsAlreadyLoginCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
+				DependencyService.Get<IProgressBar>().Show();
 				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 				ILoginService service = new LoginService();
 				int response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
@@ -63,8 +63,8 @@ namespace Qloudid.ViewModels
 				}
 				else
 					await Navigation.PushAsync(new Views.InvalidCertificatePage());
+				DependencyService.Get<IProgressBar>().Hide();
 			}
-			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

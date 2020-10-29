@@ -17,7 +17,15 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new DashboardPageViewModel(this.Navigation);
 		}
-		private async void OnLoginToDesktopClicked(object sender, System.EventArgs e)
+
+		protected override void OnAppearing()
+		{
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
+				viewModel.LoginFromUrlIpCommand.Execute(null);
+			base.OnAppearing();
+		}
+
+		private async void OnLoginToDesktopClicked(object sender, EventArgs e)
 		{
 			var customOverlay = new StackLayout
 			{
