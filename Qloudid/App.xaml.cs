@@ -5,10 +5,13 @@ namespace Qloudid
 {
     public partial class App : Application
     {
-        public App()
+        public App(string ipFromWeb)
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new Views.HomePage());
+            if (string.IsNullOrWhiteSpace(ipFromWeb))
+                MainPage = new NavigationPage(new Views.HomePage());
+            else
+                MainPage = new NavigationPage(new Views.DashboardPage());
         }
 
         protected override void OnStart()

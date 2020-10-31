@@ -24,9 +24,17 @@ namespace Qloudid.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(null));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            if (url.Host != null)
+                Helper.Helper.IpFromURL = url.Host;
+            LoadApplication(new App(url.Host));
+            return true;
         }
     }
 }
