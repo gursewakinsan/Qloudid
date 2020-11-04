@@ -41,12 +41,14 @@
 
 				<Label
 					Margin="0,30,0,10"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Login successful"
 					TextColor="White" />
 
 				<Label
+					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -56,7 +58,10 @@
 
 				<usercontrols:DotLineControl />
 
-				<controls:CustomButton Command="{Binding CloseCommand}" Text="Close" />
+				<controls:CustomButton
+					Command="{Binding CloseCommand}"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					Text="Close" />
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

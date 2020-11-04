@@ -13,6 +13,7 @@
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="20" Spacing="20">
 				<Label
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="25"
 					HorizontalOptions="CenterAndExpand"
 					Text="Welcome"
@@ -45,7 +46,7 @@
 							<TapGestureRecognizer Tapped="OnLoginToDesktopClicked" />
 						</Frame.GestureRecognizers>
 						<Label
-							FontAttributes="Bold"
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
 							FontSize="15"
 							HorizontalTextAlignment="Center"
 							Text="SCAN QR"

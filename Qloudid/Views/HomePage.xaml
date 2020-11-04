@@ -39,7 +39,7 @@
 							<TapGestureRecognizer Tapped="OnScanQrCodeClicked" />
 						</Frame.GestureRecognizers>
 						<Label
-							FontAttributes="Bold"
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
 							FontSize="15"
 							HorizontalTextAlignment="Center"
 							Text="SCAN QR"

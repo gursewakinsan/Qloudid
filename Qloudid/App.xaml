@@ -26,6 +26,18 @@
 				x:TypeArguments="x:String"
 				Android="materialdesignicons-webfont.ttf#Material Design Icons"
 				iOS="Material Design Icons" />
+
+			<OnPlatform
+				x:Key="SFProRegularFontFamily"
+				x:TypeArguments="x:String"
+				Android="SFProDisplayRegular.ttf#SFProDisplayRegular"
+				iOS="SFProDisplayRegular" />
+
+			<OnPlatform
+				x:Key="SFProSemiboldFontFamily"
+				x:TypeArguments="x:String"
+				Android="SFProDisplaySemibold.ttf#SFProDisplaySemibold"
+				iOS="SFProDisplaySemibold" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

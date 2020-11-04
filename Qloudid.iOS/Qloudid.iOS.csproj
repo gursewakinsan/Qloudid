@@ -77,6 +77,8 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
+    <BundleResource Include="Resources\Fonts\SFProDisplayRegular.ttf" />
+    <BundleResource Include="Resources\Fonts\SFProDisplaySemibold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
