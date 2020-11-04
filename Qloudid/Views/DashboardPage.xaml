@@ -21,6 +21,7 @@
 					VerticalOptions="CenterAndExpand" />
 
 				<Grid
+					Margin="0,0,0,40"
 					HeightRequest="150"
 					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="EndAndExpand"

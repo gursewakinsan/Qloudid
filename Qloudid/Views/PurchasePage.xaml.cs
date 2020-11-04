@@ -25,14 +25,22 @@ namespace Qloudid.Views
 		private void OnCompanyItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			Models.Company company = e.Item as Models.Company;
-			foreach (var item in viewModel.CompanyList)
-			{
-				if(item.id.Equals(company.id))
-					company.IsSelected = !company.IsSelected;
-				else
-					item.IsSelected = false;
-			}
 			listCompany.SelectedItem = null;
+			foreach (var companies in viewModel.ListOfCompany)
+			{
+				foreach (var item in companies)
+				{
+					if (item.id.Equals(company.id))
+						company.IsChecked = !company.IsChecked;
+					else
+						item.IsChecked = false;
+				}
+				var companyChecked = companies.FirstOrDefault(x => x.IsChecked);
+				if (companyChecked != null)
+					viewModel.IsSubmit = true;
+				else
+					viewModel.IsSubmit = false;
+			}
 		}
 	}
 }

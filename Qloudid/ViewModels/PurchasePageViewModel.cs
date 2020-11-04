@@ -29,17 +29,22 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IPurchaseService service = new PurchaseService();
 			List<Models.Company> response = await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserInfo.user_id });
-			if (response == null)
+			var listPersonal = new Models.CompanyInfo()
 			{
-				CompanyList = new ObservableCollection<Models.Company>();
-				CompanyList.Add(new Models.Company() { id = 0, company_name = "Personal profile" });
-			}
-			else
+				new Models.Company { id = 0, company_name = "Personal profile",company_email="Personalprofile@pp.com" },
+			};
+			listPersonal.Heading = "Personal";
+			var list = new List<Models.CompanyInfo>();
+			list.Add(listPersonal);
+			if (response?.Count > 0)
 			{
-				response.Insert(0, new Models.Company() { id = 0, company_name = "Personal profile" });
-				CompanyList = new ObservableCollection<Models.Company>(response);
+				Models.CompanyInfo listCompany = new Models.CompanyInfo();
+				foreach (var item in response) listCompany.Add(item);
+				listCompany.Heading = "Employer";
+				list.Add(listCompany);
 			}
-			OnPropertyChanged("CompanyList");
+			ListOfCompany = list;
+			OnPropertyChanged("ListOfCompany");
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -52,23 +57,37 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSubmitSelectedCompanyCommand()
 		{
-			var company = CompanyList.FirstOrDefault(x => x.IsSelected);
-			if (company != null)
+			DependencyService.Get<IProgressBar>().Show();
+			foreach (var companies in ListOfCompany)
 			{
-				DependencyService.Get<IProgressBar>().Show();
+				var company = companies.FirstOrDefault(x => x.IsChecked);
 				IPurchaseService service = new PurchaseService();
 				int response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail() { user_id = Helper.Helper.UserInfo.user_id, company_id = company.id });
 				if (response == 1)
 					Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
-				DependencyService.Get<IProgressBar>().Hide();
 			}
-			else
-				await Helper.Alert.DisplayAlert("Please select company for purchase submit.");
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
 		#region Properties.
-		public ObservableCollection<Models.Company> CompanyList { get; set; }
+		private List<Models.CompanyInfo> _listOfCompany;
+		public List<Models.CompanyInfo> ListOfCompany
+		{ 
+			get { return _listOfCompany; } 
+			set { _listOfCompany = value; base.OnPropertyChanged(); } 
+		}
+
+		private bool isSubmit;
+		public bool IsSubmit
+		{
+			get { return isSubmit; }
+			set
+			{
+				isSubmit = value;
+				OnPropertyChanged("IsSubmit");
+			}
+		}
 		#endregion
 	}
 }
