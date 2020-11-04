@@ -10,7 +10,7 @@ using Android.Content;
 
 namespace Qloudid.Droid
 {
-    [Activity(Label = "Qloudid", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Qloudid", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(new[] { Intent.ActionView },
                   DataScheme = "https",
                   DataHost = "qloudid.com",

@@ -71,6 +71,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProgressBar.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\materialdesignicons-webfont.ttf" />
@@ -113,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconTickRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
