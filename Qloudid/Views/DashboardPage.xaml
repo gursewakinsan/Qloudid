@@ -19,45 +19,36 @@
 					Text="Welcome"
 					TextColor="White"
 					VerticalOptions="CenterAndExpand" />
-				<Frame
-					Margin="0,0,0,20"
-					Padding="10"
-					BackgroundColor="{StaticResource AppBg}"
-					BorderColor="#E133D0"
-					CornerRadius="100"
-					HasShadow="True"
+
+				<Grid
 					HeightRequest="150"
-					HorizontalOptions="Center"
+					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="EndAndExpand"
 					WidthRequest="150">
-					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Tapped="OnLoginToDesktopClicked" />
-					</Frame.GestureRecognizers>
-					<Frame
-						BackgroundColor="{StaticResource AppBg}"
+					<Button
+						BackgroundColor="Transparent"
+						BorderColor="#E133D0"
+						BorderWidth="1"
+						Clicked="OnLoginToDesktopClicked"
+						CornerRadius="75"
+						HeightRequest="150"
+						WidthRequest="150" />
+
+					<Button
+						Padding="0"
+						BackgroundColor="Transparent"
 						BorderColor="#62A4FC"
-						CornerRadius="55"
-						HasShadow="True"
-						HeightRequest="70"
+						BorderWidth="1"
+						Clicked="OnLoginToDesktopClicked"
+						CornerRadius="50"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						HeightRequest="100"
 						HorizontalOptions="CenterAndExpand"
+						Text="SCAN QR"
+						TextColor="White"
 						VerticalOptions="CenterAndExpand"
-						WidthRequest="70">
-						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Tapped="OnLoginToDesktopClicked" />
-						</Frame.GestureRecognizers>
-						<Label
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
-							FontSize="15"
-							HorizontalTextAlignment="Center"
-							Text="SCAN QR"
-							TextColor="White"
-							VerticalTextAlignment="Center">
-							<Label.GestureRecognizers>
-								<TapGestureRecognizer Tapped="OnLoginToDesktopClicked" />
-							</Label.GestureRecognizers>
-						</Label>
-					</Frame>
-				</Frame>
+						WidthRequest="100" />
+				</Grid>
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>
