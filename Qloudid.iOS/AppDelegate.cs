@@ -25,7 +25,6 @@ namespace Qloudid.iOS
             global::Xamarin.Forms.Forms.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             LoadApplication(new App(null));
-
             return base.FinishedLaunching(app, options);
         }
 
