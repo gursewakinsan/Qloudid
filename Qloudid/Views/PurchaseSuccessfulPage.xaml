@@ -5,38 +5,58 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	Title="Qloudid"
-	BackgroundColor="White"
+	BackgroundColor="{StaticResource AppBg}"
+	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout
-				Padding="20"
+				Padding="30"
 				HorizontalOptions="CenterAndExpand"
-				Spacing="20"
+				Spacing="0"
 				VerticalOptions="CenterAndExpand">
+
+				<Frame
+					Padding="10"
+					BackgroundColor="#05CBE7"
+					BorderColor="#05CBE7"
+					CornerRadius="25"
+					HasShadow="False"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50">
+					<Label
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="30"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+				</Frame>
+
 				<Label
-					FontSize="60"
+					Margin="0,30,0,10"
+					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Thanks"
-					TextColor="Black" />
+					TextColor="White" />
 
 				<Label
-					FontSize="20"
+					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
+					Opacity="0.7"
 					Text="You have successfully place your order. Please continue."
-					TextColor="Black" />
+					TextColor="White" />
 
-				<controls:CustomButton
-					Margin="0,40,0,0"
-					Command="{Binding CloseCommand}"
-					CornerRadius="2"
-					FontAttributes="Bold"
-					HorizontalOptions="CenterAndExpand"
-					Text="Close"
-					WidthRequest="200" />
+				<usercontrols:DotLineControl />
+
+				<controls:CustomButton Command="{Binding CloseCommand}" Text="Close" />
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

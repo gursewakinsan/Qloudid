@@ -7,9 +7,12 @@ namespace Qloudid.Controls
 		{
 			TextColor = Color.White;
 			FontSize = 17;
-			CornerRadius = 0;
+			CornerRadius = 25;
 			HeightRequest = 50;
-			BackgroundColor = Color.FromHex("#FF2728");
+			BorderColor = Color.White;
+			BorderWidth = 1;
+			BackgroundColor = Color.Transparent;
+			Margin = new Thickness(40, 0, 40, 0);
 		}
 	}
 }

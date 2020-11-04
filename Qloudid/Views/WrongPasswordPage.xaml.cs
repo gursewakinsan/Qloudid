@@ -17,5 +17,10 @@ namespace Qloudid.Views
 			Helper.Helper.IsBack = true;
 			base.OnDisappearing();
 		}
+
+		private async void OnBackButtonClicked(object sender, System.EventArgs e)
+		{
+			await Navigation.PopAsync();
+		}
 	}
 }

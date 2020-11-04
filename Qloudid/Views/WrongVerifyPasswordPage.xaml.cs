@@ -20,5 +20,10 @@ namespace Qloudid.Views
 			viewModel.UpdateLoginStatusCommand.Execute(null);
 			base.OnDisappearing();
 		}
+
+		private async void OnBackButtonClicked(object sender, System.EventArgs e)
+		{
+			await Navigation.PopAsync();
+		}
 	}
 }

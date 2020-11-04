@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+	x:Class="Qloudid.UserControls.DotLineControl"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<Grid Margin="0,50,0,50">
+		<BoxView
+			Grid.Column="0"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="1"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="2"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="3"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="4"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="5"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="6"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="7"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="8"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="9"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="10"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="11"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+
+		<BoxView
+			Grid.Column="12"
+			BackgroundColor="White"
+			HeightRequest="1"
+			HorizontalOptions="CenterAndExpand"
+			Opacity="0.4"
+			WidthRequest="10" />
+	</Grid>
+</ContentView>
