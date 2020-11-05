@@ -9,7 +9,7 @@ namespace Qloudid
         {
             InitializeComponent();
             if (string.IsNullOrWhiteSpace(ipFromWeb))
-                 MainPage = new NavigationPage(new Views.PurchasePage());
+                 MainPage = new NavigationPage(new Views.HomePage());
              else
                  MainPage = new NavigationPage(new Views.DashboardPage());
         }

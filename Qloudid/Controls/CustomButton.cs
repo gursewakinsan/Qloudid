@@ -5,12 +5,13 @@ namespace Qloudid.Controls
 	{
 		public CustomButton()
 		{
-			TextColor = Color.White;
 			FontSize = 17;
+			BorderWidth = 1;
 			CornerRadius = 25;
 			HeightRequest = 50;
+			TextColor = Color.White;
 			BorderColor = Color.White;
-			BorderWidth = 1;
+			TextTransform = TextTransform.None;
 			BackgroundColor = Color.Transparent;
 			Margin = new Thickness(40, 0, 40, 0);
 		}

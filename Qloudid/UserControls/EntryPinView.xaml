@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+	x:Class="Qloudid.UserControls.EntryPinView"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:behavior="clr-namespace:Qloudid.Behavior"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	BackgroundColor="White">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<Style x:Key="PinEntry" TargetType="Entry">
+				<Setter Property="Keyboard" Value="Numeric" />
+				<Setter Property="IsPassword" Value="True" />
+				<Setter Property="WidthRequest" Value="50" />
+				<Setter Property="HeightRequest" Value="50" />
+				<Setter Property="Margin" Value="0" />
+				<Setter Property="HorizontalTextAlignment" Value="Center" />
+			</Style>
+			<Style x:Key="BottomBar" TargetType="BoxView">
+				<Setter Property="HeightRequest" Value="2" />
+				<Setter Property="BackgroundColor" Value="White" />
+				<Setter Property="WidthRequest" Value="50" />
+				<Setter Property="VerticalOptions" Value="Start" />
+				<Setter Property="Margin" Value="0" />
+			</Style>
+		</ResourceDictionary>
+	</ContentView.Resources>
+	<ContentView.Content>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			Orientation="Horizontal"
+			Spacing="5">
+			<Grid>
+				<BoxView
+					x:Name="BoxView1"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry1"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+
+			<Grid>
+				<BoxView
+					x:Name="BoxView2"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry2"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+
+			<Grid>
+				<BoxView
+					x:Name="BoxView3"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry3"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+
+			<Grid>
+				<BoxView
+					x:Name="BoxView4"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry4"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+
+			<Grid>
+				<BoxView
+					x:Name="BoxView5"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry5"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+
+			<Grid>
+				<BoxView
+					x:Name="BoxView6"
+					BackgroundColor="#F8F8FA"
+					CornerRadius="20"
+					HeightRequest="50"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					WidthRequest="50" />
+
+				<controls:CustomEntry
+					x:Name="PinEntry6"
+					BackgroundColor="Transparent"
+					HorizontalOptions="Center"
+					Style="{StaticResource PinEntry}"
+					TextColor="Black"
+					VerticalOptions="Center">
+					<Entry.Behaviors>
+						<behavior:EntryLengthValidatorBehavior MaxLength="1" />
+					</Entry.Behaviors>
+				</controls:CustomEntry>
+			</Grid>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

@@ -40,6 +40,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Cancel Verify Password Command.
+		private ICommand cancelVerifyPasswordCommand;
+		public ICommand CancelVerifyPasswordCommand
+		{
+			get => cancelVerifyPasswordCommand ?? (cancelVerifyPasswordCommand = new Command(async () => await ExecuteCancelVerifyPasswordCommand()));
+		}
+		private async Task ExecuteCancelVerifyPasswordCommand()
+		{
+			await Navigation.PopAsync();
+		}
+		#endregion
+
 		#region Clear Ips Command.
 		private ICommand clearIpsCommand;
 		public ICommand ClearIpsCommand
