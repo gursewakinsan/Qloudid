@@ -28,10 +28,14 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IPurchaseService service = new PurchaseService();
-			List<Models.Company> response = await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserInfo.user_id });
+			List<Models.Company> response =  await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserInfo.user_id });
 			var listPersonal = new Models.CompanyInfo()
 			{
-				new Models.Company { id = 0, company_name = "Personal profile",company_email="Personalprofile@pp.com" },
+				new Models.Company
+				{
+					id = 0, company_name = Helper.Helper.UserInfo.DisplayUserName,
+					company_email=Helper.Helper.UserInfo.email
+				},
 			};
 			listPersonal.Heading = "Personal";
 			var list = new List<Models.CompanyInfo>();

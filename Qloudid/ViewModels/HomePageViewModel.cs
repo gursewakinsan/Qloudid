@@ -58,6 +58,7 @@ namespace Qloudid.ViewModels
 					user.first_name = Application.Current.Properties["FirstName"].ToString();
 					user.last_name = Application.Current.Properties["LastName"].ToString();
 					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+					user.email = Application.Current.Properties["Email"].ToString();
 					Helper.Helper.UserInfo = user;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}

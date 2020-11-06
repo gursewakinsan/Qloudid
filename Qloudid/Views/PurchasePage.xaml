@@ -28,17 +28,29 @@
 				HorizontalOptions="Start"
 				Source="logoXXX.png"
 				VerticalOptions="Start"
-				WidthRequest="150" />
+				WidthRequest="140" />
 
-			<Label
+			<StackLayout
 				Grid.Row="1"
-				Margin="40,0,0,20"
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
-				FontSize="24"
-				HorizontalTextAlignment="Start"
-				Text="Select Profile"
-				TextColor="Black"
-				VerticalTextAlignment="Start" />
+				Margin="30,0,0,20"
+				Spacing="10">
+				<Label
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="24"
+					HorizontalTextAlignment="Start"
+					Text="Select Profile"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<BoxView
+					BackgroundColor="#05CBE7"
+					CornerRadius="10"
+					HeightRequest="5"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+			</StackLayout>
+
 
 			<ListView
 				x:Name="listCompany"

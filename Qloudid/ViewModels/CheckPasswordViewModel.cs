@@ -39,6 +39,7 @@ namespace Qloudid.ViewModels
 					Application.Current.Properties.Add("FirstName", response.first_name);
 					Application.Current.Properties.Add("LastName", response.last_name);
 					Application.Current.Properties.Add("UserId", response.user_id);
+					Application.Current.Properties.Add("Email", response.email);
 					await Application.Current.SavePropertiesAsync();
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
