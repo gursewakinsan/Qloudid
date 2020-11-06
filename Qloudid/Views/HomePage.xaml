@@ -8,7 +8,9 @@
 	Title="Qloudid"
 	BackgroundColor="{StaticResource AppBg}"
 	NavigationPage.HasNavigationBar="False"
-	mc:Ignorable="d">
+	mc:Ignorable="d"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True">
 	<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="20">

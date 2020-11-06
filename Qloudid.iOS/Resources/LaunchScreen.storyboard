@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="iconTickGray.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" misplaced="YES" tag="0.0">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="splashScreenBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" misplaced="YES" tag="0.0">
                                 <rect key="frame" x="117" y="278" width="180" height="180"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
@@ -34,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconTickGray.png" width="64" height="64"/>
+        <image name="splashScreenBg.png" width="412" height="847"/>
     </resources>
 </document>
