@@ -23,20 +23,25 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteVerifyPasswordCommand()
 		{
-			Helper.Helper.IsBack = false;
-			if (Password == null) Password = string.Empty;
-			DependencyService.Get<IProgressBar>().Show();
-			IDashboardService service = new DashboardService();
-			int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
-			if (response == 1)
-				Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
-			else if (response == 2)
-				Application.Current.MainPage = new NavigationPage(new Views.TimeOutPage());
-			else if (response == 3)
-				await Navigation.PushAsync(new Views.PurchasePage());
+			if (!string.IsNullOrWhiteSpace(Password))
+			{
+				Helper.Helper.IsBack = false;
+				DependencyService.Get<IProgressBar>().Show();
+				IDashboardService service = new DashboardService();
+				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
+				Password = string.Empty;
+				if (response == 1)
+					Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
+				else if (response == 2)
+					Application.Current.MainPage = new NavigationPage(new Views.TimeOutPage());
+				else if (response == 3)
+					await Navigation.PushAsync(new Views.PurchasePage());
+				else
+					await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 			else
-				await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
-			DependencyService.Get<IProgressBar>().Hide();
+				await Helper.Alert.DisplayAlert("Please enter password.");
 		}
 		#endregion
 

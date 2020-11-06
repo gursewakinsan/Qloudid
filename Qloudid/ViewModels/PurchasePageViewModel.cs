@@ -61,10 +61,13 @@ namespace Qloudid.ViewModels
 			foreach (var companies in ListOfCompany)
 			{
 				var company = companies.FirstOrDefault(x => x.IsChecked);
-				IPurchaseService service = new PurchaseService();
-				int response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail() { user_id = Helper.Helper.UserInfo.user_id, company_id = company.id });
-				if (response == 1)
-					Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+				if (company != null)
+				{
+					IPurchaseService service = new PurchaseService();
+					int response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail() { user_id = Helper.Helper.UserInfo.user_id, company_id = company.id });
+					if (response == 1)
+						Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}

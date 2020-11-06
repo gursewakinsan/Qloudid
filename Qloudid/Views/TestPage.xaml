@@ -3,7 +3,9 @@
 	x:Class="Qloudid.Views.TestPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
 	BackgroundColor="White">
 	<ContentPage.Content>
 		<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

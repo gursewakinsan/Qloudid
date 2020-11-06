@@ -16,6 +16,10 @@ namespace Qloudid.UserControls
         {
             InitializeComponent();
             Pin = string.Empty;
+
+            PinEntry1.Text = PinEntry2.Text = PinEntry3.Text = string.Empty;
+            PinEntry4.Text = PinEntry5.Text = PinEntry6.Text = string.Empty;
+
             PinEntry1.TextChanged += PinEntry1_TextChanged;
             PinEntry2.TextChanged += PinEntry2_TextChanged;
             PinEntry3.TextChanged += PinEntry3_TextChanged;
