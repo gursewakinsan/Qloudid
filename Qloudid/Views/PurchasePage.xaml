@@ -60,7 +60,6 @@
 				IsGroupingEnabled="True"
 				ItemTapped="OnCompanyItemTapped"
 				ItemsSource="{Binding ListOfCompany}"
-				RowHeight="50"
 				SeparatorVisibility="None"
 				VerticalOptions="FillAndExpand"
 				VerticalScrollBarVisibility="Never">
