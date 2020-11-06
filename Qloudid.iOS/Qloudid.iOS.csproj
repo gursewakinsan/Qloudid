@@ -154,15 +154,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\iconQrCode.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\iconBack.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\iconTickGray.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\iconTickRed.png" />
+    <BundleResource Include="Resources\splashScreenBg.png" />
   </ItemGroup>
 </Project>
