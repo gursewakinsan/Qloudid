@@ -31,15 +31,13 @@ namespace Qloudid.Views
 				foreach (var item in companies)
 				{
 					if (item.id.Equals(company.id))
+					{
 						company.IsChecked = !company.IsChecked;
+						viewModel.IsSubmit = company.IsChecked;
+					}
 					else
 						item.IsChecked = false;
 				}
-				var companyChecked = companies.FirstOrDefault(x => x.IsChecked);
-				if (companyChecked != null)
-					viewModel.IsSubmit = true;
-				else
-					viewModel.IsSubmit = false;
 			}
 		}
 	}
