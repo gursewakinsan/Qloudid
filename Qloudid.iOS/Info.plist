@@ -8,6 +8,7 @@
 	<array>
 		<string>Fonts/SFProDisplayRegular.ttf</string>
 		<string>Fonts/SFProDisplaySemibold.ttf</string>
+		<string>Fonts/SFProDisplayMedium.ttf</string>
 		<string>Fonts/materialdesignicons-webfont.ttf</string>
 	</array>
 	<key>UIDeviceFamily</key>

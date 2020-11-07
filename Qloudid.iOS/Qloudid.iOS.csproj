@@ -79,6 +79,7 @@
     <BundleResource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayRegular.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplaySemibold.ttf" />
+    <BundleResource Include="Resources\Fonts\SFProDisplayMedium.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

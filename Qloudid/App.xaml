@@ -38,6 +38,12 @@
 				x:TypeArguments="x:String"
 				Android="SFProDisplaySemibold.ttf#SFProDisplaySemibold"
 				iOS="SFProDisplaySemibold" />
+
+			<OnPlatform
+				x:Key="SFProDisplayMediumFontFamily"
+				x:TypeArguments="x:String"
+				Android="SFProDisplayMedium.ttf#SFProDisplayMedium"
+				iOS="SFProDisplayMedium" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

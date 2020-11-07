@@ -25,7 +25,7 @@ namespace Qloudid.Models
 				}
 			}
 		}
-		public Color CheckUnCheckColor => IsChecked ? Color.FromHex("#3623B7") : Color.FromHex("#F9F9F9");
+		public double CheckUnCheckColor => IsChecked ? 0.8 : 0.1;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		public virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = "")
