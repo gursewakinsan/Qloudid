@@ -1,77 +1,16 @@
-﻿using Xamarin.Forms;
-using Qloudid.Service;
-using Qloudid.Interfaces;
+﻿using System;
+using Xamarin.Forms;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
-	public class VerifyPasswordPageViewModel : BaseViewModel
+	public class TestPageViewModel : BaseViewModel
 	{
-		#region Constructor.
-		public VerifyPasswordPageViewModel(INavigation navigation)
+		public TestPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
-		#endregion
-
-		#region Verify Password Command.
-		private ICommand verifyPasswordCommand;
-		public ICommand VerifyPasswordCommand
-		{
-			get => verifyPasswordCommand ?? (verifyPasswordCommand = new Command(async () => await ExecuteVerifyPasswordCommand()));
-		}
-		private async Task ExecuteVerifyPasswordCommand()
-		{
-			if (!string.IsNullOrWhiteSpace(Password))
-			{
-				if (Password.Length < 6) return;
-				Helper.Helper.IsBack = false;
-				DependencyService.Get<IProgressBar>().Show();
-				IDashboardService service = new DashboardService();
-				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
-				ClearPassword();
-				if (response == 1)
-					Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
-				else if (response == 2)
-					Application.Current.MainPage = new NavigationPage(new Views.TimeOutPage());
-				else if (response == 3)
-					await Navigation.PushAsync(new Views.PurchasePage());
-				else
-					await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
-				DependencyService.Get<IProgressBar>().Hide();
-			}
-			else
-				await Helper.Alert.DisplayAlert("Please enter password.");
-		}
-		#endregion
-
-		#region Cancel Verify Password Command.
-		private ICommand cancelVerifyPasswordCommand;
-		public ICommand CancelVerifyPasswordCommand
-		{
-			get => cancelVerifyPasswordCommand ?? (cancelVerifyPasswordCommand = new Command(async () => await ExecuteCancelVerifyPasswordCommand()));
-		}
-		private async Task ExecuteCancelVerifyPasswordCommand()
-		{
-			await Navigation.PopAsync();
-		}
-		#endregion
-
-		#region Clear Ips Command.
-		private ICommand clearIpsCommand;
-		public ICommand ClearIpsCommand
-		{
-			get => clearIpsCommand ?? (clearIpsCommand = new Command(async () => await ExecuteClearIpsCommand()));
-		}
-		private async Task ExecuteClearIpsCommand()
-		{
-			DependencyService.Get<IProgressBar>().Show();
-			IDashboardService service = new DashboardService();
-			int response = await service.ClearIpsAsync(Helper.Helper.QrCertificateKey);
-			DependencyService.Get<IProgressBar>().Hide();
-		}
-		#endregion
 
 		#region Keyboard Numeric Clicked Command.
 		private ICommand keyboardNumericClickedCommand;
@@ -107,7 +46,6 @@ namespace Qloudid.ViewModels
 						break;
 					case 5:
 						Password6 = selectedNumeric;
-						Password6Bg = Color.FromHex("#F8F8FA");
 						break;
 				}
 				Password = Password + selectedNumeric;
@@ -157,17 +95,6 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
-		#region Clear Password.
-		void ClearPassword()
-		{
-			Password = string.Empty;
-			Password1 = Password2 = Password3 = string.Empty;
-			Password4 = Password5 = Password6 = string.Empty;
-			ChangePasswordBg(1);
-		}
-		#endregion
-
-		#region Change Password Bg.
 		void ChangePasswordBg(int index)
 		{
 			Password1Bg = Password2Bg = Password3Bg = Color.FromHex("#F8F8FA");
@@ -176,27 +103,22 @@ namespace Qloudid.ViewModels
 			{
 				case 1:
 					Password1 = "|";
-					Password2 = string.Empty;
 					Password1Bg = Color.FromHex("#3623B7");
 					break;
 				case 2:
 					Password2 = "|";
-					Password3 = string.Empty;
 					Password2Bg = Color.FromHex("#3623B7");
 					break;
 				case 3:
 					Password3 = "|";
-					Password4 = string.Empty;
 					Password3Bg = Color.FromHex("#3623B7");
 					break;
 				case 4:
 					Password4 = "|";
-					Password5 = string.Empty;
 					Password4Bg = Color.FromHex("#3623B7");
 					break;
 				case 5:
 					Password5 = "|";
-					Password6 = string.Empty;
 					Password5Bg = Color.FromHex("#3623B7");
 					break;
 				case 6:
@@ -205,13 +127,12 @@ namespace Qloudid.ViewModels
 					break;
 			}
 		}
-		#endregion
 
 		#region Properties.
 		public string Password { get; set; } = string.Empty;
 
 		public string password1 = "|";
-		public string Password1
+		public string Password1 
 		{
 			get => password1;
 			set

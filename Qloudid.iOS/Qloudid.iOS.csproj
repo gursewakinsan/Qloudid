@@ -166,4 +166,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\logoXXX.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconCloseOnKeyboard.png" />
+  </ItemGroup>
 </Project>
