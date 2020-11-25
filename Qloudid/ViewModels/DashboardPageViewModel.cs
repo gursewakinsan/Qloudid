@@ -32,6 +32,8 @@ namespace Qloudid.ViewModels
 				await Navigation.PushAsync(new Views.VerifyPasswordPage());
 			else if (response == 2)
 				await Navigation.PushAsync(new Views.InvalidQrCodePage());
+			else if (response == 3)
+				await Navigation.PushAsync(new Views.UserUnauthorizedPage());
 			else
 				await Navigation.PushAsync(new Views.UserAlertPage());
 			DependencyService.Get<IProgressBar>().Hide();
