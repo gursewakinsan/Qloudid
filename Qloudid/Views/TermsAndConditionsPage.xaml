@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.TermsAndConditionsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout
+				Padding="30"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
+				<Image
+					Margin="0,0,0,10"
+					Aspect="AspectFit"
+					HorizontalOptions="Start"
+					Source="logoXXX.png"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Terms and conditions"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<BoxView
+					Margin="0,10,0,20"
+					BackgroundColor="#05CBE7"
+					CornerRadius="3"
+					HeightRequest="5"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+
+				<Label
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer , and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					Margin="0,20,0,20"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer, and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses. Lorem ipsum dolor sit amet, in the long albucius that , nor the fact that in the new layer, as a game, my sorrows that. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					Margin="0,0,0,20"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer, and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<controls:CustomButton
+					Margin="0"
+					BackgroundColor="#05CBE7"
+					Clicked="OnCloseButtonClicked"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					Text="Close"
+					VerticalOptions="EndAndExpand" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

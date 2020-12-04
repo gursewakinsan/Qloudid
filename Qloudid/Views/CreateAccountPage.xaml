@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.TestPage"
+	x:Class="Qloudid.Views.CreateAccountPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
-	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:models="clr-namespace:Qloudid.Models"
 	ios:Page.UseSafeArea="True"
@@ -54,11 +53,22 @@
 						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
 						<RowDefinition Height="25" />
 						<RowDefinition Height="90" />
 					</Grid.RowDefinitions>
-					<Frame
+
+					<Label
 						Grid.Row="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Text="Remember to use your personal email address. Do not use the company's email address."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Frame
+						Grid.Row="1"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -72,6 +82,7 @@
 								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
+								SelectedIndexChanged="PickerSelectedIndexChanged"
 								TextColor="#6F7FAF">
 								<controls:CustomPicker.ItemsSource>
 									<x:Array Type="{x:Type models:Country}">
@@ -109,7 +120,7 @@
 					</Frame>
 
 					<Frame
-						Grid.Row="1"
+						Grid.Row="2"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -121,22 +132,7 @@
 							FontSize="16"
 							Placeholder="First name"
 							PlaceholderColor="#6F7FAF"
-							TextColor="#6F7FAF" />
-					</Frame>
-
-					<Frame
-						Grid.Row="2"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<controls:CustomEntry
-							Margin="15,0,15,0"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							Placeholder="Last name"
-							PlaceholderColor="#6F7FAF"
+							Text="{Binding FirstName}"
 							TextColor="#6F7FAF" />
 					</Frame>
 
@@ -151,22 +147,40 @@
 							BackgroundColor="#F8F8FB"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
 							FontSize="16"
+							Placeholder="Last name"
+							PlaceholderColor="#6F7FAF"
+							Text="{Binding LastName}"
+							TextColor="#6F7FAF" />
+					</Frame>
+
+					<Frame
+						Grid.Row="4"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<controls:CustomEntry
+							Margin="15,0,15,0"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
 							Keyboard="Email"
 							Placeholder="Email"
 							PlaceholderColor="#6F7FAF"
+							Text="{Binding Email}"
 							TextColor="#6F7FAF" />
 					</Frame>
 
 					<StackLayout
-						Grid.Row="4"
+						Grid.Row="5"
 						Margin="10,0,0,0"
 						Orientation="Horizontal"
 						Spacing="0">
-						<ImageButton BackgroundColor="Transparent">
+						<ImageButton BackgroundColor="Transparent" Command="{Binding AcceptTermAndConditionsCommand}">
 							<ImageButton.Source>
 								<FontImageSource
 									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarked}"
+									Glyph="{Binding CheckUnCheckIcon}"
 									Size="26"
 									Color="#6F7FAF" />
 							</ImageButton.Source>
@@ -179,7 +193,11 @@
 							HorizontalTextAlignment="Start"
 							Text="Please accept our "
 							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding AcceptTermAndConditionsCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
 
 						<Label
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -187,13 +205,18 @@
 							HorizontalTextAlignment="Start"
 							Text="term and conditions"
 							TextColor="#3623B7"
-							VerticalTextAlignment="Center" />
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding TermAndConditionsCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
 					</StackLayout>
 
 					<controls:CustomButton
-						Grid.Row="5"
+						Grid.Row="6"
 						Margin="0"
 						BackgroundColor="#05CBE7"
+						Command="{Binding CreateAccountCommand}"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						Text="Create Account"
@@ -202,4 +225,4 @@
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>
-</ContentPage>
+</ContentPage> 

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.MobileNumberPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30">
+				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+					<Image
+						Margin="0,0,0,10"
+						Aspect="AspectFit"
+						HorizontalOptions="Start"
+						Source="logoXXX.png"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Mobile"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,10"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+				</StackLayout>
+
+				<Grid RowSpacing="20" VerticalOptions="StartAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="60" />
+					</Grid.RowDefinitions>
+
+					<Label
+						Grid.Row="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Text="Update your mobile/cell number for secuirty and communication purpose"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Frame
+						Grid.Row="1"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<controls:CustomEntry
+							Margin="15,0,15,0"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Keyboard="Numeric"
+							MaxLength="10"
+							Placeholder="Mobile number"
+							PlaceholderColor="#6F7FAF"
+							Text="{Binding MobileNumber}"
+							TextColor="#6F7FAF" />
+					</Frame>
+
+					<controls:CustomButton
+						Grid.Row="2"
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding SaveMobileNumberCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Update"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage> 
