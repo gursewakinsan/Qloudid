@@ -4,6 +4,7 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="White"
@@ -12,13 +13,31 @@
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30">
 				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-					<Image
-						Margin="0,0,0,10"
-						Aspect="AspectFit"
-						HorizontalOptions="Start"
-						Source="logoXXX.png"
-						VerticalOptions="Start"
-						WidthRequest="40" />
+					<Grid Margin="0,0,0,10">
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
 
 					<Label
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"

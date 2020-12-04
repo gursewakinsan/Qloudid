@@ -19,12 +19,32 @@
 					Margin="19,10,19,10"
 					Spacing="10"
 					VerticalOptions="StartAndExpand">
-					<Image
-						Aspect="AspectFit"
-						HorizontalOptions="Start"
-						Source="logoXXX.png"
-						VerticalOptions="Start"
-						WidthRequest="40" />
+					<Grid>
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
 					<Label
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 						FontSize="28"
