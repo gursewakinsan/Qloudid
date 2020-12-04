@@ -25,7 +25,7 @@ namespace Qloudid.ViewModels
 		{
 			if (!string.IsNullOrWhiteSpace(Password))
 			{
-				await Task.CompletedTask;
+				await Navigation.PushAsync(new Views.IdentificatorPage());
 			}
 			else
 				await Helper.Alert.DisplayAlert("Please enter sms password.");

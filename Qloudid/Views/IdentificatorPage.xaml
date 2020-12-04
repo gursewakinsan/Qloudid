@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.IdentificatorPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:models="clr-namespace:Qloudid.Models"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30">
+				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+					<Grid Margin="0,0,0,10">
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Identify"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,10"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+				</StackLayout>
+
+				<Grid RowSpacing="20" VerticalOptions="StartAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="20" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="70" />
+						<RowDefinition Height="60" />
+					</Grid.RowDefinitions>
+
+					<Label
+						Grid.Row="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Please add your identificator."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<StackLayout Grid.Row="1" Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Identificator"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<Grid Margin="15,0,15,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="20" />
+								</Grid.ColumnDefinitions>
+								<controls:CustomPicker
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									SelectedIndexChanged="PickerSelectedIndexChanged"
+									TextColor="#6F7FAF">
+									<controls:CustomPicker.ItemsSource>
+										<x:Array Type="{x:Type models:Identificator}">
+											<models:Identificator Name="Select" Id="0" />
+											<models:Identificator Name="ID " Id="1" />
+											<models:Identificator Name="Driver license" Id="2" />
+											<models:Identificator Name="Passport" Id="3" />
+										</x:Array>
+									</controls:CustomPicker.ItemsSource>
+									<controls:CustomPicker.ItemDisplayBinding>
+										<Binding Path="Name" />
+									</controls:CustomPicker.ItemDisplayBinding>
+									<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+								</controls:CustomPicker>
+								<Label
+									Grid.Column="1"
+									FontSize="16"
+									HorizontalTextAlignment="End"
+									Text="&#x25bc;"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</StackLayout>
+
+					<Frame
+						Grid.Row="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						IsVisible="{Binding IsShowIdentificator}">
+						<controls:CustomEntry
+							x:Name="txtIdentificator"
+							Margin="15,0,15,0"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							PlaceholderColor="#6F7FAF"
+							TextColor="#6F7FAF" />
+					</Frame>
+
+					<StackLayout
+						Grid.Row="3"
+						IsVisible="{Binding IsShowIdentificator}"
+						Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Country"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<controls:CustomEntry
+								Margin="15,0,15,0"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								Placeholder="Country"
+								PlaceholderColor="#6F7FAF"
+								Text="India"
+								TextColor="#6F7FAF" />
+						</Frame>
+					</StackLayout>
+
+					<StackLayout
+						Grid.Row="4"
+						IsVisible="{Binding IsShowIdentificator}"
+						Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Issue month"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<Grid Margin="15,0,15,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="20" />
+								</Grid.ColumnDefinitions>
+								<controls:CustomPicker
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									TextColor="#6F7FAF">
+									<controls:CustomPicker.ItemsSource>
+										<x:Array Type="{x:Type x:String}">
+											<x:String>Select</x:String>
+											<x:String>01</x:String>
+											<x:String>02</x:String>
+											<x:String>03</x:String>
+											<x:String>04</x:String>
+											<x:String>05</x:String>
+											<x:String>06</x:String>
+											<x:String>07</x:String>
+											<x:String>08</x:String>
+											<x:String>09</x:String>
+											<x:String>10</x:String>
+											<x:String>11</x:String>
+											<x:String>12</x:String>
+										</x:Array>
+									</controls:CustomPicker.ItemsSource>
+									<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+								</controls:CustomPicker>
+								<Label
+									Grid.Column="1"
+									FontSize="16"
+									HorizontalTextAlignment="End"
+									Text="&#x25bc;"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</StackLayout>
+
+					<StackLayout
+						Grid.Row="5"
+						IsVisible="{Binding IsShowIdentificator}"
+						Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Issue year(2020)"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<Grid Margin="15,0,15,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="20" />
+								</Grid.ColumnDefinitions>
+								<controls:CustomPicker
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									TextColor="#6F7FAF">
+									<controls:CustomPicker.ItemsSource>
+										<x:Array Type="{x:Type x:String}">
+											<x:String>Select</x:String>
+											<x:String>2020</x:String>
+											<x:String>2019</x:String>
+											<x:String>2018</x:String>
+											<x:String>2017</x:String>
+											<x:String>2016</x:String>
+											<x:String>2015</x:String>
+											<x:String>2014</x:String>
+											<x:String>2013</x:String>
+											<x:String>2012</x:String>
+											<x:String>2011</x:String>
+											<x:String>2010</x:String>
+											<x:String>2009</x:String>
+											<x:String>2020</x:String>
+											<x:String>2019</x:String>
+											<x:String>2018</x:String>
+											<x:String>2017</x:String>
+											<x:String>2016</x:String>
+											<x:String>2015</x:String>
+											<x:String>2014</x:String>
+											<x:String>2013</x:String>
+											<x:String>2012</x:String>
+											<x:String>2011</x:String>
+											<x:String>2010</x:String>
+											<x:String>2009</x:String>
+											<x:String>2008</x:String>
+											<x:String>2007</x:String>
+											<x:String>2006</x:String>
+											<x:String>2005</x:String>
+											<x:String>2004</x:String>
+											<x:String>2003</x:String>
+											<x:String>2002</x:String>
+											<x:String>2001</x:String>
+											<x:String>2000</x:String>
+										</x:Array>
+									</controls:CustomPicker.ItemsSource>
+									<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+								</controls:CustomPicker>
+								<Label
+									Grid.Column="1"
+									FontSize="16"
+									HorizontalTextAlignment="End"
+									Text="&#x25bc;"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</StackLayout>
+
+					<StackLayout
+						Grid.Row="6"
+						IsVisible="{Binding IsShowIdentificator}"
+						Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Expiry month"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<Grid Margin="15,0,15,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="20" />
+								</Grid.ColumnDefinitions>
+								<controls:CustomPicker
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									TextColor="#6F7FAF">
+									<controls:CustomPicker.ItemsSource>
+										<x:Array Type="{x:Type x:String}">
+											<x:String>Select</x:String>
+											<x:String>01</x:String>
+											<x:String>02</x:String>
+											<x:String>03</x:String>
+											<x:String>04</x:String>
+											<x:String>05</x:String>
+											<x:String>06</x:String>
+											<x:String>07</x:String>
+											<x:String>08</x:String>
+											<x:String>09</x:String>
+											<x:String>10</x:String>
+											<x:String>11</x:String>
+											<x:String>12</x:String>
+										</x:Array>
+									</controls:CustomPicker.ItemsSource>
+									<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+								</controls:CustomPicker>
+								<Label
+									Grid.Column="1"
+									FontSize="16"
+									HorizontalTextAlignment="End"
+									Text="&#x25bc;"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</StackLayout>
+
+					<StackLayout
+						Grid.Row="7"
+						IsVisible="{Binding IsShowIdentificator}"
+						Spacing="5">
+						<Label
+							Margin="15,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="Expiry year(2020)"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Frame
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False"
+							HeightRequest="50">
+							<Grid Margin="15,0,15,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="20" />
+								</Grid.ColumnDefinitions>
+								<controls:CustomPicker
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									TextColor="#6F7FAF">
+									<controls:CustomPicker.ItemsSource>
+										<x:Array Type="{x:Type x:String}">
+											<x:String>Select</x:String>
+											<x:String>2020</x:String>
+											<x:String>2019</x:String>
+											<x:String>2018</x:String>
+											<x:String>2017</x:String>
+											<x:String>2016</x:String>
+											<x:String>2015</x:String>
+											<x:String>2014</x:String>
+											<x:String>2013</x:String>
+											<x:String>2012</x:String>
+											<x:String>2011</x:String>
+											<x:String>2010</x:String>
+											<x:String>2009</x:String>
+											<x:String>2020</x:String>
+											<x:String>2019</x:String>
+											<x:String>2018</x:String>
+											<x:String>2017</x:String>
+											<x:String>2016</x:String>
+											<x:String>2015</x:String>
+											<x:String>2014</x:String>
+											<x:String>2013</x:String>
+											<x:String>2012</x:String>
+											<x:String>2011</x:String>
+											<x:String>2010</x:String>
+											<x:String>2009</x:String>
+											<x:String>2008</x:String>
+											<x:String>2007</x:String>
+											<x:String>2006</x:String>
+											<x:String>2005</x:String>
+											<x:String>2004</x:String>
+											<x:String>2003</x:String>
+											<x:String>2002</x:String>
+											<x:String>2001</x:String>
+											<x:String>2000</x:String>
+										</x:Array>
+									</controls:CustomPicker.ItemsSource>
+									<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+								</controls:CustomPicker>
+								<Label
+									Grid.Column="1"
+									FontSize="16"
+									HorizontalTextAlignment="End"
+									Text="&#x25bc;"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</StackLayout>
+
+					<controls:CustomButton
+						Grid.Row="8"
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						IsVisible="{Binding IsShowIdentificator}"
+						Text="Save"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
