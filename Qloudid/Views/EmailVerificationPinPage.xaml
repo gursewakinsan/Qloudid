@@ -345,7 +345,7 @@
 						TextColor="Black"
 						VerticalTextAlignment="Center">
 						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding VerifyPasswordCommand}" />
+							<TapGestureRecognizer Command="{Binding EmailVerificationPinCommand}" />
 						</Label.GestureRecognizers>
 					</Label>
 				</Grid>

@@ -51,7 +51,10 @@ namespace Qloudid.ViewModels
 				else if (response.result == 0)
 					await Helper.Alert.DisplayAlert("This email address is not valid. Please try with valid email.");
 				else if (response.result == 1)
+				{
+					Helper.Helper.UserId = response.user_id;
 					await Navigation.PushAsync(new Views.EmailVerificationPinPage());
+				}
 				else if (response.result == 2)
 					await Navigation.PushAsync(new Views.ContinueWithExistEmailPage());
 				DependencyService.Get<IProgressBar>().Hide();

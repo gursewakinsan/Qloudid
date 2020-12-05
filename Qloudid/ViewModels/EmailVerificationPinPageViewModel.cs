@@ -25,7 +25,25 @@ namespace Qloudid.ViewModels
 		{
 			if (!string.IsNullOrWhiteSpace(Password))
 			{
-				await Task.CompletedTask;
+				if (Password.Length < 6) return;
+				DependencyService.Get<IProgressBar>().Show();
+				ICreateAccountService service = new CreateAccountService();
+				Models.VerifyEmailOtpPinRequest request = new Models.VerifyEmailOtpPinRequest()
+				{
+					UserId = Helper.Helper.UserId,
+					OtpPin = Password
+				};
+				Models.VerifyEmailOtpPinResponse response = await service.VerifyEmailOtpPinAsync(request);
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				else if (response.result == 0)
+					await Helper.Alert.DisplayAlert("Invalid OTP. Please try again.");
+				else if (response.result == 1)
+				{
+					Helper.Helper.CountryCode = response.country_code;
+					await Navigation.PushAsync(new Views.MobileNumberPage());
+				}
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else
 				await Helper.Alert.DisplayAlert("Please enter email verification password.");

@@ -15,5 +15,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.VerifyEmailOtpPinResponse> VerifyEmailOtpPinAsync(Models.VerifyEmailOtpPinRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.VerifyEmailOtpPinResponse>(HttpWebRequest.Create(EndPointsList.VerifyEmailOtpPinUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> VerifyUserMobileAsync(Models.VerifyUserMobileRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.VerifyUserMobileUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

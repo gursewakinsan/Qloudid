@@ -28,5 +28,7 @@ namespace Qloudid.Helper
 		public static bool IsFirstTime { get; set; } = true;
 		public static bool IsBack { get; set; } = true;
 		public static string IpFromURL { get; set; }
+		public static int UserId { get; set; }
+		public static int CountryCode { get; set; }
 	}
 }
