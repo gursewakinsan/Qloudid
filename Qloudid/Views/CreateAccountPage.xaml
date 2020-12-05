@@ -57,18 +57,28 @@
 						VerticalTextAlignment="Start" />
 
 					<BoxView
-						Margin="0,10,0,10"
+						Margin="0,10,0,50"
 						BackgroundColor="#05CBE7"
 						CornerRadius="3"
 						HeightRequest="5"
 						HorizontalOptions="Start"
 						VerticalOptions="Start"
 						WidthRequest="40" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Remember to use your personal email address. Do not use the company's email address."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
 				</StackLayout>
 
-				<Grid RowSpacing="20" VerticalOptions="StartAndExpand">
+				<Grid
+					Margin="0,24,0,0"
+					RowSpacing="20"
+					VerticalOptions="StartAndExpand">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
@@ -77,17 +87,8 @@
 						<RowDefinition Height="90" />
 					</Grid.RowDefinitions>
 
-					<Label
-						Grid.Row="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						Text="Remember to use your personal email address. Do not use the company's email address."
-						TextColor="#6F7FAF"
-						VerticalTextAlignment="Start" />
-
 					<Frame
-						Grid.Row="1"
+						Grid.Row="0"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -139,7 +140,7 @@
 					</Frame>
 
 					<Frame
-						Grid.Row="2"
+						Grid.Row="1"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -156,7 +157,7 @@
 					</Frame>
 
 					<Frame
-						Grid.Row="3"
+						Grid.Row="2"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -173,7 +174,7 @@
 					</Frame>
 
 					<Frame
-						Grid.Row="4"
+						Grid.Row="3"
 						Padding="0"
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
@@ -191,7 +192,7 @@
 					</Frame>
 
 					<StackLayout
-						Grid.Row="5"
+						Grid.Row="4"
 						Margin="10,0,0,0"
 						Orientation="Horizontal"
 						Spacing="0">
@@ -232,7 +233,7 @@
 					</StackLayout>
 
 					<controls:CustomButton
-						Grid.Row="6"
+						Grid.Row="5"
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding CreateAccountCommand}"

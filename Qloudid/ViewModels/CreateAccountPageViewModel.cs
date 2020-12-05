@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
+using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -33,9 +35,29 @@ namespace Qloudid.ViewModels
 			else if (!Helper.Helper.IsValid(Email))
 				await Helper.Alert.DisplayAlert("Please enter valid email address.");
 			else
-				await this.Navigation.PushAsync(new Views.MobileNumberPage());
-			await Task.CompletedTask;
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				ICreateAccountService service = new CreateAccountService();
+				Models.CreateAccount account = new Models.CreateAccount()
+				{
+					CountryId = CountryId,
+					FirstName = FirstName,
+					LastName = LastName,
+					Email = Email
+				};
+				Models.CreateAccountResponse response = await service.CreateAccountAsync(account);
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				else if (response.result == 0)
+					await Helper.Alert.DisplayAlert("This email address is not valid. Please try with valid email.");
+				else if (response.result == 1)
+					await Navigation.PushAsync(new Views.EmailVerificationPinPage());
+				else if (response.result == 2)
+					await Navigation.PushAsync(new Views.ContinueWithExistEmailPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 		}
+
 		#endregion
 
 		#region Accept term and conditions Command.

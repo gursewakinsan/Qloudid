@@ -11,5 +11,6 @@
 		public const string UpdateLoginStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateLoginStatus/{0}";
 		public const string ProfileDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/profileDetail";
 		public const string PurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/purchaseDetail";
+		public const string CreateNewAccountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/createNewAccount";
 	}
 }
