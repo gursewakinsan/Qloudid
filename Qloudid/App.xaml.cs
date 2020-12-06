@@ -14,7 +14,7 @@ namespace Qloudid
 			InitializeComponent();
 			GetCountries();
 			if (string.IsNullOrWhiteSpace(ipFromWeb))
-				MainPage = new NavigationPage(new Views.CreateAccountPage());
+				MainPage = new NavigationPage(new Views.RestorePage());
 			else
 				MainPage = new NavigationPage(new Views.DashboardPage());
 		}
