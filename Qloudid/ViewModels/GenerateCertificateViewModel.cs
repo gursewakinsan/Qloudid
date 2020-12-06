@@ -6,44 +6,66 @@ using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
-	public class SignaturePinPageViewModel : BaseViewModel
+	public class GenerateCertificateViewModel : BaseViewModel
 	{
 		#region Constructor.
-		public SignaturePinPageViewModel(INavigation navigation)
+		public GenerateCertificateViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
 		#endregion
 
-		#region Verify Sms Password Command.
-		private ICommand verifySmsPasswordCommand;
-		public ICommand VerifySmsPasswordCommand
+		#region Generate Certificate Command.
+		private ICommand generateCertificateCommand;
+		public ICommand GenerateCertificateCommand
 		{
-			get => verifySmsPasswordCommand ?? (verifySmsPasswordCommand = new Command(async () => await ExecuteVerifySmsPasswordCommand()));
+			get => generateCertificateCommand ?? (generateCertificateCommand = new Command(async () => await ExecuteGenerateCertificateCommand()));
 		}
-		private async Task ExecuteVerifySmsPasswordCommand()
+		private async Task ExecuteGenerateCertificateCommand()
 		{
 			if (!string.IsNullOrWhiteSpace(Password))
 			{
 				if (Password.Length < 6) return;
 				DependencyService.Get<IProgressBar>().Show();
 				ICreateAccountService service = new CreateAccountService();
-				Models.VerifyEmailOtpPinRequest request = new Models.VerifyEmailOtpPinRequest()
+				Models.GenerateCertificateRequest request = new Models.GenerateCertificateRequest()
 				{
 					UserId = Helper.Helper.UserId,
-					OtpPin = Password
+					password = Password
 				};
-				Models.VerifyEmailOtpPinResponse response = await service.VerifyPhoneOtpPinAsync(request);
+				Models.GenerateCertificateResponse response = await service.GenerateCertificateAsync(request);
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("Invalid OTP. Please try again.");
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 1)
-					await Navigation.PushAsync(new Views.IdentificatorPage());
+				{
+					Models.User user = new Models.User()
+					{
+						first_name = response.first_name,
+						last_name = response.last_name,
+						user_id = response.user_id,
+						email = response.email,
+						certificate_key = response.certificate_key,
+						result = response.result
+					};
+					Helper.Helper.QrCertificateKey = response.certificate_key;
+					Helper.Helper.UserInfo = user;
+					if (Application.Current.Properties.Count > 0)
+						Application.Current.Properties.Clear();
+
+					Application.Current.Properties.Add("QrCode", Helper.Helper.QrCertificateKey);
+					Application.Current.Properties.Add("FirstName", response.first_name);
+					Application.Current.Properties.Add("LastName", response.last_name);
+					Application.Current.Properties.Add("UserId", response.user_id);
+					Application.Current.Properties.Add("Email", response.email);
+					await Application.Current.SavePropertiesAsync();
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else
-				await Helper.Alert.DisplayAlert("Please enter OTP verification password");
+				await Helper.Alert.DisplayAlert("Please enter password.");
 		}
 		#endregion
 

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 
@@ -15,6 +16,7 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new IdentificatorPageViewModel(this.Navigation);
 		}
 
+		#region Identificator Selected Index Changed.
 		private void PickerSelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;
@@ -41,5 +43,62 @@ namespace Qloudid.Views
 				}
 			}
 		}
+		#endregion
+
+		#region Issue Month Selected Index Changed.
+		private void PickerIssueMonthSelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (viewModel != null)
+			{
+				if (picker.SelectedItem.Equals("Select"))
+					viewModel.IssueMonth = 0;
+				else
+					viewModel.IssueMonth = Convert.ToInt32(picker.SelectedItem);
+			}
+		}
+		#endregion
+
+		#region Issue Year Selected Index Changed.
+		private void PickerIssueYearSelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (viewModel != null)
+			{
+				if (picker.SelectedItem.Equals("Select"))
+					viewModel.IssueYear = 0;
+				else
+					viewModel.IssueYear = Convert.ToInt32(picker.SelectedItem);
+			}
+		}
+		#endregion
+
+		#region Expiry Month Selected Index Changed.
+		private void PickerExpiryMonthSelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (viewModel != null)
+			{
+				if (picker.SelectedItem.Equals("Select"))
+					viewModel.ExpiryMonth = 0;
+				else
+					viewModel.ExpiryMonth = Convert.ToInt32(picker.SelectedItem);
+			}
+		}
+		#endregion
+
+		#region Expiry Year Selected Index Changed.
+		private void PickerExpiryYearSelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (viewModel != null)
+			{
+				if (picker.SelectedItem.Equals("Select"))
+					viewModel.ExpiryYear = 0;
+				else
+					viewModel.ExpiryYear = Convert.ToInt32(picker.SelectedItem);
+			}
+		}
+		#endregion
 	}
 }

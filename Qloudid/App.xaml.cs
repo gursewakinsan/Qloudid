@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace Qloudid
 {
@@ -8,6 +12,7 @@ namespace Qloudid
 		public App(string ipFromWeb)
 		{
 			InitializeComponent();
+			GetCountries();
 			if (string.IsNullOrWhiteSpace(ipFromWeb))
 				MainPage = new NavigationPage(new Views.CreateAccountPage());
 			else
@@ -24,6 +29,15 @@ namespace Qloudid
 
 		protected override void OnResume()
 		{
+		}
+
+		void GetCountries()
+		{
+			string jsonFileName = "CountryJson.json";
+			var assembly = typeof(MainPage).GetTypeInfo().Assembly;
+			Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{jsonFileName}");
+			using (var reader = new StreamReader(stream))
+				Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
 		}
 
 		protected override void OnAppLinkRequestReceived(Uri uri)

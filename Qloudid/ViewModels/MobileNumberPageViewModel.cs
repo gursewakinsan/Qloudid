@@ -34,9 +34,16 @@ namespace Qloudid.ViewModels
 					UserId = Helper.Helper.UserId,
 					MobileNo = MobileNumber
 				};
-				var response = await service.VerifyUserMobileAsync(request);
+				Models.VerifyUserMobileResponse response = await service.VerifyUserMobileAsync(request);
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				else if (response.result == 0)
+					await Helper.Alert.DisplayAlert("This mobile number is already in used. Please use any other mobile number.");
+				else if (response.result == 1)
+					await Navigation.PushAsync(new Views.SignaturePinPage());
+				if (response.result == 2)
+					await Helper.Alert.DisplayAlert("Unable to send OTP on this mobile number, Please use correct mobile number.");
 				DependencyService.Get<IProgressBar>().Hide();
-				await Navigation.PushAsync(new Views.SignaturePinPage());
 			}
 			await Task.CompletedTask;
 		}

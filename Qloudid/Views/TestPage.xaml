@@ -75,26 +75,26 @@
 								TextColor="#6F7FAF">
 								<controls:CustomPicker.ItemsSource>
 									<x:Array Type="{x:Type models:Country}">
-										<models:Country Name="Select country" Id="0" />
-										<models:Country Name="Afghanistan" Id="2" />
-										<models:Country Name="Albania" Id="5" />
-										<models:Country Name="Algeria" Id="62" />
-										<models:Country Name="American Samoa" Id="11" />
-										<models:Country Name="Andorra" Id="6" />
-										<models:Country Name="Angola" Id="3" />
-										<models:Country Name="Anguilla" Id="4" />
-										<models:Country Name="Antarctica" Id="12" />
-										<models:Country Name="Antigua and Barbuda" Id="14" />
-										<models:Country Name="Argentina" Id="9" />
-										<models:Country Name="Armenia" Id="10" />
-										<models:Country Name="Aruba" Id="1" />
-										<models:Country Name="Australia" Id="15" />
-										<models:Country Name="Austria" Id="16" />
-										<models:Country Name="Azerbaijan" Id="17" />
+										<models:Country CountryName="Select country" Id="0" />
+										<models:Country CountryName="Afghanistan" Id="2" />
+										<models:Country CountryName="Albania" Id="5" />
+										<models:Country CountryName="Algeria" Id="62" />
+										<models:Country CountryName="American Samoa" Id="11" />
+										<models:Country CountryName="Andorra" Id="6" />
+										<models:Country CountryName="Angola" Id="3" />
+										<models:Country CountryName="Anguilla" Id="4" />
+										<models:Country CountryName="Antarctica" Id="12" />
+										<models:Country CountryName="Antigua and Barbuda" Id="14" />
+										<models:Country CountryName="Argentina" Id="9" />
+										<models:Country CountryName="Armenia" Id="10" />
+										<models:Country CountryName="Aruba" Id="1" />
+										<models:Country CountryName="Australia" Id="15" />
+										<models:Country CountryName="Austria" Id="16" />
+										<models:Country CountryName="Azerbaijan" Id="17" />
 									</x:Array>
 								</controls:CustomPicker.ItemsSource>
 								<controls:CustomPicker.ItemDisplayBinding>
-									<Binding Path="Name" />
+									<Binding Path="CountryName" />
 								</controls:CustomPicker.ItemDisplayBinding>
 								<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
 							</controls:CustomPicker>

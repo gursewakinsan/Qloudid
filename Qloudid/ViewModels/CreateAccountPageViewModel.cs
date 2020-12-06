@@ -3,6 +3,8 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -12,7 +14,7 @@ namespace Qloudid.ViewModels
 		public CreateAccountPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			SelectedCountry = new Models.Country();
+			CountryList = new ObservableCollection<Models.Country>(Helper.Helper.CountryList);
 		}
 		#endregion
 
@@ -88,11 +90,11 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public int CountryId => SelectedCountry.Id;
+		public int CountryId { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Email { get; set; }
-		public Models.Country SelectedCountry { get; set; }
+		public ObservableCollection<Models.Country> CountryList { get; set; }
 		public string CheckUnCheckIcon => IsAcceptTermAndConditions ? Helper.QloudidAppFlatIcons.CheckboxMarked : Helper.QloudidAppFlatIcons.CheckboxBlankOutline;
 
 		private bool isAcceptTermAndConditions = true;

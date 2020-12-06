@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Qloudid.Helper
 {
@@ -30,5 +31,6 @@ namespace Qloudid.Helper
 		public static string IpFromURL { get; set; }
 		public static int UserId { get; set; }
 		public static int CountryCode { get; set; }
+		public static List<Models.Country> CountryList { get; set; }
 	}
 }

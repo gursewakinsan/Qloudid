@@ -19,7 +19,10 @@ namespace Qloudid.Views
 		{
 			Controls.CustomPicker picker = sender as Controls.CustomPicker;
 			if (viewModel != null)
-				viewModel.SelectedCountry = picker.SelectedItem as Models.Country;
+			{
+				Models.Country country = picker.SelectedItem as Models.Country;
+				viewModel.CountryId = country.Id;
+			}
 		}
 	}
 }
