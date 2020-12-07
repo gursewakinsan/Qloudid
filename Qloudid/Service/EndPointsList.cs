@@ -18,5 +18,8 @@
 		public const string AddIdentificatorUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificator";
 		public const string GenerateCertificateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generateCertificate";
 		public const string UploadAddIdentificatorImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorImages";
+
+		public const string RestoreAccountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/restoreAccount";
+		public const string VerifyRestoreOtpPinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyRestoreOtpPin";
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
@@ -26,6 +27,32 @@ namespace Qloudid.ViewModels
 			{
 				if (Password.Length < 6) return;
 				DependencyService.Get<IProgressBar>().Show();
+				IAccountRestoreService service = new AccountRestoreService();
+				Models.VerifyRestoreOtpPinRequest request = new Models.VerifyRestoreOtpPinRequest()
+				{
+					UserId = Helper.Helper.UserId,
+					OtpPin = Password
+				};
+				Models.VerifyRestoreOtpPinResponse response = await service.VerifyRestoreOtpPinAsync(request);
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				else if (response.result == 0)
+					await Helper.Alert.DisplayAlert("Wrong password, Please try again.");
+				else if (response.result == 1)
+				{
+					Helper.Helper.CountryCode = response.country_code;
+					Application.Current.MainPage = new NavigationPage(new Views.MobileNumberPage());
+				}
+				else if (response.result == 2)
+				{
+					Helper.Helper.CountryCode = response.country_code;
+					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				}
+				else if (response.result == 3)
+				{
+					Helper.Helper.CountryCode = response.country_code;
+					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

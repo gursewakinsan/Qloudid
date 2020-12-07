@@ -59,7 +59,16 @@
 
 				<usercontrols:DotLineControl />
 
-				<controls:CustomButton FontFamily="{StaticResource SFProRegularFontFamily}" Text="Continue" />
+				<controls:CustomButton
+					Command="{Binding SubmitRestoreEmailCommand}"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					Text="Continue" />
+
+				<controls:CustomButton
+					Margin="40,20,40,0"
+					Clicked="OnCloseButtonClicked"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					Text="Close" />
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

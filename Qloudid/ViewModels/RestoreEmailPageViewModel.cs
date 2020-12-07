@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
+using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -27,7 +29,23 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Please enter valid email address.");
 			else
 			{
-				await Navigation.PushAsync(new Views.RestoreEmailPasswordPage());
+				DependencyService.Get<IProgressBar>().Show();
+				IAccountRestoreService service = new AccountRestoreService();
+				Models.RestoreAccountRequest request = new Models.RestoreAccountRequest()
+				{
+					Email = Email
+				};
+				Models.RestoreAccountResponse response = await service.RestoreAccountAsync(request);
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				else if (response.result == 0)
+					await Helper.Alert.DisplayAlert("This email does not exist.");
+				else if (response.result == 1)
+				{
+					Helper.Helper.UserId = response.user_id;
+					await Navigation.PushAsync(new Views.RestoreEmailPasswordPage());
+				}
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion

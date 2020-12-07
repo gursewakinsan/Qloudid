@@ -57,7 +57,7 @@ namespace Qloudid.ViewModels
 					await Navigation.PushAsync(new Views.EmailVerificationPinPage());
 				}
 				else if (response.result == 2)
-					await Navigation.PushAsync(new Views.ContinueWithExistEmailPage());
+					await Navigation.PushAsync(new Views.ContinueWithExistEmailPage(Email));
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
