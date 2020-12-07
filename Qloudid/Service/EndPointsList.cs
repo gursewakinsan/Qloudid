@@ -17,5 +17,6 @@
 		public const string VerifyPhoneOtpPinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyPhoneOtpPin";
 		public const string AddIdentificatorUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificator";
 		public const string GenerateCertificateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generateCertificate";
+		public const string UploadAddIdentificatorImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorImages";
 	}
 }

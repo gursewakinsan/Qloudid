@@ -45,6 +45,7 @@ namespace Qloudid.Service
 
 		public static T Post<T>(WebRequest request, string token, string requestData = null)
 		{
+			//ServicePointManager.Expect100Continue = false;
 			string result = string.Empty;
 			request.Method = "POST";
 			request.Timeout = 40000;  //approx 40s

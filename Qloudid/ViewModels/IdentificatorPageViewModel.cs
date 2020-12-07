@@ -78,7 +78,7 @@ namespace Qloudid.ViewModels
 						if (response == 0)
 							await Helper.Alert.DisplayAlert("This identificator already used by other user, Please use any other identificator.");
 						else if (response == 1)
-							await Navigation.PushAsync(new Views.GenerateCertificatePage());
+							await Navigation.PushAsync(new Views.IdentificatorPhotoPage());
 						DependencyService.Get<IProgressBar>().Hide();
 					}
 				}

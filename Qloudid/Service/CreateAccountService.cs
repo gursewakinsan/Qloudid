@@ -60,5 +60,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> UploadAddIdentificatorImagesAsync(Models.AddIdentificatorImagesRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UploadAddIdentificatorImagesUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
