@@ -22,7 +22,7 @@ namespace Qloudid.Views
 		#region Image Data1 Clicked.
 		private async void ImageData1Clicked(object sender, EventArgs e)
 		{
-			string result = await DisplayActionSheet("Select", "Cancel", "", "Take Photo", "Pick Photo");
+			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
 			{
 				case "Take Photo":
@@ -38,7 +38,7 @@ namespace Qloudid.Views
 		#region Image Data2 Clicked.
 		private async void ImageData2Clicked(object sender, EventArgs e)
 		{
-			string result = await DisplayActionSheet("Select", "Cancel", "", "Take Photo", "Pick Photo");
+			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
 			{
 				case "Take Photo":
