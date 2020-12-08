@@ -14,5 +14,15 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new RestorePageViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			if (Helper.Helper.IsFirstTime)
+			{
+				Helper.Helper.IsFirstTime = false;
+				viewModel.IsAlreadyLoginCommand.Execute(null);
+			}
+		}
 	}
 }

@@ -54,7 +54,7 @@ namespace Qloudid.ViewModels
 					if (Application.Current.Properties.Count > 0)
 						Application.Current.Properties.Clear();
 
-					Application.Current.Properties.Add("QrCode", Helper.Helper.QrCertificateKey);
+					Application.Current.Properties.Add("QrCode", response.certificate_key);
 					Application.Current.Properties.Add("FirstName", response.first_name);
 					Application.Current.Properties.Add("LastName", response.last_name);
 					Application.Current.Properties.Add("UserId", response.user_id);
