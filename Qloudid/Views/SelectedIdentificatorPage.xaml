@@ -124,6 +124,8 @@
 								Date="{Binding SelectedIssueDate}"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
+								MaximumDate="{Binding BindIssueMaximumDate}"
+								MinimumDate="{Binding BindIssueMinimumDate}"
 								TextColor="#6F7FAF" />
 						</Frame>
 					</StackLayout>
