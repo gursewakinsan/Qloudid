@@ -25,6 +25,8 @@ namespace Qloudid.ViewModels
 		{
 			if (string.IsNullOrWhiteSpace(MobileNumber))
 				await Helper.Alert.DisplayAlert("Mobile number is required.");
+			else if(MobileNumber.StartsWith("0"))
+				await Helper.Alert.DisplayAlert("First digit cannot be zero.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();

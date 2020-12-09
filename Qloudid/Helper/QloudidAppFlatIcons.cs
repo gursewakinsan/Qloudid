@@ -6,5 +6,6 @@
 		public const string Check = "\U000f012c";
 		public const string CheckboxMarked = "\U000f0132";
 		public const string CheckboxBlankOutline = "\U000f0131";
+		public const string ChevronRight = "\U000f0142";
 	}
 }

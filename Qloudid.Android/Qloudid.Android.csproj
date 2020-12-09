@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Effects\NoKeyboardEffect_Droid.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

@@ -69,13 +69,11 @@
 					<Image
 						x:Name="image1"
 						Margin="0,0,0,20"
-						Aspect="AspectFit"
+						Aspect="AspectFill"
 						BackgroundColor="Transparent"
 						HeightRequest="200"
-						HorizontalOptions="CenterAndExpand"
 						Source="iconDefaultProfilePic.png"
-						VerticalOptions="CenterAndExpand"
-						WidthRequest="200">
+						VerticalOptions="CenterAndExpand">
 						<Image.GestureRecognizers>
 							<TapGestureRecognizer Tapped="ImageData1Clicked" />
 						</Image.GestureRecognizers>
@@ -83,13 +81,11 @@
 
 					<Image
 						x:Name="image2"
-						Aspect="AspectFit"
+						Aspect="AspectFill"
 						BackgroundColor="Transparent"
 						HeightRequest="200"
-						HorizontalOptions="CenterAndExpand"
 						Source="iconDefaultProfilePic.png"
-						VerticalOptions="CenterAndExpand"
-						WidthRequest="200">
+						VerticalOptions="CenterAndExpand">
 						<Image.GestureRecognizers>
 							<TapGestureRecognizer Tapped="ImageData2Clicked" />
 						</Image.GestureRecognizers>
