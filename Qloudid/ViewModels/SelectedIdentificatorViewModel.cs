@@ -66,11 +66,11 @@ namespace Qloudid.ViewModels
 		public int IdentificatorId { get; set; }
 		public string IdentificatorText { get; set; }
 		public string IdentificatorPlaceholder { get; set; }
-		public DateTime BindIssueMinimumDate => DateTime.Today.AddYears(-20);
+		public DateTime BindIssueMinimumDate => DateTime.Today.AddYears(-70);
 		public DateTime BindIssueMaximumDate => DateTime.Today.AddDays(-1);
 		public DateTime SelectedIssueDate { get; set; }
 		public DateTime BindExpiryMinimumDate => DateTime.Today;
-		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(50);
+		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
 		public DateTime SelectedExpiryDate { get; set; }
 		#endregion
 	}
