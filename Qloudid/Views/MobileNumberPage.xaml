@@ -103,6 +103,7 @@
 								Placeholder="Mobile number"
 								PlaceholderColor="#6F7FAF"
 								Text="{Binding MobileNumber}"
+								TextChanged="MobileNumberTextChanged"
 								TextColor="#6F7FAF" />
 						</Grid>
 					</Frame>

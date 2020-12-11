@@ -50,7 +50,7 @@
 								<Span
 									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 									FontSize="28"
-									Text="{Binding IdentificatorPlaceholder}"
+									Text="{Binding IdentificatorTitle}"
 									TextColor="Black" />
 							</FormattedString>
 						</Label.FormattedText>
@@ -104,7 +104,7 @@
 									<Span
 										FontFamily="{StaticResource SFProRegularFontFamily}"
 										FontSize="12"
-										Text="number"
+										Text=" number"
 										TextColor="#6F7FAF" />
 								</FormattedString>
 							</Label.FormattedText>
