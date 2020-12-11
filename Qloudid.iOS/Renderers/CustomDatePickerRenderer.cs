@@ -12,8 +12,11 @@ namespace Qloudid.iOS.Renderers
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
-			Control.Layer.BorderWidth = 0;
-			Control.BorderStyle = UITextBorderStyle.None;
+			if (Control != null)
+			{
+				Control.Layer.BorderWidth = 0;
+				Control.BorderStyle = UITextBorderStyle.None;
+			}
 		}
 	}
 }

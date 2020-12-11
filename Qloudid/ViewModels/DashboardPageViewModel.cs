@@ -14,7 +14,10 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			UserInfo = Helper.Helper.UserInfo;
-			UserImage = UserInfo.UserImage;
+			if (UserInfo.UserImage == null)
+				UserImage = string.Empty;
+			else
+				UserImage = UserInfo.UserImage;  //ImageSource.FromUri(new Uri(UserInfo.UserImage));
 		}
 		#endregion
 
@@ -87,8 +90,11 @@ namespace Qloudid.ViewModels
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response.result > 0)
 				{
-					UserImage = response.image;
-					Helper.Helper.UserInfo.UserImage = response.image;
+					if (!UserImage.Equals(response.image))
+					{
+						UserImage = response.image; //ImageSource.FromUri(new Uri(response.image));
+						Helper.Helper.UserInfo.UserImage = response.image;
+					}
 				}
 				//DependencyService.Get<IProgressBar>().Hide();
 			}
@@ -97,7 +103,7 @@ namespace Qloudid.ViewModels
 
 		#region Properties.
 		public Models.User UserInfo { get; set; }
-		//public string UserImage => Helper.Helper.UserInfo.UserImage; //$"https://www.qloudid.com/estorecss/tmp.jpg";
+		//public string UserImage1 => "https://www.qloudid.com/estorecss/tmp.jpg"; //Helper.Helper.UserInfo.UserImage; //$"https://www.qloudid.com/estorecss/tmp.jpg";
 
 		private string userImage;
 		public string UserImage
@@ -107,8 +113,8 @@ namespace Qloudid.ViewModels
 			{
 				userImage = value;
 				OnPropertyChanged("UserImage");
-				IsUserImage = string.IsNullOrEmpty(value) ? false : true;
-				IsAppLogo = string.IsNullOrEmpty(UserImage) ? true : false;
+				IsUserImage = string.IsNullOrWhiteSpace(value) ? false : true;
+				IsAppLogo = string.IsNullOrWhiteSpace(value) ? true : false;
 			}
 		}
 		

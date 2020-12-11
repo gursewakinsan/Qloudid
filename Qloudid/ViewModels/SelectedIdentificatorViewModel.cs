@@ -29,9 +29,9 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Identificator text is required.");
 			else
 			{
-				switch (IdentificatorPlaceholder)
+				switch (IdentificatorTitle)
 				{
-					case "Id":
+					case "ID":
 						IdentificatorId = 1;
 						break;
 					case "Driver license":

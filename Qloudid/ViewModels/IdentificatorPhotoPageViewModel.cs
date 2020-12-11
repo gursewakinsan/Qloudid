@@ -56,6 +56,7 @@ namespace Qloudid.ViewModels
 					imageId = 1,
 					UserId = Helper.Helper.UserId
 				};
+				//stream1.Close();
 				int response1 = await service.UploadAddIdentificatorImagesAsync(request1);
 				if (response1 == 0)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
@@ -67,6 +68,7 @@ namespace Qloudid.ViewModels
 						imageId = 2,
 						UserId = Helper.Helper.UserId
 					};
+					//stream2.Close();
 					int response2 = await service.UploadAddIdentificatorImagesAsync(request2);
 					if (response2 == 0)
 						await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");

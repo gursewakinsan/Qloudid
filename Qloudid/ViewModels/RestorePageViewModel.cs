@@ -54,7 +54,7 @@ namespace Qloudid.ViewModels
 				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 				ILoginService service = new LoginService();
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
-				if (response.result > 0)
+				if (response?.result > 0)
 				{
 					Models.User user = new Models.User();
 					user.first_name = Application.Current.Properties["FirstName"].ToString();

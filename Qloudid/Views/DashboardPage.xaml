@@ -36,7 +36,6 @@
 					VerticalOptions="EndAndExpand"
 					WidthRequest="160" />
 
-
 				<StackLayout
 					HorizontalOptions="CenterAndExpand"
 					Spacing="5"
