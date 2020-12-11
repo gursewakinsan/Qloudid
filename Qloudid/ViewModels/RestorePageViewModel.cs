@@ -53,14 +53,15 @@ namespace Qloudid.ViewModels
 				DependencyService.Get<IProgressBar>().Show();
 				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 				ILoginService service = new LoginService();
-				int response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
-				if (response > 0)
+				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+				if (response.result > 0)
 				{
 					Models.User user = new Models.User();
 					user.first_name = Application.Current.Properties["FirstName"].ToString();
 					user.last_name = Application.Current.Properties["LastName"].ToString();
 					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
 					user.email = Application.Current.Properties["Email"].ToString();
+					user.UserImage = response.image;
 					Helper.Helper.UserInfo = user;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}

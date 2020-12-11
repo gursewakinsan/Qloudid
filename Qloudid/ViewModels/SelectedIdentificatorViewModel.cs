@@ -31,13 +31,13 @@ namespace Qloudid.ViewModels
 			{
 				switch (IdentificatorPlaceholder)
 				{
-					case "Id Number":
+					case "Id":
 						IdentificatorId = 1;
 						break;
-					case "Driver license number":
+					case "Driver license":
 						IdentificatorId = 2;
 						break;
-					case "Passport number":
+					case "Passport":
 						IdentificatorId = 3;
 						break;
 				}
@@ -65,7 +65,8 @@ namespace Qloudid.ViewModels
 		#region Properties.
 		public int IdentificatorId { get; set; }
 		public string IdentificatorText { get; set; }
-		public string IdentificatorPlaceholder { get; set; }
+		public string IdentificatorTitle => Helper.Helper.SelectedIdentificatorText;
+		public string IdentificatorPlaceholder => $"Add {Helper.Helper.SelectedIdentificatorText} number";
 		public DateTime BindIssueMinimumDate => DateTime.Today.AddYears(-70);
 		public DateTime BindIssueMaximumDate => DateTime.Today.AddDays(-1);
 		public DateTime SelectedIssueDate { get; set; }

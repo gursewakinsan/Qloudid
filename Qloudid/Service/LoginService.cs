@@ -25,11 +25,11 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> CheckValidQrAsync(string qrCode)
+		public Task<Models.CheckValidQrResponse> CheckValidQrAsync(string qrCode)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Get<int>(HttpWebRequest.Create(string.Format(EndPointsList.CheckQrValidityUrl, qrCode)));
+				var res = RestClient.Get<Models.CheckValidQrResponse>(HttpWebRequest.Create(string.Format(EndPointsList.CheckQrValidityUrl, qrCode)));
 				return res;
 			});
 		}

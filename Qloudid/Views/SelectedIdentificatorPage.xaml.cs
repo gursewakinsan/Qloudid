@@ -8,13 +8,11 @@ namespace Qloudid.Views
 	public partial class SelectedIdentificatorPage : ContentPage
 	{
 		SelectedIdentificatorViewModel viewModel;
-		public SelectedIdentificatorPage(string selectedIdentificator)
+		public SelectedIdentificatorPage()
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new SelectedIdentificatorViewModel(this.Navigation);
-			lblIdentificator.Text = $"Please add {selectedIdentificator}.";
-			viewModel.IdentificatorPlaceholder = selectedIdentificator;
 		}
 	}
 }

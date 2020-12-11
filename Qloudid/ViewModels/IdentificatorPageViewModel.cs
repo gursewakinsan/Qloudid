@@ -25,13 +25,16 @@ namespace Qloudid.ViewModels
 			switch (identificator)
 			{
 				case "IdNumber":
-					await Navigation.PushAsync(new Views.SelectedIdentificatorPage("ID number"));
+					Helper.Helper.SelectedIdentificatorText = "ID";
+					await Navigation.PushAsync(new Views.SelectedIdentificatorPage());
 					break;
 				case "DriverLicenseNumber":
-					await Navigation.PushAsync(new Views.SelectedIdentificatorPage("Driver license number"));
+					Helper.Helper.SelectedIdentificatorText = "Driver license";
+					await Navigation.PushAsync(new Views.SelectedIdentificatorPage());
 					break;
 				case "PassportNumber":
-					await Navigation.PushAsync(new Views.SelectedIdentificatorPage("Passport number"));
+					Helper.Helper.SelectedIdentificatorText = "Passport";
+					await Navigation.PushAsync(new Views.SelectedIdentificatorPage());
 					break;
 			}
 		}

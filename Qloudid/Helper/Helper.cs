@@ -32,5 +32,6 @@ namespace Qloudid.Helper
 		public static int UserId { get; set; }
 		public static int CountryCode { get; set; }
 		public static List<Models.Country> CountryList { get; set; }
+		public static string SelectedIdentificatorText { get; set; }
 	}
 }

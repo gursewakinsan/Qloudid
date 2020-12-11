@@ -46,7 +46,15 @@
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
-						Text="Identify"
+						Text="Proof of"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="residency"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -59,13 +67,33 @@
 						VerticalOptions="Start"
 						WidthRequest="40" />
 
-					<StackLayout HeightRequest="70" Spacing="5">
+					<Label HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Text="Prove you live in "
+									TextColor="#6F7FAF" />
+								<Span
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Text="{Binding CountryName}"
+									TextColor="#6F7FAF" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+
+					<StackLayout
+						Margin="0,25,0,0"
+						HeightRequest="80"
+						Spacing="10">
 						<Label
-							Margin="15,0,0,0"
+							Margin="10,0,0,0"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="12"
+							FontSize="15"
 							HorizontalTextAlignment="Start"
-							Text="Country"
+							Text="Nationality"
 							TextColor="#6F7FAF"
 							VerticalTextAlignment="Start" />
 
@@ -111,7 +139,7 @@
 							FontFamily="{StaticResource SFProRegularFontFamily}"
 							FontSize="15"
 							HorizontalTextAlignment="Start"
-							Text="Select a Identificator"
+							Text="Select a document"
 							TextColor="#6F7FAF"
 							VerticalTextAlignment="Start" />
 
@@ -134,7 +162,7 @@
 									FontFamily="{StaticResource SFProRegularFontFamily}"
 									FontSize="16"
 									HorizontalTextAlignment="Start"
-									Text="ID number"
+									Text="State/national identity card"
 									TextColor="#6F7FAF"
 									VerticalTextAlignment="Center" />
 
@@ -169,7 +197,7 @@
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
-								Text="Driver license number"
+								Text="Driver license"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Center" />
 
@@ -204,7 +232,7 @@
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
-								Text="Passport number"
+								Text="Passport"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Center" />
 

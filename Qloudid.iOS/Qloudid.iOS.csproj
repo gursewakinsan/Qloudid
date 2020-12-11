@@ -194,4 +194,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconDefaultProfilePic.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconQrCodeScanner.png" />
+  </ItemGroup>
 </Project>

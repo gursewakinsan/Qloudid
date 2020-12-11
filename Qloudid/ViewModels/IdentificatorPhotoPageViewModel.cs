@@ -106,6 +106,7 @@ namespace Qloudid.ViewModels
 		#region Properties.
 		public Image Image1 { get; set; }
 		public Image Image2 { get; set; }
+		public string SelectedIdentificatorText => Helper.Helper.SelectedIdentificatorText;
 		#endregion
 	}
 }

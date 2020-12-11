@@ -39,11 +39,28 @@
 						</ImageButton>
 					</Grid>
 
+					<Label HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span
+									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+									FontSize="28"
+									Text="Your "
+									TextColor="Black" />
+								<Span
+									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+									FontSize="28"
+									Text="{Binding IdentificatorPlaceholder}"
+									TextColor="Black" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+
 					<Label
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
-						Text="Identify"
+						Text="details"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -57,11 +74,10 @@
 						WidthRequest="40" />
 
 					<Label
-						x:Name="lblIdentificator"
 						Margin="0,50,0,24"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
+						Text="Add these details for verification."
 						TextColor="#6F7FAF"
 						VerticalTextAlignment="Start" />
 				</StackLayout>
@@ -76,12 +92,23 @@
 					<StackLayout Grid.Row="0" Spacing="5">
 						<Label
 							Margin="15,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="12"
 							HorizontalTextAlignment="Start"
-							Text="Identificator"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Start" />
+							VerticalTextAlignment="Start">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="12"
+										Text="{Binding IdentificatorTitle}"
+										TextColor="#6F7FAF" />
+									<Span
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="12"
+										Text="number"
+										TextColor="#6F7FAF" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
 
 						<Frame
 							Padding="0"

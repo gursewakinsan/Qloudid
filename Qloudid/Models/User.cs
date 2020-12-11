@@ -8,6 +8,7 @@
 		public int user_id { get; set; }
 		public int result { get; set; }
 		public string certificate_key { get; set; }
+		public string UserImage { get; set; }
 		public string DisplayUserName => $"{first_name} {last_name}";
 	}
 }

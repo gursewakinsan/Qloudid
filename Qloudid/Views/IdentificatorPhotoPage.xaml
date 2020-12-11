@@ -44,7 +44,15 @@
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
-						Text="Identificator Photo"
+						Text="Upload your"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="document"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -60,11 +68,25 @@
 					<Label
 						Margin="0,50,0,24"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="Please upload identificator photo's"
-						TextColor="#6F7FAF"
-						VerticalTextAlignment="Start" />
+						VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span
+									FontSize="16"
+									Text="Upload front and back of your "
+									TextColor="#6F7FAF" />
+								<Span
+									FontSize="16"
+									Text="{Binding SelectedIdentificatorText}"
+									TextColor="#6F7FAF" />
+								<Span
+									FontSize="16"
+									Text=" by clicking on these 2 grey images below."
+									TextColor="#6F7FAF" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<Image
 						x:Name="image1"
