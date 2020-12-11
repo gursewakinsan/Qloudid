@@ -14,6 +14,7 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			UserInfo = Helper.Helper.UserInfo;
+			UserImage = UserInfo.UserImage;
 		}
 		#endregion
 
@@ -71,12 +72,71 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Get User Image Command.
+		private ICommand getUserImageCommand;
+		public ICommand GetUserImageCommand
+		{
+			get => getUserImageCommand ?? (getUserImageCommand = new Command(async () => await ExecuteGetUserImageCommand()));
+		}
+		private async Task ExecuteGetUserImageCommand()
+		{
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.QrCertificateKey))
+			{
+				//DependencyService.Get<IProgressBar>().Show();
+				ILoginService service = new LoginService();
+				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+				if (response.result > 0)
+				{
+					UserImage = response.image;
+					Helper.Helper.UserInfo.UserImage = response.image;
+				}
+				//DependencyService.Get<IProgressBar>().Hide();
+			}
+		}
+		#endregion
+
 		#region Properties.
 		public Models.User UserInfo { get; set; }
 		//public string UserImage => Helper.Helper.UserInfo.UserImage; //$"https://www.qloudid.com/estorecss/tmp.jpg";
+
+		private string userImage;
+		public string UserImage
+		{
+			get => userImage;
+			set
+			{
+				userImage = value;
+				OnPropertyChanged("UserImage");
+				IsUserImage = string.IsNullOrEmpty(value) ? false : true;
+				IsAppLogo = string.IsNullOrEmpty(UserImage) ? true : false;
+			}
+		}
+		
 		public string AppVersion => Xamarin.Essentials.VersionTracking.CurrentVersion;
-		public bool IsUserImage => string.IsNullOrEmpty(UserInfo.UserImage) ? false : true;
-		public bool IsAppLogo => string.IsNullOrEmpty(UserInfo.UserImage) ? true : false;
+
+		private bool isUserImage;
+		public bool IsUserImage
+		{
+			get => isUserImage;
+			set
+			{
+				isUserImage = value;
+				OnPropertyChanged("IsUserImage");
+			}
+		}
+
+		private bool isAppLogo;
+		public bool IsAppLogo
+		{
+			get => isAppLogo;
+			set
+			{
+				isAppLogo = value;
+				OnPropertyChanged("IsAppLogo");
+			}
+		}
+		//public bool IsUserImage => string.IsNullOrEmpty(UserImage) ? false : true;
+		//public bool IsAppLogo => string.IsNullOrEmpty(UserImage) ? true : false;
 		#endregion
 	}
 }

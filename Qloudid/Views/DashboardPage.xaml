@@ -32,7 +32,7 @@
 					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsUserImage}"
-					Source="{Binding UserInfo.UserImage}"
+					Source="{Binding UserImage}"
 					VerticalOptions="EndAndExpand"
 					WidthRequest="160" />
 

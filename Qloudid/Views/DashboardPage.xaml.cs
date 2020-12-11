@@ -22,6 +22,7 @@ namespace Qloudid.Views
 		{
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
 				viewModel.LoginFromUrlIpCommand.Execute(null);
+			viewModel.GetUserImageCommand.Execute(null);
 			base.OnAppearing();
 		}
 
