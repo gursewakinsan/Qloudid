@@ -47,7 +47,7 @@ namespace Qloudid.Droid
 			{
 				int index = App.Current.MainPage.Navigation.NavigationStack.Count - 1;
 				var currentPage = App.Current.MainPage.Navigation.NavigationStack[index];
-				if (currentPage is Views.DashboardPage || currentPage is Views.HomePage || currentPage is Views.TimeOutPage)
+				if (currentPage is Views.DashboardPage || currentPage is Views.RestorePage || currentPage is Views.TimeOutPage)
 				{
 					if (!PressBackTwiceToExit())
 					{

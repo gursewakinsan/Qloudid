@@ -17,7 +17,7 @@ namespace Qloudid.Views
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
 			{
 				Helper.Helper.IpFromURL = string.Empty;
-				Application.Current.MainPage = new NavigationPage(new HomePage());
+				Application.Current.MainPage = new NavigationPage(new RestorePage());
 			}
 			base.OnDisappearing();
 		}
