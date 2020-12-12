@@ -14,6 +14,7 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			UserInfo = Helper.Helper.UserInfo;
+			if (UserInfo == null) UserInfo = new Models.User();
 			if (UserInfo.UserImage == null)
 				UserImage = string.Empty;
 			else
