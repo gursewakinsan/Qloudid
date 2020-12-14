@@ -20,8 +20,8 @@ namespace Qloudid.Views
 
 		protected override void OnAppearing()
 		{
-			if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
-				viewModel.LoginFromUrlIpCommand.Execute(null);
+			//if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
+			//	viewModel.LoginFromUrlIpCommand.Execute(null);
 			viewModel.GetUserImageCommand.Execute(null);
 			base.OnAppearing();
 		}

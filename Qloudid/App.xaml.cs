@@ -16,7 +16,12 @@ namespace Qloudid
 			if (string.IsNullOrWhiteSpace(ipFromWeb))
 				MainPage = new NavigationPage(new Views.RestorePage());
 			else
-				MainPage = new NavigationPage(new Views.DashboardPage());
+			{
+				if (Application.Current.Properties.ContainsKey("QrCode"))
+					MainPage = new NavigationPage(new Views.SignInFromWebPage());
+				else
+					MainPage = new NavigationPage(new Views.RestorePage());
+			}
 		}
 
 		protected override void OnStart()
@@ -56,10 +61,13 @@ namespace Qloudid
 								if (Application.Current.Properties.ContainsKey("QrCode"))
 								{
 									Helper.Helper.IpFromURL = msg.Replace("&", " ");
-									Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+									Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage());
 								}
 								else
+								{
 									Helper.Helper.IsFirstTime = false;
+									Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+								}
 								/* Device.BeginInvokeOnMainThread(async () =>
                                  {
                                      await Current.MainPage.DisplayAlert("ip", msg.Replace("&", " "), "ok");
