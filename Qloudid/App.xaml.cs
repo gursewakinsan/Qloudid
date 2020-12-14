@@ -9,12 +9,13 @@ namespace Qloudid
 {
 	public partial class App : Application
 	{
+		public static byte[] CroppedImage;
 		public App(string ipFromWeb)
 		{
 			InitializeComponent();
-			GetCountries();
+			//GetCountries();
 			if (string.IsNullOrWhiteSpace(ipFromWeb))
-				MainPage = new NavigationPage(new Views.RestorePage());
+				MainPage = new NavigationPage(new Views.TestPage());
 			else
 			{
 				if (Application.Current.Properties.ContainsKey("QrCode"))
