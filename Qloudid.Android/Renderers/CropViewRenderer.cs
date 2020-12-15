@@ -27,18 +27,57 @@ namespace Qloudid.Droid.Renderers
 				Bitmap bitmp = BitmapFactory.DecodeByteArray(page.Image, 0, page.Image.Length);
 				cropImageView.SetImageBitmap(bitmp);
 
-				var scrollView = new ScrollView { Content = cropImageView.ToView() };
-				var stackLayout = new StackLayout { Children = { scrollView } };
+				var imageContent = new ContentView 
+				{
+					Content = cropImageView.ToView(), 
+					HorizontalOptions=LayoutOptions.FillAndExpand,
+					VerticalOptions=LayoutOptions.CenterAndExpand
+				};
+				//var scrollView = new ScrollView { Content = cropImageView.ToView() };
+				var stackLayout = new StackLayout { Children = { imageContent }, Spacing = 0 };
 
-				var rotateButton = new Button { Text = "Rotate" };
+				var stackLayoutButtons = new StackLayout
+				{
+					Orientation = StackOrientation.Horizontal,
+					HeightRequest = 50,
+					Spacing = 40, Margin=new Thickness(0,0,0,20),
+					VerticalOptions = LayoutOptions.EndAndExpand,
+					HorizontalOptions = LayoutOptions.CenterAndExpand
+				};
+				var closeButton = new ImageButton 
+				{
+					Source = "iconClose.png",
+					Padding = new Thickness(15),
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					BackgroundColor = Xamarin.Forms.Color.Transparent
+				};
+				closeButton.Clicked += (sender, ex) =>
+				{
+					page.Navigation.PopModalAsync();
+				};
+				stackLayoutButtons.Children.Add(closeButton);
+
+				var rotateButton = new ImageButton
+				{
+					Source= "iconRotateToRight.png",
+					Padding = new Thickness(12),
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					BackgroundColor = Xamarin.Forms.Color.Transparent
+				};
 
 				rotateButton.Clicked += (sender, ex) =>
 				{
 					cropImageView.RotateImage(90);
 				};
-				stackLayout.Children.Add(rotateButton);
+				stackLayoutButtons.Children.Add(rotateButton);
 
-				var finishButton = new Button { Text = "Finished" };
+				var finishButton = new ImageButton 
+				{ 
+					Source = "iconChecked.png" ,
+					Padding = new Thickness(12),
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					BackgroundColor = Xamarin.Forms.Color.Transparent
+				};
 				finishButton.Clicked += (sender, ex) =>
 				{
 					Bitmap cropped = cropImageView.CroppedImage;
@@ -51,7 +90,8 @@ namespace Qloudid.Droid.Renderers
 					page.Navigation.PopModalAsync();
 				};
 
-				stackLayout.Children.Add(finishButton);
+				stackLayoutButtons.Children.Add(finishButton);
+				stackLayout.Children.Add(stackLayoutButtons);
 				page.Content = stackLayout;
 			}
 		}

@@ -15,7 +15,7 @@ namespace Qloudid
 			InitializeComponent();
 			//GetCountries();
 			if (string.IsNullOrWhiteSpace(ipFromWeb))
-				MainPage = new NavigationPage(new Views.TestPage());
+				MainPage = new NavigationPage(new Views.IdentificatorPhotoPage());
 			else
 			{
 				if (Application.Current.Properties.ContainsKey("QrCode"))

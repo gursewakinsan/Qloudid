@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Qloudid.ViewModels;
+using System;
+using System.Diagnostics;
 using System.IO;
 using Plugin.Media;
-using Xamarin.Forms;
-using Qloudid.ViewModels;
-using Xamarin.Forms.Xaml;
+using Plugin.Media.Abstractions;
 using System.Threading.Tasks;
 
 namespace Qloudid.Views
@@ -11,7 +13,10 @@ namespace Qloudid.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class IdentificatorPhotoPage : ContentPage
 	{
+		ImageSource _imageSource;
+		private IMedia _mediaPicker;
 		IdentificatorPhotoPageViewModel viewModel;
+		int index = 0;
 		public IdentificatorPhotoPage()
 		{
 			InitializeComponent();
@@ -22,14 +27,15 @@ namespace Qloudid.Views
 		#region Image Data1 Clicked.
 		private async void ImageData1Clicked(object sender, EventArgs e)
 		{
+			index = 1;
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
 			{
 				case "Take Photo":
-					await TakePhoto(1);
+					await TakePhoto();
 					break;
 				case "Pick Photo":
-					await PickPhoto(1);
+					await PickPhoto();
 					break;
 			}
 		}
@@ -38,121 +44,115 @@ namespace Qloudid.Views
 		#region Image Data2 Clicked.
 		private async void ImageData2Clicked(object sender, EventArgs e)
 		{
+			index = 2;
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
 			{
 				case "Take Photo":
-					await TakePhoto(2);
+					await TakePhoto();
 					break;
 				case "Pick Photo":
-					await PickPhoto(2);
+					await PickPhoto();
 					break;
 			}
 		}
 		#endregion
 
+		#region Refresh.
+		private void Refresh()
+		{
+			try
+			{
+				if (App.CroppedImage != null)
+				{
+					Stream stream = new MemoryStream(App.CroppedImage);
+					if (index == 1)
+					{
+						image1.Source = ImageSource.FromStream(() => stream);
+						viewModel.Image1 = image1;
+					}
+					else
+					{
+						image2.Source = ImageSource.FromStream(() => stream);
+						viewModel.Image2 = image2;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+		}
+		#endregion
+
+		#region Setup.
+		private async void Setup()
+		{
+			if (_mediaPicker != null) return;
+			////RM: hack for working on windows phone? 
+			await CrossMedia.Current.Initialize();
+			_mediaPicker = CrossMedia.Current;
+		}
+		#endregion
+
+		#region Pick Photo.
+		private async Task PickPhoto()
+		{
+			Setup();
+			_imageSource = null;
+			try
+			{
+				var mediaFile = await this._mediaPicker.PickPhotoAsync(new PickMediaOptions()
+				{
+					PhotoSize = PhotoSize.Small,
+					CompressionQuality = 80
+					//CustomPhotoSize = 50
+				});
+				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
+				var memoryStream = new MemoryStream();
+				await mediaFile.GetStream().CopyToAsync(memoryStream);
+				byte[] imageAsByte = memoryStream.ToArray();
+				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+			}
+			catch (System.Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+		}
+		#endregion
+
 		#region Take Photo.
-		private async Task TakePhoto(int index)
+		private async Task TakePhoto()
 		{
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
 			{
 				await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
 				return;
 			}
-
-			var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+			Setup();
+			_imageSource = null;
+			try
 			{
-				PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
-				Directory = "Sample",
-				Name = "test.jpg"
-			});
-
-			if (file == null) return;
-			var stream = file.GetStream();
-			if (index == 1)
-			{
-
-				//Helper.Helper.StreamImageData1 = stream;
-				//viewModel.StreamImageData1 = stream;
-				//image1.Source = ImageSource.FromStream(() => stream);
-				//viewModel.Image1 = image1;
-				image1.Source = ImageSource.FromStream(() =>
+				/*var mediaFile = await this._mediaPicker.TakePhotoAsync(new StoreCameraMediaOptions
 				{
-					return file.GetStream();
-				});
-				viewModel.Image1 = image1;
-			}
-			else
-			{
-				image2.Source = ImageSource.FromStream(() =>
+					DefaultCamera = CameraDevice.Rear
+				});*/
+				var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 				{
-					return file.GetStream();
+					PhotoSize = PhotoSize.Medium,
+					CompressionQuality = 90,
+					//CustomPhotoSize = 50
 				});
-				viewModel.Image2 = image2;
-				//viewModel.StreamImageData2 = stream;
-				//image2.Source = ImageSource.FromStream(() => stream);
+				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
+				var memoryStream = new MemoryStream();
+				await mediaFile.GetStream().CopyToAsync(memoryStream);
+				byte[] imageAsByte = memoryStream.ToArray();
+				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
 			}
-			//file.Dispose();
-
-			/*var stream1 = file.GetStream();
-			var bytes = new byte[stream1.Length];
-			await stream1.ReadAsync(bytes, 0, (int)stream1.Length);
-			if (index == 1)
-				viewModel.ImageData1 = Convert.ToBase64String(bytes);
-			else
-				viewModel.ImageData2 = Convert.ToBase64String(bytes);*/
-		}
-		#endregion
-
-		#region Pick Photo.
-		private async Task PickPhoto(int index)
-		{
-			if (!CrossMedia.Current.IsPickPhotoSupported)
+			catch (Exception ex)
 			{
-				await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
-				return;
+				Debug.WriteLine(ex.Message);
 			}
-
-			//Stream stream = null;
-			var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
-			{
-				PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small
-			});
-
-			if (file == null) return;
-		//	stream = file.GetStream();
-			if (index == 1)
-			{
-				//viewModel.StreamImageData1 = stream;
-				//image1.Source = ImageSource.FromStream(() => stream);
-				
-				image1.Source = ImageSource.FromStream(() =>
-				{
-					return file.GetStream();
-				});
-				viewModel.Image1 = image1;
-			}
-			else
-			{
-				image2.Source = ImageSource.FromStream(() =>
-				{
-					return file.GetStream();
-				});
-				viewModel.Image2 = image2;
-				//Helper.Helper.StreamImageData2 = stream;
-				//viewModel.StreamImageData2 = stream;
-				//image2.Source = ImageSource.FromStream(() => stream);
-			}
-			//file.Dispose();
-
-			/*var stream1 = file.GetStream();
-			var bytes = new byte[stream1.Length];
-			await stream1.ReadAsync(bytes, 0, (int)stream1.Length);
-			if (index == 1)
-				viewModel.ImageData1 = Convert.ToBase64String(bytes);
-			else
-				viewModel.ImageData2 = Convert.ToBase64String(bytes);*/
-
 		}
 		#endregion
 	}

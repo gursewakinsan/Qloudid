@@ -97,7 +97,7 @@ namespace Qloudid.Views
 			{
 				var mediaFile = await this._mediaPicker.TakePhotoAsync(new StoreCameraMediaOptions
 				{
-					DefaultCamera = CameraDevice.Front
+					DefaultCamera = CameraDevice.Rear
 				});
 
 				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
