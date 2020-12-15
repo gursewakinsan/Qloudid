@@ -69,12 +69,14 @@ namespace Qloudid.Views
 					if (index == 1)
 					{
 						image1.Source = ImageSource.FromStream(() => stream);
-						viewModel.Image1 = image1;
+						//viewModel.Image1 = image1;
+						viewModel.CroppedImage1 = App.CroppedImage;
 					}
 					else
 					{
 						image2.Source = ImageSource.FromStream(() => stream);
-						viewModel.Image2 = image2;
+						viewModel.CroppedImage2 = App.CroppedImage;
+						//viewModel.Image2 = image2;
 					}
 				}
 			}

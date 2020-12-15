@@ -26,37 +26,31 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteUploadAddIdentificatorImagesCommand()
 		{
-			if (Image1 == null || Image2 == null)
+			if (CroppedImage1 == null || CroppedImage2 == null)
 				await Helper.Alert.DisplayAlert("Please select photo's.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				ICreateAccountService service = new CreateAccountService();
-				//	var bytes1 = new byte[Helper.Helper.StreamImageData1.Length];
-				//await Helper.Helper.StreamImageData1.ReadAsync(bytes1, 0, (int)Helper.Helper.StreamImageData1.Length);
-				//ImageData1 = Convert.ToBase64String(bytes1);
 
-				//var bytes2 = new byte[StreamImageData2.Length];
-				//await StreamImageData2.ReadAsync(bytes2, 0, (int)StreamImageData2.Length);
-				//ImageData2 = Convert.ToBase64String(bytes2);
+			/*Stream stream1 = await GetStreamFromImageSourceAsync(Image1.Source);
+			var bytes1 = new byte[stream1.Length];
+			await stream1.ReadAsync(bytes1, 0, (int)stream1.Length);
+			string imageData1 = Convert.ToBase64String(bytes1);*/
+			string imageData1 = Convert.ToBase64String(CroppedImage1);
 
-				Stream stream1 = await GetStreamFromImageSourceAsync(Image1.Source);
-				var bytes1 = new byte[stream1.Length];
-				await stream1.ReadAsync(bytes1, 0, (int)stream1.Length);
-				string imageData1 = Convert.ToBase64String(bytes1);
-
-				Stream stream2 = await GetStreamFromImageSourceAsync(Image2.Source);
+			/*Stream stream2 = await GetStreamFromImageSourceAsync(Image2.Source);
 				var bytes2 = new byte[stream2.Length];
 				await stream2.ReadAsync(bytes2, 0, (int)stream2.Length);
-				string imageData2 = Convert.ToBase64String(bytes2);
+				string imageData2 = Convert.ToBase64String(bytes2);*/
+			string imageData2 = Convert.ToBase64String(CroppedImage2);
 
-				Models.AddIdentificatorImagesRequest request1 = new Models.AddIdentificatorImagesRequest()
+			Models.AddIdentificatorImagesRequest request1 = new Models.AddIdentificatorImagesRequest()
 				{
 					ImageData = imageData1,
 					imageId = 1,
 					UserId = Helper.Helper.UserId
 				};
-				//stream1.Close();
 				int response1 = await service.UploadAddIdentificatorImagesAsync(request1);
 				if (response1 == 0)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
@@ -68,7 +62,6 @@ namespace Qloudid.ViewModels
 						imageId = 2,
 						UserId = Helper.Helper.UserId
 					};
-					//stream2.Close();
 					int response2 = await service.UploadAddIdentificatorImagesAsync(request2);
 					if (response2 == 0)
 						await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
@@ -108,6 +101,10 @@ namespace Qloudid.ViewModels
 		#region Properties.
 		public Image Image1 { get; set; }
 		public Image Image2 { get; set; }
+
+		public byte[] CroppedImage1;
+
+		public byte[] CroppedImage2;
 		public string SelectedIdentificatorText => Helper.Helper.SelectedIdentificatorText;
 		#endregion
 	}
