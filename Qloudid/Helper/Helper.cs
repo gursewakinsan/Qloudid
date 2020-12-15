@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.IO;
+using Xamarin.Forms;
+using Newtonsoft.Json;
+using System.Reflection;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Qloudid.Helper
@@ -24,6 +29,9 @@ namespace Qloudid.Helper
 		   @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
 		   RegexOptions.IgnoreCase);
 		}
+
+		
+
 		public static string QrCertificateKey { get; set; }
 		public static Models.User UserInfo { get; set; }
 		public static bool IsFirstTime { get; set; } = true;

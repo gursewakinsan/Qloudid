@@ -13,8 +13,9 @@ namespace Qloudid
 		public App(string ipFromWeb)
 		{
 			InitializeComponent();
-			GetCountries();
-			if (string.IsNullOrWhiteSpace(ipFromWeb))
+			MainPage = new NavigationPage(new Views.RestorePage());
+			//GetCountries();
+			/*if (string.IsNullOrWhiteSpace(ipFromWeb))
 				MainPage = new NavigationPage(new Views.RestorePage());
 			else
 			{
@@ -22,7 +23,15 @@ namespace Qloudid
 					MainPage = new NavigationPage(new Views.SignInFromWebPage());
 				else
 					MainPage = new NavigationPage(new Views.RestorePage());
-			}
+			}*/
+		}
+
+		public void OpenAppFromWeb()
+		{
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+				MainPage = new NavigationPage(new Views.SignInFromWebPage());
+			else
+				MainPage = new NavigationPage(new Views.RestorePage());
 		}
 
 		protected override void OnStart()

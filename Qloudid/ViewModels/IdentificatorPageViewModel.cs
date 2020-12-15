@@ -11,6 +11,9 @@ namespace Qloudid.ViewModels
 		public IdentificatorPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			var res = Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode));
+			if (res != null)
+				CountryName = res.CountryName;
 		}
 		#endregion
 
@@ -41,7 +44,17 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public string CountryName => Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode)).CountryName;
+		//public string CountryName => "hhhh";//Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode)).CountryName;
+		public string countryName = string.Empty;
+		public string CountryName
+		{
+			get => countryName;
+			set
+			{
+				countryName = value;
+				OnPropertyChanged("CountryName");
+			}
+		}
 		#endregion
 	}
 }

@@ -99,6 +99,7 @@ namespace Qloudid.ViewModels
 				}
 				//DependencyService.Get<IProgressBar>().Hide();
 			}
+			//Helper.Helper.GetCountries();
 		}
 		#endregion
 

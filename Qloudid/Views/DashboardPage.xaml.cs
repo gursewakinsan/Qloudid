@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
+using System.Reflection;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using ZXing.Net.Mobile.Forms;
 
 namespace Qloudid.Views
@@ -22,8 +26,21 @@ namespace Qloudid.Views
 		{
 			//if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
 			//	viewModel.LoginFromUrlIpCommand.Execute(null);
+			GetCountries();
 			viewModel.GetUserImageCommand.Execute(null);
 			base.OnAppearing();
+		}
+
+		public void GetCountries()
+		{
+			if (Helper.Helper.CountryList ==null)
+			{
+				string jsonFileName = "CountryJson.json";
+				var assembly = typeof(DashboardPage).GetTypeInfo().Assembly;
+				Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{jsonFileName}");
+				using (var reader = new StreamReader(stream))
+					Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
+			}
 		}
 
 		private async void OnLoginToDesktopClicked(object sender, EventArgs e)

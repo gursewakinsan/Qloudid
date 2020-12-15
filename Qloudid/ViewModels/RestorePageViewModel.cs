@@ -52,6 +52,7 @@ namespace Qloudid.ViewModels
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+				
 				ILoginService service = new LoginService();
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response?.result > 0)

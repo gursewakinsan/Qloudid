@@ -1,5 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Qloudid.ViewModels;
+using System.Reflection;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using Qloudid.ViewModels;
 
 namespace Qloudid.Views
@@ -19,6 +25,19 @@ namespace Qloudid.Views
 		{
 			base.OnAppearing();
 			viewModel.LoginFromUrlIpCommand.Execute(null);
+			GetCountries();
+		}
+
+		public void GetCountries()
+		{
+			if (Helper.Helper.CountryList ==null)
+			{
+				string jsonFileName = "CountryJson.json";
+				var assembly = typeof(SignInFromWebPage).GetTypeInfo().Assembly;
+				Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{jsonFileName}");
+				using (var reader = new StreamReader(stream))
+					Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
+			}
 		}
 	}
 }
