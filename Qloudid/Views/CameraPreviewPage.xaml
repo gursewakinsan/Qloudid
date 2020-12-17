@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.CameraPreviewPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:local="clr-namespace:Qloudid.CameraView"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid
+			Margin="20"
+			ColumnSpacing="0"
+			RowSpacing="30">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50" />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition Height="100" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="50" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="0"
+				Padding="0,10,15,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+						Size="80"
+						Color="#fff" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="20"
+				HorizontalTextAlignment="Start"
+				Text="Passport"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<Frame
+				Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				Padding="4"
+				BackgroundColor="Transparent"
+				BorderColor="White"
+				CornerRadius="10">
+				<local:CameraPreview
+					Camera="Rear"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand" />
+			</Frame>
+
+			<StackLayout
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				Margin="0,20,0,0"
+				Orientation="Vertical"
+				Spacing="10">
+
+				<Label
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="30"
+					HorizontalTextAlignment="Center"
+					Text="Front of Passport"
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Center"
+					MaxLines="2"
+					Text="Upload the front of your Passport.&#10; Take a clear photo"
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+			</StackLayout>
+
+			<ImageButton
+				Grid.Row="3"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				Padding="10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="CenterAndExpand"
+				Source="icontakePhotoButton.png" />
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

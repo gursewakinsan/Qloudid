@@ -8,5 +8,7 @@
 		public const string CheckboxBlankOutline = "\U000f0131";
 		public const string ChevronRight = "\U000f0142";
 		public const string RotateRight = "\U000f0467";
+		public const string LessThan = "\U000f097c";
+		public const string ArrowLeft = "\U000f004d";
 	}
 }

@@ -83,6 +83,8 @@
   <ItemGroup>
     <Compile Include="Effects\NoKeyboardEffect_Droid.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\CameraPreviewRenderer.cs" />
+    <Compile Include="Renderers\CameraPreview_Droid.cs" />
     <Compile Include="Renderers\CropViewRenderer.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
@@ -163,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconRotateToRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icontakePhotoButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

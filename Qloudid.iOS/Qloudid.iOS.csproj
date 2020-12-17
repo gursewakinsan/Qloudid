@@ -73,10 +73,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CameraPreviewRenderer.cs" />
     <Compile Include="Renderers\CropViewRenderer.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
+    <Compile Include="Renderers\UICameraPreview.cs" />
     <Compile Include="Services\ProgressBar.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
@@ -200,5 +202,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\iconQrCodeScanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icontakePhotoButton.png" />
   </ItemGroup>
 </Project>
