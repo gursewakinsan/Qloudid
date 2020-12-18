@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,9 +8,10 @@ namespace Qloudid.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CameraPreviewPage : ContentPage
 	{
-		public CameraPreviewPage()
+		public CameraPreviewPage(string frontOrBack)
 		{
 			InitializeComponent();
+			BindLabelText(frontOrBack);
 		}
 
         async void CameraPreview_ClickEvent(System.Object sender, System.EventArgs e)
@@ -25,5 +27,15 @@ namespace Qloudid.Views
 			Helper.Helper.IsCameraPageImageClicked = false;
 			await Navigation.PopAsync();
 		}
-    }
+
+		void BindLabelText(string frontOrBackPick)
+		{
+			string text = Helper.Helper.SelectedIdentificatorText;
+			if (Helper.Helper.SelectedIdentificatorText == "ID")
+				text = "ID Card";
+			lblNatigationTitle.Text = text;
+			lblHeading.Text = $"{frontOrBackPick} of {text}";
+			lblSubHeading.Text = $"Upload the front of your {text}.{Environment.NewLine} Take a clear photo";
+		}
+	}
 }

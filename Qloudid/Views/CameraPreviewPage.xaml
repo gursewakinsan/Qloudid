@@ -15,7 +15,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="50" />
 				<RowDefinition />
-				<RowDefinition />
+				<RowDefinition Height="100"/>
 				<RowDefinition Height="100" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
@@ -45,24 +45,16 @@
 				FontFamily="{StaticResource SFProRegularFontFamily}"
 				FontSize="20"
 				HorizontalTextAlignment="Start"
-				Text="Passport"
-				TextColor="White"
+				TextColor="White" x:Name="lblNatigationTitle"
 				VerticalTextAlignment="Center" />
 
-			<Frame
-				Grid.Row="1"
+			<local:CameraPreview x:Name="cameraPreview" Grid.Row="1"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
-				Padding="4"
-				BackgroundColor="Transparent"
-				BorderColor="White"
-				CornerRadius="10">
-				<local:CameraPreview x:Name="cameraPreview"
 					Camera="Rear"
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="FillAndExpand" />
-			</Frame>
-
+			
 			<StackLayout
 				Grid.Row="2"
 				Grid.Column="0"
@@ -75,16 +67,14 @@
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="30"
 					HorizontalTextAlignment="Center"
-					Text="Front of Passport"
-					TextColor="White"
+					TextColor="White" x:Name="lblHeading"
 					VerticalTextAlignment="Start" />
 
 				<Label
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="20"
 					HorizontalTextAlignment="Center"
-					MaxLines="2"
-					Text="Upload the front of your Passport.&#10; Take a clear photo"
+					MaxLines="2" x:Name="lblSubHeading"
 					TextColor="White"
 					VerticalTextAlignment="Start" />
 			</StackLayout>

@@ -159,7 +159,10 @@ namespace Qloudid.Views
 				await mediaFile.GetStream().CopyToAsync(memoryStream);
 				byte[] imageAsByte = memoryStream.ToArray();
 				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));*/
-				await Navigation.PushAsync(new CameraPreviewPage());
+				if (index == 1)
+					await Navigation.PushAsync(new CameraPreviewPage("Front"));
+				else
+					await Navigation.PushAsync(new CameraPreviewPage("Back"));
 			}
 			catch (Exception ex)
 			{
