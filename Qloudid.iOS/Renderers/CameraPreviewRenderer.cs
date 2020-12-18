@@ -17,14 +17,19 @@ namespace Qloudid.iOS.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<CameraPreview> e)
         {
             base.OnElementChanged(e);
-
+            CameraPreview cameraClicked = e.NewElement as CameraPreview;
             if (e.OldElement != null)
             {
                 // Unsubscribe
                 uiCameraPreview.Tapped -= OnCameraPreviewTapped;
+                if (cameraClicked != null)
+                    cameraClicked.OnDoing -= OnCameraPreviewTapped;
             }
             if (e.NewElement != null)
             {
+                if (cameraClicked != null)
+                    cameraClicked.OnDoing += OnCameraPreviewTapped;
+
                 if (Control == null)
                 {
                     uiCameraPreview = new UICameraPreview(e.NewElement.Camera);
@@ -42,11 +47,9 @@ namespace Qloudid.iOS.Renderers
                 var videoConnection = uiCameraPreview.stillImageOutput.ConnectionFromMediaType(AVMediaType.Video);
                 var sampleBuffer = await uiCameraPreview.stillImageOutput.CaptureStillImageTaskAsync(videoConnection);
                 var jpegImageAsNsData = AVCaptureStillImageOutput.JpegStillToNSData(sampleBuffer);
-                var jpegAsByteArray = jpegImageAsNsData.ToArray();
+                App.CroppedImage = jpegImageAsNsData.ToArray();
                 uiCameraPreview.CaptureSession.StopRunning();
                 uiCameraPreview.IsPreviewing = false;
-               // App.Imagedata = jpegAsByteArray;
-
             }
             else
             {

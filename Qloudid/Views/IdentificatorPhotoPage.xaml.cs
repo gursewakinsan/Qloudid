@@ -24,8 +24,18 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new IdentificatorPhotoPageViewModel(this.Navigation);
 		}
 
-		#region Image Data1 Clicked.
-		private async void ImageData1Clicked(object sender, EventArgs e)
+        protected async override void OnAppearing()
+        {
+			if (Helper.Helper.IsCameraPageImageClicked)
+			{
+				Helper.Helper.IsCameraPageImageClicked = false;
+				await Navigation.PushModalAsync(new CropView(App.CroppedImage, Refresh));
+			}
+            base.OnAppearing();
+        }
+
+        #region Image Data1 Clicked.
+        private async void ImageData1Clicked(object sender, EventArgs e)
 		{
 			index = 1;
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
@@ -139,17 +149,17 @@ namespace Qloudid.Views
 				{
 					DefaultCamera = CameraDevice.Rear
 				});*/
-				var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+				/*var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 				{
 					PhotoSize = PhotoSize.Medium,
 					CompressionQuality = 90,
-					//CustomPhotoSize = 50
 				});
 				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
 				var memoryStream = new MemoryStream();
 				await mediaFile.GetStream().CopyToAsync(memoryStream);
 				byte[] imageAsByte = memoryStream.ToArray();
-				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));*/
+				await Navigation.PushAsync(new CameraPreviewPage());
 			}
 			catch (Exception ex)
 			{

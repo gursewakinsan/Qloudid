@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace Qloudid.CameraView
 {
@@ -15,5 +16,10 @@ namespace Qloudid.CameraView
 			get { return (CameraOptions)GetValue(CameraProperty); }
 			set { SetValue(CameraProperty, value); }
 		}
+
+
+		public delegate void DoSomeDelegate(object sender, EventArgs e);
+		public DoSomeDelegate OnDoing;
+
 	}
 }

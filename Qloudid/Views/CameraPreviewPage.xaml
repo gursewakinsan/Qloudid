@@ -28,7 +28,7 @@
 				Grid.Column="0"
 				Padding="0,10,15,10"
 				BackgroundColor="Transparent"
-				Command="{Binding CloseCommand}"
+				Clicked="OnBackButtonClicked"
 				HorizontalOptions="StartAndExpand">
 				<ImageButton.Source>
 					<FontImageSource
@@ -57,7 +57,7 @@
 				BackgroundColor="Transparent"
 				BorderColor="White"
 				CornerRadius="10">
-				<local:CameraPreview
+				<local:CameraPreview x:Name="cameraPreview"
 					Camera="Rear"
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="FillAndExpand" />
@@ -95,7 +95,7 @@
 				Grid.ColumnSpan="2"
 				Padding="10"
 				BackgroundColor="Transparent"
-				Command="{Binding CloseCommand}"
+				Clicked="CameraPreview_ClickEvent"
 				HorizontalOptions="CenterAndExpand"
 				Source="icontakePhotoButton.png" />
 		</Grid>

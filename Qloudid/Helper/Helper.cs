@@ -41,5 +41,6 @@ namespace Qloudid.Helper
 		public static int CountryCode { get; set; }
 		public static List<Models.Country> CountryList { get; set; }
 		public static string SelectedIdentificatorText { get; set; }
-	}
+		public static bool IsCameraPageImageClicked { get; set; } = false;
+    }
 }
