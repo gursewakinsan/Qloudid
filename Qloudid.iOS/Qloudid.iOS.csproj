@@ -27,8 +27,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>QloudidDistributionProfile</CodesignProvision>
-    <CodesignKey>Apple Distribution: Ankita Jain (B2R5C8UADD)</CodesignKey>
+    <CodesignProvision>Qloudid-Provisioning-Profile</CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -39,8 +39,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <CodesignProvision>QloudidDistributionProfile</CodesignProvision>
-    <CodesignKey>Apple Distribution: Ankita Jain (B2R5C8UADD)</CodesignKey>
+    <CodesignProvision>Qloudid-Provisioning-Profile</CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>

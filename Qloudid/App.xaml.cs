@@ -13,7 +13,7 @@ namespace Qloudid
 		public App(string ipFromWeb)
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new Views.IdentificatorPhotoPage());
+			MainPage = new NavigationPage(new Views.RestorePage());
 			//GetCountries();
 			/*if (string.IsNullOrWhiteSpace(ipFromWeb))
 				MainPage = new NavigationPage(new Views.RestorePage());

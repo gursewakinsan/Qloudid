@@ -11,7 +11,7 @@ namespace Qloudid.Views
 
 		public CropView(byte[] imageAsByte, Action refreshAction)
 		{
-			NavigationPage.SetHasNavigationBar(this, false);
+			NavigationPage.SetHasNavigationBar(this, true);
 			BackgroundColor = Color.Black;
 			Image = imageAsByte;
 			RefreshAction = refreshAction;

@@ -48,12 +48,21 @@
 				TextColor="White" x:Name="lblNatigationTitle"
 				VerticalTextAlignment="Center" />
 
-			<local:CameraPreview x:Name="cameraPreview" Grid.Row="1"
+			<Frame
+				Grid.Row="1"
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
+				Padding="0"
+				IsClippedToBounds="True"
+				CornerRadius="10"
+				BackgroundColor="Transparent"
+				BorderColor="White">
+				<local:CameraPreview
+					x:Name="cameraPreview"
 					Camera="Rear"
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="FillAndExpand" />
+			</Frame>
 			
 			<StackLayout
 				Grid.Row="2"
