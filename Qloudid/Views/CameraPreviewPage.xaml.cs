@@ -35,7 +35,7 @@ namespace Qloudid.Views
 				text = "ID Card";
 			lblNatigationTitle.Text = text;
 			lblHeading.Text = $"{frontOrBackPick} of {text}";
-			lblSubHeading.Text = $"Upload the front of your {text}.{Environment.NewLine} Take a clear photo";
+			lblSubHeading.Text = $"Upload the {frontOrBackPick.ToLower()} of your {text}.{Environment.NewLine} Take a clear photo";
 		}
 	}
 }
