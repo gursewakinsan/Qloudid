@@ -103,7 +103,7 @@
 								Aspect="AspectFit"
 								HeightRequest="19"
 								HorizontalOptions="Center"
-								Source="iconCountry"
+								Source="iconCountry.png"
 								VerticalOptions="Center"
 								WidthRequest="19" />
 

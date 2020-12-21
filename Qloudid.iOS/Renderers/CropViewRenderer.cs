@@ -63,10 +63,18 @@ namespace Qloudid.iOS.Renderers
 					//picker.AspectRatioLockEnabled = false;
 
 					picker.ChildViewControllerForStatusBarHidden();
-					
+
 					picker.AspectRatioPickerButtonHidden = true;
+					picker.RotateButtonsHidden = true;
+					picker.RotateClockwiseButtonHidden = true;
+					picker.AspectRatioLockEnabled = true;
+					picker.ResetAspectRatioEnabled = false;
+
+
+
+
 					//picker.AspectRatioPreset = TOCropViewControllerAspectRatioPreset.Original;
-					
+
 					picker.Delegate = selector;
 					//picker.DidRotate(UIInterfaceOrientation.LandscapeRight);
 					//picker.ImageCropFrame = new CoreGraphics.CGRect(picker.ImageCropFrame.X, picker.ImageCropFrame.Y, picker.ImageCropFrame.Width, picker.ImageCropFrame.Height - 400);
@@ -101,16 +109,16 @@ namespace Qloudid.iOS.Renderers
 
 					//picker.View = view;
 
-						//picker.Toolbar = new TOCropToolbar();
+					//picker.Toolbar = new TOCropToolbar();
 					PresentViewController(picker, true, null);
 					//UILabel label = picker.TitleLabel;
 					var size = picker.CropView.Bounds;
 
 					//Heading.
 					UILabel labelHeading = new UILabel();
-					labelHeading.Frame = new CoreGraphics.CGRect(size.X, size.Y, size.Width, 75);
+					labelHeading.Frame = new CoreGraphics.CGRect(size.X, size.Height - 210, size.Width, 75);
 					labelHeading.Text = "Crop Image";
-					labelHeading.Font = UIFont.SystemFontOfSize(20);
+					labelHeading.Font = UIFont.SystemFontOfSize(30);
 					labelHeading.TextAlignment = UITextAlignment.Center;
 					labelHeading.TextColor = UIColor.White;
 
@@ -119,12 +127,12 @@ namespace Qloudid.iOS.Renderers
 					if (text == "ID") text = "ID Card";
 					//text = "ID Card";
 					UILabel labelSubHeading = new UILabel();
-					labelSubHeading.Frame = new CoreGraphics.CGRect(size.X, size.Y, size.Width, 170);
+					labelSubHeading.Frame = new CoreGraphics.CGRect(size.X, size.Height - 200, size.Width, 170);
 					labelSubHeading.Text = $"Use the marker to mark the area around your card. So that we only see your {text}.";
-					labelSubHeading.Font = UIFont.SystemFontOfSize(12);
+					labelSubHeading.Font = UIFont.SystemFontOfSize(20);
 					labelSubHeading.TextAlignment = UITextAlignment.Center;
 					labelSubHeading.TextColor = UIColor.White;
-					labelSubHeading.Lines = 2;
+					labelSubHeading.Lines = 3;
 					labelSubHeading.LineBreakMode = UILineBreakMode.WordWrap;
 
 
@@ -139,9 +147,9 @@ namespace Qloudid.iOS.Renderers
 					picker.Add(view);
 					//PresentViewController(picker, true, null);
 					//picker.CropView.AddSubview(view);
-					picker.CustomAspectRatio = new CoreGraphics.CGSize(700, 500);
+					picker.CustomAspectRatio = new CoreGraphics.CGSize(600, 400);
 					picker.ModalPresentationStyle = UIModalPresentationStyle.Custom;
-					
+
 				}
 			}
 			catch (Exception ex)
@@ -172,7 +180,7 @@ namespace Qloudid.iOS.Renderers
 		public CropViewDelegate(UIViewController parent)
 		{
 			parent.Title = "hello all iam title";
-			
+
 			this.parent = parent;
 		}
 

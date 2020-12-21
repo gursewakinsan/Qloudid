@@ -27,7 +27,7 @@
 					Spacing="0"
 					VerticalOptions="StartAndExpand">
 					<ImageButton
-						Padding="40"
+						Padding="45"
 						BackgroundColor="Transparent"
 						BorderColor="#05CBE7"
 						BorderWidth="2"

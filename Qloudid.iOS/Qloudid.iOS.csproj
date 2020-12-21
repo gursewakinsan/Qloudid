@@ -207,6 +207,6 @@
     <BundleResource Include="Resources\icontakePhotoButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\iconCountry.PNG" />
+    <BundleResource Include="Resources\iconCountry.png" />
   </ItemGroup>
 </Project>
