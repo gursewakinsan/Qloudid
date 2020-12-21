@@ -70,17 +70,31 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<controls:CustomEntry
-							Grid.Column="2"
-							Margin="15,0,15,0"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							Keyboard="Email"
-							Placeholder="Email"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding Email}"
-							TextColor="#6F7FAF" />
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="19"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Email}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Keyboard="Email"
+								Placeholder="Email"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding Email}"
+								TextColor="#6F7FAF" />
+						</Grid>
 					</Frame>
 
 					<controls:CustomButton

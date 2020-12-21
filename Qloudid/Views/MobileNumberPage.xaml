@@ -71,15 +71,25 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<Grid Margin="15,0,15,0" ColumnSpacing="5">
+						<Grid Margin="10,0,15,0" ColumnSpacing="5">
 							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="25" />
 								<ColumnDefinition Width="auto" />
 								<ColumnDefinition Width="1" />
 								<ColumnDefinition />
 							</Grid.ColumnDefinitions>
-
 							<Label
 								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="19"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Column="1"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
@@ -88,13 +98,14 @@
 								VerticalTextAlignment="Center" />
 
 							<BoxView
-								Grid.Column="1"
+								Grid.Column="2"
 								BackgroundColor="#6F7FAF"
-								Opacity="0.2"
-								VerticalOptions="Center" />
+								HeightRequest="25"
+								Opacity="0.1"
+								VerticalOptions="CenterAndExpand" />
 
 							<controls:CustomEntry
-								Grid.Column="2"
+								Grid.Column="3"
 								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"

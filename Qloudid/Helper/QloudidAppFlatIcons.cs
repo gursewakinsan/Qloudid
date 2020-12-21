@@ -10,5 +10,11 @@
 		public const string RotateRight = "\U000f0467";
 		public const string LessThan = "\U000f097c";
 		public const string ArrowLeft = "\U000f004d";
+		public const string Account = "\U000f0004";
+		public const string Email = "\U000f01ee";
+		public const string CellphoneAndroid = "\U000f011d";
+		public const string CardAccountDetailsOutline = "\U000f0dab";
+		public const string CalendarText = "\U000f00f5";
+		public const string CheckboxMarkedCircleOutline = "\U000f0134";
 	}
 }

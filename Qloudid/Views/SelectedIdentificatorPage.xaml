@@ -84,41 +84,36 @@
 
 				<Grid RowSpacing="20" VerticalOptions="StartAndExpand">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="70" />
-						<RowDefinition Height="70" />
-						<RowDefinition Height="70" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
 						<RowDefinition Height="70" />
 					</Grid.RowDefinitions>
-					<StackLayout Grid.Row="0" Spacing="5">
-						<Label
-							Margin="15,0,0,0"
-							HorizontalTextAlignment="Start"
-							VerticalTextAlignment="Start">
-							<Label.FormattedText>
-								<FormattedString>
-									<Span
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="12"
-										Text="{Binding IdentificatorTitle}"
-										TextColor="#6F7FAF" />
-									<Span
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="12"
-										Text=" number"
-										TextColor="#6F7FAF" />
-								</FormattedString>
-							</Label.FormattedText>
-						</Label>
 
-						<Frame
-							Padding="0"
-							BackgroundColor="#F8F8FB"
-							CornerRadius="25"
-							HasShadow="False"
-							HeightRequest="50">
+					<Frame
+						Grid.Row="0"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						HeightRequest="50">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
 							<controls:CustomEntry
 								x:Name="txtIdentificator"
-								Margin="15,0,15,0"
+								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
@@ -126,64 +121,80 @@
 								PlaceholderColor="#6F7FAF"
 								Text="{Binding IdentificatorText}"
 								TextColor="#6F7FAF" />
-						</Frame>
-					</StackLayout>
+						</Grid>
+					</Frame>
 
-					<StackLayout Grid.Row="1" Spacing="5">
-						<Label
-							Margin="15,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="12"
-							HorizontalTextAlignment="Start"
-							Text="Issue Date"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Start" />
+					<Frame
+						Grid.Row="1"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						HeightRequest="50">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
 
-						<Frame
-							Padding="0"
-							BackgroundColor="#F8F8FB"
-							CornerRadius="25"
-							HasShadow="False"
-							HeightRequest="50">
 							<controls:CustomDatePicker
-								Margin="15,0,15,0"
+								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								Date="{Binding SelectedIssueDate}"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
+								Format="yyyy-MM-dd"
 								MaximumDate="{Binding BindIssueMaximumDate}"
 								MinimumDate="{Binding BindIssueMinimumDate}"
+								Placeholder="Issue date"
 								TextColor="#6F7FAF" />
-						</Frame>
-					</StackLayout>
+						</Grid>
+					</Frame>
 
-					<StackLayout Grid.Row="2" Spacing="5">
-						<Label
-							Margin="15,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="12"
-							HorizontalTextAlignment="Start"
-							Text="Expiry Date"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Start" />
+					<Frame
+						Grid.Row="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						HeightRequest="50">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
 
-						<Frame
-							Padding="0"
-							BackgroundColor="#F8F8FB"
-							CornerRadius="25"
-							HasShadow="False"
-							HeightRequest="50">
 							<controls:CustomDatePicker
-								Margin="15,0,15,0"
+								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								Date="{Binding SelectedExpiryDate}"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
+								Format="yyyy-MM-dd"
 								MaximumDate="{Binding BindExpiryMaximumDate}"
 								MinimumDate="{Binding BindExpiryMinimumDate}"
+								Placeholder="Expiry date"
 								TextColor="#6F7FAF" />
-						</Frame>
-					</StackLayout>
+						</Grid>
+					</Frame>
 
 					<controls:CustomButton
 						Grid.Row="3"

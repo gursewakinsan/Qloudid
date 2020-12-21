@@ -152,7 +152,7 @@
 							<Frame.GestureRecognizers>
 								<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="IdNumber" />
 							</Frame.GestureRecognizers>
-							<Grid Margin="15,0,15,0">
+							<Grid Margin="20,0,15,0">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition />
 									<ColumnDefinition Width="20" />
@@ -187,7 +187,7 @@
 						<Frame.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="DriverLicenseNumber" />
 						</Frame.GestureRecognizers>
-						<Grid Margin="15,0,15,0">
+						<Grid Margin="20,0,15,0">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition />
 								<ColumnDefinition Width="20" />
@@ -222,7 +222,7 @@
 						<Frame.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="PassportNumber" />
 						</Frame.GestureRecognizers>
-						<Grid Margin="15,0,15,0">
+						<Grid Margin="20,0,15,0">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition />
 								<ColumnDefinition Width="20" />

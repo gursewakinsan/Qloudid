@@ -15,6 +15,15 @@ namespace Qloudid.Droid.Renderers
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
+			CustomDatePicker picker = Element as CustomDatePicker;
+			if (!string.IsNullOrWhiteSpace(picker.Placeholder))
+				Control.Text = picker.Placeholder;
+
+			this.Control.TextChanged += (sender, arg) => {
+				var selectedDate = arg.Text.ToString();
+				if (selectedDate == picker.Placeholder)
+					Control.Text = picker.Placeholder;
+			};
 			this.Control.SetBackgroundResource(0);
 		}
 	}

@@ -5,6 +5,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	ios:Page.UseSafeArea="True"
@@ -14,28 +15,95 @@
 	<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="0,40,0,40" Spacing="50">
-				<Image
+				<!--<Image
 					Aspect="AspectFit"
 					HeightRequest="150"
 					HorizontalOptions="CenterAndExpand"
 					Source="appLogo.png"
 					VerticalOptions="StartAndExpand"
-					WidthRequest="150" />
+					WidthRequest="150" />-->
+				<StackLayout
+					HorizontalOptions="CenterAndExpand"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<ImageButton
+						Padding="40"
+						BackgroundColor="Transparent"
+						BorderColor="#05CBE7"
+						BorderWidth="2"
+						CornerRadius="75"
+						HeightRequest="150"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
+						WidthRequest="150">
+						<ImageButton.Source>
+							<FontImageSource
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+								Size="80"
+								Color="#05CBE7" />
+						</ImageButton.Source>
+					</ImageButton>
 
-				<StackLayout Spacing="20" VerticalOptions="EndAndExpand">
+					<Label
+						Margin="0,40,0,0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="Center"
+						Text="Qloud ID"
+						TextColor="#A4D354"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="35"
+						HorizontalTextAlignment="Center"
+						Text="Your digital ID"
+						TextColor="White"
+						VerticalTextAlignment="Start" />
+				</StackLayout>
+
+				<StackLayout Spacing="30" VerticalOptions="EndAndExpand">
 					<controls:CustomButton
 						BackgroundColor="#05CBE7"
 						BorderColor="#05CBE7"
 						Command="{Binding NewUserCommand}"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						Text="New User"
+						Text="Create Account"
 						TextColor="White" />
+
+					<StackLayout
+						Padding="10"
+						HorizontalOptions="CenterAndExpand"
+						Orientation="Horizontal"
+						Spacing="0">
+						<Label
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Text="Already have an account? "
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Label
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="18"
+							HorizontalTextAlignment="Start"
+							Text="Sign in"
+							TextColor="#05CBE7"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding UserRestoreCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+					</StackLayout>
 
 					<controls:CustomButton
 						BackgroundColor="#05CBE7"
 						BorderColor="#05CBE7"
 						Command="{Binding UserRestoreCommand}"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						IsVisible="False"
 						Text="Restore Account"
 						TextColor="White" />
 				</StackLayout>

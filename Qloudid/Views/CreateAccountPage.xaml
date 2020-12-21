@@ -92,13 +92,24 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<Grid Margin="15,0,15,0">
+						<Grid Margin="10,0,5,0" ColumnSpacing="0">
 							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
 								<ColumnDefinition />
-								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="30" />
 							</Grid.ColumnDefinitions>
+							<Image
+								Grid.Column="0"
+								Aspect="AspectFit"
+								HeightRequest="19"
+								HorizontalOptions="Center"
+								Source="iconCountry"
+								VerticalOptions="Center"
+								WidthRequest="19" />
+
 							<controls:CustomPicker
 								Title="Select country"
+								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
@@ -110,9 +121,10 @@
 								<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
 							</controls:CustomPicker>
 							<Label
-								Grid.Column="1"
+								Grid.Column="2"
 								FontSize="16"
-								HorizontalTextAlignment="End"
+								HorizontalTextAlignment="Start"
+								Opacity="0.5"
 								Text="&#x25bc;"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Center" />
@@ -125,15 +137,30 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<controls:CustomEntry
-							Margin="15,0,15,0"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							Placeholder="First name"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding FirstName}"
-							TextColor="#6F7FAF" />
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="First name"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding FirstName}"
+								TextColor="#6F7FAF" />
+						</Grid>
 					</Frame>
 
 					<Frame
@@ -142,15 +169,30 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<controls:CustomEntry
-							Margin="15,0,15,0"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							Placeholder="Last name"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding LastName}"
-							TextColor="#6F7FAF" />
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Last name"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding LastName}"
+								TextColor="#6F7FAF" />
+						</Grid>
 					</Frame>
 
 					<Frame
@@ -159,16 +201,31 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False">
-						<controls:CustomEntry
-							Margin="15,0,15,0"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							Keyboard="Email"
-							Placeholder="Email"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding Email}"
-							TextColor="#6F7FAF" />
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="19"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Email}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Keyboard="Email"
+								Placeholder="Email"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding Email}"
+								TextColor="#6F7FAF" />
+						</Grid>
 					</Frame>
 
 					<StackLayout

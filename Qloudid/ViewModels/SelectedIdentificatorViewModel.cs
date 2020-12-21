@@ -27,6 +27,10 @@ namespace Qloudid.ViewModels
 		{
 			if (string.IsNullOrWhiteSpace(IdentificatorText))
 				await Helper.Alert.DisplayAlert("Identificator text is required.");
+			else if (SelectedIssueDate == null)
+				await Helper.Alert.DisplayAlert("Issue date is required.");
+			else if (SelectedExpiryDate ==null)
+				await Helper.Alert.DisplayAlert("Expiry date is required.");
 			else
 			{
 				switch (IdentificatorTitle)
