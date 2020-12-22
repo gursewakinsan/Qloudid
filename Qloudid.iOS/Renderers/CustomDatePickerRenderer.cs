@@ -10,6 +10,7 @@ namespace Qloudid.iOS.Renderers
 {
 	public class CustomDatePickerRenderer : DatePickerRenderer
 	{
+		CustomDatePicker picker;
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
@@ -17,20 +18,24 @@ namespace Qloudid.iOS.Renderers
 			{
 				Control.Layer.BorderWidth = 0;
 				Control.BorderStyle = UITextBorderStyle.None;
-			}
 
-			CustomDatePicker picker = Element as CustomDatePicker;
-			if (!string.IsNullOrWhiteSpace(picker.Placeholder))
-				Control.Text = picker.Placeholder;
-
-			Control.ShouldEndEditing += (textField) =>
-			{
-				var seletedDate = (UITextField)textField;
-				var text = seletedDate.Text;
-				if (text == picker.Placeholder)
+				picker = Element as CustomDatePicker;
+				if (!string.IsNullOrWhiteSpace(picker.Placeholder))
 					Control.Text = picker.Placeholder;
-				return true;
-			};
+
+
+				Control.ShouldEndEditing += (textField) =>
+				{
+					var seletedDate = (UITextField)textField;
+					var text = seletedDate.Text;
+					if (picker != null)
+					{
+						if (text == picker.Placeholder)
+							Control.Text = picker.Placeholder;
+					}
+					return true;
+				};
+			}
 		}
 		private void OnCanceled(object sender, EventArgs e)
 		{
