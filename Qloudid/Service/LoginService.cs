@@ -33,5 +33,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.VerifyUserConsentResponse> VerifyUserConsentAsync(Models.VerifyUserConsentRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.VerifyUserConsentResponse>(HttpWebRequest.Create(EndPointsList.VerifyUserConsentUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> ClearLoginAsync(string qrCode)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Get<string>(HttpWebRequest.Create(string.Format(EndPointsList.ClearLoginUrl, qrCode)));
+				return res;
+			});
+		}
 	}
 }

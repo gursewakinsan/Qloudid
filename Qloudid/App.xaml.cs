@@ -89,6 +89,20 @@ namespace Qloudid
 							break;
 					}
 				}
+				else if (uri.Segments != null && uri.Segments.Length == 5)
+				{
+					if (Application.Current.Properties.ContainsKey("QrCode"))
+					{
+						var action = uri.Segments[3].Replace("/", "");
+						var clientId = action; //uri.Segments[3];
+						string signInText = uri.Segments[4];
+						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+						Helper.Helper.VerifyUserConsentClientId = clientId;
+						Application.Current.MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+					}
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+				}
 			}
 		}
 	}

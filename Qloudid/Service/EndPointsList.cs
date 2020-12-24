@@ -21,5 +21,8 @@
 
 		public const string RestoreAccountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/restoreAccount";
 		public const string VerifyRestoreOtpPinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyRestoreOtpPin";
+		public const string VerifyUserConsentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyUserConsent";
+		public const string ClearLoginUrl = "https://www.qloudid.com/user/index.php/QloudidApp/clearLogin/{0}";
+
 	}
 }

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.SignInFromOtherCompanyPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30" Spacing="0">
+				<StackLayout Spacing="0" VerticalOptions="Start">
+					<Grid Margin="0,0,0,10">
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding ClearLoginCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Sign in"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,0"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<Label
+						Margin="0,50,0,24"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="{Binding DisplayCompanyName}"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+				</StackLayout>
+
+				<Frame
+					Padding="15"
+					BackgroundColor="#F8F8FB"
+					CornerRadius="10"
+					HasShadow="False">
+					<Grid
+						ColumnSpacing="20"
+						HeightRequest="60"
+						RowSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="60" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<ImageButton
+							Grid.RowSpan="2"
+							Grid.Column="0"
+							Padding="0"
+							Aspect="AspectFill"
+							BackgroundColor="Transparent"
+							CornerRadius="20"
+							HeightRequest="60"
+							HorizontalOptions="Center"
+							Source="{Binding UserImageSource}"
+							VerticalOptions="Center"
+							WidthRequest="60" />
+
+						<Label
+							Grid.Row="0"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							Text="Sender"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Text="{Binding DisplayName}"
+							TextColor="#060417"
+							VerticalTextAlignment="Start" />
+					</Grid>
+				</Frame>
+
+				<Label
+					x:Name="txtSignIn"
+					Margin="0,20,0,10"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="{Binding DisplayReceiverCompanyName}"
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					Margin="0,10,0,10"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="Date : 24/12/2020"
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+
+				<controls:CustomButton
+					Margin="0"
+					BackgroundColor="#05CBE7"
+					Command="{Binding ContinueCommand}"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					Text="Continue"
+					VerticalOptions="EndAndExpand" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

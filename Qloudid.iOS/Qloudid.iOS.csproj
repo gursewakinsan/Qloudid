@@ -209,4 +209,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconCountry.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconUser.png" />
+  </ItemGroup>
 </Project>
