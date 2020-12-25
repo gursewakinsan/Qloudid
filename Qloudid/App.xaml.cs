@@ -36,7 +36,8 @@ namespace Qloudid
 		{
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
-				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+				Helper.Helper.QrCertificateKey = $"{Application.Current.Properties["QrCode"]}";
+				Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 				if (string.IsNullOrWhiteSpace(signInText))
 					MainPage = new NavigationPage(new Views.SignInFromWebPage());
 				else

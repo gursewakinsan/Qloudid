@@ -46,6 +46,15 @@ namespace Qloudid.ViewModels
 				DisplayReceiverCompanyName = $"Receiver : {VerifyUserConsent.company_name}";
 				if (!string.IsNullOrEmpty(VerifyUserConsent.image))
 					UserImageSource = VerifyUserConsent.image;
+
+				/*if (Helper.Helper.UserInfo == null)
+					Helper.Helper.UserInfo = new Models.User();
+				Helper.Helper.UserInfo.first_name = VerifyUserConsent.first_name;
+				Helper.Helper.UserInfo.last_name = VerifyUserConsent.last_name;
+
+				Application.Current.Properties["FirstName"] = VerifyUserConsent.first_name;
+				Application.Current.Properties["LastName"] = VerifyUserConsent.last_name;
+				await Application.Current.SavePropertiesAsync();*/
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}
