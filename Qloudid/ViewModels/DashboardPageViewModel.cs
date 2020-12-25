@@ -45,6 +45,40 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Is Already Login Command.
+		private ICommand isAlreadyLoginCommand;
+		public ICommand IsAlreadyLoginCommand
+		{
+			get => isAlreadyLoginCommand ?? (isAlreadyLoginCommand = new Command(async () => await ExecuteIsAlreadyLoginCommand()));
+		}
+		private async Task ExecuteIsAlreadyLoginCommand()
+		{
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+
+				ILoginService service = new LoginService();
+				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+				if (response?.result > 0)
+				{
+					Models.User user = new Models.User();
+					user.first_name = Application.Current.Properties["FirstName"].ToString();
+					user.last_name = Application.Current.Properties["LastName"].ToString();
+					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+					user.email = Application.Current.Properties["Email"].ToString();
+					user.UserImage = response.image;
+					Helper.Helper.UserInfo = user;
+					UserInfo = user;
+					//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				}
+				else
+					await Navigation.PushAsync(new Views.InvalidCertificatePage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+		}
+		#endregion
+
 		//#region Login From Url Ip Command.
 		//private ICommand loginFromUrlIpCommand;
 		//public ICommand LoginFromUrlIpCommand
@@ -104,7 +138,18 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public Models.User UserInfo { get; set; }
+		private Models.User userInfo;
+		public Models.User UserInfo
+		{
+			get => userInfo;
+			set
+			{
+				userInfo = value;
+				OnPropertyChanged("UserInfo");
+			}
+		}
+
+
 		//public string UserImage1 => "https://www.qloudid.com/estorecss/tmp.jpg"; //Helper.Helper.UserInfo.UserImage; //$"https://www.qloudid.com/estorecss/tmp.jpg";
 
 		private string userImage;

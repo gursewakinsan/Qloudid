@@ -31,13 +31,17 @@ namespace Qloudid.iOS
         public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
         {
             var App = (App)Xamarin.Forms.Application.Current;
-            Helper.Helper.IpFromURL = url.Host;
-            App.OpenAppFromWeb();
-            return false;
-            /*if (url.Host != null)
+            if (!string.IsNullOrWhiteSpace(url.Path))
+            {
+                Helper.Helper.VerifyUserConsentClientId = url.PathComponents[1];
+                App.OpenAppFromWeb(url.PathComponents[2]);
+            }
+            else
+            {
                 Helper.Helper.IpFromURL = url.Host;
-            LoadApplication(new App(url.Host));
-            return true;*/
+                App.OpenAppFromWeb(string.Empty);
+            }
+            return false;
         }
     }
 }

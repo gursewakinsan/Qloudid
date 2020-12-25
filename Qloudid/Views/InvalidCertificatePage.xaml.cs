@@ -11,16 +11,11 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 		}
-		
-		private async void OnBackButtonClicked(object sender, System.EventArgs e)
+
+		private void OnBackButtonClicked(object sender, System.EventArgs e)
 		{
-			if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
-			{
-				Helper.Helper.IpFromURL = string.Empty;
-				Application.Current.MainPage = new NavigationPage(new RestorePage());
-			}
-			else
-				await Navigation.PopAsync();
+			Helper.Helper.IpFromURL = string.Empty;
+			Application.Current.MainPage = new NavigationPage(new RestorePage());
 		}
 	}
 }

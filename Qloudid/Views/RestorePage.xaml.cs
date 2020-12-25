@@ -24,11 +24,6 @@ namespace Qloudid.Views
 			base.OnAppearing();
 			//Helper.Helper.GetCountries();
 			GetCountries();
-			if (Helper.Helper.IsFirstTime)
-			{
-				Helper.Helper.IsFirstTime = false;
-				viewModel.IsAlreadyLoginCommand.Execute(null);
-			}
 		}
 
 		public void GetCountries()
