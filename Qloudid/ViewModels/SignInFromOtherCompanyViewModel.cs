@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -37,10 +38,7 @@ namespace Qloudid.ViewModels
 				Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
 			}
 			else if (VerifyUserConsent.result == 0)
-			{
-				Helper.Helper.IpFromURL = "..";
 				Application.Current.MainPage = new NavigationPage(new Views.InvalidCertificatePage());
-			}
 			else
 			{
 				DisplayName = $"{VerifyUserConsent.first_name} {VerifyUserConsent.last_name}";
@@ -63,7 +61,7 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			ILoginService service = new LoginService();
-			var rs = await service.ClearLoginAsync(Helper.Helper.QrCertificateKey);
+			await service.ClearLoginAsync(Helper.Helper.QrCertificateKey);
 			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -128,6 +126,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("UserImageSource");
 			}
 		}
-		#endregion
-	}
+
+		public string DisplayDate => $"Date : {DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}";
+        #endregion
+    }
 }

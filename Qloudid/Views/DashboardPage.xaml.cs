@@ -26,13 +26,17 @@ namespace Qloudid.Views
 		{
 			//if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
 			//	viewModel.LoginFromUrlIpCommand.Execute(null);
-			GetCountries();
+			
 			if (Helper.Helper.IsFirstTime)
 			{
 				Helper.Helper.IsFirstTime = false;
 				viewModel.IsAlreadyLoginCommand.Execute(null);
 			}
-			viewModel.GetUserImageCommand.Execute(null);
+			else
+			{
+				GetCountries();
+				viewModel.GetUserImageCommand.Execute(null);
+			}
 			base.OnAppearing();
 		}
 

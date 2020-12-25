@@ -63,10 +63,10 @@ namespace Qloudid.ViewModels
 				if (response?.result > 0)
 				{
 					Models.User user = new Models.User();
-					user.first_name = Application.Current.Properties["FirstName"].ToString();
-					user.last_name = Application.Current.Properties["LastName"].ToString();
+					user.first_name = $"{Application.Current.Properties["FirstName"]}";
+					user.last_name = $"{Application.Current.Properties["LastName"]}";
 					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
-					user.email = Application.Current.Properties["Email"].ToString();
+					user.email = $"{Application.Current.Properties["Email"]}";
 					user.UserImage = response.image;
 					Helper.Helper.UserInfo = user;
 					UserInfo = user;

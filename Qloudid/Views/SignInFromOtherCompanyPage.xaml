@@ -140,7 +140,7 @@
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
-					Text="Date : 24/12/2020"
+					Text="{Binding DisplayDate}"
 					TextColor="#6F7FAF"
 					VerticalTextAlignment="Start" />
 
