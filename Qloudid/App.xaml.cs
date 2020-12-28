@@ -109,6 +109,7 @@ namespace Qloudid
 						var clientId = uri.Segments[3].Replace("/", "");
 						string signInText = uri.Segments[4];
 						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 						Helper.Helper.VerifyUserConsentClientId = clientId;
 						Application.Current.MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
