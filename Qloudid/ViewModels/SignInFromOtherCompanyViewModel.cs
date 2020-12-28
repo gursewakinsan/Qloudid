@@ -84,7 +84,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteContinueCommand()
 		{
-			Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+			Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(true));
 			await Task.CompletedTask;
 		}
 		#endregion

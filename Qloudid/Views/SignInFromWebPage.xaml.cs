@@ -14,8 +14,10 @@ namespace Qloudid.Views
 	public partial class SignInFromWebPage : ContentPage
 	{
 		SignInFromWebPageViewModel viewModel;
-		public SignInFromWebPage()
+		bool isFromThirdPartyUrl = false;
+		public SignInFromWebPage(bool _isFromThirdPartyUrl)
 		{
+			isFromThirdPartyUrl = _isFromThirdPartyUrl;
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new SignInFromWebPageViewModel(this.Navigation);
@@ -24,8 +26,13 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.LoginFromUrlIpCommand.Execute(null);
-			GetCountries();
+			if (!isFromThirdPartyUrl)
+			{
+				viewModel.LoginFromUrlIpCommand.Execute(null);
+				GetCountries();
+			}
+			else
+				viewModel.LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
 		}
 
 		public void GetCountries()

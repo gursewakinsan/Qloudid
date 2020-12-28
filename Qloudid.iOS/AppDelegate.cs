@@ -33,6 +33,7 @@ namespace Qloudid.iOS
             var App = (App)Xamarin.Forms.Application.Current;
             if (!string.IsNullOrWhiteSpace(url.Path))
             {
+                Helper.Helper.IpFromURL = url.PathComponents[0];
                 Helper.Helper.VerifyUserConsentClientId = url.PathComponents[1];
                 App.OpenAppFromWeb(url.PathComponents[2]);
             }

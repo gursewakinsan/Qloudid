@@ -102,7 +102,10 @@ namespace Qloudid.ViewModels
 			IDashboardService service = new DashboardService();
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = qrCode });
 			if (response == 1)
+			{
+				DependencyService.Get<IProgressBar>().Hide();
 				return;
+			}
 			else if (response == 2)
 				await Navigation.PushAsync(new Views.InvalidQrCodePage());
 			else if (response == 3)

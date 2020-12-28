@@ -32,9 +32,19 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = qrCode });
+			string[] ip = qrCode.Split('/');
+			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });
 			if (response == 1)
-				await Navigation.PushAsync(new Views.VerifyPasswordPage());
+			{
+				if (ip.Length == 1)
+					await Navigation.PushAsync(new Views.VerifyPasswordPage());
+				else
+				{
+					Helper.Helper.IpFromURL = ip[0];
+					Helper.Helper.VerifyUserConsentClientId = ip[1];
+					await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
+				}
+			}
 			else if (response == 2)
 				await Navigation.PushAsync(new Views.InvalidQrCodePage());
 			else if (response == 3)

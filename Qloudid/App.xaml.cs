@@ -39,7 +39,7 @@ namespace Qloudid
 				Helper.Helper.QrCertificateKey = $"{Application.Current.Properties["QrCode"]}";
 				Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 				if (string.IsNullOrWhiteSpace(signInText))
-					MainPage = new NavigationPage(new Views.SignInFromWebPage());
+					MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 				else
 					MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 			}
@@ -84,7 +84,7 @@ namespace Qloudid
 								if (Application.Current.Properties.ContainsKey("QrCode"))
 								{
 									Helper.Helper.IpFromURL = msg.Replace("&", " ");
-									Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage());
+									Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 								}
 								else
 								{
@@ -106,11 +106,11 @@ namespace Qloudid
 				{
 					if (Application.Current.Properties.ContainsKey("QrCode"))
 					{
-						var clientId = uri.Segments[3].Replace("/", "");
 						string signInText = uri.Segments[4];
 						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
-						Helper.Helper.VerifyUserConsentClientId = clientId;
+						Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
+						Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
 						Application.Current.MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
 					else

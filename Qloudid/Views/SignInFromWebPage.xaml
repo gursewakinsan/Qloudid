@@ -33,6 +33,7 @@
 							BackgroundColor="Transparent"
 							Command="{Binding CloseCommand}"
 							HorizontalOptions="EndAndExpand"
+							IsVisible="False"
 							WidthRequest="40">
 							<ImageButton.Source>
 								<FontImageSource
