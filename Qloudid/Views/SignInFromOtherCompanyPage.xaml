@@ -102,7 +102,7 @@
 							FontFamily="{StaticResource SFProRegularFontFamily}"
 							FontSize="14"
 							HorizontalTextAlignment="Start"
-							Text="Sender"
+							Text="I am..."
 							TextColor="#6F7FAF"
 							VerticalTextAlignment="Center" />
 
