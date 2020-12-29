@@ -103,6 +103,15 @@ namespace Qloudid.ViewModels
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = qrCode });
 			if (response == 1)
 			{
+				if (Helper.Helper.UserInfo == null)
+				{
+					Models.User user = new Models.User();
+					user.first_name = $"{Application.Current.Properties["FirstName"]}";
+					user.last_name = $"{Application.Current.Properties["LastName"]}";
+					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+					user.email = $"{Application.Current.Properties["Email"]}";
+					Helper.Helper.UserInfo = user;
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 				return;
 			}

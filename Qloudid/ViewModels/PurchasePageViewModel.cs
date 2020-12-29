@@ -27,7 +27,7 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IPurchaseService service = new PurchaseService();
-			List<Models.Company> response =  await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserInfo.user_id });
+			List<Models.Company> response = await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
 			var listPersonal = new Models.CompanyInfo()
 			{
 				new Models.Company
@@ -47,7 +47,6 @@ namespace Qloudid.ViewModels
 				list.Add(listCompany);
 			}
 			ListOfCompany = list;
-			OnPropertyChanged("ListOfCompany");
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -81,7 +80,11 @@ namespace Qloudid.ViewModels
 		public List<Models.CompanyInfo> ListOfCompany
 		{ 
 			get { return _listOfCompany; } 
-			set { _listOfCompany = value; base.OnPropertyChanged(); } 
+			set 
+			{ 
+				_listOfCompany = value;
+				OnPropertyChanged("ListOfCompany");
+			} 
 		}
 
 		private bool isSubmit;
