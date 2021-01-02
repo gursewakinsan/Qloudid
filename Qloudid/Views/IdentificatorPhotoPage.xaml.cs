@@ -80,13 +80,15 @@ namespace Qloudid.Views
 					{
 						image1.Source = ImageSource.FromStream(() => stream);
 						//viewModel.Image1 = image1;
-						//byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 600);
-						viewModel.CroppedImage1 = App.CroppedImage;
+						byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+						viewModel.CroppedImage1 = aa;//App.CroppedImage;
 					}
 					else
 					{
 						image2.Source = ImageSource.FromStream(() => stream);
-						viewModel.CroppedImage2 = App.CroppedImage;
+						byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+
+						viewModel.CroppedImage2 = bb;//App.CroppedImage;
 						//viewModel.Image2 = image2;
 					}
 				}
