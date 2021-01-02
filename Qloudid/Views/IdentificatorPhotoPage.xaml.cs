@@ -69,7 +69,7 @@ namespace Qloudid.Views
 		#endregion
 
 		#region Refresh.
-		private void Refresh()
+		private async void Refresh()
 		{
 			try
 			{
@@ -80,6 +80,7 @@ namespace Qloudid.Views
 					{
 						image1.Source = ImageSource.FromStream(() => stream);
 						//viewModel.Image1 = image1;
+						//byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 600);
 						viewModel.CroppedImage1 = App.CroppedImage;
 					}
 					else

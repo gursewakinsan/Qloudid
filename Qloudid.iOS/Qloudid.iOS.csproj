@@ -80,6 +80,7 @@
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Renderers\UICameraPreview.cs" />
+    <Compile Include="Services\ImageResizerService.cs" />
     <Compile Include="Services\ProgressBar.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
