@@ -65,11 +65,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer: Ankita Jain (NQ732LHSVP)</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchSdkVersion>14.3</MtouchSdkVersion>
-    <CodesignProvision>Qloudid-Provisioning-Profile-DEV</CodesignProvision>
+    <CodesignProvision>Qloudid-Provisioning-Distribution</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
