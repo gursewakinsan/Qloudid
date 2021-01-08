@@ -24,5 +24,7 @@
 		public const string VerifyUserConsentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyUserConsent";
 		public const string ClearLoginUrl = "https://www.qloudid.com/user/index.php/QloudidApp/clearLogin/{0}";
 
+		public const string VerifyRestoreOtpPinWithMobileUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyRestoreOtpPinWithMobile";
+		public const string VerifyPhoneOtpPinWithIdUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyPhoneOtpPinWithId";
 	}
 }

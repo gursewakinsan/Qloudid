@@ -43,7 +43,14 @@ namespace Qloudid.ViewModels
 					Helper.Helper.CountryCode = response.country_code;
 					Application.Current.MainPage = new NavigationPage(new Views.MobileNumberPage());
 				}
-				else if (response.result == 2)
+				else if (response.result > 1)
+				{
+					Helper.Helper.VerifyRestoreOtpPinWithMobileResult = response.result;
+					Helper.Helper.CountryCode = response.country_code;
+					Helper.Helper.UserMobileNumber = response.phone_number;
+					Application.Current.MainPage = new NavigationPage(new Views.VerifyExistingMobileNumberPage());
+				}
+				/*else if (response.result == 2)
 				{
 					Helper.Helper.CountryCode = response.country_code;
 					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
@@ -52,7 +59,7 @@ namespace Qloudid.ViewModels
 				{
 					Helper.Helper.CountryCode = response.country_code;
 					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
-				}
+				}*/
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

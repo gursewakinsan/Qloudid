@@ -20,7 +20,8 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.VerifyRestoreOtpPinResponse>(HttpWebRequest.Create(EndPointsList.VerifyRestoreOtpPinUrl), string.Empty, model.ToJson());
+				//var res = RestClient.Post<Models.VerifyRestoreOtpPinResponse>(HttpWebRequest.Create(EndPointsList.VerifyRestoreOtpPinUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<Models.VerifyRestoreOtpPinResponse>(HttpWebRequest.Create(EndPointsList.VerifyRestoreOtpPinWithMobileUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

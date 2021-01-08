@@ -39,7 +39,12 @@ namespace Qloudid.ViewModels
 				else if (response.result == 0)
 					await Helper.Alert.DisplayAlert("Invalid OTP. Please try again.");
 				else if (response.result == 1)
-					await Navigation.PushAsync(new Views.IdentificatorPage());
+				{
+					if (response.identificator == 0)
+						await Navigation.PushAsync(new Views.IdentificatorPage());
+					else if (response.identificator == 1)
+						await Navigation.PushAsync(new Views.GenerateCertificatePage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

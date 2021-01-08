@@ -43,5 +43,7 @@ namespace Qloudid.Helper
 		public static string SelectedIdentificatorText { get; set; }
 		public static bool IsCameraPageImageClicked { get; set; } = false;
 		public static string VerifyUserConsentClientId { get; set; }
+		public static string UserMobileNumber { get; set; }
+		public static int VerifyRestoreOtpPinWithMobileResult { get; set; }
 	}
 }
