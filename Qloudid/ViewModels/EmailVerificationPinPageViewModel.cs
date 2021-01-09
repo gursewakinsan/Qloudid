@@ -37,12 +37,13 @@ namespace Qloudid.ViewModels
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("Invalid OTP. Please try again.");
+					await Navigation.PushAsync(new Views.WrongEmailOtpPinPage());
 				else if (response.result == 1)
 				{
 					Helper.Helper.CountryCode = response.country_code;
 					await Navigation.PushAsync(new Views.MobileNumberPage());
 				}
+				ClearPassword();
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

@@ -37,7 +37,7 @@ namespace Qloudid.ViewModels
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("Invalid OTP. Please try again.");
+					await Navigation.PushAsync(new Views.WrongMobileOtpPinPage());
 				else if (response.result == 1)
 				{
 					if (response.identificator == 0)
@@ -45,6 +45,7 @@ namespace Qloudid.ViewModels
 					else if (response.identificator == 1)
 						await Navigation.PushAsync(new Views.GenerateCertificatePage());
 				}
+				ClearPassword();
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

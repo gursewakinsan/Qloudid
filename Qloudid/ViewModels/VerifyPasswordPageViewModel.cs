@@ -32,13 +32,31 @@ namespace Qloudid.ViewModels
 				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
 				ClearPassword();
 				if (response == 1)
+				{
+					Helper.Helper.CountDownWrongPassword = 0;
 					Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
+				}
 				else if (response == 2)
+				{
+					Helper.Helper.CountDownWrongPassword = 0;
 					Application.Current.MainPage = new NavigationPage(new Views.TimeOutPage());
+				}
 				else if (response == 3)
+				{
+					Helper.Helper.CountDownWrongPassword = 0;
 					await Navigation.PushAsync(new Views.PurchasePage());
+				}
 				else
-					await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
+				{
+					Helper.Helper.CountDownWrongPassword = Helper.Helper.CountDownWrongPassword + 1;
+					if (Helper.Helper.CountDownWrongPassword == 3)
+					{
+						Helper.Helper.CountDownWrongPassword = 0;
+						await Navigation.PushAsync(new Views.WrongPassword3TimesPage());
+					}
+					else
+						await Navigation.PushAsync(new Views.WrongVerifyPasswordPage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

@@ -43,6 +43,7 @@ namespace Qloudid.ViewModels
 				else if (response.result == 1)
 				{
 					Helper.Helper.UserId = response.user_id;
+					Helper.Helper.UserEmail = Email;
 					await Navigation.PushAsync(new Views.RestoreEmailPasswordPage());
 				}
 				DependencyService.Get<IProgressBar>().Hide();

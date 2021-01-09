@@ -42,5 +42,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> ClearCertificateAsync(Models.ClearCertificateRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ClearCertificateUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

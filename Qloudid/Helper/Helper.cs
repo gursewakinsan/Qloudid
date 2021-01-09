@@ -30,8 +30,6 @@ namespace Qloudid.Helper
 		   RegexOptions.IgnoreCase);
 		}
 
-		
-
 		public static string QrCertificateKey { get; set; }
 		public static Models.User UserInfo { get; set; }
 		public static bool IsFirstTime { get; set; }
@@ -45,5 +43,7 @@ namespace Qloudid.Helper
 		public static string VerifyUserConsentClientId { get; set; }
 		public static string UserMobileNumber { get; set; }
 		public static int VerifyRestoreOtpPinWithMobileResult { get; set; }
+		public static string UserEmail { get; set; }
+		public static int CountDownWrongPassword { get; set; } = 0;
 	}
 }

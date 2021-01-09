@@ -37,7 +37,7 @@ namespace Qloudid.ViewModels
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("Wrong password, Please try again.");
+					await Navigation.PushAsync(new Views.WrongEmailOtpPinPage());
 				else if (response.result == 1)
 				{
 					Helper.Helper.CountryCode = response.country_code;
@@ -60,6 +60,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.CountryCode = response.country_code;
 					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 				}*/
+				ClearPassword();
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

@@ -42,7 +42,10 @@ namespace Qloudid.ViewModels
 				else if (response.result == 0)
 					await Helper.Alert.DisplayAlert("This mobile number is already in used. Please use any other mobile number.");
 				else if (response.result == 1)
+				{
+					Helper.Helper.UserMobileNumber = MobileNumber;
 					await Navigation.PushAsync(new Views.SignaturePinPage());
+				}
 				if (response.result == 2)
 					await Helper.Alert.DisplayAlert("Unable to send OTP on this mobile number, Please use correct mobile number.");
 				DependencyService.Get<IProgressBar>().Hide();

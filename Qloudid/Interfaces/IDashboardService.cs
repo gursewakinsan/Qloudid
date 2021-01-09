@@ -8,5 +8,6 @@ namespace Qloudid.Interfaces
 		Task<int> VerifyPasswordAsync(string qrCode, SetPassword password);
 		Task<int> ClearIpsAsync(string qrCode);
 		Task<int> UpdateLoginStatusAsync(string qrCode);
+		Task<int> ClearCertificateAsync(Models.ClearCertificateRequest request);
 	}
 }

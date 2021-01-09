@@ -1,9 +1,9 @@
-﻿using Xamarin.Forms;
+﻿using System.IO;
+using Xamarin.Forms;
+using Newtonsoft.Json;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 using System.Reflection;
-using System.IO;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Qloudid.Views
