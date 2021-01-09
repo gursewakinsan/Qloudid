@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Qloudid.Droid.Renderers
 {
-	public sealed class CameraPreview_Droid : ViewGroup, ISurfaceHolderCallback
+	public sealed class CameraPreview_Droid : ViewGroup, ISurfaceHolderCallback, Camera.IPictureCallback, Camera.IPreviewCallback, Camera.IShutterCallback
 	{
 		SurfaceView surfaceView;
 		ISurfaceHolder holder;
@@ -109,8 +109,18 @@ namespace Qloudid.Droid.Renderers
 			}
 
 			Preview.SetParameters(parameters);
+			//Preview.SetPreviewCallbackWithBuffer(this);
 			Preview.StartPreview();
 			IsPreviewing = true;
+			//Preview.TakePicture(null,null,null,null);
+		}
+
+		public void TakePicture()
+		{
+			Preview.TakePicture(this, this, this, null);
+			//Preview.TakePicture(null, null, null, null);
+
+			//TODO - Find out how picture clicked using ISurfaceHolderCallback 
 		}
 
 		Camera.Size GetOptimalPreviewSize(IList<Camera.Size> sizes, int w, int h)
@@ -154,6 +164,21 @@ namespace Qloudid.Droid.Renderers
 			}
 
 			return optimalSize;
+		}
+
+		public void OnPictureTaken(byte[] data, Camera camera)
+		{
+			//throw new NotImplementedException();
+		}
+
+		public void OnPreviewFrame(byte[] data, Camera camera)
+		{
+			//throw new NotImplementedException();
+		}
+
+		public void OnShutter()
+		{
+			//throw new NotImplementedException();
 		}
 	}
 }

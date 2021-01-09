@@ -12,7 +12,7 @@ namespace Qloudid.Droid.Renderers
     public class CameraPreviewRenderer : ViewRenderer<CameraPreview, CameraPreview_Droid>
     {
         CameraPreview_Droid cameraPreview;
-
+        CameraPreview CameraPreviewPage;
         public CameraPreviewRenderer(Context context) : base(context)
         {
         }
@@ -25,6 +25,7 @@ namespace Qloudid.Droid.Renderers
             {
                 // Unsubscribe
                 cameraPreview.Click -= OnCameraPreviewClicked;
+                CameraPreviewPage.OnDoing -= OnCameraPreviewClicked;
             }
             if (e.NewElement != null)
             {
@@ -34,9 +35,10 @@ namespace Qloudid.Droid.Renderers
                     SetNativeControl(cameraPreview);
                 }
                 Control.Preview = Camera.Open((int)e.NewElement.Camera);
-
+                CameraPreviewPage = e.NewElement as CameraPreview;
                 // Subscribe
                 cameraPreview.Click += OnCameraPreviewClicked;
+                CameraPreviewPage.OnDoing += OnCameraPreviewClicked;
             }
         }
 
@@ -44,8 +46,10 @@ namespace Qloudid.Droid.Renderers
         {
             if (cameraPreview.IsPreviewing)
             {
-                cameraPreview.Preview.StopPreview();
+               // App.CroppedImage = new byte[100];
+               //cameraPreview.TakePicture();
                 cameraPreview.IsPreviewing = false;
+                cameraPreview.Preview.StopPreview();
             }
             else
             {
@@ -61,6 +65,10 @@ namespace Qloudid.Droid.Renderers
                 Control.Preview.Release();
             }
             base.Dispose(disposing);
+        }
+
+        public void onPictureTaken(byte[] data, Camera camera)
+        {
         }
     }
 }
