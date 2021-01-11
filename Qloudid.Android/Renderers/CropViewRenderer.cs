@@ -21,11 +21,12 @@ namespace Qloudid.Droid.Renderers
 			var page = Element as CropView;
 			if (page != null)
 			{
+				#region Crop Image View. 
 				var cropImageView = new CropImageView(Context);
 				cropImageView.LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
 				Bitmap bitmp = BitmapFactory.DecodeByteArray(page.Image, 0, page.Image.Length);
 				cropImageView.SetImageBitmap(bitmp);
-
+				cropImageView.RotateImage(90);
 				var imageContent = new ContentView 
 				{
 					HeightRequest=500,
@@ -35,8 +36,41 @@ namespace Qloudid.Droid.Renderers
 					VerticalOptions=LayoutOptions.FillAndExpand
 				};
 				//var scrollView = new ScrollView { Content = cropImageView.ToView() };
-				var stackLayout = new StackLayout { Children = { imageContent }, Spacing = 0 };
+				var stackLayout = new StackLayout { Children = { imageContent }, Spacing = 10 };
+				#endregion
 
+				#region Title & Sub Title. 
+				Label labelTitle = new Label()
+				{
+					Text= "Crop Image",
+					FontSize=25,
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					TextColor=Xamarin.Forms.Color.White
+				};
+
+				string text = Helper.Helper.SelectedIdentificatorText;
+				if (text == "ID") text = "ID Card";
+
+				Label labelSubTitle = new Label()
+				{
+					Text = $"Use the marker to mark the area around your card. So that we only see your {text}.",
+					FontSize = 20,
+					HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Center,
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+					TextColor = Xamarin.Forms.Color.White
+				};
+
+				var titleSubTitleLayout = new StackLayout()
+				{
+					Children = { labelTitle, labelSubTitle },
+					Spacing = 10,
+					VerticalOptions = LayoutOptions.EndAndExpand,
+					Padding = new Thickness(10, 10, 10, 20)
+				};
+				stackLayout.Children.Add(titleSubTitleLayout);
+				#endregion
+
+				#region Bottom buttons bar. 
 				var stackLayoutButtons = new StackLayout
 				{
 					Orientation = StackOrientation.Horizontal,
@@ -93,6 +127,8 @@ namespace Qloudid.Droid.Renderers
 
 				stackLayoutButtons.Children.Add(finishButton);
 				stackLayout.Children.Add(stackLayoutButtons);
+				#endregion
+
 				page.Content = stackLayout;
 			}
 		}

@@ -26,7 +26,7 @@ namespace Qloudid.Droid.Renderers
             if (e.OldElement != null)
             {
                 // Unsubscribe
-                cameraPreview.Click -= OnCameraPreviewClicked;
+               // cameraPreview.Click -= OnCameraPreviewClicked;
                 CameraPreviewPage.OnDoing -= OnCameraPreviewClicked;
             }
             if (e.NewElement != null)
@@ -39,7 +39,7 @@ namespace Qloudid.Droid.Renderers
                 Control.Preview = Camera.Open((int)e.NewElement.Camera);
                 CameraPreviewPage = e.NewElement as CameraPreview;
                 // Subscribe
-                cameraPreview.Click += OnCameraPreviewClicked;
+               // cameraPreview.Click += OnCameraPreviewClicked;
                 CameraPreviewPage.OnDoing += OnCameraPreviewClicked;
             }
         }

@@ -79,7 +79,9 @@ namespace Qloudid.Views
 					if (index == 1)
 					{
 						image1.Source = ImageSource.FromStream(() => stream);
-						if (Device.RuntimePlatform == Device.iOS)
+						byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+						viewModel.CroppedImage1 = aa;
+						/*if (Device.RuntimePlatform == Device.iOS)
 						{
 							byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
 							viewModel.CroppedImage1 = aa;
@@ -87,12 +89,14 @@ namespace Qloudid.Views
 						else
 						{
 							viewModel.CroppedImage1 = App.CroppedImage;
-						}
+						}*/
 					}
 					else
 					{
 						image2.Source = ImageSource.FromStream(() => stream);
-						if (Device.RuntimePlatform == Device.iOS)
+						byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+						viewModel.CroppedImage2 = bb;
+						/*if (Device.RuntimePlatform == Device.iOS)
 						{
 							byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
 							viewModel.CroppedImage2 = bb;
@@ -100,7 +104,7 @@ namespace Qloudid.Views
 						else
 						{
 							viewModel.CroppedImage2 = App.CroppedImage;
-						}
+						}*/
 					}
 				}
 			}

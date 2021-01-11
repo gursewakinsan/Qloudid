@@ -92,6 +92,7 @@ namespace Qloudid.Droid.Renderers
 		public void SurfaceChanged(ISurfaceHolder holder, Android.Graphics.Format format, int width, int height)
 		{
 			var parameters = Preview.GetParameters();
+			//var supportedFocusModes = Preview.GetParameters().SupportedFocusModes;
 			parameters.SetPreviewSize(previewSize.Width, previewSize.Height);
 			RequestLayout();
 
@@ -107,7 +108,20 @@ namespace Qloudid.Droid.Renderers
 					camera.SetDisplayOrientation(180);
 					break;
 			}
-			
+
+			//=========
+			/*parameters.Set("s3d-prv-frame-layout", "none");
+			parameters.Set("s3d-cap-frame-layout", "none");
+			parameters.Set("iso", "auto");
+			parameters.Set("Contrast", 100);
+			parameters.Set("Brightness", 50);
+			parameters.Set("Saturation", 100);
+			parameters.Set("Sharpness", 100);*/
+			parameters.Set("jpeg-quality", 100);
+			parameters.SetPictureSize(800, 600);
+			//=========
+			parameters.FocusMode = Camera.Parameters.FocusModeContinuousPicture;
+
 			Preview.SetParameters(parameters);
 			//Preview.SetPreviewCallbackWithBuffer(this);
 			Preview.StartPreview();
