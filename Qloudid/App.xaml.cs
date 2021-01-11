@@ -19,7 +19,7 @@ namespace Qloudid
 				MainPage = new NavigationPage(new Views.DashboardPage());
 			}
 			else
-				MainPage = new NavigationPage(new Views.RestorePage());
+				MainPage = new NavigationPage(new Views.IdentificatorPhotoPage());
 			//GetCountries();
 			/*if (string.IsNullOrWhiteSpace(ipFromWeb))
 				MainPage = new NavigationPage(new Views.RestorePage());

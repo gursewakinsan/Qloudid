@@ -5,11 +5,13 @@ using Android.Hardware;
 using Qloudid.CameraView;
 using Qloudid.Droid.Renderers;
 using Xamarin.Forms.Platform.Android;
+using static Android.Hardware.Camera;
 
 [assembly: ExportRenderer(typeof(CameraPreview), typeof(CameraPreviewRenderer))]
 namespace Qloudid.Droid.Renderers
 {
-    public class CameraPreviewRenderer : ViewRenderer<CameraPreview, CameraPreview_Droid>
+    [Obsolete]
+    public class CameraPreviewRenderer : ViewRenderer<CameraPreview, CameraPreview_Droid>, IPictureCallback, Android.Hardware.Camera.IShutterCallback
     {
         CameraPreview_Droid cameraPreview;
         CameraPreview CameraPreviewPage;
@@ -46,10 +48,15 @@ namespace Qloudid.Droid.Renderers
         {
             if (cameraPreview.IsPreviewing)
             {
-               // App.CroppedImage = new byte[100];
-               //cameraPreview.TakePicture();
                 cameraPreview.IsPreviewing = false;
-                cameraPreview.Preview.StopPreview();
+                try
+                {
+                    cameraPreview.Preview.TakePicture(this, this, this);
+                }
+                catch (Exception x)
+                {
+                    string str = x.Message;
+                }
             }
             else
             {
@@ -62,13 +69,30 @@ namespace Qloudid.Droid.Renderers
         {
             if (disposing)
             {
-                Control.Preview.Release();
+               // Control.Preview.Release();
+                cameraPreview.Preview.StopPreview();
             }
             base.Dispose(disposing);
         }
 
         public void onPictureTaken(byte[] data, Camera camera)
         {
+            if (data != null)
+            {
+                App.CroppedImage = data;
+            }
         }
-    }
+
+		public void OnPictureTaken(byte[] data, Camera camera)
+		{
+            if (data != null)
+            {
+                App.CroppedImage = data;
+            }
+        }
+
+		public void OnShutter()
+		{
+		}
+	}
 }

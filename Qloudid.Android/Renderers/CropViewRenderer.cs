@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using Android.Content;
-using Android.Graphics;
-using Com.Theartofdev.Edmodo.Cropper;
-using Qloudid.Droid.Renderers;
+﻿using System.IO;
 using Qloudid.Views;
 using Xamarin.Forms;
+using Android.Content;
+using Android.Graphics;
+using Qloudid.Droid.Renderers;
+using Com.Theartofdev.Edmodo.Cropper;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(CropView), typeof(CropViewRenderer))]
@@ -29,9 +28,11 @@ namespace Qloudid.Droid.Renderers
 
 				var imageContent = new ContentView 
 				{
+					HeightRequest=500,
+					WidthRequest=600,
 					Content = cropImageView.ToView(), 
 					HorizontalOptions=LayoutOptions.FillAndExpand,
-					VerticalOptions=LayoutOptions.CenterAndExpand
+					VerticalOptions=LayoutOptions.FillAndExpand
 				};
 				//var scrollView = new ScrollView { Content = cropImageView.ToView() };
 				var stackLayout = new StackLayout { Children = { imageContent }, Spacing = 0 };

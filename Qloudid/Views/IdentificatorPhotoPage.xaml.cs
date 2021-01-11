@@ -1,12 +1,12 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Qloudid.ViewModels;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.IO;
 using Plugin.Media;
-using Plugin.Media.Abstractions;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Qloudid.ViewModels;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using Plugin.Media.Abstractions;
 
 namespace Qloudid.Views
 {
@@ -24,18 +24,18 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new IdentificatorPhotoPageViewModel(this.Navigation);
 		}
 
-        protected async override void OnAppearing()
-        {
+		protected async override void OnAppearing()
+		{
 			if (Helper.Helper.IsCameraPageImageClicked)
 			{
 				Helper.Helper.IsCameraPageImageClicked = false;
 				await Navigation.PushModalAsync(new CropView(App.CroppedImage, Refresh));
 			}
-            base.OnAppearing();
-        }
+			base.OnAppearing();
+		}
 
-        #region Image Data1 Clicked.
-        private async void ImageData1Clicked(object sender, EventArgs e)
+		#region Image Data1 Clicked.
+		private async void ImageData1Clicked(object sender, EventArgs e)
 		{
 			index = 1;
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
@@ -79,17 +79,28 @@ namespace Qloudid.Views
 					if (index == 1)
 					{
 						image1.Source = ImageSource.FromStream(() => stream);
-						//viewModel.Image1 = image1;
-						byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
-						viewModel.CroppedImage1 = aa;//App.CroppedImage;
+						if (Device.RuntimePlatform == Device.iOS)
+						{
+							byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+							viewModel.CroppedImage1 = aa;
+						}
+						else
+						{
+							viewModel.CroppedImage1 = App.CroppedImage;
+						}
 					}
 					else
 					{
 						image2.Source = ImageSource.FromStream(() => stream);
-						byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
-
-						viewModel.CroppedImage2 = bb;//App.CroppedImage;
-						//viewModel.Image2 = image2;
+						if (Device.RuntimePlatform == Device.iOS)
+						{
+							byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
+							viewModel.CroppedImage2 = bb;
+						}
+						else
+						{
+							viewModel.CroppedImage2 = App.CroppedImage;
+						}
 					}
 				}
 			}
@@ -123,11 +134,14 @@ namespace Qloudid.Views
 					CompressionQuality = 80
 					//CustomPhotoSize = 50
 				});
-				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
-				var memoryStream = new MemoryStream();
-				await mediaFile.GetStream().CopyToAsync(memoryStream);
-				byte[] imageAsByte = memoryStream.ToArray();
-				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+				if (mediaFile != null)
+				{
+					_imageSource = ImageSource.FromStream(mediaFile.GetStream);
+					var memoryStream = new MemoryStream();
+					await mediaFile.GetStream().CopyToAsync(memoryStream);
+					byte[] imageAsByte = memoryStream.ToArray();
+					await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+				}
 			}
 			catch (System.Exception ex)
 			{

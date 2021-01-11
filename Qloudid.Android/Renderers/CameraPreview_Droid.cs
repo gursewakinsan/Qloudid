@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Qloudid.Droid.Renderers
 {
-	public sealed class CameraPreview_Droid : ViewGroup, ISurfaceHolderCallback, Camera.IPictureCallback, Camera.IPreviewCallback, Camera.IShutterCallback
+	public sealed class CameraPreview_Droid : ViewGroup, ISurfaceHolderCallback//, Camera.IPictureCallback, Camera.IPreviewCallback, Camera.IShutterCallback
 	{
 		SurfaceView surfaceView;
 		ISurfaceHolder holder;
@@ -107,7 +107,7 @@ namespace Qloudid.Droid.Renderers
 					camera.SetDisplayOrientation(180);
 					break;
 			}
-
+			
 			Preview.SetParameters(parameters);
 			//Preview.SetPreviewCallbackWithBuffer(this);
 			Preview.StartPreview();
@@ -117,7 +117,7 @@ namespace Qloudid.Droid.Renderers
 
 		public void TakePicture()
 		{
-			Preview.TakePicture(this, this, this, null);
+			//Preview.TakePicture(this, this, this, null);
 			//Preview.TakePicture(null, null, null, null);
 
 			//TODO - Find out how picture clicked using ISurfaceHolderCallback 
