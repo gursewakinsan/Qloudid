@@ -24,5 +24,10 @@ namespace Qloudid.Views
 				viewModel.CountryId = country.Id;
 			}
 		}
+
+		private void OnButtonCloseClicked(object sender, System.EventArgs e)
+		{
+			Application.Current.MainPage = new NavigationPage(new RestorePage());
+		}
 	}
 }

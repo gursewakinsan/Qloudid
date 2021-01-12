@@ -39,7 +39,7 @@ namespace Qloudid.ViewModels
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("This email does not exist.");
+					Application.Current.MainPage = new NavigationPage(new Views.AccountNotAvailablePage());
 				else if (response.result == 1)
 				{
 					Helper.Helper.UserId = response.user_id;

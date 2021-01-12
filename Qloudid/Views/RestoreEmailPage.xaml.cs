@@ -14,5 +14,10 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new RestoreEmailPageViewModel(this.Navigation);
 		}
+
+		private void OnCloseButtonClicked(object sender, System.EventArgs e)
+		{
+			Application.Current.MainPage = new NavigationPage(new RestorePage());
+		}
 	}
 }

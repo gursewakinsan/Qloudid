@@ -26,7 +26,7 @@
 							Grid.Column="1"
 							Padding="15,5,0,15"
 							BackgroundColor="Transparent"
-							Command="{Binding CloseCommand}"
+							Clicked="OnCloseButtonClicked"
 							HorizontalOptions="EndAndExpand"
 							WidthRequest="40">
 							<ImageButton.Source>
