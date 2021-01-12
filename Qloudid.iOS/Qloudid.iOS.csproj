@@ -65,11 +65,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchSdkVersion>14.3</MtouchSdkVersion>
-    <CodesignProvision>Qloudid-Provisioning-Distribution</CodesignProvision>
+    <CodesignProvision>Qloudid-Provisioning-Profile-DEV</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
