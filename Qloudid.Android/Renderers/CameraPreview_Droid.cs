@@ -118,7 +118,7 @@ namespace Qloudid.Droid.Renderers
 			parameters.Set("Saturation", 100);
 			parameters.Set("Sharpness", 100);*/
 			parameters.Set("jpeg-quality", 100);
-			parameters.SetPictureSize(800, 600);
+			//parameters.SetPictureSize(800, 600);
 			//=========
 			parameters.FocusMode = Camera.Parameters.FocusModeContinuousPicture;
 
