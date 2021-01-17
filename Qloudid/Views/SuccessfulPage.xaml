@@ -61,7 +61,7 @@
 				<usercontrols:DotLineControl />
 
 				<controls:CustomButton
-					Command="{Binding CloseCommand}"
+					Command="{Binding CloseAppCommand}"
 					FontFamily="{StaticResource SFProRegularFontFamily}"
 					Text="Close" />
 			</StackLayout>

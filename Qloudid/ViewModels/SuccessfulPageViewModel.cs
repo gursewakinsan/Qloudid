@@ -26,22 +26,23 @@ namespace Qloudid.ViewModels
 		{
 			Device.BeginInvokeOnMainThread(() =>
 			{
-				CloseCommand.Execute(null);
+				CloseAppCommand.Execute(null);
 			});
 		}
 		#endregion
 
-		#region Close Command.
-		private ICommand closeCommand;
-		public ICommand CloseCommand
+		#region Close App Command.
+		private ICommand closeAppCommand;
+		public ICommand CloseAppCommand
 		{
-			get => closeCommand ?? (closeCommand = new Command(() => ExecuteCloseCommand()));
+			get => closeAppCommand ?? (closeAppCommand = new Command(() => ExecuteCloseAppCommand()));
 		}
-		private void ExecuteCloseCommand()
+		private void ExecuteCloseAppCommand()
 		{
 			if (timer != null) timer.Enabled = false;
 			Helper.Helper.IsBack = true;
-			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+			//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 		}
 		#endregion
 	}
