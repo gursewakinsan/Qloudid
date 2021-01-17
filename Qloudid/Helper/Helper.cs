@@ -45,5 +45,6 @@ namespace Qloudid.Helper
 		public static int VerifyRestoreOtpPinWithMobileResult { get; set; }
 		public static string UserEmail { get; set; }
 		public static int CountDownWrongPassword { get; set; } = 0;
+		public static bool IsThirdPartyWebLogin { get; set; } = false;
 	}
 }

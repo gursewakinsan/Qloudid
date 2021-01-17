@@ -37,12 +37,17 @@ namespace Qloudid.ViewModels
 		{
 			get => closeAppCommand ?? (closeAppCommand = new Command(() => ExecuteCloseAppCommand()));
 		}
-		private void ExecuteCloseAppCommand()
+		private async void ExecuteCloseAppCommand()
 		{
 			if (timer != null) timer.Enabled = false;
 			Helper.Helper.IsBack = true;
-			System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-			//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			if (Helper.Helper.IsThirdPartyWebLogin)
+				await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
+			else
+				await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
+			//System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			//System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
 		}
 		#endregion
 	}

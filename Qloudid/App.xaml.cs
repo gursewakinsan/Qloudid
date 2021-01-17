@@ -34,6 +34,7 @@ namespace Qloudid
 
 		public void OpenAppFromWeb(string signInText)
 		{
+			Helper.Helper.IsThirdPartyWebLogin = false;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
 				Helper.Helper.QrCertificateKey = $"{Application.Current.Properties["QrCode"]}";
@@ -41,7 +42,10 @@ namespace Qloudid
 				if (string.IsNullOrWhiteSpace(signInText))
 					MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 				else
+				{
+					Helper.Helper.IsThirdPartyWebLogin = true;
 					MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+				}
 			}
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
@@ -70,6 +74,7 @@ namespace Qloudid
 
 		protected override void OnAppLinkRequestReceived(Uri uri)
 		{
+			Helper.Helper.IsThirdPartyWebLogin = false;
 			if (uri.Host.EndsWith("qloudid.com", StringComparison.OrdinalIgnoreCase))
 			{
 				if (uri.Segments != null && uri.Segments.Length == 3)
@@ -106,6 +111,7 @@ namespace Qloudid
 				{
 					if (Application.Current.Properties.ContainsKey("QrCode"))
 					{
+						Helper.Helper.IsThirdPartyWebLogin = true;
 						string signInText = uri.Segments[4];
 						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
