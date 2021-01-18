@@ -27,5 +27,6 @@
 		public const string VerifyRestoreOtpPinWithMobileUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyRestoreOtpPinWithMobile";
 		public const string VerifyPhoneOtpPinWithIdUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyPhoneOtpPinWithId";
 		public const string ClearCertificateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/clearCertificate";
+		public const string AddNewCardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/";
 	}
 }

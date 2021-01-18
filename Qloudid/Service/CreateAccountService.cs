@@ -70,5 +70,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.AddNewCardResponse> AddNewCardAsync(Models.AddNewCardRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.AddNewCardResponse>(HttpWebRequest.Create(EndPointsList.AddNewCardUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

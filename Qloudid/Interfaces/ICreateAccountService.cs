@@ -11,5 +11,6 @@ namespace Qloudid.Interfaces
 		Task<int> AddIdentificatorAsync(Models.IdentificatorRequest model);
 		Task<Models.GenerateCertificateResponse> GenerateCertificateAsync(Models.GenerateCertificateRequest model);
 		Task<int> UploadAddIdentificatorImagesAsync(Models.AddIdentificatorImagesRequest model);
+		Task<Models.AddNewCardResponse> AddNewCardAsync(Models.AddNewCardRequest model);
 	}
 }

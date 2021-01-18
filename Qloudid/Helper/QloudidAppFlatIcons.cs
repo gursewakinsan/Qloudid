@@ -16,5 +16,6 @@
 		public const string CardAccountDetailsOutline = "\U000f0dab";
 		public const string CalendarText = "\U000f00f5";
 		public const string CheckboxMarkedCircleOutline = "\U000f0134";
+		public const string CardBulletedOutline = "\U000f0b73";
 	}
 }
