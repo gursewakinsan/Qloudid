@@ -46,5 +46,6 @@ namespace Qloudid.Helper
 		public static string UserEmail { get; set; }
 		public static int CountDownWrongPassword { get; set; } = 0;
 		public static bool IsThirdPartyWebLogin { get; set; } = false;
+		public static bool IsAddMoreCard { get; set; }
 	}
 }

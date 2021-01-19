@@ -60,9 +60,17 @@ namespace Qloudid.ViewModels
 				int response = await service.AddNewCardAsync(request);
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try again.");
-				else if(response == 1)
-					Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
-				else if(response == 2)
+				else if (response == 1)
+				{
+					if (Helper.Helper.IsAddMoreCard)
+					{
+						Helper.Helper.IsAddMoreCard = false;
+						await Navigation.PopAsync();
+					}
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+				}
+				else if (response == 2)
 					await Helper.Alert.DisplayAlert("You have entered wrong card number, Please try another card.");
 				DependencyService.Get<IProgressBar>().Hide();
 			}
@@ -70,6 +78,7 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		public bool IsCloseShow => Helper.Helper.IsAddMoreCard;
 		public string CardNumber { get; set; }
 		public string CardHolderName { get; set; }
 		public string ExpirationMonth { get; set; }

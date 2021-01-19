@@ -26,8 +26,9 @@
 							Grid.Column="1"
 							Padding="15,5,0,15"
 							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
 							HorizontalOptions="EndAndExpand"
-							IsVisible="False"
+							IsVisible="{Binding IsCloseShow}"
 							WidthRequest="40">
 							<ImageButton.Source>
 								<FontImageSource

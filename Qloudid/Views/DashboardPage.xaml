@@ -125,7 +125,6 @@
 					Command="{Binding ManageCardCommand}"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="16"
-					IsVisible="False"
 					Text="Manage Card" />
 
 				<Grid

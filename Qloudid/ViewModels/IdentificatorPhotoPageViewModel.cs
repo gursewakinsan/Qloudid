@@ -66,7 +66,10 @@ namespace Qloudid.ViewModels
 					if (response2 == 0)
 						await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
 					else if (response2 == 1)
+					{
+						Helper.Helper.IsAddMoreCard = false;
 						Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}
 			}
@@ -81,6 +84,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSkipUploadAddIdentificatorImagesCommand()
 		{
+			Helper.Helper.IsAddMoreCard = false;
 			Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
 			await Task.CompletedTask;
 		}

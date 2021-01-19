@@ -4,7 +4,6 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -156,10 +155,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteManageCardCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			ICreateAccountService service = new CreateAccountService();
-			List<Models.GetCardDetailResponse> response = await service.GetAllCardDetailsAsync(new Models.GetCardDetailRequest() { UserId = Helper.Helper.UserId });
-			DependencyService.Get<IProgressBar>().Hide();
+			await Navigation.PushAsync(new Views.CardListPage());
 		}
 		#endregion
 
