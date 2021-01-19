@@ -2,6 +2,7 @@
 using Qloudid.Helper;
 using Qloudid.Interfaces;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.Service
 {
@@ -71,11 +72,29 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<Models.AddNewCardResponse> AddNewCardAsync(Models.AddNewCardRequest model)
+		public Task<int> AddNewCardAsync(Models.AddNewCardRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.AddNewCardResponse>(HttpWebRequest.Create(EndPointsList.AddNewCardUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddNewCardUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddDeliveryAddressAsync(Models.AddDeliveryAddressRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddDeliveryAddressUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<List<Models.GetCardDetailResponse>> GetAllCardDetailsAsync(Models.GetCardDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.GetCardDetailResponse>>(HttpWebRequest.Create(EndPointsList.ListCardDetailsUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

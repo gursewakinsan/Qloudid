@@ -27,6 +27,7 @@
 							Padding="15,5,0,15"
 							BackgroundColor="Transparent"
 							HorizontalOptions="EndAndExpand"
+							IsVisible="False"
 							WidthRequest="40">
 							<ImageButton.Source>
 								<FontImageSource

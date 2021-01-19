@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.Interfaces
 {
@@ -11,6 +12,8 @@ namespace Qloudid.Interfaces
 		Task<int> AddIdentificatorAsync(Models.IdentificatorRequest model);
 		Task<Models.GenerateCertificateResponse> GenerateCertificateAsync(Models.GenerateCertificateRequest model);
 		Task<int> UploadAddIdentificatorImagesAsync(Models.AddIdentificatorImagesRequest model);
-		Task<Models.AddNewCardResponse> AddNewCardAsync(Models.AddNewCardRequest model);
+		Task<int> AddNewCardAsync(Models.AddNewCardRequest model);
+		Task<int> AddDeliveryAddressAsync(Models.AddDeliveryAddressRequest model);
+		Task<List<Models.GetCardDetailResponse>> GetAllCardDetailsAsync(Models.GetCardDetailRequest model);
 	}
 }

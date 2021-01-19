@@ -2,6 +2,7 @@
 {
 	public class AddNewCardRequest
 	{
+		public int UserId { get; set; }
 		public string CardNumber { get; set; }
 		public string CardHolderName { get; set; }
 		public string ExpirationMonth { get; set; }

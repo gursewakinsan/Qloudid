@@ -40,11 +40,21 @@ namespace Qloudid.ViewModels
 					await Navigation.PushAsync(new Views.WrongEmailOtpPinPage());
 				else if (response.result == 1)
 				{
+					Helper.Helper.UserInfo = new Models.User()
+					{
+						first_name = response.first_name,
+						last_name = response.last_name,
+					};
 					Helper.Helper.CountryCode = response.country_code;
 					Application.Current.MainPage = new NavigationPage(new Views.MobileNumberPage());
 				}
 				else if (response.result > 1)
 				{
+					Helper.Helper.UserInfo = new Models.User()
+					{
+						first_name = response.first_name,
+						last_name = response.last_name,
+					};
 					Helper.Helper.VerifyRestoreOtpPinWithMobileResult = response.result;
 					Helper.Helper.CountryCode = response.country_code;
 					Helper.Helper.UserMobileNumber = response.phone_number;

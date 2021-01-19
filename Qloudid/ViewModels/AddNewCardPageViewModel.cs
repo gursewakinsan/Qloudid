@@ -50,13 +50,20 @@ namespace Qloudid.ViewModels
 				ICreateAccountService service = new CreateAccountService();
 				Models.AddNewCardRequest request = new Models.AddNewCardRequest()
 				{
+					UserId = Helper.Helper.UserId,
 					CardNumber = CardNumber,
 					CardHolderName = CardHolderName,
 					ExpirationMonth = ExpirationMonth,
 					ExpirationYear = ExpirationYear,
 					Cvv = Cvv
 				};
-				Models.AddNewCardResponse response = await service.AddNewCardAsync(request);
+				int response = await service.AddNewCardAsync(request);
+				if (response == 0)
+					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try again.");
+				else if(response == 1)
+					Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+				else if(response == 2)
+					await Helper.Alert.DisplayAlert("You have entered wrong card number, Please try another card.");
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

@@ -26,6 +26,10 @@ namespace Qloudid.ViewModels
 			if (Helper.Helper.VerifyRestoreOtpPinWithMobileResult== 2)
 				Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
 			else if (Helper.Helper.VerifyRestoreOtpPinWithMobileResult == 3)
+				Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+			else if (Helper.Helper.VerifyRestoreOtpPinWithMobileResult == 4)
+				Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+			else if (Helper.Helper.VerifyRestoreOtpPinWithMobileResult == 5)
 				Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 			await Task.CompletedTask;
 		}

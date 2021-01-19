@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.AddDeliveryAddressPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30">
+				<StackLayout Spacing="0" VerticalOptions="Start">
+					<Grid Margin="0,0,0,10">
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							HorizontalOptions="EndAndExpand"
+							IsVisible="False"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Add delivery"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="address"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,50"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Please add your delivery address."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+				</StackLayout>
+
+				<Grid
+					Margin="0,24,0,10"
+					RowSpacing="5"
+					VerticalOptions="StartAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="25" />
+						<RowDefinition Height="25" />
+						<RowDefinition Height="auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="100" />
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="If name on the house door is as"
+						TextColor="#060417"
+						VerticalTextAlignment="End" />
+
+					<Label
+						Grid.Row="1"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Text="{Binding UserName}"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Switch
+						Grid.RowSpan="2"
+						Grid.Column="1"
+						HorizontalOptions="EndAndExpand"
+						IsToggled="{Binding IsNameSame}"
+						OnColor="#05CBE7"
+						ThumbColor="#6F7FAF"
+						VerticalOptions="CenterAndExpand" />
+
+					<Frame
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						Margin="0,20,0,0"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						IsVisible="{Binding IsNameEntryVisible}">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Name"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding Name}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+				</Grid>
+
+				<Grid RowSpacing="20" VerticalOptions="StartAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="70" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="90" />
+					</Grid.ColumnDefinitions>
+
+					<Frame
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Delivery Address"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding DeliveryAddress}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Delivery Port Number"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding DeliveryPortNumber}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Delivery Zip Code"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding DeliveryZipCode}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Delivery City"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding DeliveryCity}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						MaxLines="2"
+						Text="If invoice address same as delivery address."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Center" />
+
+					<Switch
+						Grid.Row="4"
+						Grid.Column="1"
+						HorizontalOptions="EndAndExpand"
+						IsToggled="{Binding IsInvoiceAddressSame}"
+						OnColor="#05CBE7"
+						ThumbColor="#6F7FAF"
+						VerticalOptions="CenterAndExpand" />
+
+					<Grid
+						Grid.Row="5"
+						Grid.ColumnSpan="2"
+						IsVisible="{Binding IsInvoiceAddressVisible}"
+						RowSpacing="20">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="50" />
+							<RowDefinition Height="50" />
+							<RowDefinition Height="50" />
+							<RowDefinition Height="50" />
+						</Grid.RowDefinitions>
+						<Frame
+							Grid.Row="0"
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False">
+							<Grid Margin="10,0,20,0" ColumnSpacing="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Column="0"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Opacity="0.5"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+								<controls:CustomEntry
+									Grid.Column="1"
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Placeholder="Invoice Address"
+									PlaceholderColor="#6F7FAF"
+									Text="{Binding InvoiceAddress}"
+									TextColor="#6F7FAF" />
+							</Grid>
+						</Frame>
+
+						<Frame
+							Grid.Row="1"
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False">
+							<Grid Margin="10,0,20,0" ColumnSpacing="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Column="0"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="25"
+									HorizontalTextAlignment="Center"
+									Opacity="0.5"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+								<controls:CustomEntry
+									Grid.Column="1"
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Placeholder="Invoice Port Number"
+									PlaceholderColor="#6F7FAF"
+									Text="{Binding InvoicePortNumber}"
+									TextColor="#6F7FAF" />
+							</Grid>
+						</Frame>
+
+						<Frame
+							Grid.Row="2"
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False">
+							<Grid Margin="10,0,20,0" ColumnSpacing="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Column="0"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Opacity="0.5"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+								<controls:CustomEntry
+									Grid.Column="1"
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Placeholder="Invoice Zip Code"
+									PlaceholderColor="#6F7FAF"
+									Text="{Binding InvoiceZipCode}"
+									TextColor="#6F7FAF" />
+							</Grid>
+						</Frame>
+
+						<Frame
+							Grid.Row="3"
+							Padding="0"
+							BackgroundColor="#F8F8FB"
+							CornerRadius="25"
+							HasShadow="False">
+							<Grid Margin="10,0,20,0" ColumnSpacing="0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Column="0"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Opacity="0.5"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+								<controls:CustomEntry
+									Grid.Column="1"
+									BackgroundColor="#F8F8FB"
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="16"
+									Placeholder="Invoice City"
+									PlaceholderColor="#6F7FAF"
+									Text="{Binding InvoiceCity}"
+									TextColor="#6F7FAF" />
+							</Grid>
+						</Frame>
+					</Grid>
+
+					<Frame
+						Grid.Row="6"
+						Grid.ColumnSpan="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.FormTextboxPassword}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Entry Code"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding EntryCode}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<controls:CustomButton
+						Grid.Row="7"
+						Grid.ColumnSpan="2"
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding AddAddressCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Add Address"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

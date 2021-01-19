@@ -17,5 +17,10 @@
 		public const string CalendarText = "\U000f00f5";
 		public const string CheckboxMarkedCircleOutline = "\U000f0134";
 		public const string CardBulletedOutline = "\U000f0b73";
+		public const string HomeOutline = "\U000f06a1";
+		public const string City = "\U000f0146";
+		public const string SerialPort = "\U000f065c";
+		public const string PostOutline = "\U000f1009";
+		public const string FormTextboxPassword = "\U000f07f5";
 	}
 }

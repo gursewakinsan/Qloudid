@@ -55,6 +55,13 @@ namespace Qloudid.ViewModels
 				{
 					Helper.Helper.UserId = response.user_id;
 					Helper.Helper.UserEmail = Email;
+					Helper.Helper.UserInfo = new Models.User()
+					{
+						first_name = FirstName,
+						last_name = LastName,
+						email = Email,
+						user_id = response.user_id
+					};
 					await Navigation.PushAsync(new Views.EmailVerificationPinPage());
 				}
 				else if (response.result == 2)

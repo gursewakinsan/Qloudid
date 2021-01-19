@@ -3,6 +3,7 @@
 	x:Class="Qloudid.Views.DashboardPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -103,9 +104,7 @@
 					</Label>
 				</StackLayout>
 
-
 				<ImageButton
-					Margin="0,0,0,40"
 					Padding="30"
 					Aspect="AspectFit"
 					BackgroundColor="#00CCE7"
@@ -118,6 +117,16 @@
 					Source="iconQrCodeScanner.png"
 					VerticalOptions="EndAndExpand"
 					WidthRequest="100" />
+
+				<controls:CustomButton
+					Margin="0"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+					Command="{Binding ManageCardCommand}"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					IsVisible="False"
+					Text="Manage Card" />
 
 				<Grid
 					Margin="0,0,0,40"

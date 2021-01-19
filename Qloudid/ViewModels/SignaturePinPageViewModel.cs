@@ -42,7 +42,11 @@ namespace Qloudid.ViewModels
 				{
 					if (response.identificator == 0)
 						await Navigation.PushAsync(new Views.IdentificatorPage());
-					else if (response.identificator == 1)
+					if (response.identificator == 1)
+						await Navigation.PushAsync(new Views.AddNewCardPage());
+					if (response.identificator == 2)
+						await Navigation.PushAsync(new Views.AddDeliveryAddressPage());
+					else if (response.identificator == 3)
 						await Navigation.PushAsync(new Views.GenerateCertificatePage());
 				}
 				ClearPassword();
