@@ -95,6 +95,8 @@
 										FontFamily="{StaticResource SFProSemiboldFontFamily}"
 										FontSize="16"
 										HorizontalTextAlignment="Start"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
 										Text="{Binding name_on_card}"
 										TextColor="#060417"
 										VerticalTextAlignment="End" />
