@@ -34,7 +34,12 @@ namespace Qloudid.ViewModels
 				if (response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					//Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
+					if (Helper.Helper.IsThirdPartyWebLogin)
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
+					else
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
 				}
 				else if (response == 2)
 				{

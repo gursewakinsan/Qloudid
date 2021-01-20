@@ -1,6 +1,7 @@
 ﻿using System.Timers;
 using Xamarin.Forms;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
@@ -41,13 +42,10 @@ namespace Qloudid.ViewModels
 		{
 			if (timer != null) timer.Enabled = false;
 			Helper.Helper.IsBack = true;
-			if (Helper.Helper.IsThirdPartyWebLogin)
-				await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
-			else
-				await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
 			//System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
 			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 			//System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+			await Task.CompletedTask;
 		}
 		#endregion
 	}
