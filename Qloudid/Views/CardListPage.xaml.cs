@@ -13,7 +13,6 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new CardListPageViewModel(this.Navigation);
-			
 		}
 
 		protected override void OnAppearing()

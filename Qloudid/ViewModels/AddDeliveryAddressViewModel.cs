@@ -73,7 +73,15 @@ namespace Qloudid.ViewModels
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try again.");
 				else if (response == 1)
-					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+				{
+					if (Helper.Helper.IsAddMoreAddresses)
+					{
+						Helper.Helper.IsAddMoreAddresses = false;
+						await Navigation.PopAsync();
+					}
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
@@ -126,6 +134,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
+		public bool IsCloseShow => Helper.Helper.IsAddMoreAddresses;
 		public string Name { get; set; }
 		public string DeliveryAddress { get; set; }
 		public string DeliveryPortNumber { get; set; }

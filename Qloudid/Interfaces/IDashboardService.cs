@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Qloudid.Interfaces
 {
@@ -9,5 +10,6 @@ namespace Qloudid.Interfaces
 		Task<int> ClearIpsAsync(string qrCode);
 		Task<int> UpdateLoginStatusAsync(string qrCode);
 		Task<int> ClearCertificateAsync(Models.ClearCertificateRequest request);
+		Task<List<Models.AddressesResponse>> GetAddressesAsync(Models.AddressesRequest request);
 	}
 }

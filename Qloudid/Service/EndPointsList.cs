@@ -30,5 +30,6 @@
 		public const string AddNewCardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkCard";
 		public const string AddDeliveryAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addAddress";
 		public const string ListCardDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listCardDetails";
+		public const string ListAddressesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listAddresses";
 	}
 }

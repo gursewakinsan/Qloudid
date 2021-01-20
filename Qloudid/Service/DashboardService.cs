@@ -2,6 +2,7 @@
 using Qloudid.Helper;
 using Qloudid.Interfaces;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.Service
 {
@@ -48,6 +49,15 @@ namespace Qloudid.Service
 			return Task.Factory.StartNew(() =>
 			{
 				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ClearCertificateUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<List<Models.AddressesResponse>> GetAddressesAsync(Models.AddressesRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.AddressesResponse>>(HttpWebRequest.Create(EndPointsList.ListAddressesUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}

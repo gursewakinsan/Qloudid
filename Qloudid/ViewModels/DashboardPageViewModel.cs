@@ -79,6 +79,7 @@ namespace Qloudid.ViewModels
 					user.email = $"{Application.Current.Properties["Email"]}";
 					user.UserImage = response.image;
 					Helper.Helper.UserInfo = user;
+					Helper.Helper.UserId = user.user_id;
 					UserInfo = user;
 					//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
