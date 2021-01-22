@@ -27,6 +27,7 @@
 						BackgroundColor="Transparent"
 						Command="{Binding CloseCommand}"
 						HorizontalOptions="EndAndExpand"
+						IsVisible="False"
 						WidthRequest="50">
 						<ImageButton.Source>
 							<FontImageSource
@@ -83,15 +84,46 @@
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
-								<Grid RowSpacing="5">
+								<Grid
+									BackgroundColor="White"
+									ColumnSpacing="20"
+									RowSpacing="5">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="30" />
 										<RowDefinition Height="30" />
 										<RowDefinition Height="1" />
 									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="50" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="20" />
+									</Grid.ColumnDefinitions>
+									<BoxView
+										Grid.Row="0"
+										Grid.RowSpan="3"
+										Grid.Column="0"
+										BackgroundColor="#6F7FAF"
+										CornerRadius="20"
+										HeightRequest="50"
+										HorizontalOptions="CenterAndExpand"
+										Opacity="0.1"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="50" />
 
 									<Label
 										Grid.Row="0"
+										Grid.RowSpan="3"
+										Grid.Column="0"
+										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontSize="18"
+										HorizontalTextAlignment="Center"
+										Text="{Binding FirstLetterName}"
+										TextColor="Black"
+										VerticalTextAlignment="Center" />
+
+									<Label
+										Grid.Row="0"
+										Grid.Column="1"
 										FontFamily="{StaticResource SFProSemiboldFontFamily}"
 										FontSize="16"
 										HorizontalTextAlignment="Start"
@@ -103,6 +135,7 @@
 
 									<Label
 										Grid.Row="1"
+										Grid.Column="1"
 										FontFamily="{StaticResource SFProRegularFontFamily}"
 										FontSize="14"
 										HorizontalTextAlignment="Start"
@@ -112,8 +145,20 @@
 										TextColor="#6F7FAF"
 										VerticalTextAlignment="Start" />
 
+									<Label
+										Grid.RowSpan="3"
+										Grid.Column="2"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="Center"
+										Opacity="0.5"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="#6F7FAF"
+										VerticalTextAlignment="Center" />
+
 									<BoxView
 										Grid.Row="2"
+										Grid.ColumnSpan="3"
 										BackgroundColor="#6F7FAF"
 										Opacity="0.2" />
 								</Grid>

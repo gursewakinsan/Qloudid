@@ -49,7 +49,7 @@ namespace Qloudid.ViewModels
 				else if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					await Navigation.PushAsync(new Views.PurchasePage());
+					Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
 				}
 				else
 				{

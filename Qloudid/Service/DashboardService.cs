@@ -61,5 +61,41 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.EditAddressResponse> GetAddressByIdAsync(Models.EditAddressRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.EditAddressResponse>(HttpWebRequest.Create(EndPointsList.UserAddressDetailUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateUserAddressAsync(Models.EditAddressResponse request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateUserAddressUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<Models.EditAddressResponse> GetCompanyAddressByIdAsync(Models.EditAddressRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.EditAddressResponse>(HttpWebRequest.Create(EndPointsList.CompanyAddressDetailUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateCompanyAddressAsync(Models.EditAddressResponse request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateCompanyAddressUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

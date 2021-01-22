@@ -44,6 +44,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Edit Address Command.
+		private ICommand editAddressCommand;
+		public ICommand EditAddressCommand
+		{
+			get => editAddressCommand ?? (editAddressCommand = new Command(async () => await ExecuteEditAddressCommand()));
+		}
+		private async Task ExecuteEditAddressCommand()
+		{
+			await Navigation.PushAsync(new Views.EditAddressPage());
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.AddressesResponse> addressesList;
 		public List<Models.AddressesResponse> AddressesList

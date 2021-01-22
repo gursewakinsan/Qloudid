@@ -13,5 +13,6 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
 		public string SubheadingAddress { get; set; }
+		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(HeadingAddress, 0).ToUpper();
 	}
 }

@@ -48,5 +48,6 @@ namespace Qloudid.Helper
 		public static bool IsThirdPartyWebLogin { get; set; } = false;
 		public static bool IsAddMoreCard { get; set; }
 		public static bool IsAddMoreAddresses { get; set; }
+		public static Models.AddressesResponse DeliveryAddress { get; set; }
 	}
 }
