@@ -55,6 +55,7 @@ namespace Qloudid.ViewModels
 				ICreateAccountService service = new CreateAccountService();
 				Models.AddDeliveryAddressRequest request = new Models.AddDeliveryAddressRequest()
 				{
+					CertificateKey = Helper.Helper.QrCertificateKey,
 					UserId = Helper.Helper.UserId,
 					Name = Name,
 					DeliveryAddress = DeliveryAddress,
@@ -77,7 +78,8 @@ namespace Qloudid.ViewModels
 					if (Helper.Helper.IsAddMoreAddresses)
 					{
 						Helper.Helper.IsAddMoreAddresses = false;
-						await Navigation.PopAsync();
+						//await Navigation.PopAsync();
+						Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());

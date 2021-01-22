@@ -15,5 +15,6 @@
 		public string EntryCode { get; set; }
 		public bool IsNameSame { get; set; }
 		public bool IsInvoiceAddressSame { get; set; }
+		public string CertificateKey { get; set; }
 	}
 }

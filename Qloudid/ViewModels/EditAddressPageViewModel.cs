@@ -62,6 +62,7 @@ namespace Qloudid.ViewModels
 		private async Task UpdateCompanyAddress()
 		{
 			IDashboardService service = new DashboardService();
+			Address.CertificateKey = Helper.Helper.QrCertificateKey;
 			Address.UserId = Helper.Helper.UserId;
 			int response = await service.UpdateCompanyAddressAsync(Address);
 			if (response == 0)
@@ -105,6 +106,7 @@ namespace Qloudid.ViewModels
 				IDashboardService service = new DashboardService();
 				Models.EditAddressResponse request = new Models.EditAddressResponse()
 				{
+					CertificateKey = Helper.Helper.QrCertificateKey,
 					Id = Helper.Helper.DeliveryAddress.Id,
 					UserId = Helper.Helper.UserId,
 					NameOnHouse = Name,
