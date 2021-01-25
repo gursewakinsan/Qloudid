@@ -42,8 +42,16 @@ namespace Qloudid.ViewModels
 			else
 			{
 				DisplayName = $"{VerifyUserConsent.first_name} {VerifyUserConsent.last_name}";
-				DisplayCompanyName = $"I will hereby sign in under {VerifyUserConsent.company_name}";
-				DisplayReceiverCompanyName = $"Receiver : {VerifyUserConsent.company_name}";
+				if (string.IsNullOrEmpty(VerifyUserConsent.company_name))
+				{
+					DisplayReceiverCompanyName = $"Receiver : Qloud ID";
+					DisplayCompanyName = $"I will hereby sign in under Qloud ID.";
+				}
+				else
+				{
+					DisplayReceiverCompanyName = $"Receiver : {VerifyUserConsent.company_name}";
+					DisplayCompanyName = $"I will hereby sign in under {VerifyUserConsent.company_name}";
+				}
 				if (!string.IsNullOrEmpty(VerifyUserConsent.image))
 					UserImageSource = VerifyUserConsent.image;
 

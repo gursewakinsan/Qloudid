@@ -68,7 +68,18 @@ namespace Qloudid.ViewModels
 					IPurchaseService service = new PurchaseService();
 					int response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail() { user_id = Helper.Helper.UserInfo.user_id, company_id = company.id });
 					if (response == 1)
-						Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+					{
+						if (Helper.Helper.IsThirdPartyWebLogin)
+						{
+							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+							if (Helper.Helper.PurchaseIndex == 1)
+								await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
+							else
+								await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
+						}
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+					}
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
