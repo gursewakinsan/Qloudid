@@ -35,7 +35,14 @@ namespace Qloudid.iOS
             {
                 Helper.Helper.IpFromURL = url.Host;
                 Helper.Helper.VerifyUserConsentClientId = url.PathComponents[1];
-                App.OpenAppFromWeb(url.PathComponents[2]);
+                int count = url.PathComponents.Count();
+                if (count == 3)
+                    App.OpenAppFromWeb(url.PathComponents[2]);
+                else if(count == 4)
+                {
+                    Helper.Helper.PurchaseIndex = Convert.ToInt32(url.PathComponents[3]);
+                    App.OpenAppFromWeb(url.PathComponents[2]);
+                }
             }
             else
             {
