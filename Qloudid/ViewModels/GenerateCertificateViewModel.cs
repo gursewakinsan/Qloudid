@@ -35,9 +35,9 @@ namespace Qloudid.ViewModels
 				};
 				Models.GenerateCertificateResponse response = await service.GenerateCertificateAsync(request);
 				if (response == null)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.result == 0)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.result == 1)
 				{
 					Models.User user = new Models.User()

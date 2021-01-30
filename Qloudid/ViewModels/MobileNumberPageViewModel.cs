@@ -38,7 +38,7 @@ namespace Qloudid.ViewModels
 				};
 				Models.VerifyUserMobileResponse response = await service.VerifyUserMobileAsync(request);
 				if (response == null)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.result == 0)
 					await Helper.Alert.DisplayAlert("This mobile number is already in used. Please use any other mobile number.");
 				else if (response.result == 1)

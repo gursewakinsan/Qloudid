@@ -8,10 +8,10 @@ using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
-	public class AddNewCardPageViewModel : BaseViewModel
+	public class AddNewPurchaseCardPageViewModel : BaseViewModel
 	{
 		#region Constructor.
-		public AddNewCardPageViewModel(INavigation navigation)
+		public AddNewPurchaseCardPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 			ExpirationYearList = new List<string>();
@@ -48,27 +48,31 @@ namespace Qloudid.ViewModels
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				ICreateAccountService service = new CreateAccountService();
-				Models.AddNewCardRequest request = new Models.AddNewCardRequest()
+				Models.AddNewPurchaseCardRequest request = new Models.AddNewPurchaseCardRequest()
 				{
 					UserId = Helper.Helper.UserId,
 					CardNumber = CardNumber,
 					CardHolderName = CardHolderName,
 					ExpirationMonth = ExpirationMonth,
 					ExpirationYear = ExpirationYear,
-					Cvv = Cvv
+					Cvv = Cvv,
+					certificate_key = Helper.Helper.QrCertificateKey
 				};
-				int response = await service.AddNewCardAsync(request);
+				int response = await service.SavePurchaseCardDetailsAsync(request);
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
 				else if (response == 1)
 				{
-					if (Helper.Helper.IsAddMoreCard)
+					if (Helper.Helper.IsThirdPartyWebLogin)
 					{
-						Helper.Helper.IsAddMoreCard = false;
-						await Navigation.PopAsync();
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						if (Helper.Helper.PurchaseIndex == 1)
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
+						else
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
 					}
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+						Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
 				}
 				else if (response == 2)
 					await Helper.Alert.DisplayAlert("You have entered wrong card number, Please try another card.");
@@ -78,7 +82,6 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public bool IsCloseShow => Helper.Helper.IsAddMoreCard;
 		public string CardNumber { get; set; }
 		public string CardHolderName { get; set; }
 		public string ExpirationMonth { get; set; }

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.CardDetailsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30">
+				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+					<Grid Margin="0,0,0,10">
+						<Image
+							Grid.Column="0"
+							Aspect="AspectFit"
+							HorizontalOptions="Start"
+							Source="logoXXX.png"
+							VerticalOptions="Center"
+							WidthRequest="40" />
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Card"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="detail"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,50"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Your card detail is.."
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+				</StackLayout>
+
+				<Grid
+					Margin="0,24,0,0"
+					RowSpacing="20"
+					VerticalOptions="StartAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="50" />
+						<RowDefinition Height="90" />
+					</Grid.RowDefinitions>
+
+					<Frame
+						Grid.Row="0"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="19"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								MaxLength="16"
+								Placeholder="Card Number"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding CardDetail.CardNumber}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="1"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								Placeholder="Card Holder"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding CardDetail.NameOnCard}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="2"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								Placeholder="Expiration Month"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding CardDetail.ExpMonth}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="3"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								Placeholder="Expiration Year"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding CardDetail.ExpYear}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Grid.Row="4"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False">
+						<Grid Margin="10,0,20,0" ColumnSpacing="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="40" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="19"
+								HorizontalTextAlignment="Center"
+								Opacity="0.5"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<controls:CustomEntry
+								Grid.Column="1"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								IsReadOnly="True"
+								MaxLength="3"
+								Placeholder="CVV"
+								PlaceholderColor="#6F7FAF"
+								Text="{Binding CardDetail.CardCvv}"
+								TextColor="#6F7FAF" />
+						</Grid>
+					</Frame>
+
+					<controls:CustomButton
+						Grid.Row="5"
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding SubmitCardDetailsCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Submit"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

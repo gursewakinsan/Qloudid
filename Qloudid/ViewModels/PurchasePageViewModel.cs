@@ -66,8 +66,18 @@ namespace Qloudid.ViewModels
 				if (company != null)
 				{
 					IPurchaseService service = new PurchaseService();
-					int response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail() { user_id = Helper.Helper.UserInfo.user_id, company_id = company.id });
-					if (response == 1)
+					List<Models.CardDetailResponse> response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
+					{
+						user_id = Helper.Helper.UserInfo.user_id,
+						company_id = company.id,
+						certificate_key = Helper.Helper.QrCertificateKey
+					});
+					if (response == null)
+						await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.PurchaseCardListPage(response));
+					
+					/*if (response == 1)
 					{
 						if (Helper.Helper.IsThirdPartyWebLogin)
 						{
@@ -79,7 +89,7 @@ namespace Qloudid.ViewModels
 						}
 						else
 							Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
-					}
+					}*/
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();

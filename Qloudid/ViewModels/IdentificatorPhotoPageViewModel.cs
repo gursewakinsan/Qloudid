@@ -53,7 +53,7 @@ namespace Qloudid.ViewModels
 				};
 				int response1 = await service.UploadAddIdentificatorImagesAsync(request1);
 				if (response1 == 0)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response1 == 1)
 				{
 					Models.AddIdentificatorImagesRequest request2 = new Models.AddIdentificatorImagesRequest()
@@ -64,7 +64,7 @@ namespace Qloudid.ViewModels
 					};
 					int response2 = await service.UploadAddIdentificatorImagesAsync(request2);
 					if (response2 == 0)
-						await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+						await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 					else if (response2 == 1)
 					{
 						Helper.Helper.IsAddMoreCard = false;

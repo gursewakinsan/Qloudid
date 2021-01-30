@@ -35,7 +35,7 @@ namespace Qloudid.ViewModels
 				};
 				Models.VerifyRestoreOtpPinResponse response = await service.VerifyRestoreOtpPinAsync(request);
 				if (response == null)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.result == 0)
 					await Navigation.PushAsync(new Views.WrongEmailOtpPinPage());
 				else if (response.result == 1)

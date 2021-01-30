@@ -26,7 +26,7 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			ICreateAccountService service = new CreateAccountService();
-			CardList = await service.GetAllCardDetailsAsync(new Models.GetCardDetailRequest() { UserId = Helper.Helper.UserId });
+			CardList = await service.GetAllCardDetailsAsync(new Models.CardDetailRequest() { UserId = Helper.Helper.UserId });
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -45,8 +45,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.GetCardDetailResponse> cardList;
-		public List<Models.GetCardDetailResponse> CardList
+		private List<Models.CardDetailResponse> cardList;
+		public List<Models.CardDetailResponse> CardList
 		{
 			get => cardList;
 			set

@@ -34,7 +34,7 @@ namespace Qloudid.ViewModels
 			VerifyUserConsent = await service.VerifyUserConsentAsync(request);
 			if (VerifyUserConsent == null)
 			{
-				await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
 			}
 			else if (VerifyUserConsent.result == 0)

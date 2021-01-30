@@ -66,7 +66,7 @@ namespace Qloudid.ViewModels
 			Address.UserId = Helper.Helper.UserId;
 			int response = await service.UpdateCompanyAddressAsync(Address);
 			if (response == 0)
-				await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+				await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 			else if (response == 1)
 				Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 			DependencyService.Get<IProgressBar>().Hide();
@@ -124,7 +124,7 @@ namespace Qloudid.ViewModels
 				};
 				int response = await service.UpdateUserAddressAsync(request);
 				if (response == 0)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response == 1)
 					Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 				DependencyService.Get<IProgressBar>().Hide();

@@ -14,6 +14,9 @@ namespace Qloudid.Interfaces
 		Task<int> UploadAddIdentificatorImagesAsync(Models.AddIdentificatorImagesRequest model);
 		Task<int> AddNewCardAsync(Models.AddNewCardRequest model);
 		Task<int> AddDeliveryAddressAsync(Models.AddDeliveryAddressRequest model);
-		Task<List<Models.GetCardDetailResponse>> GetAllCardDetailsAsync(Models.GetCardDetailRequest model);
+		Task<List<Models.CardDetailResponse>> GetAllCardDetailsAsync(Models.CardDetailRequest model);
+		Task<int> SavePurchaseCardDetailsAsync(Models.AddNewPurchaseCardRequest model);
+		Task<Models.CardDetailsResponse> GetCardDetailsByIdAsync(Models.CardDetailsRequest model);
+		Task<int> UpdateCardPurchaseDetailAsync(Models.UpdateCardPurchaseDetail model);
 	}
 }

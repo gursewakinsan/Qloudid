@@ -17,11 +17,11 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> SubmitPurchaseDetailAsync(Models.PurchaseDetail model)
+		public Task<List<Models.CardDetailResponse>> SubmitPurchaseDetailAsync(Models.PurchaseDetail model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.PurchaseDetailUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<List<Models.CardDetailResponse>>(HttpWebRequest.Create(EndPointsList.PurchaseDetailUpdateUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

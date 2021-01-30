@@ -37,7 +37,7 @@ namespace Qloudid.ViewModels
 				};
 				Models.RestoreAccountResponse response = await service.RestoreAccountAsync(request);
 				if (response == null)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try after some time.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.result == 0)
 					Application.Current.MainPage = new NavigationPage(new Views.AccountNotAvailablePage());
 				else if (response.result == 1)

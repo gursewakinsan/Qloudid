@@ -90,11 +90,38 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<List<Models.GetCardDetailResponse>> GetAllCardDetailsAsync(Models.GetCardDetailRequest model)
+		public Task<List<Models.CardDetailResponse>> GetAllCardDetailsAsync(Models.CardDetailRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<List<Models.GetCardDetailResponse>>(HttpWebRequest.Create(EndPointsList.ListCardDetailsUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<List<Models.CardDetailResponse>>(HttpWebRequest.Create(EndPointsList.ListCardDetailsUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> SavePurchaseCardDetailsAsync(Models.AddNewPurchaseCardRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.SavePurchaseCardDetailsUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<Models.CardDetailsResponse> GetCardDetailsByIdAsync(Models.CardDetailsRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.CardDetailsResponse>(HttpWebRequest.Create(EndPointsList.CardDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateCardPurchaseDetailAsync(Models.UpdateCardPurchaseDetail model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateCardPurchaseDetailUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

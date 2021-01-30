@@ -6,6 +6,6 @@ namespace Qloudid.Interfaces
 	public interface IPurchaseService
 	{
 		Task<List<Models.Company>> GetCompanyAsync(Models.Profile model);
-		Task<int> SubmitPurchaseDetailAsync(Models.PurchaseDetail model);
+		Task<List<Models.CardDetailResponse>> SubmitPurchaseDetailAsync(Models.PurchaseDetail model);
 	}
 }

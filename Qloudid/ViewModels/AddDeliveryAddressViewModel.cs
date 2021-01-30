@@ -72,7 +72,7 @@ namespace Qloudid.ViewModels
 				};
 				int response = await service.AddDeliveryAddressAsync(request);
 				if (response == 0)
-					await Helper.Alert.DisplayAlert("Somthing went wrong, Please try again.");
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
 				else if (response == 1)
 				{
 					if (Helper.Helper.IsAddMoreAddresses)

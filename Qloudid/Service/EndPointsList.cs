@@ -36,6 +36,11 @@
 		public const string CompanyAddressDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyAddressDetail";
 		public const string UpdateCompanyAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCompanyAddress";
 
+		public const string PurchaseDetailUpdateUrl = "https://www.qloudid.com/user/index.php/QloudidApp/purchaseDetailUpdate";
+		public const string SavePurchaseCardDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/savePurchaseCardDetails";
+		public const string CardDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/cardDetail";
+		public const string UpdateCardPurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCardPurchaseDetail";
+
 	}
 }
 

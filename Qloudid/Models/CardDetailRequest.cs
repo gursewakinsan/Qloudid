@@ -1,6 +1,6 @@
 ﻿namespace Qloudid.Models
 {
-	public class GetCardDetailRequest
+	public class CardDetailRequest
 	{
 		public int UserId { get; set; }
 	}
