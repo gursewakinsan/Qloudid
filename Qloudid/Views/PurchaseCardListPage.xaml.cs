@@ -16,7 +16,7 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new PurchaseCardListPageViewModel(this.Navigation);
 			viewModel.PurchaseCardList = cards;
 			if (cards?.Count > 0)
-				viewModel.IsAddNewCardVisible = cards[0].company_id > 0 ? true : false;
+				viewModel.IsAddNewCardVisible = cards[0].company_id > 0 ? false : true;
 		}
 
 		private void OnPurchaseCardItemTapped(object sender, ItemTappedEventArgs e)

@@ -34,7 +34,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteCardDetailsCommand(int cardId)
 		{
-			await Navigation.PushAsync(new Views.CardDetailsPage(cardId));
+			int companyId = IsAddNewCardVisible ? 0 : 1;
+			await Navigation.PushAsync(new Views.CardDetailsPage(cardId, companyId));
 		}
 		#endregion
 

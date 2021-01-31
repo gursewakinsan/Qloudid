@@ -146,6 +146,7 @@
 								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
+								IsReadOnly="True"
 								Placeholder="Card Holder"
 								PlaceholderColor="#6F7FAF"
 								Text="{Binding CardHolderName}"

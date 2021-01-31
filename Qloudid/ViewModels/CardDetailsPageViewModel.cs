@@ -25,7 +25,7 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			ICreateAccountService service = new CreateAccountService();
-			CardDetail = await service.GetCardDetailsByIdAsync(new Models.CardDetailsRequest() { card_id = CardId });
+			CardDetail = await service.GetCardDetailsByIdAsync(new Models.CardDetailsRequest() { card_id = CardId, company_id = CompanyId });
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -53,7 +53,10 @@ namespace Qloudid.ViewModels
 				{
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Helper.Helper.PurchaseIndex == 1)
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
+					{
+						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify?response_type=code&client_id={Helper.Helper.VerifyUserConsentClientId}&state=xyz&purchase=1";
+						await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
+					}
 					else
 						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
 				}
@@ -66,6 +69,7 @@ namespace Qloudid.ViewModels
 
 		#region Properties.
 		public int CardId { get; set; }
+		public int CompanyId { get; set; }
 
 		private Models.CardDetailsResponse cardDetail;
 		public Models.CardDetailsResponse CardDetail
