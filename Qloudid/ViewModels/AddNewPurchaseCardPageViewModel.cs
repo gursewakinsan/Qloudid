@@ -72,7 +72,10 @@ namespace Qloudid.ViewModels
 							await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
 						}
 						else
-							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
+						{
+							string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase/{Helper.Helper.VerifyUserConsentClientId}";
+							await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
+						}
 					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
