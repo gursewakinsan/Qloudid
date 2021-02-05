@@ -15,9 +15,15 @@ namespace Qloudid.Views
 			BindingContext = viewModel = new SignInOtherAppPageViewModel(this.Navigation);
 		}
 
+		protected override void OnAppearing()
+		{
+			viewModel.CheckValidQrCommand.Execute(null);
+			base.OnAppearing();
+		}
+
 		private void OnCloseButtonClicked(object sender, System.EventArgs e)
 		{
-			Application.Current.MainPage = new NavigationPage(new RestorePage());
+			Application.Current.MainPage = new NavigationPage(new DashboardPage());
 		}
 	}
 }

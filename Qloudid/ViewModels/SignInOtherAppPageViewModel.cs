@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Xamarin.Essentials;
 using Qloudid.Interfaces;
@@ -13,6 +14,35 @@ namespace Qloudid.ViewModels
 		public SignInOtherAppPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+		}
+		#endregion
+
+		#region Check Valid QR Command.
+		private ICommand _checkValidQrCommand;
+		public ICommand CheckValidQrCommand
+		{
+			get => _checkValidQrCommand ?? (_checkValidQrCommand = new Command(async () => await ExecuteCheckValidQrCommand()));
+		}
+		private async Task ExecuteCheckValidQrCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+			ILoginService service = new LoginService();
+			Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+			if (response?.result > 0)
+			{
+				Models.User user = new Models.User();
+				user.first_name = $"{Application.Current.Properties["FirstName"]}";
+				user.last_name = $"{Application.Current.Properties["LastName"]}";
+				user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+				user.email = $"{Application.Current.Properties["Email"]}";
+				user.UserImage = response.image;
+				Helper.Helper.UserInfo = user;
+				Helper.Helper.UserId = user.user_id;
+			}
+			else
+				await Navigation.PushAsync(new Views.InvalidCertificatePage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
