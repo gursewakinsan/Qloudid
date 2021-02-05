@@ -77,7 +77,15 @@ namespace Qloudid
 			Helper.Helper.IsThirdPartyWebLogin = false;
 			if (uri.Host.EndsWith("qloudid.com", StringComparison.OrdinalIgnoreCase))
 			{
-				if (uri.Segments != null && uri.Segments.Length == 3)
+				if (uri.Segments != null && uri.Segments.Length == 2)
+				{
+					//App to App Login 
+					if (Application.Current.Properties.ContainsKey("QrCode"))
+						Application.Current.MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+				}
+				else if (uri.Segments != null && uri.Segments.Length == 3)
 				{
 					var action = uri.Segments[1].Replace("/", "");
 					var msg = uri.Segments[2];

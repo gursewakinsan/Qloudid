@@ -40,6 +40,7 @@
 		public const string SavePurchaseCardDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/savePurchaseCardDetails";
 		public const string CardDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/cardDetail";
 		public const string UpdateCardPurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCardPurchaseDetail";
+		public const string VerifyInterAppPasswordUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyInterAppPassword";
 
 	}
 }
