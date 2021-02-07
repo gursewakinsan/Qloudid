@@ -74,9 +74,10 @@ namespace Qloudid.ViewModels
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
 					{
-						var supportsUri = await Launcher.CanOpenAsync("NoffaPlusAppUrl://");
-						if (supportsUri)
-							await Launcher.OpenAsync("NoffaPlusAppUrl://" + response.Session);
+						//var supportsUri = await Launcher.CanOpenAsync("NoffaPlusAppUrl://");
+						//if (supportsUri)
+						string openAppUrl = $"NoffaPlusAppUrl://session/{response.Session}";
+						await Launcher.OpenAsync(openAppUrl);
 					}
 					else
 					{

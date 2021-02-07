@@ -51,6 +51,14 @@ namespace Qloudid
 				MainPage = new NavigationPage(new Views.RestorePage());
 		}
 
+		public void AppToAppLogin()
+		{
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+				Application.Current.MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+			else
+				Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+		}
+
 		protected override void OnStart()
 		{
 		}

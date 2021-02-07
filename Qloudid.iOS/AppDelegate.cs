@@ -46,8 +46,16 @@ namespace Qloudid.iOS
 			}
 			else
 			{
-				Helper.Helper.IpFromURL = url.Host;
-				App.OpenAppFromWeb(string.Empty);
+				if (url.Host.Equals("NoffaPlusApp"))
+				{
+					//App to App Login
+					App.AppToAppLogin();
+				}
+				else
+				{
+					Helper.Helper.IpFromURL = url.Host;
+					App.OpenAppFromWeb(string.Empty);
+				}
 			}
 			return false;
 		}
