@@ -25,7 +25,7 @@ namespace Qloudid.ViewModels
 		{
 			if (!IsNameSame && string.IsNullOrWhiteSpace(Name))
 				await Helper.Alert.DisplayAlert("Name is required.");
-			else if(string.IsNullOrWhiteSpace(DeliveryAddress))
+			else if (string.IsNullOrWhiteSpace(DeliveryAddress))
 				await Helper.Alert.DisplayAlert("Delivery address is required.");
 			else if (string.IsNullOrWhiteSpace(DeliveryPortNumber))
 				await Helper.Alert.DisplayAlert("Delivery port number is required.");
@@ -33,7 +33,7 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Delivery zip code is required.");
 			else if (string.IsNullOrWhiteSpace(DeliveryCity))
 				await Helper.Alert.DisplayAlert("Delivery city is required.");
-			else if(!IsInvoiceAddressSame && string.IsNullOrWhiteSpace(InvoiceAddress))
+			else if (!IsInvoiceAddressSame && string.IsNullOrWhiteSpace(InvoiceAddress))
 				await Helper.Alert.DisplayAlert("Invoice address is required.");
 			else if (!IsInvoiceAddressSame && string.IsNullOrWhiteSpace(InvoicePortNumber))
 				await Helper.Alert.DisplayAlert("Invoice port number is required.");
@@ -84,14 +84,43 @@ namespace Qloudid.ViewModels
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 				}
+				else if (response == 2)
+					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion
 
+		#region User Delivery Invoice Info Command.
+		private ICommand userDeliveryInvoiceInfoCommand;
+		public ICommand UserDeliveryInvoiceInfoCommand
+		{
+			get => userDeliveryInvoiceInfoCommand ?? (userDeliveryInvoiceInfoCommand = new Command(async () => await ExecuteUserDeliveryInvoiceInfoCommand()));
+		}
+		private async Task ExecuteUserDeliveryInvoiceInfoCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			ICreateAccountService service = new CreateAccountService();
+			Models.UserDeliveryInvoiceInfoRequest request = new Models.UserDeliveryInvoiceInfoRequest()
+			{
+				UserId = Helper.Helper.UserId
+			};
+			Models.UserDeliveryInvoiceInfoResponse response = await service.UserDeliveryInvoiceInfoAsync(request);
+			if (response != null)
+			{
+				IsInvoiceAddressSame = !response.InvoiceAddressRequired;
+				InvoiceAddress = response.InvoiceAddress;
+				InvoicePortNumber = response.InvoicePort;
+				InvoiceZipCode = response.InvoiceZipCode;
+				InvoiceCity = response.InvoiceCity;
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private bool isNameSame = true;
-		public bool IsNameSame 
+		public bool IsNameSame
 		{
 			get => isNameSame;
 			set
@@ -142,10 +171,50 @@ namespace Qloudid.ViewModels
 		public string DeliveryPortNumber { get; set; }
 		public string DeliveryZipCode { get; set; }
 		public string DeliveryCity { get; set; }
-		public string InvoiceAddress { get; set; }
-		public string InvoicePortNumber { get; set; }
-		public string InvoiceZipCode { get; set; }
-		public string InvoiceCity { get; set; }
+
+		private string invoiceAddress;
+		public string InvoiceAddress 
+		{
+			get => invoiceAddress;
+			set
+			{
+				invoiceAddress = value;
+				OnPropertyChanged("InvoiceAddress");
+			}
+		}
+
+		private string invoicePortNumber;
+		public string InvoicePortNumber
+		{
+			get => invoicePortNumber;
+			set
+			{
+				invoicePortNumber = value;
+				OnPropertyChanged("InvoicePortNumber");
+			}
+		}
+
+		private string invoiceZipCode;
+		public string InvoiceZipCode
+		{
+			get => invoiceZipCode;
+			set
+			{
+				invoiceZipCode = value;
+				OnPropertyChanged("InvoiceZipCode");
+			}
+		}
+
+		private string invoiceCity;
+		public string InvoiceCity
+		{
+			get => invoiceCity;
+			set
+			{
+				invoiceCity = value;
+				OnPropertyChanged("InvoiceCity");
+			}
+		}
 		public string EntryCode { get; set; }
 		#endregion
 	}

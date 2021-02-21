@@ -67,8 +67,8 @@ namespace Qloudid.ViewModels
 						await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 					else if (response2 == 1)
 					{
-						Helper.Helper.IsAddMoreCard = false;
-						Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+						//Helper.Helper.IsAddMoreCard = false;
+						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}
@@ -84,8 +84,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSkipUploadAddIdentificatorImagesCommand()
 		{
-			Helper.Helper.IsAddMoreCard = false;
-			Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+			//Helper.Helper.IsAddMoreCard = false;
+			Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 			await Task.CompletedTask;
 		}
 		#endregion

@@ -58,7 +58,10 @@ namespace Qloudid.ViewModels
 					Helper.Helper.VerifyRestoreOtpPinWithMobileResult = response.result;
 					Helper.Helper.CountryCode = response.country_code;
 					Helper.Helper.UserMobileNumber = response.phone_number;
-					Application.Current.MainPage = new NavigationPage(new Views.VerifyExistingMobileNumberPage());
+					if (response.result == 6)
+						Application.Current.MainPage = new NavigationPage(new Views.SignaturePinPage());
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.VerifyExistingMobileNumberPage());
 				}
 				/*else if (response.result == 2)
 				{

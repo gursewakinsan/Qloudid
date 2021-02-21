@@ -32,7 +32,7 @@
 							Grid.Column="1"
 							Padding="15,5,0,15"
 							BackgroundColor="Transparent"
-							Command="{Binding CloseCommand}"
+							Command="{Binding GoToAddMobileNumberPageCommand}"
 							HorizontalOptions="EndAndExpand"
 							WidthRequest="40">
 							<ImageButton.Source>
@@ -67,8 +67,14 @@
 						FontSize="16"
 						HorizontalOptions="StartAndExpand"
 						HorizontalTextAlignment="Start"
-						Text="Sign with your sms password."
-						TextColor="#6F7FAF" />
+						TextColor="#6F7FAF">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="Sign with your sms password sent on phone number ending with " />
+								<Span Text="{Binding CurrentMobileNumber}" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<StackLayout
 						Margin="0,24,0,24"

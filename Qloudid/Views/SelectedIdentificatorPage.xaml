@@ -88,6 +88,7 @@
 						<RowDefinition Height="50" />
 						<RowDefinition Height="50" />
 						<RowDefinition Height="70" />
+						<RowDefinition Height="50" />
 					</Grid.RowDefinitions>
 
 					<Frame
@@ -204,6 +205,16 @@
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						Text="Save"
+						VerticalOptions="EndAndExpand" />
+
+					<controls:CustomButton
+						Grid.Row="4"
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding SkipIdentifyInfoCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Skip"
 						VerticalOptions="EndAndExpand" />
 				</Grid>
 			</StackLayout>

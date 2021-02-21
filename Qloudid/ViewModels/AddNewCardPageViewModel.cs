@@ -72,6 +72,10 @@ namespace Qloudid.ViewModels
 				}
 				else if (response == 2)
 					await Helper.Alert.DisplayAlert("You have entered wrong card number, Please try another card.");
+				else if (response == 3)
+					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				else if (response == 4)
+					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

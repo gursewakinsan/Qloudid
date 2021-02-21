@@ -43,6 +43,20 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Skip Identify Info Command.
+		private ICommand skipIdentifyInfoCommand;
+		public ICommand SkipIdentifyInfoCommand
+		{
+			get => skipIdentifyInfoCommand ?? (skipIdentifyInfoCommand = new Command(async () => await ExecuteSkipIdentifyInfoCommand()));
+		}
+		private async Task ExecuteSkipIdentifyInfoCommand()
+		{
+			//Helper.Helper.IsAddMoreCard = false;
+			Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
 		#region Properties.
 		//public string CountryName => "hhhh";//Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode)).CountryName;
 		public string countryName = string.Empty;

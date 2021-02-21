@@ -3,6 +3,7 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using Qloudid.Helper;
 
 namespace Qloudid.ViewModels
 {
@@ -141,6 +142,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Go To Add Mobile Number Page Command.
+		private ICommand goToAddMobileNumberPageCommand;
+		public ICommand GoToAddMobileNumberPageCommand
+		{
+			get => goToAddMobileNumberPageCommand ?? (goToAddMobileNumberPageCommand = new Command(() => ExecuteGoToAddMobileNumberPageCommand()));
+		}
+		private void ExecuteGoToAddMobileNumberPageCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.MobileNumberPage());
+		}
+		#endregion
+
 		#region Clear Password.
 		void ClearPassword()
 		{
@@ -192,6 +205,7 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		public string CurrentMobileNumber => $"**** {Helper.Helper.UserMobileNumber.GetLast(4)}";
 		public string Password { get; set; } = string.Empty;
 
 		public string password1 = "|";

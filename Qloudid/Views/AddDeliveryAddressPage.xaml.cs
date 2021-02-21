@@ -14,5 +14,12 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new AddDeliveryAddressViewModel(this.Navigation);
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			if (!Helper.Helper.IsAddMoreAddresses)
+				viewModel.UserDeliveryInvoiceInfoCommand.Execute(null);
+		}
 	}
 }
