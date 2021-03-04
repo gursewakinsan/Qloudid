@@ -25,31 +25,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteConfirmAndSignCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			ICreateAccountService service = new CreateAccountService();
-			int response = await service.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
-			if (response == 0)
-				await Alert.DisplayAlert("Something went wrong, Please try again.");
-			else
-			{
-				if (Helper.Helper.IsThirdPartyWebLogin)
-				{
-					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-					if (Helper.Helper.PurchaseIndex == 1)
-					{
-						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify?response_type=code&client_id={Helper.Helper.VerifyUserConsentClientId}&state=xyz&purchase=1";
-						await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
-					}
-					else
-					{
-						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase/{Helper.Helper.VerifyUserConsentClientId}";
-						await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
-					}
-				}
-				else
-					Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
-			}
-			DependencyService.Get<IProgressBar>().Hide();
+			Application.Current.MainPage = new NavigationPage(new Views.ConfirmAndSignSignaturePage());
+			await Task.CompletedTask;
 		}
 		#endregion
 
