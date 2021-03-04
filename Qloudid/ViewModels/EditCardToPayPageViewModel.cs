@@ -63,6 +63,7 @@ namespace Qloudid.ViewModels
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
 				else
 				{
+					Helper.Helper.CardDetail = new Models.CardDetailResponse();
 					Helper.Helper.CardDetail.card_number2 = CardNumber;
 					Application.Current.MainPage = new NavigationPage(new Views.YourSignaturePage());
 				}

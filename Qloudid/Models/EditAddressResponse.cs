@@ -50,5 +50,8 @@
 		[Newtonsoft.Json.JsonProperty(PropertyName = "entry_code")]
 		public string EntryCode { get; set; }
 		public string CertificateKey { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "delivered_at")]
+		public int DeliveredAt { get; set; }
 	}
 }

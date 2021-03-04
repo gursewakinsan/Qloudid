@@ -60,6 +60,12 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedFinalStepToPayCommand()
 		{
+			ICreateAccountService service = new CreateAccountService();
+			int response = await service.UpdateCardPurchaseDetailAsync(new Models.UpdateCardPurchaseDetail()
+			{
+				card_id = CardId,
+				certificate_key = Helper.Helper.QrCertificateKey
+			});
 			Helper.Helper.CardDetail = CardDetail;
 			await Navigation.PushAsync(new Views.YourSignaturePage());
 		}

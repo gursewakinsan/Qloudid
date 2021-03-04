@@ -68,6 +68,14 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedAddressCommand()
 		{
+			IDashboardService service = new DashboardService();
+			Models.EditAddressResponse address = new Models.EditAddressResponse()
+			{
+				Id = DeliveryAddressDetail.Id,
+				DeliveredAt = Helper.Helper.UserOrCompanyAddress > 1 ? 0 : 1,
+				CertificateKey = Helper.Helper.QrCertificateKey
+			};
+			int response = await service.UpdateCompanyAddressAsync(address);
 			Helper.Helper.DeliveryAddressDetail = DeliveryAddressDetail;
 			await Navigation.PushAsync(new Views.WhoIsPayingPage());
 		}

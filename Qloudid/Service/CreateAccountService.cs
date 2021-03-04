@@ -85,7 +85,7 @@ namespace Qloudid.Service
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddDeliveryAddressUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(Helper.Helper.IsAddMoreAddresses ? EndPointsList.AddNewAddressUrl : EndPointsList.AddDeliveryAddressUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

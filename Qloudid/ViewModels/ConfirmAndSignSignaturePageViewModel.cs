@@ -35,11 +35,12 @@ namespace Qloudid.ViewModels
 				if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
+
+					ICreateAccountService accountService = new CreateAccountService();
+					int responseAccountService = await accountService.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
+
 					if (Helper.Helper.IsThirdPartyWebLogin)
 					{
-						ICreateAccountService accountService = new CreateAccountService();
-						int responseAccountService = await accountService.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
-
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 						if (Helper.Helper.PurchaseIndex == 1)
 						{

@@ -48,16 +48,17 @@ namespace Qloudid.ViewModels
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				ICreateAccountService service = new CreateAccountService();
-				Models.AddNewCardRequest request = new Models.AddNewCardRequest()
+				Models.AddNewPurchaseCardRequest request = new Models.AddNewPurchaseCardRequest()
 				{
 					UserId = Helper.Helper.UserId,
 					CardNumber = CardNumber,
 					CardHolderName = CardHolderName,
 					ExpirationMonth = ExpirationMonth,
 					ExpirationYear = ExpirationYear,
-					Cvv = Cvv
+					Cvv = Cvv,
+					certificate_key = Helper.Helper.QrCertificateKey
 				};
-				int response = await service.AddNewCardAsync(request);
+				int response = await service.SavePurchaseCardDetailsAsync(request);
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
 				else
