@@ -14,7 +14,7 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new SignInFromOtherCompanyViewModel(this.Navigation);
-			BindSignInText(signInText);
+			//BindSignInText(signInText);
 		}
 
 		protected override void OnAppearing()
@@ -23,7 +23,7 @@ namespace Qloudid.Views
 			viewModel.VerifyUserConsentCommand.Execute(null);
 		}
 		
-		void BindSignInText(string signInText)
+		/*void BindSignInText(string signInText)
 		{
 			switch (signInText)
 			{
@@ -40,6 +40,6 @@ namespace Qloudid.Views
 					txtSignIn.Text = "I want to apply for job";
 					break;
 			}
-		}
+		}*/
 	}
 }

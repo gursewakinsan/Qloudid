@@ -126,7 +126,16 @@ namespace Qloudid.ViewModels
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response == 1)
-					Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
+				{
+					Helper.Helper.DeliveryAddressDetail = new Models.DeliveryAddressDetailResponse();
+					Helper.Helper.DeliveryAddressDetail.NameOnHouse = Name;
+					Helper.Helper.DeliveryAddressDetail.Address = DeliveryAddress;
+					Helper.Helper.DeliveryAddressDetail.PortNumber = DeliveryPortNumber;
+					Helper.Helper.DeliveryAddressDetail.Zipcode = DeliveryZipCode;
+					Helper.Helper.DeliveryAddressDetail.City = DeliveryCity;
+					Application.Current.MainPage = new NavigationPage(new Views.WhoIsPayingPage());
+					//Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

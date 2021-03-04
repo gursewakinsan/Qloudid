@@ -22,5 +22,6 @@
 		public const string SerialPort = "\U000f065c";
 		public const string PostOutline = "\U000f1009";
 		public const string FormTextboxPassword = "\U000f07f5";
+		public const string HomeMapMarker = "\U000f05f8";
 	}
 }

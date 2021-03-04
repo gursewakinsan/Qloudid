@@ -19,5 +19,7 @@ namespace Qloudid.Interfaces
 		Task<Models.CardDetailsResponse> GetCardDetailsByIdAsync(Models.CardDetailsRequest model);
 		Task<int> UpdateCardPurchaseDetailAsync(Models.UpdateCardPurchaseDetail model);
 		Task<Models.UserDeliveryInvoiceInfoResponse> UserDeliveryInvoiceInfoAsync(Models.UserDeliveryInvoiceInfoRequest model);
+		Task<int> UpdateCardAsync(Models.EditCardRequest model);
+		Task<int> ConfirmPurchaseAsync(Models.ConfirmPurchaseRequest model);
 	}
 }

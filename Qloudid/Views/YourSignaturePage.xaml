@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.YourSignaturePage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<StackLayout Padding="30,30,30,20" Spacing="0">
+			<StackLayout Spacing="0" VerticalOptions="Start">
+				<Grid
+					Margin="0,0,0,10"
+					HeightRequest="50"
+					VerticalOptions="Start">
+					<Image
+						Grid.Column="0"
+						Aspect="AspectFit"
+						HorizontalOptions="Start"
+						Source="logoXXX.png"
+						VerticalOptions="Center"
+						WidthRequest="40" />
+
+					<ImageButton
+						Grid.Column="1"
+						Padding="15,15,0,15"
+						BackgroundColor="Transparent"
+						Command="{Binding CloseCommand}"
+						HorizontalOptions="EndAndExpand"
+						IsVisible="False"
+						WidthRequest="50">
+						<ImageButton.Source>
+							<FontImageSource
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+								Size="40"
+								Color="#6F7FAF" />
+						</ImageButton.Source>
+					</ImageButton>
+				</Grid>
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Your"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Signature"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<BoxView
+					Margin="0,10,0,0"
+					BackgroundColor="#05CBE7"
+					CornerRadius="3"
+					HeightRequest="5"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+			</StackLayout>
+			<ScrollView VerticalScrollBarVisibility="Never">
+				<StackLayout Spacing="0">
+					<Label
+						Margin="0,50,0,5"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="To pay"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						CharacterSpacing="3"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="Start"
+						Text="7350 SEK"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,0,0,24"
+						BackgroundColor="#6F7FAF"
+						HeightRequest="1" />
+
+					<Label
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Delivery address"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalOptions="StartAndExpand"
+						HorizontalTextAlignment="Start"
+						Text="{Binding DeliveryAddress}"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						Margin="0,20,0,0"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Invoice address"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalOptions="StartAndExpand"
+						HorizontalTextAlignment="Start"
+						Text="{Binding InvoiceAddress}"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						Margin="0,20,0,0"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Payment"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalOptions="StartAndExpand"
+						HorizontalTextAlignment="Start"
+						Text="{Binding CardDetail}"
+						TextColor="#6F7FAF"
+						VerticalTextAlignment="Start" />
+
+					<controls:CustomButton
+						Margin="0,50,0,10"
+						BackgroundColor="#05CBE7"
+						Command="{Binding ConfirmAndSignCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Confirm and sign" />
+
+					<StackLayout HeightRequest="50">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding CancelConfirmAndSignCommand}" />
+						</StackLayout.GestureRecognizers>
+						<Label
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontSize="16"
+							HorizontalOptions="CenterAndExpand"
+							Text="Cancel"
+							TextColor="#5587C3"
+							TextDecorations="Underline"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.WhoIsPayingPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<StackLayout Padding="30,30,30,20" Spacing="0">
+			<StackLayout Spacing="0" VerticalOptions="Start">
+				<Grid
+					Margin="0,0,0,10"
+					HeightRequest="50"
+					VerticalOptions="Start">
+					<Image
+						Grid.Column="0"
+						Aspect="AspectFit"
+						HorizontalOptions="Start"
+						Source="logoXXX.png"
+						VerticalOptions="Center"
+						WidthRequest="40" />
+
+					<ImageButton
+						Grid.Column="1"
+						Padding="15,15,0,15"
+						BackgroundColor="Transparent"
+						Command="{Binding CloseCommand}"
+						HorizontalOptions="EndAndExpand"
+						IsVisible="False"
+						WidthRequest="50">
+						<ImageButton.Source>
+							<FontImageSource
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+								Size="40"
+								Color="#6F7FAF" />
+						</ImageButton.Source>
+					</ImageButton>
+				</Grid>
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Pay"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<BoxView
+					Margin="0,10,0,0"
+					BackgroundColor="#05CBE7"
+					CornerRadius="3"
+					HeightRequest="5"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+
+				<Label
+					Margin="0,50,0,24"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					Text="Who is paying?"
+					TextColor="#6F7FAF"
+					VerticalTextAlignment="Start" />
+			</StackLayout>
+
+			<Grid RowSpacing="30" VerticalOptions="FillAndExpand">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Frame
+					Grid.Row="0"
+					Padding="0"
+					BackgroundColor="#F8F8FB"
+					CornerRadius="25"
+					HasShadow="False">
+					<Grid Margin="10,0,5,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="40" />
+							<ColumnDefinition />
+							<ColumnDefinition Width="30" />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Column="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalTextAlignment="Center"
+							Opacity="0.5"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeMapMarker}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+
+						<controls:CustomPicker
+							Title="Select"
+							Grid.Column="1"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							ItemDisplayBinding="{Binding NameOnHouse}"
+							ItemsSource="{Binding InvoiceAddressList}"
+							SelectedIndexChanged="InvoiceAddressSelectedIndexChanged"
+							TextColor="#6F7FAF"
+							TitleColor="#6F7FAF">
+							<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+						</controls:CustomPicker>
+
+						<Label
+							Grid.Column="2"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.5"
+							Text="&#x25bc;"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Center" />
+					</Grid>
+				</Frame>
+
+				<ScrollView
+					Grid.Row="1"
+					IsVisible="{Binding IsVisibleInvoiceAddressDetail}"
+					VerticalScrollBarVisibility="Never">
+					<Grid ColumnSpacing="5" RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="30" />
+							<RowDefinition Height="30" />
+							<RowDefinition Height="30" />
+							<RowDefinition Height="30" />
+							<RowDefinition Height="30" />
+							<RowDefinition Height="30" />
+							<RowDefinition Height="100" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Row="0"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Company"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="0"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding InvoiceAddressDetail.NameOnHouse}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Your name"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="1"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding UserName}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="2"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Address"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="2"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding InvoiceAddressDetail.InvoiceAddress}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="3"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Zip"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="3"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding InvoiceAddressDetail.InvoiceZip}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="4"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="City"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="4"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding InvoiceAddressDetail.InvoiceCity}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="5"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Country"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Grid.Row="5"
+							Grid.Column="1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding InvoiceAddressDetail.InvoiceCountry}"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<controls:CustomButton
+							Grid.Row="6"
+							Grid.ColumnSpan="2"
+							Margin="0"
+							BackgroundColor="#05CBE7"
+							Command="{Binding SelectedPayingCommand}"
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontSize="16"
+							Text="Select"
+							VerticalOptions="EndAndExpand" />
+					</Grid>
+				</ScrollView>
+			</Grid>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -5,16 +5,15 @@ using Qloudid.ViewModels;
 namespace Qloudid.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PurchasePage : ContentPage
+	public partial class CompanyAndUserAddressPage : ContentPage
 	{
-		PurchasePageViewModel viewModel;
-		public PurchasePage()
+		CompanyAndUserAddressPageViewModel viewModel;
+		public CompanyAndUserAddressPage()
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
-			BindingContext = viewModel = new PurchasePageViewModel(this.Navigation);
+			BindingContext = viewModel = new CompanyAndUserAddressPageViewModel(this.Navigation);
 		}
-
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();

@@ -42,6 +42,10 @@
 		public const string UpdateCardPurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCardPurchaseDetail";
 		public const string VerifyInterAppPasswordUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyInterAppPassword";
 		public const string UserDeliveryInvoiceInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userDeliveryInvoiceInfo";
+		public const string DeliveryAddressDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deliveryAddressDetail";
+		public const string InvoiceAddressesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/invoiceAddresses";
+		public const string UpdateCardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/saveUpdatedPurchaseCardDetails";
+		public const string ConfirmPurchaseUrl = "https://www.qloudid.com/user/index.php/QloudidApp/confirmPurchase";
 	}
 }
 

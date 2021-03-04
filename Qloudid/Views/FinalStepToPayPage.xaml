@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.AddressesListPage"
+	x:Class="Qloudid.Views.FinalStepToPayPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -46,7 +46,15 @@
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
-					Text="Address"
+					Text="Final"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Step"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 
@@ -64,7 +72,7 @@
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
-					Text="Select delivery Address."
+					Text="How would you like to pay?"
 					TextColor="#6F7FAF"
 					VerticalTextAlignment="Start" />
 			</StackLayout>
@@ -74,7 +82,6 @@
 					<RowDefinition Height="50" />
 					<RowDefinition Height="*" />
 				</Grid.RowDefinitions>
-
 				<Frame
 					Grid.Row="0"
 					Padding="0"
@@ -103,9 +110,9 @@
 							BackgroundColor="#F8F8FB"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
 							FontSize="16"
-							ItemDisplayBinding="{Binding HeadingAddress}"
-							ItemsSource="{Binding AddressesList}"
-							SelectedIndexChanged="AddressesListSelectedIndexChanged"
+							ItemDisplayBinding="{Binding card_number2}"
+							ItemsSource="{Binding CardList}"
+							SelectedIndexChanged="CardListSelectedIndexChanged"
 							TextColor="#6F7FAF"
 							TitleColor="#6F7FAF">
 							<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
@@ -128,10 +135,11 @@
 							<RowDefinition Height="auto" />
 							<RowDefinition Height="auto" />
 						</Grid.RowDefinitions>
+
 						<Grid
 							Grid.Row="0"
 							ColumnSpacing="5"
-							IsVisible="{Binding IsVisibleDeliveryAddress}"
+							IsVisible="{Binding IsVisibleCardDetail}"
 							RowSpacing="0">
 							<Grid.RowDefinitions>
 								<RowDefinition Height="30" />
@@ -140,9 +148,7 @@
 								<RowDefinition Height="30" />
 								<RowDefinition Height="30" />
 								<RowDefinition Height="30" />
-								<RowDefinition Height="20" />
 								<RowDefinition Height="50" />
-								<RowDefinition Height="auto" />
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition />
@@ -154,58 +160,6 @@
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsCompanyAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Company"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="1"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsCompanyAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.CompanyName}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsUserAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Name on house"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="1"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsUserAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.NameOnHouse}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="1"
-								Grid.Column="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
 								Text="Your name"
@@ -213,6 +167,30 @@
 								VerticalTextAlignment="Start" />
 
 							<Label
+								Grid.Row="0"
+								Grid.Column="1"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="{Binding CardDetail.name_on_card}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<Label
+								Grid.Row="1"
+								Grid.Column="0"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Card type"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<Label
 								Grid.Row="1"
 								Grid.Column="1"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -220,7 +198,7 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="{Binding UserName}"
+								Text="{Binding CardDetail.card_type}"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
@@ -232,7 +210,7 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="Address"
+								Text="Number"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
@@ -244,7 +222,7 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.Address}"
+								Text="{Binding CardDetail.card_number}"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
@@ -256,7 +234,7 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="Zip"
+								Text="Expire"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
@@ -268,9 +246,16 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.Zipcode}"
 								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding CardDetail.exp_month}" />
+										<Span Text="/" />
+										<Span Text="{Binding CardDetail.exp_year}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
 
 							<Label
 								Grid.Row="4"
@@ -280,7 +265,7 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="City"
+								Text="CSV"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
@@ -292,186 +277,60 @@
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.City}"
+								Text="{Binding CardDetail.card_cvv}"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="5"
-								Grid.Column="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Country"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="5"
-								Grid.Column="1"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.CountryName}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<controls:CustomButton
-								Grid.Row="7"
-								Grid.Column="1"
-								Margin="0"
-								BackgroundColor="#05CBE7"
-								Command="{Binding SelectedAddressCommand}"
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
-								FontSize="16"
-								Text="Select"
-								VerticalOptions="EndAndExpand" />
 
 							<StackLayout
-								Grid.Row="7"
+								Grid.Row="6"
 								Grid.Column="0"
-								IsVisible="{Binding IsUserAddress}">
+								IsVisible="{Binding IsUserCardOrCompanyCard}">
 								<StackLayout.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding EditAddressCommand}" />
+									<TapGestureRecognizer Command="{Binding EditCardForPayingCommand}" />
 								</StackLayout.GestureRecognizers>
 								<Label
 									FontFamily="{StaticResource SFProSemiboldFontFamily}"
 									FontSize="16"
 									HorizontalOptions="CenterAndExpand"
+									HorizontalTextAlignment="Center"
 									Text="Edit"
 									TextColor="#5587C3"
 									TextDecorations="Underline"
-									VerticalOptions="CenterAndExpand" />
+									VerticalOptions="CenterAndExpand"
+									VerticalTextAlignment="Center" />
 							</StackLayout>
-						</Grid>
 
+							<controls:CustomButton
+								Grid.Row="6"
+								Grid.Column="1"
+								Margin="0"
+								BackgroundColor="#05CBE7"
+								Command="{Binding SelectedFinalStepToPayCommand}"
+								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontSize="16"
+								Text="Select"
+								VerticalOptions="EndAndExpand" />
+						</Grid>
 						<StackLayout
 							Grid.Row="1"
-							HeightRequest="50"
-							IsVisible="{Binding IsUserAddress}">
+							Margin="0,20,0,0"
+							IsVisible="{Binding IsUserCardOrCompanyCard}">
 							<StackLayout.GestureRecognizers>
-								<TapGestureRecognizer Command="{Binding AddNewAddressCommand}" />
+								<TapGestureRecognizer Command="{Binding AddNewCardForPayingCommand}" />
 							</StackLayout.GestureRecognizers>
 							<Label
 								FontFamily="{StaticResource SFProSemiboldFontFamily}"
 								FontSize="16"
 								HorizontalOptions="CenterAndExpand"
-								Text="Add new address"
+								HorizontalTextAlignment="Center"
+								Text="Add new card"
 								TextColor="#5587C3"
 								TextDecorations="Underline"
-								VerticalOptions="CenterAndExpand" />
+								VerticalOptions="EndAndExpand"
+								VerticalTextAlignment="Center" />
 						</StackLayout>
 					</Grid>
 				</ScrollView>
-
-
-				<!--<ListView
-					x:Name="listAddresses"
-					Grid.Row="1"
-					BackgroundColor="White"
-					HasUnevenRows="True"
-					ItemTapped="OnAddressesItemTapped"
-					ItemsSource="{Binding AddressesList}"
-					SeparatorVisibility="None"
-					VerticalScrollBarVisibility="Never">
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<ViewCell>
-								<Grid
-									BackgroundColor="White"
-									ColumnSpacing="20"
-									RowSpacing="5">
-									<Grid.RowDefinitions>
-										<RowDefinition Height="30" />
-										<RowDefinition Height="30" />
-										<RowDefinition Height="1" />
-									</Grid.RowDefinitions>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="50" />
-										<ColumnDefinition Width="*" />
-										<ColumnDefinition Width="20" />
-									</Grid.ColumnDefinitions>
-									<BoxView
-										Grid.Row="0"
-										Grid.RowSpan="3"
-										Grid.Column="0"
-										BackgroundColor="#6F7FAF"
-										CornerRadius="20"
-										HeightRequest="50"
-										HorizontalOptions="CenterAndExpand"
-										Opacity="0.1"
-										VerticalOptions="CenterAndExpand"
-										WidthRequest="50" />
-
-									<Label
-										Grid.Row="0"
-										Grid.RowSpan="3"
-										Grid.Column="0"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="18"
-										HorizontalTextAlignment="Center"
-										Text="{Binding FirstLetterName}"
-										TextColor="Black"
-										VerticalTextAlignment="Center" />
-
-									<Label
-										Grid.Row="0"
-										Grid.Column="1"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="16"
-										HorizontalTextAlignment="Start"
-										LineBreakMode="TailTruncation"
-										MaxLines="1"
-										Text="{Binding HeadingAddress}"
-										TextColor="#060417"
-										VerticalTextAlignment="End" />
-
-									<Label
-										Grid.Row="1"
-										Grid.Column="1"
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="14"
-										HorizontalTextAlignment="Start"
-										LineBreakMode="TailTruncation"
-										MaxLines="1"
-										Text="{Binding SubheadingAddress}"
-										TextColor="#6F7FAF"
-										VerticalTextAlignment="Start" />
-
-									<Label
-										Grid.RowSpan="3"
-										Grid.Column="2"
-										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="25"
-										HorizontalTextAlignment="Center"
-										Opacity="0.5"
-										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-										TextColor="#6F7FAF"
-										VerticalTextAlignment="Center" />
-
-									<BoxView
-										Grid.Row="2"
-										Grid.ColumnSpan="3"
-										BackgroundColor="#6F7FAF"
-										Opacity="0.2" />
-								</Grid>
-							</ViewCell>
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-
-				<controls:CustomButton
-					Grid.Row="2"
-					BackgroundColor="#05CBE7"
-					Command="{Binding AddNewAddressCommand}"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="16"
-					Text="Add New Address"
-					VerticalOptions="EndAndExpand" />-->
 			</Grid>
 		</StackLayout>
 	</ContentPage.Content>

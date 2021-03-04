@@ -97,5 +97,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.DeliveryAddressDetailResponse> DeliveryAddressDetailAsync(Models.DeliveryAddressDetailRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.DeliveryAddressDetailResponse>(HttpWebRequest.Create(EndPointsList.DeliveryAddressDetailUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<List<Models.InvoiceAddressResponse>> GetInvoiceAddressAsync(Models.InvoiceAddressRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.InvoiceAddressResponse>>(HttpWebRequest.Create(EndPointsList.InvoiceAddressesUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.CompanyAndUserAddressPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+
+			<StackLayout
+				Grid.Row="0"
+				Margin="19,10,0,30"
+				Spacing="10">
+				<Image
+					Aspect="AspectFit"
+					HorizontalOptions="Start"
+					Source="logoXXX.png"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Select Profile"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<BoxView
+					BackgroundColor="#05CBE7"
+					CornerRadius="3"
+					HeightRequest="5"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					WidthRequest="40" />
+			</StackLayout>
+
+			<ListView
+				x:Name="listCompany"
+				Grid.Row="1"
+				BackgroundColor="White"
+				HasUnevenRows="true"
+				IsGroupingEnabled="True"
+				ItemTapped="OnCompanyItemTapped"
+				ItemsSource="{Binding ListOfCompany}"
+				SeparatorVisibility="None"
+				VerticalOptions="FillAndExpand"
+				VerticalScrollBarVisibility="Never">
+				<ListView.GroupHeaderTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout BackgroundColor="White">
+								<Label
+									Margin="15"
+									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+									FontSize="16"
+									HorizontalOptions="StartAndExpand"
+									Text="{Binding Heading}"
+									TextColor="#6F7FAF"
+									VerticalOptions="CenterAndExpand" />
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.GroupHeaderTemplate>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid
+								Margin="19,0,19,0"
+								BackgroundColor="White"
+								ColumnSpacing="10"
+								RowSpacing="0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="89" />
+									<RowDefinition Height="1" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="40" />
+								</Grid.ColumnDefinitions>
+
+								<BoxView
+									Grid.Row="0"
+									Grid.Column="0"
+									BackgroundColor="#6F7FAF"
+									CornerRadius="20"
+									HeightRequest="48"
+									HorizontalOptions="CenterAndExpand"
+									Opacity="0.1"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="48" />
+
+								<Label
+									Grid.Row="0"
+									Grid.Column="0"
+									FontFamily="{StaticResource SFProSemiboldFontFamily}"
+									FontSize="18"
+									HorizontalTextAlignment="Center"
+									Text="{Binding FirstLetterName}"
+									TextColor="Black"
+									VerticalTextAlignment="Center" />
+
+								<StackLayout
+									Grid.Row="0"
+									Grid.Column="1"
+									Spacing="5"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontSize="16"
+										HorizontalTextAlignment="Start"
+										LineBreakMode="TailTruncation"
+										Text="{Binding company_name}"
+										TextColor="Black"
+										VerticalTextAlignment="Center" />
+
+									<Label
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="14"
+										HorizontalTextAlignment="Start"
+										LineBreakMode="TailTruncation"
+										Text="{Binding company_email}"
+										TextColor="#6F7FAF"
+										VerticalTextAlignment="Center" />
+								</StackLayout>
+
+								<Label
+									Grid.Row="0"
+									Grid.Column="2"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="25"
+									HorizontalTextAlignment="Center"
+									Opacity="{Binding CheckUnCheckColor}"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+									TextColor="#6F7FAF"
+									VerticalTextAlignment="Center" />
+
+								<BoxView
+									Grid.Row="1"
+									Grid.ColumnSpan="3"
+									BackgroundColor="#6F7FAF"
+									Opacity="0.2" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<controls:CustomButton
+				Grid.Row="2"
+				Margin="0,0,0,10"
+				BackgroundColor="#05CBE7"
+				Command="{Binding SubmitSelectedCompanyCommand}"
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				HorizontalOptions="CenterAndExpand"
+				IsVisible="{Binding IsSubmit}"
+				Text="Submit"
+				TextColor="White"
+				WidthRequest="200" />
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

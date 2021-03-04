@@ -25,8 +25,22 @@ namespace Qloudid.Views
 		private void OnAddressesItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			Helper.Helper.DeliveryAddress = e.Item as Models.AddressesResponse;
-			listAddresses.SelectedItem = null;
+			//listAddresses.SelectedItem = null;
 			viewModel.EditAddressCommand.Execute(null);
+		}
+
+		private void AddressesListSelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			Controls.CustomPicker picker = sender as Controls.CustomPicker;
+			if (viewModel != null)
+			{
+				Models.AddressesResponse address = picker.SelectedItem as Models.AddressesResponse;
+				if (address != null)
+				{
+					viewModel.SelectedAddressId = address.Id;
+					viewModel.GetDeliveryAddressDetailCommand.Execute(null);
+				}
+			}
 		}
 	}
 }

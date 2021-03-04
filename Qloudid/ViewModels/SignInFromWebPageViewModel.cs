@@ -4,6 +4,8 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+
 namespace Qloudid.ViewModels
 {
 	public class SignInFromWebPageViewModel : BaseViewModel
@@ -49,7 +51,15 @@ namespace Qloudid.ViewModels
 				else if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+					IPurchaseService purchaseService = new PurchaseService();
+					List<Models.Company> purchaseServiceResponse = await purchaseService.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
+					if (purchaseServiceResponse?.Count > 0)
+						Application.Current.MainPage = new NavigationPage(new Views.CompanyAndUserAddressPage());
+					else
+					{
+						Helper.Helper.UserOrCompanyAddress = 1;
+						Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+					}
 				}
 				else
 				{

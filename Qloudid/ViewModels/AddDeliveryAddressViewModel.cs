@@ -78,8 +78,14 @@ namespace Qloudid.ViewModels
 					if (Helper.Helper.IsAddMoreAddresses)
 					{
 						Helper.Helper.IsAddMoreAddresses = false;
-						//await Navigation.PopAsync();
-						Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
+						Helper.Helper.DeliveryAddressDetail = new Models.DeliveryAddressDetailResponse();
+						Helper.Helper.DeliveryAddressDetail.NameOnHouse = Name;
+						Helper.Helper.DeliveryAddressDetail.Address = DeliveryAddress;
+						Helper.Helper.DeliveryAddressDetail.PortNumber = DeliveryPortNumber;
+						Helper.Helper.DeliveryAddressDetail.Zipcode = DeliveryZipCode;
+						Helper.Helper.DeliveryAddressDetail.City = DeliveryCity;
+						Application.Current.MainPage = new NavigationPage(new Views.WhoIsPayingPage());
+						//Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
