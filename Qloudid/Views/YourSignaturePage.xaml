@@ -93,6 +93,7 @@
 						HeightRequest="1" />
 
 					<Label
+						FontAttributes="Bold"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
@@ -111,6 +112,7 @@
 
 					<Label
 						Margin="0,20,0,0"
+						FontAttributes="Bold"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
@@ -129,6 +131,7 @@
 
 					<Label
 						Margin="0,20,0,0"
+						FontAttributes="Bold"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
