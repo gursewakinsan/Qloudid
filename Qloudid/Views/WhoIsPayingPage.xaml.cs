@@ -13,12 +13,12 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new WhoIsPayingPageViewModel(this.Navigation);
+			viewModel.GetInvoiceAddressCommand.Execute(null);
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.GetInvoiceAddressCommand.Execute(null);
 		}
 
 		private void InvoiceAddressSelectedIndexChanged(object sender, System.EventArgs e)

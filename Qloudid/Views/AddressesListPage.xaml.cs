@@ -13,13 +13,13 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new AddressesListPageViewModel(this.Navigation);
+			if (!Helper.Helper.IsAddMoreAddresses)
+				viewModel.GetAllAddressCommand.Execute(null);
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			if (!Helper.Helper.IsAddMoreAddresses)
-				viewModel.GetAllAddressCommand.Execute(null);
 		}
 
 		private void OnAddressesItemTapped(object sender, ItemTappedEventArgs e)

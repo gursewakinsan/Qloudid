@@ -13,12 +13,12 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new FinalStepToPayPageViewModel(this.Navigation);
+			viewModel.GetAllCardCommand.Execute(null);
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.GetAllCardCommand.Execute(null);
 		}
 
 		private void CardListSelectedIndexChanged(object sender, System.EventArgs e)
