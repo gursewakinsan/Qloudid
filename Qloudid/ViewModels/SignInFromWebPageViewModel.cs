@@ -243,13 +243,13 @@ namespace Qloudid.ViewModels
 						break;
 					case 6:
 						Password6 = string.Empty;
-						Password6Bg = Color.FromHex("#F8F8FA");
+						Password6Bg = Color.FromHex("#281F91");
 						break;
 				}
 				Password = Password.Remove(Password.Length - 1, 1);
 			}
 			else
-				Password1Bg = Color.FromHex("#F8F8FA");
+				Password1Bg = Color.FromHex("#281F91");
 		}
 		#endregion
 
@@ -266,8 +266,8 @@ namespace Qloudid.ViewModels
 		#region Change Password Bg.
 		void ChangePasswordBg(int index)
 		{
-			Password1Bg = Password2Bg = Password3Bg = Color.FromHex("#F8F8FA");
-			Password4Bg = Password5Bg = Password6Bg = Color.FromHex("#F8F8FA");
+			Password1Bg = Password2Bg = Password3Bg = Color.FromHex("#281F91");
+			Password4Bg = Password5Bg = Password6Bg = Color.FromHex("#281F91");
 			switch (index)
 			{
 				case 1:
@@ -371,7 +371,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password1Bg;// = Color.FromHex("#05CBE7");
+		public Color password1Bg = Color.FromHex("#281F91");
 		public Color Password1Bg
 		{
 			get => password1Bg;
@@ -382,7 +382,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password2Bg = Color.FromHex("#F8F8FA");
+		public Color password2Bg = Color.FromHex("#281F91");
 		public Color Password2Bg
 		{
 			get => password2Bg;
@@ -393,7 +393,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password3Bg = Color.FromHex("#F8F8FA");
+		public Color password3Bg = Color.FromHex("#281F91");
 		public Color Password3Bg
 		{
 			get => password3Bg;
@@ -404,7 +404,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password4Bg = Color.FromHex("#F8F8FA");
+		public Color password4Bg = Color.FromHex("#281F91");
 		public Color Password4Bg
 		{
 			get => password4Bg;
@@ -415,7 +415,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password5Bg = Color.FromHex("#F8F8FA");
+		public Color password5Bg = Color.FromHex("#281F91");
 		public Color Password5Bg
 		{
 			get => password5Bg;
@@ -425,7 +425,7 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Password5Bg");
 			}
 		}
-		public Color password6Bg = Color.FromHex("#F8F8FA");
+		public Color password6Bg = Color.FromHex("#281F91");
 		public Color Password6Bg
 		{
 			get => password6Bg;
