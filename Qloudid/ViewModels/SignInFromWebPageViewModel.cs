@@ -14,6 +14,15 @@ namespace Qloudid.ViewModels
 		public SignInFromWebPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			if (Helper.Helper.UserInfo != null)
+			{
+				if (Helper.Helper.UserInfo.UserImage == null)
+					UserImage = string.Empty;
+				else
+					UserImage = Helper.Helper.UserInfo.UserImage;
+			}
+			else
+				IsAppLogo = true;
 		}
 		#endregion
 
@@ -172,27 +181,27 @@ namespace Qloudid.ViewModels
 				{
 					case 0:
 						Password1 = selectedNumeric;
-						ChangePasswordBg(2);
+						ChangePasswordBg(1);
 						break;
 					case 1:
 						Password2 = selectedNumeric;
-						ChangePasswordBg(3);
+						ChangePasswordBg(2);
 						break;
 					case 2:
 						Password3 = selectedNumeric;
-						ChangePasswordBg(4);
+						ChangePasswordBg(3);
 						break;
 					case 3:
 						Password4 = selectedNumeric;
-						ChangePasswordBg(5);
+						ChangePasswordBg(4);
 						break;
 					case 4:
 						Password5 = selectedNumeric;
-						ChangePasswordBg(6);
+						ChangePasswordBg(5);
 						break;
 					case 5:
 						Password6 = selectedNumeric;
-						Password6Bg = Color.FromHex("#F8F8FA");
+						ChangePasswordBg(6);
 						break;
 				}
 				Password = Password + selectedNumeric;
@@ -234,11 +243,13 @@ namespace Qloudid.ViewModels
 						break;
 					case 6:
 						Password6 = string.Empty;
-						ChangePasswordBg(6);
+						Password6Bg = Color.FromHex("#F8F8FA");
 						break;
 				}
 				Password = Password.Remove(Password.Length - 1, 1);
 			}
+			else
+				Password1Bg = Color.FromHex("#F8F8FA");
 		}
 		#endregion
 
@@ -262,31 +273,31 @@ namespace Qloudid.ViewModels
 				case 1:
 					Password1 = "|";
 					Password2 = string.Empty;
-					Password1Bg = Color.FromHex("#3623B7");
+					Password1Bg = Color.FromHex("#05CBE7");
 					break;
 				case 2:
 					Password2 = "|";
 					Password3 = string.Empty;
-					Password2Bg = Color.FromHex("#3623B7");
+					Password1Bg = Password2Bg = Color.FromHex("#05CBE7");
 					break;
 				case 3:
 					Password3 = "|";
 					Password4 = string.Empty;
-					Password3Bg = Color.FromHex("#3623B7");
+					Password1Bg = Password2Bg = Password3Bg = Color.FromHex("#05CBE7");
 					break;
 				case 4:
 					Password4 = "|";
 					Password5 = string.Empty;
-					Password4Bg = Color.FromHex("#3623B7");
+					Password1Bg = Password2Bg = Password3Bg = Password4Bg = Color.FromHex("#05CBE7");
 					break;
 				case 5:
 					Password5 = "|";
 					Password6 = string.Empty;
-					Password5Bg = Color.FromHex("#3623B7");
+					Password1Bg = Password2Bg = Password3Bg = Password4Bg = Password5Bg = Color.FromHex("#05CBE7");
 					break;
 				case 6:
 					Password6 = "|";
-					Password6Bg = Color.FromHex("#3623B7");
+					Password1Bg = Password2Bg = Password3Bg = Password4Bg = Password5Bg = Password6Bg = Color.FromHex("#05CBE7");
 					break;
 			}
 		}
@@ -360,7 +371,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password1Bg = Color.FromHex("#3623B7");
+		public Color password1Bg;// = Color.FromHex("#05CBE7");
 		public Color Password1Bg
 		{
 			get => password1Bg;
@@ -422,6 +433,41 @@ namespace Qloudid.ViewModels
 			{
 				password6Bg = value;
 				OnPropertyChanged("Password6Bg");
+			}
+		}
+
+		private string userImage;
+		public string UserImage
+		{
+			get => userImage;
+			set
+			{
+				userImage = value;
+				OnPropertyChanged("UserImage");
+				IsUserImage = string.IsNullOrWhiteSpace(value) ? false : true;
+				IsAppLogo = string.IsNullOrWhiteSpace(value) ? true : false;
+			}
+		}
+
+		private bool isUserImage;
+		public bool IsUserImage
+		{
+			get => isUserImage;
+			set
+			{
+				isUserImage = value;
+				OnPropertyChanged("IsUserImage");
+			}
+		}
+
+		private bool isAppLogo;
+		public bool IsAppLogo
+		{
+			get => isAppLogo;
+			set
+			{
+				isAppLogo = value;
+				OnPropertyChanged("IsAppLogo");
 			}
 		}
 		#endregion

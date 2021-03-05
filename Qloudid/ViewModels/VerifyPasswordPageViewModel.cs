@@ -115,23 +115,23 @@ namespace Qloudid.ViewModels
 				{
 					case 0:
 						Password1 = selectedNumeric;
-						ChangePasswordBg(2);
+						ChangePasswordBg(1);
 						break;
 					case 1:
 						Password2 = selectedNumeric;
-						ChangePasswordBg(3);
+						ChangePasswordBg(2);
 						break;
 					case 2:
 						Password3 = selectedNumeric;
-						ChangePasswordBg(4);
+						ChangePasswordBg(3);
 						break;
 					case 3:
 						Password4 = selectedNumeric;
-						ChangePasswordBg(5);
+						ChangePasswordBg(4);
 						break;
 					case 4:
 						Password5 = selectedNumeric;
-						ChangePasswordBg(6);
+						ChangePasswordBg(5);
 						break;
 					case 5:
 						Password6 = selectedNumeric;
@@ -182,6 +182,8 @@ namespace Qloudid.ViewModels
 				}
 				Password = Password.Remove(Password.Length - 1, 1);
 			}
+			else
+				Password1Bg = Color.FromHex("#F8F8FA");
 		}
 		#endregion
 
@@ -303,7 +305,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public Color password1Bg = Color.FromHex("#05CBE7");
+		public Color password1Bg;// = Color.FromHex("#05CBE7");
 		public Color Password1Bg
 		{
 			get => password1Bg;
