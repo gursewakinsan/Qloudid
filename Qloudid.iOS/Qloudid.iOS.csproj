@@ -214,4 +214,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconUser.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconKeyClose.png" />
+  </ItemGroup>
 </Project>
