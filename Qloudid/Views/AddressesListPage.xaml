@@ -16,13 +16,26 @@
 					Margin="0,0,0,10"
 					HeightRequest="50"
 					VerticalOptions="Start">
-					<Image
+
+					<ImageButton
 						Grid.Column="0"
-						Aspect="AspectFit"
+						Padding="9"
+						BackgroundColor="#3623B7"
+						BorderColor="#05CBE7"
+						BorderWidth="1"
+						CornerRadius="20"
+						HeightRequest="50"
 						HorizontalOptions="Start"
-						Source="logoXXX.png"
 						VerticalOptions="Center"
-						WidthRequest="40" />
+						WidthRequest="50">
+						<ImageButton.Source>
+							<FontImageSource
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+								Size="50"
+								Color="#05CBE7" />
+						</ImageButton.Source>
+					</ImageButton>
 
 					<ImageButton
 						Grid.Column="1"
@@ -46,7 +59,15 @@
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
-					Text="Address"
+					Text="Select"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Delivery"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 
@@ -61,17 +82,18 @@
 
 				<Label
 					Margin="0,50,0,24"
+					FontAttributes="Bold"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
-					Text="Select delivery Address."
+					Text="Select"
 					TextColor="#6F7FAF"
 					VerticalTextAlignment="Start" />
 			</StackLayout>
 
 			<Grid RowSpacing="30" VerticalOptions="FillAndExpand">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="50" />
+					<RowDefinition Height="auto" />
 					<RowDefinition Height="*" />
 				</Grid.RowDefinitions>
 
@@ -80,7 +102,9 @@
 					Padding="0"
 					BackgroundColor="#F8F8FB"
 					CornerRadius="25"
-					HasShadow="False">
+					HasShadow="False"
+					HeightRequest="50"
+					IsVisible="{Binding IsSingleDeliveryAddress}">
 					<Grid Margin="10,0,5,0" ColumnSpacing="0">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="40" />
@@ -130,10 +154,12 @@
 						</Grid.RowDefinitions>
 						<Grid
 							Grid.Row="0"
-							ColumnSpacing="5"
+							ColumnSpacing="0"
 							IsVisible="{Binding IsVisibleDeliveryAddress}"
 							RowSpacing="0">
 							<Grid.RowDefinitions>
+								<RowDefinition Height="40" />
+								<RowDefinition Height="30" />
 								<RowDefinition Height="30" />
 								<RowDefinition Height="30" />
 								<RowDefinition Height="30" />
@@ -151,6 +177,8 @@
 							<Label
 								Grid.Row="0"
 								Grid.Column="0"
+								Padding="10,10,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -164,6 +192,8 @@
 							<Label
 								Grid.Row="0"
 								Grid.Column="1"
+								Padding="0,10,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -177,19 +207,23 @@
 							<Label
 								Grid.Row="0"
 								Grid.Column="0"
+								Padding="10,10,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								IsVisible="{Binding IsUserAddress}"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="Name on house"
+								Text="Door name"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
 							<Label
 								Grid.Row="0"
 								Grid.Column="1"
+								Padding="0,10,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -203,6 +237,8 @@
 							<Label
 								Grid.Row="1"
 								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -215,6 +251,8 @@
 							<Label
 								Grid.Row="1"
 								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -227,18 +265,22 @@
 							<Label
 								Grid.Row="2"
 								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="Address"
+								Text="{Binding StreetAndNr}"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
 							<Label
 								Grid.Row="2"
 								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -251,18 +293,22 @@
 							<Label
 								Grid.Row="3"
 								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
 								MaxLines="1"
-								Text="Zip"
+								Text="Zip code"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
 							<Label
 								Grid.Row="3"
 								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -275,6 +321,8 @@
 							<Label
 								Grid.Row="4"
 								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -287,6 +335,8 @@
 							<Label
 								Grid.Row="4"
 								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -299,6 +349,8 @@
 							<Label
 								Grid.Row="5"
 								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -311,6 +363,8 @@
 							<Label
 								Grid.Row="5"
 								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="14"
 								HorizontalTextAlignment="Start"
@@ -320,8 +374,64 @@
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Start" />
 
-							<controls:CustomButton
+							<Label
+								Grid.Row="6"
+								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Port number"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<Label
+								Grid.Row="6"
+								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="{Binding DeliveryAddressDetail.PortNumber}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<Label
 								Grid.Row="7"
+								Grid.Column="0"
+								Padding="10,0,0,0"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="Entry code"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<Label
+								Grid.Row="7"
+								Grid.Column="1"
+								Padding="0,0,10,0"
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Text="{Binding DeliveryAddressDetail.EntryCode}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Start" />
+
+							<controls:CustomButton
+								Grid.Row="9"
 								Grid.Column="1"
 								Margin="0"
 								BackgroundColor="#05CBE7"
@@ -332,7 +442,7 @@
 								VerticalOptions="EndAndExpand" />
 
 							<StackLayout
-								Grid.Row="7"
+								Grid.Row="9"
 								Grid.Column="0"
 								IsVisible="{Binding IsUserAddress}">
 								<StackLayout.GestureRecognizers>

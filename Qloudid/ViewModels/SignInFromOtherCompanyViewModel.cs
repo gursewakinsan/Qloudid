@@ -41,8 +41,24 @@ namespace Qloudid.ViewModels
 				Application.Current.MainPage = new NavigationPage(new Views.InvalidCertificatePage());
 			else
 			{
-				DisplayName = $"{VerifyUserConsent.first_name} {VerifyUserConsent.last_name}";
-				if (string.IsNullOrEmpty(VerifyUserConsent.company_name))
+				if (!string.IsNullOrEmpty(Helper.Helper.IpFromURL) && Helper.Helper.PurchaseIndex == 2)
+				{
+					PurchaseDetail = await service.GetPurchaseDetailAsync(new Models.PurchaseDetailRequest()
+					{
+						Ip = Helper.Helper.IpFromURL
+					});
+				}
+				else
+				{
+					PurchaseDetail = new Models.PurchaseDetailResponse()
+					{
+						CompanyName = "Qloud ID",
+						Price = "300"
+					};
+				}
+
+				DisplayName = $"{VerifyUserConsent.first_name}";
+				/*if (string.IsNullOrEmpty(VerifyUserConsent.company_name))
 				{
 					DisplayReceiverCompanyName = $"Receiver : Qloud ID";
 					DisplayCompanyName = $"I will hereby sign in under Qloud ID.";
@@ -53,7 +69,7 @@ namespace Qloudid.ViewModels
 					DisplayCompanyName = $"I will hereby sign in under {VerifyUserConsent.company_name}";
 				}
 				if (!string.IsNullOrEmpty(VerifyUserConsent.image))
-					UserImageSource = VerifyUserConsent.image;
+					UserImageSource = VerifyUserConsent.image;*/
 
 				/*if (Helper.Helper.UserInfo == null)
 					Helper.Helper.UserInfo = new Models.User();
@@ -122,14 +138,14 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public string displayReceiverCompanyName;
-		public string DisplayReceiverCompanyName
+		public Models.PurchaseDetailResponse purchaseDetail;
+		public Models.PurchaseDetailResponse PurchaseDetail
 		{
-			get => displayReceiverCompanyName;
+			get => purchaseDetail;
 			set
 			{
-				displayReceiverCompanyName = value;
-				OnPropertyChanged("DisplayReceiverCompanyName");
+				purchaseDetail = value;
+				OnPropertyChanged("PurchaseDetail");
 			}
 		}
 
@@ -141,6 +157,17 @@ namespace Qloudid.ViewModels
 			{
 				userImageSource = value;
 				OnPropertyChanged("UserImageSource");
+			}
+		}
+
+		public string displayReceiverCompanyName;
+		public string DisplayReceiverCompanyName
+		{
+			get => displayReceiverCompanyName;
+			set
+			{
+				displayReceiverCompanyName = value;
+				OnPropertyChanged("DisplayReceiverCompanyName");
 			}
 		}
 

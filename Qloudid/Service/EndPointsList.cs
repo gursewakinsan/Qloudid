@@ -47,6 +47,7 @@
 		public const string UpdateCardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/saveUpdatedPurchaseCardDetails";
 		public const string ConfirmPurchaseUrl = "https://www.qloudid.com/user/index.php/QloudidApp/confirmPurchase";
 		public const string AddNewAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addNewAddress";
+		public const string GetPurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getPurchaseDetail";
 	}
 }
 

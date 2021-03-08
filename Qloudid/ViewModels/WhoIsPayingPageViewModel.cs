@@ -29,6 +29,14 @@ namespace Qloudid.ViewModels
 			IDashboardService service = new DashboardService();
 			IsVisibleInvoiceAddressDetail = false;
 			InvoiceAddressList = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
+			if (InvoiceAddressList != null && InvoiceAddressList.Count == 1)
+			{
+				IsSingleInvoiceAddressDetail = false;
+				InvoiceAddressId = InvoiceAddressList[0].Id;
+				InvoiceAddressDetailCommand.Execute(null);
+			}
+			else
+				IsSingleInvoiceAddressDetail = true;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -94,9 +102,20 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsVisibleInvoiceAddressDetail");
 			}
 		}
+
+		private bool isSingleInvoiceAddressDetail = true;
+		public bool IsSingleInvoiceAddressDetail
+		{
+			get => isSingleInvoiceAddressDetail;
+			set
+			{
+				isSingleInvoiceAddressDetail = value;
+				OnPropertyChanged("IsSingleInvoiceAddressDetail");
+			}
+		}
 		public int InvoiceAddressId { get; set; }
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
-
+		public string StreetAndNr => "Street & nr";
 		#endregion
 	}
 }

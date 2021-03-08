@@ -28,6 +28,15 @@ namespace Qloudid.ViewModels
 			IsVisibleDeliveryAddress = false;
 			IDashboardService service = new DashboardService();
 			AddressesList = await service.GetAddressesAsync(new Models.AddressesRequest() { UserId = Helper.Helper.UserId, UserAddress = Helper.Helper.UserOrCompanyAddress });
+			if (AddressesList != null && AddressesList.Count == 1)
+			{
+				//If only 1 address then show address detail.
+				IsSingleDeliveryAddress = false;
+				SelectedAddressId = AddressesList[0].Id;
+				GetDeliveryAddressDetailCommand.Execute(null);
+			}
+			else
+				IsSingleDeliveryAddress = true;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -152,8 +161,21 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsCompanyAddress");
 			}
 		}
+
+		private bool isSingleDeliveryAddress = true;
+		public bool IsSingleDeliveryAddress
+		{
+			get => isSingleDeliveryAddress;
+			set
+			{
+				isSingleDeliveryAddress = value;
+				OnPropertyChanged("IsSingleDeliveryAddress");
+			}
+		}
+
 		public int SelectedAddressId { get; set; }
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
+		public string StreetAndNr => "Street & nr";
 		#endregion
 	}
 }

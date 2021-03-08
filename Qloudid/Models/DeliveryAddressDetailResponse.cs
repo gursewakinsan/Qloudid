@@ -25,5 +25,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "company_name")]
 		public string CompanyName { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "entry_code")]
+		public string EntryCode { get; set; }
 	}
 }

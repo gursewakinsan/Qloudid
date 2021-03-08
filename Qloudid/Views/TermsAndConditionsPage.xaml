@@ -4,6 +4,7 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="White"
@@ -14,13 +15,24 @@
 				Padding="30"
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
-				<Image
-					Margin="0,0,0,10"
-					Aspect="AspectFit"
+				<ImageButton
+					Padding="9"
+					BackgroundColor="#3623B7"
+					BorderColor="#05CBE7"
+					BorderWidth="1"
+					CornerRadius="20"
+					HeightRequest="50"
 					HorizontalOptions="Start"
-					Source="logoXXX.png"
 					VerticalOptions="Start"
-					WidthRequest="40" />
+					WidthRequest="50">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+							Size="50"
+							Color="#05CBE7" />
+					</ImageButton.Source>
+				</ImageButton>
 
 				<Label
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"

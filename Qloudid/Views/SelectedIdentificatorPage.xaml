@@ -14,13 +14,25 @@
 			<StackLayout Padding="30" Spacing="0">
 				<StackLayout Spacing="0" VerticalOptions="Start">
 					<Grid Margin="0,0,0,10">
-						<Image
+						<ImageButton
 							Grid.Column="0"
-							Aspect="AspectFit"
+							Padding="9"
+							BackgroundColor="#3623B7"
+							BorderColor="#05CBE7"
+							BorderWidth="1"
+							CornerRadius="20"
+							HeightRequest="50"
 							HorizontalOptions="Start"
-							Source="logoXXX.png"
 							VerticalOptions="Center"
-							WidthRequest="40" />
+							WidthRequest="50">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+									Size="50"
+									Color="#05CBE7" />
+							</ImageButton.Source>
+						</ImageButton>
 
 						<ImageButton
 							Grid.Column="1"

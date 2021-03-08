@@ -51,5 +51,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.PurchaseDetailResponse> GetPurchaseDetailAsync(Models.PurchaseDetailRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.PurchaseDetailResponse>(HttpWebRequest.Create(EndPointsList.GetPurchaseDetailUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
