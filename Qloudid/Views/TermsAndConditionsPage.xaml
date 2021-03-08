@@ -34,7 +34,7 @@
 					</ImageButton.Source>
 				</ImageButton>
 
-				<Label
+				<Label Margin="0,20,0,0"
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
@@ -43,7 +43,7 @@
 					VerticalTextAlignment="Start" />
 
 				<BoxView
-					Margin="0,10,0,20"
+					Margin="0,10,0,30"
 					BackgroundColor="#05CBE7"
 					CornerRadius="3"
 					HeightRequest="5"
