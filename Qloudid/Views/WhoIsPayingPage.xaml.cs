@@ -34,5 +34,26 @@ namespace Qloudid.Views
 				}
 			}
 		}
+
+		private void OnInvoiceAddressItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			Models.InvoiceAddressResponse address = e.Item as Models.InvoiceAddressResponse;
+			listInvoiceAddress.SelectedItem = null;
+			viewModel.InvoiceAddressId = address.Id;
+			viewModel.InvoiceAddressDetail = address;
+			foreach (var invoiceAddress in viewModel.ListOfInvoiceAddress)
+			{
+				foreach (var item in invoiceAddress)
+				{
+					if (item.Id.Equals(address.Id))
+					{
+						address.IsSelect = !address.IsSelect;
+						viewModel.IsSubmit = address.IsSelect;
+					}
+					else
+						item.IsSelect = false;
+				}
+			}
+		}
 	}
 }

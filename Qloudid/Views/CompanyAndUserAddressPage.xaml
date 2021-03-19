@@ -22,7 +22,7 @@
 
 			<StackLayout
 				Grid.Row="0"
-				Margin="19,10,0,30"
+				Margin="20,20,0,30"
 				Spacing="10">
 				<ImageButton
 					Padding="9"
@@ -76,7 +76,7 @@
 						<ViewCell>
 							<StackLayout BackgroundColor="White">
 								<Label
-									Margin="15"
+									Margin="20,15,15,15"
 									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 									FontSize="16"
 									HorizontalOptions="StartAndExpand"
@@ -91,7 +91,7 @@
 					<DataTemplate>
 						<ViewCell>
 							<Grid
-								Margin="19,0,19,0"
+								Margin="20,0,20,0"
 								BackgroundColor="White"
 								ColumnSpacing="10"
 								RowSpacing="0">

@@ -27,16 +27,30 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			IsVisibleInvoiceAddressDetail = false;
-			InvoiceAddressList = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
-			if (InvoiceAddressList != null && InvoiceAddressList.Count == 1)
+			var response = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
+			var list = new List<Models.InvoiceAddressInfo>();
+			if (response?.Count > 0)
 			{
-				IsSingleInvoiceAddressDetail = false;
-				InvoiceAddressId = InvoiceAddressList[0].Id;
-				InvoiceAddressDetailCommand.Execute(null);
+				Models.InvoiceAddressInfo listPersonal = new Models.InvoiceAddressInfo();
+				Models.InvoiceAddressInfo listCompanies = new Models.InvoiceAddressInfo();
+				foreach (var item in response)
+				{
+					if (item.IsUser) listPersonal.Add(item);
+					else listCompanies.Add(item);
+				}
+
+				if (listPersonal.Count > 0)
+				{
+					listPersonal.Heading = "Personal";
+					list.Add(listPersonal);
+				}
+				if (listCompanies.Count > 0)
+				{
+					listCompanies.Heading = "Companies";
+					list.Add(listCompanies);
+				}
 			}
-			else
-				IsSingleInvoiceAddressDetail = true;
+			ListOfInvoiceAddress = list;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -51,7 +65,7 @@ namespace Qloudid.ViewModels
 		{
 			Helper.Helper.CompanyId = InvoiceAddressDetail.CompanyId;
 			Helper.Helper.InvoiceAddressDetail = InvoiceAddressDetail;
-			await Navigation.PushAsync(new Views.FinalStepToPayPage());
+			await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
 		}
 		#endregion
 
@@ -70,6 +84,17 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		private List<Models.InvoiceAddressInfo> listOfInvoiceAddress;
+		public List<Models.InvoiceAddressInfo> ListOfInvoiceAddress
+		{
+			get { return listOfInvoiceAddress; }
+			set
+			{
+				listOfInvoiceAddress = value;
+				OnPropertyChanged("ListOfInvoiceAddress");
+			}
+		}
+
 		private List<Models.InvoiceAddressResponse> invoiceAddressList;
 		public List<Models.InvoiceAddressResponse> InvoiceAddressList
 		{
@@ -111,6 +136,17 @@ namespace Qloudid.ViewModels
 			{
 				isSingleInvoiceAddressDetail = value;
 				OnPropertyChanged("IsSingleInvoiceAddressDetail");
+			}
+		}
+
+		private bool isSubmit;
+		public bool IsSubmit
+		{
+			get { return isSubmit; }
+			set
+			{
+				isSubmit = value;
+				OnPropertyChanged("IsSubmit");
 			}
 		}
 		public int InvoiceAddressId { get; set; }

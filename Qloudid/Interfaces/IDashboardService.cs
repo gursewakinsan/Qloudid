@@ -17,5 +17,6 @@ namespace Qloudid.Interfaces
 		Task<int> UpdateCompanyAddressAsync(Models.EditAddressResponse request);
 		Task<Models.DeliveryAddressDetailResponse> DeliveryAddressDetailAsync(Models.DeliveryAddressDetailRequest request);
 		Task<List<Models.InvoiceAddressResponse>> GetInvoiceAddressAsync(Models.InvoiceAddressRequest request);
+		Task<Models.DeliveryAddressesResponse> GetDeliveryAddressesAsync(Models.DeliveryAddressesRequest request);
 	}
 }

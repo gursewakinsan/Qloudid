@@ -63,7 +63,7 @@ namespace Qloudid.ViewModels
 					IPurchaseService purchaseService = new PurchaseService();
 					List<Models.Company> purchaseServiceResponse = await purchaseService.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
 					if (purchaseServiceResponse?.Count > 0)
-						Application.Current.MainPage = new NavigationPage(new Views.CompanyAndUserAddressPage());
+						Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
 					else
 					{
 						Helper.Helper.UserOrCompanyAddress = 1;

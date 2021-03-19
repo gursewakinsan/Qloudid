@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
@@ -9,10 +10,27 @@ namespace Qloudid.ViewModels
 {
 	public class SignInFromOtherCompanyViewModel : BaseViewModel
 	{
+		#region Local Variable.
+		Timer timer;
+		int count = 0;
+		#endregion
+
 		#region Constructor.
 		public SignInFromOtherCompanyViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			timer = new Timer();
+			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+			timer.Interval = 60000;
+			timer.Enabled = true;
+		}
+		#endregion
+
+		#region On Timed Event.
+		private void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			DisplayTotalMinutes = $"{count = count + 1} ";
+			timer.Start();
 		}
 		#endregion
 
@@ -171,7 +189,18 @@ namespace Qloudid.ViewModels
 			}
 		}
 
+		private string displayTotalMinutes = "Less then ";
+		public string DisplayTotalMinutes
+		{
+			get => displayTotalMinutes;
+			set
+			{
+				displayTotalMinutes = value;
+				OnPropertyChanged("DisplayTotalMinutes");
+			}
+		}
+
 		public string DisplayDate => $"Date : {DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}";
-        #endregion
-    }
+		#endregion
+	}
 }

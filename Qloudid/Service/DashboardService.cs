@@ -115,5 +115,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.DeliveryAddressesResponse> GetDeliveryAddressesAsync(Models.DeliveryAddressesRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.DeliveryAddressesResponse>(HttpWebRequest.Create(EndPointsList.ListDeliveryAddressesUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

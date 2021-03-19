@@ -34,5 +34,23 @@ namespace Qloudid.Views
 				}
 			}
 		}
+
+		private void OnCardsItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			Models.CardDetailResponse card = e.Item as Models.CardDetailResponse;
+			viewModel.CardId = card.id;
+			viewModel.CardDetail = card;
+			listCards.SelectedItem = null;
+			foreach (var item in viewModel.CardList)
+			{
+				if (item.id.Equals(card.id))
+				{
+					card.IsSelect = !card.IsSelect;
+					viewModel.IsSubmit = card.IsSelect;
+				}
+				else
+					item.IsSelect = false;
+			}
+		}
 	}
 }

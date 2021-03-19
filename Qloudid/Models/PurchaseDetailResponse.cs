@@ -10,7 +10,7 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "company_name")]
 		public string CompanyName { get; set; }
 		public int MyProperty { get; set; }
-		public string DisplayPrice => $"-SEK{Price}";
+		public string DisplayPrice => $"{Price} SEK";
 		public string DisplayDate => DateTime.Today.Date.ToString("yyyy-MM-dd");
 	}
 }

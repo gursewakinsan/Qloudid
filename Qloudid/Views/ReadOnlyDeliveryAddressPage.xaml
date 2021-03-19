@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.SignInFromOtherCompanyPage"
+	x:Class="Qloudid.Views.ReadOnlyDeliveryAddressPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -38,7 +38,7 @@
 							Grid.Column="1"
 							Padding="15,5,0,15"
 							BackgroundColor="Transparent"
-							Command="{Binding ClearLoginCommand}"
+							Command="{Binding CloseCommand}"
 							HorizontalOptions="EndAndExpand"
 							WidthRequest="40">
 							<ImageButton.Source>
@@ -55,15 +55,7 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
-						Text="Hey"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-						FontSize="28"
-						HorizontalTextAlignment="Start"
-						Text="{Binding DisplayName}"
+						Text="Pay"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -81,7 +73,7 @@
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="Transaction"
+						Text="Delivery address"
 						TextColor="Gray"
 						VerticalTextAlignment="Start" />
 
@@ -89,7 +81,7 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding PurchaseDetail.DisplayPrice}"
+						Text="{Binding DisplayDeliveryAddress.NameOnHouse}"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -98,7 +90,7 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding PurchaseDetail.CompanyName}"
+						Text="{Binding DisplayDeliveryAddress.Address}"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -110,14 +102,31 @@
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
 							<FormattedString>
-								<Span Text="{Binding DisplayTotalMinutes}" />
-								<Span Text="minutes ago" />
+								<Span Text="{Binding DisplayDeliveryAddress.Zipcode}" />
+								<Span Text=" " />
+								<Span Text="{Binding DisplayDeliveryAddress.City}" />
+								<Span Text="," />
+								<Span Text="{Binding DisplayDeliveryAddress.CountryName}" />
 							</FormattedString>
 						</Label.FormattedText>
 					</Label>
 
+					<Label
+						Margin="0,20,0,0"
+						CharacterSpacing="1"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HeightRequest="40"
+						Text="Edit"
+						TextColor="#05CBE7"
+						TextDecorations="Underline">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding CloseCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
 					<BoxView
-						Margin="0,20,0,20"
+						Margin="0,0,0,20"
 						BackgroundColor="#707070"
 						HeightRequest="1"
 						Opacity="0.2" />
@@ -126,14 +135,14 @@
 						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="Delivery address"
+						Text="Invoicing address"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
 					<controls:CustomButton
 						Margin="0,20,0,20"
 						BackgroundColor="#05CBE7"
-						Command="{Binding ContinueCommand}"
+						Command="{Binding SelectedDeliveryAddressCommand}"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						Text="Select"

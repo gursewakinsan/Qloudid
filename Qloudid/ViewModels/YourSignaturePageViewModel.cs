@@ -13,7 +13,7 @@ namespace Qloudid.ViewModels
 		public YourSignaturePageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			BindData();
+			//BindData();
 		}
 		#endregion
 
@@ -43,8 +43,48 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Edit Delivery Address Command.
+		private ICommand editDeliveryAddressCommand;
+		public ICommand EditDeliveryAddressCommand
+		{
+			get => editDeliveryAddressCommand ?? (editDeliveryAddressCommand = new Command(async () => await ExecuteEditDeliveryAddressCommand()));
+		}
+		private async Task ExecuteEditDeliveryAddressCommand()
+		{
+			Helper.Helper.IsEditAddressFromYourSignature = true;
+			Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Edit Invoicing Address Command.
+		private ICommand editInvoicingAddressCommand;
+		public ICommand EditInvoicingAddressCommand
+		{
+			get => editInvoicingAddressCommand ?? (editInvoicingAddressCommand = new Command(async () => await ExecuteEditInvoicingAddressCommand()));
+		}
+		private async Task ExecuteEditInvoicingAddressCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.WhoIsPayingPage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Edit Card Detail Command.
+		private ICommand editCardDetailCommand;
+		public ICommand EditCardDetailCommand
+		{
+			get => editCardDetailCommand ?? (editCardDetailCommand = new Command(async () => await ExecuteEditCardDetailCommand()));
+		}
+		private async Task ExecuteEditCardDetailCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.FinalStepToPayPage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
 		#region Bind Data.
-		void BindData()
+		/*void BindData()
 		{
 			var dAddress = Helper.Helper.DeliveryAddressDetail;
 			if (dAddress != null)
@@ -60,42 +100,13 @@ namespace Qloudid.ViewModels
 				string space = string.Empty;
 				CardDetail = $"Card {space.PadLeft(20)} **** **** ****  {cc.card_number2.GetLast(4)}";
 			}
-		}
+		}*/
 		#endregion
 
 		#region Properties.
-		public string deliveryAddress;
-		public string DeliveryAddress
-		{
-			get => deliveryAddress;
-			set
-			{
-				deliveryAddress = value;
-				OnPropertyChanged("DeliveryAddress");
-			}
-		}
-
-		public string invoiceAddress;
-		public string InvoiceAddress
-		{
-			get => invoiceAddress;
-			set
-			{
-				invoiceAddress = value;
-				OnPropertyChanged("InvoiceAddress");
-			}
-		}
-
-		private string cardDetail;
-		public string CardDetail
-		{
-			get => cardDetail;
-			set
-			{
-				cardDetail = value;
-				OnPropertyChanged("CardDetail");
-			}
-		}
+		public Models.DeliveryAddressDetailResponse DeliveryAddress => Helper.Helper.DeliveryAddressDetail;
+		public Models.InvoiceAddressResponse InvoiceAddress => Helper.Helper.InvoiceAddressDetail;
+		public Models.CardDetailResponse CardDetail => Helper.Helper.CardDetail;
 		#endregion
 	}
 }

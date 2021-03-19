@@ -84,7 +84,19 @@ namespace Qloudid.ViewModels
 						Helper.Helper.DeliveryAddressDetail.PortNumber = DeliveryPortNumber;
 						Helper.Helper.DeliveryAddressDetail.Zipcode = DeliveryZipCode;
 						Helper.Helper.DeliveryAddressDetail.City = DeliveryCity;
-						Application.Current.MainPage = new NavigationPage(new Views.WhoIsPayingPage());
+
+						if (Helper.Helper.IsEditDeliveryAddressFromInvoicing)
+						{
+							Helper.Helper.IsEditDeliveryAddressFromInvoicing = false;
+							Application.Current.MainPage = new NavigationPage(new Views.ReadOnlyInvoicingAddressPage());
+						}
+						else if (Helper.Helper.IsEditAddressFromYourSignature)
+						{
+							Helper.Helper.IsEditAddressFromYourSignature = false;
+							Application.Current.MainPage = new NavigationPage(new Views.YourSignaturePage());
+						}
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.ReadOnlyDeliveryAddressPage());
 						//Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 					}
 					else

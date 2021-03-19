@@ -14,7 +14,7 @@ namespace Qloudid.Views
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new AddressesListPageViewModel(this.Navigation);
 			if (!Helper.Helper.IsAddMoreAddresses)
-				viewModel.GetAllAddressCommand.Execute(null);
+				viewModel.GetDeliveryAddressCommand.Execute(null);
 		}
 
 		protected override void OnAppearing()
@@ -39,6 +39,27 @@ namespace Qloudid.Views
 				{
 					viewModel.SelectedAddressId = address.Id;
 					viewModel.GetDeliveryAddressDetailCommand.Execute(null);
+				}
+			}
+		}
+
+		private void OnDeliveryAddressItemTapped(object sender, ItemTappedEventArgs e)
+		{
+			Models.UserAddress address = e.Item as Models.UserAddress;
+			viewModel.SelectedAddressId = address.Id;
+			Helper.Helper.UserOrCompanyAddress = address.User_address;
+			listDeliveryAddress.SelectedItem = null;
+			foreach (var deliveryAddress in viewModel.ListOfDeliveryAddress)
+			{
+				foreach (var item in deliveryAddress)
+				{
+					if (item.Id.Equals(address.Id))
+					{
+						address.IsSelect = !address.IsSelect;
+						viewModel.IsSubmit = address.IsSelect;
+					}
+					else
+						item.IsSelect = false;
 				}
 			}
 		}

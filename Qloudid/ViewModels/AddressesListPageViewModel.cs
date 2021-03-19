@@ -30,13 +30,45 @@ namespace Qloudid.ViewModels
 			AddressesList = await service.GetAddressesAsync(new Models.AddressesRequest() { UserId = Helper.Helper.UserId, UserAddress = Helper.Helper.UserOrCompanyAddress });
 			if (AddressesList != null && AddressesList.Count == 1)
 			{
-				//If only 1 address then show address detail.
 				IsSingleDeliveryAddress = false;
 				SelectedAddressId = AddressesList[0].Id;
 				GetDeliveryAddressDetailCommand.Execute(null);
 			}
 			else
 				IsSingleDeliveryAddress = true;
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Get Delivery Address Command.
+		private ICommand getDeliveryAddressCommand;
+		public ICommand GetDeliveryAddressCommand
+		{
+			get => getDeliveryAddressCommand ?? (getDeliveryAddressCommand = new Command(async () => await ExecuteGetDeliveryAddressCommand()));
+		}
+		private async Task ExecuteGetDeliveryAddressCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			var response = await service.GetDeliveryAddressesAsync(new Models.DeliveryAddressesRequest() { UserId = Helper.Helper.UserId });
+			
+			var list = new List<Models.DeliveryAddressInfo>();
+			if (response?.UserAddress?.Count > 0)
+			{
+				Models.DeliveryAddressInfo listPersonal = new Models.DeliveryAddressInfo();
+				foreach (var item in response.UserAddress) listPersonal.Add(item);
+				listPersonal.Heading = "Personal";
+				list.Add(listPersonal);
+			}
+
+			if (response?.CompanyAddress?.Count > 0)
+			{
+				Models.DeliveryAddressInfo listCompanies = new Models.DeliveryAddressInfo();
+				foreach (var item in response.CompanyAddress) listCompanies.Add(item);
+				listCompanies.Heading = "Companies";
+				list.Add(listCompanies);
+			}
+			ListOfDeliveryAddress = list;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -86,7 +118,18 @@ namespace Qloudid.ViewModels
 			};
 			int response = await service.UpdateCompanyAddressAsync(address);
 			Helper.Helper.DeliveryAddressDetail = DeliveryAddressDetail;
-			await Navigation.PushAsync(new Views.WhoIsPayingPage());
+			if (Helper.Helper.IsEditDeliveryAddressFromInvoicing)
+			{
+				Helper.Helper.IsEditDeliveryAddressFromInvoicing = false;
+				await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
+			}
+			else if (Helper.Helper.IsEditAddressFromYourSignature)
+			{
+				Helper.Helper.IsEditAddressFromYourSignature = false;
+				await Navigation.PushAsync(new Views.YourSignaturePage());
+			}
+			else
+				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 		}
 		#endregion
 
@@ -101,7 +144,7 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			DeliveryAddressDetail = await service.DeliveryAddressDetailAsync(new Models.DeliveryAddressDetailRequest() { Id = SelectedAddressId, UserAddress = Helper.Helper.UserOrCompanyAddress });
-			IsVisibleDeliveryAddress = true;
+			SelectedAddressCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -170,6 +213,28 @@ namespace Qloudid.ViewModels
 			{
 				isSingleDeliveryAddress = value;
 				OnPropertyChanged("IsSingleDeliveryAddress");
+			}
+		}
+
+		private List<Models.DeliveryAddressInfo> listOfDeliveryAddress;
+		public List<Models.DeliveryAddressInfo> ListOfDeliveryAddress
+		{
+			get { return listOfDeliveryAddress; }
+			set
+			{
+				listOfDeliveryAddress = value;
+				OnPropertyChanged("ListOfDeliveryAddress");
+			}
+		}
+
+		private bool isSubmit;
+		public bool IsSubmit
+		{
+			get { return isSubmit; }
+			set
+			{
+				isSubmit = value;
+				OnPropertyChanged("IsSubmit");
 			}
 		}
 

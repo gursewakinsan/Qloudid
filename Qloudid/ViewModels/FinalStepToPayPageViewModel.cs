@@ -34,14 +34,6 @@ namespace Qloudid.ViewModels
 				company_id = Helper.Helper.CompanyId,
 				certificate_key = Helper.Helper.QrCertificateKey
 			});
-			if (CardList != null && CardList.Count == 1)
-			{
-				IsSingleCardDetail = false;
-				CardId = CardList[0].id;
-				GetCardDetailsCommand.Execute(null);
-			}
-			else
-				IsSingleCardDetail = true;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -145,6 +137,17 @@ namespace Qloudid.ViewModels
 			{
 				isSingleCardDetail = value;
 				OnPropertyChanged("IsSingleCardDetail");
+			}
+		}
+
+		private bool isSubmit;
+		public bool IsSubmit
+		{
+			get { return isSubmit; }
+			set
+			{
+				isSubmit = value;
+				OnPropertyChanged("IsSubmit");
 			}
 		}
 		public bool IsUserCardOrCompanyCard => Helper.Helper.CompanyId > 0 ? false : true;

@@ -1,22 +1,35 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Qloudid.Models
 {
-	public class CardDetailResponse : INotifyPropertyChanged
+	public class DeliveryAddressesResponse
 	{
-		public int id { get; set; }
-		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(name_on_card, 0).ToUpper();
-		public string name_on_card { get; set; }
-		public string card_number { get; set; }
-		public int company_id { get; set; }
-		public string card_cvv { get; set; }
-		public string exp_month { get; set; }
-		public string exp_year { get; set; }
-		public string card_type { get; set; }
-		public string card_number2 { get; set; }
+		[Newtonsoft.Json.JsonProperty(PropertyName = "user_address")]
+		public List<UserAddress> UserAddress { get; set; }
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "company_address")]
+		public List<UserAddress> CompanyAddress { get; set; }
+	}
+
+	public class UserAddress : INotifyPropertyChanged
+	{
+		[Newtonsoft.Json.JsonProperty(PropertyName = "id")]
+		public int Id { get; set; }
+		
+		public int User_address { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "name_on_house")]
+		public string NameOnHouse { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "heading_address")]
+		public string HeadingAddress { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
+		public string SubHeadingAddress { get; set; }
+		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(NameOnHouse, 0).ToUpper();
 		public Color FirstLetterNameBg => RandomColor();
 		Color RandomColor()
 		{
@@ -41,7 +54,7 @@ namespace Qloudid.Models
 			}
 		}
 
-		private Color rowSelectedBg = Color.White;
+		private Color rowSelectedBg;
 		public Color RowSelectedBg
 		{
 			get { return rowSelectedBg; }
@@ -68,5 +81,11 @@ namespace Qloudid.Models
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 		}
+	}
+
+	public class DeliveryAddressInfo : List<UserAddress>
+	{
+		public string Heading { get; set; }
+		public List<UserAddress> DeliveryAddress => this;
 	}
 }
