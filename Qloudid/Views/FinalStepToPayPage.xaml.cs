@@ -41,7 +41,7 @@ namespace Qloudid.Views
 			viewModel.CardId = card.id;
 			viewModel.CardDetail = card;
 			listCards.SelectedItem = null;
-			foreach (var item in viewModel.CardList)
+			/*foreach (var item in viewModel.CardList)
 			{
 				if (item.id.Equals(card.id))
 				{
@@ -50,7 +50,8 @@ namespace Qloudid.Views
 				}
 				else
 					item.IsSelect = false;
-			}
+			}*/
+			viewModel.SelectedFinalStepToPayCommand.Execute(null);
 		}
 	}
 }

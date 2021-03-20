@@ -28,12 +28,20 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IsVisibleCardDetail = false;
 			IPurchaseService service = new PurchaseService();
-			CardList = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
+			var response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
 			{
 				user_id = Helper.Helper.UserInfo.user_id,
 				company_id = Helper.Helper.CompanyId,
 				certificate_key = Helper.Helper.QrCertificateKey
 			});
+			
+			int index = 0;
+			foreach (var item in response)
+			{
+				item.FirstLetterNameBg = Helper.Helper.ColorList[index];
+				index = index + 1;
+			}
+			CardList = response;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

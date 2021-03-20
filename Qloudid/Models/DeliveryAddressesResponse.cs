@@ -30,7 +30,18 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
 		public string SubHeadingAddress { get; set; }
 		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(NameOnHouse, 0).ToUpper();
-		public Color FirstLetterNameBg => RandomColor();
+		
+		private string firstLetterNameBg;
+		public string FirstLetterNameBg
+		{
+			get { return firstLetterNameBg; }
+			set
+			{
+				firstLetterNameBg = value;
+				OnPropertyChanged("FirstLetterNameBg");
+			}
+		}
+
 		Color RandomColor()
 		{
 			Random randonGen = new Random();

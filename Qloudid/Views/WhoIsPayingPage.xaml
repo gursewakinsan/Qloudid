@@ -10,84 +10,45 @@
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid>
+		<Grid RowSpacing="10">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="auto" />
+				<RowDefinition Height="120" />
 				<RowDefinition Height="*" />
-				<RowDefinition Height="auto" />
 			</Grid.RowDefinitions>
-			<StackLayout
+
+			<Grid
 				Grid.Row="0"
-				Padding="25,30,30,20"
-				Spacing="0"
-				VerticalOptions="Start">
-				<Grid
-					Margin="0,0,0,10"
-					HeightRequest="50"
-					VerticalOptions="Start">
-					<ImageButton
-						Grid.Column="0"
-						Padding="9"
-						BackgroundColor="#3623B7"
-						BorderColor="#05CBE7"
-						BorderWidth="1"
-						CornerRadius="20"
-						HeightRequest="50"
-						HorizontalOptions="Start"
-						VerticalOptions="Center"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="50"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
-
-					<ImageButton
-						Grid.Column="1"
-						Padding="15,15,0,15"
-						BackgroundColor="Transparent"
-						Command="{Binding CloseCommand}"
-						HorizontalOptions="EndAndExpand"
-						IsVisible="False"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-								Size="40"
-								Color="#6F7FAF" />
-						</ImageButton.Source>
-					</ImageButton>
-				</Grid>
+				Padding="20"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<ImageButton
+					Grid.Row="0"
+					Padding="0,5,15,5"
+					BackgroundColor="Transparent"
+					Command="{Binding CloseCommand}"
+					HorizontalOptions="StartAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+							Size="80"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
 
 				<Label
+					Grid.Row="1"
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
+					FontSize="25"
 					HorizontalTextAlignment="Start"
-					Text="Invoicing"
+					Text="Select a invoicing address"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
-
-				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="address"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<BoxView
-					Margin="0,10,0,0"
-					BackgroundColor="#05CBE7"
-					CornerRadius="3"
-					HeightRequest="5"
-					HorizontalOptions="Start"
-					VerticalOptions="Start"
-					WidthRequest="40" />
-			</StackLayout>
+			</Grid>
 
 			<ListView
 				x:Name="listInvoiceAddress"
@@ -107,7 +68,7 @@
 								<Label
 									Margin="25,15,15,15"
 									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-									FontSize="16"
+									FontSize="18"
 									HorizontalOptions="StartAndExpand"
 									Text="{Binding Heading}"
 									TextColor="#6F7FAF"
@@ -137,10 +98,9 @@
 									Grid.Row="0"
 									Grid.Column="0"
 									BackgroundColor="{Binding FirstLetterNameBg}"
-									CornerRadius="20"
+									CornerRadius="24"
 									HeightRequest="48"
 									HorizontalOptions="CenterAndExpand"
-									Opacity="0.7"
 									VerticalOptions="CenterAndExpand"
 									WidthRequest="48" />
 
@@ -200,18 +160,6 @@
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
-
-			<controls:CustomButton
-				Grid.Row="2"
-				Margin="0,10,0,10"
-				BackgroundColor="#05CBE7"
-				Command="{Binding SelectedPayingCommand}"
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
-				HorizontalOptions="CenterAndExpand"
-				IsVisible="{Binding IsSubmit}"
-				Text="Submit"
-				TextColor="White"
-				WidthRequest="200" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

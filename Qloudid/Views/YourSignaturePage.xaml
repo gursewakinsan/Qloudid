@@ -132,9 +132,16 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding DeliveryAddress.Address}"
 						TextColor="Black"
-						VerticalTextAlignment="Start" />
+						VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="{Binding DeliveryAddress.Address}" />
+								<Span Text=" " />
+								<Span Text="{Binding DeliveryAddress.PortNumber}" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<Label
 						FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -144,9 +151,9 @@
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
 							<FormattedString>
-								<Span Text="{Binding DeliveryAddress.Zipcode}" />
-								<Span Text=" " />
 								<Span Text="{Binding DeliveryAddress.City}" />
+								<Span Text=" " />
+								<Span Text="{Binding DeliveryAddress.Zipcode}" />
 								<Span Text=", " />
 								<Span Text="{Binding DeliveryAddress.CountryName}" />
 							</FormattedString>
@@ -192,9 +199,16 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding InvoiceAddress.InvoiceAddress}"
 						TextColor="Black"
-						VerticalTextAlignment="Start" />
+						VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="{Binding InvoiceAddress.InvoiceAddress}" />
+								<Span Text=" " />
+								<Span Text="{Binding InvoiceAddress.InvoicePortNumber}" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<Label
 						FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -204,9 +218,9 @@
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
 							<FormattedString>
-								<Span Text="{Binding InvoiceAddress.InvoiceZip}" />
-								<Span Text=" " />
 								<Span Text="{Binding InvoiceAddress.InvoiceCity}" />
+								<Span Text=" " />
+								<Span Text="{Binding InvoiceAddress.InvoiceZip}" />
 								<Span Text=", " />
 								<Span Text="{Binding InvoiceAddress.InvoiceCountry}" />
 							</FormattedString>

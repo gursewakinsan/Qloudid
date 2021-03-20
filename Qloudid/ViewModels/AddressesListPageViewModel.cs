@@ -51,12 +51,17 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			var response = await service.GetDeliveryAddressesAsync(new Models.DeliveryAddressesRequest() { UserId = Helper.Helper.UserId });
-			
+			int index = 0;
 			var list = new List<Models.DeliveryAddressInfo>();
 			if (response?.UserAddress?.Count > 0)
 			{
 				Models.DeliveryAddressInfo listPersonal = new Models.DeliveryAddressInfo();
-				foreach (var item in response.UserAddress) listPersonal.Add(item);
+				foreach (var item in response.UserAddress)
+				{
+					item.FirstLetterNameBg = Helper.Helper.ColorList[index];
+					index = index + 1;
+					listPersonal.Add(item);
+				}
 				listPersonal.Heading = "Personal";
 				list.Add(listPersonal);
 			}
@@ -64,7 +69,12 @@ namespace Qloudid.ViewModels
 			if (response?.CompanyAddress?.Count > 0)
 			{
 				Models.DeliveryAddressInfo listCompanies = new Models.DeliveryAddressInfo();
-				foreach (var item in response.CompanyAddress) listCompanies.Add(item);
+				foreach (var item in response.CompanyAddress)
+				{
+					item.FirstLetterNameBg = Helper.Helper.ColorList[index];
+					index = index + 1;
+					listCompanies.Add(item);
+				}
 				listCompanies.Heading = "Companies";
 				list.Add(listCompanies);
 			}

@@ -90,9 +90,16 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding DisplayDeliveryAddress.Address}"
 						TextColor="Black"
-						VerticalTextAlignment="Start" />
+						VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="{Binding DisplayDeliveryAddress.Address}" />
+								<Span Text=" " />
+								<Span Text="{Binding DisplayDeliveryAddress.PortNumber}" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<Label
 						FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -102,9 +109,9 @@
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
 							<FormattedString>
-								<Span Text="{Binding DisplayDeliveryAddress.Zipcode}" />
-								<Span Text=" " />
 								<Span Text="{Binding DisplayDeliveryAddress.City}" />
+								<Span Text=" " />
+								<Span Text="{Binding DisplayDeliveryAddress.Zipcode}" />
 								<Span Text="," />
 								<Span Text="{Binding DisplayDeliveryAddress.CountryName}" />
 							</FormattedString>

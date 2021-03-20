@@ -10,84 +10,68 @@
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid>
+		<Grid RowSpacing="10">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="auto" />
+				<RowDefinition Height="120" />
 				<RowDefinition Height="*" />
-				<RowDefinition Height="auto" />
 			</Grid.RowDefinitions>
-			<StackLayout
+
+			<Grid
 				Grid.Row="0"
-				Padding="30,30,30,20"
-				Spacing="0"
-				VerticalOptions="Start">
-				<Grid
-					Margin="0,0,0,10"
-					HeightRequest="50"
-					VerticalOptions="Start">
-					<ImageButton
-						Grid.Column="0"
-						Padding="9"
-						BackgroundColor="#3623B7"
-						BorderColor="#05CBE7"
-						BorderWidth="1"
-						CornerRadius="20"
-						HeightRequest="50"
-						HorizontalOptions="Start"
-						VerticalOptions="Center"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="50"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
-
-					<ImageButton
-						Grid.Column="1"
-						Padding="15,15,0,15"
-						BackgroundColor="Transparent"
-						Command="{Binding CloseCommand}"
-						HorizontalOptions="EndAndExpand"
-						IsVisible="False"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-								Size="40"
-								Color="#6F7FAF" />
-						</ImageButton.Source>
-					</ImageButton>
-				</Grid>
+				Padding="20"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="72" />
+				</Grid.ColumnDefinitions>
+				<ImageButton
+					Grid.Row="0"
+					Grid.Column="0"
+					Padding="0,5,15,5"
+					BackgroundColor="Transparent"
+					Command="{Binding CloseCommand}"
+					HorizontalOptions="StartAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+							Size="80"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
 
 				<Label
+					Grid.Row="1"
+					Grid.Column="0"
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
+					FontSize="25"
 					HorizontalTextAlignment="Start"
-					Text="Pay"
+					Text="Pay by card"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 
-				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="by card"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<BoxView
-					Margin="0,10,0,20"
-					BackgroundColor="#05CBE7"
-					CornerRadius="3"
-					HeightRequest="5"
-					HorizontalOptions="Start"
-					VerticalOptions="Start"
-					WidthRequest="40" />
-			</StackLayout>
+				<ImageButton
+					Grid.RowSpan="2"
+					Grid.Column="1"
+					Padding="20"
+					BackgroundColor="#4B39BE"
+					Command="{Binding AddNewCardForPayingCommand}"
+					CornerRadius="10"
+					IsVisible="{Binding IsUserCardOrCompanyCard}">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							Size="100"
+							Color="White" />
+					</ImageButton.Source>
+				</ImageButton>
+			</Grid>
 
 			<ListView
 				x:Name="listCards"
@@ -121,12 +105,11 @@
 									Grid.RowSpan="3"
 									Grid.Column="0"
 									BackgroundColor="{Binding FirstLetterNameBg}"
-									CornerRadius="20"
-									HeightRequest="50"
+									CornerRadius="24"
+									HeightRequest="48"
 									HorizontalOptions="CenterAndExpand"
-									Opacity="0.7"
 									VerticalOptions="CenterAndExpand"
-									WidthRequest="50" />
+									WidthRequest="48" />
 
 								<Label
 									Grid.Row="0"
@@ -170,37 +153,7 @@
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
-				<ListView.Footer>
-					<Label
-						Padding="20,0,0,0"
-						CharacterSpacing="1"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						HeightRequest="50"
-						HorizontalOptions="StartAndExpand"
-						IsVisible="{Binding IsUserCardOrCompanyCard}"
-						Text="+Add new card"
-						TextColor="#05CBE7"
-						VerticalOptions="CenterAndExpand"
-						VerticalTextAlignment="Center">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding AddNewCardForPayingCommand}" />
-						</Label.GestureRecognizers>
-					</Label>
-				</ListView.Footer>
 			</ListView>
-
-			<controls:CustomButton
-				Grid.Row="2"
-				Margin="0,10,0,10"
-				BackgroundColor="#05CBE7"
-				Command="{Binding SelectedFinalStepToPayCommand}"
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
-				HorizontalOptions="CenterAndExpand"
-				IsVisible="{Binding IsSubmit}"
-				Text="Select"
-				TextColor="White"
-				WidthRequest="200" />
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

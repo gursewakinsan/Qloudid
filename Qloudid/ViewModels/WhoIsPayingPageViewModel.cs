@@ -31,12 +31,22 @@ namespace Qloudid.ViewModels
 			var list = new List<Models.InvoiceAddressInfo>();
 			if (response?.Count > 0)
 			{
+				int index = 0;
 				Models.InvoiceAddressInfo listPersonal = new Models.InvoiceAddressInfo();
 				Models.InvoiceAddressInfo listCompanies = new Models.InvoiceAddressInfo();
 				foreach (var item in response)
 				{
-					if (item.IsUser) listPersonal.Add(item);
-					else listCompanies.Add(item);
+					if (item.IsUser)
+					{
+						item.FirstLetterNameBg = Helper.Helper.ColorList[index];
+						listPersonal.Add(item);
+					}
+					else
+					{
+						item.FirstLetterNameBg = Helper.Helper.ColorList[index];
+						listCompanies.Add(item);
+					}
+					index = index + 1;
 				}
 
 				if (listPersonal.Count > 0)

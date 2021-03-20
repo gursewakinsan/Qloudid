@@ -64,5 +64,19 @@ namespace Qloudid.Helper
 		public static Models.DeliveryAddressDetailResponse DeliveryAddressDetail { get; set; }
 		public static Models.InvoiceAddressResponse InvoiceAddressDetail { get; set; }
 		public static Models.CardDetailResponse CardDetail { get; set; }
+
+		public static string[] ColorList =
+		{
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
+			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE"
+		};
 	}
 }

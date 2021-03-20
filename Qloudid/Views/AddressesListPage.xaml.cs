@@ -49,7 +49,7 @@ namespace Qloudid.Views
 			viewModel.SelectedAddressId = address.Id;
 			Helper.Helper.UserOrCompanyAddress = address.User_address;
 			listDeliveryAddress.SelectedItem = null;
-			foreach (var deliveryAddress in viewModel.ListOfDeliveryAddress)
+			/*foreach (var deliveryAddress in viewModel.ListOfDeliveryAddress)
 			{
 				foreach (var item in deliveryAddress)
 				{
@@ -61,7 +61,8 @@ namespace Qloudid.Views
 					else
 						item.IsSelect = false;
 				}
-			}
+			}*/
+			viewModel.GetDeliveryAddressDetailCommand.Execute(null);
 		}
 	}
 }

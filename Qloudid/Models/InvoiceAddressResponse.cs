@@ -43,7 +43,17 @@ namespace Qloudid.Models
 		public string HeadingAddress => $"{InvoiceAddress} {InvoicePortNumber}";
 
 		public string SubHeadingAddress => $"{InvoiceCity} {InvoiceZip}, {InvoiceCountry}";
-		public Color FirstLetterNameBg => RandomColor();
+
+		private string firstLetterNameBg;
+		public string FirstLetterNameBg
+		{
+			get { return firstLetterNameBg; }
+			set
+			{
+				firstLetterNameBg = value;
+				OnPropertyChanged("FirstLetterNameBg");
+			}
+		}
 		Color RandomColor()
 		{
 			Random randonGen = new Random();

@@ -23,5 +23,6 @@
 		public const string PostOutline = "\U000f1009";
 		public const string FormTextboxPassword = "\U000f07f5";
 		public const string HomeMapMarker = "\U000f05f8";
+		public const string Plus = "\U000f0415";
 	}
 }

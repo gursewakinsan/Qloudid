@@ -17,7 +17,16 @@ namespace Qloudid.Models
 		public string card_type { get; set; }
 		public string card_number2 { get; set; }
 
-		public Color FirstLetterNameBg => RandomColor();
+		private string firstLetterNameBg;
+		public string FirstLetterNameBg
+		{
+			get { return firstLetterNameBg; }
+			set
+			{
+				firstLetterNameBg = value;
+				OnPropertyChanged("FirstLetterNameBg");
+			}
+		}
 		Color RandomColor()
 		{
 			Random randonGen = new Random();
