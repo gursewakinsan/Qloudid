@@ -45,7 +45,7 @@
 					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
 					FontSize="25"
 					HorizontalTextAlignment="Start"
-					Text="Select a invoicing address"
+					Text="Invoicing address"
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 			</Grid>
