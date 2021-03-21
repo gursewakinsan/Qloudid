@@ -44,6 +44,12 @@
 				x:TypeArguments="x:String"
 				Android="SFProDisplayMedium.ttf#SFProDisplayMedium"
 				iOS="SFProDisplayMedium" />
+
+			<OnPlatform
+				x:Key="SFProDisplayLightFontFamily"
+				x:TypeArguments="x:String"
+				Android="SFProDisplayLight.ttf#SFProDisplayLight"
+				iOS="SFProDisplayLight" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

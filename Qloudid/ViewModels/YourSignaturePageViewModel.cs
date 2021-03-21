@@ -1,7 +1,5 @@
-﻿using Qloudid.Helper;
+﻿using System.Timers;
 using Xamarin.Forms;
-using Qloudid.Service;
-using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -9,11 +7,28 @@ namespace Qloudid.ViewModels
 {
 	public class YourSignaturePageViewModel : BaseViewModel
 	{
+		#region Local Variable.
+		Timer timer;
+		int count = 0;
+		#endregion
+
 		#region Constructor.
 		public YourSignaturePageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			timer = new Timer();
+			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+			timer.Interval = 60000;
+			timer.Enabled = true;
 			//BindData();
+		}
+		#endregion
+
+		#region On Timed Event.
+		private void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			DisplayTotalMinutes = $"{count = count + 1} ";
+			timer.Start();
 		}
 		#endregion
 
@@ -104,9 +119,21 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		public Models.PurchaseDetailResponse PurchaseDetail => Helper.Helper.PurchaseDetail;
 		public Models.DeliveryAddressDetailResponse DeliveryAddress => Helper.Helper.DeliveryAddressDetail;
 		public Models.InvoiceAddressResponse InvoiceAddress => Helper.Helper.InvoiceAddressDetail;
 		public Models.CardDetailResponse CardDetail => Helper.Helper.CardDetail;
+
+		private string displayTotalMinutes = "Less then ";
+		public string DisplayTotalMinutes
+		{
+			get => displayTotalMinutes;
+			set
+			{
+				displayTotalMinutes = value;
+				OnPropertyChanged("DisplayTotalMinutes");
+			}
+		}
 		#endregion
 	}
 }

@@ -10,113 +10,72 @@
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid Padding="20" RowSpacing="20">
+		<Grid Padding="20" RowSpacing="10">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="auto" />
+				<RowDefinition Height="100" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
-			<StackLayout
+
+			<Grid
 				Grid.Row="0"
-				Spacing="0"
-				VerticalOptions="Start">
-				<Grid
-					Margin="0,0,0,10"
+				ColumnSpacing="0"
+				RowSpacing="5">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="50" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					FontFamily="{StaticResource SFProDisplayLightFontFamily}"
+					FontSize="26"
+					HorizontalTextAlignment="Start"
+					Text="Qloud ID"
+					TextColor="Black"
+					VerticalTextAlignment="End" />
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="28"
+					HorizontalTextAlignment="Start"
+					Text="Pay"
+					TextColor="Black"
+					VerticalTextAlignment="Start" />
+
+				<ImageButton
+					Grid.RowSpan="2"
+					Grid.Column="1"
+					Padding="9"
+					BackgroundColor="#3623B7"
+					CornerRadius="20"
 					HeightRequest="50"
-					VerticalOptions="Start">
-					<ImageButton
-						Grid.Column="0"
-						Padding="9"
-						BackgroundColor="#3623B7"
-						BorderColor="#05CBE7"
-						BorderWidth="1"
-						CornerRadius="20"
-						HeightRequest="50"
-						HorizontalOptions="Start"
-						VerticalOptions="Center"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="50"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
-
-					<ImageButton
-						Grid.Column="1"
-						Padding="15,15,0,15"
-						BackgroundColor="Transparent"
-						Command="{Binding CloseCommand}"
-						HorizontalOptions="EndAndExpand"
-						IsVisible="False"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-								Size="40"
-								Color="#6F7FAF" />
-						</ImageButton.Source>
-					</ImageButton>
-				</Grid>
-
-				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="Your"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="Signature"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<BoxView
-					Margin="0,10,0,0"
-					BackgroundColor="#05CBE7"
-					CornerRadius="3"
-					HeightRequest="5"
-					HorizontalOptions="Start"
-					VerticalOptions="Start"
-					WidthRequest="40" />
-			</StackLayout>
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="50">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+							Size="50"
+							Color="#05CBE7" />
+					</ImageButton.Source>
+				</ImageButton>
+			</Grid>
 
 			<ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
 				<StackLayout Spacing="0">
 					<Label
+						Margin="0,50,0,2"
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="To pay"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<Label
-						CharacterSpacing="3"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="25"
-						HorizontalTextAlignment="Start"
-						Text="7350 SEK"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<BoxView
-						Margin="0,0,0,20"
-						BackgroundColor="#707070"
-						HeightRequest="1" />
-
-					<Label
-						Margin="0,20,0,2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						Text="Delivery address"
 						TextColor="Gray"
 						VerticalTextAlignment="Start" />
 
@@ -124,7 +83,16 @@
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
-						Text="{Binding DeliveryAddress.NameOnHouse}"
+						Text="{Binding PurchaseDetail.DisplayPrice}"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						Margin="0,2,0,2"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="{Binding PurchaseDetail.CompanyName}"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 
@@ -136,171 +104,262 @@
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
 							<FormattedString>
-								<Span Text="{Binding DeliveryAddress.Address}" />
-								<Span Text=" " />
-								<Span Text="{Binding DeliveryAddress.PortNumber}" />
+								<Span Text="{Binding DisplayTotalMinutes}" />
+								<Span Text="minutes ago" />
 							</FormattedString>
 						</Label.FormattedText>
-					</Label>
-
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						TextColor="Black"
-						VerticalTextAlignment="Start">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="{Binding DeliveryAddress.City}" />
-								<Span Text=" " />
-								<Span Text="{Binding DeliveryAddress.Zipcode}" />
-								<Span Text=", " />
-								<Span Text="{Binding DeliveryAddress.CountryName}" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
-
-					<Label
-						Margin="0,20,0,0"
-						CharacterSpacing="1"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HeightRequest="40"
-						Text="Edit"
-						TextColor="#05CBE7">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding EditDeliveryAddressCommand}" />
-						</Label.GestureRecognizers>
 					</Label>
 
 					<BoxView
+						Margin="0,20,0,20"
 						BackgroundColor="#707070"
 						HeightRequest="1"
 						Opacity="0.2" />
 
-					<Label
-						Margin="0,20,0,2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						Text="Invoice address"
-						TextColor="Gray"
-						VerticalTextAlignment="Start" />
+					<Grid ColumnSpacing="15">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition Height="20" />
+							<RowDefinition Height="1" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="50" />
+						</Grid.ColumnDefinitions>
+						<ImageButton
+							Grid.Column="1"
+							Padding="10"
+							BackgroundColor="#707070"
+							Command="{Binding EditDeliveryAddressCommand}"
+							CornerRadius="20"
+							HeightRequest="40"
+							HorizontalOptions="End"
+							VerticalOptions="Center"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+									Size="100"
+									Color="White" />
+							</ImageButton.Source>
+						</ImageButton>
 
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						Text="{Binding InvoiceAddress.NameOnHouse}"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="0"
+							Spacing="0">
+							<Label
+								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Delivery address"
+								TextColor="Gray"
+								VerticalTextAlignment="Start" />
 
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						TextColor="Black"
-						VerticalTextAlignment="Start">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="{Binding InvoiceAddress.InvoiceAddress}" />
-								<Span Text=" " />
-								<Span Text="{Binding InvoiceAddress.InvoicePortNumber}" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="{Binding DeliveryAddress.NameOnHouse}"
+								TextColor="Black"
+								VerticalTextAlignment="Start" />
 
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						TextColor="Black"
-						VerticalTextAlignment="Start">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="{Binding InvoiceAddress.InvoiceCity}" />
-								<Span Text=" " />
-								<Span Text="{Binding InvoiceAddress.InvoiceZip}" />
-								<Span Text=", " />
-								<Span Text="{Binding InvoiceAddress.InvoiceCountry}" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								TextColor="Black"
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DeliveryAddress.Address}" />
+										<Span Text=" " />
+										<Span Text="{Binding DeliveryAddress.PortNumber}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
 
-					<Label
-						Margin="0,20,0,0"
-						CharacterSpacing="1"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HeightRequest="40"
-						Text="Edit"
-						TextColor="#05CBE7">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding EditInvoicingAddressCommand}" />
-						</Label.GestureRecognizers>
-					</Label>
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								TextColor="Black"
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DeliveryAddress.City}" />
+										<Span Text=" " />
+										<Span Text="{Binding DeliveryAddress.Zipcode}" />
+										<Span Text=", " />
+										<Span Text="{Binding DeliveryAddress.CountryName}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+						</StackLayout>
 
-					<BoxView
-						BackgroundColor="#707070"
-						HeightRequest="1"
-						Opacity="0.2" />
+						<BoxView
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							BackgroundColor="#707070"
+							Opacity="0.2" />
+					</Grid>
 
-					<Label
-						Margin="0,20,0,2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						Text="Payment"
-						TextColor="Gray"
-						VerticalTextAlignment="Start" />
+					<Grid ColumnSpacing="15">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition Height="20" />
+							<RowDefinition Height="1" />
+							<RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="50" />
+						</Grid.ColumnDefinitions>
+						<ImageButton
+							Grid.Column="1"
+							Padding="10"
+							BackgroundColor="#707070"
+							Command="{Binding EditInvoicingAddressCommand}"
+							CornerRadius="20"
+							HeightRequest="40"
+							HorizontalOptions="End"
+							VerticalOptions="Center"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+									Size="100"
+									Color="White" />
+							</ImageButton.Source>
+						</ImageButton>
 
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						TextColor="Black"
-						VerticalTextAlignment="Start">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="Card" />
-								<Span Text="    " />
-								<Span Text="{Binding CardDetail.card_number2}" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="0"
+							Spacing="0">
+							<Label
+								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Invoice address"
+								TextColor="Gray"
+								VerticalTextAlignment="Start" />
 
-					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						TextColor="Black"
-						VerticalTextAlignment="Start">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="Type" />
-								<Span Text="    " />
-								<Span Text="{Binding CardDetail.card_type}" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="{Binding InvoiceAddress.NameOnHouse}"
+								TextColor="Black"
+								VerticalTextAlignment="Start" />
 
-					<Label
-						Margin="0,20,0,0"
-						CharacterSpacing="1"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HeightRequest="40"
-						Text="Edit"
-						TextColor="#05CBE7">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding EditCardDetailCommand}" />
-						</Label.GestureRecognizers>
-					</Label>
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								TextColor="Black"
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding InvoiceAddress.InvoiceAddress}" />
+										<Span Text=" " />
+										<Span Text="{Binding InvoiceAddress.InvoicePortNumber}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
 
-					<BoxView
-						BackgroundColor="#707070"
-						HeightRequest="1"
-						Opacity="0.2" />
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								TextColor="Black"
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding InvoiceAddress.InvoiceCity}" />
+										<Span Text=" " />
+										<Span Text="{Binding InvoiceAddress.InvoiceZip}" />
+										<Span Text=", " />
+										<Span Text="{Binding InvoiceAddress.InvoiceCountry}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+
+						</StackLayout>
+
+						<BoxView
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							BackgroundColor="#707070"
+							Opacity="0.2" />
+					</Grid>
+
+					<Grid ColumnSpacing="15">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition Height="20" />
+							<RowDefinition Height="1" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="50" />
+						</Grid.ColumnDefinitions>
+						<ImageButton
+							Grid.Column="1"
+							Padding="10"
+							BackgroundColor="#707070"
+							Command="{Binding EditCardDetailCommand}"
+							CornerRadius="20"
+							HeightRequest="40"
+							HorizontalOptions="End"
+							VerticalOptions="Center"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+									Size="100"
+									Color="White" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="0"
+							Spacing="0">
+							<Label
+								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Payment"
+								TextColor="Gray"
+								VerticalTextAlignment="Start" />
+
+							<Label
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								TextColor="Black"
+								VerticalTextAlignment="Start">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="Card" />
+										<Span Text="    " />
+										<Span Text="{Binding CardDetail.card_number2}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+						</StackLayout>
+
+						<BoxView
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							BackgroundColor="#707070"
+							Opacity="0.2" />
+					</Grid>
 
 					<controls:CustomButton
 						Margin="0,50,0,10"

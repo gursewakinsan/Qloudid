@@ -24,5 +24,6 @@
 		public const string FormTextboxPassword = "\U000f07f5";
 		public const string HomeMapMarker = "\U000f05f8";
 		public const string Plus = "\U000f0415";
+		public const string Pencil = "\U000f03eb";
 	}
 }

@@ -6,6 +6,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Fonts/SFProDisplayLight.ttf</string>
 		<string>Fonts/SFProDisplayRegular.ttf</string>
 		<string>Fonts/SFProDisplaySemibold.ttf</string>
 		<string>Fonts/SFProDisplayMedium.ttf</string>

@@ -75,6 +75,7 @@ namespace Qloudid.ViewModels
 					};
 				}
 
+				Helper.Helper.PurchaseDetail = PurchaseDetail;
 				DisplayName = $"{VerifyUserConsent.first_name}";
 				/*if (string.IsNullOrEmpty(VerifyUserConsent.company_name))
 				{
