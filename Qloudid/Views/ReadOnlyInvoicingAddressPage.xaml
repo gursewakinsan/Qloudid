@@ -46,7 +46,7 @@
 						FontFamily="{StaticResource SFProSemiboldFontFamily}"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
-						Text="INVOICING"
+						Text="PAY"
 						TextColor="Black"
 						VerticalTextAlignment="Start" />
 

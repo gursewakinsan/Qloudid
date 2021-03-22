@@ -218,4 +218,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconKeyClose.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconKeyClose1.png" />
+  </ItemGroup>
 </Project>

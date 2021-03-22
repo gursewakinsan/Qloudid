@@ -59,7 +59,7 @@
 					Grid.RowSpan="2"
 					Grid.Column="1"
 					Padding="20"
-					BackgroundColor="#4B39BE"
+					BackgroundColor="#F8F8FB"
 					Command="{Binding AddNewAddressCommand}"
 					CornerRadius="10">
 					<ImageButton.Source>
@@ -67,7 +67,7 @@
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 							Size="100"
-							Color="White" />
+							Color="Black" />
 					</ImageButton.Source>
 				</ImageButton>
 			</Grid>
