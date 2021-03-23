@@ -10,9 +10,9 @@
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid RowSpacing="10">
+		<Grid Margin="0,20,0,0" RowSpacing="10">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="120" />
+				<RowDefinition Height="125" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
@@ -48,12 +48,12 @@
 				<Label
 					Grid.Row="1"
 					Grid.Column="0"
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
-					FontSize="25"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="20"
 					HorizontalTextAlignment="Start"
 					Text="Pay by card"
 					TextColor="Black"
-					VerticalTextAlignment="Start" />
+					VerticalTextAlignment="End" />
 
 				<ImageButton
 					Grid.RowSpan="2"
