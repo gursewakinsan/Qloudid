@@ -26,104 +26,103 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
-			<ScrollView
+			<StackLayout
 				Grid.Row="0"
 				Grid.ColumnSpan="3"
-				VerticalScrollBarVisibility="Never">
-				<StackLayout Padding="20" Spacing="50">
-					<ImageButton
-						Margin="0,20,0,0"
-						Padding="45"
-						BackgroundColor="Transparent"
-						BorderColor="#05CBE7"
-						BorderWidth="2"
-						CornerRadius="75"
-						HeightRequest="150"
-						HorizontalOptions="Center"
-						IsVisible="{Binding IsAppLogo}"
-						VerticalOptions="Center"
-						WidthRequest="150">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="80"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
+				Padding="10"
+				Spacing="50">
+				<ImageButton
+					Margin="0,20,0,0"
+					Padding="45"
+					BackgroundColor="Transparent"
+					BorderColor="#05CBE7"
+					BorderWidth="2"
+					CornerRadius="70"
+					HeightRequest="140"
+					HorizontalOptions="Center"
+					IsVisible="{Binding IsAppLogo}"
+					VerticalOptions="Center"
+					WidthRequest="140">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+							Size="80"
+							Color="#05CBE7" />
+					</ImageButton.Source>
+				</ImageButton>
 
-					<ImageButton
-						Aspect="AspectFill"
-						BackgroundColor="Transparent"
-						BorderColor="#938EDF"
-						BorderWidth="2"
-						CornerRadius="80"
-						HeightRequest="160"
-						HorizontalOptions="CenterAndExpand"
-						IsVisible="{Binding IsUserImage}"
-						Source="{Binding UserImage}"
-						VerticalOptions="EndAndExpand"
-						WidthRequest="160" />
+				<ImageButton
+					Aspect="AspectFill"
+					BackgroundColor="Transparent"
+					BorderColor="#938EDF"
+					BorderWidth="2"
+					CornerRadius="80"
+					HeightRequest="160"
+					HorizontalOptions="CenterAndExpand"
+					IsVisible="{Binding IsUserImage}"
+					Source="{Binding UserImage}"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="160" />
 
-					<StackLayout
+				<StackLayout
+					HorizontalOptions="CenterAndExpand"
+					Spacing="5"
+					VerticalOptions="CenterAndExpand">
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="23"
 						HorizontalOptions="CenterAndExpand"
-						Spacing="5"
+						Text="Verified"
+						TextColor="#A4D354"
+						VerticalOptions="CenterAndExpand" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="40"
+						HorizontalOptions="CenterAndExpand"
+						HorizontalTextAlignment="Center"
+						MaxLines="2"
+						Text="{Binding UserInfo.DisplayUserName}"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand" />
+
+					<Label
+						HorizontalOptions="CenterAndExpand"
+						HorizontalTextAlignment="Center"
+						Opacity="0.4"
 						VerticalOptions="CenterAndExpand">
-						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="23"
-							HorizontalOptions="CenterAndExpand"
-							Text="Verified"
-							TextColor="#A4D354"
-							VerticalOptions="CenterAndExpand" />
-
-						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="40"
-							HorizontalOptions="CenterAndExpand"
-							HorizontalTextAlignment="Center"
-							MaxLines="2"
-							Text="{Binding UserInfo.DisplayUserName}"
-							TextColor="White"
-							VerticalOptions="CenterAndExpand" />
-
-						<Label
-							HorizontalOptions="CenterAndExpand"
-							HorizontalTextAlignment="Center"
-							Opacity="0.4"
-							VerticalOptions="CenterAndExpand">
-							<Label.FormattedText>
-								<FormattedString>
-									<Span
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="20"
-										Text="Vers "
-										TextColor="White" />
-									<Span
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="20"
-										Text="{Binding AppVersion}"
-										TextColor="White" />
-								</FormattedString>
-							</Label.FormattedText>
-						</Label>
-					</StackLayout>
-
-					<ImageButton
-						Padding="30"
-						Aspect="AspectFit"
-						BackgroundColor="#00CCE7"
-						BorderColor="#00CCE7"
-						BorderWidth="2"
-						Clicked="OnLoginToDesktopClicked"
-						CornerRadius="50"
-						HeightRequest="100"
-						HorizontalOptions="CenterAndExpand"
-						Source="iconQrCodeScanner.png"
-						VerticalOptions="EndAndExpand"
-						WidthRequest="100" />
+						<Label.FormattedText>
+							<FormattedString>
+								<Span
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="20"
+									Text="Vers "
+									TextColor="White" />
+								<Span
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="20"
+									Text="{Binding AppVersion}"
+									TextColor="White" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 				</StackLayout>
-			</ScrollView>
+
+				<ImageButton
+					Padding="30"
+					Aspect="AspectFit"
+					BackgroundColor="#00CCE7"
+					BorderColor="#00CCE7"
+					BorderWidth="2"
+					Clicked="OnLoginToDesktopClicked"
+					CornerRadius="50"
+					HeightRequest="100"
+					HorizontalOptions="CenterAndExpand"
+					Source="iconQrCodeScanner.png"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="100" />
+			</StackLayout>
 
 			<Image
 				Grid.Row="1"
