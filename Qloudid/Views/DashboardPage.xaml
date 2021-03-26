@@ -6,16 +6,13 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="Qloudid"
-	ios:Page.UseSafeArea="True"
-	BackgroundColor="#281F92"
+	BackgroundColor="{StaticResource AppBg}"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid
-			Margin="25,0,25,0"
 			BackgroundColor="{StaticResource AppBg}"
 			ColumnSpacing="0"
 			RowSpacing="0">
@@ -28,152 +25,105 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<controls:CustomFrame
+
+			<ScrollView
 				Grid.Row="0"
 				Grid.ColumnSpan="3"
-				Padding="0"
-				BackgroundColor="{StaticResource AppBg}"
-				CornerRadius="0,0,50,50"
-				HasShadow="False">
-				<ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
-					<StackLayout Padding="20" Spacing="50">
-						<ImageButton
-							Margin="0,20,0,0"
-							Padding="45"
-							BackgroundColor="Transparent"
-							BorderColor="#05CBE7"
-							BorderWidth="2"
-							CornerRadius="75"
-							HeightRequest="150"
-							HorizontalOptions="Center"
-							IsVisible="{Binding IsAppLogo}"
-							VerticalOptions="Center"
-							WidthRequest="150">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-									Size="80"
-									Color="#05CBE7" />
-							</ImageButton.Source>
-						</ImageButton>
+				VerticalScrollBarVisibility="Never">
+				<StackLayout Padding="20" Spacing="50">
+					<ImageButton
+						Margin="0,20,0,0"
+						Padding="45"
+						BackgroundColor="Transparent"
+						BorderColor="#05CBE7"
+						BorderWidth="2"
+						CornerRadius="75"
+						HeightRequest="150"
+						HorizontalOptions="Center"
+						IsVisible="{Binding IsAppLogo}"
+						VerticalOptions="Center"
+						WidthRequest="150">
+						<ImageButton.Source>
+							<FontImageSource
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+								Size="80"
+								Color="#05CBE7" />
+						</ImageButton.Source>
+					</ImageButton>
 
+					<ImageButton
+						Aspect="AspectFill"
+						BackgroundColor="Transparent"
+						BorderColor="#938EDF"
+						BorderWidth="2"
+						CornerRadius="80"
+						HeightRequest="160"
+						HorizontalOptions="CenterAndExpand"
+						IsVisible="{Binding IsUserImage}"
+						Source="{Binding UserImage}"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="160" />
 
-						<ImageButton
-							Aspect="AspectFill"
-							BackgroundColor="Transparent"
-							BorderColor="#938EDF"
-							BorderWidth="2"
-							CornerRadius="80"
-							HeightRequest="160"
+					<StackLayout
+						HorizontalOptions="CenterAndExpand"
+						Spacing="5"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="23"
 							HorizontalOptions="CenterAndExpand"
-							IsVisible="{Binding IsUserImage}"
-							Source="{Binding UserImage}"
-							VerticalOptions="EndAndExpand"
-							WidthRequest="160" />
+							Text="Verified"
+							TextColor="#A4D354"
+							VerticalOptions="CenterAndExpand" />
 
-						<StackLayout
+						<Label
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="40"
 							HorizontalOptions="CenterAndExpand"
-							Spacing="5"
+							HorizontalTextAlignment="Center"
+							MaxLines="2"
+							Text="{Binding UserInfo.DisplayUserName}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand" />
+
+						<Label
+							HorizontalOptions="CenterAndExpand"
+							HorizontalTextAlignment="Center"
+							Opacity="0.4"
 							VerticalOptions="CenterAndExpand">
-							<Label
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="23"
-								HorizontalOptions="CenterAndExpand"
-								Text="Verified"
-								TextColor="#A4D354"
-								VerticalOptions="CenterAndExpand" />
-
-							<Label
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="40"
-								HorizontalOptions="CenterAndExpand"
-								HorizontalTextAlignment="Center"
-								MaxLines="2"
-								Text="{Binding UserInfo.DisplayUserName}"
-								TextColor="White"
-								VerticalOptions="CenterAndExpand" />
-
-							<Label
-								HorizontalOptions="CenterAndExpand"
-								HorizontalTextAlignment="Center"
-								Opacity="0.4"
-								VerticalOptions="CenterAndExpand">
-								<Label.FormattedText>
-									<FormattedString>
-										<Span
-											FontFamily="{StaticResource SFProRegularFontFamily}"
-											FontSize="20"
-											Text="Vers "
-											TextColor="White" />
-										<Span
-											FontFamily="{StaticResource SFProRegularFontFamily}"
-											FontSize="20"
-											Text="{Binding AppVersion}"
-											TextColor="White" />
-									</FormattedString>
-								</Label.FormattedText>
-							</Label>
-						</StackLayout>
-
-						<ImageButton
-							Padding="30"
-							Aspect="AspectFit"
-							BackgroundColor="#00CCE7"
-							BorderColor="#00CCE7"
-							BorderWidth="2"
-							Clicked="OnLoginToDesktopClicked"
-							CornerRadius="50"
-							HeightRequest="100"
-							HorizontalOptions="CenterAndExpand"
-							Source="iconQrCodeScanner.png"
-							VerticalOptions="EndAndExpand"
-							WidthRequest="100" />
-
-						<controls:CustomButton
-							Margin="0"
-							BackgroundColor="Transparent"
-							BorderColor="Transparent"
-							Command="{Binding ManageCardCommand}"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
-							FontSize="16"
-							IsVisible="False"
-							Text="Manage Card" />
-
-						<Grid
-							Margin="0,0,0,40"
-							HeightRequest="150"
-							HorizontalOptions="CenterAndExpand"
-							IsVisible="False"
-							VerticalOptions="EndAndExpand"
-							WidthRequest="150">
-							<Button
-								BackgroundColor="Transparent"
-								BorderColor="#E133D0"
-								BorderWidth="1"
-								Clicked="OnLoginToDesktopClicked"
-								CornerRadius="75"
-								HeightRequest="150"
-								WidthRequest="150" />
-
-							<Button
-								Padding="0"
-								BackgroundColor="Transparent"
-								BorderColor="#62A4FC"
-								BorderWidth="1"
-								Clicked="OnLoginToDesktopClicked"
-								CornerRadius="50"
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
-								HeightRequest="100"
-								HorizontalOptions="CenterAndExpand"
-								Text="SCAN QR"
-								TextColor="White"
-								VerticalOptions="CenterAndExpand"
-								WidthRequest="100" />
-						</Grid>
+							<Label.FormattedText>
+								<FormattedString>
+									<Span
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="20"
+										Text="Vers "
+										TextColor="White" />
+									<Span
+										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontSize="20"
+										Text="{Binding AppVersion}"
+										TextColor="White" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
 					</StackLayout>
-				</ScrollView>
-			</controls:CustomFrame>
+
+					<ImageButton
+						Padding="30"
+						Aspect="AspectFit"
+						BackgroundColor="#00CCE7"
+						BorderColor="#00CCE7"
+						BorderWidth="2"
+						Clicked="OnLoginToDesktopClicked"
+						CornerRadius="50"
+						HeightRequest="100"
+						HorizontalOptions="CenterAndExpand"
+						Source="iconQrCodeScanner.png"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="100" />
+				</StackLayout>
+			</ScrollView>
 
 			<Image
 				Grid.Row="1"
@@ -195,14 +145,14 @@
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Home}"
-							Size="30"
+							Size="25"
 							Color="#6F7FAF" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
 					Grid.Row="1"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="14"
+					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Start"
 					TextColor="#6F7FAF"
@@ -227,14 +177,14 @@
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}"
-							Size="30"
+							Size="25"
 							Color="#6F7FAF" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
 					Grid.Row="1"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="14"
+					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Cards"
 					TextColor="#6F7FAF"
@@ -259,14 +209,14 @@
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CogOutline}"
-							Size="30"
+							Size="25"
 							Color="#6F7FAF" />
 					</ImageButton.Source>
 				</ImageButton>
 				<Label
 					Grid.Row="1"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="14"
+					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Settings"
 					TextColor="#6F7FAF"
