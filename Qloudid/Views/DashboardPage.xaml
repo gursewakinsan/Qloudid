@@ -13,36 +13,37 @@
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid
+			Margin="0,20,0,0"
 			BackgroundColor="{StaticResource AppBg}"
 			ColumnSpacing="0"
-			RowSpacing="0">
+			RowSpacing="10">
 			<Grid.RowDefinitions>
 				<RowDefinition />
-				<RowDefinition Height="125" />
+				<RowDefinition Height="auto" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-
-			<StackLayout
-				Grid.Row="0"
-				Grid.ColumnSpan="3"
-				Padding="10"
-				Spacing="50">
+			<Grid Grid.Row="0" Grid.ColumnSpan="3">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="150" />
+					<RowDefinition />
+					<RowDefinition Height="100" />
+				</Grid.RowDefinitions>
 				<ImageButton
-					Margin="0,20,0,0"
+					Grid.Row="0"
 					Padding="45"
 					BackgroundColor="Transparent"
 					BorderColor="#05CBE7"
 					BorderWidth="2"
-					CornerRadius="70"
-					HeightRequest="140"
-					HorizontalOptions="Center"
+					CornerRadius="75"
+					HeightRequest="150"
+					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsAppLogo}"
-					VerticalOptions="Center"
-					WidthRequest="140">
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="150">
 					<ImageButton.Source>
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -53,19 +54,21 @@
 				</ImageButton>
 
 				<ImageButton
+					Grid.Row="0"
 					Aspect="AspectFill"
 					BackgroundColor="Transparent"
 					BorderColor="#938EDF"
 					BorderWidth="2"
-					CornerRadius="80"
-					HeightRequest="160"
+					CornerRadius="75"
+					HeightRequest="150"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsUserImage}"
 					Source="{Binding UserImage}"
-					VerticalOptions="EndAndExpand"
-					WidthRequest="160" />
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="150" />
 
 				<StackLayout
+					Grid.Row="1"
 					HorizontalOptions="CenterAndExpand"
 					Spacing="5"
 					VerticalOptions="CenterAndExpand">
@@ -78,6 +81,7 @@
 						VerticalOptions="CenterAndExpand" />
 
 					<Label
+						Margin="10,0,10,0"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="40"
 						HorizontalOptions="CenterAndExpand"
@@ -109,7 +113,9 @@
 					</Label>
 				</StackLayout>
 
+
 				<ImageButton
+					Grid.Row="2"
 					Padding="30"
 					Aspect="AspectFit"
 					BackgroundColor="#00CCE7"
@@ -122,12 +128,12 @@
 					Source="iconQrCodeScanner.png"
 					VerticalOptions="EndAndExpand"
 					WidthRequest="100" />
-			</StackLayout>
+			</Grid>
 
 			<Image
 				Grid.Row="1"
 				Grid.ColumnSpan="3"
-				Aspect="AspectFill"
+				Aspect="Fill"
 				Source="iconCurve.png" />
 
 			<Grid
