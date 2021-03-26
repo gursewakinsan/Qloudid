@@ -27,7 +27,7 @@ namespace Qloudid.Views
 			//if (!string.IsNullOrWhiteSpace(Helper.Helper.IpFromURL))
 			//	viewModel.LoginFromUrlIpCommand.Execute(null);
 			
-			if (Helper.Helper.IsFirstTime)
+			/*if (Helper.Helper.IsFirstTime)
 			{
 				Helper.Helper.IsFirstTime = false;
 				viewModel.IsAlreadyLoginCommand.Execute(null);
@@ -36,7 +36,7 @@ namespace Qloudid.Views
 			{
 				GetCountries();
 				viewModel.GetUserImageCommand.Execute(null);
-			}
+			}*/
 			base.OnAppearing();
 		}
 

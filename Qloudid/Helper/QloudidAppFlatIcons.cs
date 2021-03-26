@@ -25,5 +25,8 @@
 		public const string HomeMapMarker = "\U000f05f8";
 		public const string Plus = "\U000f0415";
 		public const string Pencil = "\U000f03eb";
+		public const string Cog = "\U000f0493";
+		public const string CogOutline = "\U000f08bb";
+		public const string Home = "\U000f02dc";
 	}
 }

@@ -124,5 +124,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.CertificateExpiryInfoResponse> GetCertificateExpiryInfoAsync(Models.CertificateExpiryInfoRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.CertificateExpiryInfoResponse>(HttpWebRequest.Create(EndPointsList.CertificateExpiryInfoUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

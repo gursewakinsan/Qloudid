@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.SettingsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid Margin="0,20,0,0" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="125" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Grid
+				Grid.Row="0"
+				Padding="20"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<ImageButton
+					Grid.Row="0"
+					Grid.Column="0"
+					Padding="0,5,15,5"
+					BackgroundColor="Transparent"
+					Command="{Binding CloseCommand}"
+					HorizontalOptions="StartAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+							Size="80"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Start"
+					Text="Settings"
+					TextColor="Black"
+					VerticalTextAlignment="End" />
+			</Grid>
+
+			<Grid
+				Grid.Row="1"
+				Margin="20,0,20,0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="80" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="1" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="50" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Grid.Row="0"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Activate certificate"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<ImageButton
+					Grid.Row="0"
+					Grid.Column="1"
+					Padding="7"
+					BackgroundColor="Transparent"
+					CornerRadius="20"
+					HeightRequest="40"
+					HorizontalOptions="End"
+					Opacity="0.5"
+					VerticalOptions="Center"
+					WidthRequest="40">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							Size="100"
+							Color="#6F7FAF" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<BoxView
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+
+				<Label
+					Grid.Row="2"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Languages"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<ImageButton
+					Grid.Row="2"
+					Grid.Column="1"
+					Padding="7"
+					BackgroundColor="Transparent"
+					CornerRadius="20"
+					HeightRequest="40"
+					HorizontalOptions="End"
+					Opacity="0.5"
+					VerticalOptions="Center"
+					WidthRequest="40">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							Size="100"
+							Color="#6F7FAF" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<BoxView
+					Grid.Row="3"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+
+				<Label
+					Grid.Row="4"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding UserInfo.DisplayUserName}"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<ImageButton
+					Grid.Row="4"
+					Grid.Column="1"
+					Padding="7"
+					BackgroundColor="#E6F7FE"
+					Command="{Binding GetCertificateDetailCommand}"
+					CornerRadius="20"
+					HeightRequest="40"
+					HorizontalOptions="End"
+					VerticalOptions="Center"
+					WidthRequest="40">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							Size="100"
+							Color="#3DB9EC" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<BoxView
+					Grid.Row="5"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

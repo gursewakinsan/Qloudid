@@ -160,6 +160,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Settings Command.
+		private ICommand settingsCommand;
+		public ICommand SettingsCommand
+		{
+			get => settingsCommand ?? (settingsCommand = new Command(async () => await ExecuteSettingsCommand()));
+		}
+		private async Task ExecuteSettingsCommand()
+		{
+			await Navigation.PushAsync(new Views.SettingsPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.User userInfo;
 		public Models.User UserInfo

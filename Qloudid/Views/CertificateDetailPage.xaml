@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.CertificateDetailPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid Margin="0,20,0,0" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="125" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Grid
+				Grid.Row="0"
+				Padding="20"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<ImageButton
+					Grid.Row="0"
+					Grid.Column="0"
+					Padding="0,5,15,5"
+					BackgroundColor="Transparent"
+					Command="{Binding CloseCommand}"
+					HorizontalOptions="StartAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+							Size="80"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Start"
+					Text="My Qloud ID"
+					TextColor="Black"
+					VerticalTextAlignment="End" />
+			</Grid>
+
+			<Grid
+				Grid.Row="1"
+				Margin="20,0,20,0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="60" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="60" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="60" />
+					<RowDefinition Height="1" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Label
+					Grid.Row="0"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Issuer"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					Grid.Row="0"
+					Grid.Column="1"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="End"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Qloud ID"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+
+				<Label
+					Grid.Row="2"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Created date"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					Grid.Row="2"
+					Grid.Column="1"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="End"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding CertificateExpiryInfo.CreatedOn}"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+					Grid.Row="3"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+
+				<Label
+					Grid.Row="4"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Expire date"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					Grid.Row="4"
+					Grid.Column="1"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="End"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="{Binding CertificateExpiryInfo.ExpiryDate}"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+				<BoxView
+					Grid.Row="5"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
