@@ -13,7 +13,7 @@
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid
-			Margin="0,60,0,0"
+			Margin="0,80,0,0"
 			BackgroundColor="{StaticResource AppBg}"
 			ColumnSpacing="0"
 			RowSpacing="10">
@@ -31,7 +31,7 @@
 				Grid.ColumnSpan="3"
 				RowSpacing="20">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="140" />
+					<RowDefinition Height="160" />
 					<RowDefinition />
 					<RowDefinition Height="100" />
 				</Grid.RowDefinitions>
@@ -41,12 +41,12 @@
 					BackgroundColor="Transparent"
 					BorderColor="#05CBE7"
 					BorderWidth="2"
-					CornerRadius="70"
-					HeightRequest="140"
+					CornerRadius="80"
+					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsAppLogo}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="140">
+					WidthRequest="160">
 					<ImageButton.Source>
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -62,13 +62,13 @@
 					BackgroundColor="Transparent"
 					BorderColor="#938EDF"
 					BorderWidth="2"
-					CornerRadius="70"
-					HeightRequest="140"
+					CornerRadius="80"
+					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsUserImage}"
 					Source="{Binding UserImage}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="140" />
+					WidthRequest="160" />
 
 				<StackLayout
 					Grid.Row="1"
