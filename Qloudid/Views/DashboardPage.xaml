@@ -90,7 +90,7 @@
 						HorizontalOptions="CenterAndExpand"
 						HorizontalTextAlignment="Center"
 						MaxLines="2"
-						Text="{Binding UserInfo.DisplayUserName}"
+						Text="{Binding DisplayUserName}"
 						TextColor="White"
 						VerticalOptions="CenterAndExpand" />
 

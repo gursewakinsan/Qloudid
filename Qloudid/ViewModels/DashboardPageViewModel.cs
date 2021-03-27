@@ -72,6 +72,7 @@ namespace Qloudid.ViewModels
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response?.result > 0)
 				{
+					UserImage = response.image;
 					Models.User user = new Models.User();
 					user.first_name = $"{Application.Current.Properties["FirstName"]}";
 					user.last_name = $"{Application.Current.Properties["LastName"]}";
@@ -81,6 +82,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
 					UserInfo = user;
+					DisplayUserName = $"{user.first_name} {user.last_name}";
 					//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
 				else
@@ -199,7 +201,18 @@ namespace Qloudid.ViewModels
 				IsAppLogo = string.IsNullOrWhiteSpace(value) ? true : false;
 			}
 		}
-		
+
+		private string displayUserName;
+		public string DisplayUserName
+		{
+			get => displayUserName;
+			set
+			{
+				displayUserName = value;
+				OnPropertyChanged("DisplayUserName");
+			}
+		}
+
 		public string AppVersion => Xamarin.Essentials.VersionTracking.CurrentVersion;
 
 		private bool isUserImage;
