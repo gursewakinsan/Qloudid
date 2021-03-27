@@ -13,7 +13,7 @@
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<Grid
-			Margin="0,40,0,0"
+			Margin="0,60,0,0"
 			BackgroundColor="{StaticResource AppBg}"
 			ColumnSpacing="0"
 			RowSpacing="10">
@@ -26,9 +26,12 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<Grid Grid.Row="0" Grid.ColumnSpan="3">
+			<Grid
+				Grid.Row="0"
+				Grid.ColumnSpan="3"
+				RowSpacing="20">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="150" />
+					<RowDefinition Height="140" />
 					<RowDefinition />
 					<RowDefinition Height="100" />
 				</Grid.RowDefinitions>
@@ -38,12 +41,12 @@
 					BackgroundColor="Transparent"
 					BorderColor="#05CBE7"
 					BorderWidth="2"
-					CornerRadius="75"
-					HeightRequest="150"
+					CornerRadius="70"
+					HeightRequest="140"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsAppLogo}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="150">
+					WidthRequest="140">
 					<ImageButton.Source>
 						<FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -59,13 +62,13 @@
 					BackgroundColor="Transparent"
 					BorderColor="#938EDF"
 					BorderWidth="2"
-					CornerRadius="75"
-					HeightRequest="150"
+					CornerRadius="70"
+					HeightRequest="140"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding IsUserImage}"
 					Source="{Binding UserImage}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="150" />
+					WidthRequest="140" />
 
 				<StackLayout
 					Grid.Row="1"
@@ -116,18 +119,18 @@
 
 				<ImageButton
 					Grid.Row="2"
-					Padding="30"
+					Padding="25"
 					Aspect="AspectFit"
 					BackgroundColor="#00CCE7"
 					BorderColor="#00CCE7"
 					BorderWidth="2"
 					Clicked="OnLoginToDesktopClicked"
-					CornerRadius="50"
-					HeightRequest="100"
+					CornerRadius="40"
+					HeightRequest="80"
 					HorizontalOptions="CenterAndExpand"
 					Source="iconQrCodeScanner.png"
 					VerticalOptions="EndAndExpand"
-					WidthRequest="100" />
+					WidthRequest="80" />
 			</Grid>
 
 			<Image

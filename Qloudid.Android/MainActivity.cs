@@ -9,7 +9,7 @@ using Android.Content;
 
 namespace Qloudid.Droid
 {
-	[Activity(Label = "Qloud ID", Icon = "@drawable/appIcon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "Qloud ID", Icon = "@drawable/appIcon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
 	[IntentFilter(new[] { Intent.ActionView },
 				  DataScheme = "https",
 				  DataHost = "qloudid.com",
