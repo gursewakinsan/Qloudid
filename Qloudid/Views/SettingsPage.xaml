@@ -62,6 +62,8 @@
 					<RowDefinition Height="1" />
 					<RowDefinition Height="80" />
 					<RowDefinition Height="1" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="1" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -174,6 +176,44 @@
 
 				<BoxView
 					Grid.Row="5"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+
+				<Label
+					Grid.Row="6"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Manage Cards"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+				<ImageButton
+					Grid.Row="6"
+					Grid.Column="1"
+					Padding="6"
+					BackgroundColor="Transparent"
+					Command="{Binding ManageCardCommand}"
+					CornerRadius="20"
+					HeightRequest="40"
+					HorizontalOptions="End"
+					Opacity="0.5"
+					VerticalOptions="Center"
+					WidthRequest="40">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							Size="100"
+							Color="#6F7FAF" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<BoxView
+					Grid.Row="7"
 					Grid.ColumnSpan="2"
 					BackgroundColor="#6F7FAF"
 					Opacity="0.2" />

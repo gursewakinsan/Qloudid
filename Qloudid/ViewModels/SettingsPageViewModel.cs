@@ -25,6 +25,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Manage Card Command.
+		private ICommand manageCardCommand;
+		public ICommand ManageCardCommand
+		{
+			get => manageCardCommand ?? (manageCardCommand = new Command(async () => await ExecuteManageCardCommand()));
+		}
+		private async Task ExecuteManageCardCommand()
+		{
+			await Navigation.PushAsync(new Views.CardListPage());
+		}
+		#endregion
+
 		#region Properties.
 		public Models.User UserInfo => Helper.Helper.UserInfo;
 		#endregion

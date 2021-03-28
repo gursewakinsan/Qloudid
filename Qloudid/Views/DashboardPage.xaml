@@ -29,7 +29,7 @@
 			<Grid
 				Grid.Row="0"
 				Grid.ColumnSpan="3"
-				RowSpacing="20">
+				RowSpacing="0">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="160" />
 					<RowDefinition />
@@ -44,7 +44,6 @@
 					CornerRadius="80"
 					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
-					IsVisible="{Binding IsAppLogo}"
 					VerticalOptions="CenterAndExpand"
 					WidthRequest="160">
 					<ImageButton.Source>
@@ -65,7 +64,7 @@
 					CornerRadius="80"
 					HeightRequest="160"
 					HorizontalOptions="CenterAndExpand"
-					IsVisible="{Binding IsUserImage}"
+					IsVisible="False"
 					Source="{Binding UserImage}"
 					VerticalOptions="CenterAndExpand"
 					WidthRequest="160" />
@@ -90,7 +89,7 @@
 						HorizontalOptions="CenterAndExpand"
 						HorizontalTextAlignment="Center"
 						MaxLines="2"
-						Text="{Binding DisplayUserName}"
+						Text="Qloud ID"
 						TextColor="White"
 						VerticalOptions="CenterAndExpand" />
 
@@ -115,7 +114,6 @@
 						</Label.FormattedText>
 					</Label>
 				</StackLayout>
-
 
 				<ImageButton
 					Grid.Row="2"
@@ -162,9 +160,23 @@
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
-					Text="Start"
+					Text="Consent"
 					TextColor="#6F7FAF"
 					VerticalTextAlignment="Start" />
+
+				<Button
+					Grid.RowSpan="2"
+					Margin="24,-15,0,0"
+					Padding="0"
+					BackgroundColor="Red"
+					CornerRadius="10"
+					FontSize="10"
+					HeightRequest="20"
+					HorizontalOptions="Center"
+					Text="1"
+					TextColor="White"
+					VerticalOptions="Start"
+					WidthRequest="20" />
 			</Grid>
 
 			<Grid
