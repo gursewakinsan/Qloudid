@@ -67,31 +67,23 @@ namespace Qloudid.ViewModels
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
-
 				ILoginService service = new LoginService();
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response?.result > 0)
 				{
-					Models.User user = new Models.User();
-					user.first_name = $"{Application.Current.Properties["FirstName"]}";
-					user.last_name = $"{Application.Current.Properties["LastName"]}";
-					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
-					user.email = $"{Application.Current.Properties["Email"]}";
-					if (string.IsNullOrWhiteSpace(user.first_name) && string.IsNullOrWhiteSpace(user.last_name))
+					Models.User user = new Models.User()
 					{
-						user.first_name = response.first_name;
-						user.last_name = response.last_name;
-						user.user_id = response.id;
-						user.email = response.email;
-						user.UserImage = response.image;
-					}
-					user.UserImage = response.image;
+						first_name = response.first_name,
+						last_name = response.last_name,
+						user_id = response.id,
+						email = response.email,
+						UserImage = response.image,
+					};
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
 					UserInfo = user;
 					DisplayUserName = $"{user.first_name} {user.last_name}";
 					UserImage = response.image;
-					//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
 				else
 					await Navigation.PushAsync(new Views.InvalidCertificatePage());
@@ -141,7 +133,6 @@ namespace Qloudid.ViewModels
 		{
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.QrCertificateKey))
 			{
-				//DependencyService.Get<IProgressBar>().Show();
 				ILoginService service = new LoginService();
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response.result > 0)
@@ -149,12 +140,15 @@ namespace Qloudid.ViewModels
 					if (!UserImage.Equals(response.image))
 					{
 						UserImage = response.image; //ImageSource.FromUri(new Uri(response.image));
+						UserInfo.UserImage = UserImage;
 						Helper.Helper.UserInfo.UserImage = response.image;
 					}
+					UserInfo.first_name = response.first_name;
+					UserInfo.last_name = response.last_name;
+					Helper.Helper.UserInfo = UserInfo;
+					DisplayUserName = $"{response.first_name} {response.last_name}";
 				}
-				//DependencyService.Get<IProgressBar>().Hide();
 			}
-			//Helper.Helper.GetCountries();
 		}
 		#endregion
 

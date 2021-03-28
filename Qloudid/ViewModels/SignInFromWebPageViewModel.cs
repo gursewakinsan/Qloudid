@@ -117,11 +117,14 @@ namespace Qloudid.ViewModels
 				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
 				if (response.result > 0)
 				{
-					Models.User user = new Models.User();
-					user.first_name = Application.Current.Properties["FirstName"].ToString();
-					user.last_name = Application.Current.Properties["LastName"].ToString();
-					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
-					user.UserImage = response.image;
+					Models.User user = new Models.User()
+					{
+						first_name = response.first_name,
+						last_name = response.last_name,
+						email = response.email,
+						user_id = response.id,
+						UserImage = response.image,
+					};
 					Helper.Helper.UserInfo = user;
 					LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
 				}
