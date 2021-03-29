@@ -28,5 +28,7 @@
 		public const string Cog = "\U000f0493";
 		public const string CogOutline = "\U000f08bb";
 		public const string Home = "\U000f02dc";
+		public const string ChevronDown = "\U000f0140";
+		public const string ChevronUp = "\U000f0143";
 	}
 }

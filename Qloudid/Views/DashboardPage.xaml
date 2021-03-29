@@ -142,9 +142,13 @@
 				Grid.Column="0"
 				RowSpacing="0"
 				VerticalOptions="EndAndExpand">
+				<Grid.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ConsentCommand}" />
+				</Grid.GestureRecognizers>
 				<ImageButton
 					Grid.Row="0"
 					BackgroundColor="Transparent"
+					Command="{Binding ConsentCommand}"
 					HorizontalOptions="Center"
 					VerticalOptions="End">
 					<ImageButton.Source>
@@ -173,7 +177,8 @@
 					FontSize="10"
 					HeightRequest="20"
 					HorizontalOptions="Center"
-					Text="1"
+					IsVisible="{Binding IsEmployerRequestCount}"
+					Text="{Binding EmployerRequestCount}"
 					TextColor="White"
 					VerticalOptions="Start"
 					WidthRequest="20" />

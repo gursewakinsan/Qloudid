@@ -82,8 +82,9 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
 					UserInfo = user;
-					DisplayUserName = $"{user.first_name} {user.last_name}";
-					UserImage = response.image;
+					EmployerRequestCountCommand.Execute(null);
+					//DisplayUserName = $"{user.first_name} {user.last_name}";
+					//UserImage = response.image;
 				}
 				else
 					await Navigation.PushAsync(new Views.InvalidCertificatePage());
@@ -152,6 +153,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Consent Command.
+		private ICommand consentCommand;
+		public ICommand ConsentCommand
+		{
+			get => consentCommand ?? (consentCommand = new Command(async () => await ExecuteConsentCommand()));
+		}
+		private async Task ExecuteConsentCommand()
+		{
+			await Navigation.PushAsync(new Views.ConsentListPage());
+		}
+		#endregion
+
 		#region Manage Card Command.
 		private ICommand manageCardCommand;
 		public ICommand ManageCardCommand
@@ -173,6 +186,20 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteSettingsCommand()
 		{
 			await Navigation.PushAsync(new Views.SettingsPage());
+		}
+		#endregion
+
+		#region Employer Request Count Command.
+		private ICommand employerRequestCountCommand;
+		public ICommand EmployerRequestCountCommand
+		{
+			get => employerRequestCountCommand ?? (employerRequestCountCommand = new Command(async () => await ExecuteEmployerRequestCountCommand()));
+		}
+		private async Task ExecuteEmployerRequestCountCommand()
+		{
+			IEmployerService service = new EmployerService();
+			EmployerRequestCount = await service.EmployerRequestCountAsync(new Models.EmployerRequest()
+			{ UserId = Helper.Helper.UserId });
 		}
 		#endregion
 
@@ -238,8 +265,29 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsAppLogo");
 			}
 		}
-		//public bool IsUserImage => string.IsNullOrEmpty(UserImage) ? false : true;
-		//public bool IsAppLogo => string.IsNullOrEmpty(UserImage) ? true : false;
+
+		private int employerRequestCount;
+		public int EmployerRequestCount
+		{
+			get => employerRequestCount;
+			set
+			{
+				employerRequestCount = value;
+				IsEmployerRequestCount = value > 0 ? true : false;
+				OnPropertyChanged("EmployerRequestCount");
+			}
+		}
+
+		private bool isEmployerRequestCount = false;
+		public bool IsEmployerRequestCount
+		{
+			get => isEmployerRequestCount;
+			set
+			{
+				isEmployerRequestCount = value;
+				OnPropertyChanged("IsEmployerRequestCount");
+			}
+		}
 		#endregion
 	}
 }
