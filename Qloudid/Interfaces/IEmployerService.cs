@@ -7,7 +7,7 @@ namespace Qloudid.Interfaces
 	{
 		Task<int> EmployerRequestCountAsync(Models.EmployerRequest request);
 		Task<List<Models.EmployerResponse>> EmployerRequestReceivedAsync(Models.EmployerRequest request);
-		Task<Models.ApproveEmployerResponse> ApproveEmployerRequestAsync(Models.ApproveEmployerRequest request);
-		Task<Models.RejectEmployerResponse> RejectEmployerRequestAsync(Models.RejectEmployerRequest request);
+		Task<int> ApproveEmployerRequestAsync(Models.ApproveEmployerRequest request);
+		Task<int> RejectEmployerRequestAsync(Models.RejectEmployerRequest request);
 	}
 }

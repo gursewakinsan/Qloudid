@@ -26,20 +26,20 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<Models.ApproveEmployerResponse> ApproveEmployerRequestAsync(Models.ApproveEmployerRequest request)
+		public Task<int> ApproveEmployerRequestAsync(Models.ApproveEmployerRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.ApproveEmployerResponse>(HttpWebRequest.Create(EndPointsList.ApproveEmployerRequestUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ApproveEmployerRequestUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}
 
-		public Task<Models.RejectEmployerResponse> RejectEmployerRequestAsync(Models.RejectEmployerRequest request)
+		public Task<int> RejectEmployerRequestAsync(Models.RejectEmployerRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.RejectEmployerResponse>(HttpWebRequest.Create(EndPointsList.RejectEmployerRequestUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.RejectEmployerRequestUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}

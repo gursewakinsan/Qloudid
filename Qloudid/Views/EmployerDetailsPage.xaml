@@ -3,6 +3,7 @@
 	x:Class="Qloudid.Views.EmployerDetailsPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
@@ -893,6 +894,24 @@
 							BackgroundColor="#6F7FAF"
 							Opacity="0.2" />
 					</Grid>
+
+					<controls:CustomButton
+						Margin="0,40,0,0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding ApproveEmployerRequestCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Accept"
+						VerticalOptions="EndAndExpand" />
+
+					<controls:CustomButton
+						Margin="0"
+						BackgroundColor="#05CBE7"
+						Command="{Binding RejectEmployerRequestCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Reject"
+						VerticalOptions="EndAndExpand" />
 				</StackLayout>
 			</ScrollView>
 		</Grid>

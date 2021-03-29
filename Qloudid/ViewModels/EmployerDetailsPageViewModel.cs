@@ -23,12 +23,16 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteApproveEmployerRequestCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			IEmployerService service = new EmployerService();
-			var rs = await service.ApproveEmployerRequestAsync(new Models.ApproveEmployerRequest()
+			await service.ApproveEmployerRequestAsync(new Models.ApproveEmployerRequest()
 			{
 				UserId = Helper.Helper.UserId,
 				Id = EmployerDetails.Id
 			});
+			Helper.Helper.IsFirstTime = true;
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -40,12 +44,16 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteRejectEmployerRequestCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			IEmployerService service = new EmployerService();
-			var rs = await service.RejectEmployerRequestAsync(new Models.RejectEmployerRequest()
+			await service.RejectEmployerRequestAsync(new Models.RejectEmployerRequest()
 			{
 				UserId = Helper.Helper.UserId,
 				Id = EmployerDetails.Id
 			});
+			Helper.Helper.IsFirstTime = true;
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
