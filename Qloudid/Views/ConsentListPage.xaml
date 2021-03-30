@@ -62,6 +62,18 @@
 				SeparatorVisibility="None"
 				VerticalOptions="FillAndExpand"
 				VerticalScrollBarVisibility="Never">
+				<ListView.Header>
+					<StackLayout BackgroundColor="White">
+						<Label
+							Margin="20,15,15,15"
+							FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+							FontSize="18"
+							HorizontalOptions="StartAndExpand"
+							Text="Employer"
+							TextColor="#6F7FAF"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+				</ListView.Header>
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>

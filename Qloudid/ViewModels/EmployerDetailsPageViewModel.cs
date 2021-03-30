@@ -30,7 +30,6 @@ namespace Qloudid.ViewModels
 				UserId = Helper.Helper.UserId,
 				Id = EmployerDetails.Id
 			});
-			Helper.Helper.IsFirstTime = true;
 			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -51,7 +50,6 @@ namespace Qloudid.ViewModels
 				UserId = Helper.Helper.UserId,
 				Id = EmployerDetails.Id
 			});
-			Helper.Helper.IsFirstTime = true;
 			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}

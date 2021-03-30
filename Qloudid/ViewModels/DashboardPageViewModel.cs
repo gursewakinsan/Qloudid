@@ -148,6 +148,7 @@ namespace Qloudid.ViewModels
 					UserInfo.last_name = response.last_name;
 					Helper.Helper.UserInfo = UserInfo;
 					DisplayUserName = $"{response.first_name} {response.last_name}";
+					EmployerRequestCountCommand.Execute(null);
 				}
 			}
 		}
@@ -161,7 +162,14 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteConsentCommand()
 		{
-			await Navigation.PushAsync(new Views.ConsentListPage());
+			if (EmployerRequestCount > 0)
+			{
+				if (EmployerRequestCount == 1)
+					EmployerRequestReceivedCommand.Execute(null);
+				else
+					await Navigation.PushAsync(new Views.ConsentListPage());
+			}
+			await Task.CompletedTask;
 		}
 		#endregion
 
@@ -200,6 +208,25 @@ namespace Qloudid.ViewModels
 			IEmployerService service = new EmployerService();
 			EmployerRequestCount = await service.EmployerRequestCountAsync(new Models.EmployerRequest()
 			{ UserId = Helper.Helper.UserId });
+		}
+		#endregion
+
+		#region Employer Request Received Command.
+		private ICommand employerRequestReceivedCommand;
+		public ICommand EmployerRequestReceivedCommand
+		{
+			get => employerRequestReceivedCommand ?? (employerRequestReceivedCommand = new Command(async () => await ExecuteEmployerRequestReceivedCommand()));
+		}
+		private async Task ExecuteEmployerRequestReceivedCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IEmployerService service = new EmployerService();
+			var employerRequests = await service.EmployerRequestReceivedAsync(new Models.EmployerRequest()
+			{
+				UserId = Helper.Helper.UserId
+			});
+			await Navigation.PushAsync(new Views.EmployerDetailsPage(employerRequests[0]));
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

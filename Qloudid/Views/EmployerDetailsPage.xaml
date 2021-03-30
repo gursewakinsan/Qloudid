@@ -895,23 +895,25 @@
 							Opacity="0.2" />
 					</Grid>
 
-					<controls:CustomButton
-						Margin="0,40,0,0"
-						BackgroundColor="#05CBE7"
-						Command="{Binding ApproveEmployerRequestCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						Text="Accept"
-						VerticalOptions="EndAndExpand" />
+					<Grid Margin="0,40,0,0" ColumnSpacing="20">
+						<controls:CustomButton
+							Grid.Column="0"
+							Margin="0"
+							BackgroundColor="#05CBE7"
+							Command="{Binding ApproveEmployerRequestCommand}"
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontSize="16"
+							Text="Accept" />
 
-					<controls:CustomButton
-						Margin="0"
-						BackgroundColor="#05CBE7"
-						Command="{Binding RejectEmployerRequestCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
-						FontSize="16"
-						Text="Reject"
-						VerticalOptions="EndAndExpand" />
+						<controls:CustomButton
+							Grid.Column="1"
+							Margin="0"
+							BackgroundColor="#05CBE7"
+							Command="{Binding RejectEmployerRequestCommand}"
+							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontSize="16"
+							Text="Reject" />
+					</Grid>
 				</StackLayout>
 			</ScrollView>
 		</Grid>
