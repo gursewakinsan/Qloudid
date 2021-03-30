@@ -224,4 +224,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconCurve.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconCurveTop.png" />
+  </ItemGroup>
 </Project>

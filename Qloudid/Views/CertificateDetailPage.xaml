@@ -9,50 +9,72 @@
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid Margin="0,20,0,0" RowSpacing="10">
+		<Grid RowSpacing="10">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="125" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
 
-			<Grid
+			<Image
 				Grid.Row="0"
-				Padding="20"
-				ColumnSpacing="0"
-				RowSpacing="0">
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<ImageButton
-					Grid.Row="0"
-					Grid.Column="0"
-					Padding="0,5,15,5"
-					BackgroundColor="Transparent"
-					Command="{Binding CloseCommand}"
-					HorizontalOptions="StartAndExpand">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
-							Size="80"
-							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
+				Grid.ColumnSpan="3"
+				Aspect="Fill"
+				Source="iconCurveTop.png" />
 
-				<Label
-					Grid.Row="1"
-					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="20"
-					HorizontalTextAlignment="Start"
-					Text="My Qloud ID"
-					TextColor="Black"
-					VerticalTextAlignment="End" />
-			</Grid>
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="0"
+				Margin="0,10,0,0"
+				Padding="10,45,45,45"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="CenterAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+						Size="80"
+						Color="White" />
+				</ImageButton.Source>
+			</ImageButton>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Margin="0,10,0,0"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="20"
+				HorizontalTextAlignment="Center"
+				Text="My Qloud ID"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,10,0,0"
+				Padding="45,45,10,45"
+				BackgroundColor="Transparent"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="CenterAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Help}"
+						Size="80"
+						Color="White" />
+				</ImageButton.Source>
+			</ImageButton>
 
 			<Grid
 				Grid.Row="1"
+				Grid.ColumnSpan="3"
 				Margin="20,0,20,0"
 				RowSpacing="0">
 				<Grid.RowDefinitions>
