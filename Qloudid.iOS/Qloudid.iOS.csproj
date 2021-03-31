@@ -90,6 +90,7 @@
     <BundleResource Include="Resources\Fonts\SFProDisplaySemibold.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayMedium.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayLight.ttf" />
+    <BundleResource Include="Resources\iconCurveTopGray.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
