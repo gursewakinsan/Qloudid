@@ -18,7 +18,7 @@
 			<Color x:Key="AppBg">#3623B7</Color>
 			<Style TargetType="NavigationPage">
 				<Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
-				<Setter Property="BarTextColor" Value="White" />
+				<Setter Property="BarTextColor" Value="Black" />
 			</Style>
 
 			<OnPlatform

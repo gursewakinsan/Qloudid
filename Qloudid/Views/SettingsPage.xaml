@@ -6,12 +6,12 @@
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#F3F4F6"
+	BackgroundColor="#F4F5F6"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
 		<Grid RowSpacing="20" BackgroundColor="White">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="70" />
+				<RowDefinition Height="84" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
@@ -29,41 +29,41 @@
 
 			<ImageButton
 				Grid.Row="0" 
-				Grid.Column="0" Padding="20,0,35,35"
-				BackgroundColor="Transparent"
+				Grid.Column="0"
+				BackgroundColor="Transparent" Padding="20,12,20,10"
 				Command="{Binding CloseCommand}"
 				HorizontalOptions="StartAndExpand"
-				VerticalOptions="CenterAndExpand">
+				VerticalOptions="StartAndExpand">
 				<ImageButton.Source>
 					<FontImageSource
 						FontFamily="{StaticResource MaterialFontFamily}"
 						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
-						Size="50"
+						Size="25"
 						Color="Black" />
 				</ImageButton.Source>
 			</ImageButton>
 
 			<Label
 				Grid.Row="0"
-				Grid.Column="1"
+				Grid.Column="1" 
 				FontFamily="{StaticResource SFProRegularFontFamily}"
-				FontSize="17"
+				FontSize="17"  Margin="0,15,0,0"
 				HorizontalTextAlignment="Center"
-				Text="Settings"
-				TextColor="Black" Padding="0,0,0,35"
-				VerticalTextAlignment="Center" />
+				Text="Settings" BackgroundColor="Transparent"
+				TextColor="Black" VerticalTextAlignment="Start"/>
+
 
 			<ImageButton
-				Grid.Row="0" 
-				Grid.Column="2" Padding="35,0,20,35"
+				Grid.Row="0"  Padding="10,12,20,10"
+				Grid.Column="2" 
 				BackgroundColor="Transparent"
 				HorizontalOptions="EndAndExpand"
-				VerticalOptions="CenterAndExpand">
+				VerticalOptions="StartAndExpand">
 				<ImageButton.Source>
 					<FontImageSource
 						FontFamily="{StaticResource MaterialFontFamily}"
 						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Help}"
-						Size="50"
+						Size="25"
 						Color="Black" />
 				</ImageButton.Source>
 			</ImageButton>
