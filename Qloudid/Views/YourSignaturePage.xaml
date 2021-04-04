@@ -99,9 +99,9 @@
 
 				<Label
 					Grid.Row="3"
-					Grid.ColumnSpan="2"
+					Grid.ColumnSpan="2" FontAttributes="Bold" 
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="20"
+					FontSize="22"
 					HorizontalTextAlignment="Center"
 					Text="{Binding PurchaseDetail.DisplayPrice}"
 					TextColor="Black"
