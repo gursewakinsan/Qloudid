@@ -10,175 +10,124 @@
 	BackgroundColor="#F4F5F6"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid BackgroundColor="White" RowSpacing="30">
+		<Grid BackgroundColor="White" RowSpacing="0">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="246" />
+				<RowDefinition Height="84" />
+				<RowDefinition Height="34" />
+				<RowDefinition Height="34" />
+				<RowDefinition Height="34" />
+				<RowDefinition Height="60" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
 			<Image
 				Grid.Row="0"
+				Grid.RowSpan="5"
+				Grid.ColumnSpan="3"
 				Aspect="Fill"
 				Source="iconBigTopCurve.png" />
 
-			<Grid
+			<ImageButton
 				Grid.Row="0"
-				Margin="20,0,20,0"
-				RowSpacing="0">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="55"/>
-					<RowDefinition Height="34" />
-					<RowDefinition Height="28" />
-					<RowDefinition Height="30" />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<ImageButton
-					Grid.Row="0"
-					Grid.Column="0"
-					Padding="0,10,40,10"
-					BackgroundColor="Transparent"
-					Command="{Binding CloseCommand}"
-					HorizontalOptions="StartAndExpand"
-					VerticalOptions="EndAndExpand">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
-							Size="25"
-							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
+				Grid.Column="0"
+				Padding="20,12,20,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
 
-				<ImageButton
-					Grid.Row="0"
-					Grid.Column="1"
-					Padding="40,10,0,10"
-					BackgroundColor="Transparent"
-					HorizontalOptions="EndAndExpand"
-					VerticalOptions="EndAndExpand">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Help}"
-							Size="25"
-							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
-
-				<ImageButton
-					Grid.Row="1"
-					Grid.ColumnSpan="2"
-					Padding="5"
-					BackgroundColor="#3623B7"
-					CornerRadius="10"
-					HeightRequest="34"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="34">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-							Size="50"
-							Color="#05CBE7" />
-					</ImageButton.Source>
-				</ImageButton>
-
-				<Label
-					Grid.Row="2"
-					Grid.ColumnSpan="2"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="16"
-					HorizontalTextAlignment="Center"
-					Text="To Pay"
-					TextColor="Black"
-					VerticalTextAlignment="End" />
-
-				<Label
-					Grid.Row="3"
-					Grid.ColumnSpan="2" FontAttributes="Bold" 
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="22"
-					HorizontalTextAlignment="Center"
-					Text="{Binding PurchaseDetail.DisplayPrice}"
-					TextColor="Black"
-					VerticalTextAlignment="Center" />
-
-				<Label
-					Grid.Row="4"
-					Grid.ColumnSpan="2"
-					FontSize="16"
-					HorizontalTextAlignment="Center"
-					TextColor="Black"
-					VerticalTextAlignment="Start">
-					<Label.FormattedText>
-						<FormattedString>
-							<Span FontFamily="{StaticResource SFProRegularFontFamily}" Text="To " />
-							<Span FontFamily="{StaticResource SFProSemiboldFontFamily}" Text="{Binding PurchaseDetail.CompanyName}" />
-						</FormattedString>
-					</Label.FormattedText>
-				</Label>
-			</Grid>
-
-			<!--<Grid
+			<ImageButton
 				Grid.Row="0"
-				ColumnSpacing="0"
-				RowSpacing="5">
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="50" />
-				</Grid.ColumnDefinitions>
-				<Label
-					Grid.Row="0"
-					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="Qloud ID"
-					TextColor="Black"
-					VerticalTextAlignment="End" />
+				Grid.Column="1"
+				Padding="8"
+				BackgroundColor="#3623B7"
+				CornerRadius="20"
+				HeightRequest="50"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="EndAndExpand"
+				WidthRequest="50">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+						Size="50"
+						Color="#05CBE7" />
+				</ImageButton.Source>
+			</ImageButton>
 
-				<Label
-					Grid.Row="1"
-					Grid.Column="0"
-					FontAttributes="Bold"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="PAY"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
+			<ImageButton
+				Grid.Row="0"
+				Grid.Column="2"
+				Padding="10,12,20,10"
+				BackgroundColor="Transparent"
+				Command="{Binding CloseCommand}"
+				HorizontalOptions="EndAndExpand"
+				VerticalOptions="StartAndExpand">
+				<ImageButton.Source>
+					<FontImageSource
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+						Size="25"
+						Color="Black" />
+				</ImageButton.Source>
+			</ImageButton>
 
-				<ImageButton
-					Grid.RowSpan="2"
-					Grid.Column="1"
-					Padding="5"
-					BackgroundColor="#3623B7"
-					CornerRadius="10"
-					HeightRequest="34"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="34">
-					<ImageButton.Source>
-						<FontImageSource
-							FontFamily="{StaticResource MaterialFontFamily}"
-							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-							Size="50"
-							Color="#05CBE7" />
-					</ImageButton.Source>
-				</ImageButton>
-			</Grid>-->
+			<Label
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="16"
+				HorizontalTextAlignment="Center"
+				Text="To pay"
+				TextColor="Black"
+				VerticalTextAlignment="End" />
 
-			<ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+			<Label
+				Grid.Row="2"
+				Grid.ColumnSpan="3"
+				FontAttributes="Bold"
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontSize="24"
+				HorizontalTextAlignment="Center"
+				Text="{Binding PurchaseDetail.DisplayPrice}"
+				TextColor="Black"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="3"
+				Grid.ColumnSpan="3"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="24"
+				HorizontalTextAlignment="Center"
+				TextColor="Black"
+				VerticalTextAlignment="Center">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="To " />
+						<Span Text="{Binding PurchaseDetail.CompanyName}" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+
+			<ScrollView
+				Grid.Row="5"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
 				<Grid
-					Padding="20"
+					Padding="20,40,20,20"
 					ColumnSpacing="10"
 					RowSpacing="0">
 					<Grid.RowDefinitions>
@@ -482,23 +431,6 @@
 						HeightRequest="50"
 						Text="Confirm and sign"
 						VerticalOptions="CenterAndExpand" />
-
-					<StackLayout
-						Grid.Row="13"
-						Grid.ColumnSpan="2"
-						HeightRequest="50">
-						<StackLayout.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding CancelConfirmAndSignCommand}" />
-						</StackLayout.GestureRecognizers>
-						<Label
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
-							FontSize="16"
-							HorizontalOptions="CenterAndExpand"
-							Text="Cancel"
-							TextColor="#5587C3"
-							TextDecorations="Underline"
-							VerticalOptions="CenterAndExpand" />
-					</StackLayout>
 				</Grid>
 			</ScrollView>
 		</Grid>
