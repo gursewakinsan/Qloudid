@@ -42,7 +42,10 @@ namespace Qloudid
 				else
 				{
 					Helper.Helper.IsThirdPartyWebLogin = true;
-					MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+					if (signInText.Equals("hotel"))
+						MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+					else
+						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
 			}
 			else

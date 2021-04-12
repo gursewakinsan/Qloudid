@@ -41,6 +41,9 @@ namespace Qloudid.iOS
 				else if (count == 4)
 				{
 					Helper.Helper.PurchaseIndex = Convert.ToInt32(url.PathComponents[3]);
+					string text = url.PathComponents[2];
+					if (text.Equals("hotel"))
+						Helper.Helper.HotelBookingId = url.PathComponents[1];
 					App.OpenAppFromWeb(url.PathComponents[2]);
 				}
 			}
