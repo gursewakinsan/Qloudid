@@ -66,7 +66,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.CardDetail = new Models.CardDetailResponse();
 					Helper.Helper.CardDetail.card_number2 = CardNumber;
 					Helper.Helper.CardDetail.card_type = "Visa";
-					Application.Current.MainPage = new NavigationPage(new Views.YourSignaturePage());
+					Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelYourSignaturePage());
 				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}

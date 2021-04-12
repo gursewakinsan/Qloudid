@@ -60,14 +60,19 @@ namespace Qloudid.ViewModels
 				else if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					IPurchaseService purchaseService = new PurchaseService();
-					List<Models.Company> purchaseServiceResponse = await purchaseService.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
-					if (purchaseServiceResponse?.Count > 0)
-						Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+					if (!string.IsNullOrWhiteSpace(Helper.Helper.HotelBookingId))
+						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelInvoiceAddressListPage());
 					else
 					{
-						Helper.Helper.UserOrCompanyAddress = 1;
-						Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+						IPurchaseService purchaseService = new PurchaseService();
+						List<Models.Company> purchaseServiceResponse = await purchaseService.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
+						if (purchaseServiceResponse?.Count > 0)
+							Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+						else
+						{
+							Helper.Helper.UserOrCompanyAddress = 1;
+							Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+						}
 					}
 				}
 				else

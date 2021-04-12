@@ -1,0 +1,19 @@
+﻿using System.Net;
+using Qloudid.Helper;
+using Qloudid.Interfaces;
+using System.Threading.Tasks;
+
+namespace Qloudid.Service
+{
+	public class HotelService : IHotelService
+	{
+		public Task<Models.BookingDetailResponse> GetBookingDetailAsync(Models.BookingDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.BookingDetailResponse>(HttpWebRequest.Create(EndPointsList.GetBookingDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+	}
+}

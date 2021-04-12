@@ -65,6 +65,8 @@ namespace Qloudid.Helper
 		public static Models.DeliveryAddressDetailResponse DeliveryAddressDetail { get; set; }
 		public static Models.InvoiceAddressResponse InvoiceAddressDetail { get; set; }
 		public static Models.CardDetailResponse CardDetail { get; set; }
+		public static string HotelBookingId { get; set; } = string.Empty;
+		public static Models.BookingDetailResponse HotelBookingDetail { get; set; }
 
 		public static string[] ColorList =
 		{

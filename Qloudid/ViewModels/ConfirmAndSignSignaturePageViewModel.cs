@@ -3,7 +3,6 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -39,22 +38,31 @@ namespace Qloudid.ViewModels
 					ICreateAccountService accountService = new CreateAccountService();
 					int responseAccountService = await accountService.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
 
-					if (Helper.Helper.IsThirdPartyWebLogin)
+					if (!string.IsNullOrWhiteSpace(Helper.Helper.HotelBookingId))
 					{
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-						if (Helper.Helper.PurchaseIndex == 1)
-						{
-							string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify?response_type=code&client_id={Helper.Helper.VerifyUserConsentClientId}&state=xyz&purchase=1";
-							await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
-						}
-						else
-						{
-							string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase/{Helper.Helper.VerifyUserConsentClientId}";
-							await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
-						}
+						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/bookHotel/T3E0MjFwcGhVNlhSYlRvL2t1ZXQ2Zz09";
+						await Xamarin.Essentials.Launcher.OpenAsync(url);
 					}
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+					{
+						if (Helper.Helper.IsThirdPartyWebLogin)
+						{
+							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+							if (Helper.Helper.PurchaseIndex == 1)
+							{
+								string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify?response_type=code&client_id={Helper.Helper.VerifyUserConsentClientId}&state=xyz&purchase=1";
+								await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchaseVerify");
+							}
+							else
+							{
+								string url = $"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase/{Helper.Helper.VerifyUserConsentClientId}";
+								await Xamarin.Essentials.Launcher.OpenAsync(url);//"https://www.qloudid.com/user/index.php/LoginAccount/loginPurchase");
+							}
+						}
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+					}
 				}
 				else if (response == 2)
 				{

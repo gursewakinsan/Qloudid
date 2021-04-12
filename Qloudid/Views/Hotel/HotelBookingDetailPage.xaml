@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Hotel.HotelBookingDetailPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30" Spacing="0">
+				<StackLayout Spacing="0" VerticalOptions="Start">
+					<Grid Margin="0,0,0,10">
+						<ImageButton
+							Grid.Column="0"
+							Padding="9"
+							BackgroundColor="#3623B7"
+							BorderColor="#05CBE7"
+							BorderWidth="1"
+							CornerRadius="20"
+							HeightRequest="50"
+							HorizontalOptions="Start"
+							VerticalOptions="Center"
+							WidthRequest="50">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+									Size="50"
+									Color="#05CBE7" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding ClearLoginCommand}"
+							HorizontalOptions="EndAndExpand"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Hey"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="{Binding DisplayName}"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,0"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<Label
+						Margin="0,50,0,2"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Transaction"
+						TextColor="Gray"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="{Binding BookingDetail.Price}"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						Margin="0,2,0,2"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="{Binding BookingDetail.HotelName}"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						TextColor="Black"
+						VerticalTextAlignment="Start">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="{Binding DisplayTotalMinutes}" />
+								<Span Text="minutes ago" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+
+					<BoxView
+						Margin="0,20,0,20"
+						BackgroundColor="#707070"
+						HeightRequest="1"
+						Opacity="0.2" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Text="Pay For Hotel"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<controls:CustomButton
+						Margin="0,20,0,20"
+						BackgroundColor="#05CBE7"
+						Command="{Binding ContinueCommand}"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Select"
+						VerticalOptions="EndAndExpand" />
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

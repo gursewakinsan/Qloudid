@@ -56,5 +56,8 @@
 		public const string EmployerRequestReceivedUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employerRequestReceived";
 		public const string ApproveEmployerRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/approveEmployerRequest";
 		public const string RejectEmployerRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/rejectEmployerRequest";
+
+		//Hotel
+		public const string GetBookingDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getBookingDetail";
 	}
 }
