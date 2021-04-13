@@ -40,9 +40,17 @@ namespace Qloudid.ViewModels
 
 					if (!string.IsNullOrWhiteSpace(Helper.Helper.HotelBookingId))
 					{
-						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/bookHotel/T3E0MjFwcGhVNlhSYlRvL2t1ZXQ2Zz09";
-						await Xamarin.Essentials.Launcher.OpenAsync(url);
+						if (Helper.Helper.IsHotelBookingFromQrScan)
+						{
+							Helper.Helper.IsHotelBookingFromQrScan = false;
+							Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+						}
+						else
+						{
+							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+							string url = $"https://www.qloudid.com/user/index.php/LoginAccount/bookHotel/T3E0MjFwcGhVNlhSYlRvL2t1ZXQ2Zz09";
+							await Xamarin.Essentials.Launcher.OpenAsync(url);
+						}
 					}
 					else
 					{

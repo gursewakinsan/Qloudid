@@ -42,7 +42,15 @@ namespace Qloudid.ViewModels
 				{
 					Helper.Helper.IpFromURL = ip[0];
 					Helper.Helper.VerifyUserConsentClientId = ip[1];
-					await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
+					string textHotel = ip[2];
+					if (textHotel.Equals("hotel"))
+					{
+						Helper.Helper.IsHotelBookingFromQrScan = true;
+						Helper.Helper.HotelBookingId = ip[1];
+						await Navigation.PushAsync(new Views.Hotel.HotelBookingDetailPage());
+					}
+					else
+						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}
 			}
 			else if (response == 2)
