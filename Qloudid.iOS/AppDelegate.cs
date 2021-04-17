@@ -44,6 +44,8 @@ namespace Qloudid.iOS
 					string text = url.PathComponents[2];
 					if (text.Equals("hotel"))
 						Helper.Helper.HotelBookingId = url.PathComponents[1];
+					else if (text.Equals("checkin"))
+						Helper.Helper.HotelCheckinId = url.PathComponents[1];
 					App.OpenAppFromWeb(url.PathComponents[2]);
 				}
 			}

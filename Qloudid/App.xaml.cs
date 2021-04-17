@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Newtonsoft.Json;
 using System.Reflection;
 using System.Collections.Generic;
+using Qloudid.Interfaces;
+using Qloudid.Service;
 
 namespace Qloudid
 {
@@ -44,6 +46,8 @@ namespace Qloudid
 					Helper.Helper.IsThirdPartyWebLogin = true;
 					if (signInText.Equals("hotel"))
 						MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+					else if (signInText.Equals("checkin"))
+						VerifyCheckinDetail();
 					else
 						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
@@ -55,21 +59,9 @@ namespace Qloudid
 		public void AppToAppLogin()
 		{
 			if (Application.Current.Properties.ContainsKey("QrCode"))
-				Application.Current.MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+				MainPage = new NavigationPage(new Views.SignInOtherAppPage());
 			else
-				Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
-		}
-
-		protected override void OnStart()
-		{
-		}
-
-		protected override void OnSleep()
-		{
-		}
-
-		protected override void OnResume()
-		{
+				MainPage = new NavigationPage(new Views.RestorePage());
 		}
 
 		void GetCountries()
@@ -90,9 +82,9 @@ namespace Qloudid
 				{
 					//App to App Login 
 					if (Application.Current.Properties.ContainsKey("QrCode"))
-						Application.Current.MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+						MainPage = new NavigationPage(new Views.SignInOtherAppPage());
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+						MainPage = new NavigationPage(new Views.RestorePage());
 				}
 				else if (uri.Segments != null && uri.Segments.Length == 3)
 				{
@@ -106,17 +98,13 @@ namespace Qloudid
 								if (Application.Current.Properties.ContainsKey("QrCode"))
 								{
 									Helper.Helper.IpFromURL = msg.Replace("&", " ");
-									Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+									MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 								}
 								else
 								{
 									Helper.Helper.IsFirstTime = false;
-									Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+									MainPage = new NavigationPage(new Views.RestorePage());
 								}
-								/* Device.BeginInvokeOnMainThread(async () =>
-                                 {
-                                     await Current.MainPage.DisplayAlert("ip", msg.Replace("&", " "), "ok");
-                                 });*/
 							}
 							break;
 						default:
@@ -134,10 +122,10 @@ namespace Qloudid
 						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 						Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
 						Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
-						Application.Current.MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+						MainPage = new NavigationPage(new Views.RestorePage());
 				}
 				else if (uri.Segments != null && uri.Segments.Length == 6)
 				{
@@ -154,15 +142,48 @@ namespace Qloudid
 						if (signInText.Equals("hotel"))
 						{
 							Helper.Helper.HotelBookingId = uri.Segments[3].Replace("/", "");
-							Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+							MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+						}
+						else if (signInText.Equals("checkin"))
+						{
+							Helper.Helper.HotelCheckinId = uri.Segments[3].Replace("/", "");
+							VerifyCheckinDetail();
 						}
 						else
-							Application.Current.MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+						MainPage = new NavigationPage(new Views.RestorePage());
 				}
 			}
+		}
+
+		async void VerifyCheckinDetail()
+		{
+			IDashboardService service = new DashboardService();
+			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
+
+			IHotelService hotelService = new HotelService();
+			Models.HotelCheckInResponse hotelResponse = await hotelService.VerifyCheckinDetailAsync(new Models.HotelCheckInRequest()
+			{
+				Id = Helper.Helper.HotelCheckinId
+			});
+			if (hotelResponse != null)
+			{
+				if (hotelResponse.UserId.Equals(Helper.Helper.UserId))
+				{
+					Helper.Helper.IsHotelCheckInFromMobileBrowser = true;
+					MainPage = new NavigationPage(new Views.VerifyPasswordPage());
+				}
+				else
+				{
+					ILoginService serviceLogin = new LoginService();
+					await serviceLogin.ClearLoginAsync(Helper.Helper.QrCertificateKey);
+					MainPage = new NavigationPage(new Views.Hotel.HotelCheckInErrorPage());
+				}
+			}
+			else
+				MainPage = new NavigationPage(new Views.Hotel.HotelCheckInErrorPage());
 		}
 	}
 }

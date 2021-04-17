@@ -59,5 +59,6 @@
 
 		//Hotel
 		public const string GetBookingDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getBookingDetail";
+		public const string VerifyCheckinDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyCheckinDetail";
 	}
 }

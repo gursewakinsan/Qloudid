@@ -15,5 +15,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.HotelCheckInResponse> VerifyCheckinDetailAsync(Models.HotelCheckInRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.HotelCheckInResponse>(HttpWebRequest.Create(EndPointsList.VerifyCheckinDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

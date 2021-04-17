@@ -44,7 +44,15 @@ namespace Qloudid.ViewModels
 				if (response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
+					if (Helper.Helper.IsHotelCheckInFromMobileBrowser)
+					{
+						Helper.Helper.IsHotelCheckInFromMobileBrowser = false;
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelCheckinId}";
+						await Xamarin.Essentials.Launcher.OpenAsync(url);
+					}
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
 				}
 				else if (response == 2)
 				{
@@ -54,7 +62,13 @@ namespace Qloudid.ViewModels
 				else if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					await Navigation.PushAsync(new Views.PurchasePage());
+					if (Helper.Helper.IsHotelCheckInFromQrScan)
+					{
+						Helper.Helper.IsHotelCheckInFromQrScan = false;
+						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
+					}
+					else
+						await Navigation.PushAsync(new Views.PurchasePage());
 				}
 				else
 				{

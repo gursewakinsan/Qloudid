@@ -49,6 +49,29 @@ namespace Qloudid.ViewModels
 						Helper.Helper.HotelBookingId = ip[1];
 						await Navigation.PushAsync(new Views.Hotel.HotelBookingDetailPage());
 					}
+					else if (textHotel.Equals("checkin"))
+					{
+						IHotelService hotelService = new HotelService();
+						Models.HotelCheckInResponse hotelResponse = await hotelService.VerifyCheckinDetailAsync(new Models.HotelCheckInRequest()
+						{
+							Id = ip[1] 
+						});
+						if (hotelResponse != null)
+						{
+							if (hotelResponse.UserId.Equals(Helper.Helper.UserId))
+							{
+								Helper.Helper.HotelCheckinId = ip[1];
+								Helper.Helper.IsHotelCheckInFromQrScan = true;
+								Application.Current.MainPage = new NavigationPage(new Views.VerifyPasswordPage());
+							}
+							else
+							{
+								ILoginService serviceLogin = new LoginService();
+								await serviceLogin.ClearLoginAsync(Helper.Helper.QrCertificateKey);
+								Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInErrorPage());
+							}
+						}
+					}
 					else
 						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}

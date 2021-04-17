@@ -68,6 +68,9 @@ namespace Qloudid.Helper
 		public static string HotelBookingId { get; set; } = string.Empty;
 		public static bool IsHotelBookingFromQrScan { get; set; } = false;
 		public static Models.BookingDetailResponse HotelBookingDetail { get; set; }
+		public static bool IsHotelCheckInFromQrScan { get; set; } = false;
+		public static bool IsHotelCheckInFromMobileBrowser { get; set; } = false;
+		public static string HotelCheckinId { get; set; }
 
 		public static string[] ColorList =
 		{
