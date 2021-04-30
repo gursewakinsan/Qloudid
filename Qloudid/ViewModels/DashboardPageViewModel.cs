@@ -43,6 +43,10 @@ namespace Qloudid.ViewModels
 					Helper.Helper.IpFromURL = ip[0];
 					Helper.Helper.VerifyUserConsentClientId = ip[1];
 					string textHotel = ip[2];
+
+					if (ip.Length == 5)
+						Helper.Helper.ClientIdForHotel = ip[4];
+
 					if (textHotel.Equals("hotel"))
 					{
 						Helper.Helper.IsHotelBookingFromQrScan = true;
@@ -54,7 +58,7 @@ namespace Qloudid.ViewModels
 						IHotelService hotelService = new HotelService();
 						Models.HotelCheckInResponse hotelResponse = await hotelService.VerifyCheckinDetailAsync(new Models.HotelCheckInRequest()
 						{
-							Id = ip[1] 
+							Id = ip[1]
 						});
 						if (hotelResponse != null)
 						{
