@@ -48,7 +48,11 @@ namespace Qloudid.ViewModels
 					{
 						Helper.Helper.IsHotelCheckInFromMobileBrowser = false;
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-						string url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelCheckinId}";
+						string url = string.Empty;
+						if (!string.IsNullOrWhiteSpace(Helper.Helper.ClientIdForHotel))
+							url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelBookingId}?response_type=code&client_id={Helper.Helper.ClientIdForHotel}&state=xyz&hotel=1";
+						else
+							url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelCheckinId}";
 						await Xamarin.Essentials.Launcher.OpenAsync(url);
 					}
 					else

@@ -71,6 +71,7 @@ namespace Qloudid.Helper
 		public static bool IsHotelCheckInFromQrScan { get; set; } = false;
 		public static bool IsHotelCheckInFromMobileBrowser { get; set; } = false;
 		public static string HotelCheckinId { get; set; }
+		public static string ClientIdForHotel { get; set; } = string.Empty;
 
 		public static string[] ColorList =
 		{

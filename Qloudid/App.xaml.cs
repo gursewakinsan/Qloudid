@@ -127,17 +127,20 @@ namespace Qloudid
 					else
 						MainPage = new NavigationPage(new Views.RestorePage());
 				}
-				else if (uri.Segments != null && uri.Segments.Length == 6)
+				else if (uri.Segments != null && uri.Segments.Length == 6 || uri.Segments.Length == 7)
 				{
 					if (Application.Current.Properties.ContainsKey("QrCode"))
 					{
 						Helper.Helper.IsThirdPartyWebLogin = true;
 						string signInText = uri.Segments[4].Replace("/", "");
-						Helper.Helper.PurchaseIndex = Convert.ToInt32(uri.Segments[5]);
+						Helper.Helper.PurchaseIndex = Convert.ToInt32(uri.Segments[5].Replace("/", ""));
 						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
 						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 						Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
 						Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
+
+						if (uri.Segments.Length == 7)
+							Helper.Helper.ClientIdForHotel = uri.Segments[6];
 
 						if (signInText.Equals("hotel"))
 						{
