@@ -169,7 +169,8 @@ namespace Qloudid
 			IHotelService hotelService = new HotelService();
 			Models.HotelCheckInResponse hotelResponse = await hotelService.VerifyCheckinDetailAsync(new Models.HotelCheckInRequest()
 			{
-				Id = Helper.Helper.HotelCheckinId
+				Id = Helper.Helper.HotelCheckinId,
+				Certificate = Helper.Helper.QrCertificateKey
 			});
 			if (hotelResponse != null)
 			{

@@ -58,7 +58,8 @@ namespace Qloudid.ViewModels
 						IHotelService hotelService = new HotelService();
 						Models.HotelCheckInResponse hotelResponse = await hotelService.VerifyCheckinDetailAsync(new Models.HotelCheckInRequest()
 						{
-							Id = ip[1]
+							Id = ip[1],
+							Certificate = Helper.Helper.QrCertificateKey
 						});
 						if (hotelResponse != null)
 						{
