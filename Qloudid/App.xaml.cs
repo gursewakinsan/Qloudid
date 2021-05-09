@@ -122,7 +122,11 @@ namespace Qloudid
 						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
 						Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
 						Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
-						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+
+						if (signInText.Equals("login"))
+							MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+						else
+							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
 					else
 						MainPage = new NavigationPage(new Views.RestorePage());
