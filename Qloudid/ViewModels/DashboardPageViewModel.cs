@@ -77,6 +77,8 @@ namespace Qloudid.ViewModels
 							}
 						}
 					}
+					else if (textHotel.Equals("login"))
+						await Navigation.PushAsync(new Views.VerifyPasswordPage());
 					else
 						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}
