@@ -31,5 +31,6 @@
 		public const string ChevronDown = "\U000f0140";
 		public const string ChevronUp = "\U000f0143";
 		public const string Help = "\U000f02d6";
+		public const string BackspaceOutline = "\U000f0b5c";
 	}
 }

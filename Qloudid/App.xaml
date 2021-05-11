@@ -50,6 +50,12 @@
 				x:TypeArguments="x:String"
 				Android="SFProDisplayLight.ttf#SFProDisplayLight"
 				iOS="SFProDisplayLight" />
+
+			<OnPlatform
+				x:Key="PoppinsRegularFontFamily"
+				x:TypeArguments="x:String"
+				Android="PoppinsRegular.ttf#PoppinsRegular"
+				iOS="PoppinsRegular" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

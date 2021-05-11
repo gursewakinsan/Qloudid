@@ -91,6 +91,7 @@
     <BundleResource Include="Resources\Fonts\SFProDisplayMedium.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayLight.ttf" />
     <BundleResource Include="Resources\iconCurveTopGray.png" />
+    <BundleResource Include="Resources\Fonts\PoppinsRegular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -218,9 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\iconKeyClose.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\iconKeyClose1.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\iconCurve.png" />
