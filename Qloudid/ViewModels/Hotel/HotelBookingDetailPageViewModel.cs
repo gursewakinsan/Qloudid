@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System;
+using System.Timers;
 using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
@@ -146,6 +147,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("DisplayName");
 			}
 		}
+
+		public string CurrentDate => DateTime.Now.ToString("yyyy-MM-dd");
 		#endregion
 	}
 }

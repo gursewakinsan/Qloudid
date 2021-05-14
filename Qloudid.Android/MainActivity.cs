@@ -1,11 +1,11 @@
 ﻿using System;
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Widget;
 using Android.OS;
+using Android.App;
 using Xamarin.Forms;
+using Android.Widget;
+using Android.Runtime;
 using Android.Content;
+using Android.Content.PM;
 
 namespace Qloudid.Droid
 {
@@ -31,6 +31,7 @@ namespace Qloudid.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 			base.OnCreate(savedInstanceState);
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+			Forms.SetFlags("Brush_Experimental");
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 			LoadApplication(new App(null));

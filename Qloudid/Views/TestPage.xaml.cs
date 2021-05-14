@@ -40,7 +40,7 @@ namespace Qloudid.Views
 				if (App.CroppedImage != null)
 				{
 					Stream stream = new MemoryStream(App.CroppedImage);
-					image.Source = ImageSource.FromStream(() => stream);
+					//image.Source = ImageSource.FromStream(() => stream);
 				}
 			}
 			catch (Exception ex)
