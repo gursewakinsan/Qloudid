@@ -148,7 +148,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public string CurrentDate => DateTime.Now.ToString("yyyy-MM-dd");
+		public string CurrentDate => $"{DateTime.Today.Day} {DateTime.Now.ToString("MMMM")}"; //DateTime.Now.ToString("yyyy-MM-dd");
 		#endregion
 	}
 }

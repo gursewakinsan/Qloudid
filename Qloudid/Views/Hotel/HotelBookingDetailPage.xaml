@@ -9,28 +9,28 @@
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="White"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
-		<ScrollView VerticalScrollBarVisibility="Never">
-			<Grid BackgroundColor="White">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="84" />
-					<RowDefinition Height="*" />
-					<RowDefinition Height="100" />
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="84" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
-				<Image
+                <Image
 					Grid.Row="0"
 					Grid.ColumnSpan="3"
 					Aspect="Fill"
 					IsVisible="False"
 					Source="iconCurveTopGray.png" />
 
-				<ImageButton
+                <ImageButton
 					Grid.Row="0"
 					Grid.Column="0"
 					Padding="20,12,20,10"
@@ -38,16 +38,16 @@
 					Command="{Binding ClearLoginCommand}"
 					HorizontalOptions="StartAndExpand"
 					VerticalOptions="StartAndExpand">
-					<ImageButton.Source>
-						<FontImageSource
+                    <ImageButton.Source>
+                        <FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
 							Size="25"
 							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
+                    </ImageButton.Source>
+                </ImageButton>
 
-				<Label
+                <Label
 					Grid.Row="0"
 					Grid.Column="1"
 					Margin="0,15,0,0"
@@ -59,50 +59,50 @@
 					TextColor="Black"
 					VerticalTextAlignment="Start" />
 
-				<ImageButton
+                <ImageButton
 					Grid.Row="0"
 					Grid.Column="2"
 					Padding="10,12,20,10"
 					BackgroundColor="Transparent"
 					HorizontalOptions="EndAndExpand"
 					VerticalOptions="StartAndExpand">
-					<ImageButton.Source>
-						<FontImageSource
+                    <ImageButton.Source>
+                        <FontImageSource
 							FontFamily="{StaticResource MaterialFontFamily}"
 							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Help}"
 							Size="25"
 							Color="Black" />
-					</ImageButton.Source>
-				</ImageButton>
+                    </ImageButton.Source>
+                </ImageButton>
 
-				<Frame
-					Grid.Row="1"
+                <Frame VerticalOptions="CenterAndExpand" 
+					Grid.Row="1" Padding="25"
 					Grid.ColumnSpan="3"
-					Margin="20,0,20,0"
+					Margin="30,0,30,0"
 					CornerRadius="20"
 					HasShadow="False">
-					<Frame.Background>
-						<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.8,1">
-							<LinearGradientBrush.GradientStops>
-								<GradientStop Offset="0" Color="#F19969" />
-								<GradientStop Offset="1" Color="#DA4E38" />
-							</LinearGradientBrush.GradientStops>
-						</LinearGradientBrush>
-					</Frame.Background>
-					<Grid ColumnSpacing="0" RowSpacing="0">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="50" />
-							<RowDefinition />
-							<RowDefinition Height="130" />
-							<RowDefinition Height="30" />
-							<RowDefinition Height="40" />
-						</Grid.RowDefinitions>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.8,1">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0" Color="#F19969" />
+                                <GradientStop Offset="1" Color="#DA4E38" />
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="220" />
+                            <RowDefinition Height="130" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
 
-						<Label
+                        <Label
 							Grid.Row="0"
 							Grid.Column="0"
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -114,7 +114,7 @@
 							VerticalOptions="Start"
 							VerticalTextAlignment="Center" />
 
-						<Label
+                        <Label
 							Grid.Row="0"
 							Grid.Column="1"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -126,13 +126,13 @@
 							VerticalOptions="CenterAndExpand"
 							VerticalTextAlignment="Center" />
 
-						<StackLayout
+                        <StackLayout
 							Grid.Row="1"
 							Grid.ColumnSpan="2"
 							HorizontalOptions="CenterAndExpand"
 							Spacing="10"
 							VerticalOptions="CenterAndExpand">
-							<ImageButton
+                            <ImageButton
 								Grid.Column="0"
 								Padding="25"
 								BackgroundColor="#3623B7"
@@ -141,16 +141,16 @@
 								CornerRadius="60"
 								HeightRequest="120"
 								WidthRequest="120">
-								<ImageButton.Source>
-									<FontImageSource
+                                <ImageButton.Source>
+                                    <FontImageSource
 										FontFamily="{StaticResource MaterialFontFamily}"
 										Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
 										Size="50"
 										Color="#05CBE7" />
-								</ImageButton.Source>
-							</ImageButton>
+                                </ImageButton.Source>
+                            </ImageButton>
 
-							<Label
+                            <Label
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="24"
 								HorizontalTextAlignment="Center"
@@ -158,9 +158,9 @@
 								Text="Qloud ID"
 								TextColor="White"
 								VerticalOptions="Start" />
-						</StackLayout>
+                        </StackLayout>
 
-						<Label
+                        <Label
 							Grid.Row="2"
 							Grid.ColumnSpan="2"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -168,15 +168,15 @@
 							HorizontalOptions="CenterAndExpand"
 							TextColor="White"
 							VerticalOptions="CenterAndExpand">
-							<Label.FormattedText>
-								<FormattedString>
-									<Span Text="$ " />
-									<Span Text="{Binding BookingDetail.Price}" />
-								</FormattedString>
-							</Label.FormattedText>
-						</Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="$ " />
+                                    <Span Text="{Binding BookingDetail.Price}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-						<Label
+                        <Label
 							Grid.Row="3"
 							Grid.Column="0"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -187,7 +187,7 @@
 							TextColor="White"
 							VerticalOptions="CenterAndExpand" />
 
-						<Label
+                        <Label
 							Grid.Row="3"
 							Grid.Column="1"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -198,7 +198,7 @@
 							TextColor="White"
 							VerticalOptions="CenterAndExpand" />
 
-						<Label
+                        <Label
 							Grid.Row="4"
 							Grid.Column="0"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -208,7 +208,7 @@
 							TextColor="White"
 							VerticalOptions="Start" />
 
-						<Label
+                        <Label
 							Grid.Row="4"
 							Grid.Column="1"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
@@ -217,10 +217,46 @@
 							Text="{Binding DisplayName}"
 							TextColor="White"
 							VerticalOptions="Start" />
-					</Grid>
-				</Frame>
+                    </Grid>
+                </Frame>
 
-				<controls:CustomButton
+				<Label Margin="20,0,0,0"
+							Grid.Row="2"
+							Grid.Column="0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="20"
+							HorizontalOptions="Center"
+							Text="Pay with"
+							TextColor="LightGray"
+							VerticalOptions="Center" />
+
+                <ImageButton
+					Command="{Binding ContinueCommand}"
+					Padding="15" BackgroundColor="Transparent"
+					Grid.Row="2"
+					HorizontalOptions="CenterAndExpand"
+					Grid.Column="1"
+					VerticalOptions="CenterAndExpand">
+                    <ImageButton.Source>
+                        <FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Fingerprint}"
+							Size="200"
+							Color="LightGray" />
+                    </ImageButton.Source>
+                </ImageButton>
+
+				<Label Margin="0,0,20,0"
+							Grid.Row="2"
+							Grid.Column="2"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="20"
+							HorizontalOptions="Center"
+							Text="fingertip"
+							TextColor="LightGray"
+							VerticalOptions="Center" />
+
+                <!--<controls:CustomButton
 					Grid.Row="2"
 					Grid.ColumnSpan="3"
 					Margin="20,0,20,0"
@@ -229,10 +265,10 @@
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="16"
 					Text="Pay For Hotel"
-					VerticalOptions="CenterAndExpand" />
-			</Grid>
-		</ScrollView>
-	</ContentPage.Content>
+					VerticalOptions="CenterAndExpand" />-->
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
 
 <!--<ScrollView VerticalScrollBarVisibility="Never">
