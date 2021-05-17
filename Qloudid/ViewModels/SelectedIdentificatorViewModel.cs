@@ -37,12 +37,15 @@ namespace Qloudid.ViewModels
 				{
 					case "ID":
 						IdentificatorId = 1;
+						Helper.Helper.SelectedIdentificatorId = 1;
 						break;
 					case "Driver license":
 						IdentificatorId = 2;
+						Helper.Helper.SelectedIdentificatorId = 2;
 						break;
 					case "Passport":
 						IdentificatorId = 3;
+						Helper.Helper.SelectedIdentificatorId = 3;
 						break;
 				}
 				DependencyService.Get<IProgressBar>().Show();
@@ -50,6 +53,7 @@ namespace Qloudid.ViewModels
 				Models.IdentificatorRequest request = new Models.IdentificatorRequest()
 				{
 					UserId = Helper.Helper.UserId,
+					certi = Helper.Helper.QrCertificateKey,
 					IdentificatorId = IdentificatorId,
 					IdentificatorText = IdentificatorText,
 					CountryId = Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode)).Id,

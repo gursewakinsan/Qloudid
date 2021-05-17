@@ -45,11 +45,12 @@ namespace Qloudid.ViewModels
 				string imageData2 = Convert.ToBase64String(bytes2);*/
 			string imageData2 = Convert.ToBase64String(CroppedImage2);
 
-			Models.AddIdentificatorImagesRequest request1 = new Models.AddIdentificatorImagesRequest()
+				Models.AddIdentificatorImagesRequest request1 = new Models.AddIdentificatorImagesRequest()
 				{
-					ImageData = imageData1,
 					imageId = 1,
-					UserId = Helper.Helper.UserId
+					UserId = Helper.Helper.UserId,
+					IdentificatorId = Helper.Helper.SelectedIdentificatorId,
+					ImageData = imageData1,
 				};
 				int response1 = await service.UploadAddIdentificatorImagesAsync(request1);
 				if (response1 == 0)
@@ -58,9 +59,10 @@ namespace Qloudid.ViewModels
 				{
 					Models.AddIdentificatorImagesRequest request2 = new Models.AddIdentificatorImagesRequest()
 					{
-						ImageData = imageData2,
 						imageId = 2,
-						UserId = Helper.Helper.UserId
+						UserId = Helper.Helper.UserId,
+						IdentificatorId = Helper.Helper.SelectedIdentificatorId,
+						ImageData = imageData2,
 					};
 					int response2 = await service.UploadAddIdentificatorImagesAsync(request2);
 					if (response2 == 0)
@@ -68,7 +70,7 @@ namespace Qloudid.ViewModels
 					else if (response2 == 1)
 					{
 						//Helper.Helper.IsAddMoreCard = false;
-						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}

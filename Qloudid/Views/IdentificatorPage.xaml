@@ -14,7 +14,7 @@
 	mc:Ignorable="d">
 	<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
-			<StackLayout Padding="30">
+			<StackLayout Padding="30" Spacing="20">
 				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 					<Grid Margin="0,0,0,10">
 						<ImageButton
@@ -196,7 +196,8 @@
 						BackgroundColor="#F8F8FB"
 						CornerRadius="25"
 						HasShadow="False"
-						HeightRequest="50">
+						HeightRequest="50"
+						IsVisible="False">
 						<Frame.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="DriverLicenseNumber" />
 						</Frame.GestureRecognizers>
@@ -245,7 +246,7 @@
 								FontFamily="{StaticResource SFProRegularFontFamily}"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
-								Text="Passport"
+								Text="Passport (Recommended)"
 								TextColor="#6F7FAF"
 								VerticalTextAlignment="Center" />
 

@@ -60,7 +60,14 @@ namespace Qloudid.ViewModels
 					Application.Current.Properties.Add("UserId", response.user_id);
 					Application.Current.Properties.Add("Email", response.email);
 					await Application.Current.SavePropertiesAsync();
-					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+
+					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
+					if (response.identificator == 3)
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					else if (response.identificator == 1 || response.identificator == 2)
+						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
+					else if (response.identificator == 0 || response.identificator == -1)
+						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
 				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}

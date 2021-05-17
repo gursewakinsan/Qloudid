@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Info.IdentificatorPageForCheckIn"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+	<ContentPage.Content>
+		<ScrollView VerticalScrollBarVisibility="Never">
+			<StackLayout Padding="30" Spacing="20">
+				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+					<Grid Margin="0,0,0,10">
+						<ImageButton
+							Grid.Column="0"
+							Padding="9"
+							BackgroundColor="#3623B7"
+							BorderColor="#05CBE7"
+							BorderWidth="1"
+							CornerRadius="20"
+							HeightRequest="50"
+							HorizontalOptions="Start"
+							VerticalOptions="Center"
+							WidthRequest="50">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+									Size="50"
+									Color="#05CBE7" />
+							</ImageButton.Source>
+						</ImageButton>
+
+						<ImageButton
+							Grid.Column="1"
+							Padding="15,5,0,15"
+							BackgroundColor="Transparent"
+							Command="{Binding CloseCommand}"
+							HorizontalOptions="EndAndExpand"
+							IsVisible="False"
+							WidthRequest="40">
+							<ImageButton.Source>
+								<FontImageSource
+									FontFamily="{StaticResource MaterialFontFamily}"
+									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+									Size="26"
+									Color="#6F7FAF" />
+							</ImageButton.Source>
+						</ImageButton>
+					</Grid>
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="Complete"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontSize="28"
+						HorizontalTextAlignment="Start"
+						Text="check-in"
+						TextColor="Black"
+						VerticalTextAlignment="Start" />
+
+					<BoxView
+						Margin="0,10,0,50"
+						BackgroundColor="#05CBE7"
+						CornerRadius="3"
+						HeightRequest="5"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+						WidthRequest="40" />
+
+					<StackLayout Margin="0,24,0,20" Spacing="10">
+						<Label
+							Margin="10,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="15"
+							HorizontalTextAlignment="Start"
+							Text="Select a document"
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+
+						<Label
+							Margin="10,0,0,0"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="12"
+							HorizontalTextAlignment="Start"
+							Text="You have following un-fineshed identificator added in your profile, Please select any one to complete your check-in profile. If you select other than passport you may not be proceed to able check-in hotels."
+							TextColor="#6F7FAF"
+							VerticalTextAlignment="Start" />
+					</StackLayout>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						HeightRequest="50">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="IdNumber" />
+						</Frame.GestureRecognizers>
+						<Grid Margin="20,0,15,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition Width="20" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="State/national identity card"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Column="1"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="End"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Margin="0,20,0,0"
+						Padding="0"
+						BackgroundColor="#F8F8FB"
+						CornerRadius="25"
+						HasShadow="False"
+						HeightRequest="50">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedIdentificatorCommand}" CommandParameter="PassportNumber" />
+						</Frame.GestureRecognizers>
+						<Grid Margin="20,0,15,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition Width="20" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Column="0"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Passport (Recommended)"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+
+							<Label
+								Grid.Column="1"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="End"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+								TextColor="#6F7FAF"
+								VerticalTextAlignment="Center" />
+						</Grid>
+					</Frame>
+				</StackLayout>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

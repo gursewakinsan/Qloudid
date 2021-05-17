@@ -8,5 +8,7 @@
 		public int id { get; set; }
 		public string image { get; set; }
 		public int result { get; set; }
+		public int identificator { get; set; }
+		public int country_code { get; set; }
 	}
 }

@@ -8,5 +8,6 @@
 		public int CountryId { get; set; }
 		public string IssueDate { get; set; }
 		public string ExpiryDate { get; set; }
+		public string certi { get; set; }
 	}
 }

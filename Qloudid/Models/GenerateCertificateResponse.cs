@@ -8,5 +8,6 @@
 		public int user_id { get; set; }
 		public string email { get; set; }
 		public string certificate_key { get; set; }
+		public int identificator { get; set; }
 	}
 }

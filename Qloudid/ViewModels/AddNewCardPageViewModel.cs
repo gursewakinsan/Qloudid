@@ -51,6 +51,7 @@ namespace Qloudid.ViewModels
 				Models.AddNewCardRequest request = new Models.AddNewCardRequest()
 				{
 					UserId = Helper.Helper.UserId,
+					certi = Helper.Helper.QrCertificateKey,
 					CardNumber = CardNumber,
 					CardHolderName = CardHolderName,
 					ExpirationMonth = ExpirationMonth,

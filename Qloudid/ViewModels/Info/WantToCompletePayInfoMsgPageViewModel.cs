@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
+using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -21,7 +23,18 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteContinueCommand()
 		{
-			await Task.CompletedTask;
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdatePayRequiredAsync(new Models.UpdatePayRequiredRequest()
+			{
+				Pay = 1,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			if (Helper.Helper.GenerateCertificateIdentificatorValue == 1)
+				Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+			else if (Helper.Helper.GenerateCertificateIdentificatorValue == 2)
+				Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -29,11 +42,19 @@ namespace Qloudid.ViewModels
 		private ICommand cancelCommand;
 		public ICommand CancelCommand
 		{
-			get => cancelCommand ?? (cancelCommand = new Command(async () => await ExecuteCancelCommand()));
+			get => cancelCommand ?? (cancelCommand = new Command(async() => await ExecuteCancelCommand()));
 		}
 		private async Task ExecuteCancelCommand()
 		{
-			await Task.CompletedTask;
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdatePayRequiredAsync(new Models.UpdatePayRequiredRequest()
+			{
+				Pay = 2,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 	}
