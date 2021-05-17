@@ -100,10 +100,19 @@ namespace Qloudid.ViewModels
 						//Application.Current.MainPage = new NavigationPage(new Views.PurchasePage());
 					}
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
-				else if (response == 2)
-					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				else if (response == 2 || response == 3)
+				{
+					ILoginService loginService = new LoginService();
+					var checkValidQrResponse = await loginService.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+					if (checkValidQrResponse?.result > 0)
+					{
+						Helper.Helper.CountryCode = checkValidQrResponse.country_code;
+						Helper.Helper.GenerateCertificateIdentificatorValue = checkValidQrResponse.identificator;
+						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+					}
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

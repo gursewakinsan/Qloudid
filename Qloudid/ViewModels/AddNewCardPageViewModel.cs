@@ -73,10 +73,19 @@ namespace Qloudid.ViewModels
 				}
 				else if (response == 2)
 					await Helper.Alert.DisplayAlert("You have entered wrong card number, Please try another card.");
-				else if (response == 3)
-					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
-				else if (response == 4)
-					Application.Current.MainPage = new NavigationPage(new Views.GenerateCertificatePage());
+				else if (response == 3 || response == 4)
+				{
+					ILoginService loginService = new LoginService();
+					var checkValidQrResponse = await loginService.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+					if (checkValidQrResponse?.result > 0)
+					{
+						Helper.Helper.CountryCode = checkValidQrResponse.country_code;
+						Helper.Helper.GenerateCertificateIdentificatorValue = checkValidQrResponse.identificator;
+						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+					}
+				}
+				else if (response == 5)
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
