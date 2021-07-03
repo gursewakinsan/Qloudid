@@ -139,7 +139,21 @@ namespace Qloudid.ViewModels
 				await Navigation.PushAsync(new Views.YourSignaturePage());
 			}
 			else
-				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+			{
+				IPickupService pickupService = new PickupService();
+				var pickupServiceResponse = await pickupService.PickupAddressDetailAsync(new Models.PickupAddressDetailRequest()
+				{
+					Certificate = Helper.Helper.QrCertificateKey,
+					CompanyId = Helper.Helper.VerifyUserConsentClientId
+				});
+				if (pickupServiceResponse?.Count > 0)
+				{
+					Helper.Helper.PickupAddressList = pickupServiceResponse;
+					await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
+				}
+				else
+					await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+			}
 		}
 		#endregion
 

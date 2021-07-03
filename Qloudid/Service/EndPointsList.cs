@@ -65,5 +65,10 @@
 		public const string UpdatePayRequiredUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePayRequired";
 		public const string UpdateCheckRequiredUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCheckRequired";
 		public const string IdentificatorDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/identificatorDetail";
+
+		//Pickup
+		public const string PickupAddressDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/pickupAddressDetail";
+		public const string UpdatePickupDeliveryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePickupDelivery";
+		public const string UpdatePickupAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePickupAddress";
 	}
 }

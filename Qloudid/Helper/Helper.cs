@@ -74,6 +74,7 @@ namespace Qloudid.Helper
 		public static string ClientIdForHotel { get; set; } = string.Empty;
 		public static int GenerateCertificateIdentificatorValue { get; set; }
 		public static int SelectedIdentificatorId { get; set; }
+		public static List<Models.PickupAddressDetailResponse> PickupAddressList { get; set; }
 
 		public static string[] ColorList =
 		{

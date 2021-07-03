@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Pickup.SelectHomeOrPickUpPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="White"
+	NavigationPage.HasNavigationBar="False">
+	<ContentPage.Content>
+		<Grid Margin="0,20,0,0" RowSpacing="10">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="125" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Grid
+				Grid.Row="0"
+				Padding="20"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width="72" />
+				</Grid.ColumnDefinitions>
+				<ImageButton
+					Grid.Row="0"
+					Grid.Column="0"
+					Padding="0,5,15,5"
+					BackgroundColor="Transparent"
+					Command="{Binding CloseCommand}"
+					HorizontalOptions="StartAndExpand">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ArrowLeft}"
+							Size="80"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Start"
+					Text="Delivery Type"
+					TextColor="Black"
+					VerticalTextAlignment="End" />
+
+				<ImageButton
+					Grid.RowSpan="2"
+					Grid.Column="1"
+					Padding="20"
+					BackgroundColor="#F8F8FB"
+					Command="{Binding AddNewAddressCommand}"
+					CornerRadius="10"
+					IsVisible="False">
+					<ImageButton.Source>
+						<FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							Size="100"
+							Color="Black" />
+					</ImageButton.Source>
+				</ImageButton>
+			</Grid>
+
+			<Grid Grid.Row="1" RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="auto" />
+				</Grid.RowDefinitions>
+				<ListView
+					x:Name="listHomeOrPickUp"
+					Grid.Row="0"
+					BackgroundColor="White"
+					HasUnevenRows="true"
+					IsGroupingEnabled="True"
+					ItemTapped="OnHomeOrPickUpItemTapped"
+					ItemsSource="{Binding ListOfSelectHomeOrPickUpAddress}"
+					SeparatorVisibility="None"
+					VerticalOptions="FillAndExpand"
+					VerticalScrollBarVisibility="Never">
+					<ListView.GroupHeaderTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout BackgroundColor="White">
+									<Label
+										Margin="25,15,15,15"
+										FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+										FontSize="18"
+										HorizontalOptions="StartAndExpand"
+										Text="{Binding Heading}"
+										TextColor="#6F7FAF"
+										VerticalOptions="CenterAndExpand" />
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.GroupHeaderTemplate>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<Grid
+									Padding="20,0,20,0"
+									BackgroundColor="{Binding RowSelectedBg}"
+									ColumnSpacing="10"
+									RowSpacing="0">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="100" />
+										<RowDefinition Height="1" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="50" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+
+									<BoxView
+										Grid.Row="0"
+										Grid.Column="0"
+										BackgroundColor="{Binding FirstLetterNameBg}"
+										CornerRadius="24"
+										HeightRequest="48"
+										HorizontalOptions="CenterAndExpand"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="48" />
+
+									<Label
+										Grid.Row="0"
+										Grid.Column="0"
+										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontSize="18"
+										HorizontalTextAlignment="Center"
+										Text="{Binding FirstLetterName}"
+										TextColor="White"
+										VerticalTextAlignment="Center" />
+
+									<StackLayout
+										Grid.Row="0"
+										Grid.Column="1"
+										Spacing="5"
+										VerticalOptions="CenterAndExpand">
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding HeadingAddress}"
+											TextColor="{Binding RowSelectedText}"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding SubHeadingAddress}"
+											TextColor="{Binding RowSelectedText}"
+											VerticalTextAlignment="Center" />
+									</StackLayout>
+
+									<BoxView
+										Grid.Row="1"
+										Grid.ColumnSpan="2"
+										BackgroundColor="#6F7FAF"
+										Opacity="0.2" />
+								</Grid>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</Grid>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
