@@ -75,6 +75,8 @@ namespace Qloudid.Helper
 		public static int GenerateCertificateIdentificatorValue { get; set; }
 		public static int SelectedIdentificatorId { get; set; }
 		public static List<Models.PickupAddressDetailResponse> PickupAddressList { get; set; }
+		public static bool IsPickupAddress { get; set; } = false;
+		public static Models.PickupAddressDetailResponse SelectedPickupAddress { get; set; }
 
 		public static string[] ColorList =
 		{

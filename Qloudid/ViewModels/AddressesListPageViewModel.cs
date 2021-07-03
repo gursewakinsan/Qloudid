@@ -152,7 +152,10 @@ namespace Qloudid.ViewModels
 					await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
 				}
 				else
+				{
+					Helper.Helper.IsPickupAddress = false;
 					await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+				}
 			}
 		}
 		#endregion

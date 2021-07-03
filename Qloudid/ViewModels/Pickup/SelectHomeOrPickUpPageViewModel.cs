@@ -20,7 +20,7 @@ namespace Qloudid.ViewModels
 			Models.SelectHomeOrPickUpInfo listHomeOrPickup = new Models.SelectHomeOrPickUpInfo();
 			listHomeOrPickup.SelectHomeOrPickUpAddress.Add(new Models.SelectHomeOrPickUp()
 			{
-				Id = 1,
+				Id = 0,
 				HeadingAddress = "Home Delivery",
 				SubHeadingAddress = "To be sent on delivery address",
 				FirstLetterNameBg = Helper.Helper.ColorList[0]
@@ -28,7 +28,7 @@ namespace Qloudid.ViewModels
 
 			listHomeOrPickup.SelectHomeOrPickUpAddress.Add(new Models.SelectHomeOrPickUp()
 			{
-				Id = 2,
+				Id = 1,
 				HeadingAddress = "Pick Up",
 				SubHeadingAddress = "To be picked personally",
 				FirstLetterNameBg = Helper.Helper.ColorList[1]

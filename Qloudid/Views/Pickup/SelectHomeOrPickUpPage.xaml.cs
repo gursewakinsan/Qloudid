@@ -15,9 +15,21 @@ namespace Qloudid.Views.Pickup
 			BindingContext = viewModel = new SelectHomeOrPickUpPageViewModel(this.Navigation);
 		}
 
-		private void OnHomeOrPickUpItemTapped(object sender, ItemTappedEventArgs e)
+		private async void OnHomeOrPickUpItemTapped(object sender, ItemTappedEventArgs e)
 		{
-
+			Models.SelectHomeOrPickUp homeOrPickUp = e.Item as Models.SelectHomeOrPickUp;
+			listHomeOrPickUp.SelectedItem = null;
+			switch (homeOrPickUp.Id)
+			{
+				case 0: //Go to Home Delivery
+					Helper.Helper.IsPickupAddress = false;
+					await Navigation.PushAsync(new ReadOnlyDeliveryAddressPage());
+					break;
+				case 1: //Go to Pick Up
+					Helper.Helper.IsPickupAddress = true;
+					await Navigation.PushAsync(new PickUpAddressListPage());
+					break;
+			}
 		}
 	}
 }
