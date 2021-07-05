@@ -164,7 +164,67 @@
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
 											MaxLines="1"
-											Text="{Binding Address}"
+											TextColor="{Binding RowSelectedText}"
+											VerticalTextAlignment="Center">
+											<Label.FormattedText>
+												<FormattedString>
+													<Span Text="{Binding Address}" />
+													<Span Text=" " />
+													<Span Text="{Binding PortNumber}" />
+												</FormattedString>
+											</Label.FormattedText>
+										</Label>
+
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											TextColor="Black"
+											VerticalTextAlignment="Start">
+											<Label.FormattedText>
+												<FormattedString>
+													<Span Text="{Binding City}" />
+													<Span Text=" " />
+													<Span Text="{Binding Zipcode}" />
+													<Span Text=", " />
+													<Span Text="{Binding CountryName}" />
+												</FormattedString>
+											</Label.FormattedText>
+										</Label>
+									</StackLayout>
+
+									<StackLayout
+										Grid.Row="0"
+										Grid.Column="1"
+										Spacing="5"
+										VerticalOptions="CenterAndExpand">
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding NameOnHouse}"
+											TextColor="{Binding RowSelectedText}"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding HeadingAddress}"
+											TextColor="{Binding RowSelectedText}"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontSize="16"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Text="{Binding SubHeadingAddress}"
 											TextColor="{Binding RowSelectedText}"
 											VerticalTextAlignment="Center" />
 									</StackLayout>
