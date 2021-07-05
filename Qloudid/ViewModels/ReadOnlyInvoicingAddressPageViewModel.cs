@@ -10,6 +10,10 @@ namespace Qloudid.ViewModels
 		public ReadOnlyInvoicingAddressPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			if (Helper.Helper.IsPickupAddress)
+				DisplayPickupAddressDetail = Helper.Helper.SelectedPickupAddress;
+			else
+				DisplayDeliveryAddress = Helper.Helper.DeliveryAddressDetail;
 		}
 		#endregion
 
@@ -34,7 +38,10 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteEditDeliveryAddressCommand()
 		{
 			Helper.Helper.IsEditDeliveryAddressFromInvoicing = true;
-			Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+			if (Helper.Helper.IsPickupAddress)
+				Application.Current.MainPage = new NavigationPage(new Views.Pickup.PickUpAddressListPage());
+			else
+				Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
 			await Task.CompletedTask;
 		}
 		#endregion
@@ -54,7 +61,50 @@ namespace Qloudid.ViewModels
 
 		#region Properties.
 		public Models.InvoiceAddressResponse DisplayInvoiceAddress => Helper.Helper.InvoiceAddressDetail;
-		public Models.DeliveryAddressDetailResponse DisplayDeliveryAddress => Helper.Helper.DeliveryAddressDetail;
+
+		private Models.DeliveryAddressDetailResponse displayDeliveryAddress;
+		public Models.DeliveryAddressDetailResponse DisplayDeliveryAddress
+		{
+			get => displayDeliveryAddress;
+			set
+			{
+				displayDeliveryAddress = value;
+				OnPropertyChanged("DisplayDeliveryAddress");
+			}
+		}
+
+		private Models.PickupAddressDetailResponse displayPickupAddressDetail;
+		public Models.PickupAddressDetailResponse DisplayPickupAddressDetail
+		{
+			get => displayPickupAddressDetail;
+			set
+			{
+				displayPickupAddressDetail = value;
+				OnPropertyChanged("DisplayPickupAddressDetail");
+			}
+		}
+
+		private bool isVisibleDeliveryAddress = !Helper.Helper.IsPickupAddress;
+		public bool IsVisibleDeliveryAddress
+		{
+			get => isVisibleDeliveryAddress;
+			set
+			{
+				isVisibleDeliveryAddress = value;
+				OnPropertyChanged("IsVisibleDeliveryAddress");
+			}
+		}
+
+		private bool isVisiblePickupAddress = Helper.Helper.IsPickupAddress;
+		public bool IsVisiblePickupAddress
+		{
+			get => isVisiblePickupAddress;
+			set
+			{
+				isVisiblePickupAddress = value;
+				OnPropertyChanged("IsVisiblePickupAddress");
+			}
+		}
 		#endregion
 	}
 }
