@@ -29,6 +29,21 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Edit Address Command.
+		private ICommand editAddressCommand;
+		public ICommand EditAddressCommand
+		{
+			get => editAddressCommand ?? (editAddressCommand = new Command(async () => await ExecuteEditAddressCommand()));
+		}
+		private async Task ExecuteEditAddressCommand()
+		{
+			if (Helper.Helper.IsPickupAddress)
+				await Navigation.PopAsync();
+			else
+				Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.DeliveryAddressDetailResponse displayDeliveryAddress;
 		public Models.DeliveryAddressDetailResponse DisplayDeliveryAddress

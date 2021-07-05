@@ -119,43 +119,21 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedAddressCommand()
 		{
-			IDashboardService service = new DashboardService();
-			Models.EditAddressResponse address = new Models.EditAddressResponse()
+			IPickupService pickupService = new PickupService();
+			var pickupServiceResponse = await pickupService.PickupAddressDetailAsync(new Models.PickupAddressDetailRequest()
 			{
-				Id = DeliveryAddressDetail.Id,
-				DeliveredAt = Helper.Helper.UserOrCompanyAddress > 1 ? 0 : 1,
-				CertificateKey = Helper.Helper.QrCertificateKey
-			};
-			int response = await service.UpdateCompanyAddressAsync(address);
-			Helper.Helper.DeliveryAddressDetail = DeliveryAddressDetail;
-			if (Helper.Helper.IsEditDeliveryAddressFromInvoicing)
+				Certificate = Helper.Helper.QrCertificateKey,
+				CompanyId = Helper.Helper.VerifyUserConsentClientId
+			});
+			if (pickupServiceResponse?.Count > 0)
 			{
-				Helper.Helper.IsEditDeliveryAddressFromInvoicing = false;
-				await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
-			}
-			else if (Helper.Helper.IsEditAddressFromYourSignature)
-			{
-				Helper.Helper.IsEditAddressFromYourSignature = false;
-				await Navigation.PushAsync(new Views.YourSignaturePage());
+				Helper.Helper.PickupAddressList = pickupServiceResponse;
+				await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
 			}
 			else
 			{
-				IPickupService pickupService = new PickupService();
-				var pickupServiceResponse = await pickupService.PickupAddressDetailAsync(new Models.PickupAddressDetailRequest()
-				{
-					Certificate = Helper.Helper.QrCertificateKey,
-					CompanyId = Helper.Helper.VerifyUserConsentClientId
-				});
-				if (pickupServiceResponse?.Count > 0)
-				{
-					Helper.Helper.PickupAddressList = pickupServiceResponse;
-					await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
-				}
-				else
-				{
-					Helper.Helper.IsPickupAddress = false;
-					await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
-				}
+				Helper.Helper.IsPickupAddress = false;
+				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 			}
 		}
 		#endregion
@@ -170,7 +148,9 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			DeliveryAddressDetail = await service.DeliveryAddressDetailAsync(new Models.DeliveryAddressDetailRequest() { Id = SelectedAddressId, UserAddress = Helper.Helper.UserOrCompanyAddress });
+			DeliveryAddressDetail = await service.DeliveryAddressDetailAsync(new Models.DeliveryAddressDetailRequest()
+			{ Id = SelectedAddressId, UserAddress = Helper.Helper.UserOrCompanyAddress });
+			Helper.Helper.DeliveryAddressDetail = DeliveryAddressDetail;
 			SelectedAddressCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
 		}

@@ -23,7 +23,7 @@ namespace Qloudid.Views.Pickup
 			{
 				case 0: //Go to Home Delivery
 					Helper.Helper.IsPickupAddress = false;
-					await Navigation.PushAsync(new ReadOnlyDeliveryAddressPage());
+					viewModel.SelectedHomeAddressCommand.Execute(null);
 					break;
 				case 1: //Go to Pick Up
 					Helper.Helper.IsPickupAddress = true;

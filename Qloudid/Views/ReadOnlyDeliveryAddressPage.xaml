@@ -204,7 +204,7 @@
 						Grid.Column="1"
 						Padding="10"
 						BackgroundColor="#E6F7FE"
-						Command="{Binding CloseCommand}"
+						Command="{Binding EditAddressCommand}"
 						CornerRadius="20"
 						HeightRequest="40"
 						HorizontalOptions="End"
