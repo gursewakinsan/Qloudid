@@ -53,6 +53,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedHomeAddressCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			Models.EditAddressResponse address = new Models.EditAddressResponse()
 			{
@@ -76,6 +77,26 @@ namespace Qloudid.ViewModels
 				Helper.Helper.IsPickupAddress = false;
 				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Pickup Delivery Command.
+		private ICommand updatePickupDeliveryCommand;
+		public ICommand UpdatePickupDeliveryCommand
+		{
+			get => updatePickupDeliveryCommand ?? (updatePickupDeliveryCommand = new Command(async () => await ExecuteUpdatePickupDeliveryCommand()));
+		}
+		private async Task ExecuteUpdatePickupDeliveryCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IPickupService service = new PickupService();
+			await service.UpdatePickupDeliveryAsync(new Models.UpdatePickupDeliveryRequest()
+			{
+				Certificate = Helper.Helper.QrCertificateKey,
+				DeliveryType = Helper.Helper.IsPickupAddress ? 1 : 0
+			});
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

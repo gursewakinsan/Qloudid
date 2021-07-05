@@ -17,20 +17,20 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<Models.UpdatePickupDeliveryResponse> UpdatePickupDeliveryAsync(Models.UpdatePickupDeliveryRequest request)
+		public Task<int> UpdatePickupDeliveryAsync(Models.UpdatePickupDeliveryRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.UpdatePickupDeliveryResponse>(HttpWebRequest.Create(EndPointsList.UpdatePickupDeliveryUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdatePickupDeliveryUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}
 
-		public Task<Models.UpdatePickupAddressResponse> UpdatePickupAddressAsync(Models.UpdatePickupAddressRequest request)
+		public Task<int> UpdatePickupAddressAsync(Models.UpdatePickupAddressRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<Models.UpdatePickupAddressResponse>(HttpWebRequest.Create(EndPointsList.UpdatePickupAddressUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdatePickupAddressUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}

@@ -20,6 +20,7 @@ namespace Qloudid.Views.Pickup
 			Helper.Helper.IsPickupAddress = true;
 			Helper.Helper.SelectedPickupAddress = e.Item as Models.PickupAddressDetailResponse;
 			listPickupAddress.SelectedItem = null;
+			viewModel.UpdatePickupAddressCommand.Execute(null);
 			if (Helper.Helper.IsEditDeliveryAddressFromInvoicing)
 			{
 				Helper.Helper.IsEditDeliveryAddressFromInvoicing = false;

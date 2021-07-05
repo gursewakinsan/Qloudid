@@ -30,6 +30,7 @@ namespace Qloudid.Views.Pickup
 					await Navigation.PushAsync(new PickUpAddressListPage());
 					break;
 			}
+			viewModel.UpdatePickupDeliveryCommand.Execute(null);
 		}
 	}
 }

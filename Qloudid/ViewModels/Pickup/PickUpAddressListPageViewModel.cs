@@ -46,6 +46,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedHomeAddressCommand()
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			Helper.Helper.IsPickupAddress = false;
 			IDashboardService service = new DashboardService();
 			Models.EditAddressResponse address = new Models.EditAddressResponse()
@@ -67,6 +68,46 @@ namespace Qloudid.ViewModels
 			}
 			else
 				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+			UpdatePickupDeliveryCommand.Execute(null);
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Pickup Delivery Command.
+		private ICommand updatePickupDeliveryCommand;
+		public ICommand UpdatePickupDeliveryCommand
+		{
+			get => updatePickupDeliveryCommand ?? (updatePickupDeliveryCommand = new Command(async () => await ExecuteUpdatePickupDeliveryCommand()));
+		}
+		private async Task ExecuteUpdatePickupDeliveryCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IPickupService service = new PickupService();
+			await service.UpdatePickupDeliveryAsync(new Models.UpdatePickupDeliveryRequest()
+			{
+				Certificate = Helper.Helper.QrCertificateKey,
+				DeliveryType = Helper.Helper.IsPickupAddress ? 1 : 0
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Pickup Address Command.
+		private ICommand updatePickupAddressCommand;
+		public ICommand UpdatePickupAddressCommand
+		{
+			get => updatePickupAddressCommand ?? (updatePickupAddressCommand = new Command(async () => await ExecuteUpdatePickupAddressCommand()));
+		}
+		private async Task ExecuteUpdatePickupAddressCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IPickupService service = new PickupService();
+			await service.UpdatePickupAddressAsync(new Models.UpdatePickupAddressRequest()
+			{
+				Certificate = Helper.Helper.QrCertificateKey,
+				PickupAddressId = Helper.Helper.SelectedPickupAddress.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
