@@ -1,9 +1,9 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -19,6 +19,7 @@ namespace Qloudid.ViewModels
 				UserImage = string.Empty;
 			else
 				UserImage = UserInfo.UserImage;  //ImageSource.FromUri(new Uri(UserInfo.UserImage));
+			BindDashboardItemList();
 		}
 		#endregion
 
@@ -282,6 +283,27 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		void BindDashboardItemList()
+		{
+			if (DashboardItemList == null)
+			{
+				var dashboardItems = new List<DashboardItem>();
+				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
+				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here." });
+				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Help or ask for help in the corona crisis." });
+				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Connect with your kin using code." });
+				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Parent invitation." });
+				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Employer request." });
+				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Parent request." });
+				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "A kin wants to connect with you in case of emergency." });
+				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "At companies." });
+				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Guardian request." });
+				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Connect with an employer, a landlord or a school here." });
+				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "School search." });
+				DashboardItemList = dashboardItems;
+			}
+		}
+
 		#region Properties.
 		private Models.User userInfo;
 		public Models.User UserInfo
@@ -367,6 +389,25 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsEmployerRequestCount");
 			}
 		}
+
+		public List<DashboardItem> dashboardItemList;
+		public List<DashboardItem> DashboardItemList
+		{
+			get => dashboardItemList;
+			set
+			{
+				dashboardItemList = value;
+				OnPropertyChanged("DashboardItemList");
+			}
+		}
 		#endregion
 	}
+}
+public class DashboardItem
+{
+	public int Id { get; set; }
+	public string Heading { get; set; }
+	public string SubHeading { get; set; }
+	public string HeadingIcon { get; set; }
+	public string IconColor { get; set; }
 }

@@ -30,9 +30,11 @@ namespace Qloudid.Droid
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 			base.OnCreate(savedInstanceState);
-			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+			global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+			global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
 			Forms.SetFlags("Brush_Experimental");
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 			LoadApplication(new App(null));
 		}

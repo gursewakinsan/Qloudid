@@ -34,5 +34,8 @@
 		public const string BackspaceOutline = "\U000f0b5c";
 		public const string Apple = "\U000f0035";
 		public const string Fingerprint = "\U000f0237";
+		public const string CreditCardScan = "\U000f0ff4";
+		public const string AccountNetworkOutline = "\U000f0be6";
+		public const string Hops = "\U000f02df";
 	}
 }

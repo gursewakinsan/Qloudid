@@ -15,6 +15,7 @@ namespace Qloudid.Views
 	{
 		DashboardPageViewModel viewModel;
 		ZXingScannerPage scanPage;
+		int carouselViewPosition = 0;
 		public DashboardPage()
 		{
 			InitializeComponent();
@@ -93,6 +94,52 @@ namespace Qloudid.Views
 				this.scanPage.IsScanning = false;
 				await Navigation.PopModalAsync();
 			});
+		}
+
+		private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
+		{
+			carouselViewPosition = e.CurrentPosition;
+			string color = viewModel.DashboardItemList[carouselViewPosition].IconColor;
+			indicatorView.SelectedIndicatorColor = Color.FromHex(color);
+			btnLearnMore.TextColor = Color.FromHex(color);
+		}
+
+		private void OnLearnMoreButtonClicked(object sender, EventArgs e)
+		{
+			if (carouselViewPosition == 0)
+				viewModel.ConsentCommand.Execute(null);
+			else if (carouselViewPosition == 1)
+				viewModel.ManageCardCommand.Execute(null);
+		}
+
+		private void OnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			StackLayout layout = sender as StackLayout;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				viewModel.ConsentCommand.Execute(null);
+			else if(id == 1)
+				viewModel.ManageCardCommand.Execute(null);
+		}
+
+		private void GridOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Grid layout = sender as Grid;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				viewModel.ConsentCommand.Execute(null);
+			else if (id == 1)
+				viewModel.ManageCardCommand.Execute(null);
+		}
+
+		private void LabelOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Label layout = sender as Label;
+			int id = Convert.ToInt32(layout.ClassId);
+			if (id == 0)
+				viewModel.ConsentCommand.Execute(null);
+			else if (id == 1)
+				viewModel.ManageCardCommand.Execute(null);
 		}
 	}
 }
