@@ -37,5 +37,15 @@
 		public const string CreditCardScan = "\U000f0ff4";
 		public const string AccountNetworkOutline = "\U000f0be6";
 		public const string Hops = "\U000f02df";
+
+		public const string CoronaCare = "\U000f02e1";
+		public const string Connect = "\U000f1546";
+		public const string Parent = "\U000f0172";
+		public const string Employer = "\U000f0849";
+		public const string Kin = "\U000f04da";
+		public const string Duties = "\U000f05b5";
+		public const string Guardian = "\U000f08b1";
+		public const string EmployerSearch = "\U000f0935";
+		public const string School = "\U000f0474";
 	}
 }
