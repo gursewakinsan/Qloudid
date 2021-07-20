@@ -132,7 +132,7 @@
 					<Grid
 						RowSpacing="8"
 						VerticalOptions="StartAndExpand"
-						WidthRequest="74">
+						WidthRequest="78">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="60" />
 							<RowDefinition Height="20" />
