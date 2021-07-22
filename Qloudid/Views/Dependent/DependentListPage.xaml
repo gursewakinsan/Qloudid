@@ -33,7 +33,7 @@
 					Grid.Column="0"
 					Padding="0,5,15,5"
 					BackgroundColor="Transparent"
-					Command="{Binding CloseCommand}"
+					Command="{Binding BackCommand}"
 					HorizontalOptions="StartAndExpand">
 					<ImageButton.Source>
 						<FontImageSource

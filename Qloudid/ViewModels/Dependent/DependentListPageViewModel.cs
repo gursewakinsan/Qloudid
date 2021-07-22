@@ -28,7 +28,7 @@ namespace Qloudid.ViewModels
 			IDependentService service = new DependentService();
 			DependentList = await service.GetAllDependentAsync(new Models.DependentRequest()
 			{
-				UserId = 43 //Helper.Helper.UserId
+				UserId = Helper.Helper.UserId
 			});
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -45,6 +45,19 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			await Navigation.PushAsync(new Views.Dependent.AddNewDependentPage());
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			await Task.CompletedTask;
 		}
 		#endregion
 

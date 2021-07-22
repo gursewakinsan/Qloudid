@@ -17,11 +17,20 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<string> AddNewDependentAsync(Models.AddDependentRequest request)
+		public Task<int> CheckSsnAsync(Models.AddDependentRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.AddNewDependentUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckSsnUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddDependentAsync(Models.AddDependentRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddDependentUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}

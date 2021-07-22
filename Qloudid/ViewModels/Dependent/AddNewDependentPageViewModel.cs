@@ -51,7 +51,7 @@ namespace Qloudid.ViewModels
 					type = 3;
 				Models.AddDependentRequest request = new Models.AddDependentRequest()
 				{
-					UserId = 43,
+					UserId = Helper.Helper.UserId,
 					DependentType = type,
 					FirstName = FirstName,
 					LastName = LastName,
@@ -61,7 +61,16 @@ namespace Qloudid.ViewModels
 					ExpiryDate = SelectedExpiryDate
 				};
 				IDependentService service = new DependentService();
-				var ss = await service.AddNewDependentAsync(request);
+				int checkSsnResponse = await service.CheckSsnAsync(request);
+				if (checkSsnResponse == 1)
+					await Helper.Alert.DisplayAlert("Dependent social security number is already exist.");
+				else if (checkSsnResponse == 2)
+					await Helper.Alert.DisplayAlert("Dependent passport number is already exist.");
+				else
+				{
+					int addDependentResponse = await service.AddDependentAsync(request);
+					await Navigation.PushAsync(new Views.Dependent.UploadDependentPassportPhotoPage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
