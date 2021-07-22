@@ -12,6 +12,7 @@ namespace Qloudid.ViewModels
 		public UploadDependentPassportPhotoPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			Helper.Helper.SelectedIdentificatorText = "Passport";
 		}
 		#endregion
 
@@ -39,6 +40,15 @@ namespace Qloudid.ViewModels
 			Application.Current.MainPage = new NavigationPage(new Views.Dependent.DependentListPage());
 			await Task.CompletedTask;
 		}
+		#endregion
+
+		#region Properties.
+		public Image Image1 { get; set; }
+		public Image Image2 { get; set; }
+
+		public byte[] CroppedImage1;
+
+		public byte[] CroppedImage2;
 		#endregion
 	}
 }
