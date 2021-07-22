@@ -73,5 +73,6 @@
 
 		//Dependent
 		public const string GetAllDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsList";
+		public const string AddNewDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsList";
 	}
 }

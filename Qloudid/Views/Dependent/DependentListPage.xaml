@@ -59,7 +59,7 @@
 					Grid.Column="1"
 					Padding="20"
 					BackgroundColor="#F8F8FB"
-					Command="{Binding AddNewAddressCommand}"
+					Command="{Binding AddNewDependentCommand}"
 					CornerRadius="10">
 					<ImageButton.Source>
 						<FontImageSource
