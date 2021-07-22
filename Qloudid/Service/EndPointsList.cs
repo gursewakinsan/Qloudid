@@ -70,5 +70,8 @@
 		public const string PickupAddressDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/pickupAddressDetail";
 		public const string UpdatePickupDeliveryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePickupDelivery";
 		public const string UpdatePickupAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePickupAddress";
+
+		//Dependent
+		public const string GetAllDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsList";
 	}
 }

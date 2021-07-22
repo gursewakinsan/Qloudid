@@ -142,6 +142,7 @@
 							Grid.Row="0"
 							Padding="15"
 							BackgroundColor="#E6F7FE"
+							Command="{Binding MyNetWorkCommand}"
 							CornerRadius="30"
 							HeightRequest="60"
 							HorizontalOptions="CenterAndExpand"

@@ -283,6 +283,19 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region My Net Work Command.
+		private ICommand myNetWorkCommand;
+		public ICommand MyNetWorkCommand
+		{
+			get => myNetWorkCommand ?? (myNetWorkCommand = new Command(async () => await ExecuteMyNetWorkCommand()));
+		}
+		private async Task ExecuteMyNetWorkCommand()
+		{
+			await Navigation.PushAsync(new Views.Dependent.DependentListPage());
+		}
+		#endregion
+
+		#region Bind Dash board Item List.
 		void BindDashboardItemList()
 		{
 			if (DashboardItemList == null)
@@ -303,6 +316,7 @@ namespace Qloudid.ViewModels
 				DashboardItemList = dashboardItems;
 			}
 		}
+		#endregion
 
 		#region Properties.
 		private Models.User userInfo;
@@ -402,6 +416,7 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 	}
+	
 }
 public class DashboardItem
 {
