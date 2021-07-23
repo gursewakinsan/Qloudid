@@ -68,7 +68,7 @@ namespace Qloudid.ViewModels
 					await Helper.Alert.DisplayAlert("Dependent passport number is already exist.");
 				else
 				{
-					int addDependentResponse = await service.AddDependentAsync(request);
+					Helper.Helper.DependentId = await service.AddDependentAsync(request);
 					await Navigation.PushAsync(new Views.Dependent.UploadDependentPassportPhotoPage());
 				}
 				DependencyService.Get<IProgressBar>().Hide();
