@@ -62,7 +62,6 @@ namespace Qloudid.ViewModels
 					}
 				}
 			}
-
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });
 			if (response == 1)
 			{

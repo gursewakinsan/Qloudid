@@ -49,6 +49,8 @@ namespace Qloudid
 						MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
 					else if (signInText.Equals("checkin"))
 						VerifyCheckinDetail();
+					else if (signInText.Equals("checkin_dependent"))
+						VerifyUserBookingExists();
 					else
 						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
@@ -157,6 +159,10 @@ namespace Qloudid
 							Helper.Helper.HotelCheckinId = uri.Segments[3].Replace("/", "");
 							VerifyCheckinDetail();
 						}
+						else if (signInText.Equals("checkin_dependent"))
+						{
+							VerifyUserBookingExists();
+						}
 						else
 							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
@@ -164,6 +170,26 @@ namespace Qloudid
 						MainPage = new NavigationPage(new Views.RestorePage());
 				}
 			}
+		}
+
+		async void VerifyUserBookingExists()
+		{
+			Models.CheckInDependentRequest request = new Models.CheckInDependentRequest()
+			{
+				Ip = Helper.Helper.IpFromURL,
+				Id = Helper.Helper.VerifyUserConsentClientId,
+				ClientId = Helper.Helper.ClientIdForHotel,
+				Certificate = Helper.Helper.QrCertificateKey
+			};
+			IDependentService dependentService = new DependentService();
+			int dependentResponse = await dependentService.VerifyUserBookingExistsAsync(request);
+			if (dependentResponse == 0)
+				MainPage = new NavigationPage(new Views.Dependent.WrongCheckInDependentPage());
+			else if (dependentResponse == 1)
+				MainPage = new NavigationPage(new Views.Dependent.EmptyDependentListPage());
+			else
+				MainPage = new NavigationPage(new Views.Dependent.DependentListForCheckInPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 
 		async void VerifyCheckinDetail()

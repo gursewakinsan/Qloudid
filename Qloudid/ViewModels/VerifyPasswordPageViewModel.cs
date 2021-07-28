@@ -55,6 +55,14 @@ namespace Qloudid.ViewModels
 							url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelCheckinId}";
 						await Xamarin.Essentials.Launcher.OpenAsync(url);
 					}
+					else if (Helper.Helper.IsFromDependent)
+					{
+						Helper.Helper.IsFromDependent = false;
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						string url = string.Empty;
+						url = $"https://www.qloudid.com/user/index.php/LoginAccount/checkinDependent/{Helper.Helper.VerifyUserConsentClientId}?response_type=code&client_id={Helper.Helper.ClientIdForHotel}&state=xyz&checkin_dependent=1;";
+						await Xamarin.Essentials.Launcher.OpenAsync(url);
+					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
 				}
