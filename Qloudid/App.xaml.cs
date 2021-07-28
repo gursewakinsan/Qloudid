@@ -189,6 +189,10 @@ namespace Qloudid
 				MainPage = new NavigationPage(new Views.Dependent.EmptyDependentListPage());
 			else
 			{
+				IDashboardService service = new DashboardService();
+				int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey,
+					new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
+
 				Helper.Helper.IsFromWebDependent = true;
 				MainPage = new NavigationPage(new Views.Dependent.DependentListForCheckInPage());
 			}
