@@ -1,6 +1,8 @@
-﻿namespace Qloudid.Models
+﻿using System.ComponentModel;
+
+namespace Qloudid.Models
 {
-	public class DependentResponse
+	public class DependentResponse : INotifyPropertyChanged
 	{
 		[Newtonsoft.Json.JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
@@ -37,6 +39,28 @@
 			else if(DependentType == 3)
 				type = "Disabled";
 			return type;
+		}
+
+		private bool isChecked;
+		public bool IsChecked
+		{
+			get { return isChecked; }
+			set
+			{
+				if (isChecked != value)
+				{
+					isChecked = value;
+					OnPropertyChanged("IsChecked");
+					OnPropertyChanged("CheckUnCheckColor");
+				}
+			}
+		}
+		public double CheckUnCheckColor => IsChecked ? 0.8 : 0.1;
+
+		public event PropertyChangedEventHandler PropertyChanged;
+		public virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = "")
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 		}
 	}
 }

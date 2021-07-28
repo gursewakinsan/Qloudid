@@ -141,5 +141,10 @@ namespace Qloudid.Views
 			else if (id == 1)
 				viewModel.ManageCardCommand.Execute(null);
 		}
+
+		private async void ImageButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new Dependent.DependentListForCheckInPage());
+		}
 	}
 }
