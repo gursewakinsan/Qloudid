@@ -57,7 +57,20 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteSubmitSelectedDependentCommand()
 		{
 			if (SelectedDependents?.Count > 0)
-			{ 
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IDependentService service = new DependentService();
+				int response = await service.UpdateDependentCheckinIdsAsync(new Models.UpdateDependentCheckinIdsRequest()
+				{
+					Certificate = Helper.Helper.QrCertificateKey,
+					SelectedDependentIds = string.Join(",", SelectedDependents)
+				});
+				if (response == 1)
+				{
+					Helper.Helper.IsFromDependent = true;
+					Application.Current.MainPage = new NavigationPage(new Views.VerifyPasswordPage());
+				}
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else
 				await Helper.Alert.DisplayAlert("Please select dependent for submit.");

@@ -34,6 +34,35 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			string[] ip = qrCode.Split('/');
+
+			if (ip.Length == 5)
+			{
+				if (ip[2].Equals("checkin_dependent"))
+				{
+					Models.CheckInDependentRequest request = new Models.CheckInDependentRequest()
+					{
+						Ip = ip[0],
+						Id = ip[1],
+						ClientId = ip[4],
+						Certificate = Helper.Helper.QrCertificateKey
+					};
+					IDependentService dependentService = new DependentService();
+					int dependentResponse = await dependentService.VerifyUserBookingExistsAsync(request);
+					if (dependentResponse == 0)
+					{
+						await Navigation.PushAsync(new Views.Dependent.WrongCheckInDependentPage());
+						DependencyService.Get<IProgressBar>().Hide();
+						return;
+					}
+					else if (dependentResponse == 1)
+					{
+						await Navigation.PushAsync(new Views.Dependent.EmptyDependentListPage());
+						DependencyService.Get<IProgressBar>().Hide();
+						return;
+					}
+				}
+			}
+
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });
 			if (response == 1)
 			{
@@ -80,6 +109,8 @@ namespace Qloudid.ViewModels
 					}
 					else if (textHotel.Equals("login"))
 						await Navigation.PushAsync(new Views.VerifyPasswordPage());
+					else if (textHotel.Equals("checkin_dependent"))
+						await Navigation.PushAsync(new Views.Dependent.DependentListForCheckInPage());
 					else
 						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}

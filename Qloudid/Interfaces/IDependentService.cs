@@ -9,5 +9,7 @@ namespace Qloudid.Interfaces
 		Task<int> CheckSsnAsync(Models.AddDependentRequest request);
 		Task<int> AddDependentAsync(Models.AddDependentRequest request);
 		Task<int> AddDependentImagesAsync(Models.AddDependentImagesRequest request);
+		Task<int> VerifyUserBookingExistsAsync(Models.CheckInDependentRequest request);
+		Task<int> UpdateDependentCheckinIdsAsync(Models.UpdateDependentCheckinIdsRequest request);
 	}
 }

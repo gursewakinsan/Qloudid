@@ -78,6 +78,7 @@ namespace Qloudid.Helper
 		public static bool IsPickupAddress { get; set; } = false;
 		public static Models.PickupAddressDetailResponse SelectedPickupAddress { get; set; }
 		public static int DependentId { get; set; }
+		public static bool IsFromDependent { get; set; } = false;
 
 		public static string[] ColorList =
 		{

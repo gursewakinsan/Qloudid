@@ -76,5 +76,7 @@
 		public const string CheckSsnUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkSsn";
 		public const string AddDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependent";
 		public const string AddDependentImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentImages";
+		public const string VerifyUserBookingExistsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyUserBookingExists";
+		public const string UpdateDependentCheckinIdsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDependentCheckinIds";
 	}
 }

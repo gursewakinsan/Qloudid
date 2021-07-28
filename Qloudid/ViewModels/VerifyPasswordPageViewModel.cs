@@ -71,6 +71,11 @@ namespace Qloudid.ViewModels
 						Helper.Helper.IsHotelCheckInFromQrScan = false;
 						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
 					}
+					else if (Helper.Helper.IsFromDependent)
+					{
+						Helper.Helper.IsFromDependent = false;
+						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
+					}
 					else
 						await Navigation.PushAsync(new Views.PurchasePage());
 				}

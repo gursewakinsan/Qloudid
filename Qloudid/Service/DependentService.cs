@@ -43,5 +43,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> VerifyUserBookingExistsAsync(Models.CheckInDependentRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.VerifyUserBookingExistsUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateDependentCheckinIdsAsync(Models.UpdateDependentCheckinIdsRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateDependentCheckinIdsUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
