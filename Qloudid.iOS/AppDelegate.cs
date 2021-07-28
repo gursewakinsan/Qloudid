@@ -30,7 +30,7 @@ namespace Qloudid.iOS
 				int count = url.PathComponents.Count();
 				if (count == 3)
 					App.OpenAppFromWeb(url.PathComponents[2]);
-				else if (count == 4 || count==5)
+				else if (count == 4 || count == 5)
 				{
 					Helper.Helper.PurchaseIndex = Convert.ToInt32(url.PathComponents[3]);
 					string text = url.PathComponents[2];
@@ -42,6 +42,9 @@ namespace Qloudid.iOS
 						Helper.Helper.HotelBookingId = url.PathComponents[1];
 					else if (text.Equals("checkin"))
 						Helper.Helper.HotelCheckinId = url.PathComponents[1];
+					else if (text.Equals("checkin_dependent"))
+						Helper.Helper.ClientIdForHotel = url.PathComponents[4];
+
 					App.OpenAppFromWeb(url.PathComponents[2]);
 				}
 			}
