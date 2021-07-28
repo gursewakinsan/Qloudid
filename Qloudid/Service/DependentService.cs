@@ -61,5 +61,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.DependentResponse>> DependentsListForCheckInAsync(Models.DependentsListForCheckInRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.DependentResponse>>(HttpWebRequest.Create(EndPointsList.DependentsListForCheckinUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

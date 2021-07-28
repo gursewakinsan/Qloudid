@@ -55,13 +55,18 @@ namespace Qloudid.ViewModels
 							url = $"https://www.qloudid.com/user/index.php/LoginAccount/verifyCheckin/{Helper.Helper.HotelCheckinId}";
 						await Xamarin.Essentials.Launcher.OpenAsync(url);
 					}
-					else if (Helper.Helper.IsFromDependent)
+					else if (Helper.Helper.IsFromWebDependent)
 					{
-						Helper.Helper.IsFromDependent = false;
+						Helper.Helper.IsFromWebDependent = false;
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 						string url = string.Empty;
 						url = $"https://www.qloudid.com/user/index.php/LoginAccount/checkinDependent/{Helper.Helper.VerifyUserConsentClientId}?response_type=code&client_id={Helper.Helper.ClientIdForHotel}&state=xyz&checkin_dependent=1";
 						await Xamarin.Essentials.Launcher.OpenAsync(url);
+					}
+					else if (Helper.Helper.IsFromScanQrDependent)
+					{
+						Helper.Helper.IsFromScanQrDependent = false;
+						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
 					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
@@ -79,11 +84,7 @@ namespace Qloudid.ViewModels
 						Helper.Helper.IsHotelCheckInFromQrScan = false;
 						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
 					}
-					else if (Helper.Helper.IsFromDependent)
-					{
-						Helper.Helper.IsFromDependent = false;
-						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
-					}
+					
 					else
 						await Navigation.PushAsync(new Views.PurchasePage());
 				}

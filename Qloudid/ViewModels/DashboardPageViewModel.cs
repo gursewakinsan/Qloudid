@@ -109,7 +109,10 @@ namespace Qloudid.ViewModels
 					else if (textHotel.Equals("login"))
 						await Navigation.PushAsync(new Views.VerifyPasswordPage());
 					else if (textHotel.Equals("checkin_dependent"))
+					{
+						Helper.Helper.IsFromScanQrDependent = true;
 						await Navigation.PushAsync(new Views.Dependent.DependentListForCheckInPage());
+					}
 					else
 						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}

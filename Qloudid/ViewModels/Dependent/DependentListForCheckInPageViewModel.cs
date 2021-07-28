@@ -26,15 +26,16 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDependentService service = new DependentService();
-			DependentList = await service.GetAllDependentAsync(new Models.DependentRequest()
+			DependentList = await service.DependentsListForCheckInAsync(new Models.DependentsListForCheckInRequest()
 			{
-				UserId = Helper.Helper.UserId
+				UserId = Helper.Helper.UserId,
+				Id = Helper.Helper.VerifyUserConsentClientId
 			});
 			if (DependentList?.Count == 0)
 				await Navigation.PushAsync(new Views.Dependent.EmptyDependentListPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
-		#endregion
+		#endregion 
 
 		#region Back Command.
 		private ICommand backCommand;
@@ -66,10 +67,7 @@ namespace Qloudid.ViewModels
 					SelectedDependentIds = string.Join(",", SelectedDependents)
 				});
 				if (response == 1)
-				{
-					Helper.Helper.IsFromDependent = true;
 					Application.Current.MainPage = new NavigationPage(new Views.VerifyPasswordPage());
-				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

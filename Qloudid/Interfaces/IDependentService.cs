@@ -11,5 +11,6 @@ namespace Qloudid.Interfaces
 		Task<int> AddDependentImagesAsync(Models.AddDependentImagesRequest request);
 		Task<int> VerifyUserBookingExistsAsync(Models.CheckInDependentRequest request);
 		Task<int> UpdateDependentCheckinIdsAsync(Models.UpdateDependentCheckinIdsRequest request);
+		Task<List<Models.DependentResponse>> DependentsListForCheckInAsync(Models.DependentsListForCheckInRequest request);
 	}
 }

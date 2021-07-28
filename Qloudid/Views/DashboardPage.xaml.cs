@@ -1,12 +1,12 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using System.Reflection;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
-using System.Reflection;
-using System.IO;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 using ZXing.Net.Mobile.Forms;
+using System.Collections.Generic;
 
 namespace Qloudid.Views
 {
@@ -140,11 +140,6 @@ namespace Qloudid.Views
 				viewModel.ConsentCommand.Execute(null);
 			else if (id == 1)
 				viewModel.ManageCardCommand.Execute(null);
-		}
-
-		private async void ImageButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new Dependent.DependentListForCheckInPage());
 		}
 	}
 }

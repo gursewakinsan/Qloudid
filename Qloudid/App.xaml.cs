@@ -188,7 +188,10 @@ namespace Qloudid
 			else if (dependentResponse == 1)
 				MainPage = new NavigationPage(new Views.Dependent.EmptyDependentListPage());
 			else
+			{
+				Helper.Helper.IsFromWebDependent = true;
 				MainPage = new NavigationPage(new Views.Dependent.DependentListForCheckInPage());
+			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 
