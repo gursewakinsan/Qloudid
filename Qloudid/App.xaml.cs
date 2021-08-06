@@ -84,6 +84,7 @@ namespace Qloudid
 				if (uri.Segments != null && uri.Segments.Length == 2)
 				{
 					//App to App Login 
+					Helper.Helper.AppToAppName = "NoffaPlusApp";
 					if (Application.Current.Properties.ContainsKey("QrCode"))
 						MainPage = new NavigationPage(new Views.SignInOtherAppPage());
 					else
@@ -98,15 +99,27 @@ namespace Qloudid
 						case "ip":
 							if (!string.IsNullOrEmpty(msg))
 							{
-								if (Application.Current.Properties.ContainsKey("QrCode"))
+								if (msg.Equals("DstrictsApp"))
 								{
-									Helper.Helper.IpFromURL = msg.Replace("&", " ");
-									MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+									//App to App Login 
+									Helper.Helper.AppToAppName = "DstrictsApp";
+									if (Application.Current.Properties.ContainsKey("QrCode"))
+										MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+									else
+										MainPage = new NavigationPage(new Views.RestorePage());
 								}
 								else
 								{
-									Helper.Helper.IsFirstTime = false;
-									MainPage = new NavigationPage(new Views.RestorePage());
+									if (Application.Current.Properties.ContainsKey("QrCode"))
+									{
+										Helper.Helper.IpFromURL = msg.Replace("&", " ");
+										MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+									}
+									else
+									{
+										Helper.Helper.IsFirstTime = false;
+										MainPage = new NavigationPage(new Views.RestorePage());
+									}
 								}
 							}
 							break;

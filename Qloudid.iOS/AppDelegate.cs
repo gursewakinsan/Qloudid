@@ -53,6 +53,13 @@ namespace Qloudid.iOS
 				if (url.Host.Equals("NoffaPlusApp"))
 				{
 					//App to App Login
+					Helper.Helper.AppToAppName = "NoffaPlusApp";
+					App.AppToAppLogin();
+				}
+				else if(url.Host.Equals("DstrictsApp"))
+				{
+					//App to App Login
+					Helper.Helper.AppToAppName = "DstrictsApp";
 					App.AppToAppLogin();
 				}
 				else

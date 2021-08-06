@@ -80,6 +80,7 @@ namespace Qloudid.Helper
 		public static int DependentId { get; set; }
 		public static bool IsFromWebDependent { get; set; } = false;
 		public static bool IsFromScanQrDependent { get; set; } = false;
+		public static string AppToAppName { get; set; }
 
 		public static string[] ColorList =
 		{

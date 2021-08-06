@@ -83,9 +83,9 @@ namespace Qloudid.ViewModels
 					}
 					else
 					{
-						var supportsUri = await Launcher.CanOpenAsync("https://NoffaPlusApp.com/session/");
+						var supportsUri = await Launcher.CanOpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/");
 						if (supportsUri)
-							await Launcher.OpenAsync("https://NoffaPlusApp.com/session/" + response.Session);
+							await Launcher.OpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/" + response.Session);
 					}
 				}
 				DependencyService.Get<IProgressBar>().Hide();
