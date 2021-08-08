@@ -233,4 +233,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconCurveBottomGrayBig.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconLogoColorGradient.png" />
+  </ItemGroup>
 </Project>
