@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
+using Qloudid.Service;
 using Newtonsoft.Json;
 using System.Reflection;
-using System.Collections.Generic;
 using Qloudid.Interfaces;
-using Qloudid.Service;
+using System.Collections.Generic;
 
 namespace Qloudid
 {
@@ -51,6 +51,22 @@ namespace Qloudid
 						VerifyCheckinDetail();
 					else if (signInText.Equals("checkin_dependent"))
 						VerifyUserBookingExists();
+					else if (signInText.Equals("payForDishes"))
+					{
+						Helper.Helper.IsScanQrPayForDishe = false;
+						int payForDishesCount = Helper.Helper.PurchaseIndex;
+						if (payForDishesCount == 0)
+						{
+							//Means cash payment for Dishes.
+							Helper.Helper.IsCashPayForDishe = true;
+							MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
+						}
+						else if (payForDishesCount == 1)
+						{
+							//Means payment from card for Dishes.
+							Helper.Helper.IsCashPayForDishe = false;
+						}
+					}
 					else
 						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
@@ -175,6 +191,22 @@ namespace Qloudid
 						else if (signInText.Equals("checkin_dependent"))
 						{
 							VerifyUserBookingExists();
+						}
+						else if (signInText.Equals("payForDishes"))
+						{
+							Helper.Helper.IsScanQrPayForDishe = false;
+							int payForDishesCount = Convert.ToInt32(uri.Segments[5].Replace("/", ""));
+							if (payForDishesCount == 0)
+							{
+								//Means cash payment for Dishes.
+								Helper.Helper.IsCashPayForDishe = true;
+								MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
+							}
+							else if (payForDishesCount == 1)
+							{
+								//Means payment from card for Dishes.
+								Helper.Helper.IsCashPayForDishe = false;
+							}
 						}
 						else
 							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));

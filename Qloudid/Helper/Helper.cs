@@ -81,6 +81,9 @@ namespace Qloudid.Helper
 		public static bool IsFromWebDependent { get; set; } = false;
 		public static bool IsFromScanQrDependent { get; set; } = false;
 		public static string AppToAppName { get; set; }
+		public static bool IsCashPayForDishe { get; set; } = false;
+		public static bool IsScanQrPayForDishe { get; set; } = false;
+		
 
 		public static string[] ColorList =
 		{

@@ -113,6 +113,22 @@ namespace Qloudid.ViewModels
 						Helper.Helper.IsFromScanQrDependent = true;
 						await Navigation.PushAsync(new Views.Dependent.DependentListForCheckInPage());
 					}
+					else if (textHotel.Equals("payForDishes"))
+					{
+						Helper.Helper.IsScanQrPayForDishe = true;
+						int payForDishesCount = Helper.Helper.PurchaseIndex;
+						if (payForDishesCount == 0)
+						{
+							//Means cash payment for Dishes.
+							Helper.Helper.IsCashPayForDishe = true;
+							await Navigation.PushAsync(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
+						}
+						else if (payForDishesCount == 1)
+						{
+							//Means payment from card for Dishes.
+							Helper.Helper.IsCashPayForDishe = false;
+						}
+					}
 					else
 						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}

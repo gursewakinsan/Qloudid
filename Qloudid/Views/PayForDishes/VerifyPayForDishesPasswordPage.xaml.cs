@@ -6,39 +6,32 @@ using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 using System.Collections.Generic;
 
-namespace Qloudid.Views
+namespace Qloudid.Views.PayForDishes
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SignInFromWebPage : ContentPage
+	public partial class VerifyPayForDishesPasswordPage : ContentPage
 	{
-		SignInFromWebPageViewModel viewModel;
-		bool isFromThirdPartyUrl = false;
-		public SignInFromWebPage(bool _isFromThirdPartyUrl)
+		VerifyPayForDishesPasswordPageViewModel viewModel;
+		public VerifyPayForDishesPasswordPage()
 		{
-			isFromThirdPartyUrl = _isFromThirdPartyUrl;
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
-			BindingContext = viewModel = new SignInFromWebPageViewModel(this.Navigation);
+			BindingContext = viewModel = new VerifyPayForDishesPasswordPageViewModel(this.Navigation);
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			if (!isFromThirdPartyUrl)
-			{
-				viewModel.LoginFromUrlIpCommand.Execute(null);
-				GetCountries();
-			}
-			else
-				viewModel.LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
+			viewModel.LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
+			GetCountries();
 		}
 
 		public void GetCountries()
 		{
-			if (Helper.Helper.CountryList ==null)
+			if (Helper.Helper.CountryList == null)
 			{
 				string jsonFileName = "CountryJson.json";
-				var assembly = typeof(SignInFromWebPage).GetTypeInfo().Assembly;
+				var assembly = typeof(VerifyPayForDishesPasswordPage).GetTypeInfo().Assembly;
 				Stream stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{jsonFileName}");
 				using (var reader = new StreamReader(stream))
 					Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
