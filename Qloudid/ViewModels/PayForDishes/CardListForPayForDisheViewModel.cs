@@ -65,9 +65,9 @@ namespace Qloudid.ViewModels
 				{
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Helper.Helper.IsCashPayForDishe)
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=b05kZklLZmpVaWV0LzBFOWxJRkxQdz09&state=xyz&payForDishes=0");
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=MjI5MktKdzBMdmNPMjZNRnhYRkJRdz09&state=xyz&payForDishes=0");
 					else
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=b05kZklLZmpVaWV0LzBFOWxJRkxQdz09&state=xyz&payForDishes=1");
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=MjI5MktKdzBMdmNPMjZNRnhYRkJRdz09&state=xyz&payForDishes=1");
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
