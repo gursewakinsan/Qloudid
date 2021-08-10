@@ -40,6 +40,40 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Submit Card Details Command.
+		private ICommand submitCardDetailsCommand;
+		public ICommand SubmitCardDetailsCommand
+		{
+			get => submitCardDetailsCommand ?? (submitCardDetailsCommand = new Command<int>(async (cardId) => await ExecuteSubmitCardDetailsCommand(cardId)));
+		}
+		private async Task ExecuteSubmitCardDetailsCommand(int cardId)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			ICreateAccountService service = new CreateAccountService();
+			int response = await service.UpdateCardPurchaseDetailAsync(new Models.UpdateCardPurchaseDetail()
+			{
+				card_id = cardId,
+				certificate_key = Helper.Helper.QrCertificateKey
+			});
+			if (response == 0)
+				await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
+			else if (response == 1)
+			{
+				if (Helper.Helper.IsScanQrPayForDishe)
+					Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.SuccessfulPayForDishePage());
+				else
+				{
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					if (Helper.Helper.IsCashPayForDishe)
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=b05kZklLZmpVaWV0LzBFOWxJRkxQdz09&state=xyz&payForDishes=0");
+					else
+						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=b05kZklLZmpVaWV0LzBFOWxJRkxQdz09&state=xyz&payForDishes=1");
+				}
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.CardDetailResponse> cardList;
 		public List<Models.CardDetailResponse> CardList

@@ -25,6 +25,7 @@ namespace Qloudid.Views.PayForDishes
 		{
 			Models.CardDetailResponse card = e.Item as Models.CardDetailResponse;
 			listPurchaseCard.SelectedItem = null;
+			viewModel.SubmitCardDetailsCommand.Execute(card.id);
 		}
 	}
 }
