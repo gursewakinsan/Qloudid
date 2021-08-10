@@ -116,7 +116,7 @@ namespace Qloudid.ViewModels
 					else if (textHotel.Equals("payForDishes"))
 					{
 						Helper.Helper.IsScanQrPayForDishe = true;
-						int payForDishesCount = Helper.Helper.PurchaseIndex;
+						int payForDishesCount = System.Convert.ToInt32(ip[3]);
 						if (payForDishesCount == 0)
 						{
 							//Means cash payment for Dishes.
@@ -127,6 +127,7 @@ namespace Qloudid.ViewModels
 						{
 							//Means payment from card for Dishes.
 							Helper.Helper.IsCashPayForDishe = false;
+							await Navigation.PushAsync(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
 						}
 					}
 					else

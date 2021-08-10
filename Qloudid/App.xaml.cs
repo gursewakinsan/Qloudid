@@ -65,6 +65,7 @@ namespace Qloudid
 						{
 							//Means payment from card for Dishes.
 							Helper.Helper.IsCashPayForDishe = false;
+							MainPage = new NavigationPage(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
 						}
 					}
 					else
@@ -206,6 +207,7 @@ namespace Qloudid
 							{
 								//Means payment from card for Dishes.
 								Helper.Helper.IsCashPayForDishe = false;
+								MainPage = new NavigationPage(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
 							}
 						}
 						else
