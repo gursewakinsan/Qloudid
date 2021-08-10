@@ -63,11 +63,13 @@ namespace Qloudid.ViewModels
 					Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
 				else
 				{
-					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Helper.Helper.IsCashPayForDishe)
+					{
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=MjI5MktKdzBMdmNPMjZNRnhYRkJRdz09&state=xyz&payForDishes=0");
+					}
 					else
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=MjI5MktKdzBMdmNPMjZNRnhYRkJRdz09&state=xyz&payForDishes=1");
+						Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
 				}
 			}
 			DependencyService.Get<IProgressBar>().Hide();
