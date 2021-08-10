@@ -60,7 +60,7 @@ namespace Qloudid.ViewModels
 			else if (response == 1)
 			{
 				if (Helper.Helper.IsScanQrPayForDishe)
-					Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.SuccessfulPayForDishePage());
+					Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
 				else
 				{
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
