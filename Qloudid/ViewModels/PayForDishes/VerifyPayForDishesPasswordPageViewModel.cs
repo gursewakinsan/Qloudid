@@ -4,7 +4,6 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -45,13 +44,11 @@ namespace Qloudid.ViewModels
 				if (response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
-					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Helper.Helper.IsScanQrPayForDishe)
-					{
-						//GO To DashboardPage
-					}
+						Application.Current.MainPage = new NavigationPage(new Views.PayForDishes.SuccessfulPayForDishePage());
 					else
 					{
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 						if (Helper.Helper.IsCashPayForDishe)
 							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/payForDishes/RVRFQlRRRUFXZWtBamk3LysxRVJiQT09?response_type=code&client_id=b05kZklLZmpVaWV0LzBFOWxJRkxQdz09&state=xyz&payForDishes=0");
 						else
@@ -66,6 +63,7 @@ namespace Qloudid.ViewModels
 				else if (response == 3)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
 				else
 				{
