@@ -29,13 +29,20 @@ namespace Qloudid.Droid
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
-			base.OnCreate(savedInstanceState);
-			global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
-			global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
-			Forms.SetFlags("Brush_Experimental");
+			//global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+			//global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
+			//global::Xamarin.Forms.Forms.SetFlags("Brush_Experimental");
+			Xamarin.Forms.Forms.SetFlags(new string[]
+			{
+				"CarouselView_Experimental",
+				"IndicatorView_Experimental",
+				"Brush_Experimental"
+			});
+
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
+			base.OnCreate(savedInstanceState);
 			LoadApplication(new App(null));
 		}
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -11,9 +11,15 @@ namespace Qloudid.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+			/*global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
 			global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
-			Forms.SetFlags("Brush_Experimental");
+			Forms.SetFlags("Brush_Experimental");*/
+			Xamarin.Forms.Forms.SetFlags(new string[]
+			{
+				"CarouselView_Experimental",
+				"IndicatorView_Experimental",
+				"Brush_Experimental"
+			});
 			global::Xamarin.Forms.Forms.Init();
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			LoadApplication(new App(null));
