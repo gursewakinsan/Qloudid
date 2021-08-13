@@ -10,5 +10,6 @@ namespace Qloudid.Interfaces
 		Task<Models.VerifyUserConsentResponse> VerifyUserConsentAsync(Models.VerifyUserConsentRequest request);
 		Task<string> ClearLoginAsync(string qrCode);
 		Task<Models.PurchaseDetailResponse> GetPurchaseDetailAsync(Models.PurchaseDetailRequest request);
+		Task<Models.UserDetailResponse> GetUserDetailAsync(Models.UserDetailRequest request);
 	}
 }

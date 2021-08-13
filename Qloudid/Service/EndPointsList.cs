@@ -50,6 +50,7 @@
 		public const string GetPurchaseDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getPurchaseDetail";
 		public const string ListDeliveryAddressesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listDeliveryAddresses";
 		public const string CertificateExpiryInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/certificateExxpiryInfo";
+		public const string UserDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userDetails";
 
 		//Employer
 		public const string EmployerRequestCountUrl = "https://www.qloudid.com/user/index.php/QloudidApp/employerRequestCount";

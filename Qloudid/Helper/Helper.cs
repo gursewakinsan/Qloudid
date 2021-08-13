@@ -43,7 +43,7 @@ namespace Qloudid.Helper
 		public static bool IsBack { get; set; } = true;
 		public static string IpFromURL { get; set; }
 		public static int UserId { get; set; }
-		public static int CountryCode { get; set; }
+        public static int CountryCode { get; set; }
 		public static List<Models.Country> CountryList { get; set; }
 		public static string SelectedIdentificatorText { get; set; }
 		public static bool IsCameraPageImageClicked { get; set; } = false;

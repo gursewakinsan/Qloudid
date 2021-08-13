@@ -28,7 +28,7 @@ namespace Qloudid.ViewModels
 			IPurchaseService service = new PurchaseService();
 			List<Models.CardDetailResponse> response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
 			{
-				user_id = Helper.Helper.UserInfo.user_id,
+				user_id = Helper.Helper.UserId,
 				company_id = Helper.Helper.CompanyId,
 				certificate_key = Helper.Helper.QrCertificateKey
 			});

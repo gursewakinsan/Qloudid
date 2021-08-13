@@ -14,6 +14,8 @@ namespace Qloudid.ViewModels
 		public SelectUserProfileForPayForDisheViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			if (Helper.Helper.UserInfo == null)
+				Helper.Helper.UserInfo = new Models.User();
 		}
 		#endregion
 
@@ -27,14 +29,52 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IPurchaseService service = new PurchaseService();
+
+			if (Helper.Helper.UserInfo == null)
+			{
+				Helper.Helper.UserInfo = new Models.User();
+				ILoginService loginService = new LoginService();
+
+				if (string.IsNullOrWhiteSpace(Helper.Helper.QrCertificateKey))
+				{
+					if (Application.Current.Properties.ContainsKey("QrCode"))
+						Helper.Helper.QrCertificateKey = $"{Application.Current.Properties["QrCode"]}";
+					else
+						Helper.Helper.QrCertificateKey = string.Empty;
+				}
+
+				Models.UserDetailResponse userDetail = await loginService.GetUserDetailAsync(new Models.UserDetailRequest()
+				{
+					Certificate = Helper.Helper.QrCertificateKey
+				});
+				if (userDetail != null)
+				{
+					Models.User user = new Models.User()
+					{
+						first_name = userDetail.first_name,
+						last_name = userDetail.last_name,
+						email = userDetail.email,
+						user_id = userDetail.user_id,
+						UserImage = userDetail.UserImage,
+						certificate_key = userDetail.certificate_key
+					};
+
+					Helper.Helper.UserId = userDetail.user_id;
+					Helper.Helper.UserEmail = userDetail.email;
+					Helper.Helper.UserInfo = user;
+				}
+			} 
+
+
 			List<Models.Company> response = await service.GetCompanyAsync(new Models.Profile() { user_id = Helper.Helper.UserId });
+
 			var listPersonal = new Models.CompanyInfo()
 			{
 				new Models.Company
 				{
-					id = 0, 
-					company_name = Helper.Helper.UserInfo.DisplayUserName,
-					company_email=Helper.Helper.UserInfo.email
+					id = 0,
+					company_name =$"{Helper.Helper.UserInfo.first_name} {Helper.Helper.UserInfo.last_name}",
+					company_email= Helper.Helper.UserInfo.email,
 				},
 			};
 			listPersonal.Heading = "Personal";

@@ -171,8 +171,9 @@ namespace Qloudid.ViewModels
 					Helper.Helper.CountryCode = response.country_code;
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
+					Helper.Helper.UserEmail = response.email;
 					UserInfo = user;
-					EmployerRequestCountCommand.Execute(null);
+					//EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
 
@@ -240,12 +241,16 @@ namespace Qloudid.ViewModels
 						UserInfo.UserImage = UserImage;
 						Helper.Helper.UserInfo.UserImage = response.image;
 					}
+					Helper.Helper.UserId = response.id;
+					Helper.Helper.UserEmail = response.email;
 					Helper.Helper.CountryCode = response.country_code;
 					UserInfo.first_name = response.first_name;
 					UserInfo.last_name = response.last_name;
+					UserInfo.user_id = response.id;
+					UserInfo.email = response.email;
 					Helper.Helper.UserInfo = UserInfo;
 					DisplayUserName = $"{response.first_name} {response.last_name}";
-					EmployerRequestCountCommand.Execute(null);
+					//EmployerRequestCountCommand.Execute(null);
 
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
 					if (response.identificator == 1 || response.identificator == 2)
