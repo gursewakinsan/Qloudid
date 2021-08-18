@@ -109,7 +109,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteContinueCommand()
 		{
-			Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(true));
+			Application.Current.MainPage = new NavigationPage(new Views.Hotel.VerifyHotelPasswordPage());
 			await Task.CompletedTask;
 		}
 		#endregion
