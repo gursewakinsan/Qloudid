@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
@@ -29,6 +30,25 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IPurchaseService service = new PurchaseService();
+
+			if (Helper.Helper.UserInfo == null)
+			{
+				Models.User user = new Models.User();
+				user.first_name = $"{Application.Current.Properties["FirstName"]}";
+				user.last_name = $"{Application.Current.Properties["LastName"]}";
+				user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+				user.email = $"{Application.Current.Properties["Email"]}";
+
+				if (string.IsNullOrWhiteSpace(user.first_name))
+					user.first_name = "first_name";
+				if(string.IsNullOrWhiteSpace(user.last_name))
+					user.last_name = "last_name-";
+
+				Helper.Helper.UserInfo = user;
+
+				Helper.Helper.UserId = user.user_id;
+				Helper.Helper.UserEmail = user.email;
+			}
 
 			if (Helper.Helper.UserInfo == null)
 			{

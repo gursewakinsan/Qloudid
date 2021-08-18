@@ -249,14 +249,14 @@ namespace Qloudid.ViewModels
 					UserInfo.user_id = response.id;
 					UserInfo.email = response.email;
 					Helper.Helper.UserInfo = UserInfo;
-					DisplayUserName = $"{response.first_name} {response.last_name}";
+					//DisplayUserName = $"{response.first_name} {response.last_name}";
 					//EmployerRequestCountCommand.Execute(null);
 
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
-					if (response.identificator == 1 || response.identificator == 2)
+					/*if (response.identificator == 1 || response.identificator == 2)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
 					else if (response.identificator == 0 || response.identificator == -1)
-						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());*/
 				}
 			}
 		}

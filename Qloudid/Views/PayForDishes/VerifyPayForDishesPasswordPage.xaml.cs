@@ -22,7 +22,7 @@ namespace Qloudid.Views.PayForDishes
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
+			//viewModel.LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
 			GetCountries();
 		}
 

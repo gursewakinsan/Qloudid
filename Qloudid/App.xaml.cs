@@ -46,28 +46,13 @@ namespace Qloudid
 				{
 					Helper.Helper.IsThirdPartyWebLogin = true;
 					if (signInText.Equals("hotel"))
-						MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+						VerifyHotel();
 					else if (signInText.Equals("checkin"))
 						VerifyCheckinDetail();
 					else if (signInText.Equals("checkin_dependent"))
 						VerifyUserBookingExists();
 					else if (signInText.Equals("payForDishes"))
-					{
-						Helper.Helper.IsScanQrPayForDishe = false;
-						int payForDishesCount = Helper.Helper.PurchaseIndex;
-						if (payForDishesCount == 0)
-						{
-							//Means cash payment for Dishes.
-							Helper.Helper.IsCashPayForDishe = true;
-							MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
-						}
-						else if (payForDishesCount == 1)
-						{
-							//Means payment from card for Dishes.
-							Helper.Helper.IsCashPayForDishe = false;
-							MainPage = new NavigationPage(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
-						}
-					}
+						VerifyPayForDishes();
 					else
 						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
@@ -182,7 +167,7 @@ namespace Qloudid
 						if (signInText.Equals("hotel"))
 						{
 							Helper.Helper.HotelBookingId = uri.Segments[3].Replace("/", "");
-							MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+							VerifyHotel();
 						}
 						else if (signInText.Equals("checkin"))
 						{
@@ -195,20 +180,8 @@ namespace Qloudid
 						}
 						else if (signInText.Equals("payForDishes"))
 						{
-							Helper.Helper.IsScanQrPayForDishe = false;
-							int payForDishesCount = Convert.ToInt32(uri.Segments[5].Replace("/", ""));
-							if (payForDishesCount == 0)
-							{
-								//Means cash payment for Dishes.
-								Helper.Helper.IsCashPayForDishe = true;
-								MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
-							}
-							else if (payForDishesCount == 1)
-							{
-								//Means payment from card for Dishes.
-								Helper.Helper.IsCashPayForDishe = false;
-								MainPage = new NavigationPage(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
-							}
+							Helper.Helper.PurchaseIndex = Convert.ToInt32(uri.Segments[5].Replace("/", ""));
+							VerifyPayForDishes();
 						}
 						else
 							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
@@ -273,6 +246,37 @@ namespace Qloudid
 			}
 			else
 				MainPage = new NavigationPage(new Views.Hotel.HotelCheckInErrorPage());
+		}
+
+		async void VerifyPayForDishes()
+		{
+			IDashboardService service = new DashboardService();
+			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey,
+				new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
+
+			Helper.Helper.IsScanQrPayForDishe = false;
+			int payForDishesCount = Helper.Helper.PurchaseIndex;
+			if (payForDishesCount == 0)
+			{
+				//Means cash payment for Dishes.
+				Helper.Helper.IsCashPayForDishe = true;
+				MainPage = new NavigationPage(new Views.PayForDishes.VerifyPayForDishesPasswordPage());
+			}
+			else if (payForDishesCount == 1)
+			{
+				//Means payment from card for Dishes.
+				Helper.Helper.IsCashPayForDishe = false;
+				MainPage = new NavigationPage(new Views.PayForDishes.SelectUserProfileForPayForDishePage());
+			}
+		}
+
+		async void VerifyHotel()
+		{
+			IDashboardService service = new DashboardService();
+			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey,
+				new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
+
+			MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
 		}
 	}
 }

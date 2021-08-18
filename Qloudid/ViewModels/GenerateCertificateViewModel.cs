@@ -50,6 +50,8 @@ namespace Qloudid.ViewModels
 						result = response.result
 					};
 					Helper.Helper.QrCertificateKey = response.certificate_key;
+					Helper.Helper.UserId = user.user_id;
+					Helper.Helper.UserEmail = user.email;
 					Helper.Helper.UserInfo = user;
 					if (Application.Current.Properties.Count > 0)
 						Application.Current.Properties.Clear();
