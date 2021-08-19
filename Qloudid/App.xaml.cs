@@ -30,7 +30,6 @@ namespace Qloudid
 				else
 					MainPage = new NavigationPage(new Views.RestorePage());
 			}*/
-
 		}
 
 		public void OpenAppFromWeb(string signInText)
