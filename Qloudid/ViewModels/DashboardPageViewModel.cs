@@ -173,6 +173,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserId = user.user_id;
 					Helper.Helper.UserEmail = response.email;
 					UserInfo = user;
+					Microsoft.AppCenter.AppCenter.SetUserId(response.email);
 					//EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;

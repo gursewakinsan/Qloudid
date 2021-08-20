@@ -5,7 +5,10 @@ using Qloudid.Service;
 using Newtonsoft.Json;
 using System.Reflection;
 using Qloudid.Interfaces;
+//using Microsoft.AppCenter;
 using System.Collections.Generic;
+//using Microsoft.AppCenter.Crashes;
+//using Microsoft.AppCenter.Analytics;
 
 namespace Qloudid
 {
@@ -277,6 +280,15 @@ namespace Qloudid
 				new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
 
 			MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+		}
+
+		protected override void OnStart()
+		{
+			Microsoft.AppCenter.AppCenter.Start("ios=a1e809c9-9532-492b-afc0-21c5bcf0c42e;" +
+				  "android=144b7d0e-5ec0-4f49-b25d-207f58a6cf4b;",
+				  typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
+			Microsoft.AppCenter.Crashes.Crashes.NotifyUserConfirmation(Microsoft.AppCenter.Crashes.UserConfirmation.AlwaysSend);
+			base.OnStart();
 		}
 	}
 }
