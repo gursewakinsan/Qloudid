@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
-	public class SignInOtherAppPageViewModel : BaseViewModel
+	public class VerifyCheckedInHotelPasswordPageViewModel : BaseViewModel
 	{
 		#region Constructor.
-		public SignInOtherAppPageViewModel(INavigation navigation)
+		public VerifyCheckedInHotelPasswordPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
@@ -72,12 +72,14 @@ namespace Qloudid.ViewModels
 					await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
 				else if (response.Result == 1)
 				{
+					IHotelService hotelService = new HotelService();
+					int hotelServiceResponse = await hotelService.GetCheckedInHotelAsync(new Models.CheckedInHotelRequest()
+					{
+						CheckOutId = CheckedInHotelId
+					});
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
 					{
-						//var supportsUri = await Launcher.CanOpenAsync("NoffaPlusAppUrl://");
-						//if (supportsUri)
-
 						string openAppUrl = string.Empty;
 						if (Helper.Helper.AppToAppName.Equals("DstrictsApp"))
 							openAppUrl = $"DstrictsAppUrl://session/{response.Session}";
@@ -366,6 +368,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Password6Bg");
 			}
 		}
+
+		public int CheckedInHotelId { get; set; }
 		#endregion
 	}
 }

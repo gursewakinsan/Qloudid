@@ -24,5 +24,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> GetCheckedInHotelAsync(Models.CheckedInHotelRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.GetCheckedInHotelUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

@@ -105,14 +105,7 @@ namespace Qloudid
 							if (!string.IsNullOrEmpty(msg))
 							{
 								if (msg.Equals("DstrictsApp"))
-								{
-									//App to App Login 
-									Helper.Helper.AppToAppName = "DstrictsApp";
-									if (Application.Current.Properties.ContainsKey("QrCode"))
-										MainPage = new NavigationPage(new Views.SignInOtherAppPage());
-									else
-										MainPage = new NavigationPage(new Views.RestorePage());
-								}
+									DstrictsAppFunctionality(uri);
 								else
 								{
 									if (Application.Current.Properties.ContainsKey("QrCode"))
@@ -133,24 +126,36 @@ namespace Qloudid
 							break;
 					}
 				}
+				else if (uri.Segments != null && uri.Segments.Length == 4)
+				{
+					string signInText = uri.Segments[2].Replace("/", "");
+					if (signInText.Equals("DstrictsApp"))
+						DstrictsAppFunctionality(uri);
+				}
 				else if (uri.Segments != null && uri.Segments.Length == 5)
 				{
-					if (Application.Current.Properties.ContainsKey("QrCode"))
-					{
-						Helper.Helper.IsThirdPartyWebLogin = true;
-						string signInText = uri.Segments[4];
-						Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
-						Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
-						Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
-						Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
-
-						if (signInText.Equals("login"))
-							MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
-						else
-							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
-					}
+					string signInText = string.Empty;
+					signInText = uri.Segments[2].Replace("/", "");
+					if (signInText.Equals("DstrictsApp"))
+						DstrictsAppFunctionality(uri);
 					else
-						MainPage = new NavigationPage(new Views.RestorePage());
+					{
+						if (Application.Current.Properties.ContainsKey("QrCode"))
+						{
+							Helper.Helper.IsThirdPartyWebLogin = true;
+							Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+							Helper.Helper.UserId = Convert.ToInt32(Application.Current.Properties["UserId"]);
+							Helper.Helper.IpFromURL = uri.Segments[2].Replace("/", "");
+							Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
+							signInText = uri.Segments[4];
+							if (signInText.Equals("login"))
+								MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+							else
+								MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+						}
+						else
+							MainPage = new NavigationPage(new Views.RestorePage());
+					}
 				}
 				else if (uri.Segments != null && uri.Segments.Length == 6 || uri.Segments.Length == 7)
 				{
@@ -280,6 +285,27 @@ namespace Qloudid
 				new Models.UpdateLoginIP() { ip = Helper.Helper.IpFromURL });
 
 			MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
+		}
+
+		void DstrictsAppFunctionality(Uri uri)
+		{
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+			{
+				Helper.Helper.AppToAppName = "DstrictsApp";
+				var action = uri.Segments[3].Replace("/", "");
+				switch (action)
+				{
+					case "LoginDstrictsApp":
+						MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+						break;
+					case "CheckedInHotelId":
+						string checkedInHotelId = uri.Segments[4].Replace("/", "");
+						MainPage = new NavigationPage(new Views.Hotel.VerifyCheckedInHotelPasswordPage(Convert.ToInt32(checkedInHotelId)));
+						break;
+				}
+			}
+			else
+				MainPage = new NavigationPage(new Views.RestorePage());
 		}
 
 		protected override void OnStart()

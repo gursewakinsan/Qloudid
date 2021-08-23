@@ -8,16 +8,16 @@ using System.Collections.Generic;
 
 namespace Qloudid.Views.Hotel
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerifyHotelPasswordPage : ContentPage
-    {
-        VerifyHotelPasswordPageViewModel viewModel;
-        public VerifyHotelPasswordPage()
-        {
-            InitializeComponent();
-            NavigationPage.SetBackButtonTitle(this, "");
-            BindingContext = viewModel = new VerifyHotelPasswordPageViewModel(this.Navigation);
-        }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class VerifyHotelPasswordPage : ContentPage
+	{
+		VerifyHotelPasswordPageViewModel viewModel;
+		public VerifyHotelPasswordPage()
+		{
+			InitializeComponent();
+			NavigationPage.SetBackButtonTitle(this, "");
+			BindingContext = viewModel = new VerifyHotelPasswordPageViewModel(this.Navigation);
+		}
 
 		protected override void OnAppearing()
 		{
