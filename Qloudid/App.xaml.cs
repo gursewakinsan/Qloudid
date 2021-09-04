@@ -302,6 +302,11 @@ namespace Qloudid
 						string checkedInHotelId = uri.Segments[4].Replace("/", "");
 						MainPage = new NavigationPage(new Views.Hotel.VerifyCheckedInHotelPasswordPage(Convert.ToInt32(checkedInHotelId)));
 						break;
+					case "DstrictsAppPayOn":
+						string[] subs = uri.LocalPath.Split('/');
+						Helper.Helper.PayOnRequest = JsonConvert.DeserializeObject<Models.PayOnRequest>(subs[4]);
+						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.SelectUserProfilePageForPayOn());
+						break;
 				}
 			}
 			else

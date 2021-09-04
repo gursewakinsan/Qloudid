@@ -83,7 +83,9 @@ namespace Qloudid.Helper
 		public static string AppToAppName { get; set; }
 		public static bool IsCashPayForDishe { get; set; } = false;
 		public static bool IsScanQrPayForDishe { get; set; } = false;
-		
+		public static Models.PayOnRequest PayOnRequest { get; set; }
+		public static int SelectedCardId { get; set; }
+		public static int InvoiceAddressId { get; set; }
 
 		public static string[] ColorList =
 		{
