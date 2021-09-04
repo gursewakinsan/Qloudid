@@ -287,7 +287,23 @@ namespace Qloudid
 			MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
 		}
 
-		void DstrictsAppFunctionality(Uri uri)
+		public void DstrictsAppFunctionality_iOS(Uri uri)
+		{
+			Helper.Helper.AppToAppName = "DstrictsApp";
+			var action = uri.Segments[1].Replace("/", "");
+			switch (action)
+			{
+				case "LoginDstrictsApp":
+					MainPage = new NavigationPage(new Views.SignInOtherAppPage());
+					break;
+				case "CheckedInHotelId":
+					string checkedInHotelId = uri.Segments[2].Replace("/", "");
+					MainPage = new NavigationPage(new Views.Hotel.VerifyCheckedInHotelPasswordPage(Convert.ToInt32(checkedInHotelId)));
+					break;
+			}
+		}
+
+		public void DstrictsAppFunctionality(Uri uri)
 		{
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
