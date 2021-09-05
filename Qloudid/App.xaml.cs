@@ -300,6 +300,14 @@ namespace Qloudid
 					string checkedInHotelId = uri.Segments[2].Replace("/", "");
 					MainPage = new NavigationPage(new Views.Hotel.VerifyCheckedInHotelPasswordPage(Convert.ToInt32(checkedInHotelId)));
 					break;
+				case "DstrictsAppPayOn":
+					string[] subs = uri.LocalPath.Split('/');
+					Helper.Helper.PayOnRequest = JsonConvert.DeserializeObject<Models.PayOnRequest>(subs[2]);
+					if (Helper.Helper.PayOnRequest.QloudIdPay == 1)
+						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.SelectUserProfilePageForPayOn());
+					else
+						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
+					break;
 			}
 		}
 
@@ -321,7 +329,10 @@ namespace Qloudid
 					case "DstrictsAppPayOn":
 						string[] subs = uri.LocalPath.Split('/');
 						Helper.Helper.PayOnRequest = JsonConvert.DeserializeObject<Models.PayOnRequest>(subs[4]);
-						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.SelectUserProfilePageForPayOn());
+						if (Helper.Helper.PayOnRequest.QloudIdPay == 1)
+							MainPage = new NavigationPage(new Views.DstrictsAppPayOn.SelectUserProfilePageForPayOn());
+						else
+							MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
 						break;
 				}
 			}

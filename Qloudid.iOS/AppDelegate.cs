@@ -41,7 +41,7 @@ namespace Qloudid.iOS
 				}
 				if (count == 3)
 				{
-					if (url.Host.Equals("DstrictsApp"))
+					if (url.Host.Equals("DstrictsApp") || url.Host.Equals("dstrictsapp"))
 						App.DstrictsAppFunctionality_iOS(new Uri(url.AbsoluteString));
 					else
 						App.OpenAppFromWeb(url.PathComponents[2]);
