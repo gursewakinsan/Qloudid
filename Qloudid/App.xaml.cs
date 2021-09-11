@@ -5,10 +5,7 @@ using Qloudid.Service;
 using Newtonsoft.Json;
 using System.Reflection;
 using Qloudid.Interfaces;
-//using Microsoft.AppCenter;
 using System.Collections.Generic;
-//using Microsoft.AppCenter.Crashes;
-//using Microsoft.AppCenter.Analytics;
 
 namespace Qloudid
 {
@@ -23,16 +20,6 @@ namespace Qloudid
 				MainPage = new NavigationPage(new Views.DashboardPage());
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
-			//GetCountries();
-			/*if (string.IsNullOrWhiteSpace(ipFromWeb))
-				MainPage = new NavigationPage(new Views.RestorePage());
-			else
-			{
-				if (Application.Current.Properties.ContainsKey("QrCode"))
-					MainPage = new NavigationPage(new Views.SignInFromWebPage());
-				else
-					MainPage = new NavigationPage(new Views.RestorePage());
-			}*/
 		}
 
 		public void OpenAppFromWeb(string signInText)
@@ -308,6 +295,9 @@ namespace Qloudid
 					else
 						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
 					break;
+				case "AddPersonToDesiredQueue":
+					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(Convert.ToInt32(uri.Segments[2].Replace("/", ""))));
+					break;
 			}
 		}
 
@@ -333,6 +323,9 @@ namespace Qloudid
 							MainPage = new NavigationPage(new Views.DstrictsAppPayOn.SelectUserProfilePageForPayOn());
 						else
 							MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
+						break;
+					case "AddPersonToDesiredQueue":
+						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(Convert.ToInt32(uri.Segments[4].Replace("/", ""))));
 						break;
 				}
 			}

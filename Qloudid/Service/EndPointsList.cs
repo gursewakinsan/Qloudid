@@ -84,5 +84,8 @@
 
 		//Cart
 		public const string PayCartItemUsingAppUrl = "https://www.qloudid.com/user/index.php/QloudidApp/payCartItemUsingApp";
+
+		//Queue
+		public const string AddPersonToDesiredQueueUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPersonToDesiredQueue";
 	}
 }
