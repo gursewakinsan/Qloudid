@@ -36,7 +36,7 @@ namespace Qloudid.Views
 			else
 			{
 				GetCountries();
-				viewModel.GetUserImageCommand.Execute(null);
+				//viewModel.GetUserImageCommand.Execute(null);
 			}
 			base.OnAppearing();
 		}

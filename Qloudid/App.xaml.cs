@@ -296,7 +296,7 @@ namespace Qloudid
 						MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
 					break;
 				case "AddPersonToDesiredQueue":
-					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(Convert.ToInt32(uri.Segments[2].Replace("/", ""))));
+					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(uri.Segments[2]));
 					break;
 			}
 		}
@@ -325,7 +325,7 @@ namespace Qloudid
 							MainPage = new NavigationPage(new Views.DstrictsAppPayOn.VerifyPayForPayOnPasswordPage());
 						break;
 					case "AddPersonToDesiredQueue":
-						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(Convert.ToInt32(uri.Segments[4].Replace("/", ""))));
+						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(uri.Segments[4]));
 						break;
 				}
 			}

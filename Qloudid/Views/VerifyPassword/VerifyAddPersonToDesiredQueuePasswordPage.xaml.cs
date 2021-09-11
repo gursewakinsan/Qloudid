@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using System.Reflection;
@@ -12,12 +13,12 @@ namespace Qloudid.Views.VerifyPassword
 	public partial class VerifyAddPersonToDesiredQueuePasswordPage : ContentPage
 	{
 		VerifyAddPersonToDesiredQueuePasswordViewModel viewModel;
-		public VerifyAddPersonToDesiredQueuePasswordPage(int id)
+		public VerifyAddPersonToDesiredQueuePasswordPage(string id)
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new VerifyAddPersonToDesiredQueuePasswordViewModel(this.Navigation);
-			viewModel.AddPersonToDesiredQueueId = id;
+			viewModel.AddPersonToDesiredQueueId = Convert.ToInt32(id);
 		}
 
 		protected override void OnAppearing()
