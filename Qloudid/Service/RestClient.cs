@@ -16,6 +16,7 @@ namespace Qloudid.Service
 			request.ContentType = "application/json";
 			try
 			{
+				ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 				WebResponse webResponse = Task.Factory.FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null).Result;
 				using (var streamReader = new StreamReader(webResponse.GetResponseStream()))
 				{
