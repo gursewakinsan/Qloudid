@@ -9,10 +9,15 @@ namespace Qloudid.ViewModels
 {
 	public class SignInOtherAppPageViewModel : BaseViewModel
 	{
+		#region Variables.
+		int wrongPasswordCountDown = 0;
+		#endregion
+
 		#region Constructor.
 		public SignInOtherAppPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			wrongPasswordCountDown = 0;
 		}
 		#endregion
 
@@ -69,9 +74,21 @@ namespace Qloudid.ViewModels
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.Result == 0)
-					await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
+				{
+					wrongPasswordCountDown = wrongPasswordCountDown + 1;
+					ClearPassword();
+					if (wrongPasswordCountDown == 3)
+					{
+						wrongPasswordCountDown = 0;
+						Application.Current.MainPage = new NavigationPage(new Views.WrongPassword3TimesPage());
+					}
+					else
+						await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
+					
+				}
 				else if (response.Result == 1)
 				{
+					wrongPasswordCountDown = 0;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
 					{
@@ -87,12 +104,13 @@ namespace Qloudid.ViewModels
 					}
 					else
 					{
+						
 						var supportsUri = await Launcher.CanOpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/");
 						if (supportsUri)
 							await Launcher.OpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/" + response.Session);
 					}
+					Helper.Helper.AppToAppName = string.Empty;
 				}
-				Helper.Helper.AppToAppName = string.Empty;
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else
