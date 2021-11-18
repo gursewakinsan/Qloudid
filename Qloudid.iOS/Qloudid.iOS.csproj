@@ -27,7 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>Qloudid-Provisioning-Profile-DEV</CodesignProvision>
+    <CodesignProvision>Qloudid Dev Provisioning Profile</CodesignProvision>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
@@ -68,8 +68,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchSdkVersion>14.3</MtouchSdkVersion>
-    <CodesignProvision>Qloudid-Provisioning-Profile-DEV</CodesignProvision>
+    <CodesignProvision>Qloudid Dev Provisioning Profile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
