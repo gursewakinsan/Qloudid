@@ -333,6 +333,7 @@ namespace Qloudid
 				MainPage = new NavigationPage(new Views.RestorePage());
 		}
 
+		//OnStart.
 		protected override void OnStart()
 		{
 			Microsoft.AppCenter.AppCenter.Start("ios=a1e809c9-9532-492b-afc0-21c5bcf0c42e;" +
