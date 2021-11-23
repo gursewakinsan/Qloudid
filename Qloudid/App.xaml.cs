@@ -298,6 +298,11 @@ namespace Qloudid
 				case "AddPersonToDesiredQueue":
 					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(uri.Segments[2]));
 					break;
+				case "DstrictsWaitListResturant":
+					string[] waitList = uri.LocalPath.Split('/');
+					Models.SubmitWaitListResturantDetail  submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[2]);
+					MainPage = new NavigationPage(new Views.WaitList.VerifyWaitResturantPasswordPage(submitWaitList));
+					break;
 			}
 		}
 
@@ -326,6 +331,11 @@ namespace Qloudid
 						break;
 					case "AddPersonToDesiredQueue":
 						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyAddPersonToDesiredQueuePasswordPage(uri.Segments[4]));
+						break;
+					case "DstrictsWaitListResturant":
+						string[] waitList = uri.LocalPath.Split('/');
+						Models.SubmitWaitListResturantDetail submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[4]);
+						MainPage = new NavigationPage(new Views.WaitList.VerifyWaitResturantPasswordPage(submitWaitList));
 						break;
 				}
 			}

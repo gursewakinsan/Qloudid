@@ -87,5 +87,8 @@
 
 		//Queue
 		public const string AddPersonToDesiredQueueUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPersonToDesiredQueue";
+
+		//Wait List
+		public const string AddGuestInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addGuestinfo";
 	}
 }
