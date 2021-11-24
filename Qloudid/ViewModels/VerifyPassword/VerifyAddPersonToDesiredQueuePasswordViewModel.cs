@@ -66,10 +66,20 @@ namespace Qloudid.ViewModels
 					Certificate = Helper.Helper.QrCertificateKey
 				};
 				Models.InterAppResponse response = await service.VerifyInterAppPasswordAsync(request);
+				ClearPassword();
 				if (response == null)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 				else if (response.Result == 0)
-					await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
+				{
+					Helper.Helper.CountDownWrongPassword = Helper.Helper.CountDownWrongPassword + 1;
+					if (Helper.Helper.CountDownWrongPassword > 2)
+					{
+						Helper.Helper.CountDownWrongPassword = 0;
+						await Navigation.PushAsync(new Views.WrongPassword3TimesPage());
+					}
+					else
+						await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
+				}
 				else if (response.Result == 1)
 				{
 					IQueueService queueService = new QueueService();
@@ -78,7 +88,7 @@ namespace Qloudid.ViewModels
 						Id = AddPersonToDesiredQueueId,
 						UserId = Helper.Helper.UserId
 					});
-					
+
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
 					{
@@ -93,8 +103,8 @@ namespace Qloudid.ViewModels
 						if (supportsUri)
 							await Launcher.OpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/" + response.Session);
 					}
+					Helper.Helper.AppToAppName = string.Empty;
 				}
-				Helper.Helper.AppToAppName = string.Empty;
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else
