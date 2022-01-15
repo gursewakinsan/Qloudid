@@ -6,10 +6,127 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="48" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<StackLayout
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			Margin="28,32,28,0"
+			Spacing="0"
+			VerticalOptions="StartAndExpand">
+			<Label
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontSize="32"
+				Text="Phone number"
+				TextColor="White" />
+
+			<Label
+				Margin="0,12,0,42"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="18"
+				LineHeight="1.1"
+				Text="We need to verify your phone by sending a code to you by sms 👋"
+				TextColor="White" />
+
+			<Grid RowSpacing="32">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+				</Grid.RowDefinitions>
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#EF3B17"
+					FocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="Mobile number"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+					<controls:CustomEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						Keyboard="Numeric"
+						Placeholder="Mobile number"
+						PlaceholderColor="#797A7D"
+						Text="{Binding MobileNumber}"
+						TextChanged="MobileNumberTextChanged"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<controls:CustomButton
+					Grid.Row="1"
+					Margin="0"
+					BackgroundColor="#6263ED"
+					BorderColor="#6263ED"
+					Command="{Binding SaveMobileNumberCommand}"
+					CornerRadius="12"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HeightRequest="56"
+					Text="Get OTP"
+					TextColor="White" />
+			</Grid>
+		</StackLayout>
+
+		<Label
+			Grid.Row="2"
+			Grid.ColumnSpan="3"
+			HorizontalOptions="CenterAndExpand">
+			<Label.FormattedText>
+				<FormattedString>
+					<Span
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						Text="Don't have an account? "
+						TextColor="#797A7D" />
+
+					<Span
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Sign Up"
+						TextColor="#6263ED" />
+				</FormattedString>
+			</Label.FormattedText>
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding SignUpCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+	</Grid>
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30">
 				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
@@ -142,5 +259,5 @@
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage> 

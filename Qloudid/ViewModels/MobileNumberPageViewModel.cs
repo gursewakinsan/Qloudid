@@ -54,6 +54,30 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command(async() => await ExecuteBackButtonControlCommand()));
+		}
+		private async Task ExecuteBackButtonControlCommand()
+		{
+			await Navigation.PopAsync();
+		}
+		#endregion
+
+		#region Sign Up Command.
+		private ICommand signUpCommand;
+		public ICommand SignUpCommand
+		{
+			get => signUpCommand ?? (signUpCommand = new Command(() => ExecuteSignUpCommand()));
+		}
+		private void ExecuteSignUpCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.CreateAccountPage());
+		}
+		#endregion
+
 		#region Properties.
 		public string MobileNumber { get; set; }
 		public string CountryCode => $"+{Helper.Helper.CountryCode}";
