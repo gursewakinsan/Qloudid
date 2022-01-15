@@ -13,6 +13,7 @@ namespace Qloudid.Views
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new IdentificatorPageViewModel(this.Navigation);
+			lblStateAndNationalID.Text = "State & National ID";
 		}
 	}
 }
