@@ -47,13 +47,44 @@
 				Text="We need to verify your phone by sending a code to you by sms 👋"
 				TextColor="White" />
 
-			<Grid RowSpacing="32">
+			<Grid ColumnSpacing="14" RowSpacing="0">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="56" />
 					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
 				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
 				<textinputlayout:SfTextInputLayout
 					Grid.Row="0"
+					Grid.Column="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#797A7D"
+					FocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="Code"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<controls:CustomEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						IsReadOnly="True"
+						Placeholder="Code"
+						PlaceholderColor="#797A7D"
+						Text="{Binding CountryCode}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					Grid.Column="1"
 					ContainerBackgroundColor="Transparent"
 					ContainerType="Outlined"
 					FocusedColor="#EF3B17"
@@ -86,8 +117,21 @@
 						TextColor="White" />
 				</textinputlayout:SfTextInputLayout>
 
-				<controls:CustomButton
+				<Label
 					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					Margin="0,12,0,0"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="14"
+					HorizontalTextAlignment="Start"
+					Opacity="0.5"
+					Text="On mobile dont use the 0."
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+
+				<controls:CustomButton
+					Grid.Row="2"
+					Grid.ColumnSpan="2"
 					Margin="0"
 					BackgroundColor="#6263ED"
 					BorderColor="#6263ED"
