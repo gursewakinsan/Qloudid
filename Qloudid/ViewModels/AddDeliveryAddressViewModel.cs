@@ -145,6 +145,43 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command(async () => await ExecuteBackButtonControlCommand()));
+		}
+		private async Task ExecuteBackButtonControlCommand()
+		{
+			if (IsCloseShow)
+				await Navigation.PopAsync();
+		}
+		#endregion
+
+		#region Is Your Name On The Door Command.
+		private ICommand isYourNameOnTheDoorCommand;
+		public ICommand IsYourNameOnTheDoorCommand
+		{
+			get => isYourNameOnTheDoorCommand ?? (isYourNameOnTheDoorCommand = new Command(() => ExecuteIsYourNameOnTheDoorCommand()));
+		}
+		private void ExecuteIsYourNameOnTheDoorCommand()
+		{
+			IsNameSame = !IsNameSame;
+		}
+		#endregion
+
+		#region Is Invoice Address Same Command.
+		private ICommand isInvoiceAddressSameCommand;
+		public ICommand IsInvoiceAddressSameCommand
+		{
+			get => isInvoiceAddressSameCommand ?? (isInvoiceAddressSameCommand = new Command(() => ExecuteIsInvoiceAddressSameCommand()));
+		}
+		private void ExecuteIsInvoiceAddressSameCommand()
+		{
+			IsInvoiceAddressSame = !IsInvoiceAddressSame;
+		}
+		#endregion
+
 		#region Properties.
 		private bool isNameSame = true;
 		public bool IsNameSame
@@ -191,8 +228,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsInvoiceAddressVisible");
 			}
 		}
-		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
-		public bool IsCloseShow => Helper.Helper.IsAddMoreAddresses;
+		public string UserName => "UserName_UserName";//Helper.Helper.UserInfo.DisplayUserName;
+		public bool IsCloseShow => true;//Helper.Helper.IsAddMoreAddresses;
 		public string Name { get; set; }
 		public string DeliveryAddress { get; set; }
 		public string DeliveryPortNumber { get; set; }

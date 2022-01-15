@@ -52,5 +52,7 @@
 		public const string PassportBiometric = "\U000f0de1";
 		public const string Security = "\U000f0483";
 		public const string Country = "\U000f034d";
+		public const string ToggleSwitch = "\U000f0521";
+		public const string ToggleSwitchOff = "\U000f0522";
 	}
 }

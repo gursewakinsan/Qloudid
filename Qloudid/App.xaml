@@ -3,6 +3,7 @@
 	x:Class="Qloudid.App"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:converters="clr-namespace:Qloudid.Converters"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d">
@@ -62,6 +63,8 @@
 				x:TypeArguments="x:String"
 				Android="SFProDisplayBold.ttf#SFProDisplayBold"
 				iOS="SFProDisplayBold" />
+
+			<converters:InverseBoolConverter x:Key="InverseBoolConverter" />
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

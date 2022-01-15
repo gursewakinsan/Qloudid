@@ -6,10 +6,521 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+		<ScrollView
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout
+				Margin="28,32,28,0"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
+				<Label
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="32"
+					Text="Your address"
+					TextColor="White" />
+
+				<Label
+					Margin="0,12,0,42"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="18"
+					LineHeight="1.1"
+					Text="To get delivery, make payment and Check-in  online 👋"
+					TextColor="White" />
+
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="20" />
+						<RowDefinition Height="20" />
+						<RowDefinition Height="auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="70" />
+					</Grid.ColumnDefinitions>
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="14"
+						Text="Is your name on the door?"
+						TextColor="White" />
+
+					<Label
+						Grid.Row="1"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="14"
+						Text="{Binding UserName}"
+						TextColor="White" />
+
+					<Label
+						Grid.RowSpan="2"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="44"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsNameSame}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+						TextColor="#6263ED"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.RowSpan="2"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="44"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsNameSame, Converter={StaticResource InverseBoolConverter}}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+						TextColor="#363541"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						Margin="0,10,0,10"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Name"
+						IsVisible="{Binding IsNameEntryVisible}"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Name"
+							PlaceholderColor="#797A7D"
+							Text="{Binding Name}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+				</Grid>
+
+				<Grid Margin="0,10,0,0" RowSpacing="24">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="60" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="90" />
+					</Grid.ColumnDefinitions>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Delivery address"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Delivery address"
+							PlaceholderColor="#797A7D"
+							Text="{Binding DeliveryAddress}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Delivery port number"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Delivery port number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding DeliveryPortNumber}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Delivery zip code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Delivery zip code"
+							PlaceholderColor="#797A7D"
+							Text="{Binding DeliveryZipCode}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Delivery city"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Delivery city"
+							PlaceholderColor="#797A7D"
+							Text="{Binding DeliveryCity}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="0"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="14"
+						Text="If invoice address same as delivery address."
+						TextColor="White" />
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="44"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsInvoiceAddressSame}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+						TextColor="#6263ED"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="44"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsInvoiceAddressSame, Converter={StaticResource InverseBoolConverter}}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+						TextColor="#363541"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Grid
+						Grid.Row="5"
+						Grid.ColumnSpan="2"
+						IsVisible="{Binding IsInvoiceAddressVisible}"
+						RowSpacing="24">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+						</Grid.RowDefinitions>
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="0"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Invoice address"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Invoice address"
+								PlaceholderColor="#797A7D"
+								Text="{Binding InvoiceAddress}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="1"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Invoice port number"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Invoice port number"
+								PlaceholderColor="#797A7D"
+								Text="{Binding InvoicePortNumber}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="2"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Invoice zip code"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Invoice zip code"
+								PlaceholderColor="#797A7D"
+								Text="{Binding InvoiceZipCode}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="3"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Invoice city"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Invoice city"
+								PlaceholderColor="#797A7D"
+								Text="{Binding InvoiceCity}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+					</Grid>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="6"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Entry code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.FormTextboxPassword}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="Entry code"
+							PlaceholderColor="#797A7D"
+							Text="{Binding EntryCode}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<controls:CustomButton
+						Grid.Row="7"
+						Grid.ColumnSpan="2"
+						Margin="0"
+						BackgroundColor="#6263ED"
+						BorderColor="#6263ED"
+						Command="{Binding AddAddressCommand}"
+						CornerRadius="12"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HeightRequest="56"
+						Text="Add Address"
+						TextColor="White"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30">
 				<StackLayout Spacing="0" VerticalOptions="Start">
@@ -518,5 +1029,5 @@
 				</Grid>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>
