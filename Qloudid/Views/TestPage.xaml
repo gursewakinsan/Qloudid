@@ -7,145 +7,242 @@
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:models="clr-namespace:Qloudid.Models"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Frame
-			Margin="20,100,20,100"
-			CornerRadius="20"
-			HasShadow="False">
-			<Frame.Background>
-				<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.8,1">
-					<LinearGradientBrush.GradientStops>
-						<GradientStop Offset="0" Color="#F19969" />
-						<GradientStop Offset="1" Color="#DA4E38" />
-					</LinearGradientBrush.GradientStops>
-				</LinearGradientBrush>
-			</Frame.Background>
-			<Grid ColumnSpacing="0" RowSpacing="0">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="50" />
-					<RowDefinition />
-					<RowDefinition Height="130" />
-					<RowDefinition Height="30" />
-					<RowDefinition Height="40" />
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
-
-				<Label
-					Grid.Row="0"
-					Grid.Column="0"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					FontSize="50"
-					HorizontalTextAlignment="Start"
-					Opacity="0.5"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Apple}"
-					TextColor="White"
-					VerticalOptions="Start"
-					VerticalTextAlignment="Center" />
-
-				<Label
-					Grid.Row="0"
-					Grid.Column="1"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="18"
-					HorizontalTextAlignment="End"
-					Opacity="0.5"
-					Text="2021-05-14"
-					TextColor="White"
-					VerticalOptions="CenterAndExpand"
-					VerticalTextAlignment="Center" />
-
+		<Grid
+			Margin="0,32,0,0"
+			ColumnSpacing="0"
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="48" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="28" />
+				<ColumnDefinition Width="48" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
 				<StackLayout
-					Grid.Row="1"
-					Grid.ColumnSpan="2"
-					HorizontalOptions="CenterAndExpand"
-					Spacing="10"
-					VerticalOptions="CenterAndExpand">
-					<ImageButton
-						Grid.Column="0"
-						Padding="25"
-						BackgroundColor="#3623B7"
-						BorderColor="#05CBE7"
-						BorderWidth="1"
-						CornerRadius="60"
-						HeightRequest="120"
-						WidthRequest="120">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="50"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
+					Margin="28,32,28,0"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<Label
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="32"
+						Text="Sign up"
+						TextColor="White" />
 
 					<Label
+						Margin="0,12,0,42"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="24"
-						HorizontalTextAlignment="Center"
-						Opacity="0.5"
-						Text="Qloud ID"
-						TextColor="White"
-						VerticalOptions="Start" />
+						FontSize="18"
+						LineHeight="1.1"
+						Text="Hello! Welcome to Qloud ID. A more secure and smoother way of life 👋"
+						TextColor="White" />
+
+					<Grid RowSpacing="24">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+						</Grid.RowDefinitions>
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="0"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Country"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Country}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomPicker
+								Title="Select country"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								TextColor="White"
+								TitleColor="Black">
+								<controls:CustomPicker.Items>
+									<x:String>Option1</x:String>
+									<x:String>Option2</x:String>
+									<x:String>Option3</x:String>
+								</controls:CustomPicker.Items>
+							</controls:CustomPicker>
+							<textinputlayout:SfTextInputLayout.TrailingView>
+								<Label
+									FontSize="15"
+									HorizontalOptions="Center"
+									HorizontalTextAlignment="Center"
+									Text="&#x25bc;"
+									TextColor="#797A7D"
+									VerticalOptions="CenterAndExpand" />
+							</textinputlayout:SfTextInputLayout.TrailingView>
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="1"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="First name"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="First name"
+								PlaceholderColor="#797A7D"
+								Text="{Binding LastName}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="2"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Last name"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Last name"
+								PlaceholderColor="#797A7D"
+								Text="{Binding LastName}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="3"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#EF3B17"
+							FocusedStrokeWidth="0.5"
+							HeightRequest="56"
+							Hint="Email"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#797A7D"
+							UnfocusedStrokeWidth="0.5">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Email}"
+									TextColor="#797A7D"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontSize="16"
+								Placeholder="Email"
+								PlaceholderColor="#797A7D"
+								Text="{Binding LastName}"
+								TextColor="White" />
+						</textinputlayout:SfTextInputLayout>
+					</Grid>
+
+					<Label
+						Margin="0,85,0,5"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="14"
+						HorizontalOptions="CenterAndExpand"
+						Text="By clicking Sign Up, you agree to the "
+						TextColor="#797A7D" />
+
+					<Label HorizontalOptions="CenterAndExpand">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span
+									FontFamily="{StaticResource SFProSemiboldFontFamily}"
+									FontSize="14"
+									Text="Terms of Services "
+									TextColor="#6263ED" />
+
+								<Span
+									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontSize="14"
+									Text="and "
+									TextColor="#797A7D" />
+
+								<Span
+									FontFamily="{StaticResource SFProSemiboldFontFamily}"
+									FontSize="14"
+									Text="Privacy Policy"
+									TextColor="#6263ED" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+
+					<controls:CustomButton
+						Margin="0,21,0,10"
+						BackgroundColor="#6263ED"
+						BorderColor="#6263ED"
+						Command="{Binding CreateAccountCommand}"
+						CornerRadius="12"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HeightRequest="56"
+						Text="Sign Up"
+						TextColor="White" />
 				</StackLayout>
-
-				<Label
-					Grid.Row="2"
-					Grid.ColumnSpan="2"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="40"
-					HorizontalOptions="CenterAndExpand"
-					Text="$ 300"
-					TextColor="White"
-					VerticalOptions="CenterAndExpand" />
-
-				<Label
-					Grid.Row="3"
-					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="15"
-					HorizontalOptions="Start"
-					Opacity="0.5"
-					Text="Qloud ID pay"
-					TextColor="White"
-					VerticalOptions="CenterAndExpand" />
-
-				<Label
-					Grid.Row="3"
-					Grid.Column="1"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="15"
-					HorizontalOptions="End"
-					Opacity="0.5"
-					Text="User name"
-					TextColor="White"
-					VerticalOptions="CenterAndExpand" />
-
-				<Label
-					Grid.Row="4"
-					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="20"
-					HorizontalOptions="Start"
-					Text="SEK"
-					TextColor="White"
-					VerticalOptions="Start" />
-
-				<Label
-					Grid.Row="4"
-					Grid.Column="1"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
-					FontSize="20"
-					HorizontalOptions="End"
-					Text="Gursewak Singh"
-					TextColor="White"
-					VerticalOptions="Start" />
-			</Grid>
-		</Frame>
+			</ScrollView>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

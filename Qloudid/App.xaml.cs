@@ -14,6 +14,7 @@ namespace Qloudid
 		public static byte[] CroppedImage;
 		public App(string ipFromWeb)
 		{
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTIzNzQzQDMxMzkyZTMzMmUzMFBIaTRVTHZ6RSt5ZFl4ZzFkTkhHSWcwTGFnQ0JkUjg4TEJNcnVhSUVZeUE9");
 			InitializeComponent();
 			Helper.Helper.IsFirstTime = true;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
