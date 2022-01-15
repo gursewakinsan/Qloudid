@@ -6,10 +6,230 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="60" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+		<ScrollView
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout
+				Margin="28,32,28,0"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
+				<Label
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="32"
+					TextColor="White">
+					<Label.FormattedText>
+						<FormattedString>
+							<Span Text="{Binding IdentificatorTitle}" />
+							<Span Text=" details" />
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+
+				<Label
+					Margin="0,12,0,42"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="18"
+					LineHeight="1.1"
+					TextColor="White">
+					<Label.FormattedText>
+						<FormattedString>
+							<Span Text="Add your " />
+							<Span Text="{Binding IdentificatorTitle}" />
+							<Span Text=" details to confirm your identity 👋" />
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+
+				<Grid RowSpacing="24">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="20" />
+					</Grid.RowDefinitions>
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="{Binding IdentificatorPlaceholder}"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomEntry
+							x:Name="txtIdentificator"
+							BackgroundColor="#F8F8FB"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Placeholder="{Binding IdentificatorPlaceholder}"
+							PlaceholderColor="#797A7D"
+							Text="{Binding IdentificatorText}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Issue date"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+
+						<controls:CustomDatePicker
+							Date="{Binding SelectedIssueDate}"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindIssueMaximumDate}"
+							MinimumDate="{Binding BindIssueMinimumDate}"
+							Placeholder="Issue date"
+							TextColor="White" />
+
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontSize="15"
+								HorizontalOptions="Center"
+								HorizontalTextAlignment="Center"
+								Text="&#x25bc;"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#EF3B17"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Expiry date"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+
+						<controls:CustomDatePicker
+							Date="{Binding SelectedExpiryDate}"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindExpiryMaximumDate}"
+							MinimumDate="{Binding BindExpiryMinimumDate}"
+							Placeholder="Expiry date"
+							TextColor="White" />
+
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontSize="15"
+								HorizontalOptions="Center"
+								HorizontalTextAlignment="Center"
+								Text="&#x25bc;"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+
+		<Grid
+			Grid.Row="2"
+			Grid.ColumnSpan="3"
+			Margin="28,0,28,0"
+			ColumnSpacing="20"
+			HeightRequest="56"
+			VerticalOptions="EndAndExpand">
+			<controls:CustomButton
+				Grid.Column="0"
+				Margin="0"
+				BackgroundColor="#6263ED"
+				BorderColor="#6263ED"
+				Command="{Binding SkipIdentifyInfoCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontSize="16"
+				HeightRequest="56"
+				Text="Skip"
+				TextColor="White" />
+
+			<controls:CustomButton
+				Grid.Column="1"
+				Margin="0"
+				BackgroundColor="#6263ED"
+				BorderColor="#6263ED"
+				Command="{Binding SaveIdentifyInfoCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontSize="16"
+				HeightRequest="56"
+				Text="Save"
+				TextColor="White" />
+		</Grid>
+	</Grid>
+
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30" Spacing="0">
 				<StackLayout Spacing="0" VerticalOptions="Start">
@@ -231,5 +451,5 @@
 				</Grid>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>
