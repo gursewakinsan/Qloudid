@@ -21,7 +21,6 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="48" />
 			<RowDefinition Height="*" />
-			<RowDefinition Height="60" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="28" />
@@ -29,6 +28,12 @@
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<usercontrols:SkipButtonControl
+			Grid.Row="0"
+			Grid.Column="2"
+			Margin="0,0,28,0"
+			HorizontalOptions="EndAndExpand" />
 
 		<ScrollView
 			Grid.Row="1"
@@ -211,21 +216,6 @@
 				</Grid>
 			</StackLayout>
 		</ScrollView>
-
-		<controls:CustomButton
-			Grid.Row="2"
-			Grid.ColumnSpan="3"
-			Margin="28,0,28,0"
-			BackgroundColor="#6263ED"
-			BorderColor="#6263ED"
-			Command="{Binding SkipIdentifyInfoCommand}"
-			CornerRadius="12"
-			FontFamily="{StaticResource SFProSemiboldFontFamily}"
-			FontSize="16"
-			HeightRequest="56"
-			Text="Skip"
-			TextColor="White"
-			VerticalOptions="EndAndExpand" />
 	</Grid>
 
 

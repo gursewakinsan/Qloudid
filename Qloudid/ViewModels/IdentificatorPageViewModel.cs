@@ -45,7 +45,7 @@ namespace Qloudid.ViewModels
 
 		#region Skip Identify Info Command.
 		private ICommand skipIdentifyInfoCommand;
-		public ICommand SkipIdentifyInfoCommand
+		public ICommand SkipButtonControlCommand
 		{
 			get => skipIdentifyInfoCommand ?? (skipIdentifyInfoCommand = new Command(async () => await ExecuteSkipIdentifyInfoCommand()));
 		}
