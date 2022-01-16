@@ -14,103 +14,210 @@ namespace Qloudid.Views
 	public partial class TestPage : ContentPage
 	{
 		TestPageViewModel viewModel;
-		ImageSource _imageSource;
-		private IMedia _mediaPicker;
 		public TestPage()
 		{
 			InitializeComponent();
 			BindingContext = viewModel = new TestPageViewModel(this.Navigation);
+			step1.Focus();
+			step2.IsEnabled = false;
+			step3.IsEnabled = false;
+			step4.IsEnabled = false;
+			step5.IsEnabled = false;
+			step6.IsEnabled = false;
 		}
 
-		private async void Button_Clicked(object sender, System.EventArgs e)
+		protected override void OnAppearing()
 		{
-			var action = await DisplayActionSheet(null, "Cancel", null, "Photo Library", "Take Photo");
-			if (action == "Photo Library")
-				await SelectPicture();
-			else if (action == "Take Photo")
-				await TakePicture();
-			else if (action == "Cancel")
-				return;
+			base.OnAppearing();
+			img.Source = ImageSource.FromUri(new Uri("https://www.qloudid.com/html/usercontent/images/dstricts/emailPic.png"));
 		}
 
-		private void Refresh()
+		private void step1_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			try
+			if (e.NewTextValue.Length == 1)
 			{
-				if (App.CroppedImage != null)
+				if (string.IsNullOrEmpty(step2.Text))
 				{
-					Stream stream = new MemoryStream(App.CroppedImage);
-					//image.Source = ImageSource.FromStream(() => stream);
+					step2.IsEnabled = true;
+					step2.Focus();
 				}
 			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-			}
 		}
-
-		private async void Setup()
+		private void step2_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			if (_mediaPicker != null)
+			if (e.NewTextValue.Length == 1)
 			{
-				return;
-			}
-
-			////RM: hack for working on windows phone? 
-			await CrossMedia.Current.Initialize();
-			_mediaPicker = CrossMedia.Current;
-		}
-
-		private async Task SelectPicture()
-		{
-			Setup();
-
-			_imageSource = null;
-
-			try
-			{
-
-				var mediaFile = await this._mediaPicker.PickPhotoAsync();
-
-				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
-
-				var memoryStream = new MemoryStream();
-				await mediaFile.GetStream().CopyToAsync(memoryStream);
-				byte[] imageAsByte = memoryStream.ToArray();
-
-				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
-
-			}
-			catch (System.Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-			}
-		}
-
-		private async Task TakePicture()
-		{
-			Setup();
-
-			_imageSource = null;
-
-			try
-			{
-				var mediaFile = await this._mediaPicker.TakePhotoAsync(new StoreCameraMediaOptions
+				if (string.IsNullOrEmpty(step3.Text))
 				{
-					DefaultCamera = CameraDevice.Rear
-				});
-
-				_imageSource = ImageSource.FromStream(mediaFile.GetStream);
-
-				var memoryStream = new MemoryStream();
-				await mediaFile.GetStream().CopyToAsync(memoryStream);
-				byte[] imageAsByte = memoryStream.ToArray();
-
-				await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+					step3.Focus();
+					step3.IsEnabled = true;
+				}
 			}
-			catch (Exception ex)
+
+			if (e.NewTextValue.Length == 0)
 			{
-				Debug.WriteLine(ex.Message);
+				step2.OnBackspace += EntryBackspaceEventHandler2;
+			}
+		}
+		private void step3_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (e.NewTextValue.Length == 1)
+			{
+				step4.Focus();
+				step4.IsEnabled = true;
+			}
+
+			if (e.NewTextValue.Length == 0)
+			{
+				step3.OnBackspace += EntryBackspaceEventHandler3;
+			}
+		}
+		private void step4_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (e.NewTextValue.Length == 1)
+			{
+				step5.Focus();
+				step5.IsEnabled = true;
+			}
+
+			if (e.NewTextValue.Length == 0)
+			{
+				step4.OnBackspace += EntryBackspaceEventHandler4;
+			}
+		}
+		private void step5_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (e.NewTextValue.Length == 1)
+			{
+				step6.Focus();
+				step6.IsEnabled = true;
+			}
+
+			if (e.NewTextValue.Length == 0)
+			{
+				step5.OnBackspace += EntryBackspaceEventHandler5;
+			}
+		}
+		private void step6_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (e.NewTextValue.Length == 0)
+			{
+				step6.OnBackspace += EntryBackspaceEventHandler6;
+			}
+		}
+		public void EntryBackspaceEventHandler2(object sender, EventArgs e)
+		{
+			step1.Focus();
+			step1.Text = string.Empty;
+		}
+		public void EntryBackspaceEventHandler3(object sender, EventArgs e)
+		{
+			step2.Focus();
+			step2.Text = string.Empty;
+		}
+		public void EntryBackspaceEventHandler4(object sender, EventArgs e)
+		{
+			step3.Focus();
+			step3.Text = string.Empty;
+		}
+		public void EntryBackspaceEventHandler5(object sender, EventArgs e)
+		{
+			step4.Focus();
+			step4.Text = string.Empty;
+		}
+		public void EntryBackspaceEventHandler6(object sender, EventArgs e)
+		{
+			step5.Focus();
+			step5.Text = string.Empty;
+		}
+		private void step1_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(1);
+		}
+		private void OnStepUnfocused(object sender, FocusEventArgs e)
+		{
+			OnFocused(0);
+		}
+		private void step2_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(2);
+		}
+		private void step3_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(3);
+		}
+		private void step4_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(4);
+		}
+		private void step5_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(5);
+		}
+		private void step6_Focused(object sender, FocusEventArgs e)
+		{
+			OnFocused(6);
+		}
+		void OnFocused(int num)
+		{
+			switch (num)
+			{
+				case 1:
+					frame1.BorderColor = Color.FromHex("#6263ED");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
+				case 2:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#6263ED");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
+				case 3:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#6263ED");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
+				case 4:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#6263ED");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
+				case 5:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#6263ED");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
+				case 6:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#6263ED");
+					break;
+				default:
+					frame1.BorderColor = Color.FromHex("#797A7D");
+					frame2.BorderColor = Color.FromHex("#797A7D");
+					frame3.BorderColor = Color.FromHex("#797A7D");
+					frame4.BorderColor = Color.FromHex("#797A7D");
+					frame5.BorderColor = Color.FromHex("#797A7D");
+					frame6.BorderColor = Color.FromHex("#797A7D");
+					break;
 			}
 		}
 	}

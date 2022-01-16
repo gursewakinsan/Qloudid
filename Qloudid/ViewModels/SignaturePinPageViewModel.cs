@@ -144,7 +144,7 @@ namespace Qloudid.ViewModels
 
 		#region Go To Add Mobile Number Page Command.
 		private ICommand goToAddMobileNumberPageCommand;
-		public ICommand GoToAddMobileNumberPageCommand
+		public ICommand BackButtonControlCommand
 		{
 			get => goToAddMobileNumberPageCommand ?? (goToAddMobileNumberPageCommand = new Command(() => ExecuteGoToAddMobileNumberPageCommand()));
 		}

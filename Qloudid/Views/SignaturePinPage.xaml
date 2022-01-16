@@ -3,15 +3,242 @@
 	x:Class="Qloudid.Views.SignaturePinPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="35" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<StackLayout
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			Margin="28,0,28,0">
+			<Image
+				x:Name="img"
+				Margin="0,10,0,52"
+				Aspect="AspectFit"
+				HeightRequest="192"
+				HorizontalOptions="CenterAndExpand"
+				WidthRequest="236" />
+
+			<Label
+				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontSize="32"
+				Text="Verify your phone"
+				TextColor="White" />
+
+			<Label
+				Margin="0,6,0,42"
+				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontSize="18">
+				<Label.FormattedText>
+					<FormattedString>
+						<Span Text="Enter the OTP sent to " TextColor="#797A7D" />
+						<Span Text="{Binding CurrentMobileNumber}" TextColor="White" />
+					</FormattedString>
+				</Label.FormattedText>
+			</Label>
+
+			<Grid ColumnSpacing="10" RowSpacing="32">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+				</Grid.RowDefinitions>
+				<Frame
+					x:Name="frame1"
+					Grid.Row="0"
+					Grid.Column="0"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step1"
+						Focused="step1_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step1_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<Frame
+					x:Name="frame2"
+					Grid.Row="0"
+					Grid.Column="1"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step2"
+						Focused="step2_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step2_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<Frame
+					x:Name="frame3"
+					Grid.Row="0"
+					Grid.Column="2"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step3"
+						Focused="step3_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step3_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<Frame
+					x:Name="frame4"
+					Grid.Row="0"
+					Grid.Column="3"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step4"
+						Focused="step4_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step4_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<Frame
+					x:Name="frame5"
+					Grid.Row="0"
+					Grid.Column="4"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step5"
+						Focused="step5_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step5_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<Frame
+					x:Name="frame6"
+					Grid.Row="0"
+					Grid.Column="5"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="#797A7D"
+					CornerRadius="10"
+					IsClippedToBounds="True">
+					<controls:CustomOtpEntry
+						x:Name="step6"
+						Focused="step6_Focused"
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Keyboard="Numeric"
+						MaxLength="1"
+						TextChanged="step6_TextChanged"
+						TextColor="White"
+						Unfocused="OnStepUnfocused" />
+				</Frame>
+
+				<controls:CustomButton
+					Grid.Row="1"
+					Grid.ColumnSpan="6"
+					Margin="0"
+					BackgroundColor="#6263ED"
+					BorderColor="#6263ED"
+					Command="{Binding VerifySmsPasswordCommand}"
+					CornerRadius="12"
+					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontSize="16"
+					HeightRequest="56"
+					Text="Submit"
+					TextColor="White" />
+			</Grid>
+		</StackLayout>
+
+		<Label
+			Grid.Row="2"
+			Grid.ColumnSpan="3"
+			HorizontalOptions="CenterAndExpand">
+			<Label.FormattedText>
+				<FormattedString>
+					<Span
+						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontSize="16"
+						Text="Didn't receive the OTP? "
+						TextColor="#797A7D" />
+
+					<Span
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						Text="Resend"
+						TextColor="#6263ED" />
+				</FormattedString>
+			</Label.FormattedText>
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding ResendOtpCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="15" Spacing="0">
 				<StackLayout
@@ -388,5 +615,5 @@
 				</Grid>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

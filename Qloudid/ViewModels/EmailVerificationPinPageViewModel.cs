@@ -185,7 +185,20 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command(async () => await ExecuteBackButtonControlCommand()));
+		}
+		private async Task ExecuteBackButtonControlCommand()
+		{
+			await Navigation.PopAsync();
+		}
+		#endregion
+
 		#region Properties.
+		public string UserEmail => Helper.Helper.UserEmail;
 		public string Password { get; set; } = string.Empty;
 
 		public string password1 = "|";
