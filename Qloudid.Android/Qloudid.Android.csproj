@@ -97,6 +97,7 @@
     <Compile Include="Renderers\CropViewRenderer.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Renderers\CustomFloatingLabelEntryRenderer.cs" />
     <Compile Include="Renderers\CustomFrameRenderer.cs" />
     <Compile Include="Renderers\CustomOtpEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />

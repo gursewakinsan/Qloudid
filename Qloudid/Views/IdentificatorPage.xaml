@@ -87,7 +87,7 @@
 								TextColor="#797A7D"
 								VerticalTextAlignment="Center" />
 						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomEntry
+						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
 							FontFamily="{StaticResource SFProRegularFontFamily}"
 							FontSize="16"
