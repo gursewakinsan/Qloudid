@@ -20,7 +20,6 @@ namespace Qloudid.Views
 			step4.IsEnabled = false;
 			step5.IsEnabled = false;
 			step6.IsEnabled = false;
-			img.Source = ImageSource.FromUri(new Uri("https://www.qloudid.com/html/usercontent/images/dstricts/emailPic.png"));
 		}
 
 		private void step1_TextChanged(object sender, TextChangedEventArgs e)

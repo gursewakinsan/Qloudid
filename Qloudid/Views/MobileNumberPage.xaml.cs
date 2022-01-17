@@ -21,7 +21,7 @@ namespace Qloudid.Views
 			if (!string.IsNullOrWhiteSpace(args.NewTextValue))
 			{
 				bool isValid = args.NewTextValue.ToCharArray().All(char.IsDigit);
-				((Controls.CustomEntry)sender).Text = isValid ? args.NewTextValue : args.OldTextValue;
+				((Controls.CustomFloatingLabelEntry)sender).Text = isValid ? args.NewTextValue : args.OldTextValue;
 			}
 		}
 	}

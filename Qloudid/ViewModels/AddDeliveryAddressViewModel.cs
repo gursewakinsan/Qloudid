@@ -228,8 +228,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsInvoiceAddressVisible");
 			}
 		}
-		public string UserName => "UserName_UserName";//Helper.Helper.UserInfo.DisplayUserName;
-		public bool IsCloseShow => true;//Helper.Helper.IsAddMoreAddresses;
+		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
+		public bool IsCloseShow => Helper.Helper.IsAddMoreAddresses;
 		public string Name { get; set; }
 		public string DeliveryAddress { get; set; }
 		public string DeliveryPortNumber { get; set; }
