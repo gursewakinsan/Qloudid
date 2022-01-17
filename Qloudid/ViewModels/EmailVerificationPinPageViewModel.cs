@@ -199,7 +199,17 @@ namespace Qloudid.ViewModels
 
 		#region Properties.
 		public string UserEmail => Helper.Helper.UserEmail;
-		public string Password { get; set; } = string.Empty;
+
+		public string password;
+		public string Password
+		{
+			get => password;
+			set
+			{
+				password = value;
+				OnPropertyChanged("Password");
+			}
+		}
 
 		public string password1 = "|";
 		public string Password1

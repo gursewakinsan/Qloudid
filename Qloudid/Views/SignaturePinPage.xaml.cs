@@ -15,8 +15,6 @@ namespace Qloudid.Views
 		public SignaturePinPage()
 		{
 			InitializeComponent();
-			NavigationPage.SetBackButtonTitle(this, "");
-			BindingContext = viewModel = new SignaturePinPageViewModel(this.Navigation);
 			steps = new List<Label>();
 			steps.Add(step1);
 			steps.Add(step2);
@@ -24,6 +22,8 @@ namespace Qloudid.Views
 			steps.Add(step4);
 			steps.Add(step5);
 			steps.Add(step6);
+			NavigationPage.SetBackButtonTitle(this, "");
+			BindingContext = viewModel = new SignaturePinPageViewModel(this.Navigation);
 		}
 
 		private void Editor_TextChanged(object sender, TextChangedEventArgs e)
