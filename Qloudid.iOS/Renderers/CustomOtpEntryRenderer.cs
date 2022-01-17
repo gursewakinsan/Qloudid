@@ -12,7 +12,8 @@ namespace Qloudid.iOS.Renderers
 		protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
 		{
 			base.OnElementChanged(e);
-			Control.TintColor = UIColor.Clear;
+			if (Control != null)
+				Control.TintColor = UIColor.Clear;
 		}
 	}
 }

@@ -216,6 +216,7 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		public string UserEmail => "Helper.Helper.UserEmail";
 		public string Password { get; set; } = string.Empty;
 
 		public string password1 = "|";

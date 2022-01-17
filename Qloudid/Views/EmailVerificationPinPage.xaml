@@ -30,179 +30,178 @@
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
 
-		<ScrollView Grid.Row="1"
-			Grid.ColumnSpan="3" VerticalScrollBarVisibility="Never">
-			<StackLayout
-			Margin="28,0,28,0">
-			<Image
-				Margin="0,10,0,52"
-				Aspect="AspectFit"
-				HeightRequest="192"
-				HorizontalOptions="CenterAndExpand"
-				Source="iconOtpPinPage.png"
-				WidthRequest="236" />
+		<ScrollView
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="28,0,28,0">
+				<Image
+					Margin="0,10,0,52"
+					Aspect="AspectFit"
+					HeightRequest="192"
+					HorizontalOptions="CenterAndExpand"
+					Source="iconOtpPinPage.png"
+					WidthRequest="236" />
 
-			<Label
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
-				FontSize="32"
-				Text="Verify your email"
-				TextColor="White" />
-
-			<Label
-				Margin="0,6,0,42"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
-				FontSize="18">
-				<Label.FormattedText>
-					<FormattedString>
-						<Span Text="Enter the code sent to " TextColor="White" />
-						<Span Text="{Binding UserEmail}" TextColor="#E340EC" />
-						<Span Text=". " TextColor="White" />
-						<Span Text="Needed when you need to restore account" TextColor="White" />
-					</FormattedString>
-				</Label.FormattedText>
-			</Label>
-
-			<Grid ColumnSpacing="10" RowSpacing="32">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="56" />
-					<RowDefinition Height="56" />
-				</Grid.RowDefinitions>
-				<Frame
-					x:Name="frame1"
-					Grid.Row="0"
-					Grid.Column="0"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step1"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<Frame
-					x:Name="frame2"
-					Grid.Row="0"
-					Grid.Column="1"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step2"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<Frame
-					x:Name="frame3"
-					Grid.Row="0"
-					Grid.Column="2"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step3"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<Frame
-					x:Name="frame4"
-					Grid.Row="0"
-					Grid.Column="3"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step4"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<Frame
-					x:Name="frame5"
-					Grid.Row="0"
-					Grid.Column="4"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step5"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<Frame
-					x:Name="frame6"
-					Grid.Row="0"
-					Grid.Column="5"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#797A7D"
-					CornerRadius="10"
-					IsClippedToBounds="True">
-					<Label
-						x:Name="step6"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
-						FontSize="16"
-						HorizontalTextAlignment="Center"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</Frame>
-
-				<controls:CustomOtpEntry
-					Grid.Row="0"
-					Grid.ColumnSpan="6"
-					BackgroundColor="Transparent"
-					HorizontalOptions="FillAndExpand"
-					Keyboard="Numeric"
-					Text="{Binding Password}"
-					TextChanged="Editor_TextChanged"
-					TextColor="Transparent" />
-
-				<controls:CustomButton
-					Grid.Row="1"
-					Grid.ColumnSpan="6"
-					Margin="0"
-					BackgroundColor="#6263ED"
-					BorderColor="#6263ED"
-					Command="{Binding EmailVerificationPinCommand}"
-					CornerRadius="12"
+				<Label
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="16"
-					HeightRequest="56"
-					Text="Submit"
+					FontSize="32"
+					Text="Verify your email"
 					TextColor="White" />
-			</Grid>
-		</StackLayout>
-		</ScrollView>
 
-		
+				<Label
+					Margin="0,6,0,42"
+					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontSize="18">
+					<Label.FormattedText>
+						<FormattedString>
+							<Span Text="Enter the code sent to " TextColor="White" />
+							<Span Text="{Binding UserEmail}" TextColor="#E340EC" />
+							<Span Text=". " TextColor="White" />
+							<Span Text="Needed when you need to restore account" TextColor="White" />
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+
+				<Grid ColumnSpacing="10" RowSpacing="32">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+					</Grid.RowDefinitions>
+					<Frame
+						x:Name="frame1"
+						Grid.Row="0"
+						Grid.Column="0"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step1"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<Frame
+						x:Name="frame2"
+						Grid.Row="0"
+						Grid.Column="1"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step2"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<Frame
+						x:Name="frame3"
+						Grid.Row="0"
+						Grid.Column="2"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step3"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<Frame
+						x:Name="frame4"
+						Grid.Row="0"
+						Grid.Column="3"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step4"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<Frame
+						x:Name="frame5"
+						Grid.Row="0"
+						Grid.Column="4"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step5"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<Frame
+						x:Name="frame6"
+						Grid.Row="0"
+						Grid.Column="5"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#797A7D"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+						<Label
+							x:Name="step6"
+							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Frame>
+
+					<controls:CustomOtpEntry
+						Grid.Row="0"
+						Grid.ColumnSpan="6"
+						BackgroundColor="Transparent"
+						HorizontalOptions="FillAndExpand"
+						Keyboard="Numeric"
+						Text="{Binding Password}"
+						TextChanged="Editor_TextChanged"
+						TextColor="Transparent" />
+
+					<controls:CustomButton
+						Grid.Row="1"
+						Grid.ColumnSpan="6"
+						Margin="0"
+						BackgroundColor="#6263ED"
+						BorderColor="#6263ED"
+						Command="{Binding EmailVerificationPinCommand}"
+						CornerRadius="12"
+						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontSize="16"
+						HeightRequest="56"
+						Text="Submit"
+						TextColor="White" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
 
 		<Label
 			Grid.Row="2"

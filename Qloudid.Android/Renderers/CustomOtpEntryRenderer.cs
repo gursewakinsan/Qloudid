@@ -15,8 +15,11 @@ namespace Qloudid.Droid.Renderers
 		protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
 		{
 			base.OnElementChanged(e);
-			Control.SetCursorVisible(false);
-			Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			if (Control != null)
+			{
+				Control.SetCursorVisible(false);
+				Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+			}
 		}
 	}
 }
