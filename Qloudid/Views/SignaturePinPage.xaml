@@ -73,17 +73,13 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step1"
-						Focused="step1_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step1_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
 
 				<Frame
@@ -95,17 +91,13 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step2"
-						Focused="step2_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step2_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
 
 				<Frame
@@ -117,17 +109,13 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step3"
-						Focused="step3_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step3_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
 
 				<Frame
@@ -139,17 +127,13 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step4"
-						Focused="step4_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step4_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
 
 				<Frame
@@ -161,17 +145,13 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step5"
-						Focused="step5_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step5_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
 
 				<Frame
@@ -183,18 +163,25 @@
 					BorderColor="#797A7D"
 					CornerRadius="10"
 					IsClippedToBounds="True">
-					<controls:CustomOtpEntry
+					<Label
 						x:Name="step6"
-						Focused="step6_Focused"
 						FontFamily="{StaticResource SFProRegularFontFamily}"
 						FontSize="16"
 						HorizontalTextAlignment="Center"
-						Keyboard="Numeric"
-						MaxLength="1"
-						TextChanged="step6_TextChanged"
 						TextColor="White"
-						Unfocused="OnStepUnfocused" />
+						VerticalTextAlignment="Center" />
 				</Frame>
+
+				<controls:CustomOtpEntry
+					Grid.Row="0"
+					Grid.ColumnSpan="6"
+					BackgroundColor="Transparent"
+					HorizontalOptions="FillAndExpand"
+					Keyboard="Numeric"
+					MaxLength="6"
+					Text="{Binding Password}"
+					TextChanged="Editor_TextChanged"
+					TextColor="Transparent" />
 
 				<controls:CustomButton
 					Grid.Row="1"
@@ -202,7 +189,7 @@
 					Margin="0"
 					BackgroundColor="#6263ED"
 					BorderColor="#6263ED"
-					Command="{Binding VerifySmsPasswordCommand}"
+					Command="{Binding CreateAccountCommand}"
 					CornerRadius="12"
 					FontFamily="{StaticResource SFProSemiboldFontFamily}"
 					FontSize="16"

@@ -1,17 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace Qloudid.Controls
+﻿namespace Qloudid.Controls
 {
-	public class CustomOtpEntry : Entry
+	public class CustomOtpEntry : Xamarin.Forms.Editor
 	{
-		public delegate void BackspaceEventHandler(object sender, EventArgs e);
-
-		public event BackspaceEventHandler OnBackspace;
-		public void OnBackspacePressed()
-		{
-			if (OnBackspace != null)
-				OnBackspace(null, null);
-		}
 	}
 }
