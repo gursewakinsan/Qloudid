@@ -11,7 +11,9 @@
 		<string>Fonts/SFProDisplaySemibold.ttf</string>
 		<string>Fonts/SFProDisplayMedium.ttf</string>
 		<string>Fonts/SFProDisplayBold.ttf</string>
+		<string>Fonts/PoppinsBold.ttf</string>
 		<string>Fonts/PoppinsRegular.ttf</string>
+		<string>Fonts/PoppinsSemiBold.ttf</string>
 		<string>Fonts/materialdesignicons-webfont.ttf</string>
 	</array>
 	<key>UIDeviceFamily</key>

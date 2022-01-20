@@ -34,14 +34,14 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 					FontSize="32"
 					Text="Sign up"
 					TextColor="White" />
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
 					FontSize="18"
 					LineHeight="1.1"
 					Text="Hello! Welcome to Qloud ID. A more secure and smoother way of life 👋"
@@ -78,7 +78,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select country"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							ItemDisplayBinding="{Binding CountryName}"
 							ItemsSource="{Binding CountryList}"
@@ -122,7 +122,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Placeholder="First name"
 							PlaceholderColor="#797A7D"
@@ -154,7 +154,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Placeholder="Last name"
 							PlaceholderColor="#797A7D"
@@ -186,7 +186,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Placeholder="Email"
 							PlaceholderColor="#797A7D"
@@ -197,7 +197,7 @@
 
 				<Label
 					Margin="0,85,0,5"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
 					FontSize="14"
 					HorizontalOptions="CenterAndExpand"
 					Text="By clicking Sign Up, you agree to the "
@@ -207,19 +207,19 @@
 					<Label.FormattedText>
 						<FormattedString>
 							<Span
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 								FontSize="14"
 								Text="Terms of Services "
 								TextColor="#6263ED" />
 
 							<Span
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="{StaticResource PoppinsRegularFontFamily}"
 								FontSize="14"
 								Text="and "
 								TextColor="#797A7D" />
 
 							<Span
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 								FontSize="14"
 								Text="Privacy Policy"
 								TextColor="#6263ED" />
@@ -236,7 +236,7 @@
 					BorderColor="#6263ED"
 					Command="{Binding CreateAccountCommand}"
 					CornerRadius="12"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 					FontSize="16"
 					HeightRequest="56"
 					Text="Sign Up"

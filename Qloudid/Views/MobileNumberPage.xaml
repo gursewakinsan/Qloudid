@@ -34,14 +34,14 @@
 			Spacing="0"
 			VerticalOptions="StartAndExpand">
 			<Label
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 				FontSize="32"
 				Text="Phone number"
 				TextColor="White" />
 
 			<Label
 				Margin="0,12,0,42"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
 				FontSize="18"
 				LineHeight="1.1"
 				Text="We need to verify your phone by sending a code to you by sms 👋"
@@ -73,7 +73,7 @@
 					UnfocusedStrokeWidth="0.5">
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="16"
 						IsReadOnly="True"
 						Placeholder="Code"
@@ -107,7 +107,7 @@
 					</textinputlayout:SfTextInputLayout.LeadingView>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="16"
 						Keyboard="Numeric"
 						Placeholder="Mobile number"
@@ -121,7 +121,7 @@
 					Grid.Row="1"
 					Grid.ColumnSpan="2"
 					Margin="0,12,0,0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
 					FontSize="14"
 					HorizontalTextAlignment="Start"
 					Opacity="0.5"
@@ -137,7 +137,7 @@
 					BorderColor="#6263ED"
 					Command="{Binding SaveMobileNumberCommand}"
 					CornerRadius="12"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 					FontSize="16"
 					HeightRequest="56"
 					Text="Get OTP"
@@ -152,13 +152,13 @@
 			<Label.FormattedText>
 				<FormattedString>
 					<Span
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="16"
 						Text="Don't have an account? "
 						TextColor="#797A7D" />
 
 					<Span
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 						FontSize="16"
 						Text="Sign Up"
 						TextColor="#6263ED" />

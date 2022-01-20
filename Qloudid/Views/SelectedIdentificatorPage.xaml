@@ -41,7 +41,7 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 					FontSize="32"
 					TextColor="White">
 					<Label.FormattedText>
@@ -54,7 +54,7 @@
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
 					FontSize="18"
 					LineHeight="1.1"
 					TextColor="White">
@@ -99,7 +99,7 @@
 						<controls:CustomFloatingLabelEntry
 							x:Name="txtIdentificator"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Placeholder="{Binding IdentificatorPlaceholder}"
 							PlaceholderColor="#797A7D"
@@ -132,7 +132,7 @@
 
 						<controls:CustomDatePicker
 							Date="{Binding SelectedIssueDate}"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindIssueMaximumDate}"
@@ -176,7 +176,7 @@
 
 						<controls:CustomDatePicker
 							Date="{Binding SelectedExpiryDate}"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindExpiryMaximumDate}"
@@ -206,7 +206,7 @@
 			BorderColor="#6263ED"
 			Command="{Binding SaveIdentifyInfoCommand}"
 			CornerRadius="12"
-			FontFamily="{StaticResource SFProSemiboldFontFamily}"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 			FontSize="16"
 			HeightRequest="56"
 			Text="Save"

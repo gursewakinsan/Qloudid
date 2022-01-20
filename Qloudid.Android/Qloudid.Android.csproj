@@ -115,6 +115,8 @@
     <AndroidAsset Include="Assets\SFProDisplayLight.ttf" />
     <AndroidAsset Include="Assets\PoppinsRegular.ttf" />
     <AndroidAsset Include="Assets\SFProDisplayBold.ttf" />
+    <AndroidAsset Include="Assets\PoppinsBold.ttf" />
+    <AndroidAsset Include="Assets\PoppinsSemiBold.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

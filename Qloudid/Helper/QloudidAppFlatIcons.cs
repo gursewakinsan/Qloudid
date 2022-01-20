@@ -54,5 +54,6 @@
 		public const string Country = "\U000f034d";
 		public const string ToggleSwitch = "\U000f0521";
 		public const string ToggleSwitchOff = "\U000f0522";
+		public const string EmailOutline = "\U000f01f0";
 	}
 }

@@ -35,14 +35,14 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 					FontSize="32"
 					Text="Your card"
 					TextColor="White" />
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
 					FontSize="18"
 					LineHeight="1.1"
 					Text="We need your card details for payment and check-in 👋"
@@ -82,7 +82,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Keyboard="Numeric"
 							MaxLength="16"
@@ -116,7 +116,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							IsReadOnly="True"
 							Placeholder="Card holder"
@@ -149,7 +149,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select month"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							SelectedItem="{Binding ExpirationMonth}"
 							TextColor="White"
@@ -206,7 +206,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select year"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							ItemsSource="{Binding ExpirationYearList}"
 							SelectedItem="{Binding ExpirationYear}"
@@ -248,7 +248,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
 							FontSize="16"
 							Keyboard="Numeric"
 							MaxLength="3"
@@ -265,7 +265,7 @@
 						BorderColor="#6263ED"
 						Command="{Binding AddNewCardCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 						FontSize="16"
 						HeightRequest="56"
 						Text="Add Card"

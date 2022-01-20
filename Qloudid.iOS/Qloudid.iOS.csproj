@@ -94,6 +94,8 @@
     <BundleResource Include="Resources\iconCurveTopGray.png" />
     <BundleResource Include="Resources\Fonts\PoppinsRegular.ttf" />
     <BundleResource Include="Resources\Fonts\SFProDisplayBold.ttf" />
+    <BundleResource Include="Resources\Fonts\PoppinsBold.ttf" />
+    <BundleResource Include="Resources\Fonts\PoppinsSemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
