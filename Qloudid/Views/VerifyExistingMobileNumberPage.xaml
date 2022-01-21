@@ -6,10 +6,186 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="48" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="2"
+			Margin="0,0,28,0"
+			Padding="0"
+			BackgroundColor="#342B20"
+			CornerRadius="12"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="12"
+			HeightRequest="32"
+			HorizontalOptions="EndAndExpand"
+			Text="Restore"
+			TextColor="#E08D70"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="79" />
+
+		<StackLayout
+			Grid.Row="1"
+			Grid.ColumnSpan="3"
+			Margin="28,32,28,0"
+			Spacing="0"
+			VerticalOptions="StartAndExpand">
+			<Label
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="32"
+				Text="Phone number"
+				TextColor="White" />
+
+			<Label
+				Margin="0,12,0,42"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				LineHeight="1.1"
+				Text="Is this your current phone number. We will send a code. 👋"
+				TextColor="White" />
+
+			<Grid ColumnSpacing="14" RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="56" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="70" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					Grid.Column="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#797A7D"
+					FocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="Code"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="16"
+						IsReadOnly="True"
+						Placeholder="Code"
+						PlaceholderColor="#797A7D"
+						Text="{Binding CountryCode}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					Grid.Column="1"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#797A7D"
+					FocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="Mobile number"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="16"
+						IsReadOnly="True"
+						Keyboard="Numeric"
+						Placeholder="Mobile number"
+						PlaceholderColor="#797A7D"
+						Text="{Binding MobileNumber}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<Label
+					Grid.Row="1"
+					Grid.ColumnSpan="2"
+					Margin="0,12,0,0"
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="14"
+					HorizontalTextAlignment="Start"
+					Opacity="0.5"
+					Text="On mobile dont use the 0."
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+
+				<Grid
+					Grid.Row="2"
+					Grid.ColumnSpan="2"
+					ColumnSpacing="20">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="110" />
+					</Grid.ColumnDefinitions>
+
+					<controls:CustomButton
+						Grid.Column="0"
+						Margin="0"
+						BackgroundColor="#EF3B17"
+						BorderColor="#EF3B17"
+						Command="{Binding YesMobileNumberCommand}"
+						CornerRadius="12"
+						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontSize="16"
+						HeightRequest="56"
+						Text="Yes, it is!"
+						TextColor="White" />
+
+					<controls:CustomButton
+						Grid.Column="1"
+						Margin="0"
+						BackgroundColor="#2A2A31"
+						BorderColor="#2A2A31"
+						Command="{Binding NoMobileNumberCommand}"
+						CornerRadius="12"
+						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontSize="16"
+						HeightRequest="56"
+						Text="No, its not!"
+						TextColor="White" />
+				</Grid>
+			</Grid>
+		</StackLayout>
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30">
 				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
@@ -160,5 +336,5 @@
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

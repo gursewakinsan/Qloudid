@@ -51,6 +51,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command( () =>  ExecuteBackButtonControlCommand()));
+		}
+		private void ExecuteBackButtonControlCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.RestorePage());
+		}
+		#endregion
+
 		#region Properties.
 		public string Email { get; set; }
 		#endregion

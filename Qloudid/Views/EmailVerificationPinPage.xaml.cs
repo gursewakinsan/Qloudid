@@ -11,22 +11,22 @@ namespace Qloudid.Views
 	public partial class EmailVerificationPinPage : ContentPage
 	{
 		EmailVerificationPinPageViewModel viewModel;
-		List<Label> steps;
+		//List<Label> steps;
 		public EmailVerificationPinPage()
 		{
 			InitializeComponent();
-			steps = new List<Label>();
+			/*steps = new List<Label>();
 			steps.Add(step1);
 			steps.Add(step2);
 			steps.Add(step3);
 			steps.Add(step4);
 			steps.Add(step5);
-			steps.Add(step6);
+			steps.Add(step6);*/
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new EmailVerificationPinPageViewModel(this.Navigation);
 		}
 
-		private void Editor_TextChanged(object sender, TextChangedEventArgs e)
+		/*private void Editor_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			var oldText = e.OldTextValue;
 			var newText = e.NewTextValue;
@@ -34,13 +34,11 @@ namespace Qloudid.Views
 			CustomOtpEntry editor = sender as CustomOtpEntry;
 
 			string editorStr = editor.Text;
-			//if string.length lager than max length
 			if (editorStr.Length > 6)
 			{
 				editor.Text = editorStr.Substring(0, 6);
 			}
 
-			//dismiss keyboard
 			if (editorStr.Length >= 6)
 			{
 				editor.Unfocus();
@@ -123,6 +121,6 @@ namespace Qloudid.Views
 					frame6.BorderColor = Color.FromHex("#797A7D");
 					break;
 			}
-		}
+		}*/
 	}
 }

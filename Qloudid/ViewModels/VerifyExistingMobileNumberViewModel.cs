@@ -48,6 +48,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command(async () => await ExecuteBackButtonControlCommand()));
+		}
+		private async Task ExecuteBackButtonControlCommand()
+		{
+			await Navigation.PopAsync();
+		}
+		#endregion
+
 		#region Properties.
 		public string MobileNumber => Helper.Helper.UserMobileNumber;
 		public string CountryCode => $"+{Helper.Helper.CountryCode}";
