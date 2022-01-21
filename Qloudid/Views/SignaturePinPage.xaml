@@ -52,7 +52,7 @@
 			VerticalOptions="StartAndExpand">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="The code"
 					TextColor="White" />

@@ -36,7 +36,7 @@
 			Padding="0"
 			BackgroundColor="#342B20"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="{StaticResource PoppinsBoldFontFamily}"
 			FontSize="12"
 			HeightRequest="32"
 			HorizontalOptions="EndAndExpand"
@@ -53,7 +53,7 @@
 			VerticalOptions="StartAndExpand">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="Verify your email"
 					TextColor="White" />

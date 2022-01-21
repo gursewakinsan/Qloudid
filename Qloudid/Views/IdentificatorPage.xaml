@@ -44,7 +44,7 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="Verify yourself"
 					TextColor="White" />

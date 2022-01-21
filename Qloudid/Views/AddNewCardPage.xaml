@@ -35,7 +35,7 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="Your card"
 					TextColor="White" />
