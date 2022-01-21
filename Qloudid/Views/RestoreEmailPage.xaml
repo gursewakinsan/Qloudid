@@ -33,7 +33,7 @@
 			Padding="0"
 			BackgroundColor="#342B20"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsBoldFontFamily}"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 			FontSize="12"
 			HeightRequest="32"
 			HorizontalOptions="EndAndExpand"
@@ -49,6 +49,7 @@
 			Spacing="20">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
+					FontAttributes="Bold"
 					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="Restore"

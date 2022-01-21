@@ -41,6 +41,7 @@
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
 				<Label
+					FontAttributes="Bold"
 					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					TextColor="White">

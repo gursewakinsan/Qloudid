@@ -52,6 +52,7 @@
 			VerticalOptions="StartAndExpand">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
+					FontAttributes="Bold"
 					FontFamily="{StaticResource PoppinsBoldFontFamily}"
 					FontSize="32"
 					Text="The code"
