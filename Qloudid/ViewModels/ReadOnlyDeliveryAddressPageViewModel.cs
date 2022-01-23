@@ -10,34 +10,6 @@ namespace Qloudid.ViewModels
 		public ReadOnlyDeliveryAddressPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			Helper.Helper.IsPickupAddress = false;
-			Helper.Helper.PurchaseDetail = new Models.PurchaseDetailResponse() { Price = "400" };
-			Helper.Helper.DeliveryAddressDetail = new Models.DeliveryAddressDetailResponse()
-			{
-				Address = "Address",
-				City = "City",
-				CompanyName = "CompanyName",
-				CountryName = "CountryName",
-				EntryCode = "EntryCode",
-				Id = 1,
-				NameOnHouse = "NameOnHouse",
-				PortNumber = "PortNumber",
-				Zipcode = "Zipcode"
-			};
-
-			Helper.Helper.SelectedPickupAddress = new Models.PickupAddressDetailResponse()
-			{
-				Address = "Address",
-				City = "City",
-				CountryName = "CountryName",
-				Id = 1,
-				PortNumber = "PortNumber",
-				Zipcode = "Zipcode",
-				PickupAddressName = "PickupAddressName"
-			};
-
-			IsVisiblePickupAddress = false;
-			IsVisibleDeliveryAddress = true;
 			if (Helper.Helper.IsPickupAddress)
 				DisplayPickupAddressDetail = Helper.Helper.SelectedPickupAddress;
 			else
