@@ -10,7 +10,7 @@ namespace Qloudid.ViewModels
 		public ReadOnlyDeliveryAddressPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			Helper.Helper.IsPickupAddress = true;
+			Helper.Helper.IsPickupAddress = false;
 			Helper.Helper.PurchaseDetail = new Models.PurchaseDetailResponse() { Price = "400" };
 			Helper.Helper.DeliveryAddressDetail = new Models.DeliveryAddressDetailResponse()
 			{
@@ -36,8 +36,8 @@ namespace Qloudid.ViewModels
 				PickupAddressName = "PickupAddressName"
 			};
 
-			IsVisiblePickupAddress = true;
-			IsVisibleDeliveryAddress = false;
+			IsVisiblePickupAddress = false;
+			IsVisibleDeliveryAddress = true;
 			if (Helper.Helper.IsPickupAddress)
 				DisplayPickupAddressDetail = Helper.Helper.SelectedPickupAddress;
 			else

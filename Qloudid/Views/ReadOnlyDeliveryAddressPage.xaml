@@ -134,7 +134,7 @@
 						<controls:CustomFloatingLabelEntry.HeightRequest>
 							<OnPlatform x:TypeArguments="x:Double">
 								<On Platform="Android" Value="120" />
-								<On Platform="iOS" Value="60" />
+								<On Platform="iOS" Value="100" />
 							</OnPlatform>
 						</controls:CustomFloatingLabelEntry.HeightRequest>
 					</controls:CustomFloatingLabelEntry>
@@ -152,7 +152,7 @@
 
 					<StackLayout
 						Grid.Column="0"
-						Spacing="8"
+						Spacing="{OnPlatform Android='8', iOS='15'}"
 						VerticalOptions="CenterAndExpand">
 						<Label
 							FontFamily="{StaticResource PoppinsRegularFontFamily}"
@@ -235,7 +235,7 @@
 						<controls:CustomFloatingLabelEntry.HeightRequest>
 							<OnPlatform x:TypeArguments="x:Double">
 								<On Platform="Android" Value="120" />
-								<On Platform="iOS" Value="60" />
+								<On Platform="iOS" Value="100" />
 							</OnPlatform>
 						</controls:CustomFloatingLabelEntry.HeightRequest>
 					</controls:CustomFloatingLabelEntry>
@@ -253,7 +253,7 @@
 
 					<StackLayout
 						Grid.Column="0"
-						Spacing="8"
+						Spacing="{OnPlatform Android='8', iOS='15'}"
 						VerticalOptions="CenterAndExpand">
 						<Label
 							FontFamily="{StaticResource PoppinsRegularFontFamily}"
