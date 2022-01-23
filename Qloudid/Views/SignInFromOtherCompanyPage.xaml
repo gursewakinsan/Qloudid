@@ -123,6 +123,12 @@
 					OutlineCornerRadius="12"
 					UnfocusedColor="#E05780"
 					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="#E05780" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
@@ -199,6 +205,12 @@
 					OutlineCornerRadius="12"
 					UnfocusedColor="#2A2A31"
 					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="White" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
@@ -267,6 +279,12 @@
 					OutlineCornerRadius="12"
 					UnfocusedColor="#2A2A31"
 					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="White" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
