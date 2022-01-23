@@ -108,7 +108,7 @@
 			Grid.Row="8"
 			Grid.ColumnSpan="5"
 			VerticalScrollBarVisibility="Never">
-			<Grid Margin="28,0,28,0" RowSpacing="30">
+			<Grid Margin="28,0,28,0" RowSpacing="40">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="80" />
 					<RowDefinition Height="80" />
@@ -127,7 +127,7 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="80"
+						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Delivery address"
 						TextColor="Transparent" />
@@ -197,7 +197,7 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="80"
+						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Invoicing address"
 						TextColor="Transparent" />
@@ -259,7 +259,7 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="80"
+						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Payment type"
 						TextColor="Transparent" />
