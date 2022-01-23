@@ -20,7 +20,7 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			//viewModel.VerifyUserConsentCommand.Execute(null);
+			viewModel.VerifyUserConsentCommand.Execute(null);
 		}
 		
 		/*void BindSignInText(string signInText)
