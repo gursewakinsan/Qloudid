@@ -6,10 +6,525 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,13,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="37" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="70" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="111" />
+			<RowDefinition Height="28" />
+			<RowDefinition Height="1" />
+			<RowDefinition Height="28" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="30"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="#342B20"
+			CornerRadius="12"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="14"
+			HeightRequest="32"
+			Text="Qloud ID Pay"
+			TextColor="#4EDCEB" />
+
+		<StackLayout
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Spacing="0">
+			<Label
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				Opacity="0.4"
+				Text="One time"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<Label
+				FontAttributes="Bold"
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="32"
+				Text="To pay "
+				TextColor="White"
+				VerticalTextAlignment="End" />
+		</StackLayout>
+
+		<Frame
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="Transparent"
+			BorderColor="#4EDCEB"
+			CornerRadius="16"
+			IsClippedToBounds="True">
+			<Label
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="50"
+				HorizontalTextAlignment="Center"
+				Text="{Binding PurchaseDetail.DisplayPrice}"
+				TextColor="#4EDCEB"
+				VerticalTextAlignment="Center" />
+		</Frame>
+
+		<BoxView
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="#2A2A31" />
+
+		<ScrollView
+			Grid.Row="8"
+			Grid.ColumnSpan="5"
+			VerticalScrollBarVisibility="Never">
+			<Grid Margin="28,0,28,0" RowSpacing="40">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="120" />
+					<RowDefinition Height="120" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="1" />
+				</Grid.RowDefinitions>
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					HeightRequest="120"
+					Hint="Delivery address"
+					IsVisible="{Binding IsVisibleDeliveryAddress}"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#2A2A31"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="White" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="18"
+						IsReadOnly="True"
+						Text="Delivery address"
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="120" />
+								<On Platform="iOS" Value="100" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="0"
+					Margin="15,22,15,0"
+					ColumnSpacing="0"
+					IsVisible="{Binding IsVisibleDeliveryAddress}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="25" />
+					</Grid.ColumnDefinitions>
+
+					<StackLayout
+						Grid.Column="0"
+						Spacing="{OnPlatform Android='8',
+						                     iOS='15'}"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							Text="{Binding DisplayDeliveryAddress.NameOnHouse}"
+							TextColor="White" />
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayDeliveryAddress.Address}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayDeliveryAddress.PortNumber}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayDeliveryAddress.City}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayDeliveryAddress.Zipcode}" />
+									<Span Text=", " />
+									<Span Text="{Binding DisplayDeliveryAddress.CountryName}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					</StackLayout>
+
+					<Label
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.DotsHorizontal}"
+						TextColor="#4EDCEB"
+						VerticalTextAlignment="Start">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding EditDeliveryAddressCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="0"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					HeightRequest="120"
+					Hint="Pickup address"
+					IsVisible="{Binding IsVisiblePickupAddress}"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#2A2A31"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="White" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="18"
+						IsReadOnly="True"
+						Text="Pickup address"
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="120" />
+								<On Platform="iOS" Value="100" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="0"
+					Margin="15,22,15,0"
+					ColumnSpacing="0"
+					IsVisible="{Binding IsVisiblePickupAddress}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="25" />
+					</Grid.ColumnDefinitions>
+
+					<StackLayout
+						Grid.Column="0"
+						Spacing="{OnPlatform Android='8',
+						                     iOS='15'}"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							Text="{Binding DisplayPickupAddressDetail.PickupAddressName}"
+							TextColor="White" />
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayPickupAddressDetail.Address}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayPickupAddressDetail.PortNumber}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayPickupAddressDetail.City}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayPickupAddressDetail.Zipcode}" />
+									<Span Text=", " />
+									<Span Text="{Binding DisplayPickupAddressDetail.CountryName}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					</StackLayout>
+
+					<Label
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.DotsHorizontal}"
+						TextColor="#4EDCEB"
+						VerticalTextAlignment="Start">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding EditDeliveryAddressCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="1"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					HeightRequest="120"
+					Hint="Invoicing address"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#2A2A31"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="White" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="18"
+						IsReadOnly="True"
+						Text="Invoicing address"
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="120" />
+								<On Platform="iOS" Value="100" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="1"
+					Margin="15,22,15,0"
+					ColumnSpacing="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="25" />
+					</Grid.ColumnDefinitions>
+
+					<StackLayout
+						Grid.Column="0"
+						Spacing="{OnPlatform Android='8',
+						                     iOS='15'}"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							Text="{Binding DisplayInvoiceAddress.NameOnHouse}"
+							TextColor="White" />
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayInvoiceAddress.InvoiceAddress}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayInvoiceAddress.InvoicePortNumber}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DisplayInvoiceAddress.InvoiceCity}" />
+									<Span Text=" " />
+									<Span Text="{Binding DisplayInvoiceAddress.InvoiceZip}" />
+									<Span Text=", " />
+									<Span Text="{Binding DisplayInvoiceAddress.InvoiceCountry}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					</StackLayout>
+
+					<Label
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.DotsHorizontal}"
+						TextColor="#4EDCEB"
+						VerticalTextAlignment="Start">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding EditInvoicingAddressCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					HeightRequest="80"
+					Hint="Select"
+					OutlineCornerRadius="12"
+					UnfocusedColor="#E05780"
+					UnfocusedStrokeWidth="0.5">
+					<textinputlayout:SfTextInputLayout.HintLabelStyle>
+						<textinputlayout:LabelStyle
+							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontSize="12"
+							Color="#E05780" />
+					</textinputlayout:SfTextInputLayout.HintLabelStyle>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="18"
+						IsReadOnly="True"
+						Text="Payment type"
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="80" />
+								<On Platform="iOS" Value="60" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
+				</textinputlayout:SfTextInputLayout>
+
+				<Grid
+					Grid.Row="2"
+					Margin="15,22,15,0"
+					ColumnSpacing="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="32" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="25" />
+					</Grid.ColumnDefinitions>
+					<Button
+						Padding="0"
+						BackgroundColor="#E05780"
+						Command="{Binding SelectedInvoicingAddressCommand}"
+						CornerRadius="16"
+						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontSize="15"
+						HeightRequest="32"
+						HorizontalOptions="CenterAndExpand"
+						Text="3"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="32" />
+
+					<Label
+						Grid.Column="1"
+						Margin="15,0,0,0"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Opacity="0.32"
+						Text="Payment type"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedInvoicingAddressCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.Column="2"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+						TextColor="#E05780"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedInvoicingAddressCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+			</Grid>
+		</ScrollView>
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<Grid Padding="20" RowSpacing="0">
 				<Grid.RowDefinitions>
@@ -334,5 +849,5 @@
 				</ScrollView>
 			</Grid>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

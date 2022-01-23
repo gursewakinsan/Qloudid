@@ -105,6 +105,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsVisiblePickupAddress");
 			}
 		}
+
+		public Models.PurchaseDetailResponse PurchaseDetail => Helper.Helper.PurchaseDetail;
 		#endregion
 	}
 }
