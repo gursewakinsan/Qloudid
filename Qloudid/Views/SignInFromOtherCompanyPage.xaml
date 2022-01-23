@@ -127,10 +127,16 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Delivery address"
-						TextColor="Transparent" />
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="80" />
+								<On Platform="iOS" Value="60" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
 				</textinputlayout:SfTextInputLayout>
 
 				<Grid
@@ -197,10 +203,16 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Invoicing address"
-						TextColor="Transparent" />
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="80" />
+								<On Platform="iOS" Value="60" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
 				</textinputlayout:SfTextInputLayout>
 
 				<Grid
@@ -259,10 +271,16 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
-						HeightRequest="60"
 						IsReadOnly="True"
 						Text="Payment type"
-						TextColor="Transparent" />
+						TextColor="Transparent">
+						<controls:CustomFloatingLabelEntry.HeightRequest>
+							<OnPlatform x:TypeArguments="x:Double">
+								<On Platform="Android" Value="80" />
+								<On Platform="iOS" Value="60" />
+							</OnPlatform>
+						</controls:CustomFloatingLabelEntry.HeightRequest>
+					</controls:CustomFloatingLabelEntry>
 				</textinputlayout:SfTextInputLayout>
 
 				<Grid
