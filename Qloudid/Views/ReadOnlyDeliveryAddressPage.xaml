@@ -110,7 +110,7 @@
 			VerticalScrollBarVisibility="Never">
 			<Grid Margin="28,0,28,0" RowSpacing="40">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="120" />
+					<RowDefinition Height="{Binding DeliveryAddressBoxHeightRequest}" />
 					<RowDefinition Height="80" />
 					<RowDefinition Height="80" />
 				</Grid.RowDefinitions>
@@ -118,7 +118,7 @@
 					Grid.Row="0"
 					ContainerBackgroundColor="Transparent"
 					ContainerType="Outlined"
-					HeightRequest="120"
+					HeightRequest="{Binding DeliveryAddressBoxHeightRequest}"
 					Hint="Delivery address"
 					IsVisible="{Binding IsVisibleDeliveryAddress}"
 					OutlineCornerRadius="12"
@@ -134,16 +134,10 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
+						HeightRequest="{Binding CustomFloatingLabelEntryHeightRequest}"
 						IsReadOnly="True"
 						Text="Delivery address"
-						TextColor="Transparent">
-						<controls:CustomFloatingLabelEntry.HeightRequest>
-							<OnPlatform x:TypeArguments="x:Double">
-								<On Platform="Android" Value="120" />
-								<On Platform="iOS" Value="100" />
-							</OnPlatform>
-						</controls:CustomFloatingLabelEntry.HeightRequest>
-					</controls:CustomFloatingLabelEntry>
+						TextColor="Transparent" />
 				</textinputlayout:SfTextInputLayout>
 
 				<Grid
@@ -169,6 +163,17 @@
 							MaxLines="1"
 							Opacity="0.4"
 							Text="{Binding DisplayDeliveryAddress.NameOnHouse}"
+							TextColor="White" />
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							IsVisible="{Binding IsVisibleUserName}"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							Text="{Binding UserInfo.DisplayUserName}"
 							TextColor="White" />
 
 						<Label
@@ -226,7 +231,7 @@
 					Grid.Row="0"
 					ContainerBackgroundColor="Transparent"
 					ContainerType="Outlined"
-					HeightRequest="120"
+					HeightRequest="{Binding DeliveryAddressBoxHeightRequest}"
 					Hint="Pickup address"
 					IsVisible="{Binding IsVisiblePickupAddress}"
 					OutlineCornerRadius="12"
@@ -242,16 +247,10 @@
 						BackgroundColor="#F8F8FB"
 						FontFamily="{StaticResource PoppinsRegularFontFamily}"
 						FontSize="18"
+						HeightRequest="{Binding CustomFloatingLabelEntryHeightRequest}"
 						IsReadOnly="True"
 						Text="Pickup address"
-						TextColor="Transparent">
-						<controls:CustomFloatingLabelEntry.HeightRequest>
-							<OnPlatform x:TypeArguments="x:Double">
-								<On Platform="Android" Value="120" />
-								<On Platform="iOS" Value="100" />
-							</OnPlatform>
-						</controls:CustomFloatingLabelEntry.HeightRequest>
-					</controls:CustomFloatingLabelEntry>
+						TextColor="Transparent" />
 				</textinputlayout:SfTextInputLayout>
 
 				<Grid
@@ -277,6 +276,17 @@
 							MaxLines="1"
 							Opacity="0.4"
 							Text="{Binding DisplayPickupAddressDetail.PickupAddressName}"
+							TextColor="White" />
+
+						<Label
+							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							IsVisible="{Binding IsVisibleUserName}"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="0.4"
+							Text="{Binding UserInfo.DisplayUserName}"
 							TextColor="White" />
 
 						<Label

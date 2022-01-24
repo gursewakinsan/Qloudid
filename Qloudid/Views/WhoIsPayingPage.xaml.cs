@@ -41,6 +41,7 @@ namespace Qloudid.Views
 			listInvoiceAddress.SelectedItem = null;
 			viewModel.InvoiceAddressId = address.Id;
 			viewModel.InvoiceAddressDetail = address;
+			Helper.Helper.UserOrCompanyAddressForInvoicing = address.CompanyId;
 			/*foreach (var invoiceAddress in viewModel.ListOfInvoiceAddress)
 			{
 				foreach (var item in invoiceAddress)

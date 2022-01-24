@@ -10,6 +10,27 @@ namespace Qloudid.ViewModels
 		public ReadOnlyDeliveryAddressPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			if (Helper.Helper.UserOrCompanyAddress == 0)
+			{
+				//Company Address
+				IsVisibleUserName = true;
+				DeliveryAddressBoxHeightRequest = 140;
+				if (Device.RuntimePlatform == Device.iOS)
+					CustomFloatingLabelEntryHeightRequest = 120;
+				else
+					CustomFloatingLabelEntryHeightRequest = 140;
+			}
+			else
+			{
+				//User Address
+				IsVisibleUserName = false;
+				DeliveryAddressBoxHeightRequest = 120;
+				if (Device.RuntimePlatform == Device.iOS)
+					CustomFloatingLabelEntryHeightRequest = 100;
+				else
+					CustomFloatingLabelEntryHeightRequest = 120;
+			}
+
 			if (Helper.Helper.IsPickupAddress)
 				DisplayPickupAddressDetail = Helper.Helper.SelectedPickupAddress;
 			else
@@ -89,6 +110,40 @@ namespace Qloudid.ViewModels
 			}
 		}
 
+		private double deliveryAddressBoxHeightRequest;
+		public double DeliveryAddressBoxHeightRequest
+		{
+			get => deliveryAddressBoxHeightRequest;
+			set
+			{
+				deliveryAddressBoxHeightRequest = value;
+				OnPropertyChanged("DeliveryAddressBoxHeightRequest");
+			}
+		}
+
+		private double customFloatingLabelEntryHeightRequest;
+		public double CustomFloatingLabelEntryHeightRequest
+		{
+			get => customFloatingLabelEntryHeightRequest;
+			set
+			{
+				customFloatingLabelEntryHeightRequest = value;
+				OnPropertyChanged("CustomFloatingLabelEntryHeightRequest");
+			}
+		}
+		
+		private bool isVisibleUserName;
+		public bool IsVisibleUserName
+		{
+			get => isVisibleUserName;
+			set
+			{
+				isVisibleUserName = value;
+				OnPropertyChanged("IsVisibleUserName");
+			}
+		}
+
+		public Models.User UserInfo => Helper.Helper.UserInfo;
 		public Models.PurchaseDetailResponse PurchaseDetail => Helper.Helper.PurchaseDetail;
 		#endregion
 	}

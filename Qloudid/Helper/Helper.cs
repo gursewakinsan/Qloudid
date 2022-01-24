@@ -58,6 +58,7 @@ namespace Qloudid.Helper
 		public static Models.AddressesResponse DeliveryAddress { get; set; }
 		public static int PurchaseIndex { get; set; }
 		public static int UserOrCompanyAddress { get; set; }
+		public static int UserOrCompanyAddressForInvoicing { get; set; }
 		public static int CompanyId { get; set; }
 		public static bool IsEditDeliveryAddressFromInvoicing { get; set; } = false;
 		public static bool IsEditAddressFromYourSignature { get; set; } = false;
