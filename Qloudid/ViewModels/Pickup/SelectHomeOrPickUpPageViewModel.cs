@@ -20,28 +20,23 @@ namespace Qloudid.ViewModels
 		#region Bind List.
 		void BindList()
 		{
-			var list = new List<Models.SelectHomeOrPickUpInfo>();
-			Models.SelectHomeOrPickUpInfo listHomeOrPickup = new Models.SelectHomeOrPickUpInfo();
-			listHomeOrPickup.SelectHomeOrPickUpAddress.Add(new Models.SelectHomeOrPickUp()
+			List<Models.SelectHomeOrPickUp> listHomeOrPickup = new List<Models.SelectHomeOrPickUp>();
+			listHomeOrPickup.Add(new Models.SelectHomeOrPickUp()
 			{
 				Id = 0,
-				HeadingAddress = "Home Delivery",
-				SubHeadingAddress = "To be sent on delivery address",
-				FirstLetterNameBg = Helper.Helper.ColorList[0]
+				HeadingAddress = "Home delivery",
+				//SubHeadingAddress = "To be sent on delivery address",
+				//FirstLetterNameBg = Helper.Helper.ColorList[0]
 			});
 
-			listHomeOrPickup.SelectHomeOrPickUpAddress.Add(new Models.SelectHomeOrPickUp()
+			listHomeOrPickup.Add(new Models.SelectHomeOrPickUp()
 			{
 				Id = 1,
-				HeadingAddress = "Pick Up",
-				SubHeadingAddress = "To be picked personally",
-				FirstLetterNameBg = Helper.Helper.ColorList[1]
+				HeadingAddress = "Pick up",
+				//SubHeadingAddress = "To be picked personally",
+				//FirstLetterNameBg = Helper.Helper.ColorList[1]
 			});
-
-			listHomeOrPickup.Heading = "Delivery Type";
-			list.Add(listHomeOrPickup);
-
-			ListOfSelectHomeOrPickUpAddress = list;
+			ListOfSelectHomeOrPickUpAddress = listHomeOrPickup;
 		}
 		#endregion
 
@@ -101,8 +96,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.SelectHomeOrPickUpInfo> listOfSelectHomeOrPickUpAddress;
-		public List<Models.SelectHomeOrPickUpInfo> ListOfSelectHomeOrPickUpAddress
+		private List<Models.SelectHomeOrPickUp> listOfSelectHomeOrPickUpAddress;
+		public List<Models.SelectHomeOrPickUp> ListOfSelectHomeOrPickUpAddress
 		{
 			get { return listOfSelectHomeOrPickUpAddress; }
 			set

@@ -67,11 +67,11 @@ namespace Qloudid.Models
 		}
 	}
 
-	public class SelectHomeOrPickUpInfo : List<SelectHomeOrPickUp>
+	/*public class SelectHomeOrPickUpInfo : List<SelectHomeOrPickUp>
 	{
 		public string Heading { get; set; }
 		public List<SelectHomeOrPickUp> SelectHomeOrPickUpAddress => this;
-	}
+	}*/
 }
 
 

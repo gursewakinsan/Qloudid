@@ -6,9 +6,170 @@
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,13,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="37" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="70" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="1" />
+			<RowDefinition Height="54" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="22" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="30"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="#342B20"
+			CornerRadius="12"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="14"
+			HeightRequest="32"
+			Text="Qloud ID Pay"
+			TextColor="#4EDCEB" />
+
+		<StackLayout
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Spacing="0">
+			<Label
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				Opacity="0.4"
+				Text="Select"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<Label
+				FontAttributes="Bold"
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="32"
+				Text="Delivery option"
+				TextColor="White"
+				VerticalTextAlignment="End" />
+		</StackLayout>
+
+		<BoxView
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="#2A2A31" />
+
+		<Label
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			FontFamily="{StaticResource PoppinsRegularFontFamily}"
+			FontSize="16"
+			Text="What do you prefer?"
+			TextColor="White"
+			VerticalTextAlignment="Start" />
+
+		<ListView
+			x:Name="listHomeOrPickUp"
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="Transparent"
+			HasUnevenRows="true"
+			ItemTapped="OnHomeOrPickUpItemTapped"
+			ItemsSource="{Binding ListOfSelectHomeOrPickUpAddress}"
+			RowHeight="80"
+			SeparatorVisibility="None"
+			VerticalOptions="FillAndExpand"
+			VerticalScrollBarVisibility="Never">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Frame
+							Margin="0,0,0,20"
+							BackgroundColor="Transparent"
+							BorderColor="#2A2A31"
+							CornerRadius="16"
+							IsClippedToBounds="True">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="25" />
+								</Grid.ColumnDefinitions>
+								<Button
+									Grid.Row="0"
+									Grid.Column="0"
+									Padding="0"
+									BackgroundColor="#342B20"
+									CornerRadius="20"
+									FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+									FontSize="18"
+									HeightRequest="40"
+									HorizontalOptions="CenterAndExpand"
+									Text="{Binding FirstLetterName}"
+									TextColor="#4EDCEB"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="40" />
+
+								<Label
+									Grid.Column="1"
+									Margin="15,0,0,0"
+									FontFamily="{StaticResource PoppinsRegularFontFamily}"
+									FontSize="18"
+									HorizontalTextAlignment="Start"
+									Opacity="0.32"
+									Text="{Binding HeadingAddress}"
+									TextColor="White"
+									VerticalTextAlignment="Center" />
+
+								<Label
+									Grid.Column="2"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="25"
+									HorizontalTextAlignment="End"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+									TextColor="#4EDCEB"
+									VerticalTextAlignment="Center" />
+							</Grid>
+						</Frame>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+
+
+
+
+	<!--<ContentPage.Content>
 		<Grid Margin="0,20,0,0" RowSpacing="10">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="125" />
@@ -179,5 +340,5 @@
 				</ListView>
 			</Grid>
 		</Grid>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>
