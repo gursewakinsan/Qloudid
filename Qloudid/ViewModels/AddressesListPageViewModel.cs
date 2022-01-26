@@ -1,9 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -51,34 +53,30 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			var response = await service.GetDeliveryAddressesAsync(new Models.DeliveryAddressesRequest() { UserId = Helper.Helper.UserId });
-			int index = 0;
-			var list = new List<Models.DeliveryAddressInfo>();
+			var list = new List<Models.UserAddress>();
 			if (response?.UserAddress?.Count > 0)
 			{
-				Models.DeliveryAddressInfo listPersonal = new Models.DeliveryAddressInfo();
 				foreach (var item in response.UserAddress)
 				{
-					item.FirstLetterNameBg = Helper.Helper.ColorList[index];
-					index = index + 1;
-					listPersonal.Add(item);
+					item.UserName = string.Empty;
+					item.IsPersonal = true;
+					item.IsBusiness = false;
+					list.Add(item);
 				}
-				listPersonal.Heading = "Personal";
-				list.Add(listPersonal);
 			}
 
 			if (response?.CompanyAddress?.Count > 0)
 			{
-				Models.DeliveryAddressInfo listCompanies = new Models.DeliveryAddressInfo();
 				foreach (var item in response.CompanyAddress)
 				{
-					item.FirstLetterNameBg = Helper.Helper.ColorList[index];
-					index = index + 1;
-					listCompanies.Add(item);
+					item.UserName = UserName;
+					item.IsPersonal = false;
+					item.IsBusiness = false;
+					list.Add(item);
 				}
-				listCompanies.Heading = "Companies";
-				list.Add(listCompanies);
 			}
-			ListOfDeliveryAddress = list;
+			CopyUserAddress = list;
+			ListOfDeliveryAddress = new ObservableCollection<Models.UserAddress>(list);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -135,6 +133,86 @@ namespace Qloudid.ViewModels
 				Helper.Helper.IsPickupAddress = false;
 				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 			}
+		}
+		#endregion
+
+		#region Show Personal Addresses Command.
+		private ICommand showPersonalAddressesCommand;
+		public ICommand ShowPersonalAddressesCommand
+		{
+			get => showPersonalAddressesCommand ?? (showPersonalAddressesCommand = new Command(async () => await ExecuteShowPersonalAddressesCommand()));
+		}
+		private async Task ExecuteShowPersonalAddressesCommand()
+		{
+			IsPersonalOrBusiness = true;
+			BtnPersonalBg = "#6263ED";
+			BtnBusinessBg = "#2A2A31";
+			foreach (var personalAddresses in CopyUserAddress)
+			{
+				personalAddresses.IsBusiness = false;
+				if (personalAddresses.User_address == 1)
+					personalAddresses.IsPersonal = true;
+				else
+					personalAddresses.IsPersonal = false;
+			}
+			ListOfDeliveryAddress = new ObservableCollection<Models.UserAddress>(CopyUserAddress);
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Show Business Addresses Command.
+		private ICommand showBusinessAddressesCommand;
+		public ICommand ShowBusinessAddressesCommand
+		{
+			get => showBusinessAddressesCommand ?? (showBusinessAddressesCommand = new Command(async () => await ExecuteShowBusinessAddressesCommand()));
+		}
+		private async Task ExecuteShowBusinessAddressesCommand()
+		{
+			IsPersonalOrBusiness = false;
+			BtnPersonalBg = "#2A2A31"; 
+			BtnBusinessBg = "#6263ED";
+			foreach (var personalAddresses in CopyUserAddress)
+			{
+				personalAddresses.IsPersonal = false;
+				if (personalAddresses.User_address == 0)
+					personalAddresses.IsBusiness = true;
+				else
+					personalAddresses.IsBusiness = false;
+			}
+			ListOfDeliveryAddress = new ObservableCollection<Models.UserAddress>(CopyUserAddress);
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Search Command.
+		private ICommand searchCommand;
+		public ICommand SearchCommand
+		{
+			get => searchCommand ?? (searchCommand = new Command(async () => await ExecuteSearchCommand()));
+		}
+		private async Task ExecuteSearchCommand()
+		{
+			if (!string.IsNullOrWhiteSpace(SearchText))
+			{
+				string text = SearchText.ToLower();
+				if (CopyUserAddress?.Count > 0)
+				{
+					List<Models.UserAddress> addresses = null;
+					if (IsPersonalOrBusiness)
+						addresses = CopyUserAddress.Where(x => x.AddressForSearch.ToLower().Contains(text) && x.IsPersonal == true).ToList();
+					else
+						addresses = CopyUserAddress.Where(x => x.AddressForSearch.ToLower().Contains(text) && x.IsBusiness == true).ToList();
+					ListOfDeliveryAddress = new ObservableCollection<Models.UserAddress>(addresses);
+				}
+			}
+			else
+			{
+				if (IsPersonalOrBusiness)
+					ShowPersonalAddressesCommand.Execute(null);
+				else
+					ShowBusinessAddressesCommand.Execute(null);
+			}
+			await Task.CompletedTask;
 		}
 		#endregion
 
@@ -223,8 +301,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private List<Models.DeliveryAddressInfo> listOfDeliveryAddress;
-		public List<Models.DeliveryAddressInfo> ListOfDeliveryAddress
+		private ObservableCollection<Models.UserAddress> listOfDeliveryAddress;
+		public ObservableCollection<Models.UserAddress> ListOfDeliveryAddress
 		{
 			get { return listOfDeliveryAddress; }
 			set
@@ -233,6 +311,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("ListOfDeliveryAddress");
 			}
 		}
+
+		public List<Models.UserAddress> CopyUserAddress { get; set; }
 
 		private bool isSubmit;
 		public bool IsSubmit
@@ -245,6 +325,40 @@ namespace Qloudid.ViewModels
 			}
 		}
 
+		private string btnPersonalBg = "#6263ED";
+		public string BtnPersonalBg
+		{
+			get { return btnPersonalBg; }
+			set
+			{
+				btnPersonalBg = value;
+				OnPropertyChanged("BtnPersonalBg");
+			}
+		}
+
+		private string btnBusinessBg = "#2A2A31";
+		public string BtnBusinessBg
+		{
+			get { return btnBusinessBg; }
+			set
+			{
+				btnBusinessBg = value;
+				OnPropertyChanged("BtnBusinessBg");
+			}
+		}
+
+		private string searchText;
+		public string SearchText
+		{
+			get { return searchText; }
+			set
+			{
+				searchText = value;
+				OnPropertyChanged("SearchText");
+			}
+		}
+
+		public bool IsPersonalOrBusiness { get; set; } = true;
 		public int SelectedAddressId { get; set; }
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
 		public string StreetAndNr => "Street & nr";

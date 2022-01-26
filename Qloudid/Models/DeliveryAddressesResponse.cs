@@ -30,7 +30,9 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
 		public string SubHeadingAddress { get; set; }
 		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(NameOnHouse, 0).ToUpper();
-		
+
+		public string AddressForSearch => $"{NameOnHouse}, {UserName}, {HeadingAddress}, {SubHeadingAddress}";
+
 		private string firstLetterNameBg;
 		public string FirstLetterNameBg
 		{
@@ -87,6 +89,30 @@ namespace Qloudid.Models
 			}
 		}
 
+		private bool isPersonal;
+		public bool IsPersonal
+		{
+			get { return isPersonal; }
+			set
+			{
+				isPersonal = value;
+				OnPropertyChanged("IsPersonal");
+			}
+		}
+
+		private bool isBusiness;
+		public bool IsBusiness
+		{
+			get { return isBusiness; }
+			set
+			{
+				isBusiness = value;
+				OnPropertyChanged("IsBusiness");
+			}
+		}
+
+		public string UserName { get; set; }
+
 		public event PropertyChangedEventHandler PropertyChanged;
 		public virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = "")
 		{
@@ -94,9 +120,9 @@ namespace Qloudid.Models
 		}
 	}
 
-	public class DeliveryAddressInfo : List<UserAddress>
+	/*public class DeliveryAddressInfo : List<UserAddress>
 	{
 		public string Heading { get; set; }
 		public List<UserAddress> DeliveryAddress => this;
-	}
+	}*/
 }

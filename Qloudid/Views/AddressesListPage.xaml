@@ -3,12 +3,359 @@
 	x:Class="Qloudid.Views.AddressesListPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,13,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="37" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="70" />
+			<RowDefinition Height="33" />
+			<RowDefinition Height="45" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="1" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="36" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="30"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="#342B20"
+			CornerRadius="12"
+			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontSize="14"
+			HeightRequest="32"
+			Text="Qloud ID Pay"
+			TextColor="#4EDCEB" />
+
+		<StackLayout
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Spacing="0">
+			<Label
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="18"
+				Opacity="0.4"
+				Text="Select"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<Label
+				FontAttributes="Bold"
+				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontSize="32"
+				Text="Delivery address"
+				TextColor="White"
+				VerticalTextAlignment="End" />
+		</StackLayout>
+
+		<Grid
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			ColumnSpacing="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="50" />
+			</Grid.ColumnDefinitions>
+			<Frame
+				Grid.Column="0"
+				Padding="16,0,16,0"
+				BackgroundColor="#1F1F23"
+				CornerRadius="8"
+				IsClippedToBounds="True">
+				<Grid ColumnSpacing="5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="22"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.SearchIcon}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<controls:CustomEntry
+						Grid.Column="1"
+						BackgroundColor="Transparent"
+						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontSize="14"
+						Opacity="0.7"
+						Placeholder="Search"
+						PlaceholderColor="White"
+						ReturnCommand="{Binding SearchCommand}"
+						ReturnType="Search"
+						Text="{Binding SearchText}"
+						TextColor="White" />
+				</Grid>
+			</Frame>
+
+			<Label
+				Grid.Column="1"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="14"
+				HorizontalTextAlignment="End"
+				Text="Enter"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding SearchCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+		</Grid>
+
+		<BoxView
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="#2A2A31" />
+
+		<StackLayout
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			HorizontalOptions="StartAndExpand"
+			Orientation="Horizontal"
+			Spacing="20">
+			<controls:CustomButton
+				Margin="0"
+				BackgroundColor="{Binding BtnPersonalBg}"
+				BorderColor="{Binding BtnPersonalBg}"
+				Command="{Binding ShowPersonalAddressesCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="Personal"
+				TextColor="White"
+				WidthRequest="94" />
+
+			<controls:CustomButton
+				Margin="0"
+				BackgroundColor="{Binding BtnBusinessBg}"
+				BorderColor="{Binding BtnBusinessBg}"
+				Command="{Binding ShowBusinessAddressesCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="12"
+				Text="Business"
+				TextColor="White"
+				WidthRequest="94" />
+		</StackLayout>
+
+
+		<ListView
+			x:Name="listDeliveryAddress"
+			Grid.Row="10"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="Transparent"
+			HasUnevenRows="true"
+			ItemTapped="OnDeliveryAddressItemTapped"
+			ItemsSource="{Binding ListOfDeliveryAddress}"
+			SeparatorVisibility="None"
+			VerticalOptions="FillAndExpand"
+			VerticalScrollBarVisibility="Never">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout>
+							<Frame
+								Margin="0,0,0,20"
+								BackgroundColor="Transparent"
+								BorderColor="#2A2A31"
+								CornerRadius="8"
+								IsClippedToBounds="True"
+								IsVisible="{Binding IsPersonal}">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="25" />
+									</Grid.ColumnDefinitions>
+									<StackLayout
+										Grid.Column="0"
+										Spacing="5"
+										VerticalOptions="CenterAndExpand">
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding NameOnHouse}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding HeadingAddress}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding SubHeadingAddress}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+									</StackLayout>
+
+									<Label
+										Grid.Column="1"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="End"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="#4EDCEB"
+										VerticalTextAlignment="Start" />
+								</Grid>
+							</Frame>
+
+							<Frame
+								Margin="0,0,0,20"
+								BackgroundColor="Transparent"
+								BorderColor="#2A2A31"
+								CornerRadius="8"
+								IsClippedToBounds="True"
+								IsVisible="{Binding IsBusiness}">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="25" />
+									</Grid.ColumnDefinitions>
+									<StackLayout
+										Grid.Column="0"
+										Spacing="5"
+										VerticalOptions="CenterAndExpand">
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding NameOnHouse}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding UserName}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding HeadingAddress}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="14"
+											HorizontalTextAlignment="Start"
+											LineBreakMode="TailTruncation"
+											MaxLines="1"
+											Opacity="0.32"
+											Text="{Binding SubHeadingAddress}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+									</StackLayout>
+
+									<Label
+										Grid.Column="1"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="End"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="#4EDCEB"
+										VerticalTextAlignment="Start" />
+								</Grid>
+							</Frame>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<controls:CustomButton
+			Grid.Row="10"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0"
+			Padding="0"
+			BackgroundColor="#6263ED"
+			BorderColor="#6263ED"
+			Command="{Binding AddNewAddressCommand}"
+			CornerRadius="25"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="30"
+			HeightRequest="50"
+			HorizontalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			VerticalOptions="EndAndExpand"
+			WidthRequest="50" />
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<Grid Margin="0,20,0,0" RowSpacing="10">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="125" />
@@ -186,515 +533,7 @@
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
-
-				<!--<controls:CustomButton
-					Grid.Row="1"
-					Margin="0,10,0,10"
-					BackgroundColor="#05CBE7"
-					Command="{Binding GetDeliveryAddressDetailCommand}"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					HorizontalOptions="CenterAndExpand"
-					IsVisible="{Binding IsSubmit}"
-					Text="Submit"
-					TextColor="White"
-					WidthRequest="200" />-->
 			</Grid>
 		</Grid>
-
-
-		<!--<Grid RowSpacing="30" VerticalOptions="FillAndExpand">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="auto" />
-					<RowDefinition Height="*" />
-				</Grid.RowDefinitions>
-
-				<Frame
-					Grid.Row="0"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False"
-					HeightRequest="50"
-					IsVisible="{Binding IsSingleDeliveryAddress}">
-					<Grid Margin="10,0,5,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-							<ColumnDefinition Width="30" />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="25"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeMapMarker}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomPicker
-							Title="Select"
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
-							FontSize="16"
-							ItemDisplayBinding="{Binding HeadingAddress}"
-							ItemsSource="{Binding AddressesList}"
-							SelectedIndexChanged="AddressesListSelectedIndexChanged"
-							TextColor="#6F7FAF"
-							TitleColor="#6F7FAF">
-							<controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
-						</controls:CustomPicker>
-
-						<Label
-							Grid.Column="2"
-							FontSize="16"
-							HorizontalTextAlignment="Start"
-							Opacity="0.5"
-							Text="&#x25bc;"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-					</Grid>
-				</Frame>
-
-				<ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-					<Grid>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="auto" />
-							<RowDefinition Height="auto" />
-						</Grid.RowDefinitions>
-						<Grid
-							Grid.Row="0"
-							ColumnSpacing="0"
-							IsVisible="{Binding IsVisibleDeliveryAddress}"
-							RowSpacing="0">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="40" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="30" />
-								<RowDefinition Height="20" />
-								<RowDefinition Height="50" />
-								<RowDefinition Height="auto" />
-							</Grid.RowDefinitions>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Row="0"
-								Grid.Column="0"
-								Padding="10,10,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsCompanyAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Company"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="1"
-								Padding="0,10,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsCompanyAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.CompanyName}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="0"
-								Padding="10,10,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsUserAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Door name"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="0"
-								Grid.Column="1"
-								Padding="0,10,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								IsVisible="{Binding IsUserAddress}"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.NameOnHouse}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="1"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Your name"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="1"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding UserName}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="2"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding StreetAndNr}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="2"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.Address}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="3"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Zip code"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="3"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.Zipcode}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="4"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="City"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="4"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.City}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="5"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Country"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="5"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.CountryName}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="6"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Port number"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="6"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.PortNumber}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="7"
-								Grid.Column="0"
-								Padding="10,0,0,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="Entry code"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<Label
-								Grid.Row="7"
-								Grid.Column="1"
-								Padding="0,0,10,0"
-								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Start"
-								LineBreakMode="TailTruncation"
-								MaxLines="1"
-								Text="{Binding DeliveryAddressDetail.EntryCode}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Start" />
-
-							<controls:CustomButton
-								Grid.Row="9"
-								Grid.Column="1"
-								Margin="0"
-								BackgroundColor="#05CBE7"
-								Command="{Binding SelectedAddressCommand}"
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
-								FontSize="16"
-								Text="Select"
-								VerticalOptions="EndAndExpand" />
-
-							<StackLayout
-								Grid.Row="9"
-								Grid.Column="0"
-								IsVisible="{Binding IsUserAddress}">
-								<StackLayout.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding EditAddressCommand}" />
-								</StackLayout.GestureRecognizers>
-								<Label
-									FontFamily="{StaticResource SFProSemiboldFontFamily}"
-									FontSize="16"
-									HorizontalOptions="CenterAndExpand"
-									Text="Edit"
-									TextColor="#5587C3"
-									TextDecorations="Underline"
-									VerticalOptions="CenterAndExpand" />
-							</StackLayout>
-						</Grid>
-
-						<StackLayout
-							Grid.Row="1"
-							HeightRequest="50"
-							IsVisible="{Binding IsUserAddress}">
-							<StackLayout.GestureRecognizers>
-								<TapGestureRecognizer Command="{Binding AddNewAddressCommand}" />
-							</StackLayout.GestureRecognizers>
-							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
-								FontSize="16"
-								HorizontalOptions="CenterAndExpand"
-								Text="Add new address"
-								TextColor="#5587C3"
-								TextDecorations="Underline"
-								VerticalOptions="CenterAndExpand" />
-						</StackLayout>
-					</Grid>
-				</ScrollView>
-
-
-				-->
-		<!--<ListView
-					x:Name="listAddresses"
-					Grid.Row="1"
-					BackgroundColor="White"
-					HasUnevenRows="True"
-					ItemTapped="OnAddressesItemTapped"
-					ItemsSource="{Binding AddressesList}"
-					SeparatorVisibility="None"
-					VerticalScrollBarVisibility="Never">
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<ViewCell>
-								<Grid
-									BackgroundColor="White"
-									ColumnSpacing="20"
-									RowSpacing="5">
-									<Grid.RowDefinitions>
-										<RowDefinition Height="30" />
-										<RowDefinition Height="30" />
-										<RowDefinition Height="1" />
-									</Grid.RowDefinitions>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="50" />
-										<ColumnDefinition Width="*" />
-										<ColumnDefinition Width="20" />
-									</Grid.ColumnDefinitions>
-									<BoxView
-										Grid.Row="0"
-										Grid.RowSpan="3"
-										Grid.Column="0"
-										BackgroundColor="#6F7FAF"
-										CornerRadius="20"
-										HeightRequest="50"
-										HorizontalOptions="CenterAndExpand"
-										Opacity="0.1"
-										VerticalOptions="CenterAndExpand"
-										WidthRequest="50" />
-
-									<Label
-										Grid.Row="0"
-										Grid.RowSpan="3"
-										Grid.Column="0"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="18"
-										HorizontalTextAlignment="Center"
-										Text="{Binding FirstLetterName}"
-										TextColor="Black"
-										VerticalTextAlignment="Center" />
-
-									<Label
-										Grid.Row="0"
-										Grid.Column="1"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
-										FontSize="16"
-										HorizontalTextAlignment="Start"
-										LineBreakMode="TailTruncation"
-										MaxLines="1"
-										Text="{Binding HeadingAddress}"
-										TextColor="#060417"
-										VerticalTextAlignment="End" />
-
-									<Label
-										Grid.Row="1"
-										Grid.Column="1"
-										FontFamily="{StaticResource SFProRegularFontFamily}"
-										FontSize="14"
-										HorizontalTextAlignment="Start"
-										LineBreakMode="TailTruncation"
-										MaxLines="1"
-										Text="{Binding SubheadingAddress}"
-										TextColor="#6F7FAF"
-										VerticalTextAlignment="Start" />
-
-									<Label
-										Grid.RowSpan="3"
-										Grid.Column="2"
-										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="25"
-										HorizontalTextAlignment="Center"
-										Opacity="0.5"
-										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-										TextColor="#6F7FAF"
-										VerticalTextAlignment="Center" />
-
-									<BoxView
-										Grid.Row="2"
-										Grid.ColumnSpan="3"
-										BackgroundColor="#6F7FAF"
-										Opacity="0.2" />
-								</Grid>
-							</ViewCell>
-						</DataTemplate>
-					</ListView.ItemTemplate>
-				</ListView>
-
-				<controls:CustomButton
-					Grid.Row="2"
-					BackgroundColor="#05CBE7"
-					Command="{Binding AddNewAddressCommand}"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
-					FontSize="16"
-					Text="Add New Address"
-					VerticalOptions="EndAndExpand" />-->
-		<!--
-			</Grid>-->
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

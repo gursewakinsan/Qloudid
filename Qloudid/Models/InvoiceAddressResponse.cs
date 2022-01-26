@@ -44,6 +44,8 @@ namespace Qloudid.Models
 
 		public string SubHeadingAddress => $"{InvoiceCity} {InvoiceZip}, {InvoiceCountry}";
 
+		public string AddressForSearch => $"{NameOnHouse}, {UserName}, {HeadingAddress}, {SubHeadingAddress}";
+
 		private string firstLetterNameBg;
 		public string FirstLetterNameBg
 		{
@@ -98,6 +100,30 @@ namespace Qloudid.Models
 				OnPropertyChanged("RowSelectedText");
 			}
 		}
+
+		private bool isPersonal;
+		public bool IsPersonal
+		{
+			get { return isPersonal; }
+			set
+			{
+				isPersonal = value;
+				OnPropertyChanged("IsPersonal");
+			}
+		}
+
+		private bool isBusiness;
+		public bool IsBusiness
+		{
+			get { return isBusiness; }
+			set
+			{
+				isBusiness = value;
+				OnPropertyChanged("IsBusiness");
+			}
+		}
+
+		public string UserName { get; set; }
 
 		public event PropertyChangedEventHandler PropertyChanged;
 		public virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = "")

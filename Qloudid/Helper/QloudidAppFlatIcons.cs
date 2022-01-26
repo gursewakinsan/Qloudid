@@ -56,5 +56,6 @@
 		public const string ToggleSwitchOff = "\U000f0522";
 		public const string EmailOutline = "\U000f01f0";
 		public const string DotsHorizontal = "\U000f01d8";
+		public const string SearchIcon = "\U000f0349";
 	}
 }

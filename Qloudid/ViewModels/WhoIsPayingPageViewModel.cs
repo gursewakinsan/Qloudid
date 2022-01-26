@@ -5,6 +5,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -28,40 +29,110 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			var response = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
-			var list = new List<Models.InvoiceAddressInfo>();
+			var list = new List<Models.InvoiceAddressResponse>();
 			if (response?.Count > 0)
 			{
-				int index = 0;
-				Models.InvoiceAddressInfo listPersonal = new Models.InvoiceAddressInfo();
-				Models.InvoiceAddressInfo listCompanies = new Models.InvoiceAddressInfo();
 				foreach (var item in response)
 				{
 					if (item.IsUser)
 					{
-						item.FirstLetterNameBg = Helper.Helper.ColorList[index];
-						listPersonal.Add(item);
+						item.UserName = string.Empty;
+						item.IsPersonal = true;
+						item.IsBusiness = false;
+						list.Add(item);
 					}
 					else
 					{
-						item.FirstLetterNameBg = Helper.Helper.ColorList[index];
-						listCompanies.Add(item);
+						item.UserName = UserName;
+						item.IsPersonal = false;
+						item.IsBusiness = false;
+						list.Add(item);
 					}
-					index = index + 1;
-				}
-
-				if (listPersonal.Count > 0)
-				{
-					listPersonal.Heading = "Personal";
-					list.Add(listPersonal);
-				}
-				if (listCompanies.Count > 0)
-				{
-					listCompanies.Heading = "Companies";
-					list.Add(listCompanies);
 				}
 			}
-			ListOfInvoiceAddress = list;
+			CopyInvoiceAddress = list;
+			ListOfInvoiceAddress = new ObservableCollection<Models.InvoiceAddressResponse>(list);
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Show Personal Addresses Command.
+		private ICommand showPersonalAddressesCommand;
+		public ICommand ShowPersonalAddressesCommand
+		{
+			get => showPersonalAddressesCommand ?? (showPersonalAddressesCommand = new Command(async () => await ExecuteShowPersonalAddressesCommand()));
+		}
+		private async Task ExecuteShowPersonalAddressesCommand()
+		{
+			IsPersonalOrBusiness = true;
+			BtnPersonalBg = "#6263ED";
+			BtnBusinessBg = "#2A2A31";
+			foreach (var personalAddresses in CopyInvoiceAddress)
+			{
+				personalAddresses.IsBusiness = false;
+				if (personalAddresses.IsUser)
+					personalAddresses.IsPersonal = true;
+				else
+					personalAddresses.IsPersonal = false;
+			}
+			ListOfInvoiceAddress = new ObservableCollection<Models.InvoiceAddressResponse>(CopyInvoiceAddress);
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Show Business Addresses Command.
+		private ICommand showBusinessAddressesCommand;
+		public ICommand ShowBusinessAddressesCommand
+		{
+			get => showBusinessAddressesCommand ?? (showBusinessAddressesCommand = new Command(async () => await ExecuteShowBusinessAddressesCommand()));
+		}
+		private async Task ExecuteShowBusinessAddressesCommand()
+		{
+			IsPersonalOrBusiness = false;
+			BtnPersonalBg = "#2A2A31";
+			BtnBusinessBg = "#6263ED";
+			foreach (var personalAddresses in CopyInvoiceAddress)
+			{
+				personalAddresses.IsPersonal = false;
+				if (!personalAddresses.IsUser)
+					personalAddresses.IsBusiness = true;
+				else
+					personalAddresses.IsBusiness = false;
+			}
+			ListOfInvoiceAddress = new ObservableCollection<Models.InvoiceAddressResponse>(CopyInvoiceAddress);
+			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Search Command.
+		private ICommand searchCommand;
+		public ICommand SearchCommand
+		{
+			get => searchCommand ?? (searchCommand = new Command(async () => await ExecuteSearchCommand()));
+		}
+		private async Task ExecuteSearchCommand()
+		{
+			if (!string.IsNullOrWhiteSpace(SearchText))
+			{
+				string text = SearchText.ToLower();
+				if (CopyInvoiceAddress?.Count > 0)
+				{
+					List<Models.InvoiceAddressResponse> addresses = null;
+					if (IsPersonalOrBusiness)
+						addresses = CopyInvoiceAddress.Where(x => x.AddressForSearch.ToLower().Contains(text) && x.IsPersonal == true).ToList();
+					else
+						addresses = CopyInvoiceAddress.Where(x => x.AddressForSearch.ToLower().Contains(text) && x.IsBusiness == true).ToList();
+					ListOfInvoiceAddress = new ObservableCollection<Models.InvoiceAddressResponse>(addresses);
+				}
+			}
+			else
+			{
+				if (IsPersonalOrBusiness)
+					ShowPersonalAddressesCommand.Execute(null);
+				else
+					ShowBusinessAddressesCommand.Execute(null);
+			}
+			await Task.CompletedTask;
 		}
 		#endregion
 
@@ -94,8 +165,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.InvoiceAddressInfo> listOfInvoiceAddress;
-		public List<Models.InvoiceAddressInfo> ListOfInvoiceAddress
+		private ObservableCollection<Models.InvoiceAddressResponse> listOfInvoiceAddress;
+		public ObservableCollection<Models.InvoiceAddressResponse> ListOfInvoiceAddress
 		{
 			get { return listOfInvoiceAddress; }
 			set
@@ -104,6 +175,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("ListOfInvoiceAddress");
 			}
 		}
+		public List<Models.InvoiceAddressResponse> CopyInvoiceAddress { get; set; }
+
 
 		private List<Models.InvoiceAddressResponse> invoiceAddressList;
 		public List<Models.InvoiceAddressResponse> InvoiceAddressList
@@ -159,6 +232,41 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsSubmit");
 			}
 		}
+
+		private string btnPersonalBg = "#6263ED";
+		public string BtnPersonalBg
+		{
+			get { return btnPersonalBg; }
+			set
+			{
+				btnPersonalBg = value;
+				OnPropertyChanged("BtnPersonalBg");
+			}
+		}
+
+		private string btnBusinessBg = "#2A2A31";
+		public string BtnBusinessBg
+		{
+			get { return btnBusinessBg; }
+			set
+			{
+				btnBusinessBg = value;
+				OnPropertyChanged("BtnBusinessBg");
+			}
+		}
+
+		private string searchText;
+		public string SearchText
+		{
+			get { return searchText; }
+			set
+			{
+				searchText = value;
+				OnPropertyChanged("SearchText");
+			}
+		}
+
+		public bool IsPersonalOrBusiness { get; set; } = true;
 		public int InvoiceAddressId { get; set; }
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
 		public string StreetAndNr => "Street & nr";
