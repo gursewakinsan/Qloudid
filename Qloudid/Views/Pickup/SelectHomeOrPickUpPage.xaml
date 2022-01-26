@@ -101,11 +101,10 @@
 			Grid.Row="8"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			BackgroundColor="Transparent"
+			BackgroundColor="#181A1F"
 			HasUnevenRows="true"
 			ItemTapped="OnHomeOrPickUpItemTapped"
 			ItemsSource="{Binding ListOfSelectHomeOrPickUpAddress}"
-			RowHeight="80"
 			SeparatorVisibility="None"
 			VerticalOptions="FillAndExpand"
 			VerticalScrollBarVisibility="Never">
@@ -116,9 +115,12 @@
 							Margin="0,0,0,20"
 							BackgroundColor="Transparent"
 							BorderColor="#2A2A31"
-							CornerRadius="16"
-							IsClippedToBounds="True">
-							<Grid>
+							CornerRadius="16" HasShadow="False"
+							IsClippedToBounds="True" Padding="10,0,10,0">
+							<Grid VerticalOptions="CenterAndExpand">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="80"/>
+								</Grid.RowDefinitions>
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="40" />
 									<ColumnDefinition Width="*" />
@@ -139,7 +141,7 @@
 									VerticalOptions="CenterAndExpand"
 									WidthRequest="40" />
 
-								<Label
+								<Label Grid.Row="0"
 									Grid.Column="1"
 									Margin="15,0,0,0"
 									FontFamily="{StaticResource PoppinsRegularFontFamily}"
@@ -150,7 +152,7 @@
 									TextColor="White"
 									VerticalTextAlignment="Center" />
 
-								<Label
+								<Label Grid.Row="0"
 									Grid.Column="2"
 									FontFamily="{StaticResource MaterialFontFamily}"
 									FontSize="25"

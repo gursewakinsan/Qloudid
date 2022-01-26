@@ -96,7 +96,7 @@
 				Grid.Column="0"
 				Padding="16,0,16,0"
 				BackgroundColor="#1F1F23"
-				CornerRadius="8"
+				CornerRadius="8" HasShadow="False"
 				IsClippedToBounds="True">
 				<Grid ColumnSpacing="5">
 					<Grid.ColumnDefinitions>
@@ -186,7 +186,7 @@
 			Grid.Row="10"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			BackgroundColor="Transparent"
+			BackgroundColor="#181A1F"
 			HasUnevenRows="true"
 			ItemTapped="OnDeliveryAddressItemTapped"
 			ItemsSource="{Binding ListOfDeliveryAddress}"
