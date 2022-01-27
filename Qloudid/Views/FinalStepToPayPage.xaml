@@ -162,6 +162,7 @@
 									<Button
 										Padding="0"
 										BackgroundColor="#342B20"
+										Clicked="OnButtonFirstLetterNameClicked"
 										CornerRadius="16"
 										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 										FontSize="15"
@@ -175,8 +176,12 @@
 									<StackLayout
 										Grid.Column="1"
 										Margin="15,0,0,0"
-										Spacing="0"
+										Spacing="{OnPlatform Android='0',
+										                     iOS='5'}"
 										VerticalOptions="CenterAndExpand">
+										<StackLayout.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnStackLayoutCardInfoTapped" />
+										</StackLayout.GestureRecognizers>
 										<Label
 											FontFamily="{StaticResource PoppinsRegularFontFamily}"
 											FontSize="18"
@@ -184,7 +189,11 @@
 											Opacity="0.32"
 											Text="{Binding name_on_card}"
 											TextColor="White"
-											VerticalTextAlignment="Center" />
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+											</Label.GestureRecognizers>
+										</Label>
 
 										<Label
 											FontFamily="{StaticResource PoppinsRegularFontFamily}"
@@ -193,7 +202,11 @@
 											Opacity="0.32"
 											Text="{Binding card_number2}"
 											TextColor="White"
-											VerticalTextAlignment="Center" />
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+											</Label.GestureRecognizers>
+										</Label>
 									</StackLayout>
 
 									<Label
@@ -203,13 +216,36 @@
 										HorizontalTextAlignment="End"
 										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 										TextColor="#4EDCEB"
-										VerticalTextAlignment="Center" />
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+										</Label.GestureRecognizers>
+									</Label>
 								</Grid>
 							</Grid>
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
+
+			<controls:CustomButton
+				Grid.Row="8"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				Margin="0"
+				Padding="0"
+				BackgroundColor="#6263ED"
+				BorderColor="#6263ED"
+				Command="{Binding AddNewCardForPayingCommand}"
+				CornerRadius="25"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="30"
+				HeightRequest="50"
+				HorizontalOptions="CenterAndExpand"
+				IsVisible="{Binding IsUserCardOrCompanyCard}"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+				VerticalOptions="EndAndExpand"
+				WidthRequest="50" />
 		</Grid>
 
 
