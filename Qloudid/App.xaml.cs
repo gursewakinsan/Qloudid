@@ -47,7 +47,8 @@ namespace Qloudid
 					else if (signInText.Equals("payForDishes"))
 						VerifyPayForDishes();
 					else
-						MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+						MainPage = new NavigationPage(new Views.IWantToPayPage());
+					//MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 				}
 			}
 			else
@@ -182,7 +183,8 @@ namespace Qloudid
 							VerifyPayForDishes();
 						}
 						else
-							MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+							MainPage = new NavigationPage(new Views.IWantToPayPage());
+						//MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 					}
 					else
 						MainPage = new NavigationPage(new Views.RestorePage());
