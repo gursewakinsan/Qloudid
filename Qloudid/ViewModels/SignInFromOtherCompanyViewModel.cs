@@ -111,11 +111,19 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteClearLoginCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			ILoginService service = new LoginService();
-			await service.ClearLoginAsync(Helper.Helper.QrCertificateKey);
-			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-			DependencyService.Get<IProgressBar>().Hide();
+			if (Helper.Helper.FromIWantToPayPage)
+			{
+				Helper.Helper.FromIWantToPayPage = false;
+				await Navigation.PopAsync();
+			}
+			else
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				ILoginService service = new LoginService();
+				await service.ClearLoginAsync(Helper.Helper.QrCertificateKey);
+				Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 		}
 		#endregion
 
@@ -127,7 +135,10 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteContinueCommand()
 		{
-			Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(true));
+			if (Helper.Helper.FromIWantToPayPage)
+				await Navigation.PushAsync(new Views.AddressesListPage());
+			else
+				Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(true));
 			await Task.CompletedTask;
 		}
 		#endregion

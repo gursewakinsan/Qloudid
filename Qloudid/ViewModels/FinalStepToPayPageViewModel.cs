@@ -28,19 +28,34 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IsVisibleCardDetail = false;
 			IPurchaseService service = new PurchaseService();
-			var response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
+			/*var response = await service.SubmitPurchaseDetailAsync(new Models.PurchaseDetail()
 			{
 				user_id = Helper.Helper.UserInfo.user_id,
 				company_id = Helper.Helper.CompanyId,
 				certificate_key = Helper.Helper.QrCertificateKey
-			});
-			
-			int index = 0;
+			});*/
+
+			/*int index = 0;
 			foreach (var item in response)
 			{
 				item.FirstLetterNameBg = Helper.Helper.ColorList[index];
 				index = index + 1;
+			}*/
+			
+			List<Models.CardDetailResponse> response = new List<Models.CardDetailResponse>();
+
+			for (int i = 0; i < 10; i++)
+			{
+				response.Add(new Models.CardDetailResponse()
+				{
+					card_cvv = "card_cvv",
+					card_number = "124567787666",
+					card_number2 = "09887777",
+					card_type = "Visa",
+					name_on_card = "name_on_card" +i
+				});
 			}
+			
 			CardList = response;
 			DependencyService.Get<IProgressBar>().Hide();
 		}

@@ -87,6 +87,7 @@ namespace Qloudid.Helper
 		public static Models.PayOnRequest PayOnRequest { get; set; }
 		public static int SelectedCardId { get; set; }
 		public static int InvoiceAddressId { get; set; }
+		public static bool FromIWantToPayPage { get; set; } = false;
 
 		public static string[] ColorList =
 		{

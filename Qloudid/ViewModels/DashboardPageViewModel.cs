@@ -131,7 +131,8 @@ namespace Qloudid.ViewModels
 						}
 					}
 					else
-						await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
+						await Navigation.PushAsync(new Views.IWantToPayPage());
+					//await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}
 			}
 			else if (response == 2)
