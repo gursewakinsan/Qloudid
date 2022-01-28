@@ -48,7 +48,10 @@ namespace Qloudid.ViewModels
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					//Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
 					if (Helper.Helper.IsThirdPartyWebLogin)
+					{
+						Helper.Helper.IsThirdPartyWebLogin = false;
 						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
+					}
 					else
 						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
 				}

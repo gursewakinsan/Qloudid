@@ -60,6 +60,7 @@ namespace Qloudid.ViewModels
 					{
 						if (Helper.Helper.IsThirdPartyWebLogin)
 						{
+							Helper.Helper.IsThirdPartyWebLogin = false;
 							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 							if (Helper.Helper.PurchaseIndex == 1)
 							{
