@@ -169,7 +169,7 @@
 				FontFamily="{StaticResource PoppinsRegularFontFamily}"
 				FontSize="14"
 				HorizontalTextAlignment="End"
-				Text="Ikea Sweden AB"
+				Text="{Binding VerifyUserConsent.company_name}"
 				TextColor="White"
 				VerticalTextAlignment="Center" />
 

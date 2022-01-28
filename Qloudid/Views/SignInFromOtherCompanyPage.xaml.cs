@@ -20,7 +20,10 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.VerifyUserConsentCommand.Execute(null);
+			if (Helper.Helper.FromIWantToPayPage)
+				viewModel.PurchaseDetail = Helper.Helper.PurchaseDetail;
+			else
+				viewModel.VerifyUserConsentCommand.Execute(null);
 		}
 		
 		/*void BindSignInText(string signInText)

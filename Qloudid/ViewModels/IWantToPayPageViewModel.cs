@@ -59,8 +59,9 @@ namespace Qloudid.ViewModels
 
 				Helper.Helper.PurchaseDetail = PurchaseDetail;
 				DisplayName = $"{VerifyUserConsent.first_name}";
+				LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
 			}
-			DependencyService.Get<IProgressBar>().Hide();
+			//DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -93,6 +94,74 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Login To Desktop Command.
+		private ICommand loginToDesktopCommand;
+		public ICommand LoginToDesktopCommand
+		{
+			get => loginToDesktopCommand ?? (loginToDesktopCommand = new Command<string>(async (qrCode) => await ExecuteLoginToDesktopCommand(qrCode)));
+		}
+		private async Task ExecuteLoginToDesktopCommand(string qrCode)
+		{
+			IDashboardService service = new DashboardService();
+			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = qrCode });
+			if (response == 1)
+			{
+				if (Helper.Helper.UserInfo == null)
+				{
+					Models.User user = new Models.User();
+					user.first_name = $"{Application.Current.Properties["FirstName"]}";
+					user.last_name = $"{Application.Current.Properties["LastName"]}";
+					user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+					user.email = $"{Application.Current.Properties["Email"]}";
+					Helper.Helper.UserInfo = user;
+				}
+				DependencyService.Get<IProgressBar>().Hide();
+				return;
+			}
+			else if (response == 2)
+				await Navigation.PushAsync(new Views.InvalidQrCodePage());
+			else if (response == 3)
+				await Navigation.PushAsync(new Views.UserUnauthorizedPage());
+			else
+				await Navigation.PushAsync(new Views.UserAlertPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Login From Url Ip Command.
+		private ICommand loginFromUrlIpCommand;
+		public ICommand LoginFromUrlIpCommand
+		{
+			get => loginFromUrlIpCommand ?? (loginFromUrlIpCommand = new Command(async () => await ExecuteLoginFromUrlIpCommand()));
+		}
+		private async Task ExecuteLoginFromUrlIpCommand()
+		{
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+			{
+				//DependencyService.Get<IProgressBar>().Show();
+				Helper.Helper.QrCertificateKey = Application.Current.Properties["QrCode"].ToString();
+				ILoginService service = new LoginService();
+				Models.CheckValidQrResponse response = await service.CheckValidQrAsync(Helper.Helper.QrCertificateKey);
+				if (response.result > 0)
+				{
+					Models.User user = new Models.User()
+					{
+						first_name = response.first_name,
+						last_name = response.last_name,
+						email = response.email,
+						user_id = response.id,
+						UserImage = response.image,
+					};
+					Helper.Helper.UserInfo = user;
+					LoginToDesktopCommand.Execute(Helper.Helper.IpFromURL);
+				}
+				else
+					await Navigation.PushAsync(new Views.InvalidCertificatePage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+		}
+		#endregion
+
 		#region Properties.
 		public string displayName;
 		public string DisplayName
@@ -115,7 +184,18 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("PurchaseDetail");
 			}
 		}
-		public Models.VerifyUserConsentResponse VerifyUserConsent { get; set; }
+
+		private Models.VerifyUserConsentResponse verifyUserConsent;
+		public Models.VerifyUserConsentResponse VerifyUserConsent
+		{
+			get => verifyUserConsent;
+			set
+			{
+				verifyUserConsent = value;
+				OnPropertyChanged("VerifyUserConsent");
+			}
+		}
+
 		public Models.User UserInfo => Helper.Helper.UserInfo;
 		public string DisplayDate => $"{DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}";
 		#endregion
