@@ -136,10 +136,32 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteContinueCommand()
 		{
 			if (Helper.Helper.FromIWantToPayPage)
-				await Navigation.PushAsync(new Views.AddressesListPage());
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IPickupService pickupService = new PickupService();
+				var pickupServiceResponse = await pickupService.PickupAddressDetailAsync(new Models.PickupAddressDetailRequest()
+				{
+					Certificate = Helper.Helper.QrCertificateKey,
+					CompanyId = Helper.Helper.VerifyUserConsentClientId
+				});
+				if (pickupServiceResponse?.Count > 0)
+				{
+					Helper.Helper.IsPickupAddressAvailable = true;
+					Helper.Helper.IsPickupAddress = true;
+					Helper.Helper.PickupAddressList = pickupServiceResponse;
+					await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
+				}
+				else
+				{
+					Helper.Helper.IsPickupAddressAvailable = false; ;
+					Helper.Helper.IsPickupAddress = false;
+					await Navigation.PushAsync(new Views.AddressesListPage());
+				}
+				Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 			else
 				Application.Current.MainPage = new NavigationPage(new Views.SignInFromWebPage(true));
-			await Task.CompletedTask;
 		}
 		#endregion
 

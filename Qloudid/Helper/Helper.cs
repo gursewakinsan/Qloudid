@@ -77,6 +77,8 @@ namespace Qloudid.Helper
 		public static int SelectedIdentificatorId { get; set; }
 		public static List<Models.PickupAddressDetailResponse> PickupAddressList { get; set; }
 		public static bool IsPickupAddress { get; set; } = false;
+		public static bool IsPickupAddressAvailable { get; set; } = false;
+		public static string QloudidPayButtonText { get; set; } = "Qloud ID Pay";
 		public static Models.PickupAddressDetailResponse SelectedPickupAddress { get; set; }
 		public static int DependentId { get; set; }
 		public static bool IsFromWebDependent { get; set; } = false;

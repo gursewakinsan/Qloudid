@@ -1,11 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -15,7 +15,9 @@ namespace Qloudid.ViewModels
 		public PickUpAddressListPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			BindData();
+			CopyPickupAddress = Helper.Helper.PickupAddressList;
+			ListOfPickupAddressDetail = new ObservableCollection<Models.PickupAddressDetailResponse>(Helper.Helper.PickupAddressList);
+			//BindData();
 		}
 		#endregion
 
@@ -34,7 +36,7 @@ namespace Qloudid.ViewModels
 			listPickup.Heading = "Pick Up Address";
 			list.Add(listPickup);
 
-			ListOfPickupAddressDetail = list;
+			//ListOfPickupAddressDetail = list;
 		}
 		#endregion
 
@@ -111,15 +113,54 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Search Command.
+		private ICommand searchCommand;
+		public ICommand SearchCommand
+		{
+			get => searchCommand ?? (searchCommand = new Command(async () => await ExecuteSearchCommand()));
+		}
+		private async Task ExecuteSearchCommand()
+		{
+			if (!string.IsNullOrWhiteSpace(SearchText))
+			{
+				string text = SearchText.ToLower();
+				if (CopyPickupAddress?.Count > 0)
+				{
+					List<Models.PickupAddressDetailResponse> addresses = null;
+					addresses = CopyPickupAddress.Where(x => x.AddressForSearch.ToLower().Contains(text)).ToList();
+					ListOfPickupAddressDetail = new ObservableCollection<Models.PickupAddressDetailResponse>(addresses);
+				}
+			}
+			else
+			{
+				ListOfPickupAddressDetail = new ObservableCollection<Models.PickupAddressDetailResponse>(Helper.Helper.PickupAddressList);
+			}
+			await Task.CompletedTask;
+		}
+		#endregion
+
 		#region Properties.
-		private List<Models.PickupAddressDetailInfo> listOfPickupAddressDetail;
-		public List<Models.PickupAddressDetailInfo> ListOfPickupAddressDetail
+		public List<Models.PickupAddressDetailResponse> CopyPickupAddress { get; set; }
+
+		private ObservableCollection<Models.PickupAddressDetailResponse> listOfPickupAddressDetail;
+		public ObservableCollection<Models.PickupAddressDetailResponse> ListOfPickupAddressDetail
 		{
 			get { return listOfPickupAddressDetail; }
 			set
 			{
 				listOfPickupAddressDetail = value;
 				OnPropertyChanged("ListOfPickupAddressDetail");
+			}
+		}
+
+		private string searchText;
+		public string SearchText
+		{
+			get { return searchText; }
+			set
+			{
+				searchText = value;
+				OnPropertyChanged("SearchText");
 			}
 		}
 		#endregion

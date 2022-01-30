@@ -15,6 +15,12 @@ namespace Qloudid.Views.Pickup
 			BindingContext = viewModel = new PickUpAddressListPageViewModel(this.Navigation);
 		}
 
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			btnText.Text = Helper.Helper.QloudidPayButtonText;
+		}
+
 		private async void OnPickupAddressItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			Helper.Helper.IsPickupAddress = true;
@@ -33,6 +39,13 @@ namespace Qloudid.Views.Pickup
 			}
 			else
 				await Navigation.PushAsync(new ReadOnlyDeliveryAddressPage());
+		}
+
+		private void btnText_Clicked(object sender, System.EventArgs e)
+		{
+			Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
+			if (btnText.Text.Equals("Delivery Address"))
+				Application.Current.MainPage = new NavigationPage(new AddressesListPage());
 		}
 	}
 }

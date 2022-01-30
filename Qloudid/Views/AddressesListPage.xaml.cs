@@ -20,6 +20,7 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+			btnText.Text = Helper.Helper.QloudidPayButtonText;
 		}
 
 		private void OnAddressesItemTapped(object sender, ItemTappedEventArgs e)
@@ -62,7 +63,15 @@ namespace Qloudid.Views
 						item.IsSelect = false;
 				}
 			}*/
+			Helper.Helper.IsPickupAddress = false;
 			viewModel.GetDeliveryAddressDetailCommand.Execute(null);
+		}
+
+		private void btnText_Clicked(object sender, System.EventArgs e)
+		{
+			Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
+			if (btnText.Text.Equals("Pickup Address"))
+				Application.Current.MainPage = new NavigationPage(new Pickup.PickUpAddressListPage());
 		}
 	}
 }

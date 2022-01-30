@@ -26,6 +26,9 @@ namespace Qloudid.Models
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "city")]
 		public string City { get; set; }
+
+		public string AddressForSearch => $"{PickupAddressName}, {Address}, {PortNumber}, {City}, {Zipcode},{CountryName}";
+
 		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(PickupAddressName, 0).ToUpper();
 
 		private string firstLetterNameBg;

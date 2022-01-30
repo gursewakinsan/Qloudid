@@ -30,7 +30,7 @@
 			<ColumnDefinition Width="28" />
 			<ColumnDefinition Width="122" />
 			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="122" />
+			<ColumnDefinition Width="auto" />
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 
@@ -45,15 +45,17 @@
 			TextColor="White"
 			VerticalTextAlignment="Center">
 			<Label.GestureRecognizers>
-				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				<TapGestureRecognizer Command="{Binding BackCommand}" />
 			</Label.GestureRecognizers>
 		</Label>
 
 		<Button
+			x:Name="btnText"
 			Grid.Row="0"
 			Grid.Column="3"
-			Padding="0"
+			Padding="15,0,15,0"
 			BackgroundColor="#342B20"
+			Clicked="btnText_Clicked"
 			CornerRadius="12"
 			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
 			FontSize="14"

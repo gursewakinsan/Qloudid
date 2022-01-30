@@ -59,9 +59,19 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteEditAddressCommand()
 		{
 			if (Helper.Helper.IsPickupAddress)
-				await Navigation.PopAsync();
+			{
+				Helper.Helper.QloudidPayButtonText = "Delivery Address";
+				Application.Current.MainPage = new NavigationPage(new Views.Pickup.PickUpAddressListPage());
+			}
 			else
+			{
+				if (Helper.Helper.IsPickupAddressAvailable)
+					Helper.Helper.QloudidPayButtonText = "Pickup Address";
+				else
+					Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
 				Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+			}
+			await Task.CompletedTask;
 		}
 		#endregion
 

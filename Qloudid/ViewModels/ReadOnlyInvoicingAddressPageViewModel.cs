@@ -86,9 +86,18 @@ namespace Qloudid.ViewModels
 		{
 			Helper.Helper.IsEditDeliveryAddressFromInvoicing = true;
 			if (Helper.Helper.IsPickupAddress)
+			{
+				Helper.Helper.QloudidPayButtonText = "Delivery Address";
 				Application.Current.MainPage = new NavigationPage(new Views.Pickup.PickUpAddressListPage());
+			}
 			else
+			{
+				if (Helper.Helper.IsPickupAddressAvailable)
+					Helper.Helper.QloudidPayButtonText = "Pickup Address";
+				else
+					Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
 				Application.Current.MainPage = new NavigationPage(new Views.AddressesListPage());
+			}
 			await Task.CompletedTask;
 		}
 		#endregion

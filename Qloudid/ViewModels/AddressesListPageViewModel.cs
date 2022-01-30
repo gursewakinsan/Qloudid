@@ -117,22 +117,43 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedAddressCommand()
 		{
-			IPickupService pickupService = new PickupService();
-			var pickupServiceResponse = await pickupService.PickupAddressDetailAsync(new Models.PickupAddressDetailRequest()
+			await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+		}
+		#endregion
+
+		#region Selected Home Address Command.
+		private ICommand selectedHomeAddressCommand;
+		public ICommand SelectedHomeAddressCommand
+		{
+			get => selectedHomeAddressCommand ?? (selectedHomeAddressCommand = new Command(async () => await ExecuteSelectedHomeAddressCommand()));
+		}
+		private async Task ExecuteSelectedHomeAddressCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			Models.EditAddressResponse address = new Models.EditAddressResponse()
 			{
-				Certificate = Helper.Helper.QrCertificateKey,
-				CompanyId = Helper.Helper.VerifyUserConsentClientId
-			});
-			if (pickupServiceResponse?.Count > 0)
+				Id = Helper.Helper.DeliveryAddressDetail.Id,
+				DeliveredAt = Helper.Helper.UserOrCompanyAddress > 1 ? 0 : 1,
+				CertificateKey = Helper.Helper.QrCertificateKey
+			};
+			int response = await service.UpdateCompanyAddressAsync(address);
+			if (Helper.Helper.IsEditDeliveryAddressFromInvoicing)
 			{
-				Helper.Helper.PickupAddressList = pickupServiceResponse;
-				await Navigation.PushAsync(new Views.Pickup.SelectHomeOrPickUpPage());
+				Helper.Helper.IsEditDeliveryAddressFromInvoicing = false;
+				await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
+			}
+			else if (Helper.Helper.IsEditAddressFromYourSignature)
+			{
+				Helper.Helper.IsEditAddressFromYourSignature = false;
+				await Navigation.PushAsync(new Views.YourSignaturePage());
 			}
 			else
 			{
 				Helper.Helper.IsPickupAddress = false;
 				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 			}
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -229,8 +250,21 @@ namespace Qloudid.ViewModels
 			DeliveryAddressDetail = await service.DeliveryAddressDetailAsync(new Models.DeliveryAddressDetailRequest()
 			{ Id = SelectedAddressId, UserAddress = Helper.Helper.UserOrCompanyAddress });
 			Helper.Helper.DeliveryAddressDetail = DeliveryAddressDetail;
-			SelectedAddressCommand.Execute(null);
+			SelectedHomeAddressCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			if (Helper.Helper.IsPickupAddressAvailable)
+				await Navigation.PopAsync();
 		}
 		#endregion
 
@@ -365,3 +399,4 @@ namespace Qloudid.ViewModels
 		#endregion
 	}
 }
+
