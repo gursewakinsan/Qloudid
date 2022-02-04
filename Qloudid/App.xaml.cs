@@ -27,6 +27,11 @@ namespace Qloudid
 
 		public void OpenAppFromWeb(string signInText)
 		{
+			if (Helper.Helper.UserInfo == null)
+				FillUserInfo();
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
+				FillUserInfo();
+
 			Helper.Helper.IsThirdPartyWebLogin = false;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
@@ -57,6 +62,11 @@ namespace Qloudid
 
 		public void AppToAppLogin()
 		{
+			if (Helper.Helper.UserInfo == null)
+				FillUserInfo();
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
+				FillUserInfo();
+
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 				MainPage = new NavigationPage(new Views.SignInOtherAppPage());
 			else
@@ -74,6 +84,11 @@ namespace Qloudid
 
 		protected override void OnAppLinkRequestReceived(Uri uri)
 		{
+			if (Helper.Helper.UserInfo == null)
+				FillUserInfo();
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
+				FillUserInfo();
+
 			Helper.Helper.IsThirdPartyWebLogin = false;
 			if (uri.Host.EndsWith("qloudid.com", StringComparison.OrdinalIgnoreCase))
 			{
@@ -281,6 +296,11 @@ namespace Qloudid
 
 		public void DstrictsAppFunctionality_iOS(Uri uri)
 		{
+			if (Helper.Helper.UserInfo == null)
+				FillUserInfo();
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
+				FillUserInfo();
+
 			Helper.Helper.AppToAppName = "DstrictsApp";
 			var action = uri.Segments[1].Replace("/", "");
 			switch (action)
@@ -356,6 +376,30 @@ namespace Qloudid
 				  typeof(Microsoft.AppCenter.Analytics.Analytics), typeof(Microsoft.AppCenter.Crashes.Crashes));
 			Microsoft.AppCenter.Crashes.Crashes.NotifyUserConfirmation(Microsoft.AppCenter.Crashes.UserConfirmation.AlwaysSend);
 			base.OnStart();
+		}
+
+		private static void FillUserInfo()
+		{
+			Models.User user = new Models.User();
+			if (Application.Current.Properties.ContainsKey("FirstName"))
+				user.first_name = $"{Application.Current.Properties["FirstName"]}";
+
+			if (Application.Current.Properties.ContainsKey("LastName"))
+				user.last_name = $"{Application.Current.Properties["LastName"]}";
+
+			if (Application.Current.Properties.ContainsKey("UserId"))
+				user.user_id = Convert.ToInt32(Application.Current.Properties["UserId"]);
+
+			if (Application.Current.Properties.ContainsKey("Email"))
+				user.email = $"{Application.Current.Properties["Email"]}";
+
+			if (Application.Current.Properties.ContainsKey("QrCode"))
+				Helper.Helper.QrCertificateKey = $"{Application.Current.Properties["QrCode"]}";
+
+			Helper.Helper.UserInfo = user;
+
+			Helper.Helper.UserId = user.user_id;
+			Helper.Helper.UserEmail = user.email;
 		}
 	}
 }

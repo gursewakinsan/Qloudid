@@ -91,7 +91,8 @@ namespace Qloudid.ViewModels
 						IsCompany = Helper.Helper.CompanyId,
 						CardId = Helper.Helper.SelectedCardId,
 						UserId = Helper.Helper.UserId,
-						InvoiceAddressId = Helper.Helper.InvoiceAddressId
+						InvoiceAddressId = Helper.Helper.InvoiceAddressId,
+						WellnessId = Helper.Helper.PayOnRequest.WellnessId
 					});
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)

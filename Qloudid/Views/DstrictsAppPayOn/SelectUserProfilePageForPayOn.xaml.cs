@@ -13,12 +13,12 @@ namespace Qloudid.Views.DstrictsAppPayOn
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new SelectUserProfilePageForPayOnViewModel(this.Navigation);
+			viewModel.GetCompanyCommand.Execute(null);
 		}
 
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			viewModel.GetCompanyCommand.Execute(null);
 		}
 
 		private void OnCompanyItemTapped(object sender, ItemTappedEventArgs e)
