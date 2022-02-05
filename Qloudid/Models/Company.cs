@@ -1,15 +1,14 @@
-﻿using Xamarin.Forms;
-using System.ComponentModel;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Qloudid.Models
 {
-	public class Company : INotifyPropertyChanged
+	public class Company : BaseModel
 	{
 		public int id { get; set; }
 		public string company_name { get; set; }
 		public string company_email { get; set; }
 		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(company_name, 0).ToUpper();
+		public string AddressForSearch => $"{company_name}, {company_email}";
 
 		private bool isChecked;
 		public bool IsChecked
@@ -25,13 +24,29 @@ namespace Qloudid.Models
 				}
 			}
 		}
-		public double CheckUnCheckColor => IsChecked ? 0.8 : 0.1;
 
-		public event PropertyChangedEventHandler PropertyChanged;
-		public virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string name = "")
+		private bool isPersonal;
+		public bool IsPersonal
 		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+			get { return isPersonal; }
+			set
+			{
+				isPersonal = value;
+				OnPropertyChanged("IsPersonal");
+			}
 		}
+
+		private bool isBusiness;
+		public bool IsBusiness
+		{
+			get { return isBusiness; }
+			set
+			{
+				isBusiness = value;
+				OnPropertyChanged("IsBusiness");
+			}
+		}
+		public double CheckUnCheckColor => IsChecked ? 0.8 : 0.1;
 	}
 
 	public class CompanyInfo : List<Company>

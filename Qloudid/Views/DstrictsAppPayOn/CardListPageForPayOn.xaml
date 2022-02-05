@@ -3,12 +3,235 @@
 	x:Class="Qloudid.Views.DstrictsAppPayOn.CardListPageForPayOn"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
+		<Grid
+			Margin="0,13,0,0"
+			ColumnSpacing="0"
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="37" />
+				<RowDefinition Height="20" />
+				<RowDefinition Height="70" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="1" />
+				<RowDefinition Height="54" />
+				<RowDefinition Height="25" />
+				<RowDefinition Height="24" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="28" />
+				<ColumnDefinition Width="122" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="122" />
+				<ColumnDefinition Width="28" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Row="0"
+				Grid.Column="1"
+				Padding="-10,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="30"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Button
+				Grid.Row="0"
+				Grid.Column="3"
+				Padding="0"
+				BackgroundColor="#342B20"
+				CornerRadius="12"
+				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontSize="14"
+				HeightRequest="32"
+				Text="Qloud ID Pay"
+				TextColor="#4EDCEB" />
+
+			<StackLayout
+				Grid.Row="2"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				Spacing="0">
+				<Label
+					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontSize="18"
+					Opacity="0.4"
+					Text="Select"
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+
+				<Label
+					FontAttributes="Bold"
+					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontSize="32"
+					Text="Payment type "
+					TextColor="White"
+					VerticalTextAlignment="End" />
+			</StackLayout>
+
+			<BoxView
+				Grid.Row="4"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				BackgroundColor="#2A2A31" />
+
+			<Label
+				Grid.Row="6"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontSize="16"
+				Text="Select a card"
+				TextColor="White"
+				VerticalTextAlignment="Start" />
+
+			<ListView
+				x:Name="listPurchaseCard"
+				Grid.Row="8"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				BackgroundColor="#181A1F"
+				HasUnevenRows="True"
+				ItemTapped="OnPurchaseCardItemTapped"
+				ItemsSource="{Binding CardList}"
+				SeparatorVisibility="None"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid Margin="0,0,0,20">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="100" />
+								</Grid.RowDefinitions>
+								<textinputlayout:SfTextInputLayout
+									Grid.Row="0"
+									ContainerBackgroundColor="Transparent"
+									ContainerType="Outlined"
+									HeightRequest="100"
+									Hint="Nordea"
+									OutlineCornerRadius="12"
+									UnfocusedColor="#2A2A31"
+									UnfocusedStrokeWidth="0.5">
+									<textinputlayout:SfTextInputLayout.HintLabelStyle>
+										<textinputlayout:LabelStyle
+											FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+											FontSize="12"
+											Color="White" />
+									</textinputlayout:SfTextInputLayout.HintLabelStyle>
+									<controls:CustomFloatingLabelEntry
+										BackgroundColor="#F8F8FB"
+										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontSize="18"
+										IsReadOnly="True"
+										Text="Nordea"
+										TextColor="Transparent">
+										<controls:CustomFloatingLabelEntry.HeightRequest>
+											<OnPlatform x:TypeArguments="x:Double">
+												<On Platform="Android" Value="90" />
+												<On Platform="iOS" Value="60" />
+											</OnPlatform>
+										</controls:CustomFloatingLabelEntry.HeightRequest>
+									</controls:CustomFloatingLabelEntry>
+								</textinputlayout:SfTextInputLayout>
+
+								<Grid Grid.Row="0" ColumnSpacing="5">
+									<Grid.Margin>
+										<OnPlatform x:TypeArguments="Thickness">
+											<On Platform="Android" Value="15,15,15,0" />
+											<On Platform="iOS" Value="15,5,15,0" />
+										</OnPlatform>
+									</Grid.Margin>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="32" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="25" />
+									</Grid.ColumnDefinitions>
+									<Button
+										Padding="0"
+										BackgroundColor="#342B20"
+										Clicked="OnButtonFirstLetterNameClicked"
+										CornerRadius="16"
+										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontSize="15"
+										HeightRequest="32"
+										HorizontalOptions="CenterAndExpand"
+										Text="{Binding FirstLetterName}"
+										TextColor="#4EDCEB"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="32" />
+
+									<StackLayout
+										Grid.Column="1"
+										Margin="15,0,0,0"
+										Spacing="{OnPlatform Android='0',
+										                     iOS='5'}"
+										VerticalOptions="CenterAndExpand">
+										<StackLayout.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnStackLayoutCardInfoTapped" />
+										</StackLayout.GestureRecognizers>
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="18"
+											HorizontalTextAlignment="Start"
+											Opacity="0.32"
+											Text="{Binding name_on_card}"
+											TextColor="White"
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+											</Label.GestureRecognizers>
+										</Label>
+
+										<Label
+											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontSize="18"
+											HorizontalTextAlignment="Start"
+											Opacity="0.32"
+											Text="{Binding card_number}"
+											TextColor="White"
+											VerticalTextAlignment="Center">
+											<Label.GestureRecognizers>
+												<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+											</Label.GestureRecognizers>
+										</Label>
+									</StackLayout>
+
+									<Label
+										Grid.Column="2"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HorizontalTextAlignment="End"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="#4EDCEB"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnLabelCardInfoTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+								</Grid>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</Grid>
+	</ContentPage.Content>
+
+
+	<!--<ContentPage.Content>
 		<StackLayout Padding="30,30,30,20" Spacing="0">
 			<StackLayout Spacing="0" VerticalOptions="Start">
 				<Grid Margin="0,0,0,10" HeightRequest="100">
@@ -166,5 +389,5 @@
 				</ListView>
 			</Grid>
 		</StackLayout>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

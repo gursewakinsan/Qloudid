@@ -27,5 +27,29 @@ namespace Qloudid.Views.DstrictsAppPayOn
 			listPurchaseCard.SelectedItem = null;
 			viewModel.SubmitCardDetailsCommand.Execute(card.id);
 		}
+
+		private void OnButtonFirstLetterNameClicked(object sender, System.EventArgs e)
+		{
+			Button button = sender as Button;
+			Models.CardDetailResponse card = button.BindingContext as Models.CardDetailResponse;
+			listPurchaseCard.SelectedItem = null;
+			viewModel.SubmitCardDetailsCommand.Execute(card.id);
+		}
+
+		private void OnStackLayoutCardInfoTapped(object sender, System.EventArgs e)
+		{
+			StackLayout layout = sender as StackLayout;
+			Models.CardDetailResponse card = layout.BindingContext as Models.CardDetailResponse;
+			listPurchaseCard.SelectedItem = null;
+			viewModel.SubmitCardDetailsCommand.Execute(card.id);
+		}
+
+		private void OnLabelCardInfoTapped(object sender, System.EventArgs e)
+		{
+			Label label = sender as Label;
+			Models.CardDetailResponse card = label.BindingContext as Models.CardDetailResponse;
+			listPurchaseCard.SelectedItem = null;
+			viewModel.SubmitCardDetailsCommand.Execute(card.id);
+		}
 	}
 }

@@ -21,12 +21,14 @@ namespace Qloudid.Views.DstrictsAppPayOn
 			base.OnAppearing();
 		}
 
-		private void OnCompanyItemTapped(object sender, ItemTappedEventArgs e)
+		private async void OnCompanyItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			Models.Company company = e.Item as Models.Company;
 			listCompany.SelectedItem = null;
 			Helper.Helper.InvoiceAddressId = company.id;
-			foreach (var companies in viewModel.ListOfCompany)
+			Helper.Helper.CompanyId = company.id;
+			await Navigation.PushAsync(new CardListPageForPayOn());
+			/*foreach (var companies in viewModel.ListOfCompany)
 			{
 				foreach (var item in companies)
 				{
@@ -38,7 +40,7 @@ namespace Qloudid.Views.DstrictsAppPayOn
 					else
 						item.IsChecked = false;
 				}
-			}
+			}*/
 		}
 	}
 }
