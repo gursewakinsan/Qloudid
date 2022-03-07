@@ -7,5 +7,6 @@ namespace Qloudid.Interfaces
 		Task<Models.BookingDetailResponse> GetBookingDetailAsync(Models.BookingDetailRequest model);
 		Task<Models.HotelCheckInResponse> VerifyCheckinDetailAsync(Models.HotelCheckInRequest model);
 		Task<int> GetCheckedInHotelAsync(Models.CheckedInHotelRequest model);
+		Task<int> VerifyDependentChekInAsync(Models.VerifyDependent model);
 	}
 }

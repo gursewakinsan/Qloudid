@@ -328,6 +328,11 @@ namespace Qloudid
 					Models.SubmitWaitListResturantDetail  submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[2]);
 					MainPage = new NavigationPage(new Views.WaitList.VerifyWaitResturantPasswordPage(submitWaitList));
 					break;
+				case "VerifyDependentChekIn":
+					string[] verifyDependentCheckIn = uri.LocalPath.Split('/');
+					Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[4]);
+					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyDependentCheckInPasswordPage());
+					break;
 			}
 		}
 
@@ -361,6 +366,11 @@ namespace Qloudid
 						string[] waitList = uri.LocalPath.Split('/');
 						Models.SubmitWaitListResturantDetail submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[4]);
 						MainPage = new NavigationPage(new Views.WaitList.VerifyWaitResturantPasswordPage(submitWaitList));
+						break;
+					case "VerifyDependentChekIn":
+						string[] verifyDependentCheckIn = uri.LocalPath.Split('/');
+						Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[4]);
+						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyDependentCheckInPasswordPage());
 						break;
 				}
 			}
