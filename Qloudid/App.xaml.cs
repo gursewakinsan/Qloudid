@@ -330,7 +330,7 @@ namespace Qloudid
 					break;
 				case "VerifyDependentChekIn":
 					string[] verifyDependentCheckIn = uri.LocalPath.Split('/');
-					Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[4]);
+					Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[2]);
 					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyDependentCheckInPasswordPage());
 					break;
 			}

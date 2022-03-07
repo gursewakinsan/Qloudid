@@ -70,5 +70,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> GuestChildrenRemainingCountAsync(Models.GuestChildrenRemainingCountRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.GuestChildrenRemainingCountUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

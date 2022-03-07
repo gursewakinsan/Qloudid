@@ -31,6 +31,12 @@ namespace Qloudid.ViewModels
 				UserId = Helper.Helper.UserId,
 				Id = Helper.Helper.VerifyUserConsentClientId
 			});
+
+			GuestChildrenRemainingCount = await service.GuestChildrenRemainingCountAsync(new Models.GuestChildrenRemainingCountRequest()
+			{
+				CheckId = Helper.Helper.VerifyUserConsentClientId
+			});
+
 			if (DependentList?.Count == 0)
 				await Navigation.PushAsync(new Views.Dependent.EmptyDependentListPage());
 			DependencyService.Get<IProgressBar>().Hide();
@@ -87,6 +93,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
+		public int GuestChildrenRemainingCount { get; set; }
 		public List<int> SelectedDependents { get; set; }
 		#endregion
 	}

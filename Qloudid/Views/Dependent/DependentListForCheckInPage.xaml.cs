@@ -27,13 +27,30 @@ namespace Qloudid.Views.Dependent
 			listDependent.SelectedItem = null;
 			if (dependent != null)
 			{
-				dependent.IsChecked = !dependent.IsChecked;
 				if (viewModel.SelectedDependents == null)
 					viewModel.SelectedDependents = new System.Collections.Generic.List<int>();
-				if (dependent.IsChecked)
-					viewModel.SelectedDependents.Add(dependent.Id);
+
+				if (viewModel.SelectedDependents.Count < viewModel.GuestChildrenRemainingCount)
+				{
+					if (dependent.IsChecked)
+					{
+						dependent.IsChecked = false;
+						viewModel.SelectedDependents.Remove(dependent.Id);
+					}
+					else
+					{
+						dependent.IsChecked = true;
+						viewModel.SelectedDependents.Add(dependent.Id);
+					}
+				}
 				else
-					viewModel.SelectedDependents.Remove(dependent.Id);
+				{
+					if (dependent.IsChecked)
+					{
+						dependent.IsChecked = false;
+						viewModel.SelectedDependents.Remove(dependent.Id);
+					}
+				}
 			}
 		}
 	}
