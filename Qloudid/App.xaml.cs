@@ -333,6 +333,10 @@ namespace Qloudid
 					Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[2]);
 					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyDependentCheckInPasswordPage());
 					break;
+				case "ConfirmUserInvitationInfo":
+					string confirmUserInvitationInfoId = uri.Segments[2].Replace("/", "");
+					MainPage = new NavigationPage(new Views.VerifyPassword.ConfirmUserInvitationInfoPasswordPage(confirmUserInvitationInfoId));
+					break;
 			}
 		}
 
@@ -371,6 +375,10 @@ namespace Qloudid
 						string[] verifyDependentCheckIn = uri.LocalPath.Split('/');
 						Helper.Helper.VerifyDependentCheckInRequest = JsonConvert.DeserializeObject<Models.VerifyDependent>(verifyDependentCheckIn[4]);
 						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyDependentCheckInPasswordPage());
+						break;
+					case "ConfirmUserInvitationInfo":
+						string confirmUserInvitationInfoId = uri.Segments[4].Replace("/", "");
+						MainPage = new NavigationPage(new Views.VerifyPassword.ConfirmUserInvitationInfoPasswordPage(confirmUserInvitationInfoId));
 						break;
 				}
 			}
