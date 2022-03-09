@@ -86,7 +86,8 @@ namespace Qloudid.ViewModels
 					await hotelService.VerifyDependentChekInAsync(new Models.VerifyDependent()
 					{
 						Id = Helper.Helper.VerifyDependentCheckInRequest.Id,
-						CheckId = Helper.Helper.VerifyDependentCheckInRequest.CheckId
+						CheckId = Helper.Helper.VerifyDependentCheckInRequest.CheckId,
+						VerificationInfo = Helper.Helper.VerifyDependentCheckInRequest.VerificationInfo
 					});
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
