@@ -9,5 +9,9 @@ namespace Qloudid.Interfaces
 		Task<int> GetCheckedInHotelAsync(Models.CheckedInHotelRequest model);
 		Task<int> VerifyDependentChekInAsync(Models.VerifyDependent model);
 		Task<int> ConfirmUserInvitationInfoAsync(Models.ConfirmUserInvitationInfoRequest model);
+
+
+		////Noffa App
+		Task<int> GetFrontDeskCheckedInHotelAsync(Models.FrontDeskCheckedInHotelRequest model);
 	}
 }

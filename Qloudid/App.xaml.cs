@@ -144,6 +144,8 @@ namespace Qloudid
 					signInText = uri.Segments[2].Replace("/", "");
 					if (signInText.Equals("DstrictsApp"))
 						DstrictsAppFunctionality(uri);
+					else if(signInText.Equals("NoffaPlusApp"))
+						NoffaPlusAppAppFunctionality_Android(uri);
 					else
 					{
 						if (Application.Current.Properties.ContainsKey("QrCode"))
@@ -294,6 +296,7 @@ namespace Qloudid
 			MainPage = new NavigationPage(new Views.Hotel.HotelBookingDetailPage());
 		}
 
+		#region Dstricts App Functionality iOS.
 		public void DstrictsAppFunctionality_iOS(Uri uri)
 		{
 			if (Helper.Helper.UserInfo == null)
@@ -339,7 +342,9 @@ namespace Qloudid
 					break;
 			}
 		}
+		#endregion
 
+		#region Dstricts App Functionality Android.
 		public void DstrictsAppFunctionality(Uri uri)
 		{
 			if (Application.Current.Properties.ContainsKey("QrCode"))
@@ -385,8 +390,41 @@ namespace Qloudid
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
 		}
+		#endregion
 
-		//OnStart.
+		#region Noffa Plus App Functionality Android.
+		public void NoffaPlusAppAppFunctionality_Android(Uri uri)
+		{
+			Helper.Helper.AppToAppName = "NoffaPlusApp";
+			var action = uri.Segments[3].Replace("/", "");
+			switch (action)
+			{
+				case "FrontDeskCheckedInHotelRequest":
+					string[] subs = uri.LocalPath.Split('/');
+					Models.FrontDeskCheckedInHotelRequest request = JsonConvert.DeserializeObject<Models.FrontDeskCheckedInHotelRequest>(subs[4]);
+					MainPage = new NavigationPage(new Views.Noffa.VerifyFrontDeskCheckedInHotelRequestPasswordPage(request));
+					break;
+			}
+		}
+		#endregion
+
+		#region Noffa Plus App Functionality iOS.
+		public void NoffaPlusAppAppFunctionality_iOS(Uri uri)
+		{
+			Helper.Helper.AppToAppName = "NoffaPlusApp";
+			var action = uri.Segments[1].Replace("/", "");
+			switch (action)
+			{
+				case "FrontDeskCheckedInHotelRequest":
+					string[] subs = uri.LocalPath.Split('/');
+					Models.FrontDeskCheckedInHotelRequest request = JsonConvert.DeserializeObject<Models.FrontDeskCheckedInHotelRequest>(subs[2]);
+					MainPage = new NavigationPage(new Views.Noffa.VerifyFrontDeskCheckedInHotelRequestPasswordPage(request));
+					break;
+			}
+		}
+		#endregion
+
+		#region On Start.
 		protected override void OnStart()
 		{
 			Microsoft.AppCenter.AppCenter.Start("ios=a1e809c9-9532-492b-afc0-21c5bcf0c42e;" +
@@ -395,7 +433,9 @@ namespace Qloudid
 			Microsoft.AppCenter.Crashes.Crashes.NotifyUserConfirmation(Microsoft.AppCenter.Crashes.UserConfirmation.AlwaysSend);
 			base.OnStart();
 		}
+		#endregion
 
+		#region Fill User Info.
 		private static void FillUserInfo()
 		{
 			Models.User user = new Models.User();
@@ -419,5 +459,6 @@ namespace Qloudid
 			Helper.Helper.UserId = user.user_id;
 			Helper.Helper.UserEmail = user.email;
 		}
+		#endregion
 	}
 }

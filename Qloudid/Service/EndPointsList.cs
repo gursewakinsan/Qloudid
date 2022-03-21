@@ -93,5 +93,8 @@
 
 		//Wait List
 		public const string AddGuestInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addGuestinfo";
+
+		//Noffa Plus
+		public const string GetFrontDeskCheckedInHotelUrl = "https://dstricts.com/user/index.php/DstrictsApp/getFrontDeskCheckedInHotel";
 	}
 }
