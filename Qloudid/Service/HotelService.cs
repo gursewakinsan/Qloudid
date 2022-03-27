@@ -52,6 +52,15 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> CheckOutGuestAsync(Models.CheckOutGuestRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckOutGuestUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+		
 
 		//Noffa App
 		public Task<int> GetFrontDeskCheckedInHotelAsync(Models.FrontDeskCheckedInHotelRequest model)

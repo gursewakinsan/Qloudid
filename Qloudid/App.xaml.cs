@@ -340,6 +340,10 @@ namespace Qloudid
 					string confirmUserInvitationInfoId = uri.Segments[2].Replace("/", "");
 					MainPage = new NavigationPage(new Views.VerifyPassword.ConfirmUserInvitationInfoPasswordPage(confirmUserInvitationInfoId));
 					break;
+				case "HotelCheckOut":
+					int hotelCheckOutId = Convert.ToInt32(uri.Segments[2].Replace("/", ""));
+					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHotelCheckOutPasswordPage(hotelCheckOutId));
+					break;
 			}
 		}
 		#endregion
@@ -384,6 +388,10 @@ namespace Qloudid
 					case "ConfirmUserInvitationInfo":
 						string confirmUserInvitationInfoId = uri.Segments[4].Replace("/", "");
 						MainPage = new NavigationPage(new Views.VerifyPassword.ConfirmUserInvitationInfoPasswordPage(confirmUserInvitationInfoId));
+						break;
+					case "HotelCheckOut":
+						int hotelCheckOutId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
+						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHotelCheckOutPasswordPage(hotelCheckOutId));
 						break;
 				}
 			}

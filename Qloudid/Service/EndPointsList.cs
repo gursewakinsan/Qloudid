@@ -96,5 +96,8 @@
 
 		//Noffa Plus
 		public const string GetFrontDeskCheckedInHotelUrl = "https://dstricts.com/user/index.php/DstrictsApp/getFrontDeskCheckedInHotel";
+
+		//Hotel
+		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
 	}
 }

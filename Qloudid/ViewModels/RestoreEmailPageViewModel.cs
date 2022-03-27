@@ -64,7 +64,7 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public string Email { get; set; } //= "deservingchandan@gmail.com";
+		public string Email { get; set; } = "deservingchandan@gmail.com";
 		#endregion
 	}
 }
