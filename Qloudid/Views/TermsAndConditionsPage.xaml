@@ -35,7 +35,7 @@
 				</ImageButton>
 
 				<Label Margin="0,20,0,0"
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontFamily="SFProDisplayMediumFontFamily"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
 					Text="Terms and conditions"
@@ -52,7 +52,7 @@
 					WidthRequest="40" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer , and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
@@ -61,7 +61,7 @@
 
 				<Label
 					Margin="0,20,0,20"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer, and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses. Lorem ipsum dolor sit amet, in the long albucius that , nor the fact that in the new layer, as a game, my sorrows that. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
@@ -70,7 +70,7 @@
 
 				<Label
 					Margin="0,0,0,20"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Lorem ipsum dolor sit amet, in the long albucius who, in the nor the fact that a new layer, and pain, as if the game is that on me. The debts of the better, there is no demand, from the visible to the other, through the Holy Spirit, for the prevention of, what they say of the senses."
@@ -81,7 +81,7 @@
 					Margin="0"
 					BackgroundColor="#05CBE7"
 					Clicked="OnCloseButtonClicked"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					Text="Close"
 					VerticalOptions="EndAndExpand" />

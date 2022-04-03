@@ -88,7 +88,7 @@
 			<Label
 				Grid.Row="1"
 				Grid.ColumnSpan="3"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="16"
 				HorizontalTextAlignment="Center"
 				Text="To pay"
@@ -99,7 +99,7 @@
 				Grid.Row="2"
 				Grid.ColumnSpan="3"
 				FontAttributes="Bold"
-				FontFamily="{StaticResource SFProSemiboldFontFamily}"
+				FontFamily="SFProSemiboldFontFamily"
 				FontSize="24"
 				HorizontalTextAlignment="Center"
 				TextColor="Black"
@@ -115,7 +115,7 @@
 			<Label
 				Grid.Row="3"
 				Grid.ColumnSpan="3"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="20"
 				HorizontalTextAlignment="Center"
 				TextColor="Black"
@@ -161,7 +161,7 @@
 						Spacing="0"
 						VerticalOptions="CenterAndExpand">
 						<Label
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="Invoice address"
@@ -169,7 +169,7 @@
 							VerticalTextAlignment="Start" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="{Binding InvoiceAddress.NameOnHouse}"
@@ -177,7 +177,7 @@
 							VerticalTextAlignment="Start" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							TextColor="Black"
@@ -192,7 +192,7 @@
 						</Label>
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							TextColor="Black"
@@ -241,7 +241,7 @@
 						Spacing="0"
 						VerticalOptions="CenterAndExpand">
 						<Label
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="Payment"
@@ -249,7 +249,7 @@
 							VerticalTextAlignment="Start" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							TextColor="Black"
@@ -295,7 +295,7 @@
 						Grid.ColumnSpan="2"
 						BackgroundColor="#05CBE7"
 						Command="{Binding ConfirmAndSignCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HeightRequest="50"
 						Text="Confirm and sign"

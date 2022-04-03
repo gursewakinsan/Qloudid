@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Visitors.InvitedVisitorsMeetingUserPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,14,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="-10,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Meeting"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+				<StackLayout
+					Margin="0,26,0,0"
+					HeightRequest="108"
+					HorizontalOptions="StartAndExpand"
+					Spacing="0">
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						Opacity="0.4"
+						Text="Invitation"
+						TextColor="White"
+						VerticalTextAlignment="Start" />
+
+					<Label
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="32"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="Meeting type"
+						TextColor="White"
+						VerticalTextAlignment="End" />
+				</StackLayout>
+
+				<Label
+					Margin="0,48,0,3"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="32"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Type of meeting"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					MaxLines="2"
+					Opacity="0.4"
+					Text="Select the option that best fit the type of meeting this is concern."
+					TextColor="White"
+					VerticalTextAlignment="Start" />
+
+				<Frame
+					Margin="0,31,0,20"
+					Padding="28,0,25,0"
+					BackgroundColor="Transparent"
+					BorderColor="{Binding PersonalCardBorderColor}"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="86"
+					IsClippedToBounds="True"
+					VerticalOptions="StartAndExpand">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Personal" />
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Personal" />
+						</Grid.GestureRecognizers>
+						<Label
+							Grid.Column="0"
+							FontFamily="SansProSemiBoldFontFamily"
+							FontSize="18"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="{Binding PersonalNameTextOpacity}"
+							Text="Personal"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Personal" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<BoxView
+							Grid.Column="1"
+							BackgroundColor="White"
+							HeightRequest="15"
+							HorizontalOptions="CenterAndExpand"
+							Opacity="{Binding PersonalNameTextOpacity}"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="15">
+							<BoxView.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Personal" />
+							</BoxView.GestureRecognizers>
+						</BoxView>
+
+						<Label
+							Grid.Column="1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="24"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarked}"
+							TextColor="{Binding PersonalCardBorderColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Personal" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+
+				<Frame
+					Margin="0,0,0,20"
+					Padding="28,0,25,0"
+					BackgroundColor="Transparent"
+					BorderColor="{Binding BusinessCardBorderColor}"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="86"
+					IsClippedToBounds="True"
+					VerticalOptions="StartAndExpand">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Business" />
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="24" />
+						</Grid.ColumnDefinitions>
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Business" />
+						</Grid.GestureRecognizers>
+						<Label
+							Grid.Column="0"
+							FontFamily="SansProSemiBoldFontFamily"
+							FontSize="18"
+							HorizontalTextAlignment="Start"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Opacity="{Binding BusinessNameTextOpacity}"
+							Text="Business"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Business" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<BoxView
+							Grid.Column="1"
+							BackgroundColor="White"
+							HeightRequest="15"
+							HorizontalOptions="CenterAndExpand"
+							Opacity="{Binding BusinessNameTextOpacity}"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="15">
+							<BoxView.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Business" />
+							</BoxView.GestureRecognizers>
+						</BoxView>
+
+						<Label
+							Grid.Column="1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="24"
+							HorizontalTextAlignment="End"
+							Text="{Binding BusinessCardArrow}"
+							TextColor="{Binding BusinessCardBorderColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedTypeOfMeetingCommand}" CommandParameter="Business" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+			</StackLayout>
+		</ScrollView>
+
+		<controls:CustomButton
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0"
+			BackgroundColor="#5663FF"
+			BorderColor="Transparent"
+			Command="{Binding SumbitSelectedInvitedVisitorsCommand}"
+			CornerRadius="10"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			HeightRequest="50"
+			IsVisible="{Binding IsVisibleSubmit}"
+			Text="Submit"
+			TextColor="White"
+			VerticalOptions="EndAndExpand" />
+	</Grid>
+</ContentPage>

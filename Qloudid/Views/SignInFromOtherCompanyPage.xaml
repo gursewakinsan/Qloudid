@@ -53,7 +53,7 @@
 			Padding="0"
 			BackgroundColor="#342B20"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="14"
 			HeightRequest="32"
 			Text="Qloud ID Pay"
@@ -65,7 +65,7 @@
 			Grid.ColumnSpan="3"
 			Spacing="0">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="One time"
@@ -74,7 +74,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="To pay "
 				TextColor="White"
@@ -90,7 +90,7 @@
 			CornerRadius="16"
 			IsClippedToBounds="True">
 			<Label
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="50"
 				HorizontalTextAlignment="Center"
 				Text="{Binding PurchaseDetail.DisplayPrice}"
@@ -125,13 +125,13 @@
 					UnfocusedStrokeWidth="0.5">
 					<textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<textinputlayout:LabelStyle
-							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontFamily="PoppinsSemiBoldFontFamily"
 							FontSize="12"
 							Color="#E05780" />
 					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						IsReadOnly="True"
 						Text="Delivery address"
@@ -158,7 +158,7 @@
 						Padding="0"
 						BackgroundColor="#342B20"
 						CornerRadius="16"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="15"
 						HeightRequest="32"
 						HorizontalOptions="CenterAndExpand"
@@ -170,7 +170,7 @@
 					<Label
 						Grid.Column="1"
 						Margin="15,0,0,0"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						HorizontalTextAlignment="Start"
 						Opacity="0.32"
@@ -207,13 +207,13 @@
 					UnfocusedStrokeWidth="0.5">
 					<textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<textinputlayout:LabelStyle
-							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontFamily="PoppinsSemiBoldFontFamily"
 							FontSize="12"
 							Color="White" />
 					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						IsReadOnly="True"
 						Text="Invoicing address"
@@ -240,7 +240,7 @@
 						Padding="0"
 						BackgroundColor="#342B20"
 						CornerRadius="16"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="15"
 						HeightRequest="32"
 						HorizontalOptions="CenterAndExpand"
@@ -252,7 +252,7 @@
 					<Label
 						Grid.Column="1"
 						Margin="15,0,0,0"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						HorizontalTextAlignment="Start"
 						Opacity="0.32"
@@ -281,13 +281,13 @@
 					UnfocusedStrokeWidth="0.5">
 					<textinputlayout:SfTextInputLayout.HintLabelStyle>
 						<textinputlayout:LabelStyle
-							FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+							FontFamily="PoppinsSemiBoldFontFamily"
 							FontSize="12"
 							Color="White" />
 					</textinputlayout:SfTextInputLayout.HintLabelStyle>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						IsReadOnly="True"
 						Text="Payment type"
@@ -314,7 +314,7 @@
 						Padding="0"
 						BackgroundColor="#342B20"
 						CornerRadius="16"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="15"
 						HeightRequest="32"
 						HorizontalOptions="CenterAndExpand"
@@ -326,7 +326,7 @@
 					<Label
 						Grid.Column="1"
 						Margin="15,0,0,0"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="18"
 						HorizontalTextAlignment="Start"
 						Opacity="0.32"
@@ -392,7 +392,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Hey"
@@ -400,7 +400,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="{Binding DisplayName}"
@@ -418,7 +418,7 @@
 
 					<Label
 						Margin="0,50,0,2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Transaction"
@@ -426,7 +426,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="{Binding PurchaseDetail.DisplayPrice}"
@@ -435,7 +435,7 @@
 
 					<Label
 						Margin="0,2,0,2"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="{Binding PurchaseDetail.CompanyName}"
@@ -443,7 +443,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						TextColor="Black"
@@ -463,7 +463,7 @@
 						Opacity="0.2" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Delivery address"
@@ -474,7 +474,7 @@
 						Margin="0,20,0,20"
 						BackgroundColor="#05CBE7"
 						Command="{Binding ContinueCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Select"
 						VerticalOptions="EndAndExpand" />

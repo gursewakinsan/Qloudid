@@ -52,7 +52,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Delivery"
@@ -60,7 +60,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="address"
@@ -77,7 +77,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Your delivery address."
@@ -101,7 +101,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="If name on the house door is as"
@@ -111,7 +111,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="14"
 						HorizontalTextAlignment="Start"
 						Text="{Binding UserName}"
@@ -153,7 +153,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Name"
@@ -204,7 +204,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Delivery Address"
@@ -238,7 +238,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Delivery Port Number"
@@ -272,7 +272,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Delivery Zip Code"
@@ -306,7 +306,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Delivery City"
@@ -319,7 +319,7 @@
 					<Label
 						Grid.Row="4"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						MaxLines="2"
@@ -370,7 +370,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									IsReadOnly="{Binding IsAddressIsReadOnly}"
 									Placeholder="Invoice Address"
@@ -403,7 +403,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									IsReadOnly="{Binding IsAddressIsReadOnly}"
 									Placeholder="Invoice Port Number"
@@ -436,7 +436,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									IsReadOnly="{Binding IsAddressIsReadOnly}"
 									Placeholder="Invoice Zip Code"
@@ -469,7 +469,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									IsReadOnly="{Binding IsAddressIsReadOnly}"
 									Placeholder="Invoice City"
@@ -504,7 +504,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="{Binding IsAddressIsReadOnly}"
 								Placeholder="Entry Code"
@@ -520,7 +520,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding UpdateUserAddressCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Continue"
 						VerticalOptions="EndAndExpand" />

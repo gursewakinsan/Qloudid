@@ -34,7 +34,7 @@
 			Padding="0"
 			BackgroundColor="#342B20"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="12"
 			HeightRequest="32"
 			HorizontalOptions="EndAndExpand"
@@ -51,14 +51,14 @@
 			VerticalOptions="StartAndExpand">
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Phone number"
 				TextColor="White" />
 
 			<Label
 				Margin="0,12,0,42"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				LineHeight="1.1"
 				Text="Is this your current phone number. We will send a code. 👋"
@@ -90,7 +90,7 @@
 					UnfocusedStrokeWidth="0.5">
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						IsReadOnly="True"
 						Placeholder="Code"
@@ -124,7 +124,7 @@
 					</textinputlayout:SfTextInputLayout.LeadingView>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						IsReadOnly="True"
 						Keyboard="Numeric"
@@ -138,7 +138,7 @@
 					Grid.Row="1"
 					Grid.ColumnSpan="2"
 					Margin="0,12,0,0"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="14"
 					HorizontalTextAlignment="Start"
 					Opacity="0.5"
@@ -162,7 +162,7 @@
 						BorderColor="#EF3B17"
 						Command="{Binding YesMobileNumberCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
 						Text="Yes, it is!"
@@ -175,7 +175,7 @@
 						BorderColor="#2A2A31"
 						Command="{Binding NoMobileNumberCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
 						Text="No, its not!"
@@ -231,7 +231,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Existing"
@@ -239,7 +239,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Mobile"
@@ -257,7 +257,7 @@
 
 					<Label
 						Margin="0,50,0,24"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="If this mobile number is still with you?"
@@ -288,7 +288,7 @@
 
 							<Label
 								Grid.Column="1"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								Text="{Binding CountryCode}"
@@ -305,7 +305,7 @@
 							<controls:CustomEntry
 								Grid.Column="3"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="True"
 								Keyboard="Numeric"
@@ -321,7 +321,7 @@
 						Margin="0,30,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding YesMobileNumberCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Yes"
 						VerticalOptions="EndAndExpand" />
@@ -330,7 +330,7 @@
 						Margin="0,15,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding NoMobileNumberCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="No"
 						VerticalOptions="EndAndExpand" />

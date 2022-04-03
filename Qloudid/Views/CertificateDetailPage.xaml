@@ -49,7 +49,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="My Qloud ID"
@@ -91,7 +91,7 @@
 				</Grid.ColumnDefinitions>
 				<Label
 					Grid.Row="0"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					LineBreakMode="TailTruncation"
@@ -103,7 +103,7 @@
 				<Label
 					Grid.Row="0"
 					Grid.Column="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="End"
 					LineBreakMode="TailTruncation"
@@ -120,7 +120,7 @@
 
 				<Label
 					Grid.Row="2"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					LineBreakMode="TailTruncation"
@@ -132,7 +132,7 @@
 				<Label
 					Grid.Row="2"
 					Grid.Column="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="End"
 					LineBreakMode="TailTruncation"
@@ -149,7 +149,7 @@
 
 				<Label
 					Grid.Row="4"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					LineBreakMode="TailTruncation"
@@ -161,7 +161,7 @@
 				<Label
 					Grid.Row="4"
 					Grid.Column="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="End"
 					LineBreakMode="TailTruncation"

@@ -42,14 +42,14 @@
 
 				<Label
 					Margin="0,30,0,10"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Wrong OTP"
 					TextColor="White" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -61,14 +61,14 @@
 
 				<controls:CustomButton
 					Command="{Binding TryAgainCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Try again" />
 
 				<controls:CustomButton
 					Margin="0,20,0,0"
 					BorderColor="Transparent"
 					Command="{Binding ResendOtpPinOnEmailCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Resend code" />
 			</StackLayout>
 		</ScrollView>

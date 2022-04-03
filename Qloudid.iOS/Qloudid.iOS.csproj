@@ -87,15 +87,7 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
-    <BundleResource Include="Resources\Fonts\SFProDisplayRegular.ttf" />
-    <BundleResource Include="Resources\Fonts\SFProDisplaySemibold.ttf" />
-    <BundleResource Include="Resources\Fonts\SFProDisplayMedium.ttf" />
-    <BundleResource Include="Resources\Fonts\SFProDisplayLight.ttf" />
     <BundleResource Include="Resources\iconCurveTopGray.png" />
-    <BundleResource Include="Resources\Fonts\PoppinsRegular.ttf" />
-    <BundleResource Include="Resources\Fonts\SFProDisplayBold.ttf" />
-    <BundleResource Include="Resources\Fonts\PoppinsBold.ttf" />
-    <BundleResource Include="Resources\Fonts\PoppinsSemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

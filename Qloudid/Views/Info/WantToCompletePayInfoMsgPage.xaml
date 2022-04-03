@@ -42,14 +42,14 @@
 
 				<Label
 					Margin="0,30,0,10"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Success"
 					TextColor="White" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -61,14 +61,14 @@
 
 				<controls:CustomButton
 					Command="{Binding ContinueCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Yes" />
 
 				<BoxView BackgroundColor="Transparent" HeightRequest="20" />
 
 				<controls:CustomButton
 					Command="{Binding CancelCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="No" />
 			</StackLayout>
 		</ScrollView>

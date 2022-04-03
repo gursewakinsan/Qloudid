@@ -52,7 +52,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
 				Text="Qloud ID"
@@ -124,7 +124,7 @@
 
 				<Label
 					Margin="10,10,10,0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="23"
 					HorizontalOptions="CenterAndExpand"
 					LineBreakMode="TailTruncation"
@@ -304,7 +304,7 @@
 									<Label
 										ClassId="{Binding Id}"
 										FontAttributes="Bold"
-										FontFamily="{StaticResource SFProDisplayBoldFontFamily}"
+										FontFamily="SFProDisplayBoldFontFamily"
 										FontSize="25"
 										HorizontalTextAlignment="Center"
 										Text="{Binding Heading}"
@@ -319,7 +319,7 @@
 								<Label
 									Grid.Row="1"
 									ClassId="{Binding Id}"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="17"
 									HorizontalTextAlignment="Center"
 									Text="{Binding SubHeading}"
@@ -347,7 +347,7 @@
 					BackgroundColor="White"
 					Clicked="OnLearnMoreButtonClicked"
 					CornerRadius="25"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					HeightRequest="50"
 					Text="LEARN MORE"
 					TextColor="#FF0000"
@@ -426,7 +426,7 @@
 					Spacing="5"
 					VerticalOptions="CenterAndExpand">
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="23"
 						HorizontalOptions="CenterAndExpand"
 						Text="Verified"
@@ -435,7 +435,7 @@
 
 					<Label
 						Margin="10,0,10,0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="40"
 						HorizontalOptions="CenterAndExpand"
 						HorizontalTextAlignment="Center"
@@ -452,12 +452,12 @@
 						<Label.FormattedText>
 							<FormattedString>
 								<Span
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="20"
 									Text="Vers "
 									TextColor="White" />
 								<Span
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="20"
 									Text="{Binding AppVersion}"
 									TextColor="White" />
@@ -512,7 +512,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Consent"
@@ -559,7 +559,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Cards"
@@ -591,7 +591,7 @@
 				</ImageButton>
 				<Label
 					Grid.Row="1"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="12"
 					HorizontalTextAlignment="Center"
 					Text="Settings"

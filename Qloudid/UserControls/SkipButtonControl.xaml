@@ -15,7 +15,7 @@
 			Padding="0"
 			BackgroundColor="Transparent"
 			Command="{Binding SkipButtonControlCommand}"
-			FontFamily="{StaticResource SFProSemiboldFontFamily}"
+			FontFamily="SFProSemiboldFontFamily"
 			FontSize="14"
 			HorizontalOptions="Center"
 			Text="Skip"

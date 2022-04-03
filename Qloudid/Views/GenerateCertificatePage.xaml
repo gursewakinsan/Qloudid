@@ -60,7 +60,7 @@
 
 					<Label
 						Margin="0,20,0,0"
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Create"
@@ -68,7 +68,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Password"
@@ -85,7 +85,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalOptions="StartAndExpand"
 						HorizontalTextAlignment="Start"
@@ -109,7 +109,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password1}"
@@ -128,7 +128,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password2}"
@@ -147,7 +147,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password3}"
@@ -166,7 +166,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password4}"
@@ -185,7 +185,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password5}"
@@ -204,7 +204,7 @@
 								WidthRequest="50" />
 
 							<Label
-								FontFamily="{StaticResource SFProSemiboldFontFamily}"
+								FontFamily="SFProSemiboldFontFamily"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								Text="{Binding Password6}"
@@ -227,7 +227,7 @@
 					</Grid.RowDefinitions>
 					<Label
 						Grid.Row="0"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="1"
@@ -241,7 +241,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="1"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="2"
@@ -255,7 +255,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="3"
@@ -269,7 +269,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="4"
@@ -283,7 +283,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="1"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="5"
@@ -297,7 +297,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="6"
@@ -311,7 +311,7 @@
 					<Label
 						Grid.Row="2"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="7"
@@ -325,7 +325,7 @@
 					<Label
 						Grid.Row="2"
 						Grid.Column="1"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="8"
@@ -339,7 +339,7 @@
 					<Label
 						Grid.Row="2"
 						Grid.Column="2"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="9"
@@ -364,7 +364,7 @@
 					<Label
 						Grid.Row="3"
 						Grid.Column="1"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="20"
 						HorizontalTextAlignment="Center"
 						Text="0"

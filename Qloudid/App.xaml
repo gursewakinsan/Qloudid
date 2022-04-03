@@ -28,54 +28,6 @@
 				Android="materialdesignicons-webfont.ttf#Material Design Icons"
 				iOS="Material Design Icons" />
 
-			<OnPlatform
-				x:Key="SFProRegularFontFamily"
-				x:TypeArguments="x:String"
-				Android="SFProDisplayRegular.ttf#SFProDisplayRegular"
-				iOS="SFProDisplayRegular" />
-
-			<OnPlatform
-				x:Key="SFProSemiboldFontFamily"
-				x:TypeArguments="x:String"
-				Android="SFProDisplaySemibold.ttf#SFProDisplaySemibold"
-				iOS="SFProDisplaySemibold" />
-
-			<OnPlatform
-				x:Key="SFProDisplayMediumFontFamily"
-				x:TypeArguments="x:String"
-				Android="SFProDisplayMedium.ttf#SFProDisplayMedium"
-				iOS="SFProDisplayMedium" />
-
-			<OnPlatform
-				x:Key="SFProDisplayLightFontFamily"
-				x:TypeArguments="x:String"
-				Android="SFProDisplayLight.ttf#SFProDisplayLight"
-				iOS="SFProDisplayLight" />
-
-			<OnPlatform
-				x:Key="SFProDisplayBoldFontFamily"
-				x:TypeArguments="x:String"
-				Android="SFProDisplayBold.ttf#SFProDisplayBold"
-				iOS="SFProDisplayBold" />
-
-			<OnPlatform
-				x:Key="PoppinsRegularFontFamily"
-				x:TypeArguments="x:String"
-				Android="PoppinsRegular.ttf#PoppinsRegular"
-				iOS="PoppinsRegular" />
-
-			<OnPlatform
-				x:Key="PoppinsSemiBoldFontFamily"
-				x:TypeArguments="x:String"
-				Android="PoppinsSemiBold.ttf#PoppinsSemiBold"
-				iOS="PoppinsSemiBold" />
-
-			<OnPlatform
-				x:Key="PoppinsBoldFontFamily"
-				x:TypeArguments="x:String"
-				Android="PoppinsBold.ttf#PoppinsBold"
-				iOS="PoppinsBold" />
-
 			<converters:InverseBoolConverter x:Key="InverseBoolConverter" />
 		</ResourceDictionary>
 	</Application.Resources>

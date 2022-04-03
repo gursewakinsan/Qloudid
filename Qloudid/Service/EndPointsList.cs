@@ -99,5 +99,8 @@
 
 		//Hotel
 		public const string CheckOutGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkOutGuest";
+
+		//Visitors
+		public const string InformEmployeeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/informEmployee";
 	}
 }

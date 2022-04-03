@@ -35,14 +35,14 @@
 				VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="32"
 					Text="Your address"
 					TextColor="White" />
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="18"
 					LineHeight="1.1"
 					Text="To get delivery, make payment and Check-in  online 👋"
@@ -62,7 +62,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="0"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Text="Is your name on the door?"
 						TextColor="White" />
@@ -70,7 +70,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="0"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="14"
 						Text="{Binding UserName}"
 						TextColor="White" />
@@ -132,7 +132,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Name"
 							PlaceholderColor="#797A7D"
@@ -183,7 +183,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Delivery address"
 							PlaceholderColor="#797A7D"
@@ -216,7 +216,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Delivery port number"
 							PlaceholderColor="#797A7D"
@@ -249,7 +249,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Delivery zip code"
 							PlaceholderColor="#797A7D"
@@ -282,7 +282,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Delivery city"
 							PlaceholderColor="#797A7D"
@@ -293,7 +293,7 @@
 					<Label
 						Grid.Row="4"
 						Grid.Column="0"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Text="If invoice address same as delivery address."
 						TextColor="White" />
@@ -363,7 +363,7 @@
 							</textinputlayout:SfTextInputLayout.LeadingView>
 							<controls:CustomFloatingLabelEntry
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="16"
 								Placeholder="Invoice address"
 								PlaceholderColor="#797A7D"
@@ -395,7 +395,7 @@
 							</textinputlayout:SfTextInputLayout.LeadingView>
 							<controls:CustomFloatingLabelEntry
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="16"
 								Placeholder="Invoice port number"
 								PlaceholderColor="#797A7D"
@@ -427,7 +427,7 @@
 							</textinputlayout:SfTextInputLayout.LeadingView>
 							<controls:CustomFloatingLabelEntry
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="16"
 								Placeholder="Invoice zip code"
 								PlaceholderColor="#797A7D"
@@ -459,7 +459,7 @@
 							</textinputlayout:SfTextInputLayout.LeadingView>
 							<controls:CustomFloatingLabelEntry
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="16"
 								Placeholder="Invoice city"
 								PlaceholderColor="#797A7D"
@@ -493,7 +493,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Entry code"
 							PlaceholderColor="#797A7D"
@@ -509,7 +509,7 @@
 						BorderColor="#6263ED"
 						Command="{Binding AddAddressCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
 						Text="Add Address"
@@ -565,7 +565,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Add delivery"
@@ -573,7 +573,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="address"
@@ -590,7 +590,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Please add your delivery address."
@@ -614,7 +614,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="If name on the house door is as"
@@ -624,7 +624,7 @@
 					<Label
 						Grid.Row="1"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="14"
 						HorizontalTextAlignment="Start"
 						Text="{Binding UserName}"
@@ -666,7 +666,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Name"
 								PlaceholderColor="#6F7FAF"
@@ -716,7 +716,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Delivery Address"
 								PlaceholderColor="#6F7FAF"
@@ -749,7 +749,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Delivery Port Number"
 								PlaceholderColor="#6F7FAF"
@@ -782,7 +782,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Delivery Zip Code"
 								PlaceholderColor="#6F7FAF"
@@ -815,7 +815,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Delivery City"
 								PlaceholderColor="#6F7FAF"
@@ -827,7 +827,7 @@
 					<Label
 						Grid.Row="4"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						MaxLines="2"
@@ -878,7 +878,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									Placeholder="Invoice Address"
 									PlaceholderColor="#6F7FAF"
@@ -910,7 +910,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									Placeholder="Invoice Port Number"
 									PlaceholderColor="#6F7FAF"
@@ -942,7 +942,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									Placeholder="Invoice Zip Code"
 									PlaceholderColor="#6F7FAF"
@@ -974,7 +974,7 @@
 								<controls:CustomEntry
 									Grid.Column="1"
 									BackgroundColor="#F8F8FB"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="16"
 									Placeholder="Invoice City"
 									PlaceholderColor="#6F7FAF"
@@ -1008,7 +1008,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Entry Code"
 								PlaceholderColor="#6F7FAF"
@@ -1023,7 +1023,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding AddAddressCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Add Address"
 						VerticalOptions="EndAndExpand" />

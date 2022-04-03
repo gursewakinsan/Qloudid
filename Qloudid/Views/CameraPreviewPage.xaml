@@ -15,7 +15,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="50" />
 				<RowDefinition />
-				<RowDefinition Height="100"/>
+				<RowDefinition Height="100" />
 				<RowDefinition Height="100" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
@@ -40,12 +40,13 @@
 			</ImageButton>
 
 			<Label
+				x:Name="lblNatigationTitle"
 				Grid.Row="0"
 				Grid.Column="1"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="20"
 				HorizontalTextAlignment="Start"
-				TextColor="White" x:Name="lblNatigationTitle"
+				TextColor="White"
 				VerticalTextAlignment="Center" />
 
 			<Frame
@@ -53,17 +54,17 @@
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
 				Padding="0"
-				IsClippedToBounds="True"
-				CornerRadius="10"
 				BackgroundColor="Transparent"
-				BorderColor="White">
+				BorderColor="White"
+				CornerRadius="10"
+				IsClippedToBounds="True">
 				<local:CameraPreview
 					x:Name="cameraPreview"
 					Camera="Rear"
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="FillAndExpand" />
 			</Frame>
-			
+
 			<StackLayout
 				Grid.Row="2"
 				Grid.Column="0"
@@ -73,17 +74,19 @@
 				Spacing="10">
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					x:Name="lblHeading"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="30"
 					HorizontalTextAlignment="Center"
-					TextColor="White" x:Name="lblHeading"
+					TextColor="White"
 					VerticalTextAlignment="Start" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					x:Name="lblSubHeading"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="20"
 					HorizontalTextAlignment="Center"
-					MaxLines="2" x:Name="lblSubHeading"
+					MaxLines="2"
 					TextColor="White"
 					VerticalTextAlignment="Start" />
 			</StackLayout>

@@ -57,5 +57,8 @@
 		public const string EmailOutline = "\U000f01f0";
 		public const string DotsHorizontal = "\U000f01d8";
 		public const string SearchIcon = "\U000f0349";
+		public const string ArrowRight = "\U000f0054";
+		public const string PlusBox = "\U000f0416";
+		public const string ChevronRightBox = "\U000f09da";
 	}
 }

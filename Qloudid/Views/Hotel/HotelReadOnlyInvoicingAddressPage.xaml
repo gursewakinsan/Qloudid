@@ -31,7 +31,7 @@
 					<Label
 						Grid.Row="0"
 						Grid.Column="0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Qloud ID"
@@ -42,7 +42,7 @@
 						Grid.Row="1"
 						Grid.Column="0"
 						FontAttributes="Bold"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="PAY"
@@ -94,7 +94,7 @@
 						Spacing="0"
 						VerticalOptions="CenterAndExpand">
 						<Label
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="Invoice address"
@@ -102,7 +102,7 @@
 							VerticalTextAlignment="Start" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="{Binding DisplayInvoiceAddress.NameOnHouse}"
@@ -110,7 +110,7 @@
 							VerticalTextAlignment="Start" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							TextColor="Black"
@@ -125,7 +125,7 @@
 						</Label>
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							TextColor="Black"
@@ -171,7 +171,7 @@
 					<Label
 						Grid.Row="4"
 						Grid.ColumnSpan="2"
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Choose payment"
@@ -183,7 +183,7 @@
 						Grid.ColumnSpan="2"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SelectedInvoicingAddressCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HeightRequest="50"
 						Text="Select"

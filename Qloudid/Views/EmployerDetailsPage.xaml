@@ -49,7 +49,7 @@
 				Grid.Column="1"
 				Margin="0,15,0,0"
 				BackgroundColor="Transparent"
-				FontFamily="{StaticResource SFProRegularFontFamily}"
+				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalOptions="CenterAndExpand"
 				HorizontalTextAlignment="Center"
@@ -96,7 +96,7 @@
 
 						<Label
 							Grid.Row="0"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
@@ -152,7 +152,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Row="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -178,7 +178,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -204,7 +204,7 @@
 
 							<Label
 								Grid.Row="4"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -230,7 +230,7 @@
 
 							<Label
 								Grid.Row="6"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -256,7 +256,7 @@
 
 							<Label
 								Grid.Row="8"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -282,7 +282,7 @@
 
 							<Label
 								Grid.Row="10"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -308,7 +308,7 @@
 
 							<Label
 								Grid.Row="12"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -349,7 +349,7 @@
 						</Grid.ColumnDefinitions>
 						<Label
 							Grid.Row="0"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
@@ -401,7 +401,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Row="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -427,7 +427,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -453,7 +453,7 @@
 
 							<Label
 								Grid.Row="4"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -479,7 +479,7 @@
 
 							<Label
 								Grid.Row="6"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -505,7 +505,7 @@
 
 							<Label
 								Grid.Row="8"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -546,7 +546,7 @@
 						</Grid.ColumnDefinitions>
 						<Label
 							Grid.Row="0"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
@@ -594,7 +594,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Row="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -620,7 +620,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -646,7 +646,7 @@
 
 							<Label
 								Grid.Row="4"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -687,7 +687,7 @@
 						</Grid.ColumnDefinitions>
 						<Label
 							Grid.Row="0"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							LineBreakMode="TailTruncation"
@@ -743,7 +743,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Row="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -769,7 +769,7 @@
 
 							<Label
 								Grid.Row="2"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -795,7 +795,7 @@
 
 							<Label
 								Grid.Row="4"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -821,7 +821,7 @@
 
 							<Label
 								Grid.Row="6"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -847,7 +847,7 @@
 
 							<Label
 								Grid.Row="8"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -873,7 +873,7 @@
 
 							<Label
 								Grid.Row="10"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -899,7 +899,7 @@
 
 							<Label
 								Grid.Row="12"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								LineBreakMode="TailTruncation"
@@ -931,7 +931,7 @@
 							Margin="0"
 							BackgroundColor="#05CBE7"
 							Command="{Binding ApproveEmployerRequestCommand}"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							Text="Accept" />
 
@@ -940,7 +940,7 @@
 							Margin="0"
 							BackgroundColor="#05CBE7"
 							Command="{Binding RejectEmployerRequestCommand}"
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							Text="Reject" />
 					</Grid>

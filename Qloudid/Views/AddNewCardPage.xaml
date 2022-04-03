@@ -36,14 +36,14 @@
 				VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="32"
 					Text="Your card"
 					TextColor="White" />
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="18"
 					LineHeight="1.1"
 					Text="We need your card details for payment and check-in 👋"
@@ -83,7 +83,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Keyboard="Numeric"
 							MaxLength="16"
@@ -117,7 +117,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							IsReadOnly="True"
 							Placeholder="Card holder"
@@ -150,7 +150,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select month"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							SelectedItem="{Binding ExpirationMonth}"
 							TextColor="White"
@@ -207,7 +207,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select year"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							ItemsSource="{Binding ExpirationYearList}"
 							SelectedItem="{Binding ExpirationYear}"
@@ -249,7 +249,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Keyboard="Numeric"
 							MaxLength="3"
@@ -266,7 +266,7 @@
 						BorderColor="#6263ED"
 						Command="{Binding AddNewCardCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
 						Text="Add Card"
@@ -321,7 +321,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Add"
@@ -329,7 +329,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="card"
@@ -346,7 +346,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Please add your card details."
@@ -390,7 +390,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Numeric"
 								MaxLength="16"
@@ -424,7 +424,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="True"
 								Placeholder="Card Holder"
@@ -460,7 +460,7 @@
 								Title="Expiration Month"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								SelectedItem="{Binding ExpirationMonth}"
 								TextColor="#6F7FAF"
@@ -519,7 +519,7 @@
 								Title="Expiration Year"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								ItemsSource="{Binding ExpirationYearList}"
 								SelectedItem="{Binding ExpirationYear}"
@@ -559,7 +559,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Numeric"
 								MaxLength="3"
@@ -575,7 +575,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding AddNewCardCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Add Card"
 						VerticalOptions="EndAndExpand" />

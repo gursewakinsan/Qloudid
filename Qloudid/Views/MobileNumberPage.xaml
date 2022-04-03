@@ -35,14 +35,14 @@
 			VerticalOptions="StartAndExpand">
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Phone number"
 				TextColor="White" />
 
 			<Label
 				Margin="0,12,0,42"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				LineHeight="1.1"
 				Text="We need to verify your phone by sending a code to you by sms 👋"
@@ -74,7 +74,7 @@
 					UnfocusedStrokeWidth="0.5">
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						IsReadOnly="True"
 						Placeholder="Code"
@@ -108,7 +108,7 @@
 					</textinputlayout:SfTextInputLayout.LeadingView>
 					<controls:CustomFloatingLabelEntry
 						BackgroundColor="#F8F8FB"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						Keyboard="Numeric"
 						Placeholder="Mobile number"
@@ -122,7 +122,7 @@
 					Grid.Row="1"
 					Grid.ColumnSpan="2"
 					Margin="0,12,0,0"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="14"
 					HorizontalTextAlignment="Start"
 					Opacity="0.5"
@@ -138,7 +138,7 @@
 					BorderColor="#6263ED"
 					Command="{Binding SaveMobileNumberCommand}"
 					CornerRadius="12"
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					HeightRequest="56"
 					Text="Get OTP"
@@ -153,13 +153,13 @@
 			<Label.FormattedText>
 				<FormattedString>
 					<Span
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						Text="Don't have an account? "
 						TextColor="#797A7D" />
 
 					<Span
-						FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						Text="Sign Up"
 						TextColor="#6263ED" />
@@ -215,7 +215,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Mobile"
@@ -233,7 +233,7 @@
 
 					<Label
 						Margin="0,50,0,24"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Update your mobile/cell number for secuirty and communication purpose"
@@ -264,7 +264,7 @@
 
 							<Label
 								Grid.Column="1"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								Text="{Binding CountryCode}"
@@ -281,7 +281,7 @@
 							<controls:CustomEntry
 								Grid.Column="3"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Numeric"
 								MaxLength="10"
@@ -297,7 +297,7 @@
 						Margin="0,25,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SaveMobileNumberCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Update"
 						VerticalOptions="EndAndExpand" />

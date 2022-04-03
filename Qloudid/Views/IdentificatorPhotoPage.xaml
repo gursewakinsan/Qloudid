@@ -53,7 +53,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Upload your"
@@ -61,7 +61,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="document"
@@ -79,7 +79,7 @@
 
 					<Label
 						Margin="0,50,0,24"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						HorizontalTextAlignment="Start"
 						VerticalTextAlignment="Start">
 						<Label.FormattedText>
@@ -129,7 +129,7 @@
 						Margin="0,25,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding UploadAddIdentificatorImagesCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Upload"
 						VerticalOptions="EndAndExpand" />
@@ -138,7 +138,7 @@
 						Margin="0,20,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SkipUploadAddIdentificatorImagesCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Skip"
 						VerticalOptions="EndAndExpand" />

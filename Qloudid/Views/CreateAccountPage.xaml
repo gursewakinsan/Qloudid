@@ -35,14 +35,14 @@
 				VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="32"
 					Text="Sign up"
 					TextColor="White" />
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="18"
 					LineHeight="1.1"
 					Text="Hello! Welcome to Qloud ID. A more secure and smoother way of life 👋"
@@ -79,7 +79,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
 							Title="Select country"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							ItemDisplayBinding="{Binding CountryName}"
 							ItemsSource="{Binding CountryList}"
@@ -123,7 +123,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="First name"
 							PlaceholderColor="#797A7D"
@@ -155,7 +155,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Last name"
 							PlaceholderColor="#797A7D"
@@ -187,7 +187,7 @@
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="Email"
 							PlaceholderColor="#797A7D"
@@ -198,7 +198,7 @@
 
 				<Label
 					Margin="0,85,0,5"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="14"
 					HorizontalOptions="CenterAndExpand"
 					Text="By clicking Sign Up, you agree to the "
@@ -208,19 +208,19 @@
 					<Label.FormattedText>
 						<FormattedString>
 							<Span
-								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontFamily="PoppinsSemiBoldFontFamily"
 								FontSize="14"
 								Text="Terms of Services "
 								TextColor="#6263ED" />
 
 							<Span
-								FontFamily="{StaticResource PoppinsRegularFontFamily}"
+								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
 								Text="and "
 								TextColor="#797A7D" />
 
 							<Span
-								FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+								FontFamily="PoppinsSemiBoldFontFamily"
 								FontSize="14"
 								Text="Privacy Policy"
 								TextColor="#6263ED" />
@@ -237,7 +237,7 @@
 					BorderColor="#6263ED"
 					Command="{Binding CreateAccountCommand}"
 					CornerRadius="12"
-					FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					HeightRequest="56"
 					Text="Sign Up"
@@ -289,7 +289,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Create a new"
@@ -297,7 +297,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="account"
@@ -314,7 +314,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Remember to use your personal email address. Do not use the company's email address."
@@ -360,7 +360,7 @@
 								Title="Select country"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								ItemDisplayBinding="{Binding CountryName}"
 								ItemsSource="{Binding CountryList}"
@@ -403,7 +403,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="First name"
 								PlaceholderColor="#6F7FAF"
@@ -435,7 +435,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="Last name"
 								PlaceholderColor="#6F7FAF"
@@ -467,7 +467,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Email"
 								Placeholder="Email"
@@ -494,7 +494,7 @@
 
 						<Label
 							Margin="10,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="14"
 							HorizontalTextAlignment="Start"
 							Text="Please accept our "
@@ -506,7 +506,7 @@
 						</Label>
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="14"
 							HorizontalTextAlignment="Start"
 							Text="term and conditions"
@@ -523,7 +523,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding CreateAccountCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Create Account"
 						VerticalOptions="EndAndExpand" />

@@ -51,7 +51,7 @@
 				</Grid>
 
 				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontFamily="SFProDisplayMediumFontFamily"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
 					Text="Cards"
@@ -69,7 +69,7 @@
 
 				<Label
 					Margin="0,50,0,24"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Purchase cards."
@@ -125,7 +125,7 @@
 										Grid.Row="0"
 										Grid.RowSpan="3"
 										Grid.Column="0"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="18"
 										HorizontalTextAlignment="Center"
 										Text="{Binding FirstLetterName}"
@@ -135,7 +135,7 @@
 									<Label
 										Grid.Row="0"
 										Grid.Column="1"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="16"
 										HorizontalTextAlignment="Start"
 										LineBreakMode="TailTruncation"
@@ -147,7 +147,7 @@
 									<Label
 										Grid.Row="1"
 										Grid.Column="1"
-										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontFamily="SFProRegularFontFamily"
 										FontSize="14"
 										HorizontalTextAlignment="Start"
 										Text="{Binding card_number}"

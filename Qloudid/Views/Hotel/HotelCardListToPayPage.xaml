@@ -47,7 +47,7 @@
 				<Label
 					Grid.Row="1"
 					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="20"
 					HorizontalTextAlignment="Start"
 					Text="Pay by card"
@@ -114,7 +114,7 @@
 									Grid.Row="0"
 									Grid.RowSpan="3"
 									Grid.Column="0"
-									FontFamily="{StaticResource SFProSemiboldFontFamily}"
+									FontFamily="SFProSemiboldFontFamily"
 									FontSize="18"
 									HorizontalTextAlignment="Center"
 									Text="{Binding FirstLetterName}"
@@ -124,7 +124,7 @@
 								<Label
 									Grid.Row="0"
 									Grid.Column="1"
-									FontFamily="{StaticResource SFProSemiboldFontFamily}"
+									FontFamily="SFProSemiboldFontFamily"
 									FontSize="16"
 									HorizontalTextAlignment="Start"
 									LineBreakMode="TailTruncation"
@@ -136,7 +136,7 @@
 								<Label
 									Grid.Row="1"
 									Grid.Column="1"
-									FontFamily="{StaticResource SFProRegularFontFamily}"
+									FontFamily="SFProRegularFontFamily"
 									FontSize="14"
 									HorizontalTextAlignment="Start"
 									Text="{Binding card_number2}"

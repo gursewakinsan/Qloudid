@@ -5,6 +5,8 @@ using Qloudid.Service;
 using Newtonsoft.Json;
 using System.Reflection;
 using Qloudid.Interfaces;
+using System.Windows.Input;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace Qloudid
@@ -22,7 +24,7 @@ namespace Qloudid
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
 
-			//MainPage = new NavigationPage(new Views.FinalStepToPayPage());
+			//MainPage = new NavigationPage(new Views.Visitors.InvitedVisitorsMeetingUserPage(null));
 		}
 
 		public void OpenAppFromWeb(string signInText)
@@ -344,6 +346,10 @@ namespace Qloudid
 					int hotelCheckOutId = Convert.ToInt32(uri.Segments[2].Replace("/", ""));
 					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHotelCheckOutPasswordPage(hotelCheckOutId));
 					break;
+				case "InvitedVisitorsMeetingId":
+					Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
+					GetCompanyCommand.Execute(null);
+					break;
 			}
 		}
 		#endregion
@@ -392,6 +398,10 @@ namespace Qloudid
 					case "HotelCheckOut":
 						int hotelCheckOutId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
 						MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHotelCheckOutPasswordPage(hotelCheckOutId));
+						break;
+					case "InvitedVisitorsMeetingId":
+						Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
+						GetCompanyCommand.Execute(null);
 						break;
 				}
 			}
@@ -466,6 +476,29 @@ namespace Qloudid
 
 			Helper.Helper.UserId = user.user_id;
 			Helper.Helper.UserEmail = user.email;
+		}
+		#endregion
+
+		#region Get Company List Command.
+		private ICommand getCompanyCommand;
+		public ICommand GetCompanyCommand
+		{
+			get => getCompanyCommand ?? (getCompanyCommand = new Command(async () => await ExecuteGetCompanyCommand()));
+		}
+		private async Task ExecuteGetCompanyCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			FillUserInfo();
+			IPurchaseService service = new PurchaseService();
+			List<Models.Company> response = await service.GetCompanyAsync(new Models.Profile() 
+			{ 
+				user_id = Helper.Helper.UserId 
+			});
+			if (response.Count > 0)
+				MainPage = new NavigationPage(new Views.Visitors.InvitedVisitorsMeetingUserPage(response));
+			else
+				MainPage = new NavigationPage(new Views.Visitors.VerifyInvitedVisitorsMeetingPasswordPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 	}

@@ -54,7 +54,7 @@
 				Padding="0"
 				BackgroundColor="#342B20"
 				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="14"
 				HeightRequest="32"
 				Text="Qloud ID Pay"
@@ -66,7 +66,7 @@
 				Grid.ColumnSpan="3"
 				Spacing="0">
 				<Label
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="18"
 					Opacity="0.4"
 					Text="Select"
@@ -75,7 +75,7 @@
 
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="32"
 					Text="Payment type "
 					TextColor="White"
@@ -92,7 +92,7 @@
 				Grid.Row="6"
 				Grid.Column="1"
 				Grid.ColumnSpan="3"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="16"
 				Text="Select a card"
 				TextColor="White"
@@ -127,13 +127,13 @@
 									UnfocusedStrokeWidth="0.5">
 									<textinputlayout:SfTextInputLayout.HintLabelStyle>
 										<textinputlayout:LabelStyle
-											FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+											FontFamily="PoppinsSemiBoldFontFamily"
 											FontSize="12"
 											Color="White" />
 									</textinputlayout:SfTextInputLayout.HintLabelStyle>
 									<controls:CustomFloatingLabelEntry
 										BackgroundColor="#F8F8FB"
-										FontFamily="{StaticResource PoppinsRegularFontFamily}"
+										FontFamily="PoppinsRegularFontFamily"
 										FontSize="18"
 										IsReadOnly="True"
 										Text="Nordea"
@@ -164,7 +164,7 @@
 										BackgroundColor="#342B20"
 										Clicked="OnButtonFirstLetterNameClicked"
 										CornerRadius="16"
-										FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+										FontFamily="PoppinsSemiBoldFontFamily"
 										FontSize="15"
 										HeightRequest="32"
 										HorizontalOptions="CenterAndExpand"
@@ -183,7 +183,7 @@
 											<TapGestureRecognizer Tapped="OnStackLayoutCardInfoTapped" />
 										</StackLayout.GestureRecognizers>
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="18"
 											HorizontalTextAlignment="Start"
 											Opacity="0.32"
@@ -196,7 +196,7 @@
 										</Label>
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="18"
 											HorizontalTextAlignment="Start"
 											Opacity="0.32"
@@ -274,7 +274,7 @@
 				</Grid>
 
 				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontFamily="SFProDisplayMediumFontFamily"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
 					Text="Cards"
@@ -292,7 +292,7 @@
 
 				<Label
 					Margin="0,50,0,24"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Purchase cards."
@@ -348,7 +348,7 @@
 										Grid.Row="0"
 										Grid.RowSpan="3"
 										Grid.Column="0"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="18"
 										HorizontalTextAlignment="Center"
 										Text="{Binding FirstLetterName}"
@@ -358,7 +358,7 @@
 									<Label
 										Grid.Row="0"
 										Grid.Column="1"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="16"
 										HorizontalTextAlignment="Start"
 										LineBreakMode="TailTruncation"
@@ -370,7 +370,7 @@
 									<Label
 										Grid.Row="1"
 										Grid.Column="1"
-										FontFamily="{StaticResource SFProRegularFontFamily}"
+										FontFamily="SFProRegularFontFamily"
 										FontSize="14"
 										HorizontalTextAlignment="Start"
 										Text="{Binding card_number}"

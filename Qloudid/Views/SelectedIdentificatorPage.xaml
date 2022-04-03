@@ -42,7 +42,7 @@
 				VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
-					FontFamily="{StaticResource PoppinsBoldFontFamily}"
+					FontFamily="PoppinsBoldFontFamily"
 					FontSize="32"
 					TextColor="White">
 					<Label.FormattedText>
@@ -55,7 +55,7 @@
 
 				<Label
 					Margin="0,12,0,42"
-					FontFamily="{StaticResource PoppinsRegularFontFamily}"
+					FontFamily="PoppinsRegularFontFamily"
 					FontSize="18"
 					LineHeight="1.1"
 					TextColor="White">
@@ -100,7 +100,7 @@
 						<controls:CustomFloatingLabelEntry
 							x:Name="txtIdentificator"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Placeholder="{Binding IdentificatorPlaceholder}"
 							PlaceholderColor="#797A7D"
@@ -133,7 +133,7 @@
 
 						<controls:CustomDatePicker
 							Date="{Binding SelectedIssueDate}"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindIssueMaximumDate}"
@@ -177,7 +177,7 @@
 
 						<controls:CustomDatePicker
 							Date="{Binding SelectedExpiryDate}"
-							FontFamily="{StaticResource PoppinsRegularFontFamily}"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindExpiryMaximumDate}"
@@ -207,7 +207,7 @@
 			BorderColor="#6263ED"
 			Command="{Binding SaveIdentifyInfoCommand}"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="16"
 			HeightRequest="56"
 			Text="Save"
@@ -263,12 +263,12 @@
 						<Label.FormattedText>
 							<FormattedString>
 								<Span
-									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+									FontFamily="SFProDisplayMediumFontFamily"
 									FontSize="28"
 									Text="Your "
 									TextColor="Black" />
 								<Span
-									FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+									FontFamily="SFProDisplayMediumFontFamily"
 									FontSize="28"
 									Text="{Binding IdentificatorTitle}"
 									TextColor="Black" />
@@ -277,7 +277,7 @@
 					</Label>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="details"
@@ -336,7 +336,7 @@
 								x:Name="txtIdentificator"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Placeholder="{Binding IdentificatorPlaceholder}"
 								PlaceholderColor="#6F7FAF"
@@ -371,7 +371,7 @@
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								Date="{Binding SelectedIssueDate}"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Format="yyyy-MM-dd"
 								MaximumDate="{Binding BindIssueMaximumDate}"
@@ -407,7 +407,7 @@
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
 								Date="{Binding SelectedExpiryDate}"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Format="yyyy-MM-dd"
 								MaximumDate="{Binding BindExpiryMaximumDate}"
@@ -422,7 +422,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SaveIdentifyInfoCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Save"
 						VerticalOptions="EndAndExpand" />
@@ -432,7 +432,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SkipIdentifyInfoCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Skip"
 						VerticalOptions="EndAndExpand" />

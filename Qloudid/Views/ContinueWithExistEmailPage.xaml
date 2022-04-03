@@ -42,14 +42,14 @@
 
 				<Label
 					Margin="0,30,0,10"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Restore"
 					TextColor="White" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -61,13 +61,13 @@
 
 				<controls:CustomButton
 					Command="{Binding SubmitRestoreEmailCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Continue" />
 
 				<controls:CustomButton
 					Margin="40,20,40,0"
 					Clicked="OnCloseButtonClicked"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Close" />
 			</StackLayout>
 		</ScrollView>

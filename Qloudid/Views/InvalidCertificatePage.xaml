@@ -43,14 +43,14 @@
 
 				<Label
 					Margin="0,30,0,10"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Invalid certificate"
 					TextColor="White" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -62,7 +62,7 @@
 
 				<controls:CustomButton
 					Clicked="OnBackButtonClicked"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Back" />
 			</StackLayout>
 		</ScrollView>

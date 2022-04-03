@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Xamarin.Forms;
+using System.Collections.Generic;
 
 namespace Qloudid.Models
 {
@@ -6,6 +7,7 @@ namespace Qloudid.Models
 	{
 		public int id { get; set; }
 		public string company_name { get; set; }
+		public string profile_pic { get; set; }
 		public string company_email { get; set; }
 		public string FirstLetterName => System.Globalization.StringInfo.GetNextTextElement(company_name, 0).ToUpper();
 		public string AddressForSearch => $"{company_name}, {company_email}";
@@ -47,6 +49,30 @@ namespace Qloudid.Models
 			}
 		}
 		public double CheckUnCheckColor => IsChecked ? 0.8 : 0.1;
+
+		public bool IsSelectedEmployee { get; set; }
+
+		private Color employeeCardBorderColor;
+		public Color EmployeeCardBorderColor
+		{
+			get => employeeCardBorderColor;
+			set
+			{
+				employeeCardBorderColor = value;
+				OnPropertyChanged("EmployeeCardBorderColor");
+			}
+		}
+
+		private double employeeNameTextOpacity;
+		public double EmployeeNameTextOpacity
+		{
+			get => employeeNameTextOpacity;
+			set
+			{
+				employeeNameTextOpacity = value;
+				OnPropertyChanged("EmployeeNameTextOpacity");
+			}
+		}
 	}
 
 	public class CompanyInfo : List<Company>

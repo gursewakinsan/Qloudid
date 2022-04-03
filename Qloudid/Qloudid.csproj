@@ -11,10 +11,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="AppFonts\PoppinsBold.ttf" />
+    <None Remove="AppFonts\PoppinsRegular.ttf" />
+    <None Remove="AppFonts\PoppinsSemiBold.ttf" />
+    <None Remove="AppFonts\SFProDisplayBold.ttf" />
+    <None Remove="AppFonts\SFProDisplayLight.ttf" />
+    <None Remove="AppFonts\SFProDisplayMedium.ttf" />
+    <None Remove="AppFonts\SFProDisplayRegular.ttf" />
+    <None Remove="AppFonts\SFProDisplaySemibold.ttf" />
     <None Remove="CountryJson.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="AppFonts\PoppinsBold.ttf" />
+    <EmbeddedResource Include="AppFonts\PoppinsRegular.ttf" />
+    <EmbeddedResource Include="AppFonts\PoppinsSemiBold.ttf" />
+    <EmbeddedResource Include="AppFonts\SFProDisplayBold.ttf" />
+    <EmbeddedResource Include="AppFonts\SFProDisplayLight.ttf" />
+    <EmbeddedResource Include="AppFonts\SFProDisplayMedium.ttf" />
+    <EmbeddedResource Include="AppFonts\SFProDisplayRegular.ttf" />
+    <EmbeddedResource Include="AppFonts\SFProDisplaySemibold.ttf" />
     <EmbeddedResource Include="CountryJson.json" />
   </ItemGroup>
 
@@ -290,6 +306,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VerifyPassword\VerifyHotelCheckOutPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Visitors\InvitedVisitorsMeetingCompanyListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Visitors\InvitedVisitorsMeetingUserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Visitors\VerifyInvitedVisitorsMeetingPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WaitList\VerifyWaitResturantPasswordPage.xaml">

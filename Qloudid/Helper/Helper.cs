@@ -91,6 +91,8 @@ namespace Qloudid.Helper
 		public static int SelectedCardId { get; set; }
 		public static int InvoiceAddressId { get; set; }
 		public static bool FromIWantToPayPage { get; set; } = false;
+		public static int InvitedVisitorsMeetingId { get; set; }
+		public static int VisitorProfileId { get; set; }
 
 		public static string[] ColorList =
 		{

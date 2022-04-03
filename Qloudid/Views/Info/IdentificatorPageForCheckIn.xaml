@@ -55,7 +55,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Complete"
@@ -63,7 +63,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="check-in"
@@ -82,7 +82,7 @@
 					<StackLayout Margin="0,24,0,20" Spacing="10">
 						<Label
 							Margin="10,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="15"
 							HorizontalTextAlignment="Start"
 							Text="Select a document"
@@ -91,7 +91,7 @@
 
 						<Label
 							Margin="10,0,0,0"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="12"
 							HorizontalTextAlignment="Start"
 							Text="You have following un-fineshed identificator added in your profile, Please select any one to complete your check-in profile. If you select other than passport you may not be proceed to able check-in hotels."
@@ -115,7 +115,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Column="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								Text="State/national identity card"
@@ -150,7 +150,7 @@
 							</Grid.ColumnDefinitions>
 							<Label
 								Grid.Column="0"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								HorizontalTextAlignment="Start"
 								Text="Passport (Recommended)"

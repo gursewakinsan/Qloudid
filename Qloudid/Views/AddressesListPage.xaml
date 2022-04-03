@@ -57,7 +57,7 @@
 			BackgroundColor="#342B20"
 			Clicked="btnText_Clicked"
 			CornerRadius="12"
-			FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+			FontFamily="PoppinsSemiBoldFontFamily"
 			FontSize="14"
 			HeightRequest="32"
 			Text="Qloud ID Pay"
@@ -69,7 +69,7 @@
 			Grid.ColumnSpan="3"
 			Spacing="0">
 			<Label
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="18"
 				Opacity="0.4"
 				Text="Select"
@@ -78,7 +78,7 @@
 
 			<Label
 				FontAttributes="Bold"
-				FontFamily="{StaticResource PoppinsBoldFontFamily}"
+				FontFamily="PoppinsBoldFontFamily"
 				FontSize="32"
 				Text="Delivery address"
 				TextColor="White"
@@ -119,7 +119,7 @@
 					<controls:CustomEntry
 						Grid.Column="1"
 						BackgroundColor="Transparent"
-						FontFamily="{StaticResource PoppinsRegularFontFamily}"
+						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						Opacity="0.7"
 						Placeholder="Search"
@@ -133,7 +133,7 @@
 
 			<Label
 				Grid.Column="1"
-				FontFamily="{StaticResource PoppinsRegularFontFamily}"
+				FontFamily="PoppinsRegularFontFamily"
 				FontSize="14"
 				HorizontalTextAlignment="End"
 				Text="Enter"
@@ -164,7 +164,7 @@
 				BorderColor="{Binding BtnPersonalBg}"
 				Command="{Binding ShowPersonalAddressesCommand}"
 				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="12"
 				Text="Personal"
 				TextColor="White"
@@ -176,7 +176,7 @@
 				BorderColor="{Binding BtnBusinessBg}"
 				Command="{Binding ShowBusinessAddressesCommand}"
 				CornerRadius="12"
-				FontFamily="{StaticResource PoppinsSemiBoldFontFamily}"
+				FontFamily="PoppinsSemiBoldFontFamily"
 				FontSize="12"
 				Text="Business"
 				TextColor="White"
@@ -217,7 +217,7 @@
 										Spacing="5"
 										VerticalOptions="CenterAndExpand">
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -228,7 +228,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -239,7 +239,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -278,7 +278,7 @@
 										Spacing="5"
 										VerticalOptions="CenterAndExpand">
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -289,7 +289,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -300,7 +300,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -311,7 +311,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource PoppinsRegularFontFamily}"
+											FontFamily="PoppinsRegularFontFamily"
 											FontSize="14"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -397,7 +397,7 @@
 				<Label
 					Grid.Row="1"
 					Grid.Column="0"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="20"
 					HorizontalTextAlignment="Start"
 					Text="Delivery Address"
@@ -443,7 +443,7 @@
 								<StackLayout BackgroundColor="White">
 									<Label
 										Margin="25,15,15,15"
-										FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+										FontFamily="SFProDisplayMediumFontFamily"
 										FontSize="18"
 										HorizontalOptions="StartAndExpand"
 										Text="{Binding Heading}"
@@ -483,7 +483,7 @@
 									<Label
 										Grid.Row="0"
 										Grid.Column="0"
-										FontFamily="{StaticResource SFProSemiboldFontFamily}"
+										FontFamily="SFProSemiboldFontFamily"
 										FontSize="18"
 										HorizontalTextAlignment="Center"
 										Text="{Binding FirstLetterName}"
@@ -496,7 +496,7 @@
 										Spacing="5"
 										VerticalOptions="CenterAndExpand">
 										<Label
-											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontFamily="SFProSemiboldFontFamily"
 											FontSize="16"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -506,7 +506,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontFamily="SFProSemiboldFontFamily"
 											FontSize="16"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"
@@ -516,7 +516,7 @@
 											VerticalTextAlignment="Center" />
 
 										<Label
-											FontFamily="{StaticResource SFProSemiboldFontFamily}"
+											FontFamily="SFProSemiboldFontFamily"
 											FontSize="16"
 											HorizontalTextAlignment="Start"
 											LineBreakMode="TailTruncation"

@@ -52,7 +52,7 @@
 				</Grid>
 
 				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontFamily="SFProDisplayMediumFontFamily"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
 					Text="Add"
@@ -60,7 +60,7 @@
 					VerticalTextAlignment="Start" />
 
 				<Label
-					FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+					FontFamily="SFProDisplayMediumFontFamily"
 					FontSize="28"
 					HorizontalTextAlignment="Start"
 					Text="dependent"
@@ -77,7 +77,7 @@
 					WidthRequest="40" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="16"
 					HorizontalTextAlignment="Start"
 					Text="Please add your dependent details."
@@ -127,7 +127,7 @@
 							Title="Dependent Type"
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							SelectedItem="{Binding DependentType}"
 							TextColor="#6F7FAF"
@@ -175,7 +175,7 @@
 						<controls:CustomEntry
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Placeholder="First Name"
 							PlaceholderColor="#6F7FAF"
@@ -208,7 +208,7 @@
 						<controls:CustomEntry
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Placeholder="Last Name"
 							PlaceholderColor="#6F7FAF"
@@ -240,7 +240,7 @@
 						<controls:CustomEntry
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							IsReadOnly="True"
 							Placeholder="Country"
@@ -274,7 +274,7 @@
 						<controls:CustomEntry
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Placeholder="Social Security Number"
 							PlaceholderColor="#6F7FAF"
@@ -307,7 +307,7 @@
 						<controls:CustomEntry
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Placeholder="Passport Number"
 							PlaceholderColor="#6F7FAF"
@@ -342,7 +342,7 @@
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
 							Date="{Binding SelectedIssueDate}"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindIssueMaximumDate}"
@@ -387,7 +387,7 @@
 							Grid.Column="1"
 							BackgroundColor="#F8F8FB"
 							Date="{Binding SelectedExpiryDate}"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Format="yyyy-MM-dd"
 							MaximumDate="{Binding BindExpiryMaximumDate}"
@@ -410,7 +410,7 @@
 					Margin="0"
 					BackgroundColor="#05CBE7"
 					Command="{Binding AddDependentCommand}"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="16"
 					Text="Next"
 					VerticalOptions="EndAndExpand" />

@@ -52,7 +52,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Add"
@@ -60,7 +60,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="card"
@@ -77,7 +77,7 @@
 						WidthRequest="40" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="16"
 						HorizontalTextAlignment="Start"
 						Text="Please add your card details."
@@ -121,7 +121,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Numeric"
 								MaxLength="16"
@@ -155,7 +155,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								IsReadOnly="True"
 								Placeholder="Card Holder"
@@ -191,7 +191,7 @@
 								Title="Expiration Month"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								SelectedItem="{Binding ExpirationMonth}"
 								TextColor="#6F7FAF"
@@ -250,7 +250,7 @@
 								Title="Expiration Year"
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								ItemsSource="{Binding ExpirationYearList}"
 								SelectedItem="{Binding ExpirationYear}"
@@ -290,7 +290,7 @@
 							<controls:CustomEntry
 								Grid.Column="1"
 								BackgroundColor="#F8F8FB"
-								FontFamily="{StaticResource SFProRegularFontFamily}"
+								FontFamily="SFProRegularFontFamily"
 								FontSize="16"
 								Keyboard="Numeric"
 								MaxLength="3"
@@ -306,7 +306,7 @@
 						Margin="0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding AddNewCardCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Add Card"
 						VerticalOptions="EndAndExpand" />

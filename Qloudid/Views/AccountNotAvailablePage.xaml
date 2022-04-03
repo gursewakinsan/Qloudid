@@ -42,14 +42,14 @@
 
 				<Label
 					Margin="0,30,0,10"
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="24"
 					HorizontalOptions="CenterAndExpand"
 					Text="Account Not Available"
 					TextColor="White" />
 
 				<Label
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18"
 					HorizontalOptions="CenterAndExpand"
 					HorizontalTextAlignment="Center"
@@ -63,7 +63,7 @@
 					x:Name="btnRestore"
 					Clicked="OnBtnRestoreClicked"
 					Command="{Binding SubmitRestoreEmailCommand}"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Restore" />
 
 				<controls:CustomButton
@@ -71,7 +71,7 @@
 					Margin="40,30,40,0"
 					BorderColor="Transparent"
 					Clicked="OnBtnCreateAccountClicked"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					Text="Create Account" />
 			</StackLayout>
 		</ScrollView>

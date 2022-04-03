@@ -42,14 +42,14 @@
 					WidthRequest="236" />
 
 				<Label
-					FontFamily="{StaticResource SFProSemiboldFontFamily}"
+					FontFamily="SFProSemiboldFontFamily"
 					FontSize="32"
 					Text="Verify your email"
 					TextColor="White" />
 
 				<Label
 					Margin="0,6,0,42"
-					FontFamily="{StaticResource SFProRegularFontFamily}"
+					FontFamily="SFProRegularFontFamily"
 					FontSize="18">
 					<Label.FormattedText>
 						<FormattedString>
@@ -77,7 +77,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step1"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -95,7 +95,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step2"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -113,7 +113,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step3"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -131,7 +131,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step4"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -149,7 +149,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step5"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -167,7 +167,7 @@
 						IsClippedToBounds="True">
 						<Label
 							x:Name="step6"
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Center"
 							TextColor="White"
@@ -191,7 +191,7 @@
 						BorderColor="#6263ED"
 						Command="{Binding CreateAccountCommand}"
 						CornerRadius="12"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
 						Text="Submit"
@@ -206,13 +206,13 @@
 				<Label.FormattedText>
 					<FormattedString>
 						<Span
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							Text="Didn't receive the OTP? "
 							TextColor="#797A7D" />
 
 						<Span
-							FontFamily="{StaticResource SFProSemiboldFontFamily}"
+							FontFamily="SFProSemiboldFontFamily"
 							FontSize="16"
 							Text="Resend"
 							TextColor="#6263ED" />

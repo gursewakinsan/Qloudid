@@ -47,7 +47,7 @@
 
 					<Label
 						Margin="0,40,0,0"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="25"
 						HorizontalTextAlignment="Center"
 						Text="Qloud ID"
@@ -55,7 +55,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						FontSize="35"
 						HorizontalTextAlignment="Center"
 						Text="Your digital ID"
@@ -68,7 +68,7 @@
 						BackgroundColor="#05CBE7"
 						BorderColor="#05CBE7"
 						Command="{Binding NewUserCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						Text="Create Account"
 						TextColor="White" />
 
@@ -78,7 +78,7 @@
 						Orientation="Horizontal"
 						Spacing="0">
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="16"
 							HorizontalTextAlignment="Start"
 							Text="Already have an account? "
@@ -86,7 +86,7 @@
 							VerticalTextAlignment="Center" />
 
 						<Label
-							FontFamily="{StaticResource SFProRegularFontFamily}"
+							FontFamily="SFProRegularFontFamily"
 							FontSize="18"
 							HorizontalTextAlignment="Start"
 							Text="Sign in"
@@ -102,7 +102,7 @@
 						BackgroundColor="#05CBE7"
 						BorderColor="#05CBE7"
 						Command="{Binding UserRestoreCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						IsVisible="False"
 						Text="Restore Account"
 						TextColor="White" />

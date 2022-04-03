@@ -53,7 +53,7 @@
 					</Grid>
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="Upload your"
@@ -61,7 +61,7 @@
 						VerticalTextAlignment="Start" />
 
 					<Label
-						FontFamily="{StaticResource SFProDisplayMediumFontFamily}"
+						FontFamily="SFProDisplayMediumFontFamily"
 						FontSize="28"
 						HorizontalTextAlignment="Start"
 						Text="passport"
@@ -79,7 +79,7 @@
 
 					<Label
 						Margin="0,50,0,24"
-						FontFamily="{StaticResource SFProRegularFontFamily}"
+						FontFamily="SFProRegularFontFamily"
 						HorizontalTextAlignment="Start"
 						Text="Upload front and back of your passport by clicking on these 2 grey images below."
 						VerticalTextAlignment="Start" />
@@ -113,7 +113,7 @@
 						Margin="0,25,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding UploadPassportImageCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Upload"
 						VerticalOptions="EndAndExpand" />
@@ -122,7 +122,7 @@
 						Margin="0,20,0,0"
 						BackgroundColor="#05CBE7"
 						Command="{Binding SkipUploadPassportImageCommand}"
-						FontFamily="{StaticResource SFProSemiboldFontFamily}"
+						FontFamily="SFProSemiboldFontFamily"
 						FontSize="16"
 						Text="Skip"
 						VerticalOptions="EndAndExpand" />
