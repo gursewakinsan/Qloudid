@@ -59,24 +59,24 @@
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<StackLayout
 					Margin="0,26,0,0"
-					HeightRequest="108"
+					HeightRequest="72"
 					HorizontalOptions="StartAndExpand"
 					Spacing="0">
 					<Label
 						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
-						Opacity="0.4"
+						Opacity="0.4" HeightRequest="26"
 						Text="Invitation"
-						TextColor="White"
+						TextColor="White" VerticalOptions="StartAndExpand"
 						VerticalTextAlignment="Start" />
 
 					<Label
 						FontAttributes="Bold"
 						FontFamily="PoppinsBoldFontFamily"
-						FontSize="32"
+						FontSize="32" HeightRequest="42"
 						LineBreakMode="TailTruncation"
 						MaxLines="1"
-						Text="Meeting type"
+						Text="Meeting type" VerticalOptions="EndAndExpand"
 						TextColor="White"
 						VerticalTextAlignment="End" />
 				</StackLayout>
@@ -85,7 +85,7 @@
 					Margin="0,48,0,3"
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
-					FontSize="32"
+					FontSize="20" HeightRequest="30"
 					LineBreakMode="TailTruncation"
 					MaxLines="1"
 					Text="Type of meeting"
@@ -96,8 +96,8 @@
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
-					MaxLines="2"
-					Opacity="0.4"
+					MaxLines="2" HeightRequest="43"
+					Opacity="0.4" LineHeight="0.95"
 					Text="Select the option that best fit the type of meeting this is concern."
 					TextColor="White"
 					VerticalTextAlignment="Start" />

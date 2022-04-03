@@ -59,24 +59,24 @@
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<StackLayout
 					Margin="0,26,0,0"
-					HeightRequest="108"
+					HeightRequest="72"
 					HorizontalOptions="StartAndExpand"
 					Spacing="0">
 					<Label
 						FontFamily="PoppinsRegularFontFamily"
 						FontSize="16"
 						Opacity="0.4"
-						Text="Invitation"
-						TextColor="White"
+						Text="Invitation" VerticalOptions="StartAndExpand"
+						TextColor="White" HeightRequest="26"
 						VerticalTextAlignment="Start" />
 
-					<Label
+					<Label HeightRequest="30" 
 						FontAttributes="Bold"
 						FontFamily="PoppinsBoldFontFamily"
 						FontSize="32"
 						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						Text="Meeting type"
+						MaxLines="1" VerticalOptions="EndAndExpand"
+						Text="Select employer"
 						TextColor="White"
 						VerticalTextAlignment="End" />
 				</StackLayout>
@@ -85,10 +85,10 @@
 					Margin="0,48,0,3"
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
-					FontSize="32"
+					FontSize="20"
 					LineBreakMode="TailTruncation"
-					MaxLines="1"
-					Text="Type of meeting"
+					MaxLines="1" HeightRequest="30"
+					Text="Choose one"
 					TextColor="White"
 					VerticalTextAlignment="End" />
 
@@ -96,9 +96,9 @@
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
-					MaxLines="2"
-					Opacity="0.4"
-					Text="Select the option that best fit the type of meeting this is concern."
+					MaxLines="2" LineHeight="0.95"
+					Opacity="0.4" HeightRequest="43"
+					Text="Select the profile that is best meant for this meeting."
 					TextColor="White"
 					VerticalTextAlignment="Start" />
 
@@ -119,6 +119,7 @@
 									<RowDefinition Height="1" />
 								</Grid.RowDefinitions>
 								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="44" />
 									<ColumnDefinition Width="*" />
 									<ColumnDefinition Width="24" />
 								</Grid.ColumnDefinitions>
@@ -130,9 +131,21 @@
 									Grid.ColumnSpan="2"
 									BackgroundColor="#2A2A31" />
 
-								<Label
+								<ImageButton
+						HeightRequest="44"
+						WidthRequest="44"
+						CornerRadius="22"
+						Aspect="AspectFill"
+						Source="{Binding profile_pic}"
+						 VerticalOptions="CenterAndExpand"
+									BackgroundColor="Black"
+									HorizontalOptions="CenterAndExpand"
 									Grid.Row="1"
-									Grid.Column="0"
+									Grid.Column="0"/>
+
+								<Label Margin="12,0,0,0"
+									Grid.Row="1"
+									Grid.Column="1"
 									FontFamily="SansProSemiBoldFontFamily"
 									FontSize="18"
 									HorizontalTextAlignment="Start"
@@ -148,7 +161,7 @@
 
 								<BoxView
 									Grid.Row="1"
-									Grid.Column="1"
+									Grid.Column="2"
 									BackgroundColor="White"
 									HeightRequest="15"
 									HorizontalOptions="CenterAndExpand"
@@ -158,7 +171,7 @@
 
 								<Label
 									Grid.Row="1"
-									Grid.Column="1"
+									Grid.Column="2"
 									FontFamily="{StaticResource MaterialFontFamily}"
 									FontSize="24"
 									HorizontalTextAlignment="End"

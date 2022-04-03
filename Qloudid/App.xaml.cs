@@ -347,7 +347,7 @@ namespace Qloudid
 					MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHotelCheckOutPasswordPage(hotelCheckOutId));
 					break;
 				case "InvitedVisitorsMeetingId":
-					Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
+					Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[2].Replace("/", ""));
 					GetCompanyCommand.Execute(null);
 					break;
 			}
