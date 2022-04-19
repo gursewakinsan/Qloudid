@@ -18,8 +18,8 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			if (!Helper.Helper.IsAddMoreAddresses)
-				viewModel.UserDeliveryInvoiceInfoCommand.Execute(null);
+			//if (!Helper.Helper.IsAddMoreAddresses)
+			//	viewModel.UserDeliveryInvoiceInfoCommand.Execute(null);
 		}
 	}
 }

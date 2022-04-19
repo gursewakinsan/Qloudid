@@ -117,9 +117,9 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		public bool IsCloseShow;//=> Helper.Helper.IsAddMoreCard;
+		public bool IsCloseShow=> Helper.Helper.IsAddMoreCard;
 		public string CardNumber { get; set; }
-		public string CardHolderName;// => Helper.Helper.UserInfo.DisplayUserName;
+		public string CardHolderName => Helper.Helper.UserInfo.DisplayUserName;
 		public string ExpirationMonth { get; set; }
 		public string ExpirationYear { get; set; }
 		public string Cvv { get; set; }

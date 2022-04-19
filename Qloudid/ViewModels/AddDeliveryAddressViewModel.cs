@@ -182,6 +182,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Is Entry Code Command.
+		private ICommand isEntryCodeCommand;
+		public ICommand IsEntryCodeCommand
+		{
+			get => isEntryCodeCommand ?? (isEntryCodeCommand = new Command(() => ExecuteIsEntryCodeCommand()));
+		}
+		private void ExecuteIsEntryCodeCommand()
+		{
+			IsEntryCode = !IsEntryCode;
+		}
+		#endregion
+
 		#region Properties.
 		private bool isNameSame = true;
 		public bool IsNameSame
@@ -228,6 +240,18 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsInvoiceAddressVisible");
 			}
 		}
+
+		private bool isEntryCode = true;
+		public bool IsEntryCode
+		{
+			get => isEntryCode;
+			set
+			{
+				isEntryCode = value;
+				OnPropertyChanged("IsEntryCode");
+			}
+		}
+
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
 		public bool IsCloseShow => Helper.Helper.IsAddMoreAddresses;
 		public string Name { get; set; }

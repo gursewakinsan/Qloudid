@@ -12,7 +12,7 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
-		Margin="0,32,0,0"
+		Margin="0,22,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
 		<Grid.RowDefinitions>
@@ -23,202 +23,125 @@
 			<ColumnDefinition Width="28" />
 			<ColumnDefinition Width="48" />
 			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
 		<ScrollView
 			Grid.Row="1"
+			Grid.Column="1"
 			Grid.ColumnSpan="3"
+			Margin="0,31,0,5"
 			VerticalScrollBarVisibility="Never">
-			<StackLayout
-				Margin="28,32,28,0"
-				Spacing="0"
-				VerticalOptions="StartAndExpand">
+			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
-					FontSize="32"
-					Text="Your address"
+					FontSize="40"
+					Text="Address"
 					TextColor="White" />
 
 				<Label
-					Margin="0,12,0,42"
+					Margin="0,8,0,50"
 					FontFamily="PoppinsRegularFontFamily"
-					FontSize="18"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
 					LineHeight="1.1"
-					Text="To get delivery, make payment and Check-in  online 👋"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="For a smooth shopping, secured deliveries &amp; express check-in "
 					TextColor="White" />
 
-				<Grid RowSpacing="0">
+				<Grid ColumnSpacing="13" RowSpacing="0">
 					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="80" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="9" />
+						<RowDefinition Height="1" />
 						<RowDefinition Height="20" />
-						<RowDefinition Height="20" />
+						<RowDefinition Height="52" />
 						<RowDefinition Height="auto" />
+						<RowDefinition Height="20" />
+						<RowDefinition Height="1" />
+
+						<RowDefinition Height="20" />
+						<RowDefinition Height="52" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="20" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="20" />
+						<RowDefinition Height="52" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="20" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="62" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="5" />
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition Width="70" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="69" />
 					</Grid.ColumnDefinitions>
-
-					<Label
+					<textinputlayout:SfTextInputLayout
 						Grid.Row="0"
 						Grid.Column="0"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						Text="Is your name on the door?"
-						TextColor="White" />
-
-					<Label
-						Grid.Row="1"
-						Grid.Column="0"
-						FontFamily="PoppinsSemiBoldFontFamily"
-						FontSize="14"
-						Text="{Binding UserName}"
-						TextColor="White" />
-
-					<Label
-						Grid.RowSpan="2"
-						Grid.Column="1"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="44"
-						HorizontalTextAlignment="End"
-						IsVisible="{Binding IsNameSame}"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
-						TextColor="#6263ED"
-						VerticalTextAlignment="Center">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
-						</Label.GestureRecognizers>
-					</Label>
-
-					<Label
-						Grid.RowSpan="2"
-						Grid.Column="1"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="44"
-						HorizontalTextAlignment="End"
-						IsVisible="{Binding IsNameSame, Converter={StaticResource InverseBoolConverter}}"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
-						TextColor="#363541"
-						VerticalTextAlignment="Center">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
-						</Label.GestureRecognizers>
-					</Label>
-
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="2"
-						Grid.ColumnSpan="2"
-						Margin="0,10,0,10"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
+						FocusedColor="#6263ED"
 						FocusedStrokeWidth="0.5"
 						HeightRequest="56"
-						Hint="Name"
-						IsVisible="{Binding IsNameEntryVisible}"
+						Hint="Street address"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						TrailingViewPosition="Inside"
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
-							Placeholder="Name"
-							PlaceholderColor="#797A7D"
-							Text="{Binding Name}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
-
-				</Grid>
-
-				<Grid Margin="0,10,0,0" RowSpacing="24">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="auto" />
-						<RowDefinition Height="auto" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="60" />
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition Width="90" />
-					</Grid.ColumnDefinitions>
-
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="0"
-						Grid.ColumnSpan="2"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Delivery address"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							Placeholder="Delivery address"
+							Placeholder="Street address"
 							PlaceholderColor="#797A7D"
 							Text="{Binding DeliveryAddress}"
 							TextColor="White" />
 					</textinputlayout:SfTextInputLayout>
 
 					<textinputlayout:SfTextInputLayout
-						Grid.Row="1"
-						Grid.ColumnSpan="2"
+						Grid.Row="0"
+						Grid.Column="1"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
+						FocusedColor="#6263ED"
 						FocusedStrokeWidth="0.5"
 						HeightRequest="56"
-						Hint="Delivery port number"
+						Hint="No"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						TrailingViewPosition="Inside"
 						UnfocusedColor="#797A7D"
 						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
-							Placeholder="Delivery port number"
+							Placeholder="No"
 							PlaceholderColor="#797A7D"
 							Text="{Binding DeliveryPortNumber}"
 							TextColor="White" />
@@ -229,10 +152,10 @@
 						Grid.ColumnSpan="2"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
+						FocusedColor="#6263ED"
 						FocusedStrokeWidth="0.5"
 						HeightRequest="56"
-						Hint="Delivery zip code"
+						Hint="Zip code"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						TrailingViewPosition="Inside"
@@ -251,21 +174,21 @@
 							BackgroundColor="#F8F8FB"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
-							Placeholder="Delivery zip code"
+							Placeholder="Zip code"
 							PlaceholderColor="#797A7D"
 							Text="{Binding DeliveryZipCode}"
 							TextColor="White" />
 					</textinputlayout:SfTextInputLayout>
 
 					<textinputlayout:SfTextInputLayout
-						Grid.Row="3"
+						Grid.Row="4"
 						Grid.ColumnSpan="2"
 						ContainerBackgroundColor="Transparent"
 						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
+						FocusedColor="#6263ED"
 						FocusedStrokeWidth="0.5"
 						HeightRequest="56"
-						Hint="Delivery city"
+						Hint="City"
 						LeadingViewPosition="Inside"
 						OutlineCornerRadius="12"
 						TrailingViewPosition="Inside"
@@ -284,29 +207,167 @@
 							BackgroundColor="#F8F8FB"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
-							Placeholder="Delivery city"
+							Placeholder="City"
 							PlaceholderColor="#797A7D"
 							Text="{Binding DeliveryCity}"
 							TextColor="White" />
 					</textinputlayout:SfTextInputLayout>
 
 					<Label
-						Grid.Row="4"
-						Grid.Column="0"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						Text="If invoice address same as delivery address."
+						Grid.Row="6"
+						Grid.ColumnSpan="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="20"
+						HorizontalTextAlignment="Start"
+						Text="SECURE YOUR DELIVERIES"
 						TextColor="White" />
 
+					<BoxView
+						Grid.Row="8"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.10" />
+
+					<StackLayout
+						Grid.Row="10"
+						Grid.Column="0"
+						Spacing="5"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="Is your name"
+							TextColor="White" />
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="on the door?"
+							TextColor="White" />
+					</StackLayout>
+
 					<Label
-						Grid.Row="4"
+						Grid.Row="10"
 						Grid.Column="1"
 						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="44"
+						FontSize="50"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsNameSame}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+						TextColor="#4FD471"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.Row="10"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="50"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsNameSame, Converter={StaticResource InverseBoolConverter}}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+						TextColor="#E53614"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Frame
+						Grid.Row="11"
+						Grid.ColumnSpan="2"
+						Margin="0,15,0,0"
+						Padding="25,0,25,0"
+						BackgroundColor="#F4B400"
+						CornerRadius="8"
+						HasShadow="False"
+						IsClippedToBounds="True"
+						IsVisible="{Binding IsNameEntryVisible}">
+						<Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="15" />
+								<RowDefinition Height="56" />
+								<RowDefinition Height="31" />
+							</Grid.RowDefinitions>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="1"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="What name is on the door"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1"
+								VerticalOptions="CenterAndExpand">
+								<textinputlayout:SfTextInputLayout.LeadingView>
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+										TextColor="#181A1F"
+										VerticalTextAlignment="Center" />
+								</textinputlayout:SfTextInputLayout.LeadingView>
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="What name is on the door"
+									PlaceholderColor="#181A1F"
+									Text="{Binding Name}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
+						</Grid>
+					</Frame>
+
+					<BoxView
+						Grid.Row="13"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.10" />
+
+					<StackLayout
+						Grid.Row="15"
+						Grid.Column="0"
+						Spacing="5"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="Is this your"
+							TextColor="White" />
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="residencial address?"
+							TextColor="White" />
+					</StackLayout>
+
+					<Label
+						Grid.Row="15"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="50"
 						HorizontalTextAlignment="End"
 						IsVisible="{Binding IsInvoiceAddressSame}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
-						TextColor="#6263ED"
+						TextColor="#4FD471"
 						VerticalTextAlignment="Center">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
@@ -314,195 +375,276 @@
 					</Label>
 
 					<Label
-						Grid.Row="4"
+						Grid.Row="15"
 						Grid.Column="1"
 						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="44"
+						FontSize="50"
 						HorizontalTextAlignment="End"
 						IsVisible="{Binding IsInvoiceAddressSame, Converter={StaticResource InverseBoolConverter}}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
-						TextColor="#363541"
+						TextColor="#E53614"
 						VerticalTextAlignment="Center">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
 						</Label.GestureRecognizers>
 					</Label>
 
-					<Grid
-						Grid.Row="5"
+					<Frame
+						Grid.Row="16"
 						Grid.ColumnSpan="2"
-						IsVisible="{Binding IsInvoiceAddressVisible}"
-						RowSpacing="24">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="56" />
-							<RowDefinition Height="56" />
-							<RowDefinition Height="56" />
-							<RowDefinition Height="56" />
-						</Grid.RowDefinitions>
-						<textinputlayout:SfTextInputLayout
-							Grid.Row="0"
-							ContainerBackgroundColor="Transparent"
-							ContainerType="Outlined"
-							FocusedColor="#EF3B17"
-							FocusedStrokeWidth="0.5"
-							HeightRequest="56"
-							Hint="Invoice address"
-							LeadingViewPosition="Inside"
-							OutlineCornerRadius="12"
-							TrailingViewPosition="Inside"
-							UnfocusedColor="#797A7D"
-							UnfocusedStrokeWidth="0.5">
-							<textinputlayout:SfTextInputLayout.LeadingView>
-								<Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeOutline}"
-									TextColor="#797A7D"
-									VerticalTextAlignment="Center" />
-							</textinputlayout:SfTextInputLayout.LeadingView>
-							<controls:CustomFloatingLabelEntry
-								BackgroundColor="#F8F8FB"
-								FontFamily="PoppinsRegularFontFamily"
-								FontSize="16"
-								Placeholder="Invoice address"
-								PlaceholderColor="#797A7D"
-								Text="{Binding InvoiceAddress}"
-								TextColor="White" />
-						</textinputlayout:SfTextInputLayout>
+						Margin="0,15,0,0"
+						Padding="25,0,25,0"
+						BackgroundColor="#F4B400"
+						CornerRadius="8"
+						HasShadow="False"
+						IsClippedToBounds="True"
+						IsVisible="{Binding IsInvoiceAddressVisible}">
+						<Grid ColumnSpacing="13" RowSpacing="24">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="0" />
+								<RowDefinition Height="56" />
+								<RowDefinition Height="56" />
+								<RowDefinition Height="56" />
+								<RowDefinition Height="25" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="69" />
+							</Grid.ColumnDefinitions>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="1"
+								Grid.Column="0"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="Address"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1">
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="Address"
+									PlaceholderColor="#181A1F"
+									Text="{Binding InvoiceAddress}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
 
-						<textinputlayout:SfTextInputLayout
-							Grid.Row="1"
-							ContainerBackgroundColor="Transparent"
-							ContainerType="Outlined"
-							FocusedColor="#EF3B17"
-							FocusedStrokeWidth="0.5"
-							HeightRequest="56"
-							Hint="Invoice port number"
-							LeadingViewPosition="Inside"
-							OutlineCornerRadius="12"
-							TrailingViewPosition="Inside"
-							UnfocusedColor="#797A7D"
-							UnfocusedStrokeWidth="0.5">
-							<textinputlayout:SfTextInputLayout.LeadingView>
-								<Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.SerialPort}"
-									TextColor="#797A7D"
-									VerticalTextAlignment="Center" />
-							</textinputlayout:SfTextInputLayout.LeadingView>
-							<controls:CustomFloatingLabelEntry
-								BackgroundColor="#F8F8FB"
-								FontFamily="PoppinsRegularFontFamily"
-								FontSize="16"
-								Placeholder="Invoice port number"
-								PlaceholderColor="#797A7D"
-								Text="{Binding InvoicePortNumber}"
-								TextColor="White" />
-						</textinputlayout:SfTextInputLayout>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="1"
+								Grid.Column="1"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="No"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1">
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="No"
+									PlaceholderColor="#181A1F"
+									Text="{Binding InvoicePortNumber}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
 
-						<textinputlayout:SfTextInputLayout
-							Grid.Row="2"
-							ContainerBackgroundColor="Transparent"
-							ContainerType="Outlined"
-							FocusedColor="#EF3B17"
-							FocusedStrokeWidth="0.5"
-							HeightRequest="56"
-							Hint="Invoice zip code"
-							LeadingViewPosition="Inside"
-							OutlineCornerRadius="12"
-							TrailingViewPosition="Inside"
-							UnfocusedColor="#797A7D"
-							UnfocusedStrokeWidth="0.5">
-							<textinputlayout:SfTextInputLayout.LeadingView>
-								<Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
-									TextColor="#797A7D"
-									VerticalTextAlignment="Center" />
-							</textinputlayout:SfTextInputLayout.LeadingView>
-							<controls:CustomFloatingLabelEntry
-								BackgroundColor="#F8F8FB"
-								FontFamily="PoppinsRegularFontFamily"
-								FontSize="16"
-								Placeholder="Invoice zip code"
-								PlaceholderColor="#797A7D"
-								Text="{Binding InvoiceZipCode}"
-								TextColor="White" />
-						</textinputlayout:SfTextInputLayout>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="2"
+								Grid.ColumnSpan="2"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="Zip code"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1">
+								<textinputlayout:SfTextInputLayout.LeadingView>
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+										TextColor="#181A1F"
+										VerticalTextAlignment="Center" />
+								</textinputlayout:SfTextInputLayout.LeadingView>
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="Zip code"
+									PlaceholderColor="#181A1F"
+									Text="{Binding InvoiceZipCode}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
 
-						<textinputlayout:SfTextInputLayout
-							Grid.Row="3"
-							ContainerBackgroundColor="Transparent"
-							ContainerType="Outlined"
-							FocusedColor="#EF3B17"
-							FocusedStrokeWidth="0.5"
-							HeightRequest="56"
-							Hint="Invoice city"
-							LeadingViewPosition="Inside"
-							OutlineCornerRadius="12"
-							TrailingViewPosition="Inside"
-							UnfocusedColor="#797A7D"
-							UnfocusedStrokeWidth="0.5">
-							<textinputlayout:SfTextInputLayout.LeadingView>
-								<Label
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
-									TextColor="#797A7D"
-									VerticalTextAlignment="Center" />
-							</textinputlayout:SfTextInputLayout.LeadingView>
-							<controls:CustomFloatingLabelEntry
-								BackgroundColor="#F8F8FB"
-								FontFamily="PoppinsRegularFontFamily"
-								FontSize="16"
-								Placeholder="Invoice city"
-								PlaceholderColor="#797A7D"
-								Text="{Binding InvoiceCity}"
-								TextColor="White" />
-						</textinputlayout:SfTextInputLayout>
-					</Grid>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="3"
+								Grid.ColumnSpan="2"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="City"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1">
+								<textinputlayout:SfTextInputLayout.LeadingView>
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+										TextColor="#181A1F"
+										VerticalTextAlignment="Center" />
+								</textinputlayout:SfTextInputLayout.LeadingView>
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="City"
+									PlaceholderColor="#181A1F"
+									Text="{Binding InvoiceCity}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
+						</Grid>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="6"
+					</Frame>
+
+					<BoxView
+						Grid.Row="18"
 						Grid.ColumnSpan="2"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Entry code"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.FormTextboxPassword}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
+						BackgroundColor="White"
+						Opacity="0.10" />
+
+					<StackLayout
+						Grid.Row="20"
+						Grid.Column="0"
+						Spacing="5"
+						VerticalOptions="CenterAndExpand">
+						<Label
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
-							Placeholder="Entry code"
-							PlaceholderColor="#797A7D"
-							Text="{Binding EntryCode}"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="Is a code needed to"
 							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.7"
+							Text="open port door?"
+							TextColor="White" />
+					</StackLayout>
+
+					<Label
+						Grid.Row="20"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="50"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsEntryCode}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+						TextColor="#4FD471"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsEntryCodeCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.Row="20"
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="50"
+						HorizontalTextAlignment="End"
+						IsVisible="{Binding IsEntryCode, Converter={StaticResource InverseBoolConverter}}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+						TextColor="#E53614"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding IsEntryCodeCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Frame
+						Grid.Row="21"
+						Grid.ColumnSpan="2"
+						Margin="0,15,0,0"
+						Padding="25,0,25,0"
+						BackgroundColor="#F4B400"
+						CornerRadius="8"
+						HasShadow="False"
+						IsClippedToBounds="True"
+						IsVisible="{Binding IsEntryCode, Converter={StaticResource InverseBoolConverter}}">
+						<Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="15" />
+								<RowDefinition Height="56" />
+								<RowDefinition Height="31" />
+							</Grid.RowDefinitions>
+							<textinputlayout:SfTextInputLayout
+								Grid.Row="1"
+								ContainerBackgroundColor="Transparent"
+								ContainerType="Outlined"
+								FocusedColor="#181A1F"
+								FocusedStrokeWidth="2"
+								HeightRequest="56"
+								Hint="Code"
+								LeadingViewPosition="Inside"
+								OutlineCornerRadius="12"
+								TrailingViewPosition="Inside"
+								UnfocusedColor="#181A1F"
+								UnfocusedStrokeWidth="1"
+								VerticalOptions="CenterAndExpand">
+								<textinputlayout:SfTextInputLayout.LeadingView>
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HorizontalTextAlignment="Center"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.FormTextboxPassword}"
+										TextColor="#181A1F"
+										VerticalTextAlignment="Center" />
+								</textinputlayout:SfTextInputLayout.LeadingView>
+								<controls:CustomFloatingLabelEntry
+									BackgroundColor="#F8F8FB"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="16"
+									Placeholder="Code"
+									PlaceholderColor="#181A1F"
+									Text="{Binding EntryCode}"
+									TextColor="#181A1F" />
+							</textinputlayout:SfTextInputLayout>
+						</Grid>
+					</Frame>
+
+					<BoxView
+						Grid.Row="23"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.10" />
 
 					<controls:CustomButton
-						Grid.Row="7"
+						Grid.Row="25"
 						Grid.ColumnSpan="2"
 						Margin="0"
 						BackgroundColor="#6263ED"
