@@ -31,7 +31,11 @@ namespace Qloudid.ViewModels
 				Certificate = Helper.Helper.QrCertificateKey
 			});
 			if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
-				Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+			{
+				//Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				Helper.Helper.SelectedIdentificatorText = "Passport";
+				Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+			}
 			else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
 			{
 				var response = await service.IdentificatorDetailAsync(new Models.IdentificatorDetailRequest()

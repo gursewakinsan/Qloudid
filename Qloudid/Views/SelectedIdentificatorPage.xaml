@@ -12,7 +12,7 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
-		Margin="0,32,0,0"
+		Margin="0,22,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
 		<Grid.RowDefinitions>
@@ -24,15 +24,197 @@
 			<ColumnDefinition Width="28" />
 			<ColumnDefinition Width="48" />
 			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
 		<usercontrols:SkipButtonControl
 			Grid.Row="0"
 			Grid.Column="2"
 			Margin="0,0,28,0"
-			HorizontalOptions="EndAndExpand" />
+			HorizontalOptions="EndAndExpand"
+			IsVisible="False" />
 
 		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,31,0,5"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					Text="Passport"
+					TextColor="White" />
+
+				<Label
+					Margin="0,8,0,58"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.1"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Add passport to identify yourself &amp; sign agreements smoothly"
+					TextColor="White" />
+
+				<Grid RowSpacing="24">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="30" />
+					</Grid.RowDefinitions>
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Passport number"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomFloatingLabelEntry
+							x:Name="txtIdentificator"
+							BackgroundColor="#F8F8FB"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							Placeholder="Passport number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding IdentificatorText}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Issue date"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+
+						<controls:CustomDatePicker
+							Date="{Binding SelectedIssueDate}"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindIssueMaximumDate}"
+							MinimumDate="{Binding BindIssueMinimumDate}"
+							Placeholder="Issue date"
+							TextColor="White" />
+
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontSize="15"
+								HorizontalOptions="Center"
+								HorizontalTextAlignment="Center"
+								Text="&#x25bc;"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Expiry date"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+
+						<controls:CustomDatePicker
+							Date="{Binding SelectedExpiryDate}"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							Format="yyyy-MM-dd"
+							MaximumDate="{Binding BindExpiryMaximumDate}"
+							MinimumDate="{Binding BindExpiryMinimumDate}"
+							Placeholder="Expiry date"
+							TextColor="White" />
+
+						<textinputlayout:SfTextInputLayout.TrailingView>
+							<Label
+								FontSize="15"
+								HorizontalOptions="Center"
+								HorizontalTextAlignment="Center"
+								Text="&#x25bc;"
+								TextColor="#797A7D"
+								VerticalOptions="CenterAndExpand" />
+						</textinputlayout:SfTextInputLayout.TrailingView>
+					</textinputlayout:SfTextInputLayout>
+
+					<Label
+						Grid.Row="3"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						LineHeight="1.1"
+						Opacity="0.7"
+						Text="Country is preselcted"
+						TextColor="White"
+						VerticalTextAlignment="End" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+
+
+		<!--<ScrollView
 			Grid.Row="1"
 			Grid.ColumnSpan="3"
 			VerticalScrollBarVisibility="Never">
@@ -197,12 +379,13 @@
 					</textinputlayout:SfTextInputLayout>
 				</Grid>
 			</StackLayout>
-		</ScrollView>
+		</ScrollView>-->
 
 		<controls:CustomButton
 			Grid.Row="2"
+			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="28,0,28,0"
+			Margin="0"
 			BackgroundColor="#6263ED"
 			BorderColor="#6263ED"
 			Command="{Binding SaveIdentifyInfoCommand}"
