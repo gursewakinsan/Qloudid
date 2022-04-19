@@ -243,4 +243,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconOtpPinPage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconSmallLogo.png" />
+  </ItemGroup>
 </Project>

@@ -45,432 +45,435 @@
 			VerticalOptions="CenterAndExpand"
 			WidthRequest="79" />
 
-		<StackLayout
+		<ScrollView
 			Grid.Row="1"
 			Grid.ColumnSpan="3"
-			Margin="28,32,28,0"
-			Spacing="20"
-			VerticalOptions="StartAndExpand">
-			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-				<Label
-					FontAttributes="Bold"
-					FontFamily="PoppinsBoldFontFamily"
-					FontSize="32"
-					Text="Verify your email"
-					TextColor="White" />
+			VerticalScrollBarVisibility="Never">
+			<StackLayout
+				Margin="28,32,28,0"
+				Spacing="20"
+				VerticalOptions="StartAndExpand">
+				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+					<Label
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="32"
+						Text="Verify your email"
+						TextColor="White" />
 
-				<Label
-					Margin="0,12,0,52"
-					FontSize="18"
-					Opacity="0.7"
-					TextColor="White">
-					<Label.FormattedText>
-						<FormattedString>
-							<Span FontFamily="PoppinsRegularFontFamily" Text="Enter the code we sent to " />
-							<Span FontFamily="PoppinsSemiBoldFontFamily" Text="{Binding UserEmail}" />
-							<Span Text=" 👋" />
-						</FormattedString>
-					</Label.FormattedText>
-				</Label>
+					<Label
+						Margin="0,12,0,52"
+						FontSize="18"
+						Opacity="0.7"
+						TextColor="White">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span FontFamily="PoppinsRegularFontFamily" Text="Enter the code we sent to " />
+								<Span FontFamily="PoppinsSemiBoldFontFamily" Text="{Binding UserEmail}" />
+								<Span Text=" 👋" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
-				<Grid ColumnSpacing="10" RowSpacing="32">
+					<Grid ColumnSpacing="10" RowSpacing="32">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="56" />
+						</Grid.RowDefinitions>
+						<Frame
+							Grid.Row="0"
+							Grid.Column="0"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password1Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password1}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+
+						<Frame
+							Grid.Row="0"
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password2Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password2}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+
+						<Frame
+							Grid.Row="0"
+							Grid.Column="2"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password3Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password3}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+
+						<Frame
+							Grid.Row="0"
+							Grid.Column="3"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password4Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password4}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+
+						<Frame
+							Grid.Row="0"
+							Grid.Column="4"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password5Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password5}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+
+						<Frame
+							Grid.Row="0"
+							Grid.Column="5"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="{Binding Password6Bg}"
+							CornerRadius="10"
+							IsClippedToBounds="True">
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Center"
+								Text="{Binding Password6}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+						</Frame>
+					</Grid>
+				</StackLayout>
+
+				<Grid
+					Margin="0,57,0,0"
+					RowSpacing="29"
+					VerticalOptions="EndAndExpand">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="56" />
+						<RowDefinition Height="54" />
+						<RowDefinition Height="54" />
+						<RowDefinition Height="54" />
+						<RowDefinition Height="54" />
 					</Grid.RowDefinitions>
-					<Frame
+					<BoxView
 						Grid.Row="0"
+						Grid.Column="0"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="0"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="1"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="1" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="0"
+						Grid.Column="1"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="2"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="2" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="0"
+						Grid.Column="2"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="0"
+						Grid.Column="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="3"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="3" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="1"
+						Grid.Column="0"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="1"
+						Grid.Column="0"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="4"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="4" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="1"
+						Grid.Column="1"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="1"
+						Grid.Column="1"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="5"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="5" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="1"
+						Grid.Column="2"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="1"
+						Grid.Column="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="6"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="6" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="2"
+						Grid.Column="0"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="2"
+						Grid.Column="0"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="7"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="7" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="2"
+						Grid.Column="1"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="2"
+						Grid.Column="1"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="8"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="8" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<BoxView
+						Grid.Row="2"
+						Grid.Column="2"
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="2"
+						Grid.Column="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="9"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="9" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Frame
+						Grid.Row="3"
 						Grid.Column="0"
 						Padding="0"
 						BackgroundColor="Transparent"
-						BorderColor="{Binding Password1Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password1}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
+						BorderColor="#2F3135"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="3"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding ClearNumericClickedCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
 
-					<Frame
-						Grid.Row="0"
+					<BoxView
+						Grid.Row="3"
 						Grid.Column="1"
-						Padding="0"
-						BackgroundColor="Transparent"
-						BorderColor="{Binding Password2Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password2}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
+						BackgroundColor="#2A2A31"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="3"
+						Grid.Column="1"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="12"
+						HorizontalTextAlignment="Center"
+						Text="0"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="0" />
+						</Label.GestureRecognizers>
+					</Label>
 
-					<Frame
-						Grid.Row="0"
+
+					<BoxView
+						Grid.Row="3"
 						Grid.Column="2"
-						Padding="0"
-						BackgroundColor="Transparent"
-						BorderColor="{Binding Password3Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password3}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
-
-					<Frame
-						Grid.Row="0"
-						Grid.Column="3"
-						Padding="0"
-						BackgroundColor="Transparent"
-						BorderColor="{Binding Password4Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password4}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
-
-					<Frame
-						Grid.Row="0"
-						Grid.Column="4"
-						Padding="0"
-						BackgroundColor="Transparent"
-						BorderColor="{Binding Password5Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password5}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
-
-					<Frame
-						Grid.Row="0"
-						Grid.Column="5"
-						Padding="0"
-						BackgroundColor="Transparent"
-						BorderColor="{Binding Password6Bg}"
-						CornerRadius="10"
-						IsClippedToBounds="True">
-						<Label
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="{Binding Password6}"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
-					</Frame>
+						BackgroundColor="#EF3B17"
+						CornerRadius="12"
+						HeightRequest="54"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="91" />
+					<Label
+						Grid.Row="3"
+						Grid.Column="2"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="20"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.EmailOutline}"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding EmailVerificationPinCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
 				</Grid>
 			</StackLayout>
-
-			<Grid
-				Margin="0,57,0,0"
-				RowSpacing="29"
-				VerticalOptions="EndAndExpand">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="54" />
-					<RowDefinition Height="54" />
-					<RowDefinition Height="54" />
-					<RowDefinition Height="54" />
-				</Grid.RowDefinitions>
-				<BoxView
-					Grid.Row="0"
-					Grid.Column="0"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="0"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="1"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="1" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="0"
-					Grid.Column="1"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-
-				<Label
-					Grid.Row="0"
-					Grid.Column="1"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="2"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="2" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="0"
-					Grid.Column="2"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="0"
-					Grid.Column="2"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="3"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="3" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="1"
-					Grid.Column="0"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="1"
-					Grid.Column="0"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="4"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="4" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="1"
-					Grid.Column="1"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="1"
-					Grid.Column="1"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="5"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="5" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="1"
-					Grid.Column="2"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="1"
-					Grid.Column="2"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="6"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="6" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="2"
-					Grid.Column="0"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="2"
-					Grid.Column="0"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="7"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="7" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="2"
-					Grid.Column="1"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="2"
-					Grid.Column="1"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="8"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="8" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="2"
-					Grid.Column="2"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="2"
-					Grid.Column="2"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="9"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="9" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<Frame
-					Grid.Row="3"
-					Grid.Column="0"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="#2F3135"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="3"
-					Grid.Column="0"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					FontSize="25"
-					HorizontalTextAlignment="Center"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding ClearNumericClickedCommand}" />
-					</Label.GestureRecognizers>
-				</Label>
-
-				<BoxView
-					Grid.Row="3"
-					Grid.Column="1"
-					BackgroundColor="#2A2A31"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="3"
-					Grid.Column="1"
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="12"
-					HorizontalTextAlignment="Center"
-					Text="0"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding KeyboardNumericClickedCommand}" CommandParameter="0" />
-					</Label.GestureRecognizers>
-				</Label>
-
-
-				<BoxView
-					Grid.Row="3"
-					Grid.Column="2"
-					BackgroundColor="#EF3B17"
-					CornerRadius="12"
-					HeightRequest="54"
-					HorizontalOptions="CenterAndExpand"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="91" />
-				<Label
-					Grid.Row="3"
-					Grid.Column="2"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					FontSize="20"
-					HorizontalTextAlignment="Center"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.EmailOutline}"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding EmailVerificationPinCommand}" />
-					</Label.GestureRecognizers>
-				</Label>
-			</Grid>
-		</StackLayout>
+		</ScrollView>
 	</Grid>
 
 

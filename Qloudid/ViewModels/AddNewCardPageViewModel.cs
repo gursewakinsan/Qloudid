@@ -104,14 +104,37 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Is Name On Card Command.
+		private ICommand isNameOnCardCommand;
+		public ICommand IsNameOnCardCommand
+		{
+			get => isNameOnCardCommand ?? (isNameOnCardCommand = new Command( () =>  ExecuteIsNameOnCardCommand()));
+		}
+		private void ExecuteIsNameOnCardCommand()
+		{
+			IsNameOnCard = !IsNameOnCard;
+		}
+		#endregion
+
 		#region Properties.
-		public bool IsCloseShow => Helper.Helper.IsAddMoreCard;
+		public bool IsCloseShow;//=> Helper.Helper.IsAddMoreCard;
 		public string CardNumber { get; set; }
-		public string CardHolderName => Helper.Helper.UserInfo.DisplayUserName;
+		public string CardHolderName;// => Helper.Helper.UserInfo.DisplayUserName;
 		public string ExpirationMonth { get; set; }
 		public string ExpirationYear { get; set; }
 		public string Cvv { get; set; }
 		public List<string> ExpirationYearList { get; set; }
+
+		private bool isNameOnCard;
+		public bool IsNameOnCard
+		{
+			get => isNameOnCard;
+			set
+			{
+				isNameOnCard = value;
+				OnPropertyChanged("IsNameOnCard");
+			}
+		}
 		#endregion
 	}
 }
