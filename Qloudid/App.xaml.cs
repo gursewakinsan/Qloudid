@@ -24,7 +24,7 @@ namespace Qloudid
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());*/
 
-			MainPage = new NavigationPage(new Views.PreCheckIn.PreCheckInPage());
+			MainPage = new NavigationPage(new Views.PreCheckIn.VerifyPreCheckInPasswordPage());
 		}
 
 		public void OpenAppFromWeb(string signInText)

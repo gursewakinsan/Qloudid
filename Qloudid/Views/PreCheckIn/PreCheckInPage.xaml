@@ -3,10 +3,8 @@
 	x:Class="Qloudid.Views.PreCheckIn.PreCheckInPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
@@ -54,7 +52,10 @@
 			Grid.Column="1"
 			Grid.ColumnSpan="2"
 			VerticalScrollBarVisibility="Never">
-			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
+			<StackLayout
+				Margin="0,28,0,0"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
 				<Label
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
