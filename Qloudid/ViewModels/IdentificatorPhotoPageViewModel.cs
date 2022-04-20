@@ -70,6 +70,15 @@ namespace Qloudid.ViewModels
 					else if (response2 == 1)
 					{
 						//Helper.Helper.IsAddMoreCard = false;
+						if (Helper.Helper.IsPreCheckIn)
+						{
+							IPreCheckInService preCheckInService = new PreCheckInService();
+							await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
+							{
+								Id = Helper.Helper.PreCheckinStatusInfo.Id
+							});
+							Helper.Helper.IsPreCheckIn = false;
+						}
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					}
 					DependencyService.Get<IProgressBar>().Hide();

@@ -102,5 +102,12 @@
 
 		//Visitors
 		public const string InformEmployeeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/informEmployee";
+
+		//PreCheckIn
+		public const string GetPreCheckinStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getPreCheckinStatus";
+
+		public const string GetUserActiveStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getUserActiveStatus";
+
+		public const string UpdatePreCheckinStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePreCheckinStatus";
 	}
 }

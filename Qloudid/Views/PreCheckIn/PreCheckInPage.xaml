@@ -44,7 +44,7 @@
 			FontSize="16"
 			HorizontalTextAlignment="End"
 			Opacity="0.42"
-			Text="Kowaken Ghirmai"
+			Text="{Binding PreCheckinStatusInfo.Name}"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -101,7 +101,7 @@
 							FontSize="14"
 							LineHeight="1.1"
 							Opacity="0.7"
-							Text="Scandic Camper Hotel"
+							Text="{Binding PreCheckinStatusInfo.HotelName}"
 							TextColor="White" />
 
 						<BoxView
@@ -117,7 +117,7 @@
 							FontSize="14"
 							LineHeight="1.1"
 							Opacity="0.7"
-							Text="Kowaken Ghirmai"
+							Text="{Binding PreCheckinStatusInfo.Name}"
 							TextColor="White" />
 
 						<BoxView
@@ -133,7 +133,7 @@
 							FontSize="14"
 							LineHeight="1.1"
 							Opacity="0.7"
-							Text="22 Juni - 24 Juni"
+							Text="{Binding PreCheckinStatusInfo.BookingDates}"
 							TextColor="White" />
 
 						<BoxView
@@ -149,7 +149,7 @@
 							FontSize="14"
 							LineHeight="1.1"
 							Opacity="0.7"
-							Text="2 adults &amp; 1 child"
+							Text="{Binding PreCheckinStatusInfo.Guests}"
 							TextColor="White" />
 
 						<BoxView
@@ -177,18 +177,28 @@
 			CornerRadius="12"
 			HasShadow="False"
 			IsClippedToBounds="True">
+			<Frame.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CheckInWithQloudIdCommand}" />
+			</Frame.GestureRecognizers>
 			<StackLayout
 				HorizontalOptions="CenterAndExpand"
 				Orientation="Horizontal"
 				Spacing="10"
 				VerticalOptions="CenterAndExpand">
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CheckInWithQloudIdCommand}" />
+				</StackLayout.GestureRecognizers>
 				<Label
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					Text="Check in with Qloud ID"
 					TextColor="White"
 					VerticalOptions="CenterAndExpand"
-					VerticalTextAlignment="Center" />
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding CheckInWithQloudIdCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
 
 				<Label
 					FontFamily="{StaticResource MaterialFontFamily}"
@@ -196,7 +206,11 @@
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
 					TextColor="White"
 					VerticalOptions="CenterAndExpand"
-					VerticalTextAlignment="Center" />
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding CheckInWithQloudIdCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
 			</StackLayout>
 		</Frame>
 	</Grid>

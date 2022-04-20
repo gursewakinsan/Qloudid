@@ -15,6 +15,68 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Verify Inter App Password Command.
+		private ICommand verifyInterAppPasswordCommand;
+		public ICommand VerifyInterAppPasswordCommand
+		{
+			get => verifyInterAppPasswordCommand ?? (verifyInterAppPasswordCommand = new Command(async () => await ExecuteVerifyInterAppPasswordCommand()));
+		}
+		private async Task ExecuteVerifyInterAppPasswordCommand()
+		{
+			if (!string.IsNullOrWhiteSpace(Password))
+			{
+				if (Password.Length < 6) return;
+				DependencyService.Get<IProgressBar>().Show();
+				IInterAppService service = new InterAppService();
+				Models.InterAppRequest request = new Models.InterAppRequest()
+				{
+					Password = Password,
+					Certificate = Helper.Helper.QrCertificateKey
+				};
+				Models.InterAppResponse response = await service.VerifyInterAppPasswordAsync(request);
+				ClearPassword();
+				if (response == null)
+					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
+				else if (response.Result == 0)
+				{
+					Helper.Helper.CountDownWrongPassword = Helper.Helper.CountDownWrongPassword + 1;
+					if (Helper.Helper.CountDownWrongPassword > 2)
+					{
+						Helper.Helper.CountDownWrongPassword = 0;
+						await Navigation.PushAsync(new Views.WrongPassword3TimesPage());
+					}
+					else
+						await Helper.Alert.DisplayAlert("You have enter wrong password, Please try again.");
+				}
+				else if (response.Result == 1)
+				{
+					IPreCheckInService preCheckInService = new PreCheckInService();
+					var responsePreCheckInService = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
+					{
+						UserId = Helper.Helper.UserId
+					});
+
+					if (responsePreCheckInService.Cards > 0 && responsePreCheckInService.Address > 0 && responsePreCheckInService.Passport > 0)
+					{
+						await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
+						{
+							Id = PreCheckinStatusInfo.Id
+						});
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					}
+					else
+					{
+						Helper.Helper.PreCheckInUserActiveStatusInfo = responsePreCheckInService;
+						await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
+					}
+				}
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+			else
+				await Helper.Alert.DisplayAlert("Please enter password.");
+		}
+		#endregion
+
 		#region Keyboard Numeric Clicked Command.
 		private ICommand keyboardNumericClickedCommand;
 		public ICommand KeyboardNumericClickedCommand
@@ -282,6 +344,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Password6Bg");
 			}
 		}
+
+		public Models.GetPreCheckinStatusResponse PreCheckinStatusInfo => Helper.Helper.PreCheckinStatusInfo;
 		#endregion
 	}
 }

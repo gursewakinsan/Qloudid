@@ -44,7 +44,7 @@
 			FontSize="16"
 			HorizontalTextAlignment="End"
 			Opacity="0.42"
-			Text="Kowaken Ghirmai"
+			Text="{Binding PreCheckinStatusInfo.Name}"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -75,10 +75,371 @@
 					TextColor="White" />
 
 				<Label
+					Margin="0,0,0,26"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					Text="Pick one"
 					TextColor="White" />
+
+				<StackLayout Spacing="18">
+					<Frame
+						Padding="0"
+						BackgroundColor="#0F9D58"
+						CornerRadius="16"
+						HasShadow="False"
+						HeightRequest="80"
+						IsClippedToBounds="True">
+						<Grid
+							Margin="20,0,24,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="44" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="44" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Basic"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#4FD471"
+								CornerRadius="22"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HeightRequest="44"
+								HorizontalOptions="CenterAndExpand"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="44" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#0F9D58"
+						CornerRadius="16"
+						HasShadow="False"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Cards}">
+						<Grid
+							Margin="20,0,24,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="44" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="44" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Card"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#4FD471"
+								CornerRadius="22"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HeightRequest="44"
+								HorizontalOptions="CenterAndExpand"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="44" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#242A37"
+						CornerRadius="16"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Cards, Converter={StaticResource InverseBoolConverter}}">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding CardCommand}" />
+						</Frame.GestureRecognizers>
+						<Grid
+							Margin="20,0,14,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding CardCommand}" />
+							</Grid.GestureRecognizers>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="40" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="90" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Card"
+								TextColor="White"
+								VerticalTextAlignment="Center">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding CardCommand}" />
+								</Label.GestureRecognizers>
+							</Label>
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#E94975"
+								Command="{Binding CardCommand}"
+								CornerRadius="20"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="14"
+								HeightRequest="40"
+								HorizontalOptions="CenterAndExpand"
+								Text="Add"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="90" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#0F9D58"
+						CornerRadius="16"
+						HasShadow="False"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Address}">
+						<Grid
+							Margin="20,0,24,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="44" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="44" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Address"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#4FD471"
+								CornerRadius="22"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HeightRequest="44"
+								HorizontalOptions="CenterAndExpand"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="44" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#242A37"
+						CornerRadius="16"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Address, Converter={StaticResource InverseBoolConverter}}">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding AddressCommand}" />
+						</Frame.GestureRecognizers>
+						<Grid
+							Margin="20,0,14,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding AddressCommand}" />
+							</Grid.GestureRecognizers>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="40" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="90" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Address"
+								TextColor="White"
+								VerticalTextAlignment="Center">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding AddressCommand}" />
+								</Label.GestureRecognizers>
+							</Label>
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#E94975"
+								Command="{Binding AddressCommand}"
+								CornerRadius="20"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="14"
+								HeightRequest="40"
+								HorizontalOptions="CenterAndExpand"
+								Text="Add"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="90" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#0F9D58"
+						CornerRadius="16"
+						HasShadow="False"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Passport}">
+						<Grid
+							Margin="20,0,24,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="44" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="44" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Passport"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#4FD471"
+								CornerRadius="22"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="25"
+								HeightRequest="44"
+								HorizontalOptions="CenterAndExpand"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="44" />
+						</Grid>
+					</Frame>
+
+					<Frame
+						Padding="0"
+						BackgroundColor="#242A37"
+						CornerRadius="16"
+						HeightRequest="80"
+						IsClippedToBounds="True"
+						IsVisible="{Binding UserActiveStatusInfo.Passport, Converter={StaticResource InverseBoolConverter}}">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding PassportCommand}" />
+						</Frame.GestureRecognizers>
+						<Grid
+							Margin="20,0,14,0"
+							ColumnSpacing="0"
+							RowSpacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Grid.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding PassportCommand}" />
+							</Grid.GestureRecognizers>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="40" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="90" />
+							</Grid.ColumnDefinitions>
+							<Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="16"
+								HorizontalTextAlignment="Start"
+								Text="Passport"
+								TextColor="White"
+								VerticalTextAlignment="Center">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding PassportCommand}" />
+								</Label.GestureRecognizers>
+							</Label>
+
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Padding="0"
+								BackgroundColor="#E94975"
+								Command="{Binding PassportCommand}"
+								CornerRadius="20"
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="14"
+								HeightRequest="40"
+								HorizontalOptions="CenterAndExpand"
+								Text="Add"
+								TextColor="White"
+								VerticalOptions="CenterAndExpand"
+								WidthRequest="90" />
+						</Grid>
+					</Frame>
+				</StackLayout>
 			</StackLayout>
 		</ScrollView>
 	</Grid>

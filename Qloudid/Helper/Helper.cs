@@ -94,6 +94,11 @@ namespace Qloudid.Helper
 		public static int InvitedVisitorsMeetingId { get; set; }
 		public static int VisitorProfileId { get; set; }
 
+		public static bool IsPreCheckIn { get; set; } = false;
+		public static Models.GetPreCheckinStatusResponse PreCheckinStatusInfo { get; set; }
+		public static Models.GetUserActiveStatusResponse PreCheckInUserActiveStatusInfo { get; set; }
+		
+
 		public static string[] ColorList =
 		{
 			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",

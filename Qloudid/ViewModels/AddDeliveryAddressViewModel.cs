@@ -110,7 +110,13 @@ namespace Qloudid.ViewModels
 					{
 						Helper.Helper.CountryCode = checkValidQrResponse.country_code;
 						Helper.Helper.GenerateCertificateIdentificatorValue = checkValidQrResponse.identificator;
-						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+						if (Helper.Helper.IsPreCheckIn)
+						{
+							Helper.Helper.SelectedIdentificatorText = "Passport";
+							Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+						}
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
 					}
 				}
 				DependencyService.Get<IProgressBar>().Hide();

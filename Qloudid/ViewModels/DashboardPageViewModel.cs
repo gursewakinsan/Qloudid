@@ -34,7 +34,7 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			string[] ip = qrCode.Split('/');
-
+			Helper.Helper.IsPreCheckIn = false;
 			if (ip.Length == 5)
 			{
 				if (ip[2].Equals("checkin_dependent"))
@@ -60,6 +60,37 @@ namespace Qloudid.ViewModels
 						DependencyService.Get<IProgressBar>().Hide();
 						return;
 					}
+				}
+			}
+			else if (ip.Length == 2)
+			{
+				if (ip[0].Equals("precheckin"))
+				{
+					IPreCheckInService preCheckInService = new PreCheckInService();
+					var responsePreCheckInService = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+					{
+						Id = ip[1],
+						userId = Helper.Helper.UserId
+					});
+
+					if (responsePreCheckInService?.Result == 0)
+					{
+						//Error page
+						DependencyService.Get<IProgressBar>().Hide();
+					}
+					else if (responsePreCheckInService?.Result == 1)
+					{
+						//Error page
+						DependencyService.Get<IProgressBar>().Hide();
+					}
+					else if (responsePreCheckInService?.Result == 2)
+					{
+						Helper.Helper.IsPreCheckIn = true;
+						Helper.Helper.PreCheckinStatusInfo = responsePreCheckInService;
+						await Navigation.PushAsync(new Views.PreCheckIn.PreCheckInPage());
+						DependencyService.Get<IProgressBar>().Hide();
+					}
+					return;
 				}
 			}
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });
