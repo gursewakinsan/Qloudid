@@ -75,12 +75,12 @@ namespace Qloudid.ViewModels
 
 					if (responsePreCheckInService?.Result == 0)
 					{
-						//Error page
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.UnauthorizedPreCheckInPage());
 						DependencyService.Get<IProgressBar>().Hide();
 					}
 					else if (responsePreCheckInService?.Result == 1)
 					{
-						//Error page
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AlreadyDonePreCheckInPage());
 						DependencyService.Get<IProgressBar>().Hide();
 					}
 					else if (responsePreCheckInService?.Result == 2)

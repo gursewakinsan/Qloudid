@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PreCheckIn.UnauthorizedPreCheckInPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#6163EC"
+	NavigationPage.HasNavigationBar="False">
+	<Grid>
+		<Image Aspect="AspectFill" Source="ErrorMessageBg.png" />
+
+		<Frame
+			Margin="8"
+			Padding="32,35,32,35"
+			BackgroundColor="#181A1F"
+			CornerRadius="40"
+			HasShadow="False"
+			IsClippedToBounds="True"
+			VerticalOptions="EndAndExpand">
+			<StackLayout Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="30"
+					HorizontalOptions="StartAndExpand"
+					Text="Unauthorized"
+					TextColor="White" />
+
+				<Label
+					Margin="0,10,0,20"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="This booking dont belong to you. Please go to front desk for more information."
+					TextColor="White" />
+
+				<StackLayout
+					HorizontalOptions="StartAndExpand"
+					Orientation="Horizontal"
+					Spacing="6">
+					<BoxView
+						BackgroundColor="White"
+						CornerRadius="3"
+						HeightRequest="6"
+						Opacity="0.32"
+						WidthRequest="6" />
+
+					<BoxView
+						BackgroundColor="White"
+						CornerRadius="3"
+						HeightRequest="6"
+						Opacity="0.32"
+						WidthRequest="6" />
+
+					<BoxView
+						BackgroundColor="#6263ED"
+						CornerRadius="3"
+						HeightRequest="6"
+						WidthRequest="20" />
+				</StackLayout>
+
+				<Frame
+					Margin="0,30,0,0"
+					Padding="0"
+					BackgroundColor="#6263ED"
+					CornerRadius="12"
+					HasShadow="False"
+					HeightRequest="56"
+					IsClippedToBounds="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnButtonTapped" />
+					</Frame.GestureRecognizers>
+					<StackLayout
+						HorizontalOptions="CenterAndExpand"
+						Orientation="Horizontal"
+						Spacing="8"
+						VerticalOptions="CenterAndExpand">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnButtonTapped" />
+						</StackLayout.GestureRecognizers>
+						<Label
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="16"
+							Text="Submit"
+							TextColor="White">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnButtonTapped" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+							TextColor="White">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnButtonTapped" />
+							</Label.GestureRecognizers>
+						</Label>
+					</StackLayout>
+				</Frame>
+			</StackLayout>
+		</Frame>
+	</Grid>
+</ContentPage>

@@ -139,6 +139,10 @@ namespace Qloudid
 					string signInText = uri.Segments[2].Replace("/", "");
 					if (signInText.Equals("DstrictsApp"))
 						DstrictsAppFunctionality(uri);
+					else if (signInText.Equals("precheckin"))
+					{
+						PreCheckInFlow(uri.Segments[3]);
+					}
 				}
 				else if (uri.Segments != null && uri.Segments.Length == 5)
 				{
@@ -210,6 +214,36 @@ namespace Qloudid
 				}
 			}
 		}
+
+		#region Pre Check In Flow
+		private async void PreCheckInFlow(string id)
+		{
+			IPreCheckInService preCheckInService = new PreCheckInService();
+			var responsePreCheckInService = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+			{
+				Id = id,
+				userId = Helper.Helper.UserId
+			});
+
+			if (responsePreCheckInService?.Result == 0)
+			{
+				MainPage = new NavigationPage(new Views.PreCheckIn.UnauthorizedPreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+			else if (responsePreCheckInService?.Result == 1)
+			{
+				MainPage = new NavigationPage(new Views.PreCheckIn.AlreadyDonePreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+			else if (responsePreCheckInService?.Result == 2)
+			{
+				Helper.Helper.IsPreCheckIn = true;
+				Helper.Helper.PreCheckinStatusInfo = responsePreCheckInService;
+				MainPage = new NavigationPage(new Views.PreCheckIn.PreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+		}
+		#endregion
 
 		async void VerifyUserBookingExists()
 		{

@@ -246,4 +246,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconSmallLogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ErrorMessageBg.png" />
+  </ItemGroup>
 </Project>
