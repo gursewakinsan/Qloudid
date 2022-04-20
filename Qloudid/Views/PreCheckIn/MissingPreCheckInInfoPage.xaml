@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PreCheckIn.MissingPreCheckInInfoPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,10,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="56" />
+			<RowDefinition Height="5" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="50" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="1"
+			Margin="-10,0,0,0"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="50"
+			HorizontalOptions="StartAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="50" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="End"
+			Opacity="0.42"
+			Text="Kowaken Ghirmai"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout
+				Margin="0,28,0,0"
+				Spacing="0"
+				VerticalOptions="StartAndExpand">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					Text="Missing"
+					TextColor="White" />
+
+				<Label
+					Margin="0,8,0,58"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.1"
+					MaxLines="2"
+					Text="Complete missing details on your Qloud ID app to express check-in"
+					TextColor="White" />
+
+				<Label
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					Text="Pick one"
+					TextColor="White" />
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>

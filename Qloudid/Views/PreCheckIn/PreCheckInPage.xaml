@@ -28,6 +28,7 @@
 		<Image
 			Grid.Row="0"
 			Grid.Column="1"
+			Margin="-10,0,0,0"
 			Aspect="AspectFit"
 			BackgroundColor="Transparent"
 			HeightRequest="50"
