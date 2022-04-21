@@ -57,7 +57,7 @@
 				Margin="0,28,0,0"
 				Spacing="0"
 				VerticalOptions="StartAndExpand">
-				<Label
+				<Label 
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
 					FontSize="40"
@@ -65,7 +65,7 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,8,0,52"
+					Margin="0,5,0,52"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineHeight="1.1"

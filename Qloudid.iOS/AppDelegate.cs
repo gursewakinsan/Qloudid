@@ -46,6 +46,8 @@ namespace Qloudid.iOS
 						App.DstrictsAppFunctionality_iOS(new Uri(url.AbsoluteString));
 					else if (url.Host.Equals("NoffaPlusApp") || url.Host.Equals("noffaplusapp"))
 						App.NoffaPlusAppAppFunctionality_iOS(new Uri(url.AbsoluteString));
+					else if (url.PathComponents[1].Equals("precheckin"))
+						App.PreCheckInFlow(url.PathComponents[2]);
 					else
 						App.OpenAppFromWeb(url.PathComponents[2]);
 				}

@@ -216,7 +216,7 @@ namespace Qloudid
 		}
 
 		#region Pre Check In Flow
-		private async void PreCheckInFlow(string id)
+		public async void PreCheckInFlow(string id)
 		{
 			IPreCheckInService preCheckInService = new PreCheckInService();
 			var responsePreCheckInService = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()

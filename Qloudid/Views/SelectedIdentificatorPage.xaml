@@ -62,7 +62,7 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,8,0,58"
+					Margin="0,5,0,58"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
