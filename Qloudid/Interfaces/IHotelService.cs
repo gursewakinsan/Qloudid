@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Qloudid.Interfaces
 {
@@ -14,5 +15,15 @@ namespace Qloudid.Interfaces
 
 		////Noffa App
 		Task<int> GetFrontDeskCheckedInHotelAsync(Models.FrontDeskCheckedInHotelRequest model);
+
+		//PreCheckIn
+		Task<List<Models.AdultsCheckedInListResponse>> AdultsCheckedInListAsync(Models.AdultsCheckedInListRequest request);
+		Task<List<Models.DependentsCheckedInListResponse>> DependentsCheckedInListAsync(Models.DependentsCheckedInListRequest request);
+		Task<int> ResendInvitationAsync(Models.ResendInvitationRequest request);
+		Task<List<Models.CountryCodeListResponse>> CountryCodeListAsync();
+		Task<int> PhoneIinviteAdultForCheckinAsync(Models.PhoneIinviteAdultForCheckinRequest request);
+		Task<int> EmailIinviteAdultForCheckinAsync(Models.EmailIinviteAdultForCheckinRequest request);
+		Task<List<Models.DependentsListForCheckinDstrictResponse>> DependentsListForCheckinDstrictAsync(Models.DependentsListForCheckinDstrictRequest request);
+		Task<int> AddDependentChekinAsync(Models.AddDependentChekinRequest request);
 	}
 }

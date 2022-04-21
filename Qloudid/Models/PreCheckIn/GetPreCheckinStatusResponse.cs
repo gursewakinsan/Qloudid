@@ -19,5 +19,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "guests")]
 		public string Guests { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "checkid")]
+		public int Checkid { get; set; }
 	}
 }

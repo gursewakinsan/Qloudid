@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PreCheckIn.InviteAdultsByPhonePage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl
+			Grid.Row="0"
+			Grid.Column="1"
+			HorizontalOptions="StartAndExpand">
+			<usercontrols:BackButtonControl.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</usercontrols:BackButtonControl.GestureRecognizers>
+		</usercontrols:BackButtonControl>
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Margin="0,0,-10,0"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="50"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="50" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Invitation to check in"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="0,31,0,0" Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					Text="By phone"
+					TextColor="White" />
+
+				<Label
+					Margin="0,5,0,58"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Add the phone number to the person you wish to send invitation to check-in"
+					TextColor="White" />
+
+				<Grid ColumnSpacing="13" RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="15" />
+						<RowDefinition Height="48" />
+						<RowDefinition Height="50" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="70" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							x:Name="pickerType"
+							Title="Code"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							ItemDisplayBinding="{Binding CountryCode}"
+							ItemsSource="{Binding CountryCodeList}"
+							SelectedIndexChanged="OnCountryCodeSelectedIndexChanged"
+							SelectedItem="{Binding SelectedCountryCode}"
+							TextColor="White"
+							TitleColor="#6263ED" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Mobile number"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<textinputlayout:SfTextInputLayout.LeadingView>
+							<Label
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+								TextColor="#797A7D"
+								VerticalTextAlignment="Center" />
+						</textinputlayout:SfTextInputLayout.LeadingView>
+						<controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							Keyboard="Numeric"
+							Placeholder="Mobile number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding MobileNumber}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<Label
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.5"
+						Text="On mobile dont use the 0."
+						TextColor="White"
+						VerticalTextAlignment="Start" />
+
+					<Grid
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						ColumnSpacing="20">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="110" />
+						</Grid.ColumnDefinitions>
+						<controls:CustomButton
+							Grid.Column="0"
+							Margin="0"
+							BackgroundColor="#6263ED"
+							BorderColor="#6263ED"
+							Command="{Binding SaveMobileNumberCommand}"
+							CornerRadius="10"
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="14"
+							Text="Submit"
+							TextColor="White" />
+
+						<controls:CustomButton
+							Grid.Column="1"
+							Margin="0"
+							BackgroundColor="#26272A"
+							BorderColor="#26272A"
+							Command="{Binding CloseCommand}"
+							CornerRadius="10"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							Text="Cancel"
+							TextColor="White" />
+					</Grid>
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>

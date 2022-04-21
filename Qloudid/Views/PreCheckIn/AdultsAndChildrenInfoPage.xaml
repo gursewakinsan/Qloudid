@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PreCheckIn.AdultsAndChildrenInfoPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<usercontrols:BackButtonControl
+			Grid.Row="0"
+			Grid.Column="1"
+			HorizontalOptions="StartAndExpand" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Margin="0,0,-10,0"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="50"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="50" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="0,31,0,0" Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					Text="Check in all"
+					TextColor="White" />
+
+				<Label
+					Margin="0,5,0,58"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Check in all guest for a smooth and rapid check in experience at the hotel"
+					TextColor="White" />
+
+				<Label
+					Margin="0,0,0,24"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					Text="Adults"
+					TextColor="White" />
+
+				<StackLayout BindableLayout.ItemsSource="{Binding AdultsCheckedInList}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Frame
+								Margin="0,0,0,18"
+								Padding="20,0,20,0"
+								BackgroundColor="{Binding FrameBorderColor}"
+								BorderColor="{Binding FrameBorderColor}"
+								CornerRadius="16"
+								HasShadow="False"
+								HeightRequest="80"
+								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnFrameReInviteAdultsTapped" />
+								</Frame.GestureRecognizers>
+								<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+									<Grid.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnGridReInviteAdultsTapped" />
+									</Grid.GestureRecognizers>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition Width="100" />
+									</Grid.ColumnDefinitions>
+
+									<Label
+										Grid.Column="0"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="16"
+										IsVisible="{Binding IsConfirmed}"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="{Binding Name}"
+										TextColor="White"
+										VerticalTextAlignment="Center" />
+
+									<Label
+										Grid.Column="0"
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="16"
+										IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="{Binding Name}"
+										TextColor="White"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnLabelReInviteAdultsTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Button
+										Grid.Column="1"
+										Padding="0"
+										BackgroundColor="#E53614"
+										Clicked="OnButtonReInviteAdultsTapped"
+										CornerRadius="20"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="14"
+										HeightRequest="40"
+										HorizontalOptions="EndAndExpand"
+										IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"
+										Text="Re-invite"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="100" />
+
+									<Button
+										Grid.Column="1"
+										Padding="0"
+										BackgroundColor="#4FD471"
+										CornerRadius="22"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HeightRequest="44"
+										HorizontalOptions="EndAndExpand"
+										IsVisible="{Binding IsConfirmed}"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="44" />
+								</Grid>
+							</Frame>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<StackLayout x:Name="layoutInviteAdults">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Frame
+								Margin="0,0,0,18"
+								Padding="20,0,10,0"
+								BackgroundColor="#242A37"
+								BorderColor="#242A37"
+								CornerRadius="16"
+								HasShadow="False"
+								HeightRequest="80"
+								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnAdultsTapped" />
+								</Frame.GestureRecognizers>
+								<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+									<Grid.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnAdultsTapped" />
+									</Grid.GestureRecognizers>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition Width="90" />
+									</Grid.ColumnDefinitions>
+
+									<Label
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="16"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="Add an adult"
+										TextColor="White"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnAdultsTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Button
+										Grid.Column="1"
+										Padding="0"
+										BackgroundColor="#E94975"
+										Clicked="OnAdultsTapped"
+										CornerRadius="20"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="14"
+										HeightRequest="40"
+										HorizontalOptions="CenterAndExpand"
+										Text="Invite"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="90" />
+								</Grid>
+							</Frame>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<Label
+					Margin="0,44,0,0"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					IsVisible="{Binding IsGuestChildren}"
+					Text="Children"
+					TextColor="White" />
+
+				<StackLayout BindableLayout.ItemsSource="{Binding DependentsCheckedInList}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Frame
+								Margin="0,18,0,0"
+								Padding="20,0,20,0"
+								BackgroundColor="#0F9D58"
+								BorderColor="#0F9D58"
+								CornerRadius="16"
+								HasShadow="False"
+								HeightRequest="80"
+								IsClippedToBounds="True">
+								<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition Width="44" />
+									</Grid.ColumnDefinitions>
+
+									<Label
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="16"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="{Binding Name}"
+										TextColor="White"
+										VerticalTextAlignment="Center" />
+
+									<Button
+										Grid.Column="1"
+										Padding="0"
+										BackgroundColor="#4FD471"
+										CornerRadius="22"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HeightRequest="44"
+										HorizontalOptions="CenterAndExpand"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="44" />
+								</Grid>
+							</Frame>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+
+				<StackLayout x:Name="layoutAddChild">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Frame
+								Margin="0,18,0,0"
+								Padding="20,0,10,0"
+								BackgroundColor="#242A37"
+								BorderColor="#242A37"
+								CornerRadius="16"
+								HasShadow="False"
+								HeightRequest="80"
+								IsClippedToBounds="True">
+								<Frame.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnChildrenTapped" />
+								</Frame.GestureRecognizers>
+								<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+									<Grid.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnChildrenTapped" />
+									</Grid.GestureRecognizers>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition Width="90" />
+									</Grid.ColumnDefinitions>
+
+									<Label
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="16"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="Add a child"
+										TextColor="White"
+										VerticalTextAlignment="Center">
+										<Label.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnChildrenTapped" />
+										</Label.GestureRecognizers>
+									</Label>
+
+									<Button
+										Grid.Column="1"
+										Padding="0"
+										BackgroundColor="#E94975"
+										Clicked="OnChildrenTapped"
+										CornerRadius="20"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="12"
+										HeightRequest="40"
+										HorizontalOptions="CenterAndExpand"
+										Text="Add"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="90" />
+								</Grid>
+							</Frame>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<BoxView HeightRequest="10" />
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>

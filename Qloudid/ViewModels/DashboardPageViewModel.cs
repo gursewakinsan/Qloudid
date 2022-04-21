@@ -73,6 +73,9 @@ namespace Qloudid.ViewModels
 						userId = Helper.Helper.UserId
 					});
 
+					if (responsePreCheckInService != null)
+						Helper.Helper.HotelCheckedIn = responsePreCheckInService.Checkid;
+
 					if (responsePreCheckInService?.Result == 0)
 					{
 						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.UnauthorizedPreCheckInPage());

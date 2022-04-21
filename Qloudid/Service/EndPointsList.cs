@@ -109,5 +109,13 @@
 		public const string GetUserActiveStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getUserActiveStatus";
 
 		public const string UpdatePreCheckinStatusUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePreCheckinStatus";
+		public const string AdultsCheckedInListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/adultsCheckedInList";
+		public const string DependentsCheckedInListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsCheckedInList";
+		public const string ResendInvitationUrl = "https://www.qloudid.com/user/index.php/QloudidApp/resendInvitation";
+		public const string CountryCodeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/countryCode";
+		public const string PhoneIinviteAdultForCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/phoneIinviteAdultForCheckin";
+		public const string EmailIinviteAdultForCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/emailIinviteAdultForCheckin";
+		public const string DependentsListForCheckinDstrictUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsListForCheckinDstrict";
+		public const string AddDependentChekinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentChekin";
 	}
 }

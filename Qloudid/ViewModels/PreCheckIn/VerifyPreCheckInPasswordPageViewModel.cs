@@ -62,7 +62,7 @@ namespace Qloudid.ViewModels
 						{
 							Id = PreCheckinStatusInfo.Id
 						});
-						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(3,4));
 					}
 					else
 					{

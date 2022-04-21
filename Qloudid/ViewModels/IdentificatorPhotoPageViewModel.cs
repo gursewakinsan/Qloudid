@@ -77,9 +77,9 @@ namespace Qloudid.ViewModels
 							{
 								Id = Helper.Helper.PreCheckinStatusInfo.Id
 							});
-							Helper.Helper.IsPreCheckIn = false;
+							//Helper.Helper.IsPreCheckIn = false;
 						}
-						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(1,2));
 					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}

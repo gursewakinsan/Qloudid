@@ -224,6 +224,8 @@ namespace Qloudid
 				Id = id,
 				userId = Helper.Helper.UserId
 			});
+			if (responsePreCheckInService != null)
+				Helper.Helper.HotelCheckedIn = responsePreCheckInService.Checkid;
 
 			if (responsePreCheckInService?.Result == 0)
 			{
@@ -232,6 +234,7 @@ namespace Qloudid
 			}
 			else if (responsePreCheckInService?.Result == 1)
 			{
+				//MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(2, 3));
 				MainPage = new NavigationPage(new Views.PreCheckIn.AlreadyDonePreCheckInPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}

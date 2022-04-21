@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.PreCheckIn.InviteAdultsPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,14,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="70" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding CloseCommand}" />
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Invite adult"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="0,18,0,0" Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="32"
+					Text="Invite adult"
+					TextColor="White" />
+
+				<Label
+					Margin="0,22,0,53"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Use these options to invite an adult to check-in online"
+					TextColor="White" />
+
+				<Label
+					FontSize="14"
+					Text="Pick one"
+					TextColor="White" />
+
+				<Frame
+					Margin="0,18,0,18"
+					Padding="20,0,20,0"
+					BackgroundColor="Transparent"
+					BorderColor="#2A2A31"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="80"
+					IsClippedToBounds="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding InviteAdultsByPhoneCommand}" />
+					</Frame.GestureRecognizers>
+					<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding InviteAdultsByPhoneCommand}" />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="20" />
+						</Grid.ColumnDefinitions>
+
+						<Label
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="16"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="By phone"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding InviteAdultsByPhoneCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							Grid.Column="1"
+							Padding="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="#7D76FF"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding InviteAdultsByPhoneCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+
+				<Frame
+					Padding="20,0,20,0"
+					BackgroundColor="Transparent"
+					BorderColor="#2A2A31"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="80"
+					IsClippedToBounds="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding InviteAdultsByEmailCommand}" />
+					</Frame.GestureRecognizers>
+					<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding InviteAdultsByEmailCommand}" />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="20" />
+						</Grid.ColumnDefinitions>
+
+						<Label
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="16"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="By email"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding InviteAdultsByEmailCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							Grid.Column="1"
+							Padding="0"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="#7D76FF"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding InviteAdultsByEmailCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>
