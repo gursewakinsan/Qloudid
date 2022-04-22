@@ -78,7 +78,10 @@ namespace Qloudid.ViewModels
 								Id = Helper.Helper.PreCheckinStatusInfo.Id
 							});
 							//Helper.Helper.IsPreCheckIn = false;
-							Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
+							if (updatePreCheckinStatusResponse.TotalLeft == 0)
+								Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+							else
+								Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 						}
 					}
 					DependencyService.Get<IProgressBar>().Hide();

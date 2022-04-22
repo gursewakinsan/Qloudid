@@ -50,19 +50,65 @@ namespace Qloudid.ViewModels
 				}
 				else if (response.Result == 1)
 				{
+					int id = 0;
+					int verificationInfo = 0;
 					IHotelService hotelService = new HotelService();
+					switch (VerifyPreCheckInDependentInfo.SelectedVerifyDependentType)
+					{
+						case Models.VerifyDependentType.ByPhone:
+							verificationInfo = 2;
+							id = await hotelService.PhoneIinviteAdultForCheckinAsync(new Models.PhoneIinviteAdultForCheckinRequest()
+							{
+								CheckId = Helper.Helper.HotelCheckedIn,
+								UserId = Helper.Helper.UserId,
+								PhoneNumber = VerifyPreCheckInDependentInfo.PhoneNumber,
+								CountryId = VerifyPreCheckInDependentInfo.CountryId
+							});
+							if (id == 0)
+							{
+								await Helper.Alert.DisplayAlert("You can't invite your self.");
+								return;
+							}
+							break;
+						case Models.VerifyDependentType.ByEmail:
+							verificationInfo = 2;
+							id = await hotelService.EmailIinviteAdultForCheckinAsync(new Models.EmailIinviteAdultForCheckinRequest()
+							{
+								Email = VerifyPreCheckInDependentInfo.EmailAddress,
+								CheckId = Helper.Helper.HotelCheckedIn,
+								UserId = Helper.Helper.UserId
+							});
+							if (id == 0)
+							{
+								await Helper.Alert.DisplayAlert("You can't invite your self.");
+								return;
+							}
+							break;
+						case Models.VerifyDependentType.OnlyAdult:
+							verificationInfo = 1;
+							id = await hotelService.AddDependentChekinAsync(new Models.AddDependentChekinRequest()
+							{
+								CheckId = Helper.Helper.HotelCheckedIn,
+								ChildId = VerifyPreCheckInDependentInfo.AdultId
+							});
+							break;
+					}
 					await hotelService.VerifyDependentChekInAsync(new Models.VerifyDependent()
 					{
-						Id = Helper.Helper.VerifyDependentCheckInRequest.Id,
-						CheckId = Helper.Helper.VerifyDependentCheckInRequest.CheckId,
-						VerificationInfo = Helper.Helper.VerifyDependentCheckInRequest.VerificationInfo
+						Id = id,
+						CheckId = Helper.Helper.HotelCheckedIn,
+						VerificationInfo = verificationInfo
 					});
+
 					IPreCheckInService preCheckInService = new PreCheckInService();
 					var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
 					{
 						Id = PreCheckinStatusInfo.Id
 					});
-					Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
+					if (updatePreCheckinStatusResponse.TotalLeft == 0)
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
@@ -338,7 +384,7 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Password6Bg");
 			}
 		}
-
+		public Models.VerifyPreCheckInDependentRequest VerifyPreCheckInDependentInfo { get; set; }
 		public Models.GetPreCheckinStatusResponse PreCheckinStatusInfo => Helper.Helper.PreCheckinStatusInfo;
 		#endregion
 	}

@@ -6,10 +6,178 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<usercontrols:BackButtonControl
+			Grid.Row="0"
+			Grid.Column="1"
+			HorizontalOptions="StartAndExpand" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			Text="Check in"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Margin="0,0,-10,0"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="50"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="50" />
+
+		<StackLayout
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,31,0,0"
+			Spacing="0"
+			VerticalOptions="StartAndExpand">
+			<Label
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="40"
+				Text="Child"
+				TextColor="White" />
+
+			<Label
+				Margin="0,5,0,58"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="16"
+				LineBreakMode="TailTruncation"
+				LineHeight="1.2"
+				MaxLines="2"
+				Opacity="0.7"
+				Text="Select one child at the time and submit for checking-in the child"
+				TextColor="White" />
+
+			<ListView
+				x:Name="listDependentsForCheckin"
+				BackgroundColor="Transparent"
+				HasUnevenRows="True"
+				ItemTapped="OnDependentsForCheckinItemTapped"
+				ItemsSource="{Binding DependentsListForCheckinInfo}"
+				SeparatorVisibility="None"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Frame
+								Margin="0,0,0,20"
+								Padding="20,0,20,0"
+								BackgroundColor="{Binding FrameBorderColor}"
+								BorderColor="{Binding FrameBorderColor}"
+								CornerRadius="16"
+								HasShadow="False"
+								IsClippedToBounds="True">
+								<Grid ColumnSpacing="15">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="44" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="80" />
+									</Grid.RowDefinitions>
+
+									<Label
+										Grid.Row="0"
+										Grid.Column="0"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="16"
+										HorizontalTextAlignment="Start"
+										LineBreakMode="TailTruncation"
+										MaxLines="1"
+										Text="{Binding Name}"
+										TextColor="White"
+										VerticalTextAlignment="Center" />
+
+									<Button
+										Grid.Row="0"
+										Grid.Column="1"
+										BackgroundColor="#374657"
+										CornerRadius="22"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										HeightRequest="44"
+										HorizontalOptions="CenterAndExpand"
+										IsVisible="{Binding IsSelect, Converter={StaticResource InverseBoolConverter}}"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="44" />
+
+									<Button
+										Grid.Row="0"
+										Grid.Column="1"
+										BackgroundColor="#4FD471"
+										CornerRadius="22"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="20"
+										HeightRequest="44"
+										HorizontalOptions="CenterAndExpand"
+										IsVisible="{Binding IsSelect}"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+										TextColor="White"
+										VerticalOptions="CenterAndExpand"
+										WidthRequest="44" />
+								</Grid>
+							</Frame>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+
+		<controls:CustomButton
+			x:Name="btnSubmit"
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0"
+			BackgroundColor="#6263ED"
+			BorderColor="#6263ED"
+			Command="{Binding AddDependentChekinCommand}"
+			CornerRadius="10"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			HeightRequest="56"
+			IsVisible="False"
+			Text="Submit"
+			TextColor="White"
+			VerticalOptions="EndAndExpand" />
+	</Grid>
+
+
+	<!--<Grid
 		Margin="0,14,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -216,5 +384,5 @@
 			IsVisible="False"
 			Text="Submit"
 			TextColor="White" />
-	</Grid>
+	</Grid>-->
 </ContentPage>

@@ -30,7 +30,14 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Please enter valid email address.");
 			else
 			{
-				DependencyService.Get<IProgressBar>().Show();
+				Models.VerifyPreCheckInDependentRequest request = new Models.VerifyPreCheckInDependentRequest()
+				{
+					SelectedVerifyDependentType = Models.VerifyDependentType.ByEmail,
+					EmailAddress = EmailAddress
+				};
+				await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage(request));
+
+				/*DependencyService.Get<IProgressBar>().Show();
 				IHotelService service = new HotelService();
 				int id = await service.EmailIinviteAdultForCheckinAsync(new Models.EmailIinviteAdultForCheckinRequest()
 				{
@@ -51,7 +58,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.VerifyDependentCheckInRequest = verify;
 					await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage());
 				}
-				DependencyService.Get<IProgressBar>().Hide();
+				DependencyService.Get<IProgressBar>().Hide();*/
 			}
 		}
 		#endregion

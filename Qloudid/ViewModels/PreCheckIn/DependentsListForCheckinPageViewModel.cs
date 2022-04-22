@@ -46,10 +46,17 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteAddDependentChekinCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			IHotelService service = new HotelService();
+			//DependencyService.Get<IProgressBar>().Show();
+			//IHotelService service = new HotelService();
 			int childId = DependentsListForCheckinInfo.FirstOrDefault(x => x.IsSelect).Id;
-			var id = await service.AddDependentChekinAsync(new Models.AddDependentChekinRequest()
+			Models.VerifyPreCheckInDependentRequest request = new Models.VerifyPreCheckInDependentRequest()
+			{
+				SelectedVerifyDependentType = Models.VerifyDependentType.OnlyAdult,
+				AdultId = childId
+			};
+			await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage(request));
+
+			/*var id = await service.AddDependentChekinAsync(new Models.AddDependentChekinRequest()
 			{
 				CheckId = Helper.Helper.HotelCheckedIn,
 				ChildId = childId
@@ -62,7 +69,7 @@ namespace Qloudid.ViewModels
 			};
 			Helper.Helper.VerifyDependentCheckInRequest = verify;
 			await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage());
-			DependencyService.Get<IProgressBar>().Hide();
+			DependencyService.Get<IProgressBar>().Hide();*/
 		}
 		#endregion
 

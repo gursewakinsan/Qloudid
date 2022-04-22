@@ -48,9 +48,18 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("First digit cannot be zero.");
 			else
 			{
-				DependencyService.Get<IProgressBar>().Show();
-				IHotelService service = new HotelService();
-				int id = await service.PhoneIinviteAdultForCheckinAsync(new Models.PhoneIinviteAdultForCheckinRequest()
+				//DependencyService.Get<IProgressBar>().Show();
+				//IHotelService service = new HotelService();
+
+				Models.VerifyPreCheckInDependentRequest request = new Models.VerifyPreCheckInDependentRequest()
+				{
+					SelectedVerifyDependentType = Models.VerifyDependentType.ByPhone,
+					PhoneNumber = MobileNumber,
+					CountryId = SelectedCountryCode.Id
+				};
+				await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage(request));
+
+				/*int id = await service.PhoneIinviteAdultForCheckinAsync(new Models.PhoneIinviteAdultForCheckinRequest()
 				{
 					CheckId = Helper.Helper.HotelCheckedIn,
 					UserId = Helper.Helper.UserId,
@@ -68,11 +77,10 @@ namespace Qloudid.ViewModels
 						CheckId = Helper.Helper.HotelCheckedIn,
 					};
 					Helper.Helper.VerifyDependentCheckInRequest = verify;
-					await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage());
+					await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage(request));
 				}
-				DependencyService.Get<IProgressBar>().Hide();
+				DependencyService.Get<IProgressBar>().Hide();*/
 			}
-			await Task.CompletedTask;
 		}
 		#endregion
 

@@ -13,5 +13,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "guest_children_left")]
 		public int GuestChildrenLeft { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "total_left")]
+		public int TotalLeft { get; set; }
 	}
 }

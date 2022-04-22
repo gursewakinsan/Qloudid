@@ -8,11 +8,12 @@ namespace Qloudid.Views.PreCheckIn
 	public partial class VerifyDependentPasswordPage : ContentPage
 	{
 		VerifyDependentPasswordPageViewModel viewModel;
-		public VerifyDependentPasswordPage()
+		public VerifyDependentPasswordPage(Models.VerifyPreCheckInDependentRequest dependentRequest)
 		{
 			InitializeComponent();
 			NavigationPage.SetBackButtonTitle(this, "");
 			BindingContext = viewModel = new VerifyDependentPasswordPageViewModel(this.Navigation);
+			viewModel.VerifyPreCheckInDependentInfo = dependentRequest;
 		}
 	}
 }

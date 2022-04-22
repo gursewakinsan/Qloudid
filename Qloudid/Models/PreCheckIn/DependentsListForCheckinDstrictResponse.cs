@@ -34,7 +34,16 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "child_image")]
 		public string ChildImage { get; set; }
 
-		public bool IsSelect { get; set; } = false;
+		private bool isSelect = false;
+		public bool IsSelect
+		{
+			get => isSelect;
+			set
+			{
+				isSelect = value;
+				OnPropertyChanged("IsSelect");
+			}
+		}
 
 		private Color frameBorderColor = Color.FromHex("#2A2A31");
 		public Color FrameBorderColor

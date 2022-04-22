@@ -32,7 +32,7 @@ namespace Qloudid.Views.PreCheckIn
 					item.IsSelect = true;
 					if (!btnSubmit.IsVisible)
 						btnSubmit.IsVisible = true;
-					item.FrameBorderColor = Color.FromHex("#406B4B");
+					item.FrameBorderColor = Color.FromHex("#0F9D58");
 				}
 				else
 				{
