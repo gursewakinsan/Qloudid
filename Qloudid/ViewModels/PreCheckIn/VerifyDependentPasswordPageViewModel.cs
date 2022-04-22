@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Qloudid.ViewModels
 {
-	public class VerifyPreCheckInPasswordPageViewModel : BaseViewModel
+	public class VerifyDependentPasswordPageViewModel : BaseViewModel
 	{
 		#region Constructor.
-		public VerifyPreCheckInPasswordPageViewModel(INavigation navigation)
+		public VerifyDependentPasswordPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
@@ -50,25 +50,19 @@ namespace Qloudid.ViewModels
 				}
 				else if (response.Result == 1)
 				{
-					IPreCheckInService preCheckInService = new PreCheckInService();
-					var responsePreCheckInService = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
+					IHotelService hotelService = new HotelService();
+					await hotelService.VerifyDependentChekInAsync(new Models.VerifyDependent()
 					{
-						UserId = Helper.Helper.UserId
+						Id = Helper.Helper.VerifyDependentCheckInRequest.Id,
+						CheckId = Helper.Helper.VerifyDependentCheckInRequest.CheckId,
+						VerificationInfo = Helper.Helper.VerifyDependentCheckInRequest.VerificationInfo
 					});
-
-					if (responsePreCheckInService.Cards > 0 && responsePreCheckInService.Address > 0 && responsePreCheckInService.Passport > 0)
+					IPreCheckInService preCheckInService = new PreCheckInService();
+					var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
 					{
-						var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
-						{
-							Id = PreCheckinStatusInfo.Id
-						});
-						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
-					}
-					else
-					{
-						Helper.Helper.PreCheckInUserActiveStatusInfo = responsePreCheckInService;
-						await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
-					}
+						Id = PreCheckinStatusInfo.Id
+					});
+					Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
@@ -349,4 +343,3 @@ namespace Qloudid.ViewModels
 		#endregion
 	}
 }
-

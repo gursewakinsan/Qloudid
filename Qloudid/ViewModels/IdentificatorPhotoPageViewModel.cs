@@ -73,13 +73,13 @@ namespace Qloudid.ViewModels
 						if (Helper.Helper.IsPreCheckIn)
 						{
 							IPreCheckInService preCheckInService = new PreCheckInService();
-							await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
+							var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
 							{
 								Id = Helper.Helper.PreCheckinStatusInfo.Id
 							});
 							//Helper.Helper.IsPreCheckIn = false;
+							Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 						}
-						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(1,2));
 					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}

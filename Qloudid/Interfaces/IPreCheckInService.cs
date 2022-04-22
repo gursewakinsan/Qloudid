@@ -6,6 +6,6 @@ namespace Qloudid.Interfaces
 	{
 		Task<Models.GetPreCheckinStatusResponse> GetPreCheckinStatusAsync(Models.GetPreCheckinStatusRequest request);
 		Task<Models.GetUserActiveStatusResponse> GetUserActiveStatusAsync(Models.GetUserActiveStatusRequest request);
-		Task<int> UpdatePreCheckinStatusAsync(Models.UpdatePreCheckinStatusRequest request);
+		Task<Models.UpdatePreCheckinStatusResponse> UpdatePreCheckinStatusAsync(Models.UpdatePreCheckinStatusRequest request);
 	}
 }

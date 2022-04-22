@@ -26,7 +26,7 @@ namespace Qloudid.Views.PreCheckIn
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			BindableLayout.SetItemsSource(layoutInviteAdults, new string[guestAdult - 1]);
+			BindableLayout.SetItemsSource(layoutInviteAdults, new string[guestAdult]);
 			BindableLayout.SetItemsSource(layoutAddChild, new string[guestChildren]);
 			viewModel.DependentsCheckedInListCommand.Execute(null);
 		}

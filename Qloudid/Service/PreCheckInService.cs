@@ -25,11 +25,11 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> UpdatePreCheckinStatusAsync(Models.UpdatePreCheckinStatusRequest request)
+		public Task<Models.UpdatePreCheckinStatusResponse> UpdatePreCheckinStatusAsync(Models.UpdatePreCheckinStatusRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdatePreCheckinStatusUrl), string.Empty, request.ToJson());
+				var res = RestClient.Post<Models.UpdatePreCheckinStatusResponse>(HttpWebRequest.Create(EndPointsList.UpdatePreCheckinStatusUrl), string.Empty, request.ToJson());
 				return res;
 			});
 		}

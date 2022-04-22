@@ -60,13 +60,8 @@ namespace Qloudid.ViewModels
 				VerificationInfo = 1,
 				CheckId = Helper.Helper.HotelCheckedIn,
 			};
-			string verifyDependentChekIn = Newtonsoft.Json.JsonConvert.SerializeObject(verify);
-			if (Device.RuntimePlatform == Device.iOS)
-				await Launcher.OpenAsync($"QloudidUrl://DstrictsApp/VerifyDependentChekIn/{verifyDependentChekIn}");
-			else
-				await Launcher.OpenAsync($"https://qloudid.com/ip/DstrictsApp/VerifyDependentChekIn/{verifyDependentChekIn}");
-
-			await Navigation.PopToRootAsync();
+			Helper.Helper.VerifyDependentCheckInRequest = verify;
+			await Navigation.PushAsync(new Views.PreCheckIn.VerifyDependentPasswordPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
