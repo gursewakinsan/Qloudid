@@ -241,12 +241,18 @@ namespace Qloudid
 			}
 			else if (responsePreCheckInService?.Result == 1)
 			{
-				MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(responsePreCheckInService.GuestChildrenLeft, responsePreCheckInService.GuestAdultLeft));
+				Helper.Helper.IsPreCheckIn = true;
+				Helper.Helper.PreCheckinStatus = 1;
+				MainPage = new NavigationPage(new Views.PreCheckIn.PreCheckInPage());
 				DependencyService.Get<IProgressBar>().Hide();
+
+				//MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(responsePreCheckInService.GuestChildrenLeft, responsePreCheckInService.GuestAdultLeft));
+				//DependencyService.Get<IProgressBar>().Hide();
 			}
 			else if (responsePreCheckInService?.Result == 2)
 			{
 				Helper.Helper.IsPreCheckIn = true;
+				Helper.Helper.PreCheckinStatus = 2;
 				MainPage = new NavigationPage(new Views.PreCheckIn.PreCheckInPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}

@@ -80,24 +80,32 @@ namespace Qloudid.ViewModels
 					{
 						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.UnauthorizedPreCheckInPage());
 						DependencyService.Get<IProgressBar>().Hide();
+						return;
 					}
 					else if (responsePreCheckInService?.Result == 1)
 					{
-						await Navigation.PushAsync(new Views.PreCheckIn.AdultsAndChildrenInfoPage(responsePreCheckInService.GuestChildrenLeft, responsePreCheckInService.GuestAdultLeft));
-						DependencyService.Get<IProgressBar>().Hide();
-					}
-					else if (responsePreCheckInService?.Result == 2)
-					{
+						//await Navigation.PushAsync(new Views.PreCheckIn.AdultsAndChildrenInfoPage(responsePreCheckInService.GuestChildrenLeft, responsePreCheckInService.GuestAdultLeft));
+						//DependencyService.Get<IProgressBar>().Hide();
+						Helper.Helper.PreCheckinStatus = 1;
 						Helper.Helper.IsPreCheckIn = true;
 						await Navigation.PushAsync(new Views.PreCheckIn.PreCheckInPage());
 						DependencyService.Get<IProgressBar>().Hide();
+						return;
+					}
+					else if (responsePreCheckInService?.Result == 2)
+					{
+						Helper.Helper.PreCheckinStatus = 2;
+						Helper.Helper.IsPreCheckIn = true;
+						await Navigation.PushAsync(new Views.PreCheckIn.PreCheckInPage());
+						DependencyService.Get<IProgressBar>().Hide();
+						return;
 					}
 					else if (responsePreCheckInService?.Result == 3)
 					{
 						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AlreadyDonePreCheckInPage());
 						DependencyService.Get<IProgressBar>().Hide();
+						return;
 					}
-					return;
 				}
 			}
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });

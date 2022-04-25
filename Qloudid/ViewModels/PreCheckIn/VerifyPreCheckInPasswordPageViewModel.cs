@@ -51,28 +51,40 @@ namespace Qloudid.ViewModels
 				else if (response.Result == 1)
 				{
 					IPreCheckInService preCheckInService = new PreCheckInService();
-					var responsePreCheckInService = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
-					{
-						UserId = Helper.Helper.UserId
-					});
-
-					if (responsePreCheckInService.Cards > 0 && responsePreCheckInService.Address > 0 && responsePreCheckInService.Passport > 0)
+					if (Helper.Helper.PreCheckinStatus == 1)
 					{
 						var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
 						{
 							Id = PreCheckinStatusInfo.Id
 						});
-						if (updatePreCheckinStatusResponse.TotalLeft == 0)
-							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-						else
-							Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
+						Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 					}
 					else
 					{
-						Helper.Helper.PreCheckInUserActiveStatusInfo = responsePreCheckInService;
-						await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
+						var responsePreCheckInService = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
+						{
+							UserId = Helper.Helper.UserId
+						});
+
+						if (responsePreCheckInService.Cards > 0 && responsePreCheckInService.Address > 0 && responsePreCheckInService.Passport > 0)
+						{
+							var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
+							{
+								Id = PreCheckinStatusInfo.Id
+							});
+							if (updatePreCheckinStatusResponse.TotalLeft == 0)
+								Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+							else
+								Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
+						}
+						else
+						{
+							Helper.Helper.PreCheckInUserActiveStatusInfo = responsePreCheckInService;
+							await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
+						}
 					}
 				}
+
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 			else

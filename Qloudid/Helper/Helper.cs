@@ -98,7 +98,9 @@ namespace Qloudid.Helper
 		public static bool IsPreCheckIn { get; set; } = false;
 		public static Models.GetPreCheckinStatusResponse PreCheckinStatusInfo { get; set; }
 		public static Models.GetUserActiveStatusResponse PreCheckInUserActiveStatusInfo { get; set; }
-		
+
+		public static int PreCheckinStatus { get; set; }
+
 
 		public static string[] ColorList =
 		{
