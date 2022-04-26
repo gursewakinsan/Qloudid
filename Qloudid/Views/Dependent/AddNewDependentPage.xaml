@@ -6,10 +6,656 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ScrollView VerticalScrollBarVisibility="Never">
+	<Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Add child"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,47,0,5"
+			VerticalScrollBarVisibility="Never">
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="100" />
+					<RowDefinition Height="77" />
+					<RowDefinition Height="32" />
+					<RowDefinition Height="34" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="60" />
+					<RowDefinition Height="32" />
+					<RowDefinition Height="32" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="60" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="52" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="52" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="63" />
+					<RowDefinition Height="56" />
+					<RowDefinition Height="10" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="150" />
+				</Grid.ColumnDefinitions>
+
+				<BoxView
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#FA9EFF"
+					CornerRadius="50"
+					HorizontalOptions="CenterAndExpand"
+					WidthRequest="100" />
+
+				<BoxView
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					BackgroundColor="Black"
+					CornerRadius="48"
+					HeightRequest="96"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="96" />
+
+				<ImageButton
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					BackgroundColor="Red"
+					CornerRadius="46"
+					HeightRequest="92"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="92" />
+
+				<Frame
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					Margin="0,0,0,-10"
+					Padding="0"
+					BackgroundColor="#45C366"
+					BorderColor="#181A1F"
+					CornerRadius="12"
+					HasShadow="False"
+					HeightRequest="30"
+					HorizontalOptions="CenterAndExpand"
+					IsClippedToBounds="True"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="38">
+					<Label
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalOptions="CenterAndExpand"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand" />
+				</Frame>
+
+				<controls:CustomButton
+					Grid.Row="2"
+					Grid.Column="0"
+					Margin="0"
+					Padding="0"
+					BackgroundColor="#342B20"
+					BorderColor="#342B20"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12"
+					HorizontalOptions="StartAndExpand"
+					Text="Details"
+					TextColor="#E08D70"
+					WidthRequest="75" />
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="4"
+					Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#6263ED"
+					FocusedStrokeWidth="2"
+					HeightRequest="56"
+					Hint="First name"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="1">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Placeholder="First name"
+						PlaceholderColor="#797A7D"
+						Text="{Binding FirstName}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<textinputlayout:SfTextInputLayout
+					Grid.Row="6"
+					Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#6263ED"
+					FocusedStrokeWidth="2"
+					HeightRequest="56"
+					Hint="Last name"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="1">
+					<textinputlayout:SfTextInputLayout.LeadingView>
+						<Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+							TextColor="#797A7D"
+							VerticalTextAlignment="Center" />
+					</textinputlayout:SfTextInputLayout.LeadingView>
+					<controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Placeholder="Last name"
+						PlaceholderColor="#797A7D"
+						Text="{Binding LastName}"
+						TextColor="White" />
+				</textinputlayout:SfTextInputLayout>
+
+				<controls:CustomButton
+					Grid.Row="8"
+					Grid.Column="0"
+					Margin="0"
+					Padding="0"
+					BackgroundColor="#342B20"
+					BorderColor="#342B20"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12"
+					HorizontalOptions="StartAndExpand"
+					Text="Birth dates"
+					TextColor="#E08D70"
+					WidthRequest="99" />
+
+				<Grid
+					Grid.Row="10"
+					Grid.ColumnSpan="2"
+					ColumnSpacing="18"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Year"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Year"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding DobYearList}"
+							SelectedItem="{Binding SelectedDobYear}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Month"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Month"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding DobMonthList}"
+							SelectedItem="{Binding SelectedDobMonth}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Day"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Day"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding DobDayList}"
+							SelectedItem="{Binding SelectedDobDay}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+				</Grid>
+
+				<BoxView
+					Grid.Row="12"
+					Grid.ColumnSpan="2"
+					BackgroundColor="White"
+					Opacity="0.10" />
+
+				<StackLayout
+					Grid.Row="14"
+					Grid.Column="0"
+					Spacing="5"
+					VerticalOptions="CenterAndExpand">
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="Does the child have a"
+						TextColor="White" />
+
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="Social security number?"
+						TextColor="White" />
+				</StackLayout>
+
+				<Label
+					Grid.Row="14"
+					Grid.Column="1"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="50"
+					HorizontalTextAlignment="End"
+					IsVisible="{Binding IsSocialSecurityNumber}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+					TextColor="#4FD471"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IsSocialSecurityNumberCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Label
+					Grid.Row="14"
+					Grid.Column="1"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="50"
+					HorizontalTextAlignment="End"
+					IsVisible="{Binding IsSocialSecurityNumber, Converter={StaticResource InverseBoolConverter}}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+					TextColor="#E53614"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IsSocialSecurityNumberCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Frame
+					Grid.Row="15"
+					Grid.ColumnSpan="2"
+					Margin="0,15,0,0"
+					Padding="25,0,25,0"
+					BackgroundColor="#F4B400"
+					CornerRadius="8"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					IsVisible="{Binding IsSocialSecurityNumber, Converter={StaticResource InverseBoolConverter}}">
+					<Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="15" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="31" />
+						</Grid.RowDefinitions>
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="1"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#181A1F"
+							FocusedStrokeWidth="2"
+							HeightRequest="56"
+							Hint="Social security number"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#181A1F"
+							UnfocusedStrokeWidth="1"
+							VerticalOptions="CenterAndExpand">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Security}"
+									TextColor="#181A1F"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomFloatingLabelEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								IsPassword="True"
+								Placeholder="Social security number"
+								PlaceholderColor="#181A1F"
+								Text="{Binding SocialSecurityNumber}"
+								TextColor="#181A1F" />
+						</textinputlayout:SfTextInputLayout>
+					</Grid>
+				</Frame>
+
+				<BoxView
+					Grid.Row="17"
+					Grid.ColumnSpan="2"
+					BackgroundColor="White"
+					Opacity="0.10" />
+
+				<StackLayout
+					Grid.Row="19"
+					Grid.Column="0"
+					Spacing="5"
+					VerticalOptions="CenterAndExpand">
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="Does child share"
+						TextColor="White" />
+
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Start"
+						Opacity="0.7"
+						Text="same address as you?"
+						TextColor="White" />
+				</StackLayout>
+
+				<Label
+					Grid.Row="19"
+					Grid.Column="1"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="50"
+					HorizontalTextAlignment="End"
+					IsVisible="{Binding IsChildShareSameAddress}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+					TextColor="#4FD471"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IsChildShareSameAddressCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Label
+					Grid.Row="19"
+					Grid.Column="1"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="50"
+					HorizontalTextAlignment="End"
+					IsVisible="{Binding IsChildShareSameAddress, Converter={StaticResource InverseBoolConverter}}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+					TextColor="#E53614"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IsChildShareSameAddressCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Frame
+					Grid.Row="20"
+					Grid.ColumnSpan="2"
+					Margin="0,15,0,0"
+					Padding="25,0,25,0"
+					BackgroundColor="#F4B400"
+					CornerRadius="8"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					IsVisible="{Binding IsChildShareSameAddress, Converter={StaticResource InverseBoolConverter}}">
+					<Grid ColumnSpacing="13" RowSpacing="24">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="0" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="56" />
+							<RowDefinition Height="25" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="69" />
+						</Grid.ColumnDefinitions>
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="1"
+							Grid.Column="0"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#181A1F"
+							FocusedStrokeWidth="2"
+							HeightRequest="56"
+							Hint="Address"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#181A1F"
+							UnfocusedStrokeWidth="1">
+							<controls:CustomFloatingLabelEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								Placeholder="Address"
+								PlaceholderColor="#181A1F"
+								Text="{Binding InvoiceAddress}"
+								TextColor="#181A1F" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="1"
+							Grid.Column="1"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#181A1F"
+							FocusedStrokeWidth="2"
+							HeightRequest="56"
+							Hint="No"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#181A1F"
+							UnfocusedStrokeWidth="1">
+							<controls:CustomFloatingLabelEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								Placeholder="No"
+								PlaceholderColor="#181A1F"
+								Text="{Binding InvoicePortNumber}"
+								TextColor="#181A1F" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#181A1F"
+							FocusedStrokeWidth="2"
+							HeightRequest="56"
+							Hint="Zip code"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#181A1F"
+							UnfocusedStrokeWidth="1">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.PostOutline}"
+									TextColor="#181A1F"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomFloatingLabelEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								Placeholder="Zip code"
+								PlaceholderColor="#181A1F"
+								Text="{Binding InvoiceZipCode}"
+								TextColor="#181A1F" />
+						</textinputlayout:SfTextInputLayout>
+
+						<textinputlayout:SfTextInputLayout
+							Grid.Row="3"
+							Grid.ColumnSpan="2"
+							ContainerBackgroundColor="Transparent"
+							ContainerType="Outlined"
+							FocusedColor="#181A1F"
+							FocusedStrokeWidth="2"
+							HeightRequest="56"
+							Hint="City"
+							LeadingViewPosition="Inside"
+							OutlineCornerRadius="12"
+							TrailingViewPosition="Inside"
+							UnfocusedColor="#181A1F"
+							UnfocusedStrokeWidth="1">
+							<textinputlayout:SfTextInputLayout.LeadingView>
+								<Label
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									HorizontalTextAlignment="Center"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.City}"
+									TextColor="#181A1F"
+									VerticalTextAlignment="Center" />
+							</textinputlayout:SfTextInputLayout.LeadingView>
+							<controls:CustomFloatingLabelEntry
+								BackgroundColor="#F8F8FB"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="16"
+								Placeholder="City"
+								PlaceholderColor="#181A1F"
+								Text="{Binding InvoiceCity}"
+								TextColor="#181A1F" />
+						</textinputlayout:SfTextInputLayout>
+					</Grid>
+
+				</Frame>
+
+				<BoxView
+					Grid.Row="22"
+					Grid.ColumnSpan="2"
+					BackgroundColor="White"
+					Opacity="0.10" />
+
+				<controls:CustomButton
+					Grid.Row="24"
+					Grid.ColumnSpan="2"
+					Margin="0"
+					BackgroundColor="#6263ED"
+					BorderColor="#6263ED"
+					Command="{Binding AddDependentCommand}"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HeightRequest="56"
+					Text="Add child"
+					TextColor="White"
+					VerticalOptions="EndAndExpand" />
+			</Grid>
+		</ScrollView>
+	</Grid>
+
+
+
+	<!--<ScrollView VerticalScrollBarVisibility="Never">
 		<StackLayout Padding="30">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Grid Margin="0,0,0,10">
@@ -416,5 +1062,5 @@
 					VerticalOptions="EndAndExpand" />
 			</Grid>
 		</StackLayout>
-	</ScrollView>
+	</ScrollView>-->
 </ContentPage>

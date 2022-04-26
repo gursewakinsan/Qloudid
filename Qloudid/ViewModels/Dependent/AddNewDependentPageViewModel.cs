@@ -5,6 +5,7 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -13,7 +14,22 @@ namespace Qloudid.ViewModels
 		#region Constructor.
 		public AddNewDependentPageViewModel(INavigation navigation)
 		{
+			DobYearList = new List<string>();
 			Navigation = navigation;
+			int currentYear = DateTime.Today.Year;
+			for (int i = 0; i < 50; i++)
+			{
+				DobYearList.Add($"{currentYear}");
+				currentYear = currentYear - 1;
+			}
+
+			DobMonthList = new List<string>();
+			for (int i = 1; i < 13; i++)
+				DobMonthList.Add($"{i}");
+
+			DobDayList = new List<string>();
+			for (int i = 1; i < 31; i++)
+				DobDayList.Add($"{i}");
 		}
 		#endregion
 
@@ -76,6 +92,32 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Is Social Security Number Command.
+		private ICommand isSocialSecurityNumberCommand;
+		public ICommand IsSocialSecurityNumberCommand
+		{
+			get => isSocialSecurityNumberCommand ?? (isSocialSecurityNumberCommand = new Command(() => ExecuteIsSocialSecurityNumberCommand()));
+		}
+		private void ExecuteIsSocialSecurityNumberCommand()
+		{
+			IsSocialSecurityNumber = !IsSocialSecurityNumber;
+		}
+		#endregion
+
+		#region Is Child Share Same Address Command.
+		private ICommand isChildShareSameAddressCommand;
+		public ICommand IsChildShareSameAddressCommand
+		{
+			get => isChildShareSameAddressCommand ?? (isChildShareSameAddressCommand = new Command(() => ExecuteIsChildShareSameAddressCommand()));
+		}
+		private void ExecuteIsChildShareSameAddressCommand()
+		{
+			IsChildShareSameAddress = !IsChildShareSameAddress;
+		}
+		#endregion
+
+		
+
 		#region Properties.
 		public string DependentType { get; set; }
 		public string FirstName { get; set; }
@@ -89,6 +131,37 @@ namespace Qloudid.ViewModels
 		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
 		public DateTime SelectedExpiryDate { get; set; }
 		public string CountryName => Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode.Equals(Helper.Helper.CountryCode)).CountryName;
+
+		public List<string> DobYearList { get; set; }
+		public string SelectedDobYear { get; set; }
+
+		public List<string> DobMonthList { get; set; }
+		public string SelectedDobMonth { get; set; }
+
+		public List<string> DobDayList { get; set; }
+		public string SelectedDobDay { get; set; }
+
+		private bool isSocialSecurityNumber = true;
+		public bool IsSocialSecurityNumber
+		{
+			get => isSocialSecurityNumber;
+			set
+			{
+				isSocialSecurityNumber = value;
+				OnPropertyChanged("IsSocialSecurityNumber");
+			}
+		}
+
+		private bool isChildShareSameAddress = true;
+		public bool IsChildShareSameAddress
+		{
+			get => isChildShareSameAddress;
+			set
+			{
+				isChildShareSameAddress = value;
+				OnPropertyChanged("IsChildShareSameAddress");
+			}
+		}
 		#endregion
 	}
 }
