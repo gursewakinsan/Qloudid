@@ -77,6 +77,7 @@ namespace Qloudid.Views.Dependent
 					Stream stream = new MemoryStream(App.CroppedImage);
 					if (index == 1)
 					{
+						lbl1.Text = Helper.QloudidAppFlatIcons.Pencil;
 						image1.Source = ImageSource.FromStream(() => stream);
 						byte[] aa = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
 						viewModel.CroppedImage1 = aa;
@@ -92,6 +93,7 @@ namespace Qloudid.Views.Dependent
 					}
 					else
 					{
+						lbl2.Text = Helper.QloudidAppFlatIcons.Pencil;
 						image2.Source = ImageSource.FromStream(() => stream);
 						byte[] bb = await DependencyService.Get<Interfaces.IImageResizerService>().ResizeImage(App.CroppedImage, 600, 500);
 						viewModel.CroppedImage2 = bb;

@@ -4,6 +4,7 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -14,6 +15,36 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Helper.Helper.SelectedIdentificatorText = "Passport";
+			BindMonthAndYear();
+		}
+		#endregion
+
+		#region Bind Month And Year
+		private void BindMonthAndYear()
+		{
+			IssueMonthList = new List<string>();
+			for (int issueMonth = 1; issueMonth < 13; issueMonth++)
+				IssueMonthList.Add($"{issueMonth}");
+
+			IssueYearList = new List<string>();
+			int issueYear = DateTime.Today.Year;
+			for (int i = 0; i < 50; i++)
+			{
+				IssueYearList.Add($"{issueYear}");
+				issueYear = issueYear - 1;
+			}
+
+			ExpireMonthList = new List<string>();
+			for (int expireMonth = 1; expireMonth < 13; expireMonth++)
+				ExpireMonthList.Add($"{expireMonth}");
+
+			ExpireYearList = new List<string>();
+			int expireYear = DateTime.Today.Year;
+			for (int i = 0; i < 50; i++)
+			{
+				ExpireYearList.Add($"{expireYear}");
+				expireYear = expireYear + 1;
+			}
 		}
 		#endregion
 
@@ -81,6 +112,15 @@ namespace Qloudid.ViewModels
 		public byte[] CroppedImage1;
 
 		public byte[] CroppedImage2;
+
+		public List<string> IssueMonthList { get; set; }
+		public string SelectedIssueMonth { get; set; }
+		public List<string> IssueYearList { get; set; }
+		public string SelectedIssueYear { get; set; }
+		public List<string> ExpireMonthList { get; set; }
+		public string SelectedExpireMonth { get; set; }
+		public List<string> ExpireYearList { get; set; }
+		public string SelectedExpireYear { get; set; }
 		#endregion
 	}
 }

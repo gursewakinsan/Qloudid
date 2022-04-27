@@ -249,4 +249,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\ErrorMessageBg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconPassport.png" />
+  </ItemGroup>
 </Project>

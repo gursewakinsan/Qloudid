@@ -6,10 +6,340 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="White"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+	<Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Add passport"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout Margin="0,31,0,0" Spacing="0">
+				<Label
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					Text="Passport"
+					TextColor="White" />
+
+				<Label
+					Margin="0,5,0,58"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2"
+					Opacity="0.7"
+					Text="Add your childs passport details below for a smooth user experience"
+					TextColor="White" />
+
+				<controls:CustomButton
+					Margin="0"
+					Padding="0"
+					BackgroundColor="#342B20"
+					BorderColor="#342B20"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12"
+					HeightRequest="32"
+					HorizontalOptions="StartAndExpand"
+					Text="Details"
+					TextColor="#E08D70"
+					WidthRequest="75" />
+
+				<Grid
+					Margin="0,18,0,0"
+					ColumnSpacing="22"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="56" />
+						<RowDefinition Height="25" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="25" />
+						<RowDefinition Height="56" />
+						<RowDefinition Height="67" />
+						<RowDefinition Height="24" />
+						<RowDefinition Height="21" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="17" />
+						<RowDefinition Height="142" />
+						<RowDefinition Height="67" />
+						<RowDefinition Height="56" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Passport number"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							Placeholder="Passport number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding FirstName}"
+							TextColor="White" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Issue month"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Issue month"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding IssueMonthList}"
+							SelectedItem="{Binding SelectedIssueMonth}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="2"
+						Grid.Column="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Issue year"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Issue year"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding IssueYearList}"
+							SelectedItem="{Binding SelectedIssueYear}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="4"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Expire month"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Expire month"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding ExpireMonthList}"
+							SelectedItem="{Binding SelectedExpireMonth}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<textinputlayout:SfTextInputLayout
+						Grid.Row="4"
+						Grid.Column="1"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#6263ED"
+						FocusedStrokeWidth="2"
+						HeightRequest="56"
+						Hint="Expire year"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						TrailingViewPosition="Inside"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="1">
+						<controls:CustomPicker
+							Title="Expire year"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							ItemsSource="{Binding ExpireYearList}"
+							SelectedItem="{Binding SelectedExpireYear}"
+							TextColor="#797A7D"
+							TitleColor="Black" />
+					</textinputlayout:SfTextInputLayout>
+
+					<Label
+						Grid.Row="6"
+						Grid.ColumnSpan="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Passport photo"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="8"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Image
+						x:Name="image1"
+						Grid.Row="10"
+						Grid.Column="0"
+						Aspect="AspectFill"
+						BackgroundColor="Transparent"
+						Source="iconPassport.png">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData1Clicked" />
+						</Image.GestureRecognizers>
+					</Image>
+
+					<Frame
+						Grid.Row="10"
+						Grid.Column="0"
+						Margin="0,0,0,-10"
+						Padding="0"
+						BackgroundColor="#45C366"
+						BorderColor="#181A1F"
+						CornerRadius="12"
+						HasShadow="False"
+						HeightRequest="31"
+						HorizontalOptions="CenterAndExpand"
+						IsClippedToBounds="True"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="31">
+						<Label
+							x:Name="lbl1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand" />
+					</Frame>
+
+					<Image
+						x:Name="image2"
+						Grid.Row="10"
+						Grid.Column="1"
+						Aspect="AspectFill"
+						BackgroundColor="Transparent"
+						Source="iconPassport.png">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData2Clicked" />
+						</Image.GestureRecognizers>
+					</Image>
+
+					<Frame
+						Grid.Row="10"
+						Grid.Column="1"
+						Margin="0,0,0,-10"
+						Padding="0"
+						BackgroundColor="#45C366"
+						BorderColor="#181A1F"
+						CornerRadius="12"
+						HasShadow="False"
+						HeightRequest="31"
+						HorizontalOptions="CenterAndExpand"
+						IsClippedToBounds="True"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="31">
+						<Label
+							x:Name="lbl2"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand" />
+					</Frame>
+
+					<controls:CustomButton
+						Grid.Row="12"
+						Grid.ColumnSpan="2"
+						Margin="0"
+						BackgroundColor="#6263ED"
+						BorderColor="#6263ED"
+						Command="{Binding AddDependentCommand}"
+						CornerRadius="12"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="16"
+						HeightRequest="56"
+						Text="Add passport"
+						TextColor="White"
+						VerticalOptions="EndAndExpand" />
+				</Grid>
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="30">
 				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
@@ -129,5 +459,5 @@
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>
