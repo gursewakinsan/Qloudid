@@ -56,38 +56,70 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteUploadPassportImageCommand()
 		{
-			if (CroppedImage1 == null || CroppedImage2 == null)
+			if (string.IsNullOrWhiteSpace(PassportNumber))
+				await Helper.Alert.DisplayAlert("Passport number is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedIssueMonth))
+				await Helper.Alert.DisplayAlert("Issue month is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedIssueYear))
+				await Helper.Alert.DisplayAlert("Issue year is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedExpireMonth))
+				await Helper.Alert.DisplayAlert("Expire month is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedExpireYear))
+				await Helper.Alert.DisplayAlert("Expire year is required.");
+			else if (CroppedImage1 == null || CroppedImage2 == null)
 				await Helper.Alert.DisplayAlert("Please select photo's.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();
-				string imageData1 = Convert.ToBase64String(CroppedImage1);
-				string imageData2 = Convert.ToBase64String(CroppedImage2);
 				IDependentService service = new DependentService();
-				int response1 = await service.AddDependentImagesAsync(new Models.AddDependentImagesRequest()
+				int checkPassportResponse = await service.CheckPassportAsync(new Models.CheckPassportRequest()
 				{
-					ImageId = 1,
-					UserId = Helper.Helper.UserId,
 					Id = Helper.Helper.DependentId,
-					ImageData = imageData1,
+					UserId = Helper.Helper.UserId,
+					PassportNumber = PassportNumber
 				});
-				if (response1 == 0)
-					await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
-				else
+				if (checkPassportResponse == 1)
 				{
-					int response2 = await service.AddDependentImagesAsync(new Models.AddDependentImagesRequest()
+					await service.AddDependentPassportAsync(new Models.AddDependentPassportRequest()
 					{
-						ImageId = 2,
+						Id = Helper.Helper.DependentId,
+						PassportNumber = PassportNumber,
+						IssueMonth = Convert.ToInt32(SelectedIssueMonth),
+						IssueYear = Convert.ToInt32(SelectedIssueYear),
+						ExpiryMonth = Convert.ToInt32(SelectedExpireMonth),
+						ExpiryYear = Convert.ToInt32(SelectedExpireYear)
+					});
+
+					string imageData1 = Convert.ToBase64String(CroppedImage1);
+					string imageData2 = Convert.ToBase64String(CroppedImage2);
+
+					int response1 = await service.AddDependentImagesAsync(new Models.AddDependentImagesRequest()
+					{
+						ImageId = 1,
 						UserId = Helper.Helper.UserId,
 						Id = Helper.Helper.DependentId,
-						ImageData = imageData2,
+						ImageData = imageData1,
 					});
-					if (response2 == 0)
+					if (response1 == 0)
 						await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
 					else
-						Application.Current.MainPage = new NavigationPage(new Views.Dependent.DependentListPage());
+					{
+						int response2 = await service.AddDependentImagesAsync(new Models.AddDependentImagesRequest()
+						{
+							ImageId = 2,
+							UserId = Helper.Helper.UserId,
+							Id = Helper.Helper.DependentId,
+							ImageData = imageData2,
+						});
+						if (response2 == 0)
+							await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.Dependent.DependentListPage());
+					}
 				}
-				DependencyService.Get<IProgressBar>().Show();
+				else
+					await Helper.Alert.DisplayAlert("Passport already in use.");
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion
@@ -121,6 +153,7 @@ namespace Qloudid.ViewModels
 		public string SelectedExpireMonth { get; set; }
 		public List<string> ExpireYearList { get; set; }
 		public string SelectedExpireYear { get; set; }
+		public string PassportNumber { get; set; }
 		#endregion
 	}
 }

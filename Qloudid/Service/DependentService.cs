@@ -17,7 +17,7 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> CheckSsnAsync(Models.AddDependentRequest request)
+		public Task<int> CheckSsnAsync(Models.CheckSsnRequest request)
 		{
 			return Task.Factory.StartNew(() =>
 			{
@@ -35,6 +35,15 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> AddDependentProfileImagesAsync(Models.AddDependentProfileImagesRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddDependentProfileImagesUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+		
 		public Task<int> AddDependentImagesAsync(Models.AddDependentImagesRequest request)
 		{
 			return Task.Factory.StartNew(() =>
@@ -44,6 +53,24 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> AddDependentPassportAsync(Models.AddDependentPassportRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddDependentPassportUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> CheckPassportAsync(Models.CheckPassportRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckPassportUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+		
 		public Task<int> VerifyUserBookingExistsAsync(Models.CheckInDependentRequest request)
 		{
 			return Task.Factory.StartNew(() =>

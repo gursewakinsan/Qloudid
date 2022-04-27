@@ -252,4 +252,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconPassport.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\defaultUserImage.png" />
+  </ItemGroup>
 </Project>

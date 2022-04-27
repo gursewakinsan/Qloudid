@@ -6,9 +6,12 @@ namespace Qloudid.Interfaces
 	public interface IDependentService
 	{
 		Task<List<Models.DependentResponse>> GetAllDependentAsync(Models.DependentRequest request);
-		Task<int> CheckSsnAsync(Models.AddDependentRequest request);
+		Task<int> CheckSsnAsync(Models.CheckSsnRequest request);
 		Task<int> AddDependentAsync(Models.AddDependentRequest request);
+		Task<int> AddDependentProfileImagesAsync(Models.AddDependentProfileImagesRequest request);
 		Task<int> AddDependentImagesAsync(Models.AddDependentImagesRequest request);
+		Task<int> AddDependentPassportAsync(Models.AddDependentPassportRequest request);
+		Task<int> CheckPassportAsync(Models.CheckPassportRequest request);
 		Task<int> VerifyUserBookingExistsAsync(Models.CheckInDependentRequest request);
 		Task<int> UpdateDependentCheckinIdsAsync(Models.UpdateDependentCheckinIdsRequest request);
 		Task<List<Models.DependentResponse>> DependentsListForCheckInAsync(Models.DependentsListForCheckInRequest request);

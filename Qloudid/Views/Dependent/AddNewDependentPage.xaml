@@ -86,7 +86,7 @@
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="150" />
+					<ColumnDefinition Width="100" />
 				</Grid.ColumnDefinitions>
 
 				<BoxView
@@ -108,12 +108,16 @@
 					WidthRequest="96" />
 
 				<ImageButton
+					x:Name="imgUser"
 					Grid.Row="0"
 					Grid.ColumnSpan="2"
-					BackgroundColor="Red"
+					Aspect="AspectFill"
+					BackgroundColor="Transparent"
+					Clicked="OnUserImageClicked"
 					CornerRadius="46"
 					HeightRequest="92"
 					HorizontalOptions="CenterAndExpand"
+					Source="defaultUserImage.png"
 					VerticalOptions="CenterAndExpand"
 					WidthRequest="92" />
 
@@ -131,13 +135,20 @@
 					IsClippedToBounds="True"
 					VerticalOptions="EndAndExpand"
 					WidthRequest="38">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnUserImageClicked" />
+					</Frame.GestureRecognizers>
 					<Label
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="25"
 						HorizontalOptions="CenterAndExpand"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 						TextColor="White"
-						VerticalOptions="CenterAndExpand" />
+						VerticalOptions="CenterAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnUserImageClicked" />
+						</Label.GestureRecognizers>
+					</Label>
 				</Frame>
 
 				<controls:CustomButton
@@ -356,7 +367,7 @@
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
 					HorizontalTextAlignment="End"
-					IsVisible="{Binding IsSocialSecurityNumber}"
+					IsVisible="{Binding IsSocialSecurityNumber, Converter={StaticResource InverseBoolConverter}}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
 					TextColor="#4FD471"
 					VerticalTextAlignment="Center">
@@ -371,7 +382,7 @@
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
 					HorizontalTextAlignment="End"
-					IsVisible="{Binding IsSocialSecurityNumber, Converter={StaticResource InverseBoolConverter}}"
+					IsVisible="{Binding IsSocialSecurityNumber}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
 					TextColor="#E53614"
 					VerticalTextAlignment="Center">
@@ -532,7 +543,7 @@
 								FontSize="16"
 								Placeholder="Address"
 								PlaceholderColor="#181A1F"
-								Text="{Binding InvoiceAddress}"
+								Text="{Binding Address}"
 								TextColor="#181A1F" />
 						</textinputlayout:SfTextInputLayout>
 
@@ -556,7 +567,7 @@
 								FontSize="16"
 								Placeholder="No"
 								PlaceholderColor="#181A1F"
-								Text="{Binding InvoicePortNumber}"
+								Text="{Binding PortNumber}"
 								TextColor="#181A1F" />
 						</textinputlayout:SfTextInputLayout>
 
@@ -589,7 +600,7 @@
 								FontSize="16"
 								Placeholder="Zip code"
 								PlaceholderColor="#181A1F"
-								Text="{Binding InvoiceZipCode}"
+								Text="{Binding ZipCode}"
 								TextColor="#181A1F" />
 						</textinputlayout:SfTextInputLayout>
 
@@ -622,7 +633,7 @@
 								FontSize="16"
 								Placeholder="City"
 								PlaceholderColor="#181A1F"
-								Text="{Binding InvoiceCity}"
+								Text="{Binding City}"
 								TextColor="#181A1F" />
 						</textinputlayout:SfTextInputLayout>
 					</Grid>

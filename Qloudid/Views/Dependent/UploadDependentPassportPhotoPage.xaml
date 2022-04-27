@@ -131,7 +131,7 @@
 							FontSize="14"
 							Placeholder="Passport number"
 							PlaceholderColor="#797A7D"
-							Text="{Binding FirstName}"
+							Text="{Binding PassportNumber}"
 							TextColor="White" />
 					</textinputlayout:SfTextInputLayout>
 
@@ -273,6 +273,9 @@
 						IsClippedToBounds="True"
 						VerticalOptions="EndAndExpand"
 						WidthRequest="31">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData1Clicked" />
+						</Frame.GestureRecognizers>
 						<Label
 							x:Name="lbl1"
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -280,7 +283,11 @@
 							HorizontalOptions="CenterAndExpand"
 							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 							TextColor="White"
-							VerticalOptions="CenterAndExpand" />
+							VerticalOptions="CenterAndExpand">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="ImageData1Clicked" />
+							</Label.GestureRecognizers>
+						</Label>
 					</Frame>
 
 					<Image
@@ -309,6 +316,9 @@
 						IsClippedToBounds="True"
 						VerticalOptions="EndAndExpand"
 						WidthRequest="31">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData2Clicked" />
+						</Frame.GestureRecognizers>
 						<Label
 							x:Name="lbl2"
 							FontFamily="{StaticResource MaterialFontFamily}"
@@ -316,7 +326,11 @@
 							HorizontalOptions="CenterAndExpand"
 							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 							TextColor="White"
-							VerticalOptions="CenterAndExpand" />
+							VerticalOptions="CenterAndExpand">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="ImageData2Clicked" />
+							</Label.GestureRecognizers>
+						</Label>
 					</Frame>
 
 					<controls:CustomButton
@@ -325,7 +339,7 @@
 						Margin="0"
 						BackgroundColor="#6263ED"
 						BorderColor="#6263ED"
-						Command="{Binding AddDependentCommand}"
+						Command="{Binding UploadPassportImageCommand}"
 						CornerRadius="12"
 						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"

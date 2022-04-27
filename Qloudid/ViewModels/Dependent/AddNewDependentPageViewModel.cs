@@ -41,52 +41,75 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteAddDependentCommand()
 		{
-			if (string.IsNullOrWhiteSpace(DependentType))
-				await Helper.Alert.DisplayAlert("Please select dependent type.");
-			else if (string.IsNullOrWhiteSpace(FirstName))
+			if (string.IsNullOrWhiteSpace(FirstName))
 				await Helper.Alert.DisplayAlert("First name is required.");
 			else if (string.IsNullOrWhiteSpace(LastName))
 				await Helper.Alert.DisplayAlert("Last name is required.");
-			else if (string.IsNullOrWhiteSpace(SocialSecurityNumber))
-				await Helper.Alert.DisplayAlert("Social security number is required.");
-			else if (string.IsNullOrWhiteSpace(PassportNumber))
-				await Helper.Alert.DisplayAlert("Passport number is required.");
-			else if (SelectedIssueDate == null)
-				await Helper.Alert.DisplayAlert("Issue date is required.");
-			else if (SelectedExpiryDate == null)
-				await Helper.Alert.DisplayAlert("Expiry date is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedDobYear))
+				await Helper.Alert.DisplayAlert("Date of birth year is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedDobMonth))
+				await Helper.Alert.DisplayAlert("Date of birth month is required.");
+			else if (string.IsNullOrWhiteSpace(SelectedDobDay))
+				await Helper.Alert.DisplayAlert("Date of birth day is required.");
+			else if (!IsSocialSecurityNumber && string.IsNullOrWhiteSpace(SocialSecurityNumber))
+				await Helper.Alert.DisplayAlert("Social Security number is required.");
+			else if (!IsChildShareSameAddress && string.IsNullOrWhiteSpace(Address))
+				await Helper.Alert.DisplayAlert("Address is required.");
+			else if (!IsChildShareSameAddress && string.IsNullOrWhiteSpace(City))
+				await Helper.Alert.DisplayAlert("City is required.");
+			else if (!IsChildShareSameAddress && string.IsNullOrWhiteSpace(ZipCode))
+				await Helper.Alert.DisplayAlert("Zip code is required.");
+			else if (!IsChildShareSameAddress && string.IsNullOrWhiteSpace(PortNumber))
+				await Helper.Alert.DisplayAlert("Number is required.");
+			else if (UserImageData == null)
+				await Helper.Alert.DisplayAlert("User image is required.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();
-				int type = 0;
-				if (DependentType.Equals("Child"))
-					type = 1;
-				else if (DependentType.Equals("Elder"))
-					type = 2;
-				else if (DependentType.Equals("Disabled"))
-					type = 3;
 				Models.AddDependentRequest request = new Models.AddDependentRequest()
 				{
 					UserId = Helper.Helper.UserId,
-					DependentType = type,
+					DependentType = 1,
 					FirstName = FirstName,
 					LastName = LastName,
+					IsSsnAvailable = Convert.ToInt32(!IsSocialSecurityNumber),
 					SocialSecurityNumber = SocialSecurityNumber,
-					PassportNumber = PassportNumber,
-					IssueDate = SelectedIssueDate,
-					ExpiryDate = SelectedExpiryDate
+					Address = Address,
+					City = City,
+					ZipCode = ZipCode,
+					PortNumber = PortNumber,
+					IsSameAddress = Convert.ToInt32(IsChildShareSameAddress),
+					BirthDay = Convert.ToInt32(SelectedDobDay),
+					BirthMonth = Convert.ToInt32(SelectedDobMonth),
+					BirthYear = Convert.ToInt32(SelectedDobYear),
 				};
 				IDependentService service = new DependentService();
-				int checkSsnResponse = await service.CheckSsnAsync(request);
-				if (checkSsnResponse == 1)
-					await Helper.Alert.DisplayAlert("Dependent social security number is already exist.");
-				else if (checkSsnResponse == 2)
-					await Helper.Alert.DisplayAlert("Dependent passport number is already exist.");
-				else
+
+				if (!IsChildShareSameAddress)
 				{
-					Helper.Helper.DependentId = await service.AddDependentAsync(request);
-					await Navigation.PushAsync(new Views.Dependent.UploadDependentPassportPhotoPage());
+					int checkSsnResponse = await service.CheckSsnAsync(new Models.CheckSsnRequest()
+					{
+						SocialSecurityNumber = SocialSecurityNumber,
+						UserId = Helper.Helper.UserId
+					});
+					if (checkSsnResponse == 0)
+					{
+						await Helper.Alert.DisplayAlert("Dependent social security number is already exist.");
+						return;
+					}
 				}
+
+				Helper.Helper.DependentId = await service.AddDependentAsync(request);
+				if (UserImageData != null)
+				{
+					string userImageInfo = Convert.ToBase64String(UserImageData);
+					await service.AddDependentProfileImagesAsync(new Models.AddDependentProfileImagesRequest()
+					{
+						Id = Helper.Helper.DependentId,
+						ImageData = userImageInfo
+					});
+				}
+				await Navigation.PushAsync(new Views.Dependent.UploadDependentPassportPhotoPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
@@ -115,8 +138,6 @@ namespace Qloudid.ViewModels
 			IsChildShareSameAddress = !IsChildShareSameAddress;
 		}
 		#endregion
-
-		
 
 		#region Properties.
 		public string DependentType { get; set; }
@@ -162,6 +183,11 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsChildShareSameAddress");
 			}
 		}
+		public string Address { get; set; }
+		public string PortNumber { get; set; }
+		public string ZipCode { get; set; }
+		public string City { get; set; }
+		public byte[] UserImageData { get; set; }
 		#endregion
 	}
 }
