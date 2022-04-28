@@ -106,5 +106,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<Models.DependentDetailResponse> DependentDetailAsync(Models.DependentDetailRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.DependentDetailResponse>(HttpWebRequest.Create(EndPointsList.DependentDetailUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

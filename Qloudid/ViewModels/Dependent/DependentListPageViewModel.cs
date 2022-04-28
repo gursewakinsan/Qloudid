@@ -48,6 +48,24 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Dependent Detail Command.
+		private ICommand dependentDetailCommand;
+		public ICommand DependentDetailCommand
+		{
+			get => dependentDetailCommand ?? (dependentDetailCommand = new Command<int>(async (id) => await ExecuteDependentDetailCommand(id)));
+		}
+		private async Task ExecuteDependentDetailCommand(int id)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDependentService service = new DependentService();
+			var responses = await service.DependentDetailAsync(new Models.DependentDetailRequest()
+			{
+				Id = id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Back Command.
 		private ICommand backCommand;
 		public ICommand BackCommand

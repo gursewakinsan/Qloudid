@@ -28,7 +28,10 @@ namespace Qloudid.Views.Dependent
 
 		private void OnDependentItemTapped(object sender, ItemTappedEventArgs e)
 		{
+			Models.DependentResponse dependent = e.Item as Models.DependentResponse;
 			listDependent.SelectedItem = null;
+			if (dependent != null)
+				viewModel.DependentDetailCommand.Execute(dependent.Id);
 		}
 
 		public void GetCountries()

@@ -16,5 +16,6 @@ namespace Qloudid.Interfaces
 		Task<int> UpdateDependentCheckinIdsAsync(Models.UpdateDependentCheckinIdsRequest request);
 		Task<List<Models.DependentResponse>> DependentsListForCheckInAsync(Models.DependentsListForCheckInRequest request);
 		Task<int> GuestChildrenRemainingCountAsync(Models.GuestChildrenRemainingCountRequest request);
+		Task<Models.DependentDetailResponse> DependentDetailAsync(Models.DependentDetailRequest request);
 	}
 }

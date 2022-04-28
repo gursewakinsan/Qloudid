@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Dependent.DependentDetailPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,22,0,20"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="53" />
+			<RowDefinition Height="120" />
+			<RowDefinition Height="44" />
+			<RowDefinition Height="36" />
+			<RowDefinition Height="8" />
+			<RowDefinition Height="24" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl
+			Grid.Row="0"
+			Grid.Column="1"
+			HorizontalOptions="StartAndExpand" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Child page"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<usercontrols:BackButtonControl
+			Grid.Row="0"
+			Grid.Column="3"
+			HorizontalOptions="StartAndExpand" />
+
+		<BoxView
+			Grid.Row="2"
+			Grid.Column="2"
+			BackgroundColor="#FA9EFF"
+			CornerRadius="60"
+			HorizontalOptions="CenterAndExpand"
+			WidthRequest="120" />
+
+		<ImageButton
+			x:Name="imgUser"
+			Grid.Row="2"
+			Grid.Column="2"
+			Aspect="AspectFill"
+			BackgroundColor="Transparent"
+			BorderColor="Black"
+			BorderWidth="2"
+			CornerRadius="58"
+			HeightRequest="116"
+			HorizontalOptions="CenterAndExpand"
+			Source="iconPassport.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="116" />
+
+		<Label
+			Grid.Row="4"
+			Grid.Column="2"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="24"
+			HorizontalTextAlignment="Center"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			Text="Kowaken Ghirmai"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Label
+			Grid.Row="6"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			Opacity="0.42"
+			Text="12 years old"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Grid
+			Grid.Row="7"
+			Grid.Column="2"
+			ColumnSpacing="31"
+			HeightRequest="130"
+			HorizontalOptions="CenterAndExpand"
+			RowSpacing="0"
+			VerticalOptions="EndAndExpand">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="65" />
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="65" />
+			</Grid.ColumnDefinitions>
+
+			<StackLayout
+				Grid.Column="0"
+				HorizontalOptions="StartAndExpand"
+				Spacing="14">
+				<Button
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="24"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HeightRequest="48"
+					HorizontalOptions="CenterAndExpand"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+					TextColor="#45C366"
+					WidthRequest="48" />
+
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					Opacity="0.70"
+					Text="Appstore"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+
+			<StackLayout
+				Grid.Column="1"
+				HorizontalOptions="StartAndExpand"
+				Spacing="26">
+				<Button
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="40"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="40"
+					HeightRequest="80"
+					HorizontalOptions="CenterAndExpand"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+					TextColor="#4C7CE5"
+					WidthRequest="80" />
+
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					Opacity="0.70"
+					Text="Scan QR code"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+
+			<StackLayout
+				Grid.Column="2"
+				HorizontalOptions="StartAndExpand"
+				Spacing="14">
+				<Button
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="24"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HeightRequest="48"
+					HorizontalOptions="CenterAndExpand"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+					TextColor="#FF9129"
+					WidthRequest="48" />
+
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					Opacity="0.70"
+					Text="History"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+		</Grid>
+	</Grid>
+</ContentPage>
