@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.Dependent.UploadDependentPassportPhotoPage"
+	x:Class="Qloudid.Views.Dependent.EditUploadDependentPassportPhotoPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -52,7 +52,7 @@
 			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
-			Text="Add passport"
+			Text="Edit passport"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -271,7 +271,7 @@
 						Grid.Column="0"
 						Aspect="AspectFill"
 						BackgroundColor="Transparent"
-						Source="iconPassport.png">
+						Source="{Binding DependentDetail.FrontImagePath}">
 						<Image.GestureRecognizers>
 							<TapGestureRecognizer Tapped="ImageData1Clicked" />
 						</Image.GestureRecognizers>
@@ -314,7 +314,7 @@
 						Grid.Column="1"
 						Aspect="AspectFill"
 						BackgroundColor="Transparent"
-						Source="iconPassport.png">
+						Source="{Binding DependentDetail.BackImagePath}">
 						<Image.GestureRecognizers>
 							<TapGestureRecognizer Tapped="ImageData2Clicked" />
 						</Image.GestureRecognizers>
@@ -362,134 +362,11 @@
 						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="16"
 						HeightRequest="56"
-						Text="Add passport"
+						Text="Update passport"
 						TextColor="White"
 						VerticalOptions="EndAndExpand" />
 				</Grid>
 			</StackLayout>
 		</ScrollView>
 	</Grid>
-
-
-	<!--<ContentPage.Content>
-		<ScrollView VerticalScrollBarVisibility="Never">
-			<StackLayout Padding="30">
-				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-					<Grid Margin="0,0,0,10">
-						<ImageButton
-							Grid.Column="0"
-							Padding="9"
-							BackgroundColor="#3623B7"
-							BorderColor="#05CBE7"
-							BorderWidth="1"
-							CornerRadius="20"
-							HeightRequest="50"
-							HorizontalOptions="Start"
-							VerticalOptions="Center"
-							WidthRequest="50">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-									Size="50"
-									Color="#05CBE7" />
-							</ImageButton.Source>
-						</ImageButton>
-
-						<ImageButton
-							Grid.Column="1"
-							Padding="15,5,0,15"
-							BackgroundColor="Transparent"
-							Command="{Binding CloseCommand}"
-							HorizontalOptions="EndAndExpand"
-							IsVisible="False"
-							WidthRequest="40">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-									Size="26"
-									Color="#6F7FAF" />
-							</ImageButton.Source>
-						</ImageButton>
-					</Grid>
-
-					<Label
-						FontFamily="SFProDisplayMediumFontFamily"
-						FontSize="28"
-						HorizontalTextAlignment="Start"
-						Text="Upload your"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<Label
-						FontFamily="SFProDisplayMediumFontFamily"
-						FontSize="28"
-						HorizontalTextAlignment="Start"
-						Text="passport"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<BoxView
-						Margin="0,10,0,0"
-						BackgroundColor="#05CBE7"
-						CornerRadius="3"
-						HeightRequest="5"
-						HorizontalOptions="Start"
-						VerticalOptions="Start"
-						WidthRequest="40" />
-
-					<Label
-						Margin="0,50,0,24"
-						FontFamily="SFProRegularFontFamily"
-						HorizontalTextAlignment="Start"
-						Text="Upload front and back of your passport by clicking on these 2 grey images below."
-						VerticalTextAlignment="Start" />
-
-					<Image
-						x:Name="image1"
-						Margin="0,0,0,20"
-						Aspect="AspectFill"
-						BackgroundColor="Transparent"
-						HeightRequest="200"
-						Source="iconDefaultProfilePic.png"
-						VerticalOptions="CenterAndExpand">
-						<Image.GestureRecognizers>
-							<TapGestureRecognizer Tapped="ImageData1Clicked" />
-						</Image.GestureRecognizers>
-					</Image>
-
-					<Image
-						x:Name="image2"
-						Aspect="AspectFill"
-						BackgroundColor="Transparent"
-						HeightRequest="200"
-						Source="iconDefaultProfilePic.png"
-						VerticalOptions="CenterAndExpand">
-						<Image.GestureRecognizers>
-							<TapGestureRecognizer Tapped="ImageData2Clicked" />
-						</Image.GestureRecognizers>
-					</Image>
-
-					<controls:CustomButton
-						Margin="0,25,0,0"
-						BackgroundColor="#05CBE7"
-						Command="{Binding UploadPassportImageCommand}"
-						FontFamily="SFProSemiboldFontFamily"
-						FontSize="16"
-						Text="Upload"
-						VerticalOptions="EndAndExpand" />
-
-					<controls:CustomButton
-						Margin="0,20,0,0"
-						BackgroundColor="#05CBE7"
-						Command="{Binding SkipUploadPassportImageCommand}"
-						FontFamily="SFProSemiboldFontFamily"
-						FontSize="16"
-						Text="Skip"
-						VerticalOptions="EndAndExpand" />
-				</StackLayout>
-			</StackLayout>
-		</ScrollView>
-	</ContentPage.Content>-->
 </ContentPage>

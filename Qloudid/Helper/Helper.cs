@@ -99,6 +99,7 @@ namespace Qloudid.Helper
 		public static Models.GetPreCheckinStatusResponse PreCheckinStatusInfo { get; set; }
 		public static Models.GetUserActiveStatusResponse PreCheckInUserActiveStatusInfo { get; set; }
 
+		public static Models.DependentDetailResponse DependentDetail { get; set; }
 		public static int PreCheckinStatus { get; set; }
 
 

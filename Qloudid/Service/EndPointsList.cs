@@ -78,7 +78,9 @@
 		//Dependent
 		public const string GetAllDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsList";
 		public const string CheckSsnUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkSsn";
+		public const string CheckDependentSsnUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkDependentSsn";
 		public const string AddDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependent";
+		public const string UpdateDependentUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDependent";
 		public const string AddDependentProfileImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentProfileImages";
 		public const string AddDependentImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentImages";
 		public const string AddDependentPassportUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentPassport";

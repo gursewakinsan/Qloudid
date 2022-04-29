@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using Xamarin.Forms;
-using Qloudid.Service;
-using Qloudid.Interfaces;
+﻿using Xamarin.Forms;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -15,6 +11,22 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 		}
+		#endregion
+
+		#region Edit Dependent Command.
+		private ICommand editDependentCommand;
+		public ICommand EditDependentCommand
+		{
+			get => editDependentCommand ?? (editDependentCommand = new Command(async () => await ExecuteEditDependentCommand()));
+		}
+		private async Task ExecuteEditDependentCommand()
+		{
+			await Navigation.PushAsync(new Views.Dependent.EditDependentPage());
+		}
+		#endregion
+
+		#region Properties.
+		public Models.DependentDetailResponse DependentDetail => Helper.Helper.DependentDetail;
 		#endregion
 	}
 }

@@ -2,13 +2,509 @@
 <ContentPage
 	x:Class="Qloudid.Views.Dependent.DependentProfilePage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-	<ContentPage.Content>
-		<StackLayout>
-			<Label
-				HorizontalOptions="CenterAndExpand"
-				Text="Welcome to Xamarin.Forms!"
-				VerticalOptions="CenterAndExpand" />
-		</StackLayout>
-	</ContentPage.Content>
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+			HorizontalTextAlignment="Center"
+			Text="Edit child"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="47" />
+					<RowDefinition Height="100" />
+					<RowDefinition Height="82" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="13" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="63" />
+					<RowDefinition Height="24" />
+					<RowDefinition Height="24" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="18" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="50" />
+				</Grid.RowDefinitions>
+
+				<BoxView
+					Grid.Row="1"
+					BackgroundColor="#FA9EFF"
+					CornerRadius="50"
+					HorizontalOptions="CenterAndExpand"
+					WidthRequest="100" />
+
+				<BoxView
+					Grid.Row="1"
+					BackgroundColor="Black"
+					CornerRadius="48"
+					HeightRequest="96"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="96" />
+
+				<ImageButton
+					x:Name="imgUser"
+					Grid.Row="1"
+					Aspect="AspectFill"
+					BackgroundColor="Transparent"
+					CornerRadius="46"
+					HeightRequest="92"
+					HorizontalOptions="CenterAndExpand"
+					Source="{Binding DependentDetail.ImagePath}"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="92" />
+
+				<Frame
+					Grid.Row="1"
+					Margin="0,0,0,-10"
+					Padding="0"
+					BackgroundColor="#45C366"
+					BorderColor="#181A1F"
+					CornerRadius="12"
+					HasShadow="False"
+					HeightRequest="30"
+					HorizontalOptions="CenterAndExpand"
+					IsClippedToBounds="True"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="38">
+					<Label
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalOptions="CenterAndExpand"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand" />
+				</Frame>
+
+				<Label
+					Grid.Row="3"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="18"
+					HorizontalTextAlignment="Start"
+					Text="Details"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<Frame
+					Grid.Row="3"
+					Padding="0"
+					BackgroundColor="Transparent"
+					BorderColor="White"
+					CornerRadius="8"
+					HeightRequest="40"
+					HorizontalOptions="EndAndExpand"
+					IsClippedToBounds="True"
+					Opacity="0.2"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="40" />
+
+				<Button
+					Grid.Row="3"
+					Padding="0"
+					BackgroundColor="Transparent"
+					Command="{Binding EditDependentCommand}"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="25"
+					HeightRequest="40"
+					HorizontalOptions="EndAndExpand"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+					TextColor="White"
+					VerticalOptions="CenterAndExpand"
+					WidthRequest="40" />
+
+				<BoxView
+					Grid.Row="5"
+					BackgroundColor="White"
+					Opacity="0.1" />
+
+				<Grid
+					Grid.Row="6"
+					Margin="40,0,0,0"
+					ColumnSpacing="0"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="96" />
+						<RowDefinition Height="1" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Name"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="{Binding DependentDetail.FirstName}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Last name"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="{Binding DependentDetail.LastName}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Birth date"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="{Binding DependentDetail.Dob}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="5"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Label
+						Grid.Row="6"
+						Grid.Column="0"
+						Margin="0,20,0,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Address"
+						TextColor="White"
+						VerticalTextAlignment="Start" />
+
+					<StackLayout
+						Grid.Row="6"
+						Grid.Column="1"
+						Margin="0,15,0,0"
+						HorizontalOptions="EndAndExpand"
+						Spacing="0"
+						VerticalOptions="StartAndExpand">
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DependentDetail.ChildAddress}" />
+									<Span Text=" " />
+									<Span Text="{Binding DependentDetail.ChildPortNumber}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							TextColor="White">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding DependentDetail.ChildZip}" />
+									<Span Text=" " />
+									<Span Text="{Binding DependentDetail.ChildCity}" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding DependentDetail.CountryName}"
+							TextColor="White" />
+					</StackLayout>
+
+					<BoxView
+						Grid.Row="7"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+				</Grid>
+
+				<Grid
+					Grid.Row="7"
+					Margin="0,71,0,0"
+					ColumnSpacing="0"
+					IsVisible="{Binding DependentDetail.IsSsnAvailable}"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="24" />
+						<RowDefinition Height="23" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Row="0"
+						Grid.ColumnSpan="3"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Social security"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="2"
+						Grid.ColumnSpan="3"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Label
+						Grid.Row="3"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Swedish"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<controls:CustomEntry
+						Grid.Row="3"
+						Grid.Column="2"
+						BackgroundColor="Transparent"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						IsPassword="True"
+						Text="{Binding DependentDetail.Ssn}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+				</Grid>
+
+				<Label
+					Grid.Row="9"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="18"
+					HorizontalTextAlignment="Start"
+					Text="Identify by"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+					Grid.Row="11"
+					BackgroundColor="White"
+					Opacity="0.1" />
+
+				<Frame
+					Grid.Row="13"
+					BackgroundColor="{Binding DependentDetail.PassportBg}"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="80"
+					IsClippedToBounds="True">
+					<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="40" />
+						</Grid.ColumnDefinitions>
+
+						<Label
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="16"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Passport"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Button
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="#4FD471"
+							CornerRadius="20"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HeightRequest="40"
+							HorizontalOptions="EndAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="40" />
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="15"
+					BackgroundColor="#242A37"
+					CornerRadius="16"
+					HasShadow="False"
+					HeightRequest="80"
+					IsClippedToBounds="True">
+					<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="40" />
+						</Grid.ColumnDefinitions>
+
+						<Label
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="16"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Adhar"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Button
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="#4FD471"
+							CornerRadius="20"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HeightRequest="40"
+							HorizontalOptions="EndAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="40" />
+					</Grid>
+				</Frame>
+			</Grid>
+		</ScrollView>
+	</Grid>
 </ContentPage>

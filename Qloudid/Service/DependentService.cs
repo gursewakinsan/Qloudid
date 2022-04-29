@@ -26,6 +26,15 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> CheckDependentSsnAsync(Models.CheckDependentSsnRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckDependentSsnUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+		
 		public Task<int> AddDependentAsync(Models.AddDependentRequest request)
 		{
 			return Task.Factory.StartNew(() =>
@@ -35,6 +44,15 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> UpdateDependentAsync(Models.UpdateDependentRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateDependentUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+		
 		public Task<int> AddDependentProfileImagesAsync(Models.AddDependentProfileImagesRequest request)
 		{
 			return Task.Factory.StartNew(() =>

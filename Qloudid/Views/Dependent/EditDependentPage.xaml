@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.Dependent.AddNewDependentPage"
+	x:Class="Qloudid.Views.Dependent.EditDependentPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -53,7 +53,7 @@
 			FontFamily="PoppinsRegularFontFamily"
 			FontSize="14"
 			HorizontalTextAlignment="Center"
-			Text="Add child"
+			Text="Edit child"
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
@@ -72,11 +72,10 @@
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="0,0,0,5"
+			Margin="0,47,0,5"
 			VerticalScrollBarVisibility="Never">
 			<Grid RowSpacing="0">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="47" />
 					<RowDefinition Height="100" />
 					<RowDefinition Height="77" />
 					<RowDefinition Height="32" />
@@ -110,7 +109,7 @@
 				</Grid.ColumnDefinitions>
 
 				<BoxView
-					Grid.Row="1"
+					Grid.Row="0"
 					Grid.ColumnSpan="2"
 					BackgroundColor="#FA9EFF"
 					CornerRadius="50"
@@ -118,7 +117,7 @@
 					WidthRequest="100" />
 
 				<BoxView
-					Grid.Row="1"
+					Grid.Row="0"
 					Grid.ColumnSpan="2"
 					BackgroundColor="Black"
 					CornerRadius="48"
@@ -129,7 +128,7 @@
 
 				<ImageButton
 					x:Name="imgUser"
-					Grid.Row="1"
+					Grid.Row="0"
 					Grid.ColumnSpan="2"
 					Aspect="AspectFill"
 					BackgroundColor="Transparent"
@@ -137,12 +136,12 @@
 					CornerRadius="46"
 					HeightRequest="92"
 					HorizontalOptions="CenterAndExpand"
-					Source="defaultUserImage.png"
+					Source="{Binding DependentDetail.ImagePath}"
 					VerticalOptions="CenterAndExpand"
 					WidthRequest="92" />
 
 				<Frame
-					Grid.Row="1"
+					Grid.Row="0"
 					Grid.ColumnSpan="2"
 					Margin="0,0,0,-10"
 					Padding="0"
@@ -172,7 +171,7 @@
 				</Frame>
 
 				<controls:CustomButton
-					Grid.Row="3"
+					Grid.Row="2"
 					Grid.Column="0"
 					Margin="0"
 					Padding="0"
@@ -187,7 +186,7 @@
 					WidthRequest="75" />
 
 				<textinputlayout:SfTextInputLayout
-					Grid.Row="5"
+					Grid.Row="4"
 					Grid.ColumnSpan="2"
 					ContainerBackgroundColor="Transparent"
 					ContainerType="Outlined"
@@ -220,7 +219,7 @@
 				</textinputlayout:SfTextInputLayout>
 
 				<textinputlayout:SfTextInputLayout
-					Grid.Row="7"
+					Grid.Row="6"
 					Grid.ColumnSpan="2"
 					ContainerBackgroundColor="Transparent"
 					ContainerType="Outlined"
@@ -253,7 +252,7 @@
 				</textinputlayout:SfTextInputLayout>
 
 				<controls:CustomButton
-					Grid.Row="9"
+					Grid.Row="8"
 					Grid.Column="0"
 					Margin="0"
 					Padding="0"
@@ -268,7 +267,7 @@
 					WidthRequest="99" />
 
 				<Grid
-					Grid.Row="11"
+					Grid.Row="10"
 					Grid.ColumnSpan="2"
 					ColumnSpacing="18"
 					RowSpacing="0">
@@ -354,13 +353,13 @@
 				</Grid>
 
 				<BoxView
-					Grid.Row="13"
+					Grid.Row="12"
 					Grid.ColumnSpan="2"
 					BackgroundColor="White"
 					Opacity="0.10" />
 
 				<StackLayout
-					Grid.Row="15"
+					Grid.Row="14"
 					Grid.Column="0"
 					Spacing="5"
 					VerticalOptions="CenterAndExpand">
@@ -382,7 +381,7 @@
 				</StackLayout>
 
 				<Label
-					Grid.Row="15"
+					Grid.Row="14"
 					Grid.Column="1"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
@@ -397,7 +396,7 @@
 				</Label>
 
 				<Label
-					Grid.Row="15"
+					Grid.Row="14"
 					Grid.Column="1"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
@@ -412,7 +411,7 @@
 				</Label>
 
 				<Frame
-					Grid.Row="16"
+					Grid.Row="15"
 					Grid.ColumnSpan="2"
 					Margin="0,15,0,0"
 					Padding="25,0,25,0"
@@ -464,13 +463,13 @@
 				</Frame>
 
 				<BoxView
-					Grid.Row="18"
+					Grid.Row="17"
 					Grid.ColumnSpan="2"
 					BackgroundColor="White"
 					Opacity="0.10" />
 
 				<StackLayout
-					Grid.Row="20"
+					Grid.Row="19"
 					Grid.Column="0"
 					Spacing="5"
 					VerticalOptions="CenterAndExpand">
@@ -492,7 +491,7 @@
 				</StackLayout>
 
 				<Label
-					Grid.Row="20"
+					Grid.Row="19"
 					Grid.Column="1"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
@@ -507,7 +506,7 @@
 				</Label>
 
 				<Label
-					Grid.Row="20"
+					Grid.Row="19"
 					Grid.Column="1"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="50"
@@ -522,7 +521,7 @@
 				</Label>
 
 				<Frame
-					Grid.Row="21"
+					Grid.Row="20"
 					Grid.ColumnSpan="2"
 					Margin="0,15,0,0"
 					Padding="25,0,25,0"
@@ -661,437 +660,26 @@
 				</Frame>
 
 				<BoxView
-					Grid.Row="23"
+					Grid.Row="22"
 					Grid.ColumnSpan="2"
 					BackgroundColor="White"
 					Opacity="0.10" />
 
 				<controls:CustomButton
-					Grid.Row="25"
+					Grid.Row="24"
 					Grid.ColumnSpan="2"
 					Margin="0"
 					BackgroundColor="#6263ED"
 					BorderColor="#6263ED"
-					Command="{Binding AddDependentCommand}"
+					Command="{Binding UpdateDependentCommand}"
 					CornerRadius="12"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"
 					HeightRequest="56"
-					Text="Add child"
+					Text="Update child"
 					TextColor="White"
 					VerticalOptions="EndAndExpand" />
 			</Grid>
 		</ScrollView>
 	</Grid>
-
-
-
-	<!--<ScrollView VerticalScrollBarVisibility="Never">
-		<StackLayout Padding="30">
-			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-				<Grid Margin="0,0,0,10">
-					<ImageButton
-						Grid.Column="0"
-						Padding="9"
-						BackgroundColor="#3623B7"
-						BorderColor="#05CBE7"
-						BorderWidth="1"
-						CornerRadius="20"
-						HeightRequest="50"
-						HorizontalOptions="Start"
-						VerticalOptions="Center"
-						WidthRequest="50">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-								Size="50"
-								Color="#05CBE7" />
-						</ImageButton.Source>
-					</ImageButton>
-
-					<ImageButton
-						Grid.Column="1"
-						Padding="15,5,0,15"
-						BackgroundColor="Transparent"
-						Command="{Binding CloseCommand}"
-						HorizontalOptions="EndAndExpand"
-						IsVisible="{Binding IsCloseShow}"
-						WidthRequest="40">
-						<ImageButton.Source>
-							<FontImageSource
-								FontFamily="{StaticResource MaterialFontFamily}"
-								Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-								Size="26"
-								Color="#6F7FAF" />
-						</ImageButton.Source>
-					</ImageButton>
-				</Grid>
-
-				<Label
-					FontFamily="SFProDisplayMediumFontFamily"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="Add"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<Label
-					FontFamily="SFProDisplayMediumFontFamily"
-					FontSize="28"
-					HorizontalTextAlignment="Start"
-					Text="dependent"
-					TextColor="Black"
-					VerticalTextAlignment="Start" />
-
-				<BoxView
-					Margin="0,10,0,50"
-					BackgroundColor="#05CBE7"
-					CornerRadius="3"
-					HeightRequest="5"
-					HorizontalOptions="Start"
-					VerticalOptions="Start"
-					WidthRequest="40" />
-
-				<Label
-					FontFamily="SFProRegularFontFamily"
-					FontSize="16"
-					HorizontalTextAlignment="Start"
-					Text="Please add your dependent details."
-					TextColor="#6F7FAF"
-					VerticalTextAlignment="Start" />
-			</StackLayout>
-
-			<Grid
-				Margin="0,24,0,0"
-				RowSpacing="20"
-				VerticalOptions="StartAndExpand">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="70" />
-				</Grid.RowDefinitions>
-
-				<Frame
-					Grid.Row="0"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,5,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-							<ColumnDefinition Width="30" />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="19"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomPicker
-							Title="Dependent Type"
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							SelectedItem="{Binding DependentType}"
-							TextColor="#6F7FAF"
-							TitleColor="#6F7FAF">
-							<controls:CustomPicker.ItemsSource>
-								<x:Array Type="{x:Type x:String}">
-									<x:String>Child</x:String>
-									<x:String>Elder</x:String>
-									<x:String>Disabled</x:String>
-								</x:Array>
-							</controls:CustomPicker.ItemsSource>
-						</controls:CustomPicker>
-						<Label
-							Grid.Column="2"
-							FontSize="16"
-							HorizontalTextAlignment="Start"
-							Opacity="0.5"
-							Text="&#x25bc;"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="1"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,20,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="25"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomEntry
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Placeholder="First Name"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding FirstName}"
-							TextColor="#6F7FAF" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="2"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,20,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="25"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomEntry
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Placeholder="Last Name"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding LastName}"
-							TextColor="#6F7FAF" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="3"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,20,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Image
-							Grid.Column="0"
-							Aspect="AspectFit"
-							HeightRequest="19"
-							HorizontalOptions="Center"
-							Source="iconCountry.png"
-							VerticalOptions="Center"
-							WidthRequest="19" />
-
-						<controls:CustomEntry
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							IsReadOnly="True"
-							Placeholder="Country"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding CountryName}"
-							TextColor="#6F7FAF" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="4"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,20,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="22"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.Security}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomEntry
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Placeholder="Social Security Number"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding SocialSecurityNumber}"
-							TextColor="#6F7FAF" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="5"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,20,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="22"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.PassportBiometric}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomEntry
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Placeholder="Passport Number"
-							PlaceholderColor="#6F7FAF"
-							Text="{Binding PassportNumber}"
-							TextColor="#6F7FAF" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="6"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,5,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-							<ColumnDefinition Width="30" />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="19"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomDatePicker
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							Date="{Binding SelectedIssueDate}"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Format="yyyy-MM-dd"
-							MaximumDate="{Binding BindIssueMaximumDate}"
-							MinimumDate="{Binding BindIssueMinimumDate}"
-							Placeholder="Issue Date"
-							TextColor="#6F7FAF" />
-
-						<Label
-							Grid.Column="2"
-							FontSize="16"
-							HorizontalTextAlignment="Start"
-							Opacity="0.5"
-							Text="&#x25bc;"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-					</Grid>
-				</Frame>
-
-				<Frame
-					Grid.Row="7"
-					Padding="0"
-					BackgroundColor="#F8F8FB"
-					CornerRadius="25"
-					HasShadow="False">
-					<Grid Margin="10,0,5,0" ColumnSpacing="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="40" />
-							<ColumnDefinition />
-							<ColumnDefinition Width="30" />
-						</Grid.ColumnDefinitions>
-						<Label
-							Grid.Column="0"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="19"
-							HorizontalTextAlignment="Center"
-							Opacity="0.5"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-
-						<controls:CustomDatePicker
-							Grid.Column="1"
-							BackgroundColor="#F8F8FB"
-							Date="{Binding SelectedExpiryDate}"
-							FontFamily="SFProRegularFontFamily"
-							FontSize="16"
-							Format="yyyy-MM-dd"
-							MaximumDate="{Binding BindExpiryMaximumDate}"
-							MinimumDate="{Binding BindExpiryMinimumDate}"
-							Placeholder="Expiry Date"
-							TextColor="#6F7FAF" />
-						<Label
-							Grid.Column="2"
-							FontSize="16"
-							HorizontalTextAlignment="Start"
-							Opacity="0.5"
-							Text="&#x25bc;"
-							TextColor="#6F7FAF"
-							VerticalTextAlignment="Center" />
-					</Grid>
-				</Frame>
-
-				<controls:CustomButton
-					Grid.Row="8"
-					Margin="0"
-					BackgroundColor="#05CBE7"
-					Command="{Binding AddDependentCommand}"
-					FontFamily="SFProSemiboldFontFamily"
-					FontSize="16"
-					Text="Next"
-					VerticalOptions="EndAndExpand" />
-			</Grid>
-		</StackLayout>
-	</ScrollView>-->
 </ContentPage>

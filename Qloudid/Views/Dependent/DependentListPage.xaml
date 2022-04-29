@@ -27,10 +27,26 @@
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 
-		<usercontrols:BackButtonControl
+		<Frame
 			Grid.Row="0"
 			Grid.Column="1"
-			HorizontalOptions="StartAndExpand" />
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
 
 		<Label
 			Grid.Row="0"

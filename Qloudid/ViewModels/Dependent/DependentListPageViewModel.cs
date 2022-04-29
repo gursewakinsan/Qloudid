@@ -58,10 +58,11 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDependentService service = new DependentService();
-			var responses = await service.DependentDetailAsync(new Models.DependentDetailRequest()
+			Helper.Helper.DependentDetail = await service.DependentDetailAsync(new Models.DependentDetailRequest()
 			{
 				Id = id
 			});
+			await Navigation.PushAsync(new Views.Dependent.DependentDetailPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

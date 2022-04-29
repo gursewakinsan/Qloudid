@@ -30,10 +30,27 @@
 			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
-		<usercontrols:BackButtonControl
+
+		<Frame
 			Grid.Row="0"
 			Grid.Column="1"
-			HorizontalOptions="StartAndExpand" />
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
 
 		<Label
 			Grid.Row="0"
@@ -45,10 +62,26 @@
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
-		<usercontrols:BackButtonControl
+		<Frame
 			Grid.Row="0"
 			Grid.Column="3"
-			HorizontalOptions="StartAndExpand" />
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding DependentProfilePageCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.SettingIcon}"
+			TextColor="White" />
 
 		<BoxView
 			Grid.Row="2"
@@ -82,9 +115,16 @@
 			HorizontalTextAlignment="Center"
 			LineBreakMode="TailTruncation"
 			MaxLines="1"
-			Text="Kowaken Ghirmai"
 			TextColor="White"
-			VerticalTextAlignment="Center" />
+			VerticalTextAlignment="Center">
+			<Label.FormattedText>
+				<FormattedString>
+					<Span Text="{Binding DependentDetail.FirstName}" />
+					<Span Text=" " />
+					<Span Text="{Binding DependentDetail.LastName}" />
+				</FormattedString>
+			</Label.FormattedText>
+		</Label>
 
 		<Label
 			Grid.Row="6"
@@ -95,13 +135,20 @@
 			LineBreakMode="TailTruncation"
 			MaxLines="1"
 			Opacity="0.42"
-			Text="12 years old"
 			TextColor="White"
-			VerticalTextAlignment="Center" />
+			VerticalTextAlignment="Center">
+			<Label.FormattedText>
+				<FormattedString>
+					<Span Text="{Binding DependentDetail.Age}" />
+					<Span Text=" years old" />
+				</FormattedString>
+			</Label.FormattedText>
+		</Label>
 
 		<Grid
 			Grid.Row="7"
-			Grid.Column="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
 			ColumnSpacing="31"
 			HeightRequest="130"
 			HorizontalOptions="CenterAndExpand"
@@ -125,7 +172,7 @@
 					FontSize="20"
 					HeightRequest="48"
 					HorizontalOptions="CenterAndExpand"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.CellphoneAndroid}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.PhoneOutline}"
 					TextColor="#45C366"
 					WidthRequest="48" />
 
@@ -151,7 +198,7 @@
 					FontSize="40"
 					HeightRequest="80"
 					HorizontalOptions="CenterAndExpand"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Menu}"
 					TextColor="#4C7CE5"
 					WidthRequest="80" />
 
@@ -177,7 +224,7 @@
 					FontSize="20"
 					HeightRequest="48"
 					HorizontalOptions="CenterAndExpand"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ShareVariantOutline}"
 					TextColor="#FF9129"
 					WidthRequest="48" />
 

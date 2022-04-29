@@ -7,7 +7,9 @@ namespace Qloudid.Interfaces
 	{
 		Task<List<Models.DependentResponse>> GetAllDependentAsync(Models.DependentRequest request);
 		Task<int> CheckSsnAsync(Models.CheckSsnRequest request);
+		Task<int> CheckDependentSsnAsync(Models.CheckDependentSsnRequest request);
 		Task<int> AddDependentAsync(Models.AddDependentRequest request);
+		Task<int> UpdateDependentAsync(Models.UpdateDependentRequest request);
 		Task<int> AddDependentProfileImagesAsync(Models.AddDependentProfileImagesRequest request);
 		Task<int> AddDependentImagesAsync(Models.AddDependentImagesRequest request);
 		Task<int> AddDependentPassportAsync(Models.AddDependentPassportRequest request);
