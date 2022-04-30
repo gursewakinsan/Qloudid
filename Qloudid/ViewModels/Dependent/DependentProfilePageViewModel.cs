@@ -9,7 +9,7 @@ namespace Qloudid.ViewModels
 		#region Constructor.
 		public DependentProfilePageViewModel(INavigation navigation)
 		{
-			Navigation = navigation;
+			Navigation = navigation; 
 		}
 		#endregion
 

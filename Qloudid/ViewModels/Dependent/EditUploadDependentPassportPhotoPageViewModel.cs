@@ -161,6 +161,19 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.Dependent.DependentListPage());
+			await Task.CompletedTask;
+		}
+		#endregion
+
 		#region Properties.
 		public Image Image1 { get; set; }
 		public Image Image2 { get; set; }

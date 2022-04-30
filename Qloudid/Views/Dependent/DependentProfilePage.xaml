@@ -398,7 +398,7 @@
 						FontSize="14"
 						HorizontalTextAlignment="Start"
 						Opacity="0.42"
-						Text="Swedish"
+						Text="{Binding DependentDetail.CountryName}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -409,7 +409,6 @@
 						FontFamily="PoppinsRegularFontFamily"
 						FontSize="14"
 						HorizontalTextAlignment="End"
-						IsPassword="True"
 						Text="{Binding DependentDetail.Ssn}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
