@@ -435,7 +435,13 @@
 					HasShadow="False"
 					HeightRequest="80"
 					IsClippedToBounds="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding AddEditDependentPassportCommand}" />
+					</Frame.GestureRecognizers>
 					<Grid ColumnSpacing="0" VerticalOptions="CenterAndExpand">
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding AddEditDependentPassportCommand}" />
+						</Grid.GestureRecognizers>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition />
 							<ColumnDefinition Width="40" />
@@ -448,12 +454,17 @@
 							MaxLines="1"
 							Text="Passport"
 							TextColor="White"
-							VerticalTextAlignment="Center" />
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding AddEditDependentPassportCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
 
 						<Button
 							Grid.Column="1"
 							Padding="0"
 							BackgroundColor="#4FD471"
+							Command="{Binding AddEditDependentPassportCommand}"
 							CornerRadius="20"
 							FontFamily="{StaticResource MaterialFontFamily}"
 							FontSize="25"
