@@ -39,7 +39,8 @@ namespace Qloudid.ViewModels
 				Helper.Helper.IsBack = false;
 				DependencyService.Get<IProgressBar>().Show();
 				IDashboardService service = new DashboardService();
-				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() { password = Password });
+				int response = await service.VerifyPasswordAsync(Helper.Helper.QrCertificateKey, new SetPassword() 
+				{ password = Password });
 				ClearPassword();
 				if (response == 1)
 				{
