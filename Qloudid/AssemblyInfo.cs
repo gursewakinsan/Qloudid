@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("PoppinsBold.ttf", Alias = "PoppinsBoldFontFamily")]
 [assembly: ExportFont("PoppinsRegular.ttf", Alias = "PoppinsRegularFontFamily")]
 [assembly: ExportFont("PoppinsSemiBold.ttf", Alias = "PoppinsSemiBoldFontFamily")]
+[assembly: ExportFont("PoppinsMedium.ttf", Alias = "PoppinsMediumFontFamily")]
 [assembly: ExportFont("SFProDisplayBold.ttf", Alias = "SFProDisplayBoldFontFamily")]
 [assembly: ExportFont("SFProDisplayLight.ttf", Alias = "SFProDisplayLightFontFamily")]
 [assembly: ExportFont("SFProDisplayMedium.ttf", Alias = "SFProDisplayMediumFontFamily")]

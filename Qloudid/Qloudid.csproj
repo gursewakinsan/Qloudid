@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="AppFonts\PoppinsBold.ttf" />
+    <None Remove="AppFonts\PoppinsMedium.ttf" />
     <None Remove="AppFonts\PoppinsRegular.ttf" />
     <None Remove="AppFonts\PoppinsSemiBold.ttf" />
     <None Remove="AppFonts\SFProDisplayBold.ttf" />
@@ -24,6 +25,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="AppFonts\PoppinsBold.ttf" />
+    <EmbeddedResource Include="AppFonts\PoppinsMedium.ttf" />
     <EmbeddedResource Include="AppFonts\PoppinsRegular.ttf" />
     <EmbeddedResource Include="AppFonts\PoppinsSemiBold.ttf" />
     <EmbeddedResource Include="AppFonts\SFProDisplayBold.ttf" />
