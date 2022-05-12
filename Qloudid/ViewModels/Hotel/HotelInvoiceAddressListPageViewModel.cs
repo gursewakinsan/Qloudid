@@ -27,8 +27,9 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			var response = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
-			var list = new List<Models.InvoiceAddressInfo>();
+			InvoiceAddressListInfo = await service.GetInvoiceAddressAsync(new Models.InvoiceAddressRequest() { UserId = Helper.Helper.UserId });
+			UserInvoiceAddressCommand.Execute(null);
+			/*var list = new List<Models.InvoiceAddressInfo>();
 			if (response?.Count > 0)
 			{
 				int index = 0;
@@ -60,8 +61,38 @@ namespace Qloudid.ViewModels
 					list.Add(listCompanies);
 				}
 			}
-			ListOfInvoiceAddress = list;
+			ListOfInvoiceAddress = list;*/
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region User Invoice Address Command.
+		private ICommand userInvoiceAddressCommand;
+		public ICommand UserInvoiceAddressCommand
+		{
+			get => userInvoiceAddressCommand ?? (userInvoiceAddressCommand = new Command( () =>  ExecuteUserInvoiceAddressCommand()));
+		}
+		private void ExecuteUserInvoiceAddressCommand()
+		{
+			UserButtonBg = Color.FromHex("#0F9D58");
+			CompnyButtonBg = Color.FromHex("#242A37");
+			if (InvoiceAddressListInfo?.Count > 0)
+				ListOfInvoiceAddress = InvoiceAddressListInfo.Where(x => x.IsUser).ToList();
+		}
+		#endregion
+
+		#region Company Invoice Address Command.
+		private ICommand companyInvoiceAddressCommand;
+		public ICommand CompanyInvoiceAddressCommand
+		{
+			get => companyInvoiceAddressCommand ?? (companyInvoiceAddressCommand = new Command(() => ExecuteCompanyInvoiceAddressCommand()));
+		}
+		private void ExecuteCompanyInvoiceAddressCommand()
+		{
+			UserButtonBg = Color.FromHex("#242A37");
+			CompnyButtonBg = Color.FromHex("#0F9D58");
+			if (InvoiceAddressListInfo?.Count > 0)
+				ListOfInvoiceAddress = InvoiceAddressListInfo.Where(x => !x.IsUser).ToList();
 		}
 		#endregion
 
@@ -94,8 +125,10 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.InvoiceAddressInfo> listOfInvoiceAddress;
-		public List<Models.InvoiceAddressInfo> ListOfInvoiceAddress
+		public List<Models.InvoiceAddressResponse> InvoiceAddressListInfo { get; set; }
+		
+		private List<Models.InvoiceAddressResponse> listOfInvoiceAddress;
+		public List<Models.InvoiceAddressResponse> ListOfInvoiceAddress
 		{
 			get { return listOfInvoiceAddress; }
 			set
@@ -159,6 +192,29 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsSubmit");
 			}
 		}
+
+		private Color userButtonBg = Color.FromHex("#0F9D58");
+		public Color UserButtonBg
+		{
+			get { return userButtonBg; }
+			set
+			{
+				userButtonBg = value;
+				OnPropertyChanged("UserButtonBg");
+			}
+		}
+
+		private Color compnyButtonBg = Color.FromHex("#242A37");
+		public Color CompnyButtonBg
+		{
+			get { return compnyButtonBg; }
+			set
+			{
+				compnyButtonBg = value;
+				OnPropertyChanged("CompnyButtonBg");
+			}
+		}
+
 		public int InvoiceAddressId { get; set; }
 		public string UserName => Helper.Helper.UserInfo.DisplayUserName;
 		public string StreetAndNr => "Street & nr";

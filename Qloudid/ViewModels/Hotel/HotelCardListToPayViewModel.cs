@@ -60,6 +60,34 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region User Invoice Address Command.
+		private ICommand userInvoiceAddressCommand;
+		public ICommand UserInvoiceAddressCommand
+		{
+			get => userInvoiceAddressCommand ?? (userInvoiceAddressCommand = new Command(() => ExecuteUserInvoiceAddressCommand()));
+		}
+		private void ExecuteUserInvoiceAddressCommand()
+		{
+			UserButtonBg = Color.FromHex("#0F9D58");
+			CompnyButtonBg = Color.FromHex("#242A37");
+			GetAllCardCommand.Execute(null);
+		}
+		#endregion
+
+		#region Company Invoice Address Command.
+		private ICommand companyInvoiceAddressCommand;
+		public ICommand CompanyInvoiceAddressCommand
+		{
+			get => companyInvoiceAddressCommand ?? (companyInvoiceAddressCommand = new Command(() => ExecuteCompanyInvoiceAddressCommand()));
+		}
+		private void ExecuteCompanyInvoiceAddressCommand()
+		{
+			UserButtonBg = Color.FromHex("#242A37");
+			CompnyButtonBg = Color.FromHex("#0F9D58");
+			GetAllCardCommand.Execute(null);
+		}
+		#endregion
+
 		#region Selected Final Step To Pay Command.
 		private ICommand selectedFinalStepToPayCommand;
 		public ICommand SelectedFinalStepToPayCommand
@@ -158,6 +186,29 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsSubmit");
 			}
 		}
+
+		private Color userButtonBg = Color.FromHex("#0F9D58");
+		public Color UserButtonBg
+		{
+			get { return userButtonBg; }
+			set
+			{
+				userButtonBg = value;
+				OnPropertyChanged("UserButtonBg");
+			}
+		}
+
+		private Color compnyButtonBg = Color.FromHex("#242A37");
+		public Color CompnyButtonBg
+		{
+			get { return compnyButtonBg; }
+			set
+			{
+				compnyButtonBg = value;
+				OnPropertyChanged("CompnyButtonBg");
+			}
+		}
+
 		public bool IsUserCardOrCompanyCard => Helper.Helper.CompanyId > 0 ? false : true;
 		public int CardId { get; set; }
 		#endregion
