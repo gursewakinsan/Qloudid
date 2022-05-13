@@ -28,5 +28,14 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "price")]
 		public int Price { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "guests")]
+		public string Guests { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "total_days")]
+		public string TotalDays { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "booking")]
+		public string Booking { get; set; }
 	}
 }

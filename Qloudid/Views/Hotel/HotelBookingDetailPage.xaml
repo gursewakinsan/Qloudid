@@ -163,9 +163,15 @@
 						HorizontalTextAlignment="End"
 						LineBreakMode="TailTruncation"
 						MaxLines="1"
-						Text="3 nights"
 						TextColor="White"
-						VerticalTextAlignment="Center" />
+						VerticalTextAlignment="Center">
+						<Label.FormattedText>
+							<FormattedString>
+								<Span Text="{Binding BookingDetail.TotalDays}" />
+								<Span Text=" nights" />
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
 
 					<BoxView
 						Grid.Row="4"
@@ -193,7 +199,7 @@
 						HorizontalTextAlignment="End"
 						LineBreakMode="TailTruncation"
 						MaxLines="1"
-						Text="2 adults &amp; 1 child"
+						Text="{Binding BookingDetail.Guests}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
@@ -223,7 +229,7 @@
 						HorizontalTextAlignment="End"
 						LineBreakMode="TailTruncation"
 						MaxLines="1"
-						Text="22-25 May, 2022"
+						Text="{Binding BookingDetail.Booking}"
 						TextColor="White"
 						VerticalTextAlignment="Center" />
 
