@@ -564,6 +564,7 @@ namespace Qloudid
 		#region Show Missing Pre Check In Info Page.
 		async void ShowMissingPreCheckInInfoPage(string id)
 		{
+			DependencyService.Get<IProgressBar>().Show();
 			if (Helper.Helper.UserInfo == null)
 				FillUserInfo();
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
@@ -582,6 +583,7 @@ namespace Qloudid
 				UserId = Helper.Helper.UserId
 			});
 			Helper.Helper.PreCheckInUserActiveStatusInfo = responseUserActiveStatus;
+			DependencyService.Get<IProgressBar>().Hide();
 			MainPage = new NavigationPage(new Views.PreCheckIn.MissingPreCheckInInfoPage());
 		}
 		#endregion
