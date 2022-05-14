@@ -571,12 +571,16 @@ namespace Qloudid
 				FillUserInfo();
 
 			IPreCheckInService preCheckInService = new PreCheckInService();
-			var responsePreCheckinStatus = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+			/*var responsePreCheckinStatus = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
 			{
 				Id = id,
 				userId = Helper.Helper.UserId
 			});
-			Helper.Helper.PreCheckinStatusInfo = responsePreCheckinStatus;
+			Helper.Helper.PreCheckinStatusInfo = responsePreCheckinStatus;*/
+			Helper.Helper.PreCheckinStatusInfo = new Models.GetPreCheckinStatusResponse()
+			{
+				Name = Helper.Helper.UserInfo.DisplayUserName
+			};
 
 			var responseUserActiveStatus = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
 			{
