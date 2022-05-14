@@ -403,6 +403,9 @@ namespace Qloudid
 					Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[2].Replace("/", ""));
 					GetCompanyCommand.Execute(null);
 					break;
+				case "ShowMissingPreCheckInInfoPage":
+					ShowMissingPreCheckInInfoPage(uri.Segments[2].Replace("/", ""));
+					break;
 			}
 		}
 		#endregion
@@ -455,6 +458,9 @@ namespace Qloudid
 					case "InvitedVisitorsMeetingId":
 						Helper.Helper.InvitedVisitorsMeetingId = Convert.ToInt32(uri.Segments[4].Replace("/", ""));
 						GetCompanyCommand.Execute(null);
+						break;
+					case "ShowMissingPreCheckInInfoPage":
+						ShowMissingPreCheckInInfoPage(uri.Segments[4].Replace("/", ""));
 						break;
 				}
 			}
@@ -552,6 +558,31 @@ namespace Qloudid
 			else
 				MainPage = new NavigationPage(new Views.Visitors.VerifyInvitedVisitorsMeetingPasswordPage());
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Show Missing Pre Check In Info Page.
+		async void ShowMissingPreCheckInInfoPage(string id)
+		{
+			if (Helper.Helper.UserInfo == null)
+				FillUserInfo();
+			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
+				FillUserInfo();
+
+			IPreCheckInService preCheckInService = new PreCheckInService();
+			var responsePreCheckinStatus = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+			{
+				Id = id,
+				userId = Helper.Helper.UserId
+			});
+			Helper.Helper.PreCheckinStatusInfo = responsePreCheckinStatus;
+
+			var responseUserActiveStatus = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
+			{
+				UserId = Helper.Helper.UserId
+			});
+			Helper.Helper.PreCheckInUserActiveStatusInfo = responseUserActiveStatus;
+			MainPage = new NavigationPage(new Views.PreCheckIn.MissingPreCheckInInfoPage());
 		}
 		#endregion
 	}

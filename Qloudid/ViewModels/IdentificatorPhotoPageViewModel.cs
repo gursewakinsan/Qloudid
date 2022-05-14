@@ -83,6 +83,8 @@ namespace Qloudid.ViewModels
 							else
 								Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
 						}
+						else
+							Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					}
 					DependencyService.Get<IProgressBar>().Hide();
 				}
