@@ -114,6 +114,26 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Cancel Command.
+		private ICommand cancelCommand;
+		public ICommand CancelCommand
+		{
+			get => cancelCommand ?? (cancelCommand = new Command(async () => await ExecuteCancelCommand()));
+		}
+		private async Task ExecuteCancelCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			Models.ClearCertificateRequest request = new Models.ClearCertificateRequest()
+			{
+				certi = Helper.Helper.QrCertificateKey
+			};
+			await service.ClearCertificateAsync(request);
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private Models.BookingDetailResponse bookingDetail;
 		public Models.BookingDetailResponse BookingDetail

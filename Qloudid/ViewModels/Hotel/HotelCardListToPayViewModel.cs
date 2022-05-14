@@ -14,6 +14,7 @@ namespace Qloudid.ViewModels
 		public HotelCardListToPayViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			IsUserCardOrCompanyCard = Helper.Helper.CompanyId > 0 ? false : true;
 		}
 		#endregion
 
@@ -131,6 +132,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(() => ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.Hotel.ClickedBackFromCardListPage());
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.CardDetailResponse> cardList;
 		public List<Models.CardDetailResponse> CardList
@@ -209,7 +222,17 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public bool IsUserCardOrCompanyCard => Helper.Helper.CompanyId > 0 ? false : true;
+		private bool isUserCardOrCompanyCard;
+		public bool IsUserCardOrCompanyCard
+		{
+			get { return isUserCardOrCompanyCard; }
+			set
+			{
+				isUserCardOrCompanyCard = value;
+				OnPropertyChanged("IsUserCardOrCompanyCard");
+			}
+		}
+		
 		public int CardId { get; set; }
 		#endregion
 	}

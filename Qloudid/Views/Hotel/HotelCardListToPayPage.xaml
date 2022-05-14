@@ -40,7 +40,7 @@
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
-			Command="{Binding CloseCommand}"
+			Command="{Binding BackCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="25"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
@@ -94,24 +94,24 @@
 				Spacing="12">
 				<Button
 					Padding="0"
-					BackgroundColor="{Binding UserButtonBg}"
-					Command="{Binding UserInvoiceAddressCommand}"
+					BackgroundColor="#0F9D58"
 					CornerRadius="8"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="12"
 					HeightRequest="36"
+					IsVisible="{Binding IsUserCardOrCompanyCard}"
 					Text="Myself"
 					TextColor="White"
 					WidthRequest="80" />
 
 				<Button
 					Padding="0"
-					BackgroundColor="{Binding CompnyButtonBg}"
-					Command="{Binding CompanyInvoiceAddressCommand}"
+					BackgroundColor="#0F9D58"
 					CornerRadius="8"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="12"
 					HeightRequest="36"
+					IsVisible="{Binding IsUserCardOrCompanyCard, Converter={StaticResource InverseBoolConverter}}"
 					Text="Employer"
 					TextColor="White"
 					WidthRequest="98" />

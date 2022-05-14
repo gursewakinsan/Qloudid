@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="Qloudid.Views.Hotel.ClickedBackFromDeliveryAddressPage"
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="56" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding GoToInvoiceAddressListPageCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<StackLayout
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,31,0,10"
+			Spacing="0">
+			<Label
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="40"
+				Text="Instructions"
+				TextColor="White" />
+
+			<Label
+				Margin="0,5,0,8"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="16"
+				LineBreakMode="TailTruncation"
+				LineHeight="1.2"
+				MaxLines="2"
+				Opacity="0.7"
+				Text="Add / Update below details and submit"
+				TextColor="White" />
+
+			<BoxView
+				BackgroundColor="White"
+				HeightRequest="1"
+				Opacity="0.10" />
+
+			<Label
+				Margin="0,41,0,26"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="18"
+				Text="Click &amp; Add"
+				TextColor="White" />
+
+			<Frame
+				Margin="0,0,0,20"
+				Padding="20"
+				BackgroundColor="#DB4437"
+				CornerRadius="16"
+				HasShadow="False"
+				IsClippedToBounds="True">
+				<Frame.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding GoToInvoiceAddressListPageCommand}" />
+				</Frame.GestureRecognizers>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="40" />
+					</Grid.ColumnDefinitions>
+					<Grid.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding GoToInvoiceAddressListPageCommand}" />
+					</Grid.GestureRecognizers>
+
+					<Button
+						Grid.Row="0"
+						Grid.Column="0"
+						Padding="0"
+						BackgroundColor="#CA2012"
+						Command="{Binding GoToInvoiceAddressListPageCommand}"
+						CornerRadius="20"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="18"
+						HeightRequest="40"
+						HorizontalOptions="CenterAndExpand"
+						Text="1"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="40" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						Margin="20,0,0,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="Delivery address"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding GoToInvoiceAddressListPageCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="2"
+						Padding="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding GoToInvoiceAddressListPageCommand}" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+			</Frame>
+
+			<Frame
+				Margin="0,0,0,20"
+				Padding="20"
+				BackgroundColor="#242A37"
+				CornerRadius="16"
+				HasShadow="False"
+				IsClippedToBounds="True">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="40" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="40" />
+					</Grid.ColumnDefinitions>
+
+					<Button
+						Grid.Row="0"
+						Grid.Column="0"
+						Padding="0"
+						BackgroundColor="#274657"
+						CornerRadius="20"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="18"
+						HeightRequest="40"
+						HorizontalOptions="CenterAndExpand"
+						Text="2"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand"
+						WidthRequest="40" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						Margin="20,0,0,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						LineBreakMode="TailTruncation"
+						MaxLines="1"
+						Text="Payment type"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="2"
+						Padding="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+				</Grid>
+			</Frame>
+		</StackLayout>
+
+		<Frame
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Padding="0"
+			BackgroundColor="#181A1F"
+			BorderColor="#242A37"
+			CornerRadius="12"
+			HasShadow="False"
+			IsClippedToBounds="True">
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="8"
+				VerticalOptions="CenterAndExpand">
+				<Label
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Center"
+					Opacity="0.42"
+					Text="Sign"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Center"
+					Opacity="0.42"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+		</Frame>
+	</Grid>
+</ContentPage>
