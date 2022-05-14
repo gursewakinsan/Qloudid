@@ -55,7 +55,7 @@ namespace Qloudid.Views
 
 		private async void OnLoginToDesktopClicked(object sender, EventArgs e)
 		{
-			/*var customOverlay = new StackLayout
+			var customOverlay = new StackLayout
 			{
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				VerticalOptions = LayoutOptions.StartAndExpand
@@ -85,11 +85,10 @@ namespace Qloudid.Views
 				});
 			};
 			scanPage.IsScanning = true;
-			await Navigation.PushModalAsync(scanPage);*/
+			await Navigation.PushModalAsync(scanPage);
 
-			string str = $"bGw3UUxkaXF3bm1EK3hjdFZwOC9rQT09/YWZlN2t1ZmF5bmh6VHVhdnlZSHFCZz09/hotel/1/bmdtL1V1S0I0M3ZIdkJPS1lSRU1Kdz09";
-
-			viewModel.LoginToDesktopCommand.Execute(str);
+			//string str = $"bGw3UUxkaXF3bm1EK3hjdFZwOC9rQT09/YWZlN2t1ZmF5bmh6VHVhdnlZSHFCZz09/hotel/1/bmdtL1V1S0I0M3ZIdkJPS1lSRU1Kdz09";
+			//viewModel.LoginToDesktopCommand.Execute(str);
 		}
 		private void OnBackClicked(object sender, EventArgs e)
 		{

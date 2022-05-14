@@ -166,11 +166,11 @@
 									Text="Client"
 									TextColor="White"
 									VerticalTextAlignment="Start" />
-
+								
 								<Frame
 									Padding="0"
 									BackgroundColor="#0F9D58"
-									CornerRadius="20"
+									CornerRadius="10"
 									HasShadow="False"
 									HeightRequest="20"
 									HorizontalOptions="StartAndExpand"
@@ -286,7 +286,7 @@
 								<Frame
 									Padding="0"
 									BackgroundColor="#0F9D58"
-									CornerRadius="20"
+									CornerRadius="10"
 									HasShadow="False"
 									HeightRequest="20"
 									HorizontalOptions="StartAndExpand"
