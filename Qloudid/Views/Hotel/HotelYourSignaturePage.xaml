@@ -125,7 +125,7 @@
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
-					LineHeight="1.2"
+					LineHeight="1.64"
 					MaxLines="2"
 					Opacity="0.7"
 					Text="Add / Update below details and submit"

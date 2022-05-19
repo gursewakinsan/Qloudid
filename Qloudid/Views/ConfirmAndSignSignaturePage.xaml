@@ -68,20 +68,20 @@
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
 					FontSize="40"
-					Text="Qloud ID"
+					Text="Qloud ID" LineHeight="1.2"
 					TextColor="White" />
 
-				<Label
+				<Label 
 					Margin="0,8,0,52"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
-					LineHeight="1.1"
+					LineHeight="1.64"
 					Text="I hereby identify myself on 'Dstricts'"
 					TextColor="White" />
 
-				<Grid ColumnSpacing="10" RowSpacing="0">
+				<Grid ColumnSpacing="8" RowSpacing="0">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="56" />
+						<RowDefinition Height="68" />
 						<RowDefinition Height="2" />
 					</Grid.RowDefinitions>
 					<Frame
@@ -93,7 +93,7 @@
 						IsClippedToBounds="True">
 						<Label
 							FontFamily="PoppinsBoldFontFamily"
-							FontSize="24"
+							FontSize="24" LineHeight="1.5"
 							HorizontalTextAlignment="Center"
 							Text="{Binding Password1}"
 							TextColor="White"
@@ -112,7 +112,7 @@
 						BackgroundColor="Transparent"
 						CornerRadius="10"
 						IsClippedToBounds="True">
-						<Label
+						<Label LineHeight="1.5"
 							FontFamily="PoppinsBoldFontFamily"
 							FontSize="24"
 							HorizontalTextAlignment="Center"
@@ -133,7 +133,7 @@
 						BackgroundColor="Transparent"
 						CornerRadius="10"
 						IsClippedToBounds="True">
-						<Label
+						<Label LineHeight="1.5"
 							FontFamily="PoppinsBoldFontFamily"
 							FontSize="24"
 							HorizontalTextAlignment="Center"
@@ -154,7 +154,7 @@
 						BackgroundColor="Transparent"
 						CornerRadius="10"
 						IsClippedToBounds="True">
-						<Label
+						<Label LineHeight="1.5"
 							FontFamily="PoppinsBoldFontFamily"
 							FontSize="24"
 							HorizontalTextAlignment="Center"
@@ -175,7 +175,7 @@
 						BackgroundColor="Transparent"
 						CornerRadius="10"
 						IsClippedToBounds="True">
-						<Label
+						<Label LineHeight="1.5"
 							FontFamily="PoppinsBoldFontFamily"
 							FontSize="24"
 							HorizontalTextAlignment="Center"
@@ -196,7 +196,7 @@
 						BackgroundColor="Transparent"
 						CornerRadius="10"
 						IsClippedToBounds="True">
-						<Label
+						<Label LineHeight="1.5"
 							FontFamily="PoppinsBoldFontFamily"
 							FontSize="24"
 							HorizontalTextAlignment="Center"
@@ -212,16 +212,16 @@
 				</Grid>
 
 				<Label
-					Margin="0,16,0,47"
+					Margin="0,14,0,47"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="13"
 					HorizontalOptions="CenterAndExpand"
-					LineHeight="1.1"
+					LineHeight="1.64"
 					Opacity="0.39"
 					Text="(Your Qloud ID Password)"
 					TextColor="White" />
 
-				<Grid RowSpacing="26" VerticalOptions="EndAndExpand">
+				<Grid RowSpacing="26" ColumnSpacing="23" VerticalOptions="EndAndExpand">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="68" />
 						<RowDefinition Height="68" />
@@ -241,8 +241,8 @@
 						Grid.Row="0"
 						FontFamily="PoppinsSemiBoldFontFamily"
 						FontSize="18"
-						HorizontalTextAlignment="Center"
-						Text="1"
+						HorizontalTextAlignment="Center" 
+						Text="1" 
 						TextColor="White"
 						VerticalTextAlignment="Center">
 						<Label.GestureRecognizers>

@@ -75,7 +75,7 @@
 				FontFamily="PoppinsRegularFontFamily"
 				FontSize="16"
 				LineBreakMode="TailTruncation"
-				LineHeight="1.2"
+				LineHeight="1.64"
 				MaxLines="2"
 				Opacity="0.7"
 				Text="Add / Update below details and submit"
@@ -220,13 +220,16 @@
 			</Frame>
 		</StackLayout>
 
-		<Frame
+		<BoxView Grid.Row="2" CornerRadius="12"
+			Grid.Column="1" BackgroundColor="#242A37"
+			Grid.ColumnSpan="3"/>
+
+		<Frame Margin="2"
 			Grid.Row="2"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
 			Padding="0"
 			BackgroundColor="#181A1F"
-			BorderColor="#242A37"
 			CornerRadius="12"
 			HasShadow="False"
 			IsClippedToBounds="True">
