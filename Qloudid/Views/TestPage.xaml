@@ -13,7 +13,297 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<ContentPage.Content>
-		<Grid
+		<AbsoluteLayout>
+			<Image
+				AbsoluteLayout.LayoutBounds="28,62,40,40"
+				Aspect="AspectFit"
+				BackgroundColor="Transparent"
+				HeightRequest="40"
+				HorizontalOptions="StartAndExpand"
+				Source="iconSmallLogo.png"
+				VerticalOptions="CenterAndExpand"
+				WidthRequest="40" />
+
+			<Label
+				AbsoluteLayout.LayoutBounds="310,71"
+				FontAttributes="Bold"
+				FontFamily="PoppinsMediumFontFamily"
+				FontSize="18"
+				HorizontalTextAlignment="End"
+				Opacity="0.42"
+				Text="Cancel"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CancelCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Label
+				AbsoluteLayout.LayoutBounds="28,137"
+				BackgroundColor="Transparent"
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="40"
+				Text="Qloud ID"
+				TextColor="White" />
+
+			<Label
+				AbsoluteLayout.LayoutBounds="28,193"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="16"
+				LineHeight="1.1"
+				Text="I hereby identify myself on 'Dstricts'"
+				TextColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="28,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password1}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="28,321,47,2" BackgroundColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="88,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password2}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="88,321,47,2" BackgroundColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="148,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password3}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="148,321,47,2" BackgroundColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="207,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password4}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="207,321,47,2" BackgroundColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="267,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password5}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="267,321,47,2" BackgroundColor="White" />
+
+			<Frame
+				Padding="0"
+				AbsoluteLayout.LayoutBounds="326,253,47,68"
+				BackgroundColor="Transparent"
+				CornerRadius="10"
+				IsClippedToBounds="True">
+				<Label
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="{Binding Password6}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</Frame>
+
+			<BoxView AbsoluteLayout.LayoutBounds="326,321,47,2" BackgroundColor="White" />
+
+			<Label
+				AbsoluteLayout.LayoutBounds="118,337"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				HorizontalOptions="CenterAndExpand"
+				LineHeight="1.1"
+				Opacity="0.39"
+				Text="(Your Qloud ID Password)"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="28,405,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="1"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="1"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="152,405,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="2"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="2"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="276,405,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="3"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="3"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="28,499,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="4"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="4"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="152,499,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="5"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="5"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="276,499,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="6"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="6"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="28,593,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="7"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="7"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="152,593,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="8"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="8"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="276,593,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="9"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="9"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="28,686,101,68"
+				BackgroundColor="Transparent"
+				BorderColor="#242A37"
+				BorderWidth="2"
+				Command="{Binding ClearNumericClickedCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="27"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="152,686,101,68"
+				BackgroundColor="#242A37"
+				Command="{Binding KeyboardNumericClickedCommand}"
+				CommandParameter="0"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				Text="0"
+				TextColor="White" />
+
+			<Button
+				AbsoluteLayout.LayoutBounds="276,686,101,68"
+				BackgroundColor="#4285F4"
+				Command="{Binding VerifyPasswordCommand}"
+				CornerRadius="12"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="22"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+				TextColor="White" />
+		</AbsoluteLayout>
+
+
+
+		<!--<Grid
 			Margin="0,32,0,0"
 			ColumnSpacing="0"
 			RowSpacing="0">
@@ -222,6 +512,6 @@
 					<TapGestureRecognizer Command="{Binding ResendOtpCommand}" />
 				</Label.GestureRecognizers>
 			</Label>
-		</Grid>
+		</Grid>-->
 	</ContentPage.Content>
 </ContentPage>

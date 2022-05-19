@@ -18,13 +18,13 @@ namespace Qloudid
 		{
 			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTIzNzQzQDMxMzkyZTMzMmUzMFBIaTRVTHZ6RSt5ZFl4ZzFkTkhHSWcwTGFnQ0JkUjg4TEJNcnVhSUVZeUE9");
 			InitializeComponent();
-			Helper.Helper.IsFirstTime = true;
+			/*Helper.Helper.IsFirstTime = true;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 				MainPage = new NavigationPage(new Views.DashboardPage());
 			else
-				MainPage = new NavigationPage(new Views.RestorePage());
+				MainPage = new NavigationPage(new Views.RestorePage());*/
 
-			//MainPage = new NavigationPage(new Views.Dependent.DependentProfilePage());
+			MainPage = new NavigationPage(new Views.TestPage());
 		}
 
 		public void OpenAppFromWeb(string signInText)
