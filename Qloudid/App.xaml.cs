@@ -14,6 +14,8 @@ namespace Qloudid
 	public partial class App : Application
 	{
 		public static byte[] CroppedImage;
+		public static int ScreenHeight { get; set; }
+		public static int ScreenWidth { get; set; }
 		public App(string ipFromWeb)
 		{
 			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTIzNzQzQDMxMzkyZTMzMmUzMFBIaTRVTHZ6RSt5ZFl4ZzFkTkhHSWcwTGFnQ0JkUjg4TEJNcnVhSUVZeUE9");

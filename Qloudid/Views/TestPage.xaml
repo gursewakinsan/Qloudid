@@ -180,7 +180,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="152,361,91,68"
+				AbsoluteLayout.LayoutBounds="142,361,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="2"
@@ -191,7 +191,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="276,361,91,68"
+				AbsoluteLayout.LayoutBounds="256,361,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="3"
@@ -213,7 +213,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="152,455,91,68"
+				AbsoluteLayout.LayoutBounds="142,455,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="5"
@@ -224,7 +224,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="276,455,91,68"
+				AbsoluteLayout.LayoutBounds="256,455,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="6"
@@ -246,7 +246,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="152,549,91,68"
+				AbsoluteLayout.LayoutBounds="142,549,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="8"
@@ -257,7 +257,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="276,549,91,68"
+				AbsoluteLayout.LayoutBounds="256,549,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="9"
@@ -280,7 +280,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="152,642,91,68"
+				AbsoluteLayout.LayoutBounds="142,642,91,68"
 				BackgroundColor="#242A37"
 				Command="{Binding KeyboardNumericClickedCommand}"
 				CommandParameter="0"
@@ -291,7 +291,7 @@
 				TextColor="White" />
 
 			<Button
-				AbsoluteLayout.LayoutBounds="276,642,91,68"
+				AbsoluteLayout.LayoutBounds="256,642,91,68"
 				BackgroundColor="#4285F4"
 				Command="{Binding VerifyPasswordCommand}"
 				CornerRadius="12"

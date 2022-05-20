@@ -23,6 +23,8 @@ namespace Qloudid.iOS
 			global::Xamarin.Forms.Forms.Init();
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			Syncfusion.XForms.iOS.TextInputLayout.SfTextInputLayoutRenderer.Init();
+			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
+			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
 			LoadApplication(new App(null));
 			return base.FinishedLaunching(app, options);
 		}

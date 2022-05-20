@@ -260,6 +260,21 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Password6Bg");
 			}
 		}
+
+
+		public int deviceWidth = App.ScreenWidth;
+		public int DeviceWidth
+		{
+			get => deviceWidth;
+			set
+			{
+				deviceWidth = value;
+				OnPropertyChanged("DeviceWidth");
+			}
+		}
+
+		public Rectangle CancelButtonRect => new Rectangle(282 / 375 * App.ScreenWidth, 27, 65, 22);
+
 		#endregion
 	}
 }
