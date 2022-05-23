@@ -16,16 +16,16 @@
 		ColumnSpacing="0"
 		RowSpacing="0">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="48" />
+			<RowDefinition Height="40" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="56" />
 			<RowDefinition Height="5" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="28" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
@@ -45,7 +45,7 @@
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="0,31,0,5"
+			Margin="0,27,0,5"
 			VerticalScrollBarVisibility="Never">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
@@ -56,20 +56,18 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,5,0,55"
+					Margin="0,-5,0,65"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
-					LineHeight="1.1"
 					Opacity="0.7"
 					Text="Add card for payment &amp; check-in"
 					TextColor="White" />
 
-				<Grid ColumnSpacing="0" RowSpacing="24">
+				<Grid ColumnSpacing="0" RowSpacing="33">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="56" />
 						<RowDefinition Height="56" />
 						<RowDefinition Height="56" />
-						<RowDefinition Height="30" />
 						<RowDefinition Height="auto" />
 						<RowDefinition Height="1" />
 					</Grid.RowDefinitions>
@@ -239,13 +237,13 @@
 							TextColor="White" />
 					</textinputlayout:SfTextInputLayout>
 
-					<Grid
-						Grid.Row="4"
-						Grid.Column="0"
+					<Grid Margin="0,20,0,0"
+						Grid.Row="3"
+						Grid.Column="0" RowSpacing="0"
 						Grid.ColumnSpan="5"
 						VerticalOptions="CenterAndExpand">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="50" />
+							<RowDefinition Height="47" />
 							<RowDefinition Height="1" />
 							<RowDefinition Height="auto" />
 						</Grid.RowDefinitions>
