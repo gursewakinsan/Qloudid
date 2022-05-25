@@ -29,8 +29,10 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Identificator text is required.");
 			else if (SelectedIssueDate == null)
 				await Helper.Alert.DisplayAlert("Issue date is required.");
-			else if (SelectedExpiryDate ==null)
+			else if (SelectedExpiryDate == null)
 				await Helper.Alert.DisplayAlert("Expiry date is required.");
+			else if (CroppedImage1 == null || CroppedImage2 == null)
+				await Helper.Alert.DisplayAlert("Please select photo's.");
 			else
 			{
 				switch (IdentificatorTitle)
@@ -64,8 +66,55 @@ namespace Qloudid.ViewModels
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("This identificator already used by other user, Please use any other identificator.");
 				else if (response == 1)
-					await Navigation.PushAsync(new Views.IdentificatorPhotoPage());
-				DependencyService.Get<IProgressBar>().Hide();
+				{
+					string imageData1 = Convert.ToBase64String(CroppedImage1);
+					string imageData2 = Convert.ToBase64String(CroppedImage2);
+
+					Models.AddIdentificatorImagesRequest request1 = new Models.AddIdentificatorImagesRequest()
+					{
+						imageId = 1,
+						UserId = Helper.Helper.UserId,
+						IdentificatorId = Helper.Helper.SelectedIdentificatorId,
+						ImageData = imageData1,
+					};
+					int response1 = await service.UploadAddIdentificatorImagesAsync(request1);
+					if (response1 == 0)
+						await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
+					else if (response1 == 1)
+					{
+						Models.AddIdentificatorImagesRequest request2 = new Models.AddIdentificatorImagesRequest()
+						{
+							imageId = 2,
+							UserId = Helper.Helper.UserId,
+							IdentificatorId = Helper.Helper.SelectedIdentificatorId,
+							ImageData = imageData2,
+						};
+						int response2 = await service.UploadAddIdentificatorImagesAsync(request2);
+						if (response2 == 0)
+							await Helper.Alert.DisplayAlert("Something went wrong, Please try after some time.");
+						else if (response2 == 1)
+						{
+							//Helper.Helper.IsAddMoreCard = false;
+							if (Helper.Helper.IsPreCheckIn)
+							{
+								IPreCheckInService preCheckInService = new PreCheckInService();
+								var updatePreCheckinStatusResponse = await preCheckInService.UpdatePreCheckinStatusAsync(new Models.UpdatePreCheckinStatusRequest()
+								{
+									Id = Helper.Helper.PreCheckinStatusInfo.Id
+								});
+								//Helper.Helper.IsPreCheckIn = false;
+								if (updatePreCheckinStatusResponse.TotalLeft == 0)
+									Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+								else
+									Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AdultsAndChildrenInfoPage(updatePreCheckinStatusResponse.GuestChildrenLeft, updatePreCheckinStatusResponse.GuestAdultLeft));
+							}
+							else
+								Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						}
+					}
+					//await Navigation.PushAsync(new Views.IdentificatorPhotoPage());
+					DependencyService.Get<IProgressBar>().Hide();
+				}
 			}
 		}
 		#endregion
@@ -107,6 +156,10 @@ namespace Qloudid.ViewModels
 		public DateTime BindExpiryMinimumDate => DateTime.Today;
 		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
 		public DateTime SelectedExpiryDate { get; set; }
+
+		public byte[] CroppedImage1;
+
+		public byte[] CroppedImage2;
 		#endregion
 	}
 }

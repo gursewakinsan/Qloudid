@@ -16,17 +16,18 @@
 		ColumnSpacing="0"
 		RowSpacing="0">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="48" />
+			<RowDefinition Height="40" />
 			<RowDefinition Height="*" />
 			<RowDefinition Height="60" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="28" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
+
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
 
 		<Image
@@ -40,18 +41,11 @@
 			VerticalOptions="CenterAndExpand"
 			WidthRequest="40" />
 
-		<usercontrols:SkipButtonControl
-			Grid.Row="0"
-			Grid.Column="2"
-			Margin="0,0,28,0"
-			HorizontalOptions="EndAndExpand"
-			IsVisible="False" />
-
 		<ScrollView
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="0,31,0,5"
+			Margin="0,30,0,5"
 			VerticalScrollBarVisibility="Never">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
@@ -62,7 +56,7 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,5,0,58"
+					Margin="0,3,0,62"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
@@ -72,12 +66,11 @@
 					Text="Add passport to identify yourself &amp; sign agreements smoothly"
 					TextColor="White" />
 
-				<Grid RowSpacing="24">
+				<Grid RowSpacing="35">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="56" />
 						<RowDefinition Height="56" />
 						<RowDefinition Height="56" />
-						<RowDefinition Height="30" />
 					</Grid.RowDefinitions>
 					<textinputlayout:SfTextInputLayout
 						Grid.Row="0"
@@ -199,16 +192,122 @@
 								VerticalOptions="CenterAndExpand" />
 						</textinputlayout:SfTextInputLayout.TrailingView>
 					</textinputlayout:SfTextInputLayout>
+				</Grid>
 
-					<Label
-						Grid.Row="3"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="16"
-						LineHeight="1.1"
-						Opacity="0.7"
-						Text="Country is preselcted"
+				<Grid RowSpacing="0" ColumnSpacing="22" Margin="0,70,0,0">
+				<Grid.RowDefinitions>
+						<RowDefinition Height="24" />
+						<RowDefinition Height="21" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="17" />
+						<RowDefinition Height="142" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+				
+				<Label
+						Grid.Row="0"
+						Grid.ColumnSpan="2"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Passport photo"
 						TextColor="White"
-						VerticalTextAlignment="End" />
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="2"
+						Grid.ColumnSpan="2"
+						BackgroundColor="White"
+						Opacity="0.1" />
+
+					<Image
+						x:Name="image1"
+						Grid.Row="4"
+						Grid.Column="0"
+						Aspect="AspectFill"
+						BackgroundColor="Transparent"
+						Source="iconPassport.png">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData1Clicked" />
+						</Image.GestureRecognizers>
+					</Image>
+
+					<Frame
+						Grid.Row="4"
+						Grid.Column="0"
+						Margin="0,0,0,-10"
+						Padding="0"
+						BackgroundColor="#45C366"
+						BorderColor="#181A1F"
+						CornerRadius="12"
+						HasShadow="False"
+						HeightRequest="31"
+						HorizontalOptions="CenterAndExpand"
+						IsClippedToBounds="True"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="31">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData1Clicked" />
+						</Frame.GestureRecognizers>
+						<Label
+							x:Name="lbl1"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="ImageData1Clicked" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Frame>
+
+					<Image
+						x:Name="image2"
+						Grid.Row="4"
+						Grid.Column="1"
+						Aspect="AspectFill"
+						BackgroundColor="Transparent"
+						Source="iconPassport.png">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData2Clicked" />
+						</Image.GestureRecognizers>
+					</Image>
+
+					<Frame
+						Grid.Row="4"
+						Grid.Column="1"
+						Margin="0,0,0,-10"
+						Padding="0"
+						BackgroundColor="#45C366"
+						BorderColor="#181A1F"
+						CornerRadius="12"
+						HasShadow="False"
+						HeightRequest="31"
+						HorizontalOptions="CenterAndExpand"
+						IsClippedToBounds="True"
+						VerticalOptions="EndAndExpand"
+						WidthRequest="31">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData2Clicked" />
+						</Frame.GestureRecognizers>
+						<Label
+							x:Name="lbl2"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalOptions="CenterAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="ImageData2Clicked" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Frame>
 				</Grid>
 			</StackLayout>
 		</ScrollView>

@@ -16,14 +16,14 @@
 		ColumnSpacing="0"
 		RowSpacing="0">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="48" />
+			<RowDefinition Height="40" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="28" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="40" />
 			<ColumnDefinition Width="28" />
 		</Grid.ColumnDefinitions>
 		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
@@ -43,7 +43,7 @@
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="0,31,0,5"
+			Margin="0,30,0,5"
 			VerticalScrollBarVisibility="Never">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
@@ -54,11 +54,10 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,5,0,50"
+					Margin="0,3,0,62"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
-					LineHeight="1.1"
 					MaxLines="2"
 					Opacity="0.7"
 					Text="For a smooth shopping, secured deliveries &amp; express check-in "
@@ -67,9 +66,9 @@
 				<Grid ColumnSpacing="13" RowSpacing="0">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="56" />
-						<RowDefinition Height="24" />
+						<RowDefinition Height="29" />
 						<RowDefinition Height="56" />
-						<RowDefinition Height="24" />
+						<RowDefinition Height="29" />
 						<RowDefinition Height="56" />
 						<RowDefinition Height="80" />
 						<RowDefinition Height="24" />
