@@ -43,7 +43,7 @@
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"
-			Margin="0,30,0,5"
+			Margin="0,31,0,0"
 			VerticalScrollBarVisibility="Never">
 			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
 				<Label
@@ -54,7 +54,7 @@
 					TextColor="White" />
 
 				<Label
-					Margin="0,3,0,62"
+					Margin="0,0,0,50"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="16"
 					LineBreakMode="TailTruncation"
@@ -66,9 +66,9 @@
 				<Grid ColumnSpacing="13" RowSpacing="0">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="56" />
-						<RowDefinition Height="29" />
+						<RowDefinition Height="24" />
 						<RowDefinition Height="56" />
-						<RowDefinition Height="29" />
+						<RowDefinition Height="24" />
 						<RowDefinition Height="56" />
 						<RowDefinition Height="80" />
 						<RowDefinition Height="24" />
@@ -561,7 +561,7 @@
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="50"
 						HorizontalTextAlignment="End"
-						IsVisible="{Binding IsEntryCode}"
+						IsVisible="{Binding IsEntryCode, Converter={StaticResource InverseBoolConverter}}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
 						TextColor="#4FD471"
 						VerticalTextAlignment="Center">
@@ -570,13 +570,12 @@
 						</Label.GestureRecognizers>
 					</Label>
 
-					<Label
+					<Label IsVisible="{Binding IsEntryCode}"
 						Grid.Row="20"
 						Grid.Column="1"
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="50"
 						HorizontalTextAlignment="End"
-						IsVisible="{Binding IsEntryCode, Converter={StaticResource InverseBoolConverter}}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
 						TextColor="#E53614"
 						VerticalTextAlignment="Center">

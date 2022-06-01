@@ -275,6 +275,10 @@ namespace Qloudid.ViewModels
 
 		public Rectangle CancelButtonRect => new Rectangle(282 / 375 * App.ScreenWidth, 27, 65, 22);
 
+		public int DisplayHeight => App.ScreenHeight;
+
+		public int DisplayWidth => App.ScreenWidth;
+
 		#endregion
 	}
 }
