@@ -14,7 +14,7 @@ namespace Qloudid.ViewModels
 			{
 				//Company Address
 				IsVisibleUserName = true;
-				DeliveryAddressBoxHeightRequest = 140;
+				DeliveryAddressBoxHeightRequest = 160;
 				if (Device.RuntimePlatform == Device.iOS)
 					CustomFloatingLabelEntryHeightRequest = 120;
 				else
@@ -24,7 +24,7 @@ namespace Qloudid.ViewModels
 			{
 				//User Address
 				IsVisibleUserName = false;
-				DeliveryAddressBoxHeightRequest = 120;
+				DeliveryAddressBoxHeightRequest = 140;
 				if (Device.RuntimePlatform == Device.iOS)
 					CustomFloatingLabelEntryHeightRequest = 100;
 				else

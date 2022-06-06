@@ -11,6 +11,517 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="5" />
+			<RowDefinition Height="56" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<Grid
+				Margin="0,31,0,0"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="48" />
+					<RowDefinition Height="16" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="8" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="41" />
+					<RowDefinition Height="{Binding DeliveryAddressBoxHeightRequest}" />
+					<RowDefinition Height="18" />
+					<RowDefinition Height="80" />
+					<RowDefinition Height="18" />
+					<RowDefinition Height="80" />
+				</Grid.RowDefinitions>
+
+				<Label
+					Grid.Row="0"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					HorizontalTextAlignment="Start"
+					Text="Details"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					Grid.Row="2"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="Amount to pay for your purchase"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView Grid.Row="4" BackgroundColor="#2A2A31" />
+
+				<Frame
+					Grid.Row="6"
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="8"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					IsVisible="{Binding IsVisibleDeliveryAddress}">
+					<Grid
+						Grid.Row="0"
+						Margin="20"
+						ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="30" />
+						</Grid.ColumnDefinitions>
+
+						<StackLayout
+							Grid.Column="0"
+							Spacing="1"
+							VerticalOptions="CenterAndExpand">
+							<StackLayout Orientation="Horizontal" Spacing="10">
+								<Label
+									FontFamily="PoppinsBoldFontFamily"
+									FontSize="16"
+									HorizontalTextAlignment="Start"
+									LineBreakMode="TailTruncation"
+									MaxLines="1"
+									Text="Delivery address"
+									TextColor="White" />
+
+								<Button
+									Padding="0"
+									BackgroundColor="#47D471"
+									CornerRadius="10"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="10"
+									HeightRequest="20"
+									HorizontalOptions="Start"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+									TextColor="White"
+									VerticalOptions="Start"
+									WidthRequest="20" />
+							</StackLayout>
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								Text="{Binding DisplayDeliveryAddress.NameOnHouse}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								IsVisible="{Binding IsVisibleUserName}"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								Text="{Binding UserInfo.DisplayUserName}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								TextColor="White">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DisplayDeliveryAddress.Address}" />
+										<Span Text=" " />
+										<Span Text="{Binding DisplayDeliveryAddress.PortNumber}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								TextColor="White">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DisplayDeliveryAddress.City}" />
+										<Span Text=" " />
+										<Span Text="{Binding DisplayDeliveryAddress.Zipcode}" />
+										<Span Text=", " />
+										<Span Text="{Binding DisplayDeliveryAddress.CountryName}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+						</StackLayout>
+
+						<Frame
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="White"
+							CornerRadius="8"
+							HeightRequest="30"
+							HorizontalOptions="EndAndExpand"
+							IsClippedToBounds="True"
+							Opacity="0.2"
+							VerticalOptions="StartAndExpand"
+							WidthRequest="30" />
+
+						<Button
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="Transparent"
+							Command="{Binding EditAddressCommand}"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HeightRequest="30"
+							HorizontalOptions="EndAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+							TextColor="White"
+							VerticalOptions="Start"
+							WidthRequest="30" />
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="6"
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="8"
+					HasShadow="False"
+					IsClippedToBounds="True"
+					IsVisible="{Binding IsVisiblePickupAddress}">
+					<Grid
+						Grid.Row="0"
+						Margin="20"
+						ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="30" />
+						</Grid.ColumnDefinitions>
+
+						<StackLayout
+							Grid.Column="0"
+							Spacing="1"
+							VerticalOptions="CenterAndExpand">
+							<StackLayout Orientation="Horizontal" Spacing="10">
+								<Label
+									FontFamily="PoppinsBoldFontFamily"
+									FontSize="16"
+									HorizontalTextAlignment="Start"
+									LineBreakMode="TailTruncation"
+									MaxLines="1"
+									Text="Pickup address"
+									TextColor="White" />
+
+								<Button
+									Padding="0"
+									BackgroundColor="#47D471"
+									CornerRadius="10"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="10"
+									HeightRequest="20"
+									HorizontalOptions="Start"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+									TextColor="White"
+									VerticalOptions="Start"
+									WidthRequest="20" />
+							</StackLayout>
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								Text="{Binding DisplayPickupAddressDetail.PickupAddressName}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								IsVisible="{Binding IsVisibleUserName}"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								Text="{Binding UserInfo.DisplayUserName}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								TextColor="White">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DisplayPickupAddressDetail.Address}" />
+										<Span Text=" " />
+										<Span Text="{Binding DisplayPickupAddressDetail.PortNumber}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+
+							<Label
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								LineBreakMode="TailTruncation"
+								MaxLines="1"
+								Opacity="0.4"
+								TextColor="White">
+								<Label.FormattedText>
+									<FormattedString>
+										<Span Text="{Binding DisplayPickupAddressDetail.City}" />
+										<Span Text=" " />
+										<Span Text="{Binding DisplayPickupAddressDetail.Zipcode}" />
+										<Span Text=", " />
+										<Span Text="{Binding DisplayPickupAddressDetail.CountryName}" />
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>
+						</StackLayout>
+
+						<Frame
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="Transparent"
+							BorderColor="White"
+							CornerRadius="8"
+							HeightRequest="30"
+							HorizontalOptions="EndAndExpand"
+							IsClippedToBounds="True"
+							Opacity="0.2"
+							VerticalOptions="StartAndExpand"
+							WidthRequest="30" />
+
+						<Button
+							Grid.Column="1"
+							Padding="0"
+							BackgroundColor="Transparent"
+							Command="{Binding EditAddressCommand}"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HeightRequest="30"
+							HorizontalOptions="EndAndExpand"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+							TextColor="White"
+							VerticalOptions="Start"
+							WidthRequest="30" />
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="8"
+					Padding="0"
+					BackgroundColor="#DB4437"
+					CornerRadius="16"
+					HasShadow="False"
+					IsClippedToBounds="True">
+					<Grid Margin="25,0,25,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="32" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="25" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Padding="0"
+							BackgroundColor="#CA2012"
+							CornerRadius="16"
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="15"
+							HeightRequest="32"
+							HorizontalOptions="CenterAndExpand"
+							Text="2"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="32" />
+
+						<Label
+							Grid.Column="1"
+							Margin="15,0,0,0"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="18"
+							HorizontalTextAlignment="Start"
+							Text="Invoicing address"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedDeliveryAddressCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							Grid.Column="2"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding SelectedDeliveryAddressCommand}" />
+							</Label.GestureRecognizers>
+						</Label>
+					</Grid>
+				</Frame>
+
+				<Frame
+					Grid.Row="10"
+					Padding="0"
+					BackgroundColor="#242A37"
+					CornerRadius="16"
+					HasShadow="False"
+					IsClippedToBounds="True">
+					<Grid Margin="25,0,25,0" ColumnSpacing="0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="32" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="25" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Padding="0"
+							BackgroundColor="#374657"
+							CornerRadius="16"
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="15"
+							HeightRequest="32"
+							HorizontalOptions="CenterAndExpand"
+							Text="3"
+							TextColor="White"
+							VerticalOptions="CenterAndExpand"
+							WidthRequest="32" />
+
+						<Label
+							Grid.Column="1"
+							Margin="15,0,0,0"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="18"
+							HorizontalTextAlignment="Start"
+							Opacity="0.32"
+							Text="Payment type"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+						<Label
+							Grid.Column="2"
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="25"
+							HorizontalTextAlignment="End"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</Grid>
+				</Frame>
+			</Grid>
+		</ScrollView>
+
+		<BoxView
+			Grid.Row="3"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="#242A37"
+			CornerRadius="12" />
+
+		<Frame
+			Grid.Row="3"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="2"
+			Padding="0"
+			BackgroundColor="#181A1F"
+			CornerRadius="12"
+			HasShadow="False"
+			IsClippedToBounds="True">
+
+			<StackLayout
+				Grid.Row="9"
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="8"
+				VerticalOptions="CenterAndExpand">
+
+				<Label
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Center"
+					Opacity="0.32"
+					Text="Sign"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Center"
+					Opacity="0.32"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+		</Frame>
+	</Grid>
+
+
+	<!--<Grid
 		Margin="0,13,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -498,7 +1009,7 @@
 				</Grid>
 			</Grid>
 		</ScrollView>
-	</Grid>
+	</Grid>-->
 
 
 	<!--<ContentPage.Content>

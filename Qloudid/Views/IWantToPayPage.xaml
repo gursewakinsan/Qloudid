@@ -10,6 +10,270 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,18,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="56" />
+			<RowDefinition Height="2" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="1"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontAttributes="Bold"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="End"
+			Opacity="0.42"
+			Text="{Binding UserInfo.DisplayUserName}"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+		<ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			VerticalScrollBarVisibility="Never">
+			<Grid
+				Margin="0,35,0,0"
+				ColumnSpacing="0"
+				RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="48" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="111" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Label
+					Grid.Row="0"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="40"
+					HorizontalTextAlignment="Start"
+					Text="Pay"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<Frame
+					Grid.Row="2"
+					Padding="0"
+					BackgroundColor="#282732"
+					BorderColor="#282732"
+					CornerRadius="10"
+					HasShadow="False"
+					IsClippedToBounds="True">
+					<Label
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="40"
+						HorizontalTextAlignment="Center"
+						MaxLines="1"
+						Text="{Binding PurchaseDetail.DisplayPrice}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+				</Frame>
+
+				<BoxView Grid.Row="4" BackgroundColor="#2A2A31" />
+
+				<Grid
+					Grid.Row="5"
+					Margin="39,0,0,10"
+					ColumnSpacing="0"
+					RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+						<RowDefinition Height="60" />
+						<RowDefinition Height="1" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="80" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="To"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						Text="{Binding VerifyUserConsent.company_name}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="1"
+						Grid.ColumnSpan="2"
+						BackgroundColor="#2A2A31" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Nights"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="2"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						Text="3 nights"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="3"
+						Grid.ColumnSpan="2"
+						BackgroundColor="#2A2A31" />
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Guests"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="4"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						Text="2 adults &amp; 1 child"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="5"
+						Grid.ColumnSpan="2"
+						BackgroundColor="#2A2A31" />
+
+					<Label
+						Grid.Row="6"
+						Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						Text="Dates"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						Grid.Row="6"
+						Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						HorizontalTextAlignment="End"
+						Text="22-25 May, 2022"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<BoxView
+						Grid.Row="7"
+						Grid.ColumnSpan="2"
+						BackgroundColor="#2A2A31" />
+				</Grid>
+			</Grid>
+		</ScrollView>
+
+		<Frame
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			Padding="0"
+			BackgroundColor="#4285F4"
+			CornerRadius="12"
+			HasShadow="False"
+			IsClippedToBounds="True">
+			<Frame.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding ContinueCommand}" />
+			</Frame.GestureRecognizers>
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="8"
+				VerticalOptions="CenterAndExpand">
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ContinueCommand}" />
+				</StackLayout.GestureRecognizers>
+				<Label
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Center"
+					Text="Signature"
+					TextColor="White"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding ContinueCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Center"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+					TextColor="White"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding ContinueCommand}" />
+					</Label.GestureRecognizers>
+				</Label>
+			</StackLayout>
+		</Frame>
+	</Grid>
+
+
+
+	<!--<Grid
 		Margin="0,13,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -220,5 +484,5 @@
 			Text="Signera"
 			TextColor="White"
 			VerticalOptions="EndAndExpand" />
-	</Grid>
+	</Grid>-->
 </ContentPage>

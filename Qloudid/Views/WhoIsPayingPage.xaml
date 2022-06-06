@@ -10,6 +10,320 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,22,0,5"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="40" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+
+		<Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+		<Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding BackCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+		<Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+		<Grid
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,31,0,0"
+			ColumnSpacing="0"
+			RowSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="48" />
+				<RowDefinition Height="16" />
+				<RowDefinition Height="26" />
+				<RowDefinition Height="8" />
+				<RowDefinition Height="1" />
+				<RowDefinition Height="41" />
+				<RowDefinition Height="36" />
+				<RowDefinition Height="20" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="56" />
+			</Grid.RowDefinitions>
+			<Label
+				Grid.Row="0"
+				FontAttributes="Bold"
+				FontFamily="PoppinsBoldFontFamily"
+				FontSize="40"
+				HorizontalTextAlignment="Start"
+				Text="Pay with..."
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<Label
+				Grid.Row="2"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="16"
+				HorizontalTextAlignment="Start"
+				LineBreakMode="TailTruncation"
+				MaxLines="1"
+				Text="Select or add a new invocing address"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<BoxView Grid.Row="4" BackgroundColor="#2A2A31" />
+
+			<StackLayout
+				Grid.Row="6"
+				HorizontalOptions="StartAndExpand"
+				Orientation="Horizontal"
+				Spacing="20">
+				<controls:CustomButton
+					Margin="0"
+					BackgroundColor="{Binding BtnPersonalBg}"
+					BorderColor="{Binding BtnPersonalBg}"
+					Command="{Binding ShowPersonalAddressesCommand}"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12"
+					Text="Personal"
+					TextColor="White"
+					WidthRequest="94" />
+
+				<controls:CustomButton
+					Margin="0"
+					BackgroundColor="{Binding BtnBusinessBg}"
+					BorderColor="{Binding BtnBusinessBg}"
+					Command="{Binding ShowBusinessAddressesCommand}"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12"
+					Text="Business"
+					TextColor="White"
+					WidthRequest="94" />
+			</StackLayout>
+
+			<ListView
+				x:Name="listInvoiceAddress"
+				Grid.Row="8"
+				BackgroundColor="#181A1F"
+				HasUnevenRows="true"
+				ItemTapped="OnInvoiceAddressItemTapped"
+				ItemsSource="{Binding ListOfInvoiceAddress}"
+				SeparatorVisibility="None"
+				VerticalOptions="FillAndExpand"
+				VerticalScrollBarVisibility="Never">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout>
+								<Frame
+									Margin="0,0,0,20"
+									BackgroundColor="#242A37"
+									BorderColor="#242A37"
+									CornerRadius="8"
+									IsClippedToBounds="True"
+									IsVisible="{Binding IsPersonal}">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="40" />
+										</Grid.ColumnDefinitions>
+										<StackLayout
+											Grid.Column="0"
+											Spacing="1"
+											VerticalOptions="CenterAndExpand">
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding NameOnHouse}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding HeadingAddress}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding SubHeadingAddress}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+										</StackLayout>
+
+										<Button
+											Grid.Column="1"
+											Padding="0"
+											BackgroundColor="#466285"
+											CornerRadius="20"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											HeightRequest="40"
+											HorizontalOptions="CenterAndExpand"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+											TextColor="White"
+											VerticalOptions="CenterAndExpand"
+											WidthRequest="40" />
+									</Grid>
+								</Frame>
+
+								<Frame
+									Margin="0,0,0,20"
+									BackgroundColor="#242A37"
+									BorderColor="#242A37"
+									CornerRadius="8"
+									IsClippedToBounds="True"
+									IsVisible="{Binding IsBusiness}">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="40" />
+										</Grid.ColumnDefinitions>
+										<StackLayout
+											Grid.Column="0"
+											Spacing="1"
+											VerticalOptions="CenterAndExpand">
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding NameOnHouse}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding UserName}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding HeadingAddress}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												LineBreakMode="TailTruncation"
+												MaxLines="1"
+												Text="{Binding SubHeadingAddress}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+										</StackLayout>
+
+										<Button
+											Grid.Column="1"
+											Padding="0"
+											BackgroundColor="#466285"
+											CornerRadius="20"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											HeightRequest="40"
+											HorizontalOptions="CenterAndExpand"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+											TextColor="White"
+											VerticalOptions="CenterAndExpand"
+											WidthRequest="40" />
+									</Grid>
+								</Frame>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<BoxView
+				Grid.Row="9"
+				BackgroundColor="#242A37"
+				CornerRadius="12" />
+
+			<Frame
+				Grid.Row="9"
+				Margin="2"
+				Padding="0"
+				BackgroundColor="#181A1F"
+				CornerRadius="12"
+				HasShadow="False"
+				IsClippedToBounds="True">
+
+				<StackLayout
+					Grid.Row="9"
+					HorizontalOptions="CenterAndExpand"
+					Orientation="Horizontal"
+					Spacing="8"
+					VerticalOptions="CenterAndExpand">
+
+					<Label
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Text="Add card"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="20"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+				</StackLayout>
+			</Frame>
+		</Grid>
+	</Grid>
+
+
+	<!--<Grid
 		Margin="0,13,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -353,7 +667,7 @@
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 			VerticalOptions="EndAndExpand"
 			WidthRequest="50" />
-	</Grid>
+	</Grid>-->
 
 
 

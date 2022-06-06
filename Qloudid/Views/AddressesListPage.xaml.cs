@@ -20,7 +20,7 @@ namespace Qloudid.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			btnText.Text = Helper.Helper.QloudidPayButtonText;
+			//btnText.Text = Helper.Helper.QloudidPayButtonText;
 		}
 
 		private void OnAddressesItemTapped(object sender, ItemTappedEventArgs e)
@@ -70,8 +70,8 @@ namespace Qloudid.Views
 		private void btnText_Clicked(object sender, System.EventArgs e)
 		{
 			Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
-			if (btnText.Text.Equals("Pickup Address"))
-				Application.Current.MainPage = new NavigationPage(new Pickup.PickUpAddressListPage());
+			//if (btnText.Text.Equals("Pickup Address"))
+				//Application.Current.MainPage = new NavigationPage(new Pickup.PickUpAddressListPage());
 		}
 	}
 }

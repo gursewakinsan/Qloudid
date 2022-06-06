@@ -65,7 +65,7 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteShowPersonalAddressesCommand()
 		{
 			IsPersonalOrBusiness = true;
-			BtnPersonalBg = "#6263ED";
+			BtnPersonalBg = "#0F9D58";
 			BtnBusinessBg = "#2A2A31";
 			foreach (var personalAddresses in CopyInvoiceAddress)
 			{
@@ -90,7 +90,7 @@ namespace Qloudid.ViewModels
 		{
 			IsPersonalOrBusiness = false;
 			BtnPersonalBg = "#2A2A31";
-			BtnBusinessBg = "#6263ED";
+			BtnBusinessBg = "#0F9D58";
 			foreach (var personalAddresses in CopyInvoiceAddress)
 			{
 				personalAddresses.IsPersonal = false;
@@ -233,7 +233,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private string btnPersonalBg = "#6263ED";
+		private string btnPersonalBg = "#0F9D58";
 		public string BtnPersonalBg
 		{
 			get { return btnPersonalBg; }
