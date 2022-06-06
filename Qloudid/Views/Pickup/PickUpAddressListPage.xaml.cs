@@ -18,7 +18,7 @@ namespace Qloudid.Views.Pickup
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			btnText.Text = Helper.Helper.QloudidPayButtonText;
+			//btnText.Text = Helper.Helper.QloudidPayButtonText;
 		}
 
 		private async void OnPickupAddressItemTapped(object sender, ItemTappedEventArgs e)
@@ -44,8 +44,8 @@ namespace Qloudid.Views.Pickup
 		private void btnText_Clicked(object sender, System.EventArgs e)
 		{
 			Helper.Helper.QloudidPayButtonText = "Qloud ID Pay";
-			if (btnText.Text.Equals("Delivery Address"))
-				Application.Current.MainPage = new NavigationPage(new AddressesListPage());
+			//if (btnText.Text.Equals("Delivery Address"))
+			//	Application.Current.MainPage = new NavigationPage(new AddressesListPage());
 		}
 	}
 }

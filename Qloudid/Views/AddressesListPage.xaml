@@ -66,7 +66,7 @@
 			RowSpacing="0">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="48" />
-				<RowDefinition Height="16" />
+				<RowDefinition Height="8" />
 				<RowDefinition Height="26" />
 				<RowDefinition Height="8" />
 				<RowDefinition Height="1" />
