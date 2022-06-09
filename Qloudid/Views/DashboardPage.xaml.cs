@@ -87,7 +87,7 @@ namespace Qloudid.Views
 			scanPage.IsScanning = true;
 			await Navigation.PushModalAsync(scanPage);
 
-			//string str = $"bGw3UUxkaXF3bm1EK3hjdFZwOC9rQT09/YWZlN2t1ZmF5bmh6VHVhdnlZSHFCZz09/hotel/1/bmdtL1V1S0I0M3ZIdkJPS1lSRU1Kdz09";
+			//string str = $"RDBUQzN3T25RU0dvQVM1NnAyV0IxZz09/OTJCN1UwUXVVZmhwbzh2WmhHdzVTMlFZS0Rjc3BIVEhrQ2MvY0hlYzJGMD0=/purchase/1"; //$"bGw3UUxkaXF3bm1EK3hjdFZwOC9rQT09/YWZlN2t1ZmF5bmh6VHVhdnlZSHFCZz09/hotel/1/bmdtL1V1S0I0M3ZIdkJPS1lSRU1Kdz09";
 			//viewModel.LoginToDesktopCommand.Execute(str);
 		}
 		private void OnBackClicked(object sender, EventArgs e)

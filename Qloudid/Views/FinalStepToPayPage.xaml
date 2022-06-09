@@ -74,6 +74,8 @@
 					<RowDefinition Height="8" />
 					<RowDefinition Height="1" />
 					<RowDefinition Height="41" />
+					<RowDefinition Height="36" />
+					<RowDefinition Height="0" />
 					<RowDefinition Height="*" />
 				</Grid.RowDefinitions>
 
@@ -100,9 +102,35 @@
 
 				<BoxView Grid.Row="4" BackgroundColor="#2A2A31" />
 
-				<ListView
+			<controls:CustomButton
+					Margin="0"
+				Grid.Row="6"
+				IsVisible="{Binding IsUserCardOrCompanyCard}"
+					BackgroundColor="#4FD471"
+					BorderColor="#4FD471"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12" HorizontalOptions="StartAndExpand" 
+					Text="Personal"
+					TextColor="White"
+					WidthRequest="94" />
+
+			<controls:CustomButton
+					Margin="0"
+				Grid.Row="6"
+				IsVisible="{Binding IsUserCardOrCompanyCard, Converter={StaticResource InverseBoolConverter}}"
+					BackgroundColor="#4FD471"
+					BorderColor="#4FD471"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="12" HorizontalOptions="StartAndExpand" 
+					Text="Business"
+					TextColor="White"
+					WidthRequest="94" />
+
+			<ListView
 					x:Name="listCards"
-					Grid.Row="6"
+					Grid.Row="8"
 					BackgroundColor="#181A1F"
 					HasUnevenRows="True"
 					ItemTapped="OnCardsItemTapped"
