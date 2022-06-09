@@ -117,7 +117,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSelectedAddressCommand()
 		{
-			await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+			await Navigation.PushAsync(new Views.WhoIsPayingPage());
+			//await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 		}
 		#endregion
 
@@ -151,7 +152,8 @@ namespace Qloudid.ViewModels
 			else
 			{
 				Helper.Helper.IsPickupAddress = false;
-				await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+				//await Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
+				await Navigation.PushAsync(new Views.WhoIsPayingPage());
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -264,7 +266,8 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteBackCommand()
 		{
 			if (Helper.Helper.IsPickupAddressAvailable)
-				await Navigation.PopAsync();
+				Application.Current.MainPage.Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(""));
+			//await Navigation.PopAsync();
 		}
 		#endregion
 

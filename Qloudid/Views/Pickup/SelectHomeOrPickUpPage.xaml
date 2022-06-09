@@ -39,7 +39,7 @@
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
-			Command="{Binding CloseCommand}"
+			Command="{Binding BackCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="25"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"

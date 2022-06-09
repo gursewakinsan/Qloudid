@@ -123,5 +123,6 @@
 		public const string EmailIinviteAdultForCheckinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/emailIinviteAdultForCheckin";
 		public const string DependentsListForCheckinDstrictUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsListForCheckinDstrict";
 		public const string AddDependentChekinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentChekin";
+		public const string GetUserStatusCompanyRequirementUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getUserStatusCompanyRequirement";
 	}
 }

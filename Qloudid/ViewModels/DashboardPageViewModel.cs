@@ -177,7 +177,19 @@ namespace Qloudid.ViewModels
 						}
 					}
 					else
-						await Navigation.PushAsync(new Views.IWantToPayPage());
+					{
+						int result = await service.GetUserStatusCompanyRequirementAsync(new Models.GetUserStatusCompanyRequirementRequest()
+						{
+							Id = ip[1],
+							UserId = Helper.Helper.UserId
+						});
+						if (result == 0)
+						{
+							ShowMissingPreCheckInInfoPage();
+						}
+						else
+							await Navigation.PushAsync(new Views.IWantToPayPage());
+					}
 					//await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(ip[2]));
 				}
 			}
@@ -418,6 +430,32 @@ namespace Qloudid.ViewModels
 				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." });
 				DashboardItemList = dashboardItems;
 			}
+		}
+		#endregion
+
+		#region Show Missing Pre Check In Info Page.
+		async void ShowMissingPreCheckInInfoPage()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IPreCheckInService preCheckInService = new PreCheckInService();
+			/*var responsePreCheckinStatus = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+			{
+				Id = id,
+				userId = Helper.Helper.UserId
+			});
+			Helper.Helper.PreCheckinStatusInfo = responsePreCheckinStatus;*/
+			Helper.Helper.PreCheckinStatusInfo = new Models.GetPreCheckinStatusResponse()
+			{
+				Name = Helper.Helper.UserInfo.DisplayUserName
+			};
+
+			var responseUserActiveStatus = await preCheckInService.GetUserActiveStatusAsync(new Models.GetUserActiveStatusRequest()
+			{
+				UserId = Helper.Helper.UserId
+			});
+			Helper.Helper.PreCheckInUserActiveStatusInfo = responseUserActiveStatus;
+			DependencyService.Get<IProgressBar>().Hide();
+			await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
 		}
 		#endregion
 

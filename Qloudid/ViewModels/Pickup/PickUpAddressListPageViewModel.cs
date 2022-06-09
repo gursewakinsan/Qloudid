@@ -139,6 +139,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			Application.Current.MainPage.Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(""));
+		}
+		#endregion
+
 		#region Properties.
 		public List<Models.PickupAddressDetailResponse> CopyPickupAddress { get; set; }
 

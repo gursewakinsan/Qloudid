@@ -38,7 +38,10 @@ namespace Qloudid.Views.Pickup
 				Application.Current.MainPage = new NavigationPage(new YourSignaturePage());
 			}
 			else
-				await Navigation.PushAsync(new ReadOnlyDeliveryAddressPage());
+			{
+				//await Navigation.PushAsync(new ReadOnlyDeliveryAddressPage());
+				await Navigation.PushAsync(new Views.WhoIsPayingPage());
+			}
 		}
 
 		private void btnText_Clicked(object sender, System.EventArgs e)

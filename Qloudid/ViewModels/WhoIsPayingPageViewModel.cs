@@ -146,7 +146,8 @@ namespace Qloudid.ViewModels
 		{
 			Helper.Helper.CompanyId = InvoiceAddressDetail.CompanyId;
 			Helper.Helper.InvoiceAddressDetail = InvoiceAddressDetail;
-			await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
+			//await Navigation.PushAsync(new Views.ReadOnlyInvoicingAddressPage());
+			await Navigation.PushAsync(new Views.FinalStepToPayPage());
 		}
 		#endregion
 
@@ -161,6 +162,18 @@ namespace Qloudid.ViewModels
 			InvoiceAddressDetail = InvoiceAddressList.FirstOrDefault(x => x.Id == InvoiceAddressId);
 			IsVisibleInvoiceAddressDetail = true;
 			await Task.CompletedTask;
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command( () =>  ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage.Navigation.PushAsync(new Views.ReadOnlyDeliveryAddressPage());
 		}
 		#endregion
 

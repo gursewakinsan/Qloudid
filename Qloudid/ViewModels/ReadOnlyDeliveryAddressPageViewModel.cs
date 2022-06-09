@@ -75,6 +75,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command( () =>  ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage.Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(""));
+		}
+		#endregion
+
 		#region Properties.
 		private Models.DeliveryAddressDetailResponse displayDeliveryAddress;
 		public Models.DeliveryAddressDetailResponse DisplayDeliveryAddress

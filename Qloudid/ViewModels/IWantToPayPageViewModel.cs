@@ -90,7 +90,8 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteContinueCommand()
 		{
 			Helper.Helper.FromIWantToPayPage = true;
-			await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(""));
+			await Navigation.PushAsync(new Views.IWantToPayVerifyPasswordPage());
+				//await Navigation.PushAsync(new Views.SignInFromOtherCompanyPage(""));
 		}
 		#endregion
 

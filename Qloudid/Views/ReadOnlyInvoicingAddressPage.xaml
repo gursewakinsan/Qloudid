@@ -42,7 +42,6 @@
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
-			Command="{Binding CloseCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="25"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
