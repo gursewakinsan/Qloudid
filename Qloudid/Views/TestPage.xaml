@@ -105,7 +105,7 @@
 						<controls:CustomFloatingLabelEntry
 							BackgroundColor="#F8F8FB"
 							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14" 
+							FontSize="14"
 							Keyboard="Numeric"
 							MaxLength="16"
 							Placeholder="Card number"
@@ -138,7 +138,7 @@
 								VerticalTextAlignment="Center" />
 						</textinputlayout:SfTextInputLayout.LeadingView>
 						<controls:CustomPicker
-							Title="Select year" 
+							Title="Select year"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="14"
 							ItemsSource="{Binding ExpirationYearList}"
@@ -179,7 +179,7 @@
 						<controls:CustomPicker
 							Title="Select month"
 							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14" 
+							FontSize="14"
 							SelectedItem="{Binding ExpirationMonth}"
 							TextColor="White"
 							TitleColor="Black">
