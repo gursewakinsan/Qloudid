@@ -9,5 +9,7 @@ namespace Qloudid.Interfaces
         Task<List<Models.UserDeliveryAddressesResponse>> UserDeliveryAddressesAsync(Models.UserDeliveryAddressesRequest model);
         Task<string> AddBedroomAsync(Models.AddBedroomRequest model);
         Task<string> DeleteBedroomAsync(Models.DeleteBedroomRequest model);
+        Task<string> AddBedToBedroomAsync(Models.AddBedToBedroomRequest model);
+        Task<string> DeleteBedroomBedInfoAsync(Models.DeleteBedroomBedInfoRequest model);
     }
 }

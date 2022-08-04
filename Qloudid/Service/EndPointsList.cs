@@ -130,5 +130,7 @@
 		public const string UserDeliveryAddressesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listUserDeliveryAddresses";
 		public const string AddBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBedroom";
 		public const string DeleteBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBedroom";
+		public const string AddBedToBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBedToBedroom";
+		public const string DeleteBedroomBedInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBedroomBedInfo";
 	}
 }
