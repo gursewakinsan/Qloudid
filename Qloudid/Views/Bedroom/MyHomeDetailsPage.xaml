@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.MyHomeDetailsPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="58" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <Label
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			TextColor="White"
+            Text="{Binding SelectedUserDeliveryAddress.DisplayName}"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="2"
+            LineHeight="1.2"
+			Opacity="0.70"
+			TextColor="White"
+            Text="Update below areas of the apartment for renting out or put for sale"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="6"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			TextColor="White"
+            Text="Select"
+			VerticalTextAlignment="Center"/>
+        
+        <Frame
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            IsVisible="{Binding BedroomUpdated}"
+            HasShadow="False"
+            CornerRadius="16"
+            Padding="15,10,20,10"
+            BackgroundColor="#0F9D58" 
+            IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+            </Frame.GestureRecognizers>
+            <Grid ColumnSpacing="10">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="44"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label
+                    Grid.Column="0"
+	                FontFamily="PoppinsRegularFontFamily"
+	                FontSize="16"
+	                HorizontalTextAlignment="Start"
+	                TextColor="White"
+	                Text="Bedrooms"
+                    MaxLines="1"
+                    LineBreakMode="TailTruncation"
+	                VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button
+	                Grid.Column="1"
+	                Padding="0"
+	                BackgroundColor="#4FD471"
+	                FontFamily="{StaticResource MaterialFontFamily}"
+	                FontSize="18"
+                    CornerRadius="22"
+                    WidthRequest="44"
+                    HeightRequest="44"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"
+	                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+	                TextColor="White" 
+                    Clicked="OnClickedEvent" />
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            IsVisible="{Binding BedroomUpdated, Converter={StaticResource InverseBoolConverter}}"
+            HasShadow="False"
+            CornerRadius="16"
+            Padding="15,10,20,10"
+            BackgroundColor="#242A37" 
+            IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+            </Frame.GestureRecognizers>
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                </Grid.GestureRecognizers>
+                <Label
+                    Grid.Column="0"
+	                FontFamily="PoppinsRegularFontFamily"
+	                FontSize="16"
+	                HorizontalTextAlignment="Start"
+	                TextColor="White"
+	                Text="Bedrooms"
+                    MaxLines="1"
+                    LineBreakMode="TailTruncation"
+	                VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button
+	                Grid.Column="1"
+	                Padding="0"
+	                BackgroundColor="#E94975"
+	                FontFamily="PoppinsSemiBoldFontFamily"
+	                FontSize="14"
+                    CornerRadius="20"
+                    WidthRequest="90"
+                    HeightRequest="40"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"
+	                Text="Update"
+                     Clicked="OnClickedEvent"
+	                TextColor="White" />
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="10"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            IsVisible="{Binding BathroomUpdated}"
+            HasShadow="False"
+            CornerRadius="16"
+            Padding="15,10,20,10"
+            BackgroundColor="#0F9D58" 
+            IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+            </Frame.GestureRecognizers>
+            <Grid ColumnSpacing="10">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="44"/>
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Column="0"
+	                FontFamily="PoppinsRegularFontFamily"
+	                FontSize="16"
+	                HorizontalTextAlignment="Start"
+	                TextColor="White"
+	                Text="Bathroom"
+                    MaxLines="1"
+                    LineBreakMode="TailTruncation"
+	                VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button
+	                Grid.Column="1"
+	                Padding="0"
+	                BackgroundColor="#4FD471"
+	                FontFamily="{StaticResource MaterialFontFamily}"
+	                FontSize="18"
+                    CornerRadius="22"
+                    WidthRequest="44"
+                    HeightRequest="44"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"
+	                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+	                TextColor="White" 
+                    Clicked="OnClickedEvent" />
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="10"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            IsVisible="{Binding BathroomUpdated, Converter={StaticResource InverseBoolConverter}}"
+            HasShadow="False"
+            CornerRadius="16"
+            Padding="15,10,20,10"
+            BackgroundColor="#242A37" 
+            IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+            </Frame.GestureRecognizers>
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                </Grid.GestureRecognizers>
+                <Label
+                    Grid.Column="0"
+	                FontFamily="PoppinsRegularFontFamily"
+	                FontSize="16"
+	                HorizontalTextAlignment="Start"
+	                TextColor="White"
+	                Text="Bathroom"
+                    MaxLines="1"
+                    LineBreakMode="TailTruncation"
+	                VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Button
+	                Grid.Column="1"
+	                Padding="0"
+	                BackgroundColor="#E94975"
+	                FontFamily="PoppinsSemiBoldFontFamily"
+	                FontSize="14"
+                    CornerRadius="20"
+                    WidthRequest="90"
+                    HeightRequest="40"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"
+	                Text="Update"
+                     Clicked="OnClickedEvent"
+	                TextColor="White" />
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

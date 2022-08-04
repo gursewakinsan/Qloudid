@@ -37,6 +37,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Go To My Home Page Command.
+		private ICommand goToMyHomePageCommand;
+		public ICommand GoToMyHomePageCommand
+		{
+			get => goToMyHomePageCommand ?? (goToMyHomePageCommand = new Command(async () => await ExecuteGoToMyHomePageCommand()));
+		}
+		private async Task ExecuteGoToMyHomePageCommand()
+		{
+			await Navigation.PushAsync(new Views.Bedroom.MyHomePage());
+		}
+		#endregion
+
 		#region Properties.
 		public Models.User UserInfo => Helper.Helper.UserInfo;
 		#endregion

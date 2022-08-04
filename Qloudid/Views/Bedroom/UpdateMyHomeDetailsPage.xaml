@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.UpdateMyHomeDetailsPage"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <ScrollView
+            Margin="0,23,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="56" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="58" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="46" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="81" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="40"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="{Binding SelectedUserDeliveryAddress.DisplayName}"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="16"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="2"
+                    LineHeight="1.2"
+			        Opacity="0.70"
+			        TextColor="White"
+                    Text="Update below areas of the apartment for renting out or put for sale"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Bedrooms"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="6"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="14"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="2"
+                    LineHeight="1.2"
+			        Opacity="0.70"
+			        TextColor="White"
+                    Text="How many bedrooms does your property have?"
+			        VerticalTextAlignment="Center"/>
+
+                <Grid 
+                    Grid.Row="8"
+                    ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Column="0"
+                        HeightRequest="53"
+                        WidthRequest="67"
+                        Padding="0"
+                        BorderWidth="1"
+                        FontSize="25"
+                        CornerRadius="16"
+                        TextColor="White"
+                        BorderColor="#2A2A31"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding MinusCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
+
+                    <Button
+                        Grid.Column="1"
+                        HeightRequest="81"
+                        WidthRequest="105"
+                        Padding="0"
+                        BorderWidth="2"
+                        FontSize="28"
+                        CornerRadius="16"
+                        TextColor="#0F9D58"
+                        BorderColor="#0F9D58"
+                        BackgroundColor="#191A1F"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsBoldFontFamily"
+                        Text="{Binding Count}"/>
+
+                    <Button
+                        Grid.Column="2"
+                        HeightRequest="53"
+                        WidthRequest="67"
+                        Padding="0"
+                        BorderWidth="1"
+                        FontSize="25"
+                        CornerRadius="16"
+                        TextColor="White"
+                        BorderColor="#2A2A31"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding PlusCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                </Grid>
+
+                <ScrollView 
+                    Grid.Row="9"
+                    VerticalScrollBarVisibility="Never">
+                    <StackLayout 
+                        BindableLayout.ItemsSource="{Binding BedroomDetailList}"
+                        Margin="0,59,0,0" 
+                        VerticalOptions="StartAndExpand" 
+                        Spacing="0">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Margin="0,0,0,18"
+                                    IsVisible="{Binding IsBedroomBathroomUpdated}"
+                                    HeightRequest="80"
+                                    VerticalOptions="StartAndExpand"
+                                    HasShadow="False"
+                                    CornerRadius="16"
+                                    Padding="15,10,20,10"
+                                    BackgroundColor="#0F9D58" 
+                                    IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid ColumnSpacing="10">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="44"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Grid.Column="0"
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"
+					                        VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                            </Label.GestureRecognizers>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Bedroom "/>
+                                                    <Span Text="{Binding BedroomCount}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Button
+					                        Grid.Column="1"
+					                        Padding="0"
+					                        BackgroundColor="#4FD471"
+					                        FontFamily="{StaticResource MaterialFontFamily}"
+					                        FontSize="18"
+                                            CornerRadius="22"
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="EndAndExpand"
+					                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+					                        TextColor="White" 
+                                            Clicked="OnButtonTapped" />
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

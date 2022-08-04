@@ -6,31 +6,47 @@
 	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False">
-	<Grid
+    <Grid
 		Margin="0,22,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="40" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="56" />
-			<RowDefinition Height="5" />
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="28" />
-			<ColumnDefinition Width="40" />
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="40" />
-			<ColumnDefinition Width="28" />
-		</Grid.ColumnDefinitions>
-		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
 
-		<Image
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
 			Grid.Row="0"
 			Grid.Column="3"
 			Aspect="AspectFit"
@@ -41,890 +57,284 @@
 			VerticalOptions="CenterAndExpand"
 			WidthRequest="40" />
 
-		<ScrollView
-			Grid.Row="1"
+        <ScrollView
+            Margin="0,23,0,0"
+            Grid.Row="1"
 			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			Margin="0,31,0,0"
-			VerticalScrollBarVisibility="Never">
-			<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-				<Label
-					FontAttributes="Bold"
-					FontFamily="PoppinsBoldFontFamily"
-					FontSize="40"
-					Text="Card"
-					TextColor="White" />
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="56" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="58" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="46" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="81" />
+                    <RowDefinition Height="59" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="40"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Casa Madrid"
+			        VerticalTextAlignment="Center"/>
 
-				<Label
-					Margin="0,0,0,65"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="18"
-					Opacity="0.7"
-					Text="Add card for payment &amp; check-in"
-					TextColor="White" />
+                <Label
+			        Grid.Row="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="16"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="2"
+                    LineHeight="1.2"
+			        Opacity="0.70"
+			        TextColor="White"
+                    Text="With a few clicks you will be able to manage your apartments"
+			        VerticalTextAlignment="Center"/>
 
-				<Grid ColumnSpacing="0" RowSpacing="24">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="auto" />
-						<RowDefinition Height="1" />
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="26" />
-						<ColumnDefinition Width="1" />
-						<ColumnDefinition Width="26" />
-						<ColumnDefinition Width="*" />
-					</Grid.ColumnDefinitions>
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Bedrooms"
+			        VerticalTextAlignment="Center"/>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="0"
-						Grid.ColumnSpan="5"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="2"
-						HeightRequest="66"
-						Hint="Card number"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#525388"
-						UnfocusedStrokeWidth="2">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14"
-							Keyboard="Numeric"
-							MaxLength="16"
-							Placeholder="Card number"
-							PlaceholderColor="#797A7D"
-							Text="{Binding CardNumber}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
+                <Label
+			        Grid.Row="6"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="14"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="2"
+                    LineHeight="1.2"
+			        Opacity="0.70"
+			        TextColor="White"
+                    Text="How many bedrooms does your property have?"
+			        VerticalTextAlignment="Center"/>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="1"
-						Grid.Column="0"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="2"
-						HeightRequest="66"
-						Hint="Year"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#525388"
-						UnfocusedStrokeWidth="2">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomPicker
-							Title="Select year"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
-							TextColor="White"
-							TitleColor="Black" />
-					</textinputlayout:SfTextInputLayout>
+                <Grid 
+                    Grid.Row="8"
+                    ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Column="0"
+                        HeightRequest="53"
+                        WidthRequest="67"
+                        Padding="0"
+                        BorderWidth="1"
+                        FontSize="25"
+                        CornerRadius="16"
+                        TextColor="White"
+                        BorderColor="#2A2A31"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
 
-					<BoxView
-						Grid.Row="1"
-						Grid.Column="2"
-						BackgroundColor="#525388"
-						VerticalOptions="EndAndExpand" />
+                    <Button
+                        Grid.Column="1"
+                        HeightRequest="81"
+                        WidthRequest="105"
+                        Padding="0"
+                        BorderWidth="2"
+                        FontSize="28"
+                        CornerRadius="16"
+                        TextColor="#0F9D58"
+                        BorderColor="#0F9D58"
+                        BackgroundColor="#191A1F"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsBoldFontFamily"
+                        Text="1"/>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="1"
-						Grid.Column="4"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="2"
-						HeightRequest="66"
-						Hint="Month"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#525388"
-						UnfocusedStrokeWidth="2">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomPicker
-							Title="Select month"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14"
-							SelectedItem="{Binding ExpirationMonth}"
-							TextColor="White"
-							TitleColor="Black">
-							<controls:CustomPicker.ItemsSource>
-								<x:Array Type="{x:Type x:String}">
-									<x:String>01</x:String>
-									<x:String>02</x:String>
-									<x:String>03</x:String>
-									<x:String>04</x:String>
-									<x:String>05</x:String>
-									<x:String>06</x:String>
-									<x:String>07</x:String>
-									<x:String>08</x:String>
-									<x:String>09</x:String>
-									<x:String>10</x:String>
-									<x:String>11</x:String>
-									<x:String>12</x:String>
-								</x:Array>
-							</controls:CustomPicker.ItemsSource>
-						</controls:CustomPicker>
-					</textinputlayout:SfTextInputLayout>
+                    <Button
+                        Grid.Column="2"
+                        HeightRequest="53"
+                        WidthRequest="67"
+                        Padding="0"
+                        BorderWidth="1"
+                        FontSize="25"
+                        CornerRadius="16"
+                        TextColor="White"
+                        BorderColor="#2A2A31"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                </Grid>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="2"
-						Grid.Column="0"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#6263ED"
-						FocusedStrokeWidth="2"
-						HeightRequest="66"
-						Hint="CVV"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#525388"
-						UnfocusedStrokeWidth="2">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="14"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="14"
-							Keyboard="Numeric"
-							MaxLength="3"
-							Placeholder="CVV"
-							PlaceholderColor="#797A7D"
-							Text="{Binding Cvv}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
+                <Label
+			        Grid.Row="10"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Bedroom 1"
+			        VerticalTextAlignment="Center"/>
 
-					<Grid
-						Grid.Row="3"
-						Grid.Column="0"
-						Grid.ColumnSpan="5"
-						Margin="0,32,0,0"
-						RowSpacing="0"
-						VerticalOptions="CenterAndExpand">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="30" />
-							<RowDefinition Height="12" />
-							<RowDefinition Height="1" />
-							<RowDefinition Height="auto" />
-						</Grid.RowDefinitions>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition Width="50 " />
-						</Grid.ColumnDefinitions>
+                <Frame
+                    BackgroundColor="#242A37"
+                    Padding="15,10,15,24"
+                    HasShadow="False"
+                    CornerRadius="16"
+                    VerticalOptions="StartAndExpand"
+                    IsClippedToBounds="True"
+                    Grid.Row="12" Margin="0,0,0,50">
+                    <Grid RowSpacing="0" ColumnSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                            <RowDefinition Height="14"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="35"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-						<Label
-							Grid.Column="0"
-							FontFamily="PoppinsSemiBoldFontFamily"
-							FontSize="16"
-							HorizontalTextAlignment="Start"
-							Text="Is it your name on the card?"
-							TextColor="White"
-							VerticalTextAlignment="Center" />
+                        <Label
+			                Grid.Row="0"
+                            Grid.Column="0"
+			                FontFamily="PoppinsSemiBoldFontFamily"
+			                FontSize="14"
+			                HorizontalTextAlignment="Start"
+			                TextColor="White"
+                            Text="Bed type"
+			                VerticalTextAlignment="Center"/>
 
-						<Label
-							Grid.Column="1"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="50"
-							HorizontalTextAlignment="End"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
-							TextColor="#4FD471"
-							VerticalTextAlignment="Center">
-							<Label.GestureRecognizers>
-								<TapGestureRecognizer Command="{Binding IsNameOnCardCommand}" />
-							</Label.GestureRecognizers>
-						</Label>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="0"
+                            FontSize="25" 
+                            TextColor="#FF0000"
+                            BackgroundColor="Transparent"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            Text="x"/>
 
-						<Label
-							Grid.Column="1"
-							FontFamily="{StaticResource MaterialFontFamily}"
-							FontSize="50"
-							HorizontalTextAlignment="End"
-							IsVisible="False"
-							Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
-							TextColor="#E53614"
-							VerticalTextAlignment="Center">
-							<Label.GestureRecognizers>
-								<TapGestureRecognizer Command="{Binding IsNameOnCardCommand}" />
-							</Label.GestureRecognizers>
-						</Label>
+                        <Frame 
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="Transparent" 
+                            IsClippedToBounds="True"
+                            Grid.Row="2"
+                            Padding="0"
+                            HasShadow="False"
+                            CornerRadius="12"
+                            BorderColor="White" 
+                            Opacity="0.10"/>
 
-						<BoxView
-							Grid.Row="2"
-							Grid.ColumnSpan="2"
-							BackgroundColor="White"
-							IsVisible="{Binding IsNameOnCard, Converter={StaticResource InverseBoolConverter}}"
-							Opacity="0.10" />
+                        <Grid 
+                            Grid.ColumnSpan="2"
+                            Margin="16,5,16,5"
+                            Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
 
-						<Frame
-							Grid.Row="2"
-							Grid.ColumnSpan="2"
-							Margin="0"
-							Padding="25,0,25,0"
-							BackgroundColor="#F4B400"
-							CornerRadius="8"
-							HasShadow="False"
-							IsClippedToBounds="True"
-							IsVisible="False">
-							<Grid RowSpacing="0" VerticalOptions="CenterAndExpand">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="15" />
-									<RowDefinition Height="56" />
-									<RowDefinition Height="31" />
-								</Grid.RowDefinitions>
-								<textinputlayout:SfTextInputLayout
-									Grid.Row="1"
-									ContainerBackgroundColor="Transparent"
-									ContainerType="Outlined"
-									FocusedColor="#181A1F"
-									FocusedStrokeWidth="0.5"
-									HeightRequest="56"
-									Hint="Who's name is on the card"
-									LeadingViewPosition="Inside"
-									OutlineCornerRadius="12"
-									TrailingViewPosition="Inside"
-									UnfocusedColor="#181A1F"
-									UnfocusedStrokeWidth="0.5"
-									VerticalOptions="CenterAndExpand">
-									<textinputlayout:SfTextInputLayout.LeadingView>
-										<Label
-											FontFamily="{StaticResource MaterialFontFamily}"
-											FontSize="20"
-											HorizontalTextAlignment="Center"
-											Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-											TextColor="#181A1F"
-											VerticalTextAlignment="Center" />
-									</textinputlayout:SfTextInputLayout.LeadingView>
-									<controls:CustomFloatingLabelEntry
-										BackgroundColor="#F8F8FB"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="16"
-										Placeholder="Who's name is on the card"
-										PlaceholderColor="#181A1F"
-										Text="{Binding CardHolderName}"
-										TextColor="#181A1F" />
-								</textinputlayout:SfTextInputLayout>
-							</Grid>
-						</Frame>
-					</Grid>
-				</Grid>
+                            <controls:CustomPicker
+						        Title="Type"
+						        FontFamily="PoppinsRegularFontFamily"
+						        FontSize="14"
+						        ItemDisplayBinding="{Binding TicketSubtitle}"
+						        ItemsSource="{Binding TicketSubTitleInfoList}"
+						        SelectedItem="{Binding SelectedTicketSubTitleInfo}"
+						        TextColor="White"
+						        TitleColor="#6263ED" />
 
-			</StackLayout>
-		</ScrollView>
+                            <Label
+			                    Grid.Row="0"
+			                    Grid.Column="1"
+			                    Padding="0"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    FontSize="25"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+			                    TextColor="#6263ED"/>
+                        </Grid>
 
-		<controls:CustomButton
-			Grid.Row="2"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			Margin="0"
-			BackgroundColor="#6263ED"
-			BorderColor="#6263ED"
-			Command="{Binding AddNewCardCommand}"
-			CornerRadius="12"
-			FontFamily="PoppinsSemiBoldFontFamily"
-			FontSize="16"
-			HeightRequest="56"
-			Text="Add Card"
-			TextColor="White"
-			VerticalOptions="EndAndExpand" />
+                        <Frame 
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="Transparent" 
+                            IsClippedToBounds="True"
+                            Grid.Row="4"
+                            Padding="0"
+                            HasShadow="False"
+                            CornerRadius="12"
+                            BorderColor="White" 
+                            Opacity="0.10"/>
 
-		<ScrollView
-			Grid.Row="1"
-			Grid.ColumnSpan="3"
-			IsVisible="False"
-			VerticalScrollBarVisibility="Never">
-			<StackLayout
-				Margin="28,32,28,0"
-				Spacing="0"
-				VerticalOptions="StartAndExpand">
-				<Label
-					FontAttributes="Bold"
-					FontFamily="PoppinsBoldFontFamily"
-					FontSize="32"
-					Text="Your card"
-					TextColor="White" />
+                        <Grid 
+                            Grid.ColumnSpan="2"
+                            Margin="16,5,16,5"
+                            Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
 
-				<Label
-					Margin="0,12,0,42"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="18"
-					Text="We need your card details for payment and check-in 👋"
-					TextColor="White" />
+                            <controls:CustomPicker
+						        Title="Type"
+						        FontFamily="PoppinsRegularFontFamily"
+						        FontSize="14"
+						        ItemDisplayBinding="{Binding TicketSubtitle}"
+						        ItemsSource="{Binding TicketSubTitleInfoList}"
+						        SelectedItem="{Binding SelectedTicketSubTitleInfo}"
+						        TextColor="White"
+						        TitleColor="#6263ED" />
 
-				<Grid RowSpacing="24">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="56" />
-						<RowDefinition Height="60" />
-						<RowDefinition Height="10" />
-					</Grid.RowDefinitions>
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="0"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Card number"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							Keyboard="Numeric"
-							MaxLength="16"
-							Placeholder="Card number"
-							PlaceholderColor="#797A7D"
-							Text="{Binding CardNumber}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
+                            <Label
+			                    Grid.Row="0"
+			                    Grid.Column="1"
+			                    Padding="0"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    FontSize="25"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+			                    TextColor="#6263ED"/>
+                        </Grid>
 
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="1"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#797A7D"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Card holder"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							IsReadOnly="True"
-							Placeholder="Card holder"
-							PlaceholderColor="#797A7D"
-							Text="{Binding CardHolderName}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
-
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="2"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Expire month"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomPicker
-							Title="Select month"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							SelectedItem="{Binding ExpirationMonth}"
-							TextColor="White"
-							TitleColor="Black">
-							<controls:CustomPicker.ItemsSource>
-								<x:Array Type="{x:Type x:String}">
-									<x:String>01</x:String>
-									<x:String>02</x:String>
-									<x:String>03</x:String>
-									<x:String>04</x:String>
-									<x:String>05</x:String>
-									<x:String>06</x:String>
-									<x:String>07</x:String>
-									<x:String>08</x:String>
-									<x:String>09</x:String>
-									<x:String>10</x:String>
-									<x:String>11</x:String>
-									<x:String>12</x:String>
-								</x:Array>
-							</controls:CustomPicker.ItemsSource>
-						</controls:CustomPicker>
-						<textinputlayout:SfTextInputLayout.TrailingView>
-							<Label
-								FontSize="15"
-								HorizontalOptions="Center"
-								HorizontalTextAlignment="Center"
-								Text="&#x25bc;"
-								TextColor="#797A7D"
-								VerticalOptions="CenterAndExpand" />
-						</textinputlayout:SfTextInputLayout.TrailingView>
-					</textinputlayout:SfTextInputLayout>
-
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="3"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="Expire year"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomPicker
-							Title="Select year"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
-							TextColor="White"
-							TitleColor="Black" />
-
-						<textinputlayout:SfTextInputLayout.TrailingView>
-							<Label
-								FontSize="15"
-								HorizontalOptions="Center"
-								HorizontalTextAlignment="Center"
-								Text="&#x25bc;"
-								TextColor="#797A7D"
-								VerticalOptions="CenterAndExpand" />
-						</textinputlayout:SfTextInputLayout.TrailingView>
-					</textinputlayout:SfTextInputLayout>
-
-					<textinputlayout:SfTextInputLayout
-						Grid.Row="4"
-						ContainerBackgroundColor="Transparent"
-						ContainerType="Outlined"
-						FocusedColor="#EF3B17"
-						FocusedStrokeWidth="0.5"
-						HeightRequest="56"
-						Hint="CVV"
-						LeadingViewPosition="Inside"
-						OutlineCornerRadius="12"
-						TrailingViewPosition="Inside"
-						UnfocusedColor="#797A7D"
-						UnfocusedStrokeWidth="0.5">
-						<textinputlayout:SfTextInputLayout.LeadingView>
-							<Label
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="20"
-								HorizontalTextAlignment="Center"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}"
-								TextColor="#797A7D"
-								VerticalTextAlignment="Center" />
-						</textinputlayout:SfTextInputLayout.LeadingView>
-						<controls:CustomFloatingLabelEntry
-							BackgroundColor="#F8F8FB"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="16"
-							Keyboard="Numeric"
-							MaxLength="3"
-							Placeholder="CVV"
-							PlaceholderColor="#797A7D"
-							Text="{Binding Cvv}"
-							TextColor="White" />
-					</textinputlayout:SfTextInputLayout>
-
-					<controls:CustomButton
-						Grid.Row="5"
-						Margin="0"
-						BackgroundColor="#6263ED"
-						BorderColor="#6263ED"
-						Command="{Binding AddNewCardCommand}"
-						CornerRadius="12"
-						FontFamily="PoppinsSemiBoldFontFamily"
-						FontSize="16"
-						HeightRequest="56"
-						Text="Add Card"
-						TextColor="White"
-						VerticalOptions="EndAndExpand" />
-				</Grid>
-			</StackLayout>
-		</ScrollView>
-	</Grid>
-
-	<!--<ContentPage.Content>
-		<ScrollView VerticalScrollBarVisibility="Never">
-			<StackLayout Padding="30">
-				<StackLayout Spacing="0" VerticalOptions="StartAndExpand">
-					<Grid Margin="0,0,0,10">
-						<ImageButton
-							Grid.Column="0"
-							Padding="9"
-							BackgroundColor="#3623B7"
-							BorderColor="#05CBE7"
-							BorderWidth="1"
-							CornerRadius="20"
-							HeightRequest="50"
-							HorizontalOptions="Start"
-							VerticalOptions="Center"
-							WidthRequest="50">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.CheckboxMarkedCircleOutline}"
-									Size="50"
-									Color="#05CBE7" />
-							</ImageButton.Source>
-						</ImageButton>
-
-						<ImageButton
-							Grid.Column="1"
-							Padding="15,5,0,15"
-							BackgroundColor="Transparent"
-							Command="{Binding CloseCommand}"
-							HorizontalOptions="EndAndExpand"
-							IsVisible="{Binding IsCloseShow}"
-							WidthRequest="40">
-							<ImageButton.Source>
-								<FontImageSource
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Glyph="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
-									Size="26"
-									Color="#6F7FAF" />
-							</ImageButton.Source>
-						</ImageButton>
-					</Grid>
-
-					<Label
-						FontFamily="SFProDisplayMediumFontFamily"
-						FontSize="28"
-						HorizontalTextAlignment="Start"
-						Text="Add"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<Label
-						FontFamily="SFProDisplayMediumFontFamily"
-						FontSize="28"
-						HorizontalTextAlignment="Start"
-						Text="card"
-						TextColor="Black"
-						VerticalTextAlignment="Start" />
-
-					<BoxView
-						Margin="0,10,0,50"
-						BackgroundColor="#05CBE7"
-						CornerRadius="3"
-						HeightRequest="5"
-						HorizontalOptions="Start"
-						VerticalOptions="Start"
-						WidthRequest="40" />
-
-					<Label
-						FontFamily="SFProRegularFontFamily"
-						FontSize="16"
-						HorizontalTextAlignment="Start"
-						Text="Please add your card details."
-						TextColor="#6F7FAF"
-						VerticalTextAlignment="Start" />
-				</StackLayout>
-
-				<Grid
-					Margin="0,24,0,0"
-					RowSpacing="20"
-					VerticalOptions="StartAndExpand">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="50" />
-						<RowDefinition Height="50" />
-						<RowDefinition Height="50" />
-						<RowDefinition Height="50" />
-						<RowDefinition Height="50" />
-						<RowDefinition Height="90" />
-					</Grid.RowDefinitions>
-
-					<Frame
-						Grid.Row="0"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<Grid Margin="10,0,20,0" ColumnSpacing="0">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="40" />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Column="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="19"
-								HorizontalTextAlignment="Center"
-								Opacity="0.5"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-							<controls:CustomEntry
-								Grid.Column="1"
-								BackgroundColor="#F8F8FB"
-								FontFamily="SFProRegularFontFamily"
-								FontSize="16"
-								Keyboard="Numeric"
-								MaxLength="16"
-								Placeholder="Card Number"
-								PlaceholderColor="#6F7FAF"
-								Text="{Binding CardNumber}"
-								TextColor="#6F7FAF" />
-						</Grid>
-					</Frame>
-
-					<Frame
-						Grid.Row="1"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<Grid Margin="10,0,20,0" ColumnSpacing="0">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="40" />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Column="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="25"
-								HorizontalTextAlignment="Center"
-								Opacity="0.5"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-							<controls:CustomEntry
-								Grid.Column="1"
-								BackgroundColor="#F8F8FB"
-								FontFamily="SFProRegularFontFamily"
-								FontSize="16"
-								IsReadOnly="True"
-								Placeholder="Card Holder"
-								PlaceholderColor="#6F7FAF"
-								Text="{Binding CardHolderName}"
-								TextColor="#6F7FAF" />
-						</Grid>
-					</Frame>
-
-					<Frame
-						Grid.Row="2"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<Grid Margin="10,0,5,0" ColumnSpacing="0">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="40" />
-								<ColumnDefinition />
-								<ColumnDefinition Width="30" />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Column="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="19"
-								HorizontalTextAlignment="Center"
-								Opacity="0.5"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-
-							<controls:CustomPicker
-								Title="Expiration Month"
-								Grid.Column="1"
-								BackgroundColor="#F8F8FB"
-								FontFamily="SFProRegularFontFamily"
-								FontSize="16"
-								SelectedItem="{Binding ExpirationMonth}"
-								TextColor="#6F7FAF"
-								TitleColor="#6F7FAF">
-								<controls:CustomPicker.ItemsSource>
-									<x:Array Type="{x:Type x:String}">
-										<x:String>01</x:String>
-										<x:String>02</x:String>
-										<x:String>03</x:String>
-										<x:String>04</x:String>
-										<x:String>05</x:String>
-										<x:String>06</x:String>
-										<x:String>07</x:String>
-										<x:String>08</x:String>
-										<x:String>09</x:String>
-										<x:String>10</x:String>
-										<x:String>11</x:String>
-										<x:String>12</x:String>
-									</x:Array>
-								</controls:CustomPicker.ItemsSource>
-							</controls:CustomPicker>
-							<Label
-								Grid.Column="2"
-								FontSize="16"
-								HorizontalTextAlignment="Start"
-								Opacity="0.5"
-								Text="&#x25bc;"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-						</Grid>
-					</Frame>
-
-					<Frame
-						Grid.Row="3"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<Grid Margin="10,0,5,0" ColumnSpacing="0">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="40" />
-								<ColumnDefinition />
-								<ColumnDefinition Width="30" />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Column="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="19"
-								HorizontalTextAlignment="Center"
-								Opacity="0.5"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CalendarText}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-
-							<controls:CustomPicker
-								Title="Expiration Year"
-								Grid.Column="1"
-								BackgroundColor="#F8F8FB"
-								FontFamily="SFProRegularFontFamily"
-								FontSize="16"
-								ItemsSource="{Binding ExpirationYearList}"
-								SelectedItem="{Binding ExpirationYear}"
-								TextColor="#6F7FAF"
-								TitleColor="#6F7FAF" />
-							<Label
-								Grid.Column="2"
-								FontSize="16"
-								HorizontalTextAlignment="Start"
-								Opacity="0.5"
-								Text="&#x25bc;"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-						</Grid>
-					</Frame>
-
-					<Frame
-						Grid.Row="4"
-						Padding="0"
-						BackgroundColor="#F8F8FB"
-						CornerRadius="25"
-						HasShadow="False">
-						<Grid Margin="10,0,20,0" ColumnSpacing="0">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="40" />
-								<ColumnDefinition />
-							</Grid.ColumnDefinitions>
-							<Label
-								Grid.Column="0"
-								FontFamily="{StaticResource MaterialFontFamily}"
-								FontSize="19"
-								HorizontalTextAlignment="Center"
-								Opacity="0.5"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}"
-								TextColor="#6F7FAF"
-								VerticalTextAlignment="Center" />
-							<controls:CustomEntry
-								Grid.Column="1"
-								BackgroundColor="#F8F8FB"
-								FontFamily="SFProRegularFontFamily"
-								FontSize="16"
-								Keyboard="Numeric"
-								MaxLength="3"
-								Placeholder="CVV"
-								PlaceholderColor="#6F7FAF"
-								Text="{Binding Cvv}"
-								TextColor="#6F7FAF" />
-						</Grid>
-					</Frame>
-
-					<controls:CustomButton
-						Grid.Row="5"
-						Margin="0"
-						BackgroundColor="#05CBE7"
-						Command="{Binding AddNewCardCommand}"
-						FontFamily="SFProSemiboldFontFamily"
-						FontSize="16"
-						Text="Add Card"
-						VerticalOptions="EndAndExpand" />
-				</Grid>
-			</StackLayout>
-		</ScrollView>
-	</ContentPage.Content>-->
+                        <Button 
+                            Text="Add bed"
+                            TextColor="White"
+                            FontSize="12"
+                            CornerRadius="12"
+                            BackgroundColor="#0F9D58"
+                            FontFamily="PoppinsMediumFontFamily"
+                            HorizontalOptions="StartAndExpand"
+                            Grid.Row="6"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>

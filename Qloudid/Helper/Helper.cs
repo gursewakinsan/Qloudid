@@ -102,6 +102,9 @@ namespace Qloudid.Helper
 		public static Models.DependentDetailResponse DependentDetail { get; set; }
 		public static int PreCheckinStatus { get; set; }
 
+		public static Models.UserDeliveryAddressesResponse SelectedUserDeliveryAddress { get; set; }
+		
+
 
 		public static string[] ColorList =
 		{

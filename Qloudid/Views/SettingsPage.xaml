@@ -114,7 +114,9 @@
 					<RowDefinition Height="1" />
 					<RowDefinition Height="80" />
 					<RowDefinition Height="1" />
-				</Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="1" />
+                </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition Width="50" />
@@ -267,7 +269,44 @@
 					Grid.ColumnSpan="2"
 					BackgroundColor="#6F7FAF"
 					Opacity="0.2" />
-			</Grid>
+
+                <Label
+					Grid.Row="8"
+					FontFamily="SFProSemiboldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					MaxLines="1"
+					Text="My Home"
+					TextColor="Black"
+					VerticalTextAlignment="Center" />
+
+                <ImageButton
+					Grid.Row="8"
+					Grid.Column="1"
+					Padding="7"
+					BackgroundColor="#E6F7FE"
+					Command="{Binding GoToMyHomePageCommand}"
+					CornerRadius="20"
+					HeightRequest="40"
+					HorizontalOptions="End"
+					VerticalOptions="Center"
+					WidthRequest="40">
+                    <ImageButton.Source>
+                        <FontImageSource
+							FontFamily="{StaticResource MaterialFontFamily}"
+							Glyph="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+							Size="100"
+							Color="#3DB9EC" />
+                    </ImageButton.Source>
+                </ImageButton>
+
+                <BoxView
+					Grid.Row="9"
+					Grid.ColumnSpan="2"
+					BackgroundColor="#6F7FAF"
+					Opacity="0.2" />
+            </Grid>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

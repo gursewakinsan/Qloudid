@@ -124,5 +124,11 @@
 		public const string DependentsListForCheckinDstrictUrl = "https://www.qloudid.com/user/index.php/QloudidApp/dependentsListForCheckinDstrict";
 		public const string AddDependentChekinUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addDependentChekin";
 		public const string GetUserStatusCompanyRequirementUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getUserStatusCompanyRequirement";
+
+		//Bedroom
+		public const string BedroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bedroomDetail";
+		public const string UserDeliveryAddressesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listUserDeliveryAddresses";
+		public const string AddBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBedroom";
+		public const string DeleteBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBedroom";
 	}
 }

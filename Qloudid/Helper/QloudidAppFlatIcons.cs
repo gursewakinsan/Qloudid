@@ -65,5 +65,6 @@
 		public const string PhoneOutline = "\U000f0df0";
 		public const string ShareVariantOutline = "\U000f1514";
 		public const string SettingIcon = "\U000f08bb";
+		public const string Minus = "\U000f0374";
 	}
 }

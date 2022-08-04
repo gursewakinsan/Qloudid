@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.MyHomePage"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="58" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <Label
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			TextColor="White"
+            Text="My place"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="2"
+            LineHeight="1.2"
+			Opacity="0.70"
+			TextColor="White"
+            Text="With a few clicks you will be able to manage your apartments"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="6"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			TextColor="White"
+            Text="Select"
+			VerticalTextAlignment="Center"/>
+
+        <ScrollView 
+            Grid.Row="8"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout
+                BindableLayout.ItemsSource="{Binding UserDeliveryAddresses}"
+                VerticalOptions="StartAndExpand" 
+                Spacing="0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame
+                                Margin="0,0,0,18"
+                                IsVisible="{Binding IsBedroomBathroomUpdated}"
+                                HeightRequest="80"
+                                VerticalOptions="StartAndExpand"
+                                HasShadow="False"
+                                CornerRadius="16"
+                                Padding="15,10,20,10"
+                                BackgroundColor="#0F9D58" 
+                                IsClippedToBounds="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnSpacing="10">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="44"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Spacing="2"
+                                        VerticalOptions="CenterAndExpand"
+                                        Grid.Column="0">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <Label
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        TextColor="White"
+					                        Text="{Binding DisplayName}"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"
+					                        VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"
+					                        VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                            </Label.GestureRecognizers>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Address}"/>
+                                                    <Span Text=" "/>
+                                                    <Span Text="{Binding PortNumber}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <Button
+					                    Grid.Column="1"
+					                    Padding="0"
+					                    BackgroundColor="#4FD471"
+					                    FontFamily="{StaticResource MaterialFontFamily}"
+					                    FontSize="18"
+                                        CornerRadius="22"
+                                        WidthRequest="44"
+                                        HeightRequest="44"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="EndAndExpand"
+					                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+					                    TextColor="White" 
+                                        Clicked="OnButtonTapped" />
+                                </Grid>
+                            </Frame>
+
+                            <Frame
+                                Margin="0,0,0,18"
+                                IsVisible="{Binding IsBedroomBathroomUpdated, Converter={StaticResource InverseBoolConverter}}"
+                                HeightRequest="80"
+                                VerticalOptions="StartAndExpand"
+                                HasShadow="False"
+                                CornerRadius="16"
+                                Padding="15,10,20,10"
+                                BackgroundColor="#242A37" 
+                                IsClippedToBounds="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                    </Grid.GestureRecognizers>
+                                    <StackLayout Spacing="2"
+                                        VerticalOptions="CenterAndExpand"
+                                        Grid.Column="0">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <Label
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        TextColor="White"
+					                        Text="{Binding DisplayName}"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                            </Label.GestureRecognizers>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Address}"/>
+                                                    <Span Text=" "/>
+                                                    <Span Text="{Binding PortNumber}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <Button
+					                    Grid.Column="1"
+					                    Padding="0"
+					                    BackgroundColor="#E94975"
+					                    FontFamily="PoppinsSemiBoldFontFamily"
+					                    FontSize="14"
+                                        CornerRadius="20"
+                                        WidthRequest="90"
+                                        HeightRequest="40"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="EndAndExpand"
+					                    Text="Update"
+                                         Clicked="OnButtonTapped"
+					                    TextColor="White" />
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
