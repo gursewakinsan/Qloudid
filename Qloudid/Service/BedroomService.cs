@@ -125,5 +125,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateAccessibilityAsync(Models.UpdateAccessibilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateAccessibilityUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> UpdateOverbathAsync(Models.UpdateOverbathRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateOverbathUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

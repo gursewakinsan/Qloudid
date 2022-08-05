@@ -78,6 +78,67 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Update Bathroom Command.
+		private ICommand updateBathroomCommand;
+		public ICommand UpdateBathroomCommand
+		{
+			get => updateBathroomCommand ?? (updateBathroomCommand = new Command(async () => await ExecuteUpdateBathroomCommand()));
+		}
+		private async Task ExecuteUpdateBathroomCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+			await service.UpdateBathroomAsync(new Models.UpdateBathroomRequest()
+			{
+				AId = SelectedUserDeliveryAddress.Id,
+				UpdateType = UpdateType,
+				BathroomId = BathroomId,
+				Bath = Bath
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Accessibility Command.
+		private ICommand updateAccessibilityCommand;
+		public ICommand UpdateAccessibilityCommand
+		{
+			get => updateAccessibilityCommand ?? (updateAccessibilityCommand = new Command(async () => await ExecuteUpdateAccessibilityCommand()));
+		}
+		private async Task ExecuteUpdateAccessibilityCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+			await service.UpdateAccessibilityAsync(new Models.UpdateAccessibilityRequest()
+			{
+				UpdateType = UpdateType,
+				PrivateInfo = Bath,
+				BathroomId = BathroomId
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Overbath Command.
+		private ICommand updateOverbathCommand;
+		public ICommand UpdateOverbathCommand
+		{
+			get => updateOverbathCommand ?? (updateOverbathCommand = new Command(async () => await ExecuteUpdateOverbathCommand()));
+		}
+		private async Task ExecuteUpdateOverbathCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+			await service.UpdateOverbathAsync(new Models.UpdateOverbathRequest() 
+			{
+				BathroomId = BathroomId,
+				OverBath = OverBath,
+				StandAlone = StandAlone
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.BathroomDetailResponse> bathroomDetailList;
 		public List<Models.BathroomDetailResponse> BathroomDetailList
@@ -101,6 +162,11 @@ namespace Qloudid.ViewModels
 			}
 		}
 		public Models.UserDeliveryAddressesResponse SelectedUserDeliveryAddress => Helper.Helper.SelectedUserDeliveryAddress;
-		#endregion
-	}
+        public int UpdateType { get; set; }
+        public int BathroomId { get; set; }
+        public int Bath { get; set; }
+        public int OverBath { get; set; }
+        public int StandAlone { get; set; }
+        #endregion
+    }
 }

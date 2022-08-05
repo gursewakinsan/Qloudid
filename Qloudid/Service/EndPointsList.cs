@@ -141,5 +141,7 @@
 		public const string AddBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBathroom";
 		public const string DeleteBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBathroom";
 		public const string UpdateBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBathroom";
+		public const string UpdateAccessibilityUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAccessibility";
+		public const string UpdateOverbathUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateOverbath";
 	}
 }

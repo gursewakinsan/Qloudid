@@ -198,7 +198,6 @@
 			                        FontSize="16"
 			                        HorizontalTextAlignment="Start"
 			                        TextColor="White"
-                                    Text="Bathroom 1"
 			                        VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
@@ -267,14 +266,28 @@
                                                 WidthRequest="143"
                                                 HeightRequest="36"
                                                 HasShadow="False" Padding="0">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="6">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFrameToiletteAndSinkTapped"/>
+                                                </Frame.GestureRecognizers>
+                                                <StackLayout 
+                                                    Orientation="Horizontal" 
+                                                    HorizontalOptions="CenterAndExpand" 
+                                                    VerticalOptions="CenterAndExpand" 
+                                                    Spacing="6">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnStackLayoutToiletteAndSinkTapped"/>
+                                                    </StackLayout.GestureRecognizers>
                                                     <Label
 			                                            FontFamily="PoppinsSemiBoldFontFamily"
 			                                            FontSize="12"
 			                                            HorizontalTextAlignment="Center"
 			                                            TextColor="White"
                                                         Text="Toilette &amp; Sink"
-			                                            VerticalTextAlignment="Center"/>
+			                                            VerticalTextAlignment="Center">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelToiletteAndSinkTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding ToiletAndSink}"
@@ -285,7 +298,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelToiletteAndSinkTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding ToiletAndSink, Converter={StaticResource InverseBoolConverter}}"
@@ -296,7 +313,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelToiletteAndSinkTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
                                                 </StackLayout>
                                             </Frame>
 
@@ -307,14 +328,28 @@
                                                 WidthRequest="102"
                                                 HeightRequest="36"
                                                 HasShadow="False" Padding="0">
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="6">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFrameShowerTapped"/>
+                                                </Frame.GestureRecognizers>
+                                                <StackLayout 
+                                                    Orientation="Horizontal" 
+                                                    HorizontalOptions="CenterAndExpand" 
+                                                    VerticalOptions="CenterAndExpand" 
+                                                    Spacing="6">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnStackLayoutShowerTapped"/>
+                                                    </StackLayout.GestureRecognizers>
                                                     <Label
 			                                            FontFamily="PoppinsSemiBoldFontFamily"
 			                                            FontSize="12"
 			                                            HorizontalTextAlignment="Center"
 			                                            TextColor="White"
                                                         Text="Shower"
-			                                            VerticalTextAlignment="Center"/>
+			                                            VerticalTextAlignment="Center">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelShowerTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding Shower}"
@@ -325,7 +360,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelShowerTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding Shower, Converter={StaticResource InverseBoolConverter}}"
@@ -336,7 +375,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelShowerTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
                                                 </StackLayout>
                                             </Frame>
                                         </StackLayout>
@@ -351,18 +394,28 @@
                                             HeightRequest="36"
                                             HorizontalOptions="StartAndExpand"
                                             HasShadow="False" Padding="0">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnFrameBathtubTapped"/>
+                                            </Frame.GestureRecognizers>
                                             <StackLayout 
                                                 Orientation="Horizontal" 
                                                 HorizontalOptions="CenterAndExpand" 
                                                 VerticalOptions="CenterAndExpand" 
                                                 Spacing="6">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnStackLayoutBathtubTapped"/>
+                                                </StackLayout.GestureRecognizers>
                                                 <Label
 			                                        FontFamily="PoppinsSemiBoldFontFamily"
 			                                        FontSize="12"
 			                                        HorizontalTextAlignment="Center"
 			                                        TextColor="White"
                                                     Text="Bathtub"
-			                                        VerticalTextAlignment="Center"/>
+			                                        VerticalTextAlignment="Center">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelBathtubTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
 
                                                 <Label
                                                     IsVisible="{Binding Bath}"
@@ -373,7 +426,11 @@
                                                     VerticalTextAlignment="Center"
                                                     HorizontalTextAlignment="Center"
 			                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                        TextColor="White" />
+			                                        TextColor="White">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelBathtubTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
 
                                                 <Label
                                                     IsVisible="{Binding Bath, Converter={StaticResource InverseBoolConverter}}"
@@ -384,7 +441,11 @@
                                                     VerticalTextAlignment="Center"
                                                     HorizontalTextAlignment="Center"
 			                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                        TextColor="White" />
+			                                        TextColor="White">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelBathtubTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
                                             </StackLayout>
                                         </Frame>
 
@@ -415,6 +476,7 @@
                                                 HeightRequest="44"
                                                 VerticalOptions="CenterAndExpand"
                                                 HorizontalOptions="EndAndExpand"
+                                                Clicked="OnButtonStandaloneTapped"
 					                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 					                            TextColor="White"/>
 
@@ -431,6 +493,7 @@
                                                 CornerRadius="22"
                                                 WidthRequest="44"
                                                 HeightRequest="44"
+                                                Clicked="OnButtonStandaloneTapped"
                                                 VerticalOptions="CenterAndExpand"
                                                 HorizontalOptions="EndAndExpand"
 					                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
@@ -444,7 +507,11 @@
 			                                    HorizontalTextAlignment="Start"
 			                                    TextColor="White"
                                                 Text="Standalone"
-			                                    VerticalTextAlignment="Center"/>
+			                                    VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelStandaloneTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </Grid>
 
                                         <Grid
@@ -474,6 +541,7 @@
                                                 HeightRequest="44"
                                                 VerticalOptions="CenterAndExpand"
                                                 HorizontalOptions="EndAndExpand"
+                                                Clicked="OnButtonAnOverBathShowerTapped"
 					                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 					                            TextColor="White"/>
                                             
@@ -492,6 +560,7 @@
                                                 HeightRequest="44"
                                                 VerticalOptions="CenterAndExpand"
                                                 HorizontalOptions="EndAndExpand"
+                                                Clicked="OnButtonAnOverBathShowerTapped"
 					                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 					                            TextColor="White"/>
 
@@ -503,7 +572,11 @@
 			                                    HorizontalTextAlignment="Start"
 			                                    TextColor="White"
                                                 Text="An over-bath shower"
-			                                    VerticalTextAlignment="Center"/>
+			                                    VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnLabelAnOverBathShowerTapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </Grid>
 
                                         <Label
@@ -528,17 +601,27 @@
                                                 WidthRequest="99"
                                                 HeightRequest="36"
                                                 HasShadow="False" Padding="0">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFramePrivateTapped"/>
+                                                </Frame.GestureRecognizers>
                                                 <StackLayout 
                                                     Orientation="Horizontal" 
                                                     HorizontalOptions="CenterAndExpand" 
                                                     VerticalOptions="CenterAndExpand" Spacing="6">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnStackLayoutPrivateTapped"/>
+                                                    </StackLayout.GestureRecognizers>
                                                     <Label
 			                                            FontFamily="PoppinsSemiBoldFontFamily"
 			                                            FontSize="12"
 			                                            HorizontalTextAlignment="Center"
 			                                            TextColor="White"
                                                         Text="Private"
-			                                            VerticalTextAlignment="Center"/>
+			                                            VerticalTextAlignment="Center">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelPrivateTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding IsPrivate}"
@@ -549,7 +632,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelPrivateTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding IsPrivate, Converter={StaticResource InverseBoolConverter}}"
@@ -560,7 +647,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelPrivateTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
                                                 </StackLayout>
                                             </Frame>
 
@@ -571,17 +662,27 @@
                                                 WidthRequest="93"
                                                 HeightRequest="36"
                                                 HasShadow="False" Padding="0">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnFrameEnsuitTapped"/>
+                                                </Frame.GestureRecognizers>
                                                 <StackLayout 
                                                     Orientation="Horizontal" 
                                                     HorizontalOptions="CenterAndExpand" 
                                                     VerticalOptions="CenterAndExpand" Spacing="6">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnStackLayoutEnsuitTapped"/>
+                                                    </StackLayout.GestureRecognizers>
                                                     <Label
 			                                            FontFamily="PoppinsSemiBoldFontFamily"
 			                                            FontSize="12"
 			                                            HorizontalTextAlignment="Center"
 			                                            TextColor="White"
                                                         Text="Ensuit"
-			                                            VerticalTextAlignment="Center"/>
+			                                            VerticalTextAlignment="Center">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelEnsuitTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
 
                                                     <Label
@@ -593,7 +694,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelEnsuitTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
 
                                                     <Label
                                                         IsVisible="{Binding IsEnsuit, Converter={StaticResource InverseBoolConverter}}"
@@ -604,7 +709,11 @@
                                                         VerticalTextAlignment="Center"
                                                         HorizontalTextAlignment="Center"
 			                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                            TextColor="White" />
+			                                            TextColor="White">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnLabelEnsuitTapped"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
                                                 </StackLayout>
                                             </Frame>
                                         </StackLayout>
@@ -619,17 +728,27 @@
                                             HeightRequest="36"
                                             HorizontalOptions="StartAndExpand"
                                             HasShadow="False" Padding="0">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnFrameWheelchairAccessibleTapped"/>
+                                            </Frame.GestureRecognizers>
                                             <StackLayout 
                                                 Orientation="Horizontal" 
                                                 HorizontalOptions="CenterAndExpand" 
                                                 VerticalOptions="CenterAndExpand" Spacing="6">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="OnStackLayoutWheelchairAccessibleTapped"/>
+                                                </StackLayout.GestureRecognizers>
                                                 <Label
 			                                        FontFamily="PoppinsSemiBoldFontFamily"
 			                                        FontSize="12"
 			                                        HorizontalTextAlignment="Center"
 			                                        TextColor="White"
                                                     Text="Wheelchair accessible"
-			                                        VerticalTextAlignment="Center"/>
+			                                        VerticalTextAlignment="Center">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelWheelchairAccessibleTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
 
                                                 <Label
                                                     IsVisible="{Binding IsWheelchairAccessible}"
@@ -640,7 +759,11 @@
                                                     VerticalTextAlignment="Center"
                                                     HorizontalTextAlignment="Center"
 			                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                                        TextColor="White" />
+			                                        TextColor="White">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelWheelchairAccessibleTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
 
                                                 <Label
                                                     IsVisible="{Binding IsWheelchairAccessible, Converter={StaticResource InverseBoolConverter}}"
@@ -651,7 +774,11 @@
                                                     VerticalTextAlignment="Center"
                                                     HorizontalTextAlignment="Center"
 			                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                                        TextColor="White" />
+			                                        TextColor="White">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnLabelWheelchairAccessibleTapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
                                             </StackLayout>
                                         </Frame>
                                     </Grid>

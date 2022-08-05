@@ -20,5 +20,7 @@ namespace Qloudid.Interfaces
         Task<string> AddBathroomAsync(Models.AddBathroomRequest model);
         Task<string> DeleteBathroomAsync(Models.DeleteBathroomRequest model);
         Task<string> UpdateBathroomAsync(Models.UpdateBathroomRequest model);
+        Task<string> UpdateAccessibilityAsync(Models.UpdateAccessibilityRequest model);
+        Task<string> UpdateOverbathAsync(Models.UpdateOverbathRequest model);
     }
 }
