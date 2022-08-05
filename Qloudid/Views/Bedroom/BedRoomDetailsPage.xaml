@@ -124,7 +124,7 @@
                     LineHeight="1.2"
 			        Opacity="0.70"
 			        TextColor="White"
-                    Text="How many Beds does your property have?"
+                    Text="How many bedroom does your property have?"
 			        VerticalTextAlignment="Center"/>
 
                 <Grid 
