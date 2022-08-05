@@ -36,5 +36,18 @@ namespace Qloudid.Models
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "modified_on")]
         public string ModifiedOn { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bedtype")]
+        public List<Bedtype> BedTypeList { get; set; }
+        public Bedtype SelectedBedType { get; set; }
+    }
+
+    public class Bedtype
+    {
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
+        public int Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bed_type")]
+        public string BedType { get; set; }
     }
 }

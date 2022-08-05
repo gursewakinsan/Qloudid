@@ -1,8 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -31,7 +34,7 @@ namespace Qloudid.ViewModels
 				{
 					Id = SelectedBedroomDetail.Id
 				});
-				Count = Count - 1;
+				BedroomBedDetailCommand.Execute(null);
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
@@ -51,7 +54,52 @@ namespace Qloudid.ViewModels
 			{
 				Id = SelectedBedroomDetail.Id
 			});
-			Count = Count + 1;
+			BedroomBedDetailCommand.Execute(null);
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Bedroom Bed Detail Command.
+		private ICommand bedroomBedDetailCommand;
+		public ICommand BedroomBedDetailCommand
+		{
+			get => bedroomBedDetailCommand ?? (bedroomBedDetailCommand = new Command(async () => await ExecuteBedroomBedDetailCommand()));
+		}
+		private async Task ExecuteBedroomBedDetailCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+
+			var response = await service.BedroomBedDetailAsync(new Models.BedroomBedDetailRequest()
+			{
+				Id = SelectedBedroomDetail.Id
+			});
+			foreach (var item in response)
+			{
+				item.SelectedBedType = item.BedTypeList.FirstOrDefault(x => x.BedType.Equals(item.BedInfo));
+			}
+			BedTypeList = response;
+			Count = BedTypeList.Count;
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Bed Type Info Command.
+		private ICommand updateBedTypeInfoCommand;
+		public ICommand UpdateBedTypeInfoCommand
+		{
+			get => updateBedTypeInfoCommand ?? (updateBedTypeInfoCommand = new Command(async () => await ExecuteUpdateBedTypeInfoCommand()));
+		}
+		private async Task ExecuteUpdateBedTypeInfoCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+			await service.UpdateBedTypeInfoAsync(new Models.UpdateBedTypeInfoRequest()
+			{
+				BedId  = BedId,
+				BedInfo = BedInfo
+			});
+			BedroomBedDetailCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -69,7 +117,24 @@ namespace Qloudid.ViewModels
 		}
 
 		public Models.UserDeliveryAddressesResponse SelectedUserDeliveryAddress => Helper.Helper.SelectedUserDeliveryAddress;
-        public Models.BedroomDetailResponse SelectedBedroomDetail { get; set; }
+		public Models.BedroomDetailResponse SelectedBedroomDetail { get; set; }
+
+		private List<Models.BedType> bedTypeList;
+		public List<Models.BedType> BedTypeList
+		{
+			get => bedTypeList;
+			set
+			{
+				bedTypeList = value;
+				OnPropertyChanged("BedTypeList");
+			}
+		}
+
+        public List<Models.BedTypeDetail> BedTypeDetailPickerList { get; set; }
+
+        public int BedId { get; set; }
+        public string BedInfo { get; set; }
         #endregion
+
     }
 }

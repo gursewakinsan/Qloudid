@@ -132,5 +132,8 @@
 		public const string DeleteBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBedroom";
 		public const string AddBedToBedroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBedToBedroom";
 		public const string DeleteBedroomBedInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBedroomBedInfo";
+		public const string BedroomBedDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bedroomBedDetail";
+		public const string BedTypeDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bedTypeDetail";
+		public const string UpdateBedTypeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBedTypeInfo";
 	}
 }

@@ -77,9 +77,8 @@
                     <RowDefinition Height="10" />
                     <RowDefinition Height="81" />
                     <RowDefinition Height="59" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="*" />s
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Label
 			        Grid.Row="0"
@@ -112,7 +111,7 @@
 			        FontSize="16"
 			        HorizontalTextAlignment="Start"
 			        TextColor="White"
-                    Text="Bedrooms"
+                    Text="Beds"
 			        VerticalTextAlignment="Center"/>
 
                 <Label
@@ -125,7 +124,7 @@
                     LineHeight="1.2"
 			        Opacity="0.70"
 			        TextColor="White"
-                    Text="How many bedrooms does your property have?"
+                    Text="How many Beds does your property have?"
 			        VerticalTextAlignment="Center"/>
 
                 <Grid 
@@ -193,149 +192,73 @@
 			        FontSize="16"
 			        HorizontalTextAlignment="Start"
 			        TextColor="White"
-                    Text="Bedroom 1"
+                    Text="Bed type"
 			        VerticalTextAlignment="Center"/>
 
-                <Frame
-                    BackgroundColor="#242A37"
-                    Padding="15,10,15,24"
-                    HasShadow="False"
-                    CornerRadius="16"
-                    VerticalOptions="StartAndExpand"
-                    IsClippedToBounds="True"
-                    Grid.Row="12" Margin="0,0,0,50">
-                    <Grid RowSpacing="0" ColumnSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="36"/>
-                            <RowDefinition Height="14"/>
-                            <RowDefinition Height="56"/>
-                            <RowDefinition Height="24"/>
-                            <RowDefinition Height="56"/>
-                            <RowDefinition Height="26"/>
-                            <RowDefinition Height="35"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                <ScrollView Grid.Row="11" VerticalScrollBarVisibility="Never" Margin="0,30,0,0">
+                    <Frame
+                        BackgroundColor="#242A37"
+                        Padding="15,15,15,0"
+                        HasShadow="False"
+                        CornerRadius="16"
+                        VerticalOptions="StartAndExpand"
+                        IsClippedToBounds="True">
+                        <StackLayout VerticalOptions="StartAndExpand" BindableLayout.ItemsSource="{Binding BedTypeList}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="56"/>
+                                            <RowDefinition Height="24"/>
+                                        </Grid.RowDefinitions>
+                                        <controls:CustomFrame 
+                                            BackgroundColor="Transparent" 
+                                            IsClippedToBounds="True"
+                                            Grid.Row="0"
+                                            Padding="0"
+                                            HasShadow="False"
+                                            CornerRadius="12"
+                                            BorderColor="White" 
+                                            Opacity="0.10"/>
 
-                        <Label
-			                Grid.Row="0"
-                            Grid.Column="0"
-			                FontFamily="PoppinsSemiBoldFontFamily"
-			                FontSize="14"
-			                HorizontalTextAlignment="Start"
-			                TextColor="White"
-                            Text="Bed type"
-			                VerticalTextAlignment="Center"/>
+                                        <Grid 
+                                            Grid.Row="0"
+                                            Margin="16,5,16,5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="20"/>
+                                            </Grid.ColumnDefinitions>
 
-                        <Label
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            Padding="0"
-                            FontSize="25" 
-                            TextColor="#FF0000"
-                            BackgroundColor="Transparent"
-                            HorizontalTextAlignment="End"
-                            VerticalTextAlignment="Center"
-                            FontFamily="PoppinsSemiBoldFontFamily"
-                            Text="x"/>
-
-                        <Frame 
-                            Grid.ColumnSpan="2"
-                            BackgroundColor="Transparent" 
-                            IsClippedToBounds="True"
-                            Grid.Row="2"
-                            Padding="0"
-                            HasShadow="False"
-                            CornerRadius="12"
-                            BorderColor="White" 
-                            Opacity="0.10"/>
-
-                        <Grid 
-                            Grid.ColumnSpan="2"
-                            Margin="16,5,16,5"
-                            Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
-                            </Grid.ColumnDefinitions>
-
-                            <controls:CustomPicker
-						        Title="Type"
-						        FontFamily="PoppinsRegularFontFamily"
-						        FontSize="14"
-						        ItemDisplayBinding="{Binding TicketSubtitle}"
-						        ItemsSource="{Binding TicketSubTitleInfoList}"
-						        SelectedItem="{Binding SelectedTicketSubTitleInfo}"
-						        TextColor="White"
-						        TitleColor="#6263ED" />
-
-                            <Label
-			                    Grid.Row="0"
-			                    Grid.Column="1"
-			                    Padding="0"
-			                    FontFamily="{StaticResource MaterialFontFamily}"
-			                    FontSize="25"
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-			                    TextColor="#6263ED"/>
-                        </Grid>
-
-                        <Frame 
-                            Grid.ColumnSpan="2"
-                            BackgroundColor="Transparent" 
-                            IsClippedToBounds="True"
-                            Grid.Row="4"
-                            Padding="0"
-                            HasShadow="False"
-                            CornerRadius="12"
-                            BorderColor="White" 
-                            Opacity="0.10"/>
-
-                        <Grid 
-                            Grid.ColumnSpan="2"
-                            Margin="16,5,16,5"
-                            Grid.Row="4">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
-                            </Grid.ColumnDefinitions>
-
-                            <controls:CustomPicker
-						        Title="Type"
-						        FontFamily="PoppinsRegularFontFamily"
-						        FontSize="14"
-						        ItemDisplayBinding="{Binding TicketSubtitle}"
-						        ItemsSource="{Binding TicketSubTitleInfoList}"
-						        SelectedItem="{Binding SelectedTicketSubTitleInfo}"
-						        TextColor="White"
-						        TitleColor="#6263ED" />
-
-                            <Label
-			                    Grid.Row="0"
-			                    Grid.Column="1"
-			                    Padding="0"
-			                    FontFamily="{StaticResource MaterialFontFamily}"
-			                    FontSize="25"
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-			                    TextColor="#6263ED"/>
-                        </Grid>
-
-                        <Button 
-                            Text="Add bed"
-                            TextColor="White"
-                            FontSize="12"
-                            CornerRadius="12"
-                            BackgroundColor="#0F9D58"
-                            FontFamily="PoppinsMediumFontFamily"
-                            HorizontalOptions="StartAndExpand"
-                            Grid.Row="6"/>
-                    </Grid>
-                </Frame>
+                                            <controls:CustomPicker
+                                                Grid.Column="0"
+						                        Title="Type"
+						                        FontFamily="PoppinsRegularFontFamily"
+						                        FontSize="14"
+						                        TextColor="White"
+						                        TitleColor="#6263ED" 
+                                                ClassId="{Binding Id}"
+                                                Focused="CustomPicker_Focused"
+                                                SelectedIndexChanged="OnPickerSelectedIndexChanged"
+                                                ItemDisplayBinding="{Binding BedType}"
+						                        ItemsSource="{Binding BedTypeList}"
+						                        SelectedItem="{Binding SelectedBedType}"/>
+                                            
+                                            <Label
+			                                    Grid.Column="1"
+			                                    Padding="0"
+			                                    FontFamily="{StaticResource MaterialFontFamily}"
+			                                    FontSize="25"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+			                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+			                                    TextColor="#6263ED"/>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </Frame>
+                </ScrollView>
             </Grid>
         </ScrollView>
     </Grid>
