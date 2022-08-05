@@ -17,7 +17,7 @@
             <RowDefinition Height="23" />
             <RowDefinition Height="56" />
             <RowDefinition Height="8" />
-            <RowDefinition Height="52" />
+            <RowDefinition Height="54" />
             <RowDefinition Height="58" />
             <RowDefinition Height="20" />
             <RowDefinition Height="24" />
