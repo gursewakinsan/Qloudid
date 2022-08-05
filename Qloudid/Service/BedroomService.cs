@@ -88,7 +88,42 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		//Bathroom
+		public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.BathroomDetailResponse>>(HttpWebRequest.Create(EndPointsList.BathroomDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> AddBathroomAsync(Models.AddBathroomRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.AddBathroomUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> DeleteBathroomAsync(Models.DeleteBathroomRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.DeleteBathroomUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> UpdateBathroomAsync(Models.UpdateBathroomRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateBathroomUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
-
-

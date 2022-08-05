@@ -20,10 +20,17 @@ namespace Qloudid.Views.Bedroom
         }
         #endregion
 
-        #region On Clicked Event.
-        async void OnClickedEvent(object sender, System.EventArgs e)
+        #region On Bedrooms Clicked Event.
+        async void OnBedroomsClickedEvent(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new UpdateMyHomeDetailsPage());
+        }
+        #endregion
+
+        #region On Bathroom Clicked Event.
+        async void OnBathroomClickedEvent(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new BathroomsDetailsPage());
         }
         #endregion
     }

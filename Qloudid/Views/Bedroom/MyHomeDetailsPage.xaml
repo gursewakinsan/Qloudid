@@ -116,11 +116,11 @@
             BackgroundColor="#0F9D58" 
             IsClippedToBounds="True">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
             </Frame.GestureRecognizers>
             <Grid ColumnSpacing="10">
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
                 </Grid.GestureRecognizers>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -138,7 +138,7 @@
                     LineBreakMode="TailTruncation"
 	                VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                        <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -155,7 +155,7 @@
                     HorizontalOptions="EndAndExpand"
 	                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 	                TextColor="White" 
-                    Clicked="OnClickedEvent" />
+                    Clicked="OnBedroomsClickedEvent" />
             </Grid>
         </Frame>
 
@@ -170,7 +170,7 @@
             BackgroundColor="#242A37" 
             IsClippedToBounds="True">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
             </Frame.GestureRecognizers>
             <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
@@ -178,7 +178,7 @@
                     <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
                 </Grid.GestureRecognizers>
                 <Label
                     Grid.Column="0"
@@ -191,7 +191,7 @@
                     LineBreakMode="TailTruncation"
 	                VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                        <TapGestureRecognizer Tapped="OnBedroomsClickedEvent"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -207,7 +207,7 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="EndAndExpand"
 	                Text="Update"
-                     Clicked="OnClickedEvent"
+                     Clicked="OnBedroomsClickedEvent"
 	                TextColor="White" />
             </Grid>
         </Frame>
@@ -223,11 +223,11 @@
             BackgroundColor="#0F9D58" 
             IsClippedToBounds="True">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
             </Frame.GestureRecognizers>
             <Grid ColumnSpacing="10">
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
                 </Grid.GestureRecognizers>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -245,7 +245,7 @@
                     LineBreakMode="TailTruncation"
 	                VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                        <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -262,7 +262,7 @@
                     HorizontalOptions="EndAndExpand"
 	                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 	                TextColor="White" 
-                    Clicked="OnClickedEvent" />
+                    Clicked="OnBathroomClickedEvent" />
             </Grid>
         </Frame>
 
@@ -277,7 +277,7 @@
             BackgroundColor="#242A37" 
             IsClippedToBounds="True">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
             </Frame.GestureRecognizers>
             <Grid ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
@@ -285,7 +285,7 @@
                     <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
                 <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                    <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
                 </Grid.GestureRecognizers>
                 <Label
                     Grid.Column="0"
@@ -298,7 +298,7 @@
                     LineBreakMode="TailTruncation"
 	                VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnClickedEvent"/>
+                        <TapGestureRecognizer Tapped="OnBathroomClickedEvent"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -314,7 +314,7 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="EndAndExpand"
 	                Text="Update"
-                     Clicked="OnClickedEvent"
+                     Clicked="OnBathroomClickedEvent"
 	                TextColor="White" />
             </Grid>
         </Frame>
