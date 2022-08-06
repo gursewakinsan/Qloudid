@@ -47,6 +47,7 @@ namespace Qloudid.Views.Bedroom
             if (viewModel.BathroomDetailList.Count == 1 && bathroom.ToiletAndSink)
             {
                 await DisplayAlert("", "Apartment must have one toilet and one bath atleast.", "Ok");
+                return;
             }
             else
             {
@@ -56,8 +57,12 @@ namespace Qloudid.Views.Bedroom
                     viewModel.Bath = 1;
                 viewModel.UpdateType = 1;
                 viewModel.BathroomId = bathroom.Id;
-                bathroom.ToiletAndSink = !bathroom.ToiletAndSink;
                 viewModel.UpdateBathroomCommand.Execute(null);
+            }
+            bathroom.ToiletAndSink = !bathroom.ToiletAndSink;
+            if (viewModel.BathroomDetailList.Count > 1 && !bathroom.ToiletAndSink && !bathroom.Shower && !bathroom.Bath)
+            {
+                viewModel.BathroomDetailCommand.Execute(null);
             }
         }
         #endregion
@@ -89,8 +94,15 @@ namespace Qloudid.Views.Bedroom
 
             viewModel.UpdateType = 3;
             viewModel.BathroomId = bathroom.Id;
-            bathroom.Shower = !bathroom.Shower;
+            
             viewModel.UpdateBathroomCommand.Execute(null);
+            bathroom.Shower = !bathroom.Shower;
+
+            if (viewModel.BathroomDetailList.Count > 1 && !bathroom.ToiletAndSink && !bathroom.Shower && !bathroom.Bath)
+            {
+                viewModel.BathroomDetailCommand.Execute(null);
+            }
+            
         }
         #endregion
 
@@ -118,6 +130,7 @@ namespace Qloudid.Views.Bedroom
             if (viewModel.BathroomDetailList.Count == 1 && bathroom.Bath)
             {
                 await DisplayAlert("", "Apartment must have one toilet and one bath atleast.", "Ok");
+                return;
             }
             else
             {
@@ -128,9 +141,15 @@ namespace Qloudid.Views.Bedroom
 
                 viewModel.UpdateType = 2;
                 viewModel.BathroomId = bathroom.Id;
-                bathroom.Bath = !bathroom.Bath;
+                
                 viewModel.UpdateBathroomCommand.Execute(null);
             }
+            bathroom.Bath = !bathroom.Bath;
+            if (viewModel.BathroomDetailList.Count > 1 && !bathroom.ToiletAndSink && !bathroom.Shower && !bathroom.Bath)
+            {
+                viewModel.BathroomDetailCommand.Execute(null);
+            }
+            
         }
         #endregion
 

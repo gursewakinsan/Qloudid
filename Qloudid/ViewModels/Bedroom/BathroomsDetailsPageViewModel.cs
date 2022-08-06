@@ -5,6 +5,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -68,12 +69,13 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IBedroomService service = new BedroomService();
-			BathroomDetailList = await service.BathroomDetailAsync(new Models.BathroomDetailRequest()
+			var response  = await service.BathroomDetailAsync(new Models.BathroomDetailRequest()
 			{
 				AId = SelectedUserDeliveryAddress.Id
 			});
-			if (BathroomDetailList != null)
-				Count = BathroomDetailList.Count;
+			if (response != null)
+				Count = response.Count;
+			BathroomDetailList = new ObservableCollection<Models.BathroomDetailResponse>(response);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -140,8 +142,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.BathroomDetailResponse> bathroomDetailList;
-		public List<Models.BathroomDetailResponse> BathroomDetailList
+		private ObservableCollection<Models.BathroomDetailResponse> bathroomDetailList;
+		public ObservableCollection<Models.BathroomDetailResponse> BathroomDetailList
 		{
 			get => bathroomDetailList;
 			set
