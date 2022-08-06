@@ -122,7 +122,7 @@
                     LineHeight="1.2"
 			        Opacity="0.70"
 			        TextColor="White"
-                    Text="How many bedrooms does your property have?"
+                    Text="How many bathrooms does your property have?"
 			        VerticalTextAlignment="Center"/>
 
                 <Grid 

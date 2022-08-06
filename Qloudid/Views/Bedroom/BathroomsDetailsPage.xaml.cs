@@ -42,16 +42,23 @@ namespace Qloudid.Views.Bedroom
             HandleToiletteAndSinkClicked(control.BindingContext as Models.BathroomDetailResponse);
         }
 
-        void HandleToiletteAndSinkClicked(Models.BathroomDetailResponse bathroom)
+        async void HandleToiletteAndSinkClicked(Models.BathroomDetailResponse bathroom)
         {
-            if (bathroom.ToiletAndSink)
-                viewModel.Bath = 0;
+            if (viewModel.BathroomDetailList.Count == 1 && bathroom.ToiletAndSink)
+            {
+                await DisplayAlert("", "Apartment must have one toilet and one bath atleast.", "Ok");
+            }
             else
-                viewModel.Bath = 1;
-            viewModel.UpdateType = 1;
-            viewModel.BathroomId = bathroom.Id;
-            bathroom.ToiletAndSink = !bathroom.ToiletAndSink;
-            viewModel.UpdateBathroomCommand.Execute(null);
+            {
+                if (bathroom.ToiletAndSink)
+                    viewModel.Bath = 0;
+                else
+                    viewModel.Bath = 1;
+                viewModel.UpdateType = 1;
+                viewModel.BathroomId = bathroom.Id;
+                bathroom.ToiletAndSink = !bathroom.ToiletAndSink;
+                viewModel.UpdateBathroomCommand.Execute(null);
+            }
         }
         #endregion
 
@@ -106,17 +113,24 @@ namespace Qloudid.Views.Bedroom
             HandleBathtubClicked(control.BindingContext as Models.BathroomDetailResponse);
         }
 
-        void HandleBathtubClicked(Models.BathroomDetailResponse bathroom)
+        async void HandleBathtubClicked(Models.BathroomDetailResponse bathroom)
         {
-            if (bathroom.Bath)
-                viewModel.Bath = 0;
+            if (viewModel.BathroomDetailList.Count == 1 && bathroom.Bath)
+            {
+                await DisplayAlert("", "Apartment must have one toilet and one bath atleast.", "Ok");
+            }
             else
-                viewModel.Bath = 1;
+            {
+                if (bathroom.Bath)
+                    viewModel.Bath = 0;
+                else
+                    viewModel.Bath = 1;
 
-            viewModel.UpdateType = 2;
-            viewModel.BathroomId = bathroom.Id;
-            bathroom.Bath = !bathroom.Bath;
-            viewModel.UpdateBathroomCommand.Execute(null);
+                viewModel.UpdateType = 2;
+                viewModel.BathroomId = bathroom.Id;
+                bathroom.Bath = !bathroom.Bath;
+                viewModel.UpdateBathroomCommand.Execute(null);
+            }
         }
         #endregion
 
