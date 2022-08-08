@@ -408,6 +408,9 @@ namespace Qloudid
 				case "ShowMissingPreCheckInInfoPage":
 					ShowMissingPreCheckInInfoPage(uri.Segments[2].Replace("/", ""));
 					break;
+				case "VerifyHabitantPage":
+					VerifyHabitantPage(uri.Segments[4].Replace("/", ""));
+					break;
 			}
 		}
 		#endregion
@@ -463,6 +466,9 @@ namespace Qloudid
 						break;
 					case "ShowMissingPreCheckInInfoPage":
 						ShowMissingPreCheckInInfoPage(uri.Segments[4].Replace("/", ""));
+						break;
+					case "VerifyHabitantPage":
+						VerifyHabitantPage(uri.Segments[4].Replace("/", ""));
 						break;
 				}
 			}
@@ -591,6 +597,13 @@ namespace Qloudid
 			Helper.Helper.PreCheckInUserActiveStatusInfo = responseUserActiveStatus;
 			DependencyService.Get<IProgressBar>().Hide();
 			MainPage = new NavigationPage(new Views.PreCheckIn.MissingPreCheckInInfoPage());
+		}
+		#endregion
+
+		#region Verify Habitant Page.
+		void VerifyHabitantPage(string id)
+		{
+			MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHabitantPasswordPage(id));
 		}
 		#endregion
 	}
