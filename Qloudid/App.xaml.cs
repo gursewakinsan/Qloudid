@@ -409,7 +409,7 @@ namespace Qloudid
 					ShowMissingPreCheckInInfoPage(uri.Segments[2].Replace("/", ""));
 					break;
 				case "VerifyHabitantPage":
-					VerifyHabitantPage(uri.Segments[4].Replace("/", ""));
+					VerifyHabitantPage(uri.Segments[2].Replace("/", ""));
 					break;
 			}
 		}
