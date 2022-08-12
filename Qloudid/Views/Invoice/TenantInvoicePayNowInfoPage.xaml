@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Invoice.TenantInvoicePayNowInfoPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+		    Margin="0,18,0,5"
+		    ColumnSpacing="0"
+		    RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="56" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28" />
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="28" />
+            </Grid.ColumnDefinitions>
+            <Image
+			    Grid.Row="0"
+			    Grid.Column="1"
+			    Margin="-10,0,0,0"
+			    Aspect="AspectFit"
+			    BackgroundColor="Transparent"
+			    HeightRequest="40"
+			    HorizontalOptions="StartAndExpand"
+			    Source="iconSmallLogo.png"
+			    VerticalOptions="CenterAndExpand"
+			    WidthRequest="40" />
+
+            <Label
+                x:Name="lblUserName"
+				Grid.Row="0"
+				Grid.Column="2"
+                Grid.ColumnSpan="2"
+				FontAttributes="Bold"
+				FontFamily="PoppinsMediumFontFamily"
+				FontSize="18"
+				HorizontalTextAlignment="End"
+				Opacity="0.42"
+				TextColor="White"
+				VerticalTextAlignment="Center"/>
+
+            <ScrollView
+				Grid.Row="1"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <Label
+						Margin="0,35,0,30"
+						FontAttributes="Bold"
+						FontFamily="PoppinsBoldFontFamily"
+						FontSize="40"
+						Text="Pay"
+						TextColor="White" />
+
+                    <Frame
+						Padding="0"
+						BackgroundColor="#E9B1B8"
+						CornerRadius="8"
+						HasShadow="False"
+						HeightRequest="111"
+						IsClippedToBounds="True">
+                        <Label
+							FontAttributes="Bold"
+							FontFamily="PoppinsBoldFontFamily"
+							FontSize="40"
+							HorizontalOptions="CenterAndExpand"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							TextColor="Black"
+							VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding TenantInvoicePayNowInfo.TotalAmount}" />
+                                    <Span Text=" SEK" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Frame>
+
+                    <Grid
+						Margin="0,32,0,10"
+						ColumnSpacing="0"
+						RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="39" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <BoxView
+							Grid.Row="0"
+							Grid.ColumnSpan="3"
+							BackgroundColor="White"
+							Opacity="0.10" />
+
+                        <Label
+							Grid.Row="1"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							Opacity="0.42"
+							Text="To"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <Label
+							Grid.Row="1"
+							Grid.Column="2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="{Binding TenantInvoicePayNowInfo.PropertyNickName}"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <BoxView
+							Grid.Row="2"
+							Grid.Column="1"
+							Grid.ColumnSpan="2"
+							BackgroundColor="White"
+							Opacity="0.10" />
+
+                        <Label
+							Grid.Row="3"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							Opacity="0.42"
+							Text="Period"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <Label
+							Grid.Row="3"
+							Grid.Column="2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							TextColor="White"
+                            Text="{Binding TenantInvoicePayNowInfo.InvoiceMonth}"
+							VerticalTextAlignment="Center"/>
+
+                        <BoxView
+							Grid.Row="4"
+							Grid.Column="1"
+							Grid.ColumnSpan="2"
+							BackgroundColor="White"
+							Opacity="0.10" />
+
+                        <Label
+							Grid.Row="5"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							Opacity="0.42"
+							Text="Purpose"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <Label
+							Grid.Row="5"
+							Grid.Column="2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							Text="Members fee"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <BoxView
+							Grid.Row="6"
+							Grid.Column="1"
+							Grid.ColumnSpan="2"
+							BackgroundColor="White"
+							Opacity="0.10" />
+
+                        <Label
+							Grid.Row="7"
+							Grid.Column="1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="Start"
+							Opacity="0.42"
+							Text="Amount"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+
+                        <Label
+							Grid.Row="7"
+							Grid.Column="2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="14"
+							HorizontalTextAlignment="End"
+							LineBreakMode="TailTruncation"
+							MaxLines="1"
+							TextColor="White"
+							VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding TenantInvoicePayNowInfo.TotalAmount}" />
+                                    <Span Text=" SEK" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView
+							Grid.Row="8"
+							Grid.Column="1"
+							Grid.ColumnSpan="2"
+							BackgroundColor="White"
+							Opacity="0.10" />
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+                <Frame
+				Grid.Row="2"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				Padding="0"
+				BackgroundColor="#E53614"
+				CornerRadius="12"
+				HasShadow="False"
+				IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PayItCommand}" />
+                </Frame.GestureRecognizers>
+                <StackLayout
+					HorizontalOptions="CenterAndExpand"
+					Orientation="Horizontal"
+					Spacing="8"
+					VerticalOptions="CenterAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PayItCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <Label
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="16"
+						HorizontalTextAlignment="Center"
+						Text="Pay it"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PayItCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="20"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PayItCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

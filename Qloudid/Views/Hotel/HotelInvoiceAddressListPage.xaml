@@ -118,6 +118,7 @@
 			</StackLayout>
 
 			<ListView 
+                Margin="0,20,0,0"
 				x:Name="listInvoiceAddress"
 				BackgroundColor="#181A1F"
 				HasUnevenRows="true"

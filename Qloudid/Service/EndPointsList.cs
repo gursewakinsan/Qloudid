@@ -146,5 +146,8 @@
 
 		//Aparment.
 		public const string CheckinAparmentOwnerUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkinAparmentOwner";
+
+		//Invoice.
+		public const string PayRentInvoiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/payRentInvoice";
 	}
 }

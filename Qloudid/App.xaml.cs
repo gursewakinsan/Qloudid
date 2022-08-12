@@ -411,6 +411,11 @@ namespace Qloudid
 				case "VerifyHabitantPage":
 					VerifyHabitantPage(uri.Segments[2].Replace("/", ""));
 					break;
+				case "DstrictsTenantInvoicePayNow":
+					string[] payNow = uri.LocalPath.Split('/');
+					Helper.Helper.TenantInvoicePayNow = JsonConvert.DeserializeObject<Models.TenantInvoicePayNow>(payNow[2]);
+					MainPage = new NavigationPage(new Views.Invoice.TenantInvoicePayNowInfoPage());
+					break;
 			}
 		}
 		#endregion
@@ -469,6 +474,11 @@ namespace Qloudid
 						break;
 					case "VerifyHabitantPage":
 						VerifyHabitantPage(uri.Segments[4].Replace("/", ""));
+						break;
+					case "DstrictsTenantInvoicePayNow":
+						string[] payNow = uri.LocalPath.Split('/');
+						Helper.Helper.TenantInvoicePayNow = JsonConvert.DeserializeObject<Models.TenantInvoicePayNow>(payNow[4]);
+						MainPage = new NavigationPage(new Views.Invoice.TenantInvoicePayNowInfoPage());
 						break;
 				}
 			}

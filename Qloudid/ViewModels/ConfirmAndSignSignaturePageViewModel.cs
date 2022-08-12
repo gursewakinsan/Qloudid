@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Qloudid.Service;
+using Xamarin.Essentials;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
@@ -39,7 +40,8 @@ namespace Qloudid.ViewModels
 					Helper.Helper.CountDownWrongPassword = 0;
 
 					ICreateAccountService accountService = new CreateAccountService();
-					int responseAccountService = await accountService.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
+					int responseAccountService = await accountService.ConfirmPurchaseAsync(new Models.ConfirmPurchaseRequest()
+					{ Certificatekey = Helper.Helper.QrCertificateKey });
 
 					if (!string.IsNullOrWhiteSpace(Helper.Helper.HotelBookingId))
 					{
@@ -58,6 +60,33 @@ namespace Qloudid.ViewModels
 								url = $"https://www.qloudid.com/user/index.php/LoginAccount/bookHotel/{Helper.Helper.HotelBookingId}";
 							await Xamarin.Essentials.Launcher.OpenAsync(url);
 						}
+					}
+					else if (Helper.Helper.TenantInvoicePayNow != null)
+					{
+						IInvoiceService invoiceService = new InvoiceService();
+						string str = await invoiceService.PayRentInvoiceAsync(new Models.PayRentInvoiceRequest()
+						{
+							InvoiceId = Helper.Helper.TenantInvoicePayNow.TenantInvoiceInfoId,
+							UserId = Helper.Helper.UserId,
+							IsCompany = Helper.Helper.UserOrCompanyAddress,
+							InvoiceAddressId = Helper.Helper.InvoiceAddressDetail.Id,
+							CardId = Helper.Helper.CardDetail.id
+						});
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+						if (Device.RuntimePlatform == Device.iOS)
+						{
+							string openAppUrl = string.Empty;
+							if (Helper.Helper.AppToAppName.Equals("DstrictsApp"))
+								openAppUrl = $"DstrictsAppUrl://session/";
+							await Launcher.OpenAsync(openAppUrl);
+						}
+						else
+						{
+							var supportsUri = await Launcher.CanOpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/");
+							if (supportsUri)
+								await Launcher.OpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/");
+						}
+						Helper.Helper.AppToAppName = string.Empty;
 					}
 					else
 					{
