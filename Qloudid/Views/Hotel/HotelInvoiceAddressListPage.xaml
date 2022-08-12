@@ -191,6 +191,7 @@
 										HorizontalOptions="CenterAndExpand"
 										Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 										TextColor="White"
+                                        Clicked="OnPlusButtonClicked"
 										VerticalOptions="CenterAndExpand"
 										WidthRequest="40" />
 								</Grid>

@@ -24,5 +24,15 @@ namespace Qloudid.Views.Hotel
 			listCards.SelectedItem = null;
 			viewModel.SelectedFinalStepToPayCommand.Execute(null);
 		}
-	}
+
+        private void OnPlusButtonClicked(object sender, System.EventArgs e)
+        {
+			Button button = sender as Button;
+			Models.CardDetailResponse card = button.BindingContext as Models.CardDetailResponse;
+			viewModel.CardId = card.id;
+			viewModel.CardDetail = card;
+			listCards.SelectedItem = null;
+			viewModel.SelectedFinalStepToPayCommand.Execute(null);
+		}
+    }
 }

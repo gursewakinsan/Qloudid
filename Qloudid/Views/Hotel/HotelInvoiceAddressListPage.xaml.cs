@@ -29,5 +29,14 @@ namespace Qloudid.Views.Hotel
 			viewModel.InvoiceAddressDetail = address;
 			viewModel.SelectedPayingCommand.Execute(null);
 		}
-	}
+
+        private void OnPlusButtonClicked(object sender, System.EventArgs e)
+        {
+			Button button = sender as Button;
+			Models.InvoiceAddressResponse address = button.BindingContext as Models.InvoiceAddressResponse;
+			viewModel.InvoiceAddressId = address.Id;
+			viewModel.InvoiceAddressDetail = address;
+			viewModel.SelectedPayingCommand.Execute(null);
+		}
+    }
 }
