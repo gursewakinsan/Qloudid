@@ -12,7 +12,7 @@ namespace Qloudid.ViewModels
 		public VerifyPasswordPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			if (Helper.Helper.UserInfo != null)
+			/*if (Helper.Helper.UserInfo != null)
 			{
 				if (Helper.Helper.UserInfo.UserImage == null)
 					UserImage = string.Empty;
@@ -20,7 +20,7 @@ namespace Qloudid.ViewModels
 					UserImage = Helper.Helper.UserInfo.UserImage;
 			}
 			else
-				IsAppLogo = true;
+				IsAppLogo = true;*/
 
 		}
 		#endregion
@@ -67,6 +67,11 @@ namespace Qloudid.ViewModels
 					{
 						Helper.Helper.IsFromScanQrDependent = false;
 						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelCheckInSuccessfullPage());
+					}
+					else if (Helper.Helper.IsSignIn)
+					{
+						Helper.Helper.IsSignIn = false;
+						Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());
 					}
 					else
 						Application.Current.MainPage = new NavigationPage(new Views.SuccessfulPage());

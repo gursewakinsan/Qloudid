@@ -167,7 +167,15 @@ namespace Qloudid
 							if (signInText.Equals("login"))
 								MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 							else
-								MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+							{
+								if (uri.Segments[3].Equals("signin/"))
+								{
+									Helper.Helper.IsSignIn = true;
+									MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+								}
+								else
+									MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
+							}
 						}
 						else
 							MainPage = new NavigationPage(new Views.RestorePage());

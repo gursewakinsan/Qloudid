@@ -113,6 +113,14 @@ namespace Qloudid.ViewModels
 			{
 				if (ip.Length == 1)
 					await Navigation.PushAsync(new Views.VerifyPasswordPage());
+				if (ip.Length == 3)
+				{
+					if (ip[1].Equals("signin"))
+					{
+						Helper.Helper.IsSignIn = true;
+						await Navigation.PushAsync(new Views.VerifyPasswordPage());
+					}
+				}
 				else
 				{
 					Helper.Helper.IpFromURL = ip[0];

@@ -44,5 +44,10 @@ namespace Qloudid.Views
 					Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
 			}
 		}
-	}
+
+        private void OnCloseButtonClicked(object sender, System.EventArgs e)
+        {
+			Application.Current.MainPage = new NavigationPage(new DashboardPage());
+		}
+    }
 }

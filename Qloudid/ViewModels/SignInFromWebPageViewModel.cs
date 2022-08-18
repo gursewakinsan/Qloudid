@@ -14,7 +14,7 @@ namespace Qloudid.ViewModels
 		public SignInFromWebPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			if (Helper.Helper.UserInfo != null)
+			/*if (Helper.Helper.UserInfo != null)
 			{
 				if (Helper.Helper.UserInfo.UserImage == null)
 					UserImage = string.Empty;
@@ -22,7 +22,7 @@ namespace Qloudid.ViewModels
 					UserImage = Helper.Helper.UserInfo.UserImage;
 			}
 			else
-				IsAppLogo = true;
+				IsAppLogo = true;*/
 		}
 		#endregion
 
@@ -50,7 +50,13 @@ namespace Qloudid.ViewModels
 					if (Helper.Helper.IsThirdPartyWebLogin)
 					{
 						Helper.Helper.IsThirdPartyWebLogin = false;
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
+						if (Helper.Helper.IsSignIn)
+						{
+							Helper.Helper.IsSignIn = false;
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/demo/index.php/DemoSign");
+						}
+						else
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
 					}
 					else
 						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");

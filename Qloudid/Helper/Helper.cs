@@ -104,6 +104,7 @@ namespace Qloudid.Helper
 
 		public static Models.UserDeliveryAddressesResponse SelectedUserDeliveryAddress { get; set; }
         public static Models.TenantInvoicePayNow TenantInvoicePayNow { get; set; }
+        public static bool IsSignIn { get; set; }
 
 
         public static string[] ColorList =

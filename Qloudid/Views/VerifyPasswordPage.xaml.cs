@@ -28,5 +28,10 @@ namespace Qloudid.Views
 				viewModel.ClearIpsCommand.Execute(null);
 			base.OnDisappearing();
 		}
-	}
+
+        private void OnCloseButtonClicked(object sender, System.EventArgs e)
+        {
+			Application.Current.MainPage = new NavigationPage(new DashboardPage());
+		}
+    }
 }
