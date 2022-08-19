@@ -44,6 +44,11 @@ namespace Qloudid
 
 				if (string.IsNullOrWhiteSpace(signInText) || signInText.Equals("login"))
 					MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+				else if (signInText.Equals("signin"))
+				{
+					Helper.Helper.IsSignIn = true;
+					MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+				}
 				else
 				{
 					Helper.Helper.IsThirdPartyWebLogin = true;

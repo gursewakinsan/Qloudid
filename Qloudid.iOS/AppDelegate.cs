@@ -50,8 +50,10 @@ namespace Qloudid.iOS
 						App.NoffaPlusAppAppFunctionality_iOS(new Uri(url.AbsoluteString));
 					else if (url.PathComponents[1].Equals("precheckin"))
 						App.PreCheckInFlow(url.PathComponents[2]);
+					else if (url.PathComponents[1].Equals("signin"))
+						App.OpenAppFromWeb(url.PathComponents[1]);
 					else
-						App.OpenAppFromWeb(url.PathComponents[2]);
+						App.OpenAppFromWeb(url.PathComponents[2]); 
 				}
 				else if (count == 4 || count == 5)
 				{

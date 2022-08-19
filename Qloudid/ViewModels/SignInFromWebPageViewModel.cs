@@ -59,7 +59,15 @@ namespace Qloudid.ViewModels
 							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp?next=eEFnQmlhS29sYjZHZXVZN01QajNVdz09&login=1");
 					}
 					else
-						await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
+					{
+						if (Helper.Helper.IsSignIn)
+						{
+							Helper.Helper.IsSignIn = false;
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/demo/index.php/DemoSign");
+						}
+						else
+							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
+					}
 				}
 				else if (response == 2)
 				{
