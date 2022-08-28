@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.MyCountries.MyCountriesPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="56" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <Label
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			TextColor="White"
+            Text="Add profile"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			Opacity="0.70"
+			TextColor="White"
+            Text="Select a new country of residence"
+			VerticalTextAlignment="Center"/>
+
+        <BoxView
+			Grid.Row="6"
+            Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="White"
+			Opacity="0.1" />
+
+        <ScrollView
+            Grid.Row="7"
+            Grid.Column="1"
+			Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,53,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="56"/>
+                </Grid.RowDefinitions>
+                <Label
+					Grid.Row="0"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="Country"
+					VerticalTextAlignment="Center"/>
+
+                <textinputlayout:SfTextInputLayout 
+                    Grid.Row="2"
+					FocusedColor="#DB4437"
+					FocusedStrokeWidth="2"
+                    UnfocusedColor="#DB4437"
+					UnfocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="Select country"
+                    OutlineCornerRadius="12"
+                    ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined">
+                    <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <textinputlayout:LabelStyle
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="12"
+							Color="#DB4437" />
+                    </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                    <controls:CustomPicker
+						Title="Select country"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						TextColor="White"
+						TitleColor="Black">
+                        <controls:CustomPicker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Spain</x:String>
+                            </x:Array>
+                        </controls:CustomPicker.ItemsSource>
+                        <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                    </controls:CustomPicker>
+                    <textinputlayout:SfTextInputLayout.TrailingView>
+                        <Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </textinputlayout:SfTextInputLayout.TrailingView>
+                </textinputlayout:SfTextInputLayout>
+
+
+                <Label
+					Grid.Row="4"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="Mobile number"
+					VerticalTextAlignment="Center"/>
+
+                <Label
+					Grid.Row="6"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="16"
+                    Opacity="0.70"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="Add phone number to selected country"
+					VerticalTextAlignment="Center"/>
+
+                <Grid ColumnSpacing="14" RowSpacing="0" Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="56" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <textinputlayout:SfTextInputLayout
+						Grid.Row="0"
+						Grid.Column="0"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined"
+						FocusedColor="#797A7D"
+						FocusedStrokeWidth="0.5"
+						HeightRequest="56"
+						Hint="Code"
+						LeadingViewPosition="Inside"
+						OutlineCornerRadius="12"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5">
+                        <controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							IsReadOnly="True"
+							Placeholder="Code"
+							PlaceholderColor="#797A7D"
+							Text="{Binding CountryCode}"
+							TextColor="White" />
+                    </textinputlayout:SfTextInputLayout>
+
+                    <textinputlayout:SfTextInputLayout
+						Grid.Row="0" Grid.Column="1"
+						FocusedColor="#DB4437"
+						FocusedStrokeWidth="2"
+						UnfocusedColor="#797A7D"
+						UnfocusedStrokeWidth="0.5"
+						HeightRequest="56"
+                        x:Name="sfLayout"
+						Hint="Mobile number"
+						OutlineCornerRadius="12"
+						ContainerBackgroundColor="Transparent"
+						ContainerType="Outlined">
+                        <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                            <textinputlayout:LabelStyle
+								FontFamily="PoppinsSemiBoldFontFamily"
+								FontSize="12" x:Name="lblPhone" />
+                        </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <controls:CustomFloatingLabelEntry
+							BackgroundColor="#F8F8FB"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							Keyboard="Numeric"
+                            x:Name="txtMobileNumber"
+							Placeholder="Mobile number"
+							PlaceholderColor="#797A7D"
+							Text="{Binding MobileNumber}"
+							TextChanged="MobileNumberTextChanged"
+							TextColor="White" />
+                    </textinputlayout:SfTextInputLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+        <Frame 
+            Margin="2"
+			Grid.Row="8"
+            Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Padding="0"
+			BackgroundColor="#4285F4"
+			CornerRadius="12"
+			HasShadow="False"
+			IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SubmitCommand}"/>
+            </Frame.GestureRecognizers>
+            <StackLayout
+				HorizontalOptions="CenterAndExpand"
+				Orientation="Horizontal"
+				Spacing="8"
+				VerticalOptions="CenterAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SubmitCommand}"/>
+                </StackLayout.GestureRecognizers>
+                <Label
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Center"
+					Text="Submit"
+					TextColor="White"
+					VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SubmitCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="20"
+					HorizontalTextAlignment="Center"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+					TextColor="White"
+					VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SubmitCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

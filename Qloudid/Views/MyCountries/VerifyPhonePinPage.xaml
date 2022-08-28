@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.MyCountries.VerifyPhonePinPage"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False"
+	mc:Ignorable="d">
+    <Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="35" />
+		</Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+
+        <ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="192" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="42" />
+                    <RowDefinition Height="6" />
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="42" />
+                    <RowDefinition Height="56" />
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="68" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="26" />
+                    <RowDefinition Height="32" />
+                </Grid.RowDefinitions>
+                <Image
+					Grid.Row="0"
+					Aspect="AspectFit"
+					HorizontalOptions="CenterAndExpand"
+					Source="iconOtpPinPage.png"
+					WidthRequest="236" />
+
+                <Label
+					Grid.Row="2"
+					FontAttributes="Bold"
+					FontFamily="PoppinsBoldFontFamily"
+					FontSize="32"
+					HorizontalTextAlignment="Start"
+					Text="Verify phone"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Label
+					Grid.Row="4"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Start"
+					LineBreakMode="TailTruncation"
+					LineHeight="1.2"
+					MaxLines="2" Opacity="0.70"
+					Text="Add the code sent to your mobile number. It was sent to you by sms."
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+                <Grid Grid.Row="6" ColumnSpacing="10">
+                    <Frame
+						x:Name="frame1"
+						Grid.Row="0"
+						Grid.Column="0"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#2A2A31"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+                        <Label
+							x:Name="step1"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame
+						x:Name="frame2"
+						Grid.Row="0"
+						Grid.Column="1"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#2A2A31"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+                        <Label
+							x:Name="step2"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame
+						x:Name="frame3"
+						Grid.Row="0"
+						Grid.Column="2"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#2A2A31"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+                        <Label
+							x:Name="step3"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame
+						x:Name="frame4"
+						Grid.Row="0"
+						Grid.Column="3"
+						Padding="0"
+						BackgroundColor="Transparent"
+						BorderColor="#2A2A31"
+						CornerRadius="10"
+						IsClippedToBounds="True">
+                        <Label
+							x:Name="step4"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Center"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <controls:CustomOtpEntry
+						Grid.Row="0"
+						Grid.ColumnSpan="4"
+						BackgroundColor="Transparent"
+						HorizontalOptions="FillAndExpand"
+						Keyboard="Numeric"
+						Text="{Binding Password}"
+						TextChanged="Editor_TextChanged"
+						TextColor="Transparent" />
+                </Grid>
+
+                <Button
+					Grid.Row="8"
+					BackgroundColor="#4285F4"
+					Command="{Binding SubmitOtpCommand}"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					Text="Submit"
+					TextColor="White" />
+
+                <Label
+					Grid.Row="10"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					HorizontalTextAlignment="Center"
+					Opacity="0.42"
+					Text="Re-send code"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

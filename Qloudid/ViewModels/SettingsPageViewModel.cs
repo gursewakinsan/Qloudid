@@ -49,6 +49,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Go To My Countries Command.
+		private ICommand goToMyCountriesCommand;
+		public ICommand GoToMyCountriesCommand
+		{
+			get => goToMyCountriesCommand ?? (goToMyCountriesCommand = new Command(async () => await ExecuteGoToMyCountriesCommand()));
+		}
+		private async Task ExecuteGoToMyCountriesCommand()
+		{
+			await Navigation.PushAsync(new Views.MyCountries.MyCountriesPage());
+		}
+		#endregion
+
 		#region Properties.
 		public Models.User UserInfo => Helper.Helper.UserInfo;
 		#endregion

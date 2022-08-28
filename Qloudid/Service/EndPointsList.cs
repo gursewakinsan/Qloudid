@@ -149,5 +149,9 @@
 
 		//Invoice.
 		public const string PayRentInvoiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/payRentInvoice";
+
+		//MyCountries/
+		public const string CheckMobileNumberUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkMobileNumber";
+		public const string VerifyOtpDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyOtpDetail";
 	}
 }
