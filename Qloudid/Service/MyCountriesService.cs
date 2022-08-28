@@ -52,5 +52,32 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> CheckPassportInfoAsync(Models.CheckPassportInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckPassportInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddVisitingCountryAsync(Models.AddVisitingCountryRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddVisitingCountryUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddVisitingCountryIdentificatorImagesAsync(Models.AddVisitingCountryIdentificatorImagesRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddVisitingCountryIdentificatorImagesUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

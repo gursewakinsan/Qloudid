@@ -10,5 +10,8 @@ namespace Qloudid.Interfaces
         Task<List<Models.CurrentCountryDetailResponse>> CurrentCountryDetailAsync(Models.CurrentCountryDetailRequest request);
         Task<int> UserCountrySummaryAsync(Models.UserCountrySummaryRequest request);
         Task<int> UpdateCountryAsync(Models.UpdateCountryRequest request);
+        Task<int> CheckPassportInfoAsync(Models.CheckPassportInfoRequest request);
+        Task<int> AddVisitingCountryAsync(Models.AddVisitingCountryRequest request);
+        Task<int> AddVisitingCountryIdentificatorImagesAsync(Models.AddVisitingCountryIdentificatorImagesRequest request);
     }
 }

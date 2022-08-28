@@ -156,5 +156,8 @@
 		public const string CurrentCountryDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/currentCountryDetail";
 		public const string UserCountrySummaryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userCountrySummary";
 		public const string UpdateCountryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCountry";
+		public const string CheckPassportInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkPassportInfo";
+		public const string AddVisitingCountryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addVisitingCountry";
+		public const string AddVisitingCountryIdentificatorImagesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addVisitingCountryIdentificatorImages";
 	}
 }
