@@ -2,12 +2,437 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.MyCountries.AddVisitingCountryPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    x:Class="Qloudid.Views.MyCountries.AddVisitingCountryPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <Label
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			TextColor="White"
+            Text="ID Type"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			Opacity="0.70"
+			TextColor="White"
+            Text="Select ID type and add requested details."
+			VerticalTextAlignment="Center"/>
+
+        <BoxView
+			Grid.Row="6"
+            Grid.Column="1"
+			Grid.ColumnSpan="3"
+			BackgroundColor="White"
+			Opacity="0.1" />
+
+        <ScrollView
+            Grid.Row="7"
+            Grid.Column="1"
+			Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="22" Margin="0,53,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="63"/>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="17"/>
+                    <RowDefinition Height="142" />
+                    <RowDefinition Height="67" />
+                    <RowDefinition Height="56" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					Grid.Row="0"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="Identification options"
+					VerticalTextAlignment="Center"/>
+
+                <textinputlayout:SfTextInputLayout 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					FocusedColor="#DB4437"
+					FocusedStrokeWidth="2"
+                    UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="0.5"
+					HeightRequest="56"
+					Hint="ID Type"
+                    OutlineCornerRadius="12"
+                    ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined">
+                    <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <textinputlayout:LabelStyle
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="12"/>
+                    </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                    <controls:CustomPicker
+						Title="ID Type"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						TextColor="White"
+						TitleColor="Black">
+                        <controls:CustomPicker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Passport</x:String>
+                            </x:Array>
+                        </controls:CustomPicker.ItemsSource>
+                        <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                    </controls:CustomPicker>
+                    <textinputlayout:SfTextInputLayout.TrailingView>
+                        <Label
+							FontFamily="{StaticResource MaterialFontFamily}"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+                    </textinputlayout:SfTextInputLayout.TrailingView>
+                </textinputlayout:SfTextInputLayout>
+
+                <textinputlayout:SfTextInputLayout
+					Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#DB4437"
+					FocusedStrokeWidth="2"
+					HeightRequest="56"
+					Hint="Passport number"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="1">
+                    <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <textinputlayout:LabelStyle
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="12"/>
+                    </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                    <controls:CustomFloatingLabelEntry
+						BackgroundColor="#F8F8FB"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Placeholder="Passport number"
+						PlaceholderColor="#797A7D"
+						Text="{Binding PassportNumber}"
+						TextColor="White" />
+                </textinputlayout:SfTextInputLayout>
+
+                <textinputlayout:SfTextInputLayout
+					Grid.Row="6"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#DB4437"
+					FocusedStrokeWidth="2"
+					HeightRequest="56"
+					Hint="Issue Year/Month/Date"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="1">
+                    <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <textinputlayout:LabelStyle
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="12"/>
+                    </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                    <controls:CustomDatePicker
+						BackgroundColor="#F8F8FB"
+						Date="{Binding SelectedIssueDate}"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Format="yyyy-MM-dd"
+						MaximumDate="{Binding BindIssueMaximumDate}"
+						MinimumDate="{Binding BindIssueMinimumDate}"
+						Placeholder="Issue Year/Month/Date"
+						TextColor="White" />
+                </textinputlayout:SfTextInputLayout>
+
+                <textinputlayout:SfTextInputLayout
+					Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					ContainerBackgroundColor="Transparent"
+					ContainerType="Outlined"
+					FocusedColor="#DB4437"
+					FocusedStrokeWidth="2"
+					HeightRequest="56"
+					Hint="Expired Year/Month/Date"
+					LeadingViewPosition="Inside"
+					OutlineCornerRadius="12"
+					TrailingViewPosition="Inside"
+					UnfocusedColor="#797A7D"
+					UnfocusedStrokeWidth="1">
+                    <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                        <textinputlayout:LabelStyle
+							FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="12"/>
+                    </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                    <controls:CustomDatePicker
+						BackgroundColor="#F8F8FB"
+						Date="{Binding SelectedExpiryDate}"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Format="yyyy-MM-dd"
+						MaximumDate="{Binding BindExpiryMaximumDate}"
+						MinimumDate="{Binding BindExpiryMinimumDate}"
+						Placeholder="Expired Year/Month/Date"
+						TextColor="White" />
+                </textinputlayout:SfTextInputLayout>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					Grid.Row="10"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="ID photo"
+					VerticalTextAlignment="Center"/>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					Grid.Row="12"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+                    MaxLines="2"
+                    LineHeight="1.2"
+                    Opacity="0.70"
+					Text="Take or uppload pictures of your ID in landscape mode."
+					VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+					Grid.Row="14"
+					BackgroundColor="White"
+					Opacity="0.1" />
+
+                <Image
+					x:Name="image1"
+					Grid.Row="16"
+					Grid.Column="0"
+					Aspect="AspectFill"
+					BackgroundColor="Transparent"
+					Source="iconPassport.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageData1Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Frame
+					Grid.Row="16"
+					Grid.Column="0"
+					Margin="0,0,0,-10"
+					Padding="0"
+					BackgroundColor="#45C366"
+					BorderColor="#181A1F"
+					CornerRadius="12"
+					HasShadow="False"
+					HeightRequest="31"
+					HorizontalOptions="CenterAndExpand"
+					IsClippedToBounds="True"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="31">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageData1Clicked" />
+                    </Frame.GestureRecognizers>
+                    <Label
+						x:Name="lbl1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalOptions="CenterAndExpand"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImageData1Clicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <Image
+					x:Name="image2"
+					Grid.Row="16"
+					Grid.Column="1"
+					Aspect="AspectFill"
+					BackgroundColor="Transparent"
+					Source="iconPassport.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageData2Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Frame
+					Grid.Row="16"
+					Grid.Column="1"
+					Margin="0,0,0,-10"
+					Padding="0"
+					BackgroundColor="#45C366"
+					BorderColor="#181A1F"
+					CornerRadius="12"
+					HasShadow="False"
+					HeightRequest="31"
+					HorizontalOptions="CenterAndExpand"
+					IsClippedToBounds="True"
+					VerticalOptions="EndAndExpand"
+					WidthRequest="31">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageData2Clicked" />
+                    </Frame.GestureRecognizers>
+                    <Label
+						x:Name="lbl2"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalOptions="CenterAndExpand"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+						TextColor="White"
+						VerticalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImageData2Clicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <Label
+                    Grid.Column="0"
+					Grid.Row="17"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					TextColor="White"
+					Text="Front"
+                    Opacity="0.70"
+                    Margin="0,15,0,0"
+					VerticalTextAlignment="Start"/>
+
+                <Label
+                    Grid.Column="1"
+					Grid.Row="17"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					HorizontalTextAlignment="Center"
+					TextColor="White"
+					Text="Back"
+                    Opacity="0.70"
+                    Margin="0,15,0,0"
+					VerticalTextAlignment="Start"/>
+
+                <controls:CustomButton
+					Grid.Row="18"
+					Grid.ColumnSpan="2"
+					Margin="0"
+					BackgroundColor="#6263ED"
+					BorderColor="#6263ED"
+					Command="{Binding UploadPassportImageCommand}"
+					CornerRadius="12"
+					FontFamily="PoppinsSemiBoldFontFamily"
+					FontSize="16"
+					HeightRequest="56"
+					Text="Add passport"
+					TextColor="White"
+					VerticalOptions="EndAndExpand" />
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>
