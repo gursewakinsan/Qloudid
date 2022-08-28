@@ -64,28 +64,28 @@ namespace Qloudid.Views.MyCountries
 			switch (num)
 			{
 				case 0:
-					frame1.BorderColor = Color.FromHex("#6263ED");
+					frame1.BorderColor = Color.FromHex("#DB4437");
 					frame2.BorderColor = Color.FromHex("#2A2A31");
 					frame3.BorderColor = Color.FromHex("#2A2A31");
 					frame4.BorderColor = Color.FromHex("#2A2A31");
 					break;
 				case 1:
 					frame1.BorderColor = Color.FromHex("#2A2A31");
-					frame2.BorderColor = Color.FromHex("#6263ED");
+					frame2.BorderColor = Color.FromHex("#DB4437");
 					frame3.BorderColor = Color.FromHex("#2A2A31");
 					frame4.BorderColor = Color.FromHex("#2A2A31");
 					break;
 				case 2:
 					frame1.BorderColor = Color.FromHex("#2A2A31");
 					frame2.BorderColor = Color.FromHex("#2A2A31");
-					frame3.BorderColor = Color.FromHex("#6263ED");
+					frame3.BorderColor = Color.FromHex("#DB4437");
 					frame4.BorderColor = Color.FromHex("#2A2A31");
 					break;
 				case 3:
 					frame1.BorderColor = Color.FromHex("#2A2A31");
 					frame2.BorderColor = Color.FromHex("#2A2A31");
 					frame3.BorderColor = Color.FromHex("#2A2A31");
-					frame4.BorderColor = Color.FromHex("#6263ED");
+					frame4.BorderColor = Color.FromHex("#DB4437");
 					break;
 				default:
 					frame1.BorderColor = Color.FromHex("#2A2A31");

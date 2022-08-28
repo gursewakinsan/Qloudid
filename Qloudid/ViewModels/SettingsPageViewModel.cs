@@ -57,7 +57,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteGoToMyCountriesCommand()
 		{
-			await Navigation.PushAsync(new Views.MyCountries.MyCountriesPage());
+			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
 		#endregion
 

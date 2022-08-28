@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.MyCountries.ChangeProfilePage"
+     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="8" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="58" />
+            <RowDefinition Height="22" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding GoToMyCountriesCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" />
+
+        <Label
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			HorizontalTextAlignment="Start"
+			LineBreakMode="TailTruncation"
+			MaxLines="1"
+			TextColor="White"
+            Text="Change profile"
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			Opacity="0.70"
+			TextColor="White" LineHeight="1.2"
+            MaxLines="2"
+            Text="Change profile based upon country of residence."
+			VerticalTextAlignment="Center"/>
+
+        <Label
+			Grid.Row="6"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			HorizontalTextAlignment="Start"
+			TextColor="White"
+			Text="Change country of residence"
+			VerticalTextAlignment="Center"/>
+
+        <ScrollView 
+            Grid.Row="7"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" 
+            VerticalScrollBarVisibility="Never">
+            <StackLayout 
+				Spacing="0" 
+				VerticalOptions="StartAndExpand"
+				BindableLayout.ItemsSource="{Binding CurrentCountryDetailInfo}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="0">
+                            <controls:CustomFrame 
+                                Margin="0,20,0,0"
+                                HasShadow="False"
+                                IsClippedToBounds="True"
+                                HeightRequest="80"
+                                CornerRadius="16"
+                                BackgroundColor="#0F9D58"
+                                VerticalOptions="StartAndExpand"
+                                Padding="20,0,20,0" 
+                                IsVisible="{Binding CurrentCountry}">
+                                <Grid ColumnSpacing="10" VerticalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="44"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="44"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+										Grid.Row="0"
+										Grid.Column="0"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="16"
+										HorizontalTextAlignment="Start"
+										TextColor="White"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+										VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding CountryName}"/>
+                                                <Span Text=" (current)"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Button
+										Grid.Row="0"
+										Grid.Column="1"
+										Padding="0"
+                                        CornerRadius="22"
+										BackgroundColor="#4FD471"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="White" />
+                                </Grid>
+                            </controls:CustomFrame>
+
+                            <controls:CustomFrame 
+                                Margin="0,20,0,0"
+                                HasShadow="False"
+                                IsClippedToBounds="True"
+                                HeightRequest="80"
+                                CornerRadius="16"
+                                BackgroundColor="#242A37"
+                                VerticalOptions="StartAndExpand"
+                                Padding="20,0,20,0"
+                                IsVisible="{Binding CurrentCountry, Converter={StaticResource InverseBoolConverter}}">
+                                <controls:CustomFrame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                </controls:CustomFrame.GestureRecognizers>
+                                <Grid ColumnSpacing="10" VerticalOptions="CenterAndExpand">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="44"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="44"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+										Grid.Row="0"
+										Grid.Column="0"
+										FontFamily="PoppinsSemiBoldFontFamily"
+										FontSize="16"
+										HorizontalTextAlignment="Start"
+										TextColor="White"
+                                        MaxLines="1"
+                                        Text="{Binding CountryName}"
+                                        LineBreakMode="TailTruncation"
+										VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Button
+										Grid.Row="0"
+										Grid.Column="1"
+										Padding="0"
+                                        CornerRadius="22"
+										BackgroundColor="#4FD471"
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+                                        Clicked="OnPlusButtonClicked"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+										TextColor="White" />
+                                </Grid>
+                            </controls:CustomFrame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

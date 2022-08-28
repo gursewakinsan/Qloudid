@@ -39,6 +39,7 @@ namespace Qloudid.ViewModels
 					await Helper.Alert.DisplayAlert("Wrong otp.");
 				else
 					await Navigation.PushAsync(new Views.MyCountries.AddVisitingCountryPage());
+				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion

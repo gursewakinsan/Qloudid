@@ -18,17 +18,6 @@ namespace Qloudid.Views.MyCountries
 
         private void MobileNumberTextChanged(object sender, TextChangedEventArgs args)
         {
-            if (txtMobileNumber.Text?.Length > 0)
-            {
-                lblPhone.Color = Color.FromHex("#DB4437");
-                sfLayout.UnfocusedColor = Color.FromHex("#DB4437");
-            }
-            else
-            {
-                lblPhone.Color = Color.FromHex("#797A7D");
-                sfLayout.UnfocusedColor = Color.FromHex("#797A7D");
-            }
-
             if (!string.IsNullOrWhiteSpace(args.NewTextValue))
             {
                 bool isValid = args.NewTextValue.ToCharArray().All(char.IsDigit);

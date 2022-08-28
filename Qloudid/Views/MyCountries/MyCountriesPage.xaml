@@ -127,7 +127,7 @@
                     Grid.Row="2"
 					FocusedColor="#DB4437"
 					FocusedStrokeWidth="2"
-                    UnfocusedColor="#DB4437"
+                    UnfocusedColor="#797A7D"
 					UnfocusedStrokeWidth="0.5"
 					HeightRequest="56"
 					Hint="Select country"
@@ -137,8 +137,7 @@
                     <textinputlayout:SfTextInputLayout.HintLabelStyle>
                         <textinputlayout:LabelStyle
 							FontFamily="PoppinsSemiBoldFontFamily"
-							FontSize="12"
-							Color="#DB4437" />
+							FontSize="12"/>
                     </textinputlayout:SfTextInputLayout.HintLabelStyle>
                     <controls:CustomPicker
 						Title="Select country"

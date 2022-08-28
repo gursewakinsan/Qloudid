@@ -153,5 +153,8 @@
 		//MyCountries/
 		public const string CheckMobileNumberUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkMobileNumber";
 		public const string VerifyOtpDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyOtpDetail";
+		public const string CurrentCountryDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/currentCountryDetail";
+		public const string UserCountrySummaryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userCountrySummary";
+		public const string UpdateCountryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCountry";
 	}
 }
