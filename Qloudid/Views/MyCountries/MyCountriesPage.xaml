@@ -113,6 +113,7 @@
                     <RowDefinition Height="22"/>
                     <RowDefinition Height="26"/>
                     <RowDefinition Height="56"/>
+					<RowDefinition Height="45"/>
                 </Grid.RowDefinitions>
                 <Label
 					Grid.Row="0"
@@ -245,7 +246,18 @@
 							TextChanged="MobileNumberTextChanged"
 							TextColor="White" />
                     </textinputlayout:SfTextInputLayout>
+					
                 </Grid>
+
+				<Label
+					Grid.Row="9"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+                    Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					TextColor="White"
+					Text="*Dont add the first zero(0)"
+					VerticalTextAlignment="End"/>
             </Grid>
         </ScrollView>
 
