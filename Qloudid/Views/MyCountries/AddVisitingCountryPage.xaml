@@ -424,7 +424,7 @@
 					Margin="0"
 					BackgroundColor="#6263ED"
 					BorderColor="#6263ED"
-					Command="{Binding UploadPassportImageCommand}"
+					Command="{Binding SubmitCommand}"
 					CornerRadius="12"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="16"

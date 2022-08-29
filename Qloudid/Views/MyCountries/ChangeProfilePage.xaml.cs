@@ -48,7 +48,7 @@ namespace Qloudid.Views.MyCountries
 
         void OnPlusButtonTapped(Models.CurrentCountryDetailResponse response)
         {
-            viewModel.SelectedCurrentCountryDetailCommand.Execute(null);
+            viewModel.SelectedCurrentCountryDetailCommand.Execute(response);
         }
         #endregion
     }
