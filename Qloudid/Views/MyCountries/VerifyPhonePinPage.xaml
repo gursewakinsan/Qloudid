@@ -62,7 +62,7 @@
 			WidthRequest="40" />
 
 
-        <ScrollView
+        <ScrollView Margin="0,20,0,0"
 			Grid.Row="1"
 			Grid.Column="1"
 			Grid.ColumnSpan="3"

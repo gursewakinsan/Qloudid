@@ -46,7 +46,7 @@
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
-			Command="{Binding CloseCommand}"
+			Command="{Binding BackCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="25"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
@@ -123,7 +123,7 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Spacing="0">
-                            <controls:CustomFrame 
+                            <Frame 
                                 Margin="0,20,0,0"
                                 HasShadow="False"
                                 IsClippedToBounds="True"
@@ -170,9 +170,9 @@
 										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 										TextColor="White" />
                                 </Grid>
-                            </controls:CustomFrame>
+                            </Frame>
 
-                            <controls:CustomFrame 
+                            <Frame 
                                 Margin="0,20,0,0"
                                 HasShadow="False"
                                 IsClippedToBounds="True"
@@ -182,9 +182,9 @@
                                 VerticalOptions="StartAndExpand"
                                 Padding="20,0,20,0"
                                 IsVisible="{Binding CurrentCountry, Converter={StaticResource InverseBoolConverter}}">
-                                <controls:CustomFrame.GestureRecognizers>
+                                <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnFrameTapped"/>
-                                </controls:CustomFrame.GestureRecognizers>
+                                </Frame.GestureRecognizers>
                                 <Grid ColumnSpacing="10" VerticalOptions="CenterAndExpand">
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnGridTapped"/>
@@ -224,7 +224,7 @@
 										Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 										TextColor="White" />
                                 </Grid>
-                            </controls:CustomFrame>
+                            </Frame>
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

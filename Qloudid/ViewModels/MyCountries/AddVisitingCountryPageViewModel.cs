@@ -60,16 +60,19 @@ namespace Qloudid.ViewModels
 						await service.AddVisitingCountryIdentificatorImagesAsync(new Models.AddVisitingCountryIdentificatorImagesRequest()
 						{
 							Id = id,
-							ImageData = imageData1
+							ImageData = imageData1,
+							ImageId = 1
 						});
 
 						string imageData2 = Convert.ToBase64String(UserImageData2);
 						await service.AddVisitingCountryIdentificatorImagesAsync(new Models.AddVisitingCountryIdentificatorImagesRequest()
 						{
 							Id = id,
-							ImageData = imageData2
+							ImageData = imageData2,
+							ImageId = 2
 						});
 					}
+					Application.Current.MainPage = new NavigationPage(new Views.MyCountries.ChangeProfilePage());
 				}
 				else
 					await Helper.Alert.DisplayAlert("Id already in use.");
