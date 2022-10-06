@@ -241,7 +241,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserEmail = response.email;
 					UserInfo = user;
 					Microsoft.AppCenter.AppCenter.SetUserId(response.email);
-					//EmployerRequestCountCommand.Execute(null);
+					EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
 
@@ -318,7 +318,7 @@ namespace Qloudid.ViewModels
 					UserInfo.email = response.email;
 					Helper.Helper.UserInfo = UserInfo;
 					//DisplayUserName = $"{response.first_name} {response.last_name}";
-					//EmployerRequestCountCommand.Execute(null);
+					EmployerRequestCountCommand.Execute(null);
 
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
 					/*if (response.identificator == 1 || response.identificator == 2)
