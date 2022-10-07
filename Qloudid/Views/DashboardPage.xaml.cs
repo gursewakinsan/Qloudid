@@ -109,40 +109,35 @@ namespace Qloudid.Views
 
 		private void OnLearnMoreButtonClicked(object sender, EventArgs e)
 		{
-			if (carouselViewPosition == 0)
-				viewModel.ConsentCommand.Execute(null);
-			else if (carouselViewPosition == 1)
-				viewModel.ManageCardCommand.Execute(null);
+			OnTapped(carouselViewPosition);
 		}
 
 		private void OnGestureRecognizerTapped(object sender, EventArgs e)
 		{
-			StackLayout layout = sender as StackLayout;
-			int id = Convert.ToInt32(layout.ClassId);
-			if (id == 0)
-				viewModel.ConsentCommand.Execute(null);
-			else if(id == 1)
-				viewModel.ManageCardCommand.Execute(null);
+			StackLayout control = sender as StackLayout;
+			OnTapped(Convert.ToInt32(control.ClassId));
 		}
 
 		private void GridOnGestureRecognizerTapped(object sender, EventArgs e)
 		{
-			Grid layout = sender as Grid;
-			int id = Convert.ToInt32(layout.ClassId);
-			if (id == 0)
-				viewModel.ConsentCommand.Execute(null);
-			else if (id == 1)
-				viewModel.ManageCardCommand.Execute(null);
+			Grid control = sender as Grid;
+			OnTapped(Convert.ToInt32(control.ClassId));
 		}
 
 		private void LabelOnGestureRecognizerTapped(object sender, EventArgs e)
-		{
-			Label layout = sender as Label;
-			int id = Convert.ToInt32(layout.ClassId);
+        {
+            Label control = sender as Label;
+			OnTapped(Convert.ToInt32(control.ClassId));
+        }
+
+        private void OnTapped(int id)
+        {
 			if (id == 0)
 				viewModel.ConsentCommand.Execute(null);
 			else if (id == 1)
+				viewModel.LandLoardConsentCommand.Execute(null);
+			else if (id == 2)
 				viewModel.ManageCardCommand.Execute(null);
-		}
-	}
+        }
+    }
 }
