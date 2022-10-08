@@ -1,12 +1,361 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Qloudid.Views.Consent.LandLoardConsentDetailsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Consent.LandLoardConsentDetailsPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="56" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+        <Label
+            Grid.Row="0" Grid.Column="2"
+			FontFamily="PoppinsRegularFontFamily"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+			FontSize="15"
+			Text="Consent"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <ScrollView
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="0,38,0,20"
+			VerticalScrollBarVisibility="Never">
+            <Frame
+                HasShadow="False"
+                CornerRadius="16"
+                Padding="26,43,37,25"
+                BackgroundColor="#242A37"
+                IsClippedToBounds="True"
+                VerticalOptions="StartAndExpand">
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="43"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Row="0"
+				        Grid.Column="0"
+				        BackgroundColor="#FAC234"
+				        FontFamily="{StaticResource MaterialFontFamily}"
+				        FontSize="20"
+                        HeightRequest="44"
+                        WidthRequest="44"
+                        CornerRadius="22"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+				        Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeAnalytics}"
+				        TextColor="White" />
+                    
+                    <StackLayout
+                        Spacing="0"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="20,0,10,0"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+			                FontFamily="PoppinsBoldFontFamily"
+			                FontSize="20"
+			                TextColor="White" 
+                            Text="Consent"/>
+
+                        <Label
+			                FontSize="12"
+                            Opacity="0.42"
+                            FontFamily="PoppinsRegularFontFamily"
+			                Text="{Binding SelectedTenantsDetail.BuildingName}"
+			                TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout  
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2" 
+                        Spacing="0" 
+                        VerticalOptions="StartAndExpand">
+                        <Label
+			                FontSize="16"
+                            FontFamily="PoppinsRegularFontFamily"
+			                Text="Consent request"
+			                TextColor="White" />
+
+                        <Label
+                            Margin="0,8,0,21"
+			                FontSize="14"
+                            Opacity="0.42"
+                            LineHeight="1.2"
+                            FontFamily="PoppinsRegularFontFamily"
+			                TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="From "/>
+                                    <Span Text="{Binding SelectedTenantsDetail.BuildingName}"/>
+                                    <Span Text=" (Landlord/Community) to "/>
+                                    <Span Text="{Binding UserName}"/>
+                                    <Span Text=" (Tenant/Home owner). If you accept, Qloud ID will share your"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Grid RowSpacing="4" ColumnSpacing="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Name"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="3"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Pass"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Email"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="3"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Gender"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Phone"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="3"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Height"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Address"
+			                    TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                HeightRequest="10"
+                                WidthRequest="10"
+                                CornerRadius="5"
+                                BackgroundColor="#FAC234"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+			                    FontSize="14"
+                                Opacity="0.42"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="Phone"
+			                    TextColor="White" />
+                        </Grid>
+
+                        <Label
+                            Margin="0,59,0,0"
+			                FontSize="13"
+                            Opacity="0.42"
+                            LineHeight="1.2"
+                            FontFamily="PoppinsRegularFontFamily"
+			                Text="If you have any questions, please call office on, +46 8 550 93 32"
+			                TextColor="White" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </ScrollView>
+
+        <Grid
+            Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3" 
+            ColumnSpacing="20">
+            <Button
+				Grid.Column="0"
+				BackgroundColor="#28343E"
+				Command="{Binding RejectTenantRequestCommand}"
+				CornerRadius="16"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="35"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+				TextColor="#F27121" />
+
+            <Button
+				Grid.Column="1"
+				BackgroundColor="#D82567"
+				Command="{Binding ApproveTenantRequestCommand}"
+				CornerRadius="16"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="35"
+				Text="{x:Static fontawesome:QloudidAppFlatIcons.Heart}"
+				TextColor="White" />
+        </Grid>
+    </Grid>
 </ContentPage>
