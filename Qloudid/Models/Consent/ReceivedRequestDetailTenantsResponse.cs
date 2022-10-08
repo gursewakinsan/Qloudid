@@ -4,26 +4,26 @@ namespace Qloudid.Models
 {
     public class ReceivedRequestDetailTenantsResponse
     {
-        [Newtonsoft.Json.JsonProperty(PropertyName = "sent")]
-        public List<RequestDetail> RequestSentDetail { get; set; }
+        //[Newtonsoft.Json.JsonProperty(PropertyName = "sent")]
+        //public List<RequestDetail> RequestSentDetail { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "received")]
-        public List<RequestDetail> RequestReceivedDetail { get; set; }
+        public List<TenantsRequestDetail> RequestReceivedDetail { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "approved")]
-        public List<RequestDetail> RequestApprovedDetail { get; set; }
+        public List<TenantsRequestDetail> RequestApprovedDetail { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "rejected")]
-        public List<RequestDetail> RequestRejectedDetail { get; set; }
+        public List<TenantsRequestDetail> RequestRejectedDetail { get; set; }
     }
 
-    public class RequestDetail
+    public class TenantsRequestDetail
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "building_name")]
         public string BuildingName { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "is_approved")]
-        public bool IsApproved { get; set; }
+        public int IsApproved { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "office_apartment_number")]
         public int OfficeApartmentNumber { get; set; }
@@ -51,5 +51,9 @@ namespace Qloudid.Models
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "company_id")]
         public int CompanyId { get; set; }
+
+        public string ActionName { get; set; }
+        public bool IsRequestReceived { get; set; }
+        public Xamarin.Forms.Color RowBg { get; set; }
     }
 }

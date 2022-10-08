@@ -20,5 +20,13 @@ namespace Qloudid.Views.Consent
             base.OnAppearing();
             viewModel.ReceivedRequestDetailTenantsCommand.Execute(null);
         }
+
+        private async void OnTenantsRequestDetailItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Models.TenantsRequestDetail tenants = e.Item as Models.TenantsRequestDetail;
+            listTenantsRequestDetail.SelectedItem = null;
+            if (tenants.IsRequestReceived)
+                await Navigation.PushAsync(new LandLoardConsentDetailsPage(tenants));
+        }
     }
 }

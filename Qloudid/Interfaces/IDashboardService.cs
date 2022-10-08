@@ -20,7 +20,7 @@ namespace Qloudid.Interfaces
 		Task<Models.DeliveryAddressesResponse> GetDeliveryAddressesAsync(Models.DeliveryAddressesRequest request);
 		Task<Models.CertificateExpiryInfoResponse> GetCertificateExpiryInfoAsync(Models.CertificateExpiryInfoRequest request);
 		Task<int> GetUserStatusCompanyRequirementAsync(Models.GetUserStatusCompanyRequirementRequest request);
-		Task<List<Models.ReceivedRequestDetailTenantsResponse>> ReceivedRequestDetailTenantsAsync(Models.ReceivedRequestDetailTenantsRequest request);
+		Task<Models.ReceivedRequestDetailTenantsResponse> ReceivedRequestDetailTenantsAsync(Models.ReceivedRequestDetailTenantsRequest request);
 		Task<int> ApproveTenantRequestAsync(Models.ApproveTenantRequest request);
 		Task<int> RejectTenantRequestAsync(Models.RejectTenantRequest request);
 	}

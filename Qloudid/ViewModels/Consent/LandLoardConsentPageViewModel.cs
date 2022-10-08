@@ -3,6 +3,7 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -15,7 +16,7 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
-		#region ReceivedRequestDetailTenantsCommand.
+		#region Received Request Detail Tenants Command.
 		private ICommand receivedRequestDetailTenantsCommand;
 		public ICommand ReceivedRequestDetailTenantsCommand
 		{
@@ -29,7 +30,51 @@ namespace Qloudid.ViewModels
 			{
 				UserId = Helper.Helper.UserId
 			});
+			List<Models.TenantsRequestDetail> tenantsResponses = new List<Models.TenantsRequestDetail>();
+			if (response != null)
+			{
+				//Received Request.
+				foreach (var requestReceived in response.RequestReceivedDetail)
+                {
+					requestReceived.ActionName = "Action";
+					requestReceived.IsRequestReceived = true;
+					requestReceived.RowBg = Color.FromHex("#242A37");
+					tenantsResponses.Add(requestReceived);
+				}
+
+				//Accepted Request.
+				foreach (var requestApproved in response.RequestApprovedDetail)
+				{
+					requestApproved.ActionName = "Accepted";
+					requestApproved.IsRequestReceived = false;
+					requestApproved.RowBg = Color.Transparent;
+					tenantsResponses.Add(requestApproved);
+				}
+
+				//Rejected Request.
+				foreach (var requestRejected in response.RequestRejectedDetail)
+				{
+					requestRejected.ActionName = "Rejected";
+					requestRejected.IsRequestReceived = false;
+					requestRejected.RowBg = Color.Transparent;
+					tenantsResponses.Add(requestRejected);
+				}
+			}
+			TenantsRequestDetail = tenantsResponses;
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Properties.
+		private List<Models.TenantsRequestDetail> tenantsRequestDetail;
+		public List<Models.TenantsRequestDetail> TenantsRequestDetail
+		{
+			get => tenantsRequestDetail;
+			set
+			{
+				tenantsRequestDetail = value;
+				OnPropertyChanged("TenantsRequestDetail");
+			}
 		}
 		#endregion
 	}

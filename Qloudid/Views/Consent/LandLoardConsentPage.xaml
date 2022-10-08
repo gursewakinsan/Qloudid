@@ -1,12 +1,228 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Qloudid.Views.Consent.LandLoardConsentPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Consent.LandLoardConsentPage"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="39" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <Label
+            Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="40"
+			Text="Consent"
+			TextColor="White" />
+
+        <Label
+            Grid.Row="4"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+			Text="Here is a list on past &amp; present requests"
+			TextColor="White" />
+
+        <Grid
+            Grid.Row="6"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" 
+            ColumnSpacing="20" 
+            RowSpacing="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="45"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+			    Grid.Column="0"
+			    FontAttributes="Bold"
+			    FontFamily="PoppinsBoldFontFamily"
+			    FontSize="20"
+                HorizontalTextAlignment="Center"
+			    Text="All"
+			    TextColor="White" />
+
+            <BoxView 
+                Grid.Row="1"
+			    Grid.Column="0" 
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="Red"/>
+
+            <Label
+                Grid.Row="0"
+			    Grid.Column="1"
+			    FontFamily="PoppinsRegularFontFamily"
+			    FontSize="20"
+                HorizontalTextAlignment="Center"
+			    Text="Received"
+                Opacity="0.42"
+			    TextColor="White" />
+
+            <Label
+                Grid.Row="0"
+			    Grid.Column="2"
+			    FontFamily="PoppinsRegularFontFamily"
+			    FontSize="20"
+                HorizontalTextAlignment="Center"
+			    Text="Sent"
+                Opacity="0.42"
+			    TextColor="White" />
+
+            <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="White" Opacity="0.2"/>
+
+        </Grid>
+
+        <ListView
+		    x:Name="listTenantsRequestDetail"
+		    Grid.Row="7"
+			Grid.Column="0"
+            Grid.ColumnSpan="5"
+		    BackgroundColor="#181A1F"
+		    HasUnevenRows="true"
+		    ItemTapped="OnTenantsRequestDetailItemTapped"
+		    ItemsSource="{Binding TenantsRequestDetail}"
+		    SeparatorVisibility="None"
+		    VerticalOptions="FillAndExpand"
+		    VerticalScrollBarVisibility="Never" Margin="0,5,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="{Binding RowBg}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView 
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HeightRequest="44"
+                                WidthRequest="44"
+                                CornerRadius="22"
+                                BackgroundColor="#FAC234"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"/>
+
+                            <StackLayout
+                                Spacing="0"
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Padding="20,0,10,0"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand">
+                                <Label
+                                    LineBreakMode="TailTruncation"
+			                        FontFamily="PoppinsRegularFontFamily"
+			                        FontSize="15"
+			                        TextColor="White" 
+                                    MaxLines="1">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Address}"/>
+                                            <Span Text=" - "/>
+                                            <Span Text="{Binding OfficeApartmentNumber}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Label
+			                        FontSize="12"
+                                    Opacity="0.42"
+                                    FontFamily="PoppinsRegularFontFamily"
+			                        Text="{Binding CreatedOn}"
+			                        TextColor="White" />
+                            </StackLayout>
+
+                            <StackLayout 
+                                Spacing="5"  
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Orientation="Horizontal"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                IsVisible="{Binding IsRequestReceived}">
+                                <Label
+			                        FontSize="14"
+                                    FontFamily="PoppinsRegularFontFamily"
+			                        Text="{Binding ActionName}"
+			                        TextColor="#4CD964" />
+
+                                <Label
+			                        FontFamily="{StaticResource MaterialFontFamily}"
+			                        FontSize="15"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			                        TextColor="#4CD964" />
+                            </StackLayout>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="3"
+			                    FontSize="14"
+                                FontFamily="PoppinsRegularFontFamily"
+			                    Text="{Binding ActionName}"
+			                    TextColor="#797A7D" 
+                                HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                IsVisible="{Binding IsRequestReceived, Converter={StaticResource InverseBoolConverter}}"/>
+
+                            <BoxView Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.2"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>
