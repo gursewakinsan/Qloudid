@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.WiFiCodePage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Label
+			Grid.Row="0"
+			Grid.Column="0"
+			Margin="18,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+            Text="SOS Help"
+			HorizontalTextAlignment="Center"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Button 
+            Grid.Row="2" 
+            Grid.ColumnSpan="2"
+            Margin="28,0,0,0"
+            CornerRadius="10"
+            FontSize="12"
+            TextColor="White"
+            Padding="15,0,15,0"
+            Text="To do / Wi-fi"
+            HorizontalOptions="StartAndExpand"
+            BackgroundColor="#242A37"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <BoxView
+		    Grid.Row="4"
+		    Grid.ColumnSpan="3"
+		    BackgroundColor="White"
+		    HeightRequest="1"
+		    Opacity="0.1" 
+            Margin="28,0,28,0" />
+
+        <ScrollView 
+            Grid.Row="5" 
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="28"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout 
+                    Spacing="0" 
+                    Grid.Row="1" 
+                    Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+				            FontFamily="PoppinsBoldFontFamily"
+				            FontSize="20"
+				            Text="Wi-Fi" 
+				            TextColor="White"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"/>
+
+                        <Label
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="50"
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+						    TextColor="#4FD471"
+						    VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding IsYourNameOnTheDoorCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Label
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14" 
+                        Opacity="0.42"
+                        LineHeight="1.2"
+                        HorizontalOptions="FillAndExpand"
+					    Text="Add the credentials for your wifi below"
+					    TextColor="White" 
+                        Margin="0,0,0,31"/>
+                </StackLayout>
+
+                <Grid Grid.Row="2" Grid.Column="1" RowSpacing="0" ColumnSpacing="0" WidthRequest="191" HorizontalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="37"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="12" 
+                        Opacity="0.70"
+                        HorizontalOptions="FillAndExpand"
+					    Text="Network name"
+					    TextColor="White" />
+
+                    <Frame
+						Grid.Row="1"
+						Padding="0"
+						BackgroundColor="#242A37"
+						CornerRadius="12"
+						HasShadow="False" IsClippedToBounds="True">
+                        <controls:CustomEntry Margin="20,0,20,0"
+						    BackgroundColor="#242A37"
+						    FontFamily="SFProRegularFontFamily"
+						    FontSize="15"
+						    Placeholder="Network name"
+						    PlaceholderColor="LightGray"
+						    TextColor="White" />
+                    </Frame>
+
+                    <Label
+                        Grid.Row="3"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="12" 
+                        Opacity="0.70"
+                        HorizontalOptions="FillAndExpand"
+					    Text="Wi-fi code"
+					    TextColor="White" />
+
+                    <Frame
+						Grid.Row="4"
+						Padding="0"
+						BackgroundColor="#242A37"
+						CornerRadius="12"
+						HasShadow="False" IsClippedToBounds="True">
+                        <controls:CustomEntry Margin="20,0,20,0"
+						    BackgroundColor="#242A37"
+						    FontFamily="SFProRegularFontFamily"
+						    FontSize="15"
+						    Placeholder="Wi-fi code"
+						    PlaceholderColor="LightGray"
+						    TextColor="White" />
+                    </Frame>
+                </Grid>
+                
+            </Grid>
+        </ScrollView>
+
+        <Button 
+            Grid.Row="6"
+            Margin="28,0,28,0"
+            CornerRadius="50"
+            Grid.ColumnSpan="3"
+            Text="Update"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
+</ContentPage>
