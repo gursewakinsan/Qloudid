@@ -22,7 +22,7 @@ namespace Qloudid
 			InitializeComponent();
 			Helper.Helper.IsFirstTime = true;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
-				MainPage = new NavigationPage(new Views.DashboardPage());
+				MainPage = new NavigationPage(new Views.Bedroom.ApartmentInfoPage());
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
 

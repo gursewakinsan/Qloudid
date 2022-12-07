@@ -69,5 +69,15 @@
 
 		public const string Heart = "\U000f02d1";
 		public const string HomeAnalytics = "\U000f0eba";
+
+		public const string HomeVariant = "\U000f02de";
+		public const string Soundcloud = "\U000f04c0";
+		public const string ContactlessPaymentCircleOutline = "\U000f0408";
+		public const string WallSconceRound = "\U000f0748";
+		public const string BellOutline = "\U000f009c";
+		public const string TransitConnectionHorizontal = "\U000f1546";
+		public const string VectorTriangle = "\U000f0563";
+		public const string StorefrontOutline = "\U000f10c1";
+		public const string AccountOutline = "\U000f0013";
 	}
 }

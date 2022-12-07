@@ -1,0 +1,1461 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.ApartmentInfoPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#282A34"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,14,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="29" />
+            <RowDefinition Height="102" />
+            <RowDefinition Height="29" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Label
+			Grid.Row="0"
+			Grid.Column="0"
+			Margin="18,0,0,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="Start"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+            Text="Your home"
+			HorizontalTextAlignment="Center"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="2"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25" Margin="0,0,28,0"
+			HorizontalTextAlignment="End"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+			TextColor="White"
+			VerticalTextAlignment="Center"/>
+
+        <ScrollView
+			Grid.Row="2"
+			Grid.ColumnSpan="3"
+			Margin="28,0,0,0"
+			HorizontalScrollBarVisibility="Never"
+			Orientation="Horizontal">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="76" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="76" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="76" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="76" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button
+					Grid.Row="0"
+					Grid.Column="0"
+					BackgroundColor="White"
+					CornerRadius="38"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="24"
+                    Command="{Binding SocailClickCommand}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeVariant}"
+					TextColor="#181A1F" />
+
+                <Button
+					Grid.Row="0"
+					Grid.Column="2"
+					BackgroundColor="Transparent"
+					BorderColor="#737B8C"
+					BorderWidth="1"
+					CornerRadius="38"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="24"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ContactlessPaymentCircleOutline}"
+					TextColor="White" />
+
+                <Button
+					Grid.Row="0"
+					Grid.Column="4"
+					BackgroundColor="Transparent"
+					BorderColor="#737B8C"
+					BorderWidth="1"
+					CornerRadius="38"
+					Command="{Binding GoToApartmentPageCommand}"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="24"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Soundcloud}"
+					TextColor="White" />
+                
+                <Label
+					Grid.Row="1"
+					Grid.RowSpan="2"
+					Grid.Column="0"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="12"
+					HorizontalTextAlignment="Center"
+					Text="Apartment"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+
+                <Label
+					Grid.Row="1"
+					Grid.RowSpan="2"
+					Grid.Column="2"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="12"
+					HorizontalTextAlignment="Center"
+					Text="Rent out"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+
+                <Label
+					Grid.Row="1"
+					Grid.RowSpan="2"
+					Grid.Column="4"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="12"
+					HorizontalTextAlignment="Center"
+					Text="Sell"
+					TextColor="White"
+					VerticalTextAlignment="End" />
+            </Grid>
+        </ScrollView>
+
+        <controls:CustomFrame
+			Grid.Row="4"
+			Grid.ColumnSpan="3"
+			Padding="0"
+			BackgroundColor="#1B1D24"
+			CornerRadius="38,38,0,0"
+			HasShadow="False"
+			IsClippedToBounds="True">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout VerticalOptions="StartAndExpand" Spacing="0" Padding="0,0,0,20">
+                    <Label
+                        Margin="28,40,0,8"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="20"
+						Text="Welcome"
+						TextColor="White"
+                        HorizontalOptions="StartAndExpand"/>
+
+                    <Label
+                        Margin="28,0,28,0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="16"
+						Text="Please complete this to-do list"
+						TextColor="White"
+                        Opacity="0.42"
+                        HorizontalOptions="StartAndExpand"/>
+
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,39,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="406"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="6"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <ScrollView
+                            Grid.Row="0"
+                            Orientation="Horizontal" 
+                            HorizontalScrollBarVisibility="Never" Margin="28,0,28,0">
+                            <StackLayout Orientation="Horizontal" Spacing="25">
+                                <Grid WidthRequest="278">
+                                    <Frame 
+                                        Grid.Row="0"
+										Padding="10"
+										IsClippedToBounds="True" 
+										HasShadow="False"
+										CornerRadius="16"
+										BackgroundColor="#242A37">
+                                        <Grid RowSpacing="0" ColumnSpacing="7" Margin="11,26,0,40">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="87"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="24"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image 
+                                                Grid.Row="0" 
+                                                Grid.ColumnSpan="2"
+                                                Aspect="AspectFill"
+                                                HeightRequest="87"
+                                                WidthRequest="87"
+                                                Source="iconFourColorCircle.png"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="StartAndExpand"/>
+
+                                            <Label
+                                                Grid.Row="2" Grid.ColumnSpan="2"
+												FontFamily="PoppinsSemiBoldFontFamily"
+												FontSize="25"
+												Text="Apartment"
+												TextColor="White" 
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="4" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#4CD964"/>
+
+                                            <Label
+												Grid.Row="4"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="4"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bedroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="6" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#F4B400"/>
+
+                                            <Label
+												Grid.Row="6"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="6"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bathroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="8" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="8"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="8"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Property infra"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="10" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="10"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="10"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Other rooms"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+                                        </Grid>
+                                    </Frame>
+                                    <controls:CustomFrame
+										Padding="0"
+										Grid.Row="0"
+										BackgroundColor="#B90303"
+										CornerRadius="25,0,0,0"
+										HasShadow="False"
+										WidthRequest="70"
+										HeightRequest="62"
+										Margin="0,0,-1,-1"
+										HorizontalOptions="EndAndExpand"
+										VerticalOptions="EndAndExpand"
+										IsClippedToBounds="True">
+                                        <Label
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="22"
+											HorizontalTextAlignment="Center"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+											TextColor="White"
+											VerticalTextAlignment="Center"/>
+                                    </controls:CustomFrame>
+                                </Grid>
+
+                                <Grid WidthRequest="278">
+                                    <Frame 
+                                        Grid.Row="0"
+										Padding="10"
+										IsClippedToBounds="True" 
+										HasShadow="False"
+										CornerRadius="16"
+										BackgroundColor="#242A37">
+                                        <Grid RowSpacing="0" ColumnSpacing="7" Margin="11,26,0,40">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="87"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="24"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image 
+                                                Grid.Row="0" 
+                                                Grid.ColumnSpan="2"
+                                                Aspect="AspectFill"
+                                                HeightRequest="87"
+                                                WidthRequest="87"
+                                                Source="iconFourColorCircle.png"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="StartAndExpand"/>
+
+                                            <Label
+                                                Grid.Row="2" Grid.ColumnSpan="2"
+												FontFamily="PoppinsSemiBoldFontFamily"
+												FontSize="25"
+												Text="Wi-fi"
+												TextColor="White" 
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="4" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#4CD964"/>
+
+                                            <Label
+												Grid.Row="4"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="4"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bedroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="6" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#F4B400"/>
+
+                                            <Label
+												Grid.Row="6"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="6"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bathroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="8" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="8"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="8"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Property infra"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="10" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="10"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="10"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Other rooms"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+                                        </Grid>
+                                    </Frame>
+                                    <controls:CustomFrame
+										Padding="0"
+										Grid.Row="0"
+										BackgroundColor="#B90303"
+										CornerRadius="25,0,0,0"
+										HasShadow="False"
+										WidthRequest="70"
+										HeightRequest="62"
+										Margin="0,0,-1,-1"
+										HorizontalOptions="EndAndExpand"
+										VerticalOptions="EndAndExpand"
+										IsClippedToBounds="True">
+                                        <Label
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="22"
+											HorizontalTextAlignment="Center"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+											TextColor="White"
+											VerticalTextAlignment="Center"/>
+                                    </controls:CustomFrame>
+                                </Grid>
+
+                                <Grid WidthRequest="278">
+                                    <Frame 
+                                        Grid.Row="0"
+										Padding="10"
+										IsClippedToBounds="True" 
+										HasShadow="False"
+										CornerRadius="16"
+										BackgroundColor="#242A37">
+                                        <Grid RowSpacing="0" ColumnSpacing="7" Margin="11,26,0,40">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="87"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                                <RowDefinition Height="11"/>
+                                                <RowDefinition Height="24"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="24"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image 
+                                                Grid.Row="0" 
+                                                Grid.ColumnSpan="2"
+                                                Aspect="AspectFill"
+                                                HeightRequest="87"
+                                                WidthRequest="87"
+                                                Source="iconFourColorCircle.png"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="StartAndExpand"/>
+
+                                            <Label
+                                                Grid.Row="2" Grid.ColumnSpan="2"
+												FontFamily="PoppinsSemiBoldFontFamily"
+												FontSize="25"
+												Text="Tenants"
+												TextColor="White" 
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="4" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#4CD964"/>
+
+                                            <Label
+												Grid.Row="4"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="4"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bedroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="6" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#F4B400"/>
+
+                                            <Label
+												Grid.Row="6"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="6"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Bathroom"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="8" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="8"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="8"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Property infra"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+
+                                            <BoxView 
+                                                Grid.Row="10" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"/>
+
+                                            <Label
+												Grid.Row="10"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                Grid.Row="10"
+                                                Grid.Column="1"
+												FontFamily="PoppinsRegularFontFamily"
+												FontSize="16"
+												Text="Other rooms"
+												TextColor="White" 
+                                                Opacity="0.60"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Start"/>
+                                        </Grid>
+                                    </Frame>
+                                    <controls:CustomFrame
+										Padding="0"
+										Grid.Row="0"
+										BackgroundColor="#B90303"
+										CornerRadius="25,0,0,0"
+										HasShadow="False"
+										WidthRequest="70"
+										HeightRequest="62"
+										Margin="0,0,-1,-1"
+										HorizontalOptions="EndAndExpand"
+										VerticalOptions="EndAndExpand"
+										IsClippedToBounds="True">
+                                        <Label
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="22"
+											HorizontalTextAlignment="Center"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+											TextColor="White"
+											VerticalTextAlignment="Center"/>
+                                    </controls:CustomFrame>
+                                </Grid>
+                            </StackLayout>
+                        </ScrollView>
+
+                        <StackLayout 
+                            Orientation="Horizontal" 
+                            Grid.Row="2" Spacing="8"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand">
+                            <BoxView
+                                HeightRequest="6"
+                                WidthRequest="6"
+                                CornerRadius="3"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="#242A37"/>
+
+                            <BoxView
+                                HeightRequest="6"
+                                WidthRequest="20"
+                                CornerRadius="3"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="#F40000"/>
+                            
+                            <BoxView
+                                HeightRequest="6"
+                                WidthRequest="6"
+                                CornerRadius="3"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="#242A37"/>
+                        </StackLayout>
+
+                        <BoxView 
+                            Grid.Row="4" 
+                            BackgroundColor="White" 
+                            Opacity="0.1" 
+                            Margin="28,0,28,0"/>
+                    </Grid>
+
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="44"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0" Grid.Column="0"
+						    FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="24"
+							Text="About"
+							TextColor="White" 
+                            HorizontalTextAlignment="Start"/>
+
+                        <Label
+						    Grid.Row="0"
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="22" 
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="End"/>
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,15,0,29"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="This information is provided by you or your landlord/community. You can update this part"
+						    TextColor="White"
+                            Opacity="0.42"
+                            LineHeight="1.1"
+                            HorizontalOptions="StartAndExpand"/>
+
+                        <Grid
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							ColumnSpacing="0"
+							RowSpacing="17">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                                <RowDefinition Height="26" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+								Grid.Row="0"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.VectorTriangle}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="0"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="2 Bedrooms"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.StorefrontOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Livingroom"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="2"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.AccountOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="2"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Kitchen"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Hallway"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="0"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.VectorTriangle}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="0"
+								Grid.Column="3"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="2 bathrooms"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.StorefrontOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="3"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Office room"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="2"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.AccountOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="2"
+								Grid.Column="3"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Balcony"
+								TextColor="White"
+                                Opacity="0.42"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								HorizontalTextAlignment="Start"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="3"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								HorizontalTextAlignment="Start"
+								Text="Terrance"
+                                Opacity="0.42"
+								TextColor="White"
+								VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <BoxView 
+                            Grid.Row="4" 
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="White" 
+                            Opacity="0.1" />
+                    </Grid>
+
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="54"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0" Grid.Column="0"
+						    FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="24"
+							Text="Address"
+							TextColor="White" 
+                            HorizontalTextAlignment="Start"/>
+
+                        <Label
+						    Grid.Row="0"
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="22" 
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="End"/>
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,7,0,23"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Your apartment is located at below address"
+						    TextColor="White"
+                            Opacity="0.42"
+                            LineHeight="1.1"
+                            HorizontalOptions="StartAndExpand"/>
+
+                        <Grid 
+                            RowSpacing="0" 
+                            ColumnSpacing="0" 
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="80"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView 
+								Grid.Row="0" 
+								Grid.ColumnSpan="3"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Floor"
+								TextColor="White"
+								Opacity="0.42" 
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="2"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Ground"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                            <BoxView 
+								Grid.Row="2" 
+                                Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Entry code"
+								TextColor="White"
+								Opacity="0.42" 
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="2"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="#1435"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                            <BoxView 
+								Grid.Row="4" 
+                                Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="5"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Address"
+								TextColor="White"
+								Opacity="0.42" 
+                                Margin="0,15,0,0"
+                                VerticalTextAlignment="Start"
+                                HorizontalTextAlignment="Start"/>
+
+                            <StackLayout 
+                                Spacing="3" 
+                                Grid.Row="5"
+								Grid.Column="2"
+                                Margin="0,15,0,0"
+                                HorizontalOptions="EndAndExpand" 
+                                VerticalOptions="StartAndExpand">
+                                <Label
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="14"
+									Text="Addresgatan 61"
+									TextColor="White" 
+                                    HorizontalTextAlignment="End"/>
+
+                                <Label
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="14"
+									Text="174 60 Solna"
+                                    TextColor="White" 
+                                    HorizontalTextAlignment="End"/>
+
+                                <Label
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="14"
+									Text="Sweden"
+                                    HorizontalTextAlignment="End"
+									TextColor="White"/>
+                            </StackLayout>
+                            
+                        </Grid>
+
+                        <BoxView 
+                            Grid.Row="4" 
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="White" 
+                            Opacity="0.1" />
+                    </Grid>
+
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0" Grid.Column="0"
+						    FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="24"
+							Text="Tenants"
+							TextColor="White" 
+                            HorizontalTextAlignment="Start"/>
+
+                        <Label
+						    Grid.Row="0"
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="22" 
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="End"/>
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,7,0,23"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="This part is about your wi-fi. You can update this at anytime"
+						    TextColor="White"
+                            Opacity="0.42"
+                            LineHeight="1.1"
+                            HorizontalOptions="StartAndExpand"/>
+
+                        <Grid 
+                            RowSpacing="0" 
+                            ColumnSpacing="16" 
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView 
+								Grid.Row="0" 
+								Grid.ColumnSpan="3"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#F40000"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"/>
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Du"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                            <BoxView 
+								Grid.Row="2" 
+                                Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#F40000"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"/>
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Veronica Maggio"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                            <BoxView 
+								Grid.Row="4" 
+                                Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="5"
+								Grid.Column="0"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"
+								TextColor="#F40000"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"/>
+
+                            <Label
+								Grid.Row="5"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="15"
+								Text="Oliver Gustafsson"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="5"
+								Grid.Column="2"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								FontSize="20"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                        </Grid>
+
+                        <BoxView 
+                            Grid.Row="4" 
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="White" 
+                            Opacity="0.1" />
+                    </Grid>
+
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0" Grid.Column="0"
+						    FontFamily="PoppinsSemiBoldFontFamily"
+							FontSize="24"
+							Text="Wi-fi"
+							TextColor="White" 
+                            HorizontalTextAlignment="Start"/>
+
+                        <Label
+						    Grid.Row="0"
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="22" 
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="End"/>
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,7,0,23"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="This part is about your wi-fi. You can update this at anytime"
+						    TextColor="White"
+                            Opacity="0.42"
+                            LineHeight="1.1"
+                            HorizontalOptions="StartAndExpand"/>
+
+                        <Grid 
+                            RowSpacing="0" 
+                            ColumnSpacing="0" 
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <BoxView 
+								Grid.Row="0" 
+								Grid.ColumnSpan="3"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Network"
+								TextColor="White"
+								Opacity="0.42" 
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="1"
+								Grid.Column="2"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Menkem-i"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+
+                            <BoxView 
+								Grid.Row="2" 
+                                Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White" 
+								Opacity="0.1" />
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="1"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="Pass"
+								TextColor="White"
+								Opacity="0.42" 
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"/>
+
+                            <Label
+								Grid.Row="3"
+								Grid.Column="2"
+								FontFamily="PoppinsRegularFontFamily"
+								FontSize="14"
+								Text="#1435"
+								TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="End"/>
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </controls:CustomFrame>
+    </Grid>
+</ContentPage>
