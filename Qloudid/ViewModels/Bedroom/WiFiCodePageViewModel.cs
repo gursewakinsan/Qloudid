@@ -52,7 +52,7 @@ namespace Qloudid.ViewModels
 						WifiPassword = WifiPassword,
 						WifiUsername = WifiUsername,
 					});
-					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+					await Navigation.PopAsync();
 				}
 			}
 			else
@@ -64,7 +64,7 @@ namespace Qloudid.ViewModels
 					WifiPassword = string.Empty,
 					WifiUsername = string.Empty,
 				});
-				Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				await Navigation.PopAsync();
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}
