@@ -58,7 +58,8 @@ namespace Qloudid.Views.Bedroom
         async void HandleClickedEvent(Models.UserDeliveryAddressesResponse userDelivery)
         {
             Helper.Helper.SelectedUserDeliveryAddress = userDelivery;
-            await Navigation.PushAsync(new MyHomeDetailsPage());
+            //await Navigation.PushAsync(new MyHomeDetailsPage());
+            await Navigation.PushAsync(new ApartmentInfoPage());
         }
         #endregion
     }

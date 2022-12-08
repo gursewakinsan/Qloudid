@@ -36,7 +36,7 @@
 			TextColor="White"
 			VerticalTextAlignment="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 
@@ -192,6 +192,9 @@
                             HorizontalScrollBarVisibility="Never" Margin="28,0,28,0">
                             <StackLayout Orientation="Horizontal" Spacing="25">
                                 <Grid WidthRequest="278">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                    </Grid.GestureRecognizers>
                                     <Frame 
                                         Grid.Row="0"
 										Padding="10"
@@ -199,7 +202,13 @@
 										HasShadow="False"
 										CornerRadius="16"
 										BackgroundColor="#242A37">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                        </Frame.GestureRecognizers>
                                         <Grid RowSpacing="0" ColumnSpacing="7" Margin="11,26,0,40">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                            </Grid.GestureRecognizers>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="87"/>
                                                 <RowDefinition Height="*"/>
@@ -225,7 +234,11 @@
                                                 WidthRequest="87"
                                                 Source="iconFourColorCircle.png"
                                                 VerticalOptions="CenterAndExpand"
-                                                HorizontalOptions="StartAndExpand"/>
+                                                HorizontalOptions="StartAndExpand">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
 
                                             <Label
                                                 Grid.Row="2" Grid.ColumnSpan="2"
@@ -233,13 +246,21 @@
 												FontSize="25"
 												Text="Apartment"
 												TextColor="White" 
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <BoxView 
                                                 Grid.Row="4" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#4CD964"/>
+                                                BackgroundColor="#4CD964">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
 												Grid.Row="4"
@@ -249,7 +270,11 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
                                                 Grid.Row="4"
@@ -260,13 +285,21 @@
 												TextColor="White" 
                                                 Opacity="0.60"
                                                 VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <BoxView 
                                                 Grid.Row="6" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#F4B400"/>
+                                                BackgroundColor="#F4B400">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
 												Grid.Row="6"
@@ -276,7 +309,11 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
                                                 Grid.Row="6"
@@ -287,13 +324,21 @@
 												TextColor="White" 
                                                 Opacity="0.60"
                                                 VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <BoxView 
                                                 Grid.Row="8" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#D84B25"/>
+                                                BackgroundColor="#D84B25">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
 												Grid.Row="8"
@@ -303,7 +348,11 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
                                                 Grid.Row="8"
@@ -314,13 +363,21 @@
 												TextColor="White" 
                                                 Opacity="0.60"
                                                 VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <BoxView 
                                                 Grid.Row="10" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#D84B25"/>
+                                                BackgroundColor="#D84B25">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
 												Grid.Row="10"
@@ -330,7 +387,11 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
                                                 Grid.Row="10"
@@ -341,7 +402,11 @@
 												TextColor="White" 
                                                 Opacity="0.60"
                                                 VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </Grid>
                                     </Frame>
                                     <controls:CustomFrame
@@ -356,17 +421,29 @@
 										HorizontalOptions="EndAndExpand"
 										VerticalOptions="EndAndExpand"
 										IsClippedToBounds="True">
+                                        <controls:CustomFrame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                        </controls:CustomFrame.GestureRecognizers>
                                         <Label
 											FontFamily="{StaticResource MaterialFontFamily}"
 											FontSize="22"
 											HorizontalTextAlignment="Center"
 											Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
 											TextColor="White"
-											VerticalTextAlignment="Center"/>
+											VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
                                     </controls:CustomFrame>
                                 </Grid>
 
-                                <Grid WidthRequest="278">
+                                <Grid 
+                                    WidthRequest="278" 
+                                    IsVisible="{Binding Address.IsWiFiUpdated, Converter={StaticResource InverseBoolConverter}}">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                    </Grid.GestureRecognizers>
                                     <Frame 
                                         Grid.Row="0"
 										Padding="10"
@@ -374,7 +451,13 @@
 										HasShadow="False"
 										CornerRadius="16"
 										BackgroundColor="#242A37">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                        </Frame.GestureRecognizers>
                                         <Grid RowSpacing="0" ColumnSpacing="7" Margin="11,26,0,40">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                            </Grid.GestureRecognizers>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="87"/>
                                                 <RowDefinition Height="*"/>
@@ -392,29 +475,41 @@
                                                 <ColumnDefinition Width="24"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image 
+                                            <BoxView 
                                                 Grid.Row="0" 
                                                 Grid.ColumnSpan="2"
-                                                Aspect="AspectFill"
-                                                HeightRequest="87"
-                                                WidthRequest="87"
-                                                Source="iconFourColorCircle.png"
+                                                HeightRequest="88"
+                                                WidthRequest="88"
+                                                CornerRadius="44"
+                                                BackgroundColor="#F40000"
                                                 VerticalOptions="CenterAndExpand"
-                                                HorizontalOptions="StartAndExpand"/>
+                                                HorizontalOptions="StartAndExpand">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
                                                 Grid.Row="2" Grid.ColumnSpan="2"
 												FontFamily="PoppinsSemiBoldFontFamily"
 												FontSize="25"
-												Text="Wi-fi"
+												Text="Wifi"
 												TextColor="White" 
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <BoxView 
                                                 Grid.Row="4" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#4CD964"/>
+                                                BackgroundColor="#D84B25">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
 
                                             <Label
 												Grid.Row="4"
@@ -422,101 +517,28 @@
 												FontFamily="{StaticResource MaterialFontFamily}"
 												FontSize="13"
 												HorizontalTextAlignment="Center"
-												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
+												VerticalTextAlignment="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
 
                                             <Label
                                                 Grid.Row="4"
                                                 Grid.Column="1"
 												FontFamily="PoppinsRegularFontFamily"
 												FontSize="16"
-												Text="Bedroom"
+												Text="Set Wi-fi"
 												TextColor="White" 
                                                 Opacity="0.60"
                                                 VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
-
-                                            <BoxView 
-                                                Grid.Row="6" 
-                                                Grid.Column="0" 
-                                                CornerRadius="12"
-                                                BackgroundColor="#F4B400"/>
-
-                                            <Label
-												Grid.Row="6"
-												Grid.Column="0"
-												FontFamily="{StaticResource MaterialFontFamily}"
-												FontSize="13"
-												HorizontalTextAlignment="Center"
-												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
-												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
-
-                                            <Label
-                                                Grid.Row="6"
-                                                Grid.Column="1"
-												FontFamily="PoppinsRegularFontFamily"
-												FontSize="16"
-												Text="Bathroom"
-												TextColor="White" 
-                                                Opacity="0.60"
-                                                VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
-
-                                            <BoxView 
-                                                Grid.Row="8" 
-                                                Grid.Column="0" 
-                                                CornerRadius="12"
-                                                BackgroundColor="#D84B25"/>
-
-                                            <Label
-												Grid.Row="8"
-												Grid.Column="0"
-												FontFamily="{StaticResource MaterialFontFamily}"
-												FontSize="13"
-												HorizontalTextAlignment="Center"
-												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
-												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
-
-                                            <Label
-                                                Grid.Row="8"
-                                                Grid.Column="1"
-												FontFamily="PoppinsRegularFontFamily"
-												FontSize="16"
-												Text="Property infra"
-												TextColor="White" 
-                                                Opacity="0.60"
-                                                VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
-
-                                            <BoxView 
-                                                Grid.Row="10" 
-                                                Grid.Column="0" 
-                                                CornerRadius="12"
-                                                BackgroundColor="#D84B25"/>
-
-                                            <Label
-												Grid.Row="10"
-												Grid.Column="0"
-												FontFamily="{StaticResource MaterialFontFamily}"
-												FontSize="13"
-												HorizontalTextAlignment="Center"
-												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
-												TextColor="#242A37"
-												VerticalTextAlignment="Center"/>
-
-                                            <Label
-                                                Grid.Row="10"
-                                                Grid.Column="1"
-												FontFamily="PoppinsRegularFontFamily"
-												FontSize="16"
-												Text="Other rooms"
-												TextColor="White" 
-                                                Opacity="0.60"
-                                                VerticalTextAlignment="Center"
-                                                HorizontalTextAlignment="Start"/>
+                                                HorizontalTextAlignment="Start">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
                                         </Grid>
                                     </Frame>
                                     <controls:CustomFrame
@@ -531,17 +553,24 @@
 										HorizontalOptions="EndAndExpand"
 										VerticalOptions="EndAndExpand"
 										IsClippedToBounds="True">
+                                        <controls:CustomFrame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                        </controls:CustomFrame.GestureRecognizers>
                                         <Label
 											FontFamily="{StaticResource MaterialFontFamily}"
 											FontSize="22"
 											HorizontalTextAlignment="Center"
 											Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
 											TextColor="White"
-											VerticalTextAlignment="Center"/>
+											VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
                                     </controls:CustomFrame>
                                 </Grid>
 
-                                <Grid WidthRequest="278">
+                                <Grid WidthRequest="278" IsVisible="False">
                                     <Frame 
                                         Grid.Row="0"
 										Padding="10"
@@ -783,7 +812,11 @@
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
 						    TextColor="#F40000"
-						    VerticalTextAlignment="End"/>
+						    VerticalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Label
                             Grid.Row="1"
@@ -1047,7 +1080,7 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="40"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="90"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <BoxView 
@@ -1072,8 +1105,10 @@
 								Grid.Column="2"
 								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
-								Text="Ground"
+								Text="{Binding Address.ApartmentFloor}"
 								TextColor="White"
+                                MaxLines="1"
+                                LineBreakMode="TailTruncation"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="End"/>
 
@@ -1100,8 +1135,10 @@
 								Grid.Column="2"
 								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
-								Text="#1435"
+								Text="{Binding Address.EntryCode}"
 								TextColor="White"
+                                MaxLines="1"
+                                LineBreakMode="TailTruncation"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="End"/>
 
@@ -1134,16 +1171,34 @@
                                 <Label
 									FontFamily="PoppinsRegularFontFamily"
 									FontSize="14"
-									Text="Addresgatan 61"
 									TextColor="White" 
-                                    HorizontalTextAlignment="End"/>
+                                    MaxLines="1"
+                                    LineBreakMode="TailTruncation"
+                                    HorizontalTextAlignment="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Address.Address}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding Address.PortNumber}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
                                 <Label
 									FontFamily="PoppinsRegularFontFamily"
 									FontSize="14"
-									Text="174 60 Solna"
                                     TextColor="White" 
-                                    HorizontalTextAlignment="End"/>
+                                    MaxLines="1"
+                                    LineBreakMode="TailTruncation"
+                                    HorizontalTextAlignment="End">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Address.Zipcode}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding Address.City}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
                                 <Label
 									FontFamily="PoppinsRegularFontFamily"
@@ -1341,7 +1396,7 @@
                             Opacity="0.1" />
                     </Grid>
 
-                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0" IsVisible="{Binding Address.IsWiFiUpdated}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="35"/>
                             <RowDefinition Height="auto"/>
@@ -1368,7 +1423,11 @@
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
 						    TextColor="#F40000"
-						    VerticalTextAlignment="End"/>
+						    VerticalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Label
                             Grid.Row="1"
@@ -1420,7 +1479,7 @@
 								Grid.Column="2"
 								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
-								Text="Menkem-i"
+								Text="{Binding Address.WifiUsername}"
 								TextColor="White"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="End"/>
@@ -1448,7 +1507,7 @@
 								Grid.Column="2"
 								FontFamily="PoppinsRegularFontFamily"
 								FontSize="14"
-								Text="#1435"
+								Text="{Binding Address.WifiPassword}"
 								TextColor="White"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="End"/>

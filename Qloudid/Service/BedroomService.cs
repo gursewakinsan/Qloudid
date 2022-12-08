@@ -89,6 +89,16 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> UpdateApartmentWifiAsync(Models.UpdateApartmentWifiRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateApartmentWifiUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+		
+
 		//Bathroom
 		public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)
 		{

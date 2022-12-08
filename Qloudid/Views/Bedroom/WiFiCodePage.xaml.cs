@@ -8,11 +8,14 @@ namespace Qloudid.Views.Bedroom
     public partial class WiFiCodePage : ContentPage
     {
         WiFiCodePageViewModel viewModel;
-        public WiFiCodePage()
+        public WiFiCodePage(Models.EditAddressResponse editAddress)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new WiFiCodePageViewModel(this.Navigation);
+            viewModel.IsWifiAvailable = editAddress.IsWifiAvailable;
+            viewModel.WifiUsername = editAddress.WifiUsername;
+            viewModel.WifiPassword = editAddress.WifiPassword;
         }
     }
 }

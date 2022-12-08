@@ -135,6 +135,7 @@
 		public const string BedroomBedDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bedroomBedDetail";
 		public const string BedTypeDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bedTypeDetail";
 		public const string UpdateBedTypeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBedTypeInfo";
+		public const string UpdateApartmentWifiUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentWifi";
 
 		//Bathroom
 		public const string BathroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bathroomDetail";

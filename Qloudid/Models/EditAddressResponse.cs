@@ -53,5 +53,20 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "delivered_at")]
 		public int DeliveredAt { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "wi_fi_updated")]
+		public bool IsWiFiUpdated { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "wifi_available")]
+		public bool IsWifiAvailable { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "wifi_username")]
+		public string WifiUsername { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "wifi_password")]
+		public string WifiPassword { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "apartment_floor")]
+		public string ApartmentFloor { get; set; }
 	}
 }
