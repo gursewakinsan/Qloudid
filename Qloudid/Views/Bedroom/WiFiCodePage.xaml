@@ -17,7 +17,7 @@
             <RowDefinition Height="18" />
             <RowDefinition Height="1" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="65" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="5" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -216,7 +216,7 @@
         <Button 
             Grid.Row="6"
             Margin="28,0,28,0"
-            CornerRadius="50"
+            CornerRadius="30"
             Grid.ColumnSpan="3"
             Text="Update"
             FontSize="16"
