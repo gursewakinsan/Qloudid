@@ -1445,7 +1445,8 @@
                             RowSpacing="0" 
                             ColumnSpacing="0" 
                             Grid.Row="2"
-                            Grid.ColumnSpan="2">
+                            Grid.ColumnSpan="2" 
+                            IsVisible="{Binding Address.IsWifiAvailable}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1"/>
                                 <RowDefinition Height="60"/>
