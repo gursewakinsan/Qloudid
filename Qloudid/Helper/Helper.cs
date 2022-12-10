@@ -103,7 +103,9 @@ namespace Qloudid.Helper
 		public static int PreCheckinStatus { get; set; }
 
 		public static Models.UserDeliveryAddressesResponse SelectedUserDeliveryAddress { get; set; }
-        public static Models.TenantInvoicePayNow TenantInvoicePayNow { get; set; }
+		public static Models.EditAddressResponse SelectedUserAddress { get; set; }
+
+		public static Models.TenantInvoicePayNow TenantInvoicePayNow { get; set; }
         public static bool IsSignIn { get; set; }
 
 

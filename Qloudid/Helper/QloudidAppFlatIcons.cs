@@ -79,5 +79,6 @@
 		public const string VectorTriangle = "\U000f0563";
 		public const string StorefrontOutline = "\U000f10c1";
 		public const string AccountOutline = "\U000f0013";
+		public const string BedOutline = "\U000f0099";
 	}
 }

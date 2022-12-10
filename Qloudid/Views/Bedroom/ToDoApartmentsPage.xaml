@@ -112,6 +112,7 @@
                         Margin="0,0,0,31"/>
                 </StackLayout>
 
+                <!--Bedroom-->
                 <Frame
                     Padding="0"
                     Grid.Row="2"
@@ -119,8 +120,15 @@
                     CornerRadius="16"
                     IsClippedToBounds="True" 
                     HasShadow="False"
-                    BackgroundColor="#242A37">
+                    BackgroundColor="#242A37" 
+                    IsVisible="{Binding UserAddress.IsBedroomUpdated}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                    </Frame.GestureRecognizers>
                     <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="40"/>
@@ -132,7 +140,11 @@
 						    Text="Bedroom"
 						    TextColor="White" 
                             VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Start"/>
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Button
                             CornerRadius="20"
@@ -140,6 +152,7 @@
                             BackgroundColor="#4CD964"
 				            FontFamily="{StaticResource MaterialFontFamily}"
 				            FontSize="15"
+                            Command="{Binding BedroomPageCommand}"
 				            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 				            TextColor="#242A37"/>
                     </Grid>
@@ -147,13 +160,66 @@
 
                 <Frame
                     Padding="0"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding UserAddress.IsBedroomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Bedroom"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#D84B25"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding BedroomPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.BedOutline}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+
+                <!--Bathroom-->
+                <Frame
+                    Padding="0"
                     Grid.Row="4"
                     Grid.Column="1"
                     CornerRadius="16"
                     IsClippedToBounds="True" 
                     HasShadow="False"
-                    BackgroundColor="#242A37">
+                    BackgroundColor="#242A37" 
+                    IsVisible="{Binding UserAddress.IsBathroomUpdated}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                    </Frame.GestureRecognizers>
                     <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="40"/>
@@ -165,7 +231,56 @@
 						    Text="Bathroom"
 						    TextColor="White" 
                             VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Start"/>
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#4CD964"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding BathroomPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+                
+                <Frame
+                    Padding="0"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding UserAddress.IsBathroomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Bathroom"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Button
                             CornerRadius="20"
@@ -173,11 +288,13 @@
                             BackgroundColor="#F4B400"
 				            FontFamily="{StaticResource MaterialFontFamily}"
 				            FontSize="15"
+                            Command="{Binding BathroomPageCommand}"
 				            Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
 				            TextColor="#242A37"/>
                     </Grid>
                 </Frame>
 
+                <!--Property infra-->
                 <Frame
                     Padding="0"
                     Grid.Row="6"
@@ -185,8 +302,15 @@
                     CornerRadius="16"
                     IsClippedToBounds="True" 
                     HasShadow="False"
-                    BackgroundColor="#242A37">
+                    BackgroundColor="#242A37" 
+                    IsVisible="{Binding UserAddress.IsPropertyCompositionUpdated}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                    </Frame.GestureRecognizers>
                     <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="40"/>
@@ -198,7 +322,56 @@
 						    Text="Property infra"
 						    TextColor="White" 
                             VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Start"/>
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#4CD964"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding PropertyCompositionPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+                
+                <Frame
+                    Padding="0"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding UserAddress.IsPropertyCompositionUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Property infra"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Button
                             CornerRadius="20"
@@ -206,11 +379,13 @@
                             BackgroundColor="#D84B25"
 				            FontFamily="{StaticResource MaterialFontFamily}"
 				            FontSize="15"
+                            Command="{Binding PropertyCompositionPageCommand}"
 				            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 				            TextColor="#242A37"/>
                     </Grid>
                 </Frame>
 
+                <!--Other rooms-->
                 <Frame
                     Padding="0"
                     Grid.Row="8"
@@ -218,8 +393,15 @@
                     CornerRadius="16"
                     IsClippedToBounds="True" 
                     HasShadow="False"
-                    BackgroundColor="#242A37">
+                    BackgroundColor="#242A37" 
+                    IsVisible="{Binding UserAddress.IsOtherRoomUpdated}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                    </Frame.GestureRecognizers>
                     <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="40"/>
@@ -231,7 +413,56 @@
 						    Text="Other rooms"
 						    TextColor="White" 
                             VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Start"/>
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#4CD964"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding OtherRoomsPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+                
+                <Frame
+                    Padding="0"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding UserAddress.IsOtherRoomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Other rooms"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Button
                             CornerRadius="20"
@@ -239,6 +470,7 @@
                             BackgroundColor="#D84B25"
 				            FontFamily="{StaticResource MaterialFontFamily}"
 				            FontSize="15"
+                            Command="{Binding OtherRoomsPageCommand}"
 				            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 				            TextColor="#242A37"/>
                     </Grid>

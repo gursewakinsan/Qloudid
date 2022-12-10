@@ -38,6 +38,19 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
         public string SubheadingAddress { get; set; }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "other_room_updated")]
+        public bool IsOtherRoomUpdated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bedroom_updated")]
+        public bool IsBedroomUpdated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bathroom_updated")]
+        public bool IsBathroomUpdated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "property_composition_updated")]
+        public bool IsPropertyCompositionUpdated { get; set; }
+
+
         public string DisplayName => string.IsNullOrWhiteSpace(PropertyNickName) ? NameOnHouse : PropertyNickName;
         public bool IsBedroomBathroomUpdated => (BedroomUpdated && BathroomUpdated) ? true : false;
     }

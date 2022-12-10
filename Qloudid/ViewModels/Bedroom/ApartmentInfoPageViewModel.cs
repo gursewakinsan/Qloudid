@@ -29,6 +29,7 @@ namespace Qloudid.ViewModels
 			{
 				id = Helper.Helper.SelectedUserDeliveryAddress.Id
 			});
+			Helper.Helper.SelectedUserAddress = Address;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
