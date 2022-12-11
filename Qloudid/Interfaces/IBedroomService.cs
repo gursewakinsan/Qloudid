@@ -17,7 +17,10 @@ namespace Qloudid.Interfaces
         Task<int> UpdateApartmentWifiAsync(Models.UpdateApartmentWifiRequest model);
         Task<Models.OtherRoomInfoResponse> OtherRoomInfoAsync(Models.OtherRoomInfoRequest model);
         Task<int> UpdateOtherRoomInfoAsync(Models.UpdateOtherRoomInfoRequest model);
-
+        Task<List<Models.PropertyTypeResponse>> PropertyTypeAsync();
+        Task<List<Models.FloorsInfoResponse>> FloorsInfoAsync(Models.FloorsInfoRequest model);
+        Task<int> UpdatePropertyCompositionAsync(Models.UpdatePropertyCompositionRequest model);
+        
 
         //Bathroom
         Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model);

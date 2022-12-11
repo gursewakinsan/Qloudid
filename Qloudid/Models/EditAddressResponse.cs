@@ -69,11 +69,11 @@ namespace Qloudid.Models
 		public string WifiPassword { get; set; }
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "apartment_floor")]
-		public string ApartmentFloor { get; set; }
+		public int ApartmentFloor { get; set; }
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_layout")]
-		private int propertyLayout;
-		public int PropertyLayout
+		private string propertyLayout;
+		public string PropertyLayout
 		{
 			get => propertyLayout;
 			set
@@ -96,8 +96,8 @@ namespace Qloudid.Models
 		}
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "floors_available")]
-		private int floorsAvailable;
-		public int FloorsAvailable
+		private string floorsAvailable;
+		public string FloorsAvailable
 		{
 			get => floorsAvailable;
 			set

@@ -215,8 +215,9 @@
 							Title="Select property type"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="15"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
+                            ItemDisplayBinding="{Binding PropertyType}"
+							ItemsSource="{Binding PropertyTypeInfo}"
+							SelectedItem="{Binding SelectedPropertyType}"
 							TextColor="White"
 							TitleColor="Gray" />
 
@@ -256,30 +257,16 @@
                     CornerRadius="12"
                     IsClippedToBounds="True"
                     BackgroundColor="#242A37">
-                    <Grid ColumnSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="15"/>
-                        </Grid.ColumnDefinitions>
-                        <controls:CustomPicker
-                            Grid.Column="0"
-							Title="Select property type"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="15"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
-							TextColor="White"
-							TitleColor="Gray" />
-
-                        <Label
-                            Grid.Column="1"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="15"
-						    HorizontalTextAlignment="Center"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-						    TextColor="#F40000"
-						    VerticalTextAlignment="Center" />
-                    </Grid>
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        Keyboard="Numeric"
+                        BackgroundColor="Transparent"
+                        Placeholder="Property layout"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding UserAddress.PropertyLayout}"/>
                 </Frame>
 
                 <Label
@@ -301,30 +288,16 @@
                     CornerRadius="12"
                     IsClippedToBounds="True"
                     BackgroundColor="#242A37">
-                    <Grid ColumnSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="15"/>
-                        </Grid.ColumnDefinitions>
-                        <controls:CustomPicker
-                            Grid.Column="0"
-							Title="Select property type"
-							FontFamily="PoppinsRegularFontFamily"
-							FontSize="15"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
-							TextColor="White"
-							TitleColor="Gray" />
-
-                        <Label
-                            Grid.Column="1"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="15"
-						    HorizontalTextAlignment="Center"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-						    TextColor="#F40000"
-						    VerticalTextAlignment="Center" />
-                    </Grid>
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        Keyboard="Numeric"
+                        BackgroundColor="Transparent"
+                        Placeholder="Floors available"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding UserAddress.FloorsAvailable}"/>
                 </Frame>
 
                 <Label
@@ -356,8 +329,9 @@
 							Title="Select apartment floor"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="15"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
+                            ItemDisplayBinding="{Binding FloorName}"
+							ItemsSource="{Binding FloorsApartmentInfo}"
+							SelectedItem="{Binding SelectedFloorsApartmentInfo}"
 							TextColor="White"
 							TitleColor="Gray" />
 
@@ -401,8 +375,9 @@
 							Title="Select building entrance"
 							FontFamily="PoppinsRegularFontFamily"
 							FontSize="15"
-							ItemsSource="{Binding ExpirationYearList}"
-							SelectedItem="{Binding ExpirationYear}"
+                            ItemDisplayBinding="{Binding FloorName}"
+							ItemsSource="{Binding FloorsEntranceInfo}"
+							SelectedItem="{Binding SelectedFloorsEntranceInfo}"
 							TextColor="White"
 							TitleColor="Gray" />
 
@@ -575,7 +550,7 @@
                     FontSize="16"
                     TextColor="White"
                     BackgroundColor="#F40000"
-                    Command="{Binding UpdateApartmentWifiCommand}"
+                    Command="{Binding UpdatePropertyCompositionCommand}"
                     FontFamily="PoppinsSemiBoldFontFamily"/>
             </Grid>
         </ScrollView>

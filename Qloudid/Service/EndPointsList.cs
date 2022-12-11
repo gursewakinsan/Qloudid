@@ -138,6 +138,9 @@
 		public const string UpdateApartmentWifiUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentWifi";
 		public const string OtherRoomInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/OtherRoomInfo";
 		public const string UpdateOtherRoomInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateOtherRoomInfo";
+		public const string PropertyTypeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/propertyType";
+		public const string FloorsInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/floorsInfo";
+		public const string UpdatePropertyCompositionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePropertyComposition";
 
 		//Bathroom
 		public const string BathroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bathroomDetail";

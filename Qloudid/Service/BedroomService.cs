@@ -116,6 +116,33 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<List<Models.PropertyTypeResponse>> PropertyTypeAsync()
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.PropertyTypeResponse>>(HttpWebRequest.Create(EndPointsList.PropertyTypeUrl), string.Empty);
+				return res;
+			});
+		}
+
+		public Task<List<Models.FloorsInfoResponse>> FloorsInfoAsync(Models.FloorsInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.FloorsInfoResponse>>(HttpWebRequest.Create(EndPointsList.FloorsInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdatePropertyCompositionAsync(Models.UpdatePropertyCompositionRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdatePropertyCompositionUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+		
 		//Bathroom
 		public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)
 		{
