@@ -121,7 +121,7 @@
                     IsClippedToBounds="True" 
                     HasShadow="False"
                     BackgroundColor="#242A37" 
-                    IsVisible="{Binding UserAddress.IsBedroomUpdated}">
+                    IsVisible="{Binding UserAddress.BedroomUpdated}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
                     </Frame.GestureRecognizers>
@@ -166,7 +166,7 @@
                     IsClippedToBounds="True" 
                     HasShadow="False"
                     BackgroundColor="#242A37"
-                    IsVisible="{Binding UserAddress.IsBedroomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding UserAddress.BedroomUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
                     </Frame.GestureRecognizers>
@@ -212,7 +212,7 @@
                     IsClippedToBounds="True" 
                     HasShadow="False"
                     BackgroundColor="#242A37" 
-                    IsVisible="{Binding UserAddress.IsBathroomUpdated}">
+                    IsVisible="{Binding UserAddress.BathroomUpdated}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
                     </Frame.GestureRecognizers>
@@ -257,7 +257,7 @@
                     IsClippedToBounds="True" 
                     HasShadow="False"
                     BackgroundColor="#242A37"
-                    IsVisible="{Binding UserAddress.IsBathroomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding UserAddress.BathroomUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
                     </Frame.GestureRecognizers>

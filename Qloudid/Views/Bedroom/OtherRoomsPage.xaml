@@ -72,7 +72,8 @@
         <ScrollView 
             Grid.Row="5" 
             Grid.Column="0"
-            Grid.ColumnSpan="3">
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>

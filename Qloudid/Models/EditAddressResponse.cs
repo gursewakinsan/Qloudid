@@ -1,6 +1,8 @@
-﻿namespace Qloudid.Models
+﻿using Xamarin.Forms;
+
+namespace Qloudid.Models
 {
-	public class EditAddressResponse
+	public class EditAddressResponse : BaseModel
 	{
 		[Newtonsoft.Json.JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
@@ -68,5 +70,99 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "apartment_floor")]
 		public string ApartmentFloor { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_layout")]
+		private int propertyLayout;
+		public int PropertyLayout
+		{
+			get => propertyLayout;
+			set
+			{
+				propertyLayout = value;
+				OnPropertyChanged("PropertyLayout");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_type")]
+		private int propertyType;
+		public int PropertyType
+		{
+			get => propertyType;
+			set
+			{
+				propertyType = value;
+				OnPropertyChanged("PropertyType");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "floors_available")]
+		private int floorsAvailable;
+		public int FloorsAvailable
+		{
+			get => floorsAvailable;
+			set
+			{
+				floorsAvailable = value;
+				OnPropertyChanged("FloorsAvailable");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "entrance_floor")]
+		private int entranceFloor;
+		public int EntranceFloor
+		{
+			get => entranceFloor;
+			set
+			{
+				entranceFloor = value;
+				OnPropertyChanged("EntranceFloor");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "private_entrance")]
+		private bool privateEntrance;
+		public bool PrivateEntrance
+		{
+			get => privateEntrance;
+			set
+			{
+				privateEntrance = value;
+				OnPropertyChanged("PrivateEntrance");
+			}
+		}
+
+		private Color privateEntranceBg;
+		public Color PrivateEntranceBg
+		{
+			get => privateEntranceBg;
+			set
+			{
+				privateEntranceBg = value;
+				OnPropertyChanged("PrivateEntranceBg");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "elevator")]
+		private bool elevator;
+		public bool Elevator
+		{
+			get => elevator;
+			set
+			{
+				elevator = value;
+				OnPropertyChanged("Elevator");
+			}
+		}
+
+		private Color elevatorBg;
+		public Color ElevatorBg
+		{
+			get => elevatorBg;
+			set
+			{
+				elevatorBg = value;
+				OnPropertyChanged("ElevatorBg");
+			}
+		}
 	}
 }

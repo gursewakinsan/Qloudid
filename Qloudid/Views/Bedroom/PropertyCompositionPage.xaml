@@ -1,12 +1,583 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Qloudid.Views.Bedroom.PropertyCompositionPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.PropertyCompositionPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Label
+			Grid.Row="0"
+			Grid.Column="2"
+            Grid.RowSpan="3"
+			Margin="0,0,28,0"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			HorizontalTextAlignment="End"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Home}"
+			TextColor="#282A34"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="14"
+            Text="My place"
+			HorizontalTextAlignment="Center"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Button 
+            Grid.Row="2" 
+            Grid.ColumnSpan="2"
+            Margin="28,0,0,0"
+            CornerRadius="10"
+            FontSize="12"
+            TextColor="White"
+            Padding="15,0,15,0"
+            Text="Apartment"
+            HorizontalOptions="StartAndExpand"
+            BackgroundColor="#242A37"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <BoxView
+		    Grid.Row="4"
+		    Grid.ColumnSpan="3"
+		    BackgroundColor="White"
+		    HeightRequest="1"
+		    Opacity="0.1" 
+            Margin="28,0,28,0" />
+
+        <ScrollView 
+            Grid.Row="5" 
+            Grid.Column="0"
+            Grid.ColumnSpan="3" 
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="28"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout
+                    Spacing="10" 
+                    Grid.Row="1" 
+                    Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+				            FontFamily="PoppinsBoldFontFamily"
+				            FontSize="24"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+				            Text="Property composition"
+				            TextColor="White" MaxLines="1"
+                            LineBreakMode="TailTruncation"/>
+
+                        <Label
+						    Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="22" 
+						    HorizontalTextAlignment="End"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Label
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="14" 
+                        Opacity="0.42"
+                        LineHeight="1.2"
+                        HorizontalOptions="FillAndExpand"
+					    Text="This information is important to disclose for guests or visitors"
+					    TextColor="White" />
+                </StackLayout>
+
+                <BoxView
+		            Grid.Row="3"
+		            Grid.Column="1"
+		            BackgroundColor="White"
+		            Opacity="0.1" />
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+				    FontFamily="PoppinsBoldFontFamily"
+				    FontSize="20"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+				    Text="Property type"
+				    TextColor="White"/>
+
+                <Label
+                    Grid.Row="7"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="Select the closest match to your property?"
+					TextColor="White" />
+
+                <Frame 
+                    Grid.Row="9"
+                    Grid.Column="1" 
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select property type"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							ItemsSource="{Binding ExpirationYearList}"
+							SelectedItem="{Binding ExpirationYear}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <BoxView
+		            Grid.Row="11"
+		            Grid.Column="1"
+		            BackgroundColor="White"
+		            Opacity="0.1" />
+
+                <Label
+                    Grid.Row="13"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="What is the approximate total internal floor space of your property(m2)?"
+					TextColor="White" />
+
+                <Frame 
+                    Grid.Row="15"
+                    Grid.Column="1" 
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select property type"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							ItemsSource="{Binding ExpirationYearList}"
+							SelectedItem="{Binding ExpirationYear}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="17"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="How many floors does your property have?"
+					TextColor="White" />
+
+                <Frame 
+                    Grid.Row="19"
+                    Grid.Column="1" 
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select property type"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							ItemsSource="{Binding ExpirationYearList}"
+							SelectedItem="{Binding ExpirationYear}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="21"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="On which floor is your apartment?"
+					TextColor="White" />
+
+                <Frame 
+                    Grid.Row="23"
+                    Grid.Column="1" 
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select apartment floor"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							ItemsSource="{Binding ExpirationYearList}"
+							SelectedItem="{Binding ExpirationYear}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="25"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="On which floor is the entrance to the building?"
+					TextColor="White" />
+
+                <Frame 
+                    Grid.Row="27"
+                    Grid.Column="1" 
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select building entrance"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							ItemsSource="{Binding ExpirationYearList}"
+							SelectedItem="{Binding ExpirationYear}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F40000"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <BoxView
+		            Grid.Row="29"
+		            Grid.Column="1"
+		            BackgroundColor="White"
+		            Opacity="0.1" />
+
+                <Label
+                    Grid.Row="31"
+                    Grid.Column="1"
+				    FontFamily="PoppinsBoldFontFamily"
+				    FontSize="20"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+				    Text="Access &amp; Security"
+				    TextColor="White"/>
+
+                <Label
+                    Grid.Row="33"
+                    Grid.Column="1"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14" 
+                    Opacity="0.42"
+                    LineHeight="1.1"
+                    HorizontalOptions="FillAndExpand"
+					Text="Which of the following features does your property have?"
+					TextColor="White" />
+
+                <Frame
+                    Grid.Row="35"
+                    Grid.Column="1"
+                    CornerRadius="12"
+                    BackgroundColor="{Binding UserAddress.PrivateEntranceBg}"
+                    IsClippedToBounds="True" 
+                    HasShadow="False" Padding="10,0,10,0" HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PrivateEntranceDoorCommand}" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout 
+                        Orientation="Horizontal" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" Spacing="6">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PrivateEntranceDoorCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <Label
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+			                HorizontalTextAlignment="Center"
+			                TextColor="White"
+                            Text="Private entrance door"
+			                VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrivateEntranceDoorCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            IsVisible="{Binding UserAddress.PrivateEntrance}"
+			                Padding="0"
+			                BackgroundColor="Transparent"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                FontSize="18"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+			                TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrivateEntranceDoorCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            IsVisible="{Binding UserAddress.PrivateEntrance, Converter={StaticResource InverseBoolConverter}}"
+			                Padding="0"
+			                BackgroundColor="Transparent"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                FontSize="18"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			                TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrivateEntranceDoorCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+
+                <Frame
+                    Grid.Row="37"
+                    Grid.Column="1"
+                    CornerRadius="12"
+                    BackgroundColor="{Binding UserAddress.ElevatorBg}"
+                    IsClippedToBounds="True" 
+                    HorizontalOptions="StartAndExpand"
+                    HasShadow="False" Padding="10,0,10,0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ElevatorCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout 
+                        Orientation="Horizontal" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" Spacing="6">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ElevatorCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <Label
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+			                HorizontalTextAlignment="Center"
+			                TextColor="White"
+                            Text="Elevator"
+			                VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ElevatorCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            IsVisible="{Binding UserAddress.Elevator}"
+			                Padding="0"
+			                BackgroundColor="Transparent"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                FontSize="18"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+			                TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ElevatorCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            IsVisible="{Binding UserAddress.Elevator, Converter={StaticResource InverseBoolConverter}}"
+			                Padding="0"
+			                BackgroundColor="Transparent"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                FontSize="18"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			                TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ElevatorCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+
+                <Button 
+                    Grid.Row="39"
+                    CornerRadius="30"
+                    Grid.Column="1"
+                    Text="Submit"
+                    FontSize="16"
+                    TextColor="White"
+                    BackgroundColor="#F40000"
+                    Command="{Binding UpdateApartmentWifiCommand}"
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>
