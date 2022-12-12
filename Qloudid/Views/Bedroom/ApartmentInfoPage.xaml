@@ -160,7 +160,7 @@
 			HasShadow="False"
 			IsClippedToBounds="True">
             <ScrollView VerticalScrollBarVisibility="Never">
-                <StackLayout VerticalOptions="StartAndExpand" Spacing="0" Padding="0,0,0,20">
+                <StackLayout VerticalOptions="StartAndExpand" Spacing="0" Padding="0,0,0,20" IsVisible="{Binding IsPageLoad}">
                     <Label
                         Margin="28,40,0,8"
 						FontFamily="PoppinsSemiBoldFontFamily"
@@ -178,9 +178,9 @@
                         Opacity="0.42"
                         HorizontalOptions="StartAndExpand"/>
 
-                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,39,0,0">
+                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,39,0,0" IsVisible="{Binding IsApartmentAndWifiUpdated}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="406"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="22"/>
                             <RowDefinition Height="6"/>
                             <RowDefinition Height="40"/>
@@ -188,10 +188,11 @@
                         </Grid.RowDefinitions>
                         <ScrollView
                             Grid.Row="0"
+                            HeightRequest="406"
                             Orientation="Horizontal" 
                             HorizontalScrollBarVisibility="Never" Margin="28,0,28,0">
                             <StackLayout Orientation="Horizontal" Spacing="25">
-                                <Grid WidthRequest="278">
+                                <Grid WidthRequest="{Binding ApartmentCardWidthRequest}" IsVisible="{Binding IsApartmentUpdated}">
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                     </Grid.GestureRecognizers>
@@ -252,11 +253,13 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
+                                            <!--Bedroom-->
                                             <BoxView 
                                                 Grid.Row="4" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#4CD964">
+                                                BackgroundColor="#4CD964"
+                                                IsVisible="{Binding Address.BedroomUpdated}">
                                                 <BoxView.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </BoxView.GestureRecognizers>
@@ -270,7 +273,34 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center">
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.BedroomUpdated}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                            <BoxView 
+                                                Grid.Row="4" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"
+                                                IsVisible="{Binding Address.BedroomUpdated, Converter={StaticResource InverseBoolConverter}}">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+
+                                            <Label
+												Grid.Row="4"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.BedOutline}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.BedroomUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </Label.GestureRecognizers>
@@ -291,11 +321,39 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
+                                            <!--Bathroom-->
                                             <BoxView 
                                                 Grid.Row="6" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#F4B400">
+                                                BackgroundColor="#4CD964"
+                                                IsVisible="{Binding Address.BathroomUpdated}">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+
+                                            <Label
+												Grid.Row="6"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.BathroomUpdated}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                            <BoxView 
+                                                Grid.Row="6" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"
+                                                IsVisible="{Binding Address.BathroomUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <BoxView.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </BoxView.GestureRecognizers>
@@ -309,7 +367,8 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center">
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.BathroomUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </Label.GestureRecognizers>
@@ -330,11 +389,39 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
+                                            <!--Property infra-->
                                             <BoxView 
                                                 Grid.Row="8" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#D84B25">
+                                                BackgroundColor="#4CD964"
+                                                IsVisible="{Binding Address.PropertyCompositionUpdated}">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+
+                                            <Label
+												Grid.Row="8"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.PropertyCompositionUpdated}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            
+                                            <BoxView 
+                                                Grid.Row="8" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"
+                                                IsVisible="{Binding Address.PropertyCompositionUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <BoxView.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </BoxView.GestureRecognizers>
@@ -348,7 +435,8 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center">
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.PropertyCompositionUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </Label.GestureRecognizers>
@@ -369,11 +457,39 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
+                                            <!--Other rooms-->
                                             <BoxView 
                                                 Grid.Row="10" 
                                                 Grid.Column="0" 
                                                 CornerRadius="12"
-                                                BackgroundColor="#D84B25">
+                                                BackgroundColor="#4CD964"
+                                                IsVisible="{Binding Address.OtherRoomUpdated}">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+
+                                            <Label
+												Grid.Row="10"
+												Grid.Column="0"
+												FontFamily="{StaticResource MaterialFontFamily}"
+												FontSize="13"
+												HorizontalTextAlignment="Center"
+												Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+												TextColor="#242A37"
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.OtherRoomUpdated}">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            
+                                            <BoxView 
+                                                Grid.Row="10" 
+                                                Grid.Column="0" 
+                                                CornerRadius="12"
+                                                BackgroundColor="#D84B25"
+                                                IsVisible="{Binding Address.OtherRoomUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <BoxView.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </BoxView.GestureRecognizers>
@@ -387,7 +503,8 @@
 												HorizontalTextAlignment="Center"
 												Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 												TextColor="#242A37"
-												VerticalTextAlignment="Center">
+												VerticalTextAlignment="Center"
+                                                IsVisible="{Binding Address.OtherRoomUpdated, Converter={StaticResource InverseBoolConverter}}">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                                                 </Label.GestureRecognizers>
@@ -439,7 +556,7 @@
                                 </Grid>
 
                                 <Grid 
-                                    WidthRequest="278" 
+                                    WidthRequest="{Binding WifiCardWidthRequest}" 
                                     IsVisible="{Binding Address.IsWiFiUpdated, Converter={StaticResource InverseBoolConverter}}">
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>

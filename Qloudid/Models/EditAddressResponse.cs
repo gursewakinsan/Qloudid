@@ -164,5 +164,53 @@ namespace Qloudid.Models
 				OnPropertyChanged("ElevatorBg");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "bedroom_updated")]
+		private bool bedroomUpdated;
+		public bool BedroomUpdated
+		{
+			get => bedroomUpdated;
+			set
+			{
+				bedroomUpdated = value;
+				OnPropertyChanged("BedroomUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "bathroom_updated")]
+		private bool bathroomUpdated;
+		public bool BathroomUpdated
+		{
+			get => bathroomUpdated;
+			set
+			{
+				bathroomUpdated = value;
+				OnPropertyChanged("BathroomUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_composition_updated")]
+		private bool propertyCompositionUpdated;
+		public bool PropertyCompositionUpdated
+		{
+			get => propertyCompositionUpdated;
+			set
+			{
+				propertyCompositionUpdated = value;
+				OnPropertyChanged("PropertyCompositionUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "other_room_updated")]
+		private bool otherRoomUpdated;
+		public bool OtherRoomUpdated
+		{
+			get => otherRoomUpdated;
+			set
+			{
+				otherRoomUpdated = value;
+				OnPropertyChanged("OtherRoomUpdated");
+			}
+		}
 	}
 }

@@ -23,14 +23,43 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteGetAddressByIdCommand()
 		{
+			IsPageLoad = false;
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			Address = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+			var response  = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
 			{
 				id = Helper.Helper.SelectedUserDeliveryAddress.Id
 			});
+
+			if (response.BedroomUpdated && response.BathroomUpdated && response.PropertyCompositionUpdated && response.OtherRoomUpdated)
+				IsApartmentUpdated = true;
+			else
+				IsApartmentUpdated = false;
+
+			if (IsApartmentUpdated && response.IsWiFiUpdated)
+				IsApartmentAndWifiUpdated = false;
+			else if (!IsApartmentUpdated && !response.IsWiFiUpdated)
+			{
+				IsApartmentAndWifiUpdated = true;
+				IsApartmentUpdated = true;
+				ApartmentCardWidthRequest = WifiCardWidthRequest = 278;
+			}
+			else if (!IsApartmentUpdated)
+			{
+				IsApartmentAndWifiUpdated = true;
+				IsApartmentUpdated = true;
+				ApartmentCardWidthRequest = App.ScreenWidth-55;
+			}
+			else if (!response.IsWiFiUpdated)
+			{
+				IsApartmentUpdated = false;
+				IsApartmentAndWifiUpdated = true;
+				WifiCardWidthRequest = App.ScreenWidth -55;
+			}
+			Address = response;
 			Helper.Helper.SelectedUserAddress = Address;
 			DependencyService.Get<IProgressBar>().Hide();
+			IsPageLoad = true;
 		}
 		#endregion
 
@@ -85,6 +114,61 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Address");
 			}
 		}
-        #endregion
-    }
+
+		private bool isPageLoad = false;
+		public bool IsPageLoad
+		{
+			get => isPageLoad;
+			set
+			{
+				isPageLoad = value;
+				OnPropertyChanged("IsPageLoad");
+			}
+		}
+
+		private bool isApartmentUpdated;
+		public bool IsApartmentUpdated
+		{
+			get => isApartmentUpdated;
+			set
+			{
+				isApartmentUpdated = value;
+				OnPropertyChanged("IsApartmentUpdated");
+			}
+		}
+
+		private double apartmentCardWidthRequest = 278;
+		public double ApartmentCardWidthRequest
+		{
+			get => apartmentCardWidthRequest;
+			set
+			{
+				apartmentCardWidthRequest = value;
+				OnPropertyChanged("ApartmentCardWidthRequest");
+			}
+		}
+
+		private double wifiCardWidthRequest = 278;
+		public double WifiCardWidthRequest
+		{
+			get => wifiCardWidthRequest;
+			set
+			{
+				wifiCardWidthRequest = value;
+				OnPropertyChanged("WifiCardWidthRequest");
+			}
+		}
+
+		private bool isApartmentAndWifiUpdated = false;
+		public bool IsApartmentAndWifiUpdated
+		{
+			get => isApartmentAndWifiUpdated;
+			set
+			{
+				isApartmentAndWifiUpdated = value;
+				OnPropertyChanged("IsApartmentAndWifiUpdated");
+			}
+		}
+		#endregion
+	}
 }
