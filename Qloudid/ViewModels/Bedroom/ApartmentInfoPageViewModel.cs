@@ -32,9 +32,15 @@ namespace Qloudid.ViewModels
 			});
 
 			if (response.BedroomUpdated && response.BathroomUpdated && response.PropertyCompositionUpdated && response.OtherRoomUpdated)
+			{
+				IsAboutVisible = true;
 				IsApartmentUpdated = true;
+			}
 			else
+			{
+				IsAboutVisible = false;
 				IsApartmentUpdated = false;
+			}
 
 			if (IsApartmentUpdated && response.IsWiFiUpdated)
 				IsApartmentAndWifiUpdated = false;
@@ -167,6 +173,17 @@ namespace Qloudid.ViewModels
 			{
 				isApartmentAndWifiUpdated = value;
 				OnPropertyChanged("IsApartmentAndWifiUpdated");
+			}
+		}
+
+		private bool isAboutVisible = false;
+		public bool IsAboutVisible
+		{
+			get => isAboutVisible;
+			set
+			{
+				isAboutVisible = value;
+				OnPropertyChanged("IsAboutVisible");
 			}
 		}
 		#endregion

@@ -901,7 +901,11 @@
                             Margin="28,0,28,0"/>
                     </Grid>
 
-                    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,39,28,0">
+                    <Grid 
+                        RowSpacing="0" 
+                        ColumnSpacing="0" 
+                        Margin="28,39,28,0"
+                        IsVisible="{Binding IsAboutVisible}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="35"/>
                             <RowDefinition Height="auto"/>

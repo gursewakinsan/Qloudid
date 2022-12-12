@@ -14,5 +14,11 @@ namespace Qloudid.Views.Bedroom
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new ToDoApartmentsPageViewModel(this.Navigation);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.GetAddressByIdCommand.Execute(null);
+        }
     }
 }
