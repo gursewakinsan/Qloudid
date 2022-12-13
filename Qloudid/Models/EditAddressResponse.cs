@@ -71,6 +71,12 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "apartment_floor")]
 		public int ApartmentFloor { get; set; }
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "arrival_time")]
+		public string ArrivalTime { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "departure_time")]
+		public string DepartureTime { get; set; }
+
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_layout")]
 		private string propertyLayout;
 		public string PropertyLayout
@@ -210,6 +216,30 @@ namespace Qloudid.Models
 			{
 				otherRoomUpdated = value;
 				OnPropertyChanged("OtherRoomUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "arrival_departure_updated")]
+		private bool arrivalDepartureUpdated;
+		public bool ArrivalDepartureUpdated
+		{
+			get => arrivalDepartureUpdated;
+			set
+			{
+				arrivalDepartureUpdated = value;
+				OnPropertyChanged("ArrivalDepartureUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "house_rules_updated")]
+		private bool houseRulesUpdated;
+		public bool HouseRulesUpdated
+		{
+			get => houseRulesUpdated;
+			set
+			{
+				houseRulesUpdated = value;
+				OnPropertyChanged("HouseRulesUpdated");
 			}
 		}
 	}

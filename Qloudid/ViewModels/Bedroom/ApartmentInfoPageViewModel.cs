@@ -109,6 +109,21 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Rent Out Command.
+		private ICommand rentOutCommand;
+		public ICommand RentOutCommand
+		{
+			get => rentOutCommand ?? (rentOutCommand = new Command(async () => await ExecuteRentOutCommand()));
+		}
+		private async Task ExecuteRentOutCommand()
+		{
+			if (!Address.BedroomUpdated || !Address.BathroomUpdated || !Address.PropertyCompositionUpdated || !Address.OtherRoomUpdated || !Address.IsWiFiUpdated)
+				await Navigation.PushAsync(new Views.Bedroom.ErrorPage());
+			else
+				await Navigation.PushAsync(new Views.RentOut.RentOutPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

@@ -259,4 +259,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconFourColorCircle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\noMissing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconThreePartColor.png" />
+  </ItemGroup>
 </Project>

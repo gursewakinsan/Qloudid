@@ -87,7 +87,7 @@
 					CornerRadius="38"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="24"
-                    Command="{Binding SocailClickCommand}"
+                    Command="{Binding ApartmentPageCommand}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeVariant}"
 					TextColor="#181A1F" />
 
@@ -100,6 +100,7 @@
 					CornerRadius="38"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="24"
+                    Command="{Binding RentOutCommand}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.ContactlessPaymentCircleOutline}"
 					TextColor="White" />
 
@@ -110,7 +111,7 @@
 					BorderColor="#737B8C"
 					BorderWidth="1"
 					CornerRadius="38"
-					Command="{Binding GoToApartmentPageCommand}"
+					Command="{Binding SellPageCommand}"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					FontSize="24"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.Soundcloud}"
