@@ -133,7 +133,11 @@
                 HeightRequest="26"
 			    BackgroundColor="#4CD964"
                 VerticalOptions="CenterAndExpand"
-                IsVisible="{Binding Address.ArrivalDepartureUpdated}"/>
+                IsVisible="{Binding Address.ArrivalDepartureUpdated}">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
 
             <Label
 		    	Grid.Row="0"
@@ -144,7 +148,11 @@
 		    	Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 		    	TextColor="#242A37"
 		    	VerticalTextAlignment="Center"
-                IsVisible="{Binding Address.ArrivalDepartureUpdated}"/>
+                IsVisible="{Binding Address.ArrivalDepartureUpdated}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <BoxView 
 			    Grid.Row="0" 
@@ -153,7 +161,11 @@
                 HeightRequest="26"
 			    BackgroundColor="#F40000"
                 VerticalOptions="CenterAndExpand"
-                IsVisible="{Binding Address.ArrivalDepartureUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+                IsVisible="{Binding Address.ArrivalDepartureUpdated, Converter={StaticResource InverseBoolConverter}}">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
 
             <Label
 		    	Grid.Row="0"
@@ -164,7 +176,11 @@
 		    	Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	TextColor="#242A37"
 		    	VerticalTextAlignment="Center"
-                IsVisible="{Binding Address.ArrivalDepartureUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+                IsVisible="{Binding Address.ArrivalDepartureUpdated, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label
 		    	Grid.Row="0"
@@ -175,7 +191,11 @@
 		    	TextColor="White" 
                 Opacity="0.60"
                 VerticalTextAlignment="Center"
-		    	HorizontalTextAlignment="Start"/>
+		    	HorizontalTextAlignment="Start">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label
 		    	Grid.Row="0"
@@ -185,7 +205,11 @@
 		    	HorizontalTextAlignment="End"
 		    	Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 		    	TextColor="White"
-		    	VerticalTextAlignment="Center"/>
+		    	VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckInAndOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <BoxView 
 		    	Grid.Row="1" 

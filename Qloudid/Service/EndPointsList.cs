@@ -170,5 +170,8 @@
 		public const string ReceivedRequestDetailTenantsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/receivedRequestDetailTenants";
 		public const string ApproveTenantRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/approveTenantRequest";
 		public const string RejectTenantRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/rejectTenantRequest";
+
+		//Rent Out
+		public const string TimeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/timeInfo";
 	}
 }
