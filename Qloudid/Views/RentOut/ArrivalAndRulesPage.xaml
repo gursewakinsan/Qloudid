@@ -113,7 +113,8 @@
             ColumnSpacing="15" 
             Grid.Column="1"
             Grid.ColumnSpan="3"
-            Grid.Row="11">
+            Grid.Row="11" 
+            IsVisible="{Binding IsPageLoad}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="1"/>

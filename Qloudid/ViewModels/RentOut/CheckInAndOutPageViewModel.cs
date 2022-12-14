@@ -46,10 +46,16 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSubmitCommand()
 		{
-			/*DependencyService.Get<IProgressBar>().Show();
+			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
-			DependencyService.Get<IProgressBar>().Hide();*/
-			await Task.CompletedTask;
+			await service.UpdateArrivalAsync(new Models.UpdateArrivalRequest()
+			{
+				ArrivalTime = SelectedCheckInTimeInfo.Id,
+				DepartureTime = SelectedCheckOutTimeInfo.Id,
+				ApartmentId = Helper.Helper.SelectedUserDeliveryAddress.Id
+			});
+			await Navigation.PopAsync();
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

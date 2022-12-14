@@ -16,5 +16,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateArrivalAsync(Models.UpdateArrivalRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateArrivalUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

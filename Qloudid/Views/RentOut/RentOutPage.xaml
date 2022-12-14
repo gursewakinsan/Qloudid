@@ -160,7 +160,7 @@
 			CornerRadius="38,38,0,0"
 			HasShadow="False"
 			IsClippedToBounds="True">
-            <ScrollView VerticalScrollBarVisibility="Never">
+            <ScrollView VerticalScrollBarVisibility="Never" IsVisible="{Binding IsPageLoad}">
                 <Grid RowSpacing="0" ColumnSpacing="15" Margin="28,40,28,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>

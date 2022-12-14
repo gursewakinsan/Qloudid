@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
+using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -10,27 +12,48 @@ namespace Qloudid.ViewModels
 		public RentOutPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			Address = Helper.Helper.SelectedUserAddress;
-			if (Address.ArrivalDepartureUpdated && Address.HouseRulesUpdated)
+		}
+		#endregion
+
+		#region Get Address By Id Command.
+		private ICommand getAddressByIdCommand;
+		public ICommand GetAddressByIdCommand
+		{
+			get => getAddressByIdCommand ?? (getAddressByIdCommand = new Command(async () => await ExecuteGetAddressByIdCommand()));
+		}
+		private async Task ExecuteGetAddressByIdCommand()
+		{
+			IsPageLoad = false;
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			var response = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+			{
+				id = Helper.Helper.SelectedUserDeliveryAddress.Id
+			});
+			if (response.ArrivalDepartureUpdated && response.HouseRulesUpdated)
 			{
 				ArrivalAndRulesIconBg = Color.FromHex("#4CD964");
 				IsArrivalAndRulesIconChecked = true;
 			}
-			else if (!Address.ArrivalDepartureUpdated && !Address.HouseRulesUpdated)
+			else if (!response.ArrivalDepartureUpdated && !response.HouseRulesUpdated)
 			{
 				ArrivalAndRulesIconBg = Color.FromHex("#F40000");
 				IsArrivalAndRulesIconChecked = false;
 			}
-			else if (!Address.ArrivalDepartureUpdated && Address.HouseRulesUpdated)
+			else if (!response.ArrivalDepartureUpdated && response.HouseRulesUpdated)
 			{
 				ArrivalAndRulesIconBg = Color.FromHex("#F4B400");
 				IsArrivalAndRulesIconChecked = false;
 			}
-			else if (Address.ArrivalDepartureUpdated && !Address.HouseRulesUpdated)
+			else if (response.ArrivalDepartureUpdated && !response.HouseRulesUpdated)
 			{
 				ArrivalAndRulesIconBg = Color.FromHex("#F4B400");
 				IsArrivalAndRulesIconChecked = false;
 			}
+			Address = response;
+			Helper.Helper.SelectedUserAddress = Address;
+			DependencyService.Get<IProgressBar>().Hide();
+			IsPageLoad = true;
 		}
 		#endregion
 
@@ -89,6 +112,17 @@ namespace Qloudid.ViewModels
 			{
 				isArrivalAndRulesIconChecked = value;
 				OnPropertyChanged("IsArrivalAndRulesIconChecked");
+			}
+		}
+
+		private bool isPageLoad = false;
+		public bool IsPageLoad
+		{
+			get => isPageLoad;
+			set
+			{
+				isPageLoad = value;
+				OnPropertyChanged("IsPageLoad");
 			}
 		}
 		#endregion

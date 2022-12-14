@@ -6,5 +6,6 @@ namespace Qloudid.Interfaces
     public interface IRentOutService
     {
         Task<List<Models.TimeInfoResponse>> TimeInfoAsync();
+        Task<int> UpdateArrivalAsync(Models.UpdateArrivalRequest model);
     }
 }

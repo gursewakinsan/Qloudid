@@ -15,6 +15,28 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Get Address By Id Command.
+		private ICommand getAddressByIdCommand;
+		public ICommand GetAddressByIdCommand
+		{
+			get => getAddressByIdCommand ?? (getAddressByIdCommand = new Command(async () => await ExecuteGetAddressByIdCommand()));
+		}
+		private async Task ExecuteGetAddressByIdCommand()
+		{
+			IsPageLoad = false;
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			var response = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+			{
+				id = Helper.Helper.SelectedUserDeliveryAddress.Id
+			});
+			Address = response;
+			Helper.Helper.SelectedUserAddress = Address;
+			DependencyService.Get<IProgressBar>().Hide();
+			IsPageLoad = true;
+		}
+		#endregion
+
 		#region Check-in & Out Command.
 		private ICommand checkInAndOutCommand;
 		public ICommand CheckInAndOutCommand
@@ -28,7 +50,7 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private Models.EditAddressResponse address = Helper.Helper.SelectedUserAddress;
+		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
 		{
 			get => address;
@@ -36,6 +58,17 @@ namespace Qloudid.ViewModels
 			{
 				address = value;
 				OnPropertyChanged("Address");
+			}
+		}
+
+		private bool isPageLoad = false;
+		public bool IsPageLoad
+		{
+			get => isPageLoad;
+			set
+			{
+				isPageLoad = value;
+				OnPropertyChanged("IsPageLoad");
 			}
 		}
 		#endregion
