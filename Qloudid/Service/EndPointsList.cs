@@ -174,5 +174,7 @@
 		//Rent Out
 		public const string TimeInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/timeInfo";
 		public const string UpdateArrivalUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateArrival";
+		public const string TimeHouseRulesInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/timeHouserulesInfo";
+		public const string UpdateApartmentHouseRulesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentHouseRules";
 	}
 }

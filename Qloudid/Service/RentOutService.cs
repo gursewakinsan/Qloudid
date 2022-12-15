@@ -25,5 +25,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.TimeHouseRulesInfoResponse>> TimeHouseRulesInfoAsync()
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.TimeHouseRulesInfoResponse>>(HttpWebRequest.Create(EndPointsList.TimeHouseRulesInfoUrl), string.Empty, null);
+				return res;
+			});
+		}
+
+		public Task<int> UpdateApartmentHouseRulesAsync(Models.UpdateApartmentHouseRulesRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateApartmentHouseRulesUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
