@@ -242,5 +242,205 @@ namespace Qloudid.Models
 				OnPropertyChanged("HouseRulesUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "children_allowed")]
+		private bool childrenAllowed;
+		public bool ChildrenAllowed 
+		{
+			get => childrenAllowed;
+			set
+			{
+				childrenAllowed = value;
+				OnPropertyChanged("ChildrenAllowed");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "infants_allowed")]
+		private bool infantsAllowed;
+		public bool InfantsAllowed
+		{
+			get => infantsAllowed;
+			set
+			{
+				infantsAllowed = value;
+				OnPropertyChanged("InfantsAllowed");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "smoking_allowed")]
+		private bool smokingAllowed;
+		public bool SmokingAllowed
+		{
+			get => smokingAllowed;
+			set
+			{
+				smokingAllowed = value;
+				OnPropertyChanged("SmokingAllowed");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "events_allowed")]
+		private bool eventsAllowed;
+		public bool EventsAllowed
+		{
+			get => eventsAllowed;
+			set
+			{
+				eventsAllowed = value;
+				OnPropertyChanged("EventsAllowed");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "pets_allowed")]
+		private bool petsAllowed;
+		public bool PetsAllowed
+		{
+			get => petsAllowed;
+			set
+			{
+				petsAllowed = value;
+				OnPropertyChanged("PetsAllowed");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs")]
+		private bool quiteHrs;
+		public bool QuiteHrs
+		{
+			get => quiteHrs;
+			set
+			{
+				quiteHrs = value;
+				OnPropertyChanged("QuiteHrs");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_mon_fri")]
+		private bool quiteHrsMonFri;
+		public bool QuiteHrsMonFri
+		{
+			get => quiteHrsMonFri;
+			set
+			{
+				quiteHrsMonFri = value;
+				OnPropertyChanged("QuiteHrsMonFri");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_sat_sun")]
+		private bool quiteHrsSatSun;
+		public bool QuiteHrsSatSun
+		{
+			get => quiteHrsSatSun;
+			set
+			{
+				quiteHrsSatSun = value;
+				OnPropertyChanged("QuiteHrsSatSun");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_mon_fri_open")]
+		private string quiteHrsMonFriOpen;
+		public string QuiteHrsMonFriOpen
+		{
+			get => quiteHrsMonFriOpen;
+			set
+			{
+				quiteHrsMonFriOpen = value;
+				OnPropertyChanged("QuiteHrsMonFriOpen");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_mon_fri_close")]
+		private string quiteHrsMonFriClose;
+		public string QuiteHrsMonFriClose
+		{
+			get => quiteHrsMonFriClose;
+			set
+			{
+				quiteHrsMonFriClose = value;
+				OnPropertyChanged("QuiteHrsMonFriClose");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_sat_sun_open")]
+		private string quiteHrsSatSunOpen;
+		public string QuiteHrsSatSunOpen
+		{
+			get => quiteHrsSatSunOpen;
+			set
+			{
+				quiteHrsSatSunOpen = value;
+				OnPropertyChanged("QuiteHrsSatSunOpen");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "quite_hrs_sat_sun_close")]
+		private string quiteHrsSatSunClose;
+		public string QuiteHrsSatSunClose
+		{
+			get => quiteHrsSatSunClose;
+			set
+			{
+				quiteHrsSatSunClose = value;
+				OnPropertyChanged("QuiteHrsSatSunClose");
+			}
+		}
+
+		private Color childrenAllowedBg;
+		public Color ChildrenAllowedBg
+		{
+			get => childrenAllowedBg;
+			set
+			{
+				childrenAllowedBg = value;
+				OnPropertyChanged("ChildrenAllowedBg");
+			}
+		}
+
+		private Color infantsAllowedBg;
+		public Color InfantsAllowedBg
+		{
+			get => infantsAllowedBg;
+			set
+			{
+				infantsAllowedBg = value;
+				OnPropertyChanged("InfantsAllowedBg");
+			}
+		}
+
+		private Color smokingAllowedBg;
+		public Color SmokingAllowedBg
+		{
+			get => smokingAllowedBg;
+			set
+			{
+				smokingAllowedBg = value;
+				OnPropertyChanged("SmokingAllowedBg");
+			}
+		}
+
+		private Color eventsAllowedBg;
+		public Color EventsAllowedBg
+		{
+			get => eventsAllowedBg;
+			set
+			{
+				eventsAllowedBg = value;
+				OnPropertyChanged("EventsAllowedBg");
+			}
+		}
+
+		private Color petsAllowedBg;
+		public Color PetsAllowedBg
+		{
+			get => petsAllowedBg;
+			set
+			{
+				petsAllowedBg = value;
+				OnPropertyChanged("PetsAllowedBg");
+			}
+		}
 	}
+	
 }

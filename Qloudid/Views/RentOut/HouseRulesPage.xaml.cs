@@ -14,5 +14,11 @@ namespace Qloudid.Views.RentOut
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new HouseRulesPageViewModel(this.Navigation);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.TimeHouseRulesInfoCommand.Execute(null);
+        }
     }
 }

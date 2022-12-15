@@ -49,6 +49,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region House Rules Command.
+		private ICommand houseRulesCommand;
+		public ICommand HouseRulesCommand
+		{
+			get => houseRulesCommand ?? (houseRulesCommand = new Command(async () => await ExecuteHouseRulesCommand()));
+		}
+		private async Task ExecuteHouseRulesCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.HouseRulesPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
