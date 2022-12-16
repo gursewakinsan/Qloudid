@@ -58,7 +58,13 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteSubmitSecurityDepositCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IDashboardService service = new DashboardService();
+			IRentOutService service = new RentOutService();
+			await service.UpdateSecurityAsync(new Models.UpdateSecurityRequest()
+			{
+				ApartmentId = Address.Id,
+				UpdateInfo = Address.SecurityFeeApplicable ? 1 : 0,
+				SecurityFee = Address.SecurityFee
+			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
 		}

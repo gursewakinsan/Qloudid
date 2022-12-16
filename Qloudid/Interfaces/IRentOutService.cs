@@ -9,5 +9,7 @@ namespace Qloudid.Interfaces
         Task<int> UpdateArrivalAsync(Models.UpdateArrivalRequest model);
         Task<List<Models.TimeHouseRulesInfoResponse>> TimeHouseRulesInfoAsync();
         Task<int> UpdateApartmentHouseRulesAsync(Models.UpdateApartmentHouseRulesRequest model);
+        Task<int> UpdateCleeningAsync(Models.UpdateCleeningRequest model);
+        Task<int> UpdateSecurityAsync(Models.UpdateSecurityRequest model);
     }
 }

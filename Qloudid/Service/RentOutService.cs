@@ -43,5 +43,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateCleeningAsync(Models.UpdateCleeningRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateCleeningUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateSecurityAsync(Models.UpdateSecurityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateSecurityUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

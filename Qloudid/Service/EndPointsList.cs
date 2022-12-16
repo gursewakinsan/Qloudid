@@ -176,5 +176,7 @@
 		public const string UpdateArrivalUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateArrival";
 		public const string TimeHouseRulesInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/timeHouserulesInfo";
 		public const string UpdateApartmentHouseRulesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentHouseRules";
+		public const string UpdateCleeningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCleening";
+		public const string UpdateSecurityUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateSecurity";
 	}
 }

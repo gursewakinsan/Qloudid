@@ -58,7 +58,13 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteSubmitCleaningFeeCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IDashboardService service = new DashboardService();
+			IRentOutService service = new RentOutService();
+			await service.UpdateCleeningAsync(new Models.UpdateCleeningRequest()
+			{
+				ApartmentId = Address.Id,
+				UpdateInfo = Address.CleeningFeeApplicable ? 1 : 0,
+				CleeningFee = Address.CleeningFee
+			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
 		}

@@ -45,7 +45,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteNightlyPricingPageCommand()
 		{
-			await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
+			//await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
+			await Task.CompletedTask;
 		}
 		#endregion
 
@@ -69,8 +70,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSecurityDepositPageCommand()
 		{
-			//await Navigation.PushAsync(new Views.RentOut.SecurityDepositPage());
-			await Task.CompletedTask;
+			await Navigation.PushAsync(new Views.RentOut.SecurityDepositPage());
+			
 		}
 		#endregion
 
