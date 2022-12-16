@@ -14,6 +14,7 @@ namespace Qloudid.ViewModels
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
 			ManualBg = Color.FromHex("#0C8CE8");
+			IsManualOrGeneric = true;
 		}
 		#endregion
 
@@ -30,10 +31,12 @@ namespace Qloudid.ViewModels
 				case "Manual":
 					ManualBg = Color.FromHex("#0C8CE8");
 					GenericBg = Color.Transparent;
+					IsManualOrGeneric = true;
 					break;
 				case "Generic":
 					ManualBg = Color.Transparent;
 					GenericBg = Color.FromHex("#0C8CE8");
+					IsManualOrGeneric = false;
 					break;
 			}
 		}
@@ -59,6 +62,17 @@ namespace Qloudid.ViewModels
 			{
 				isPageLoad = value;
 				OnPropertyChanged("IsPageLoad");
+			}
+		}
+
+		private bool isManualOrGeneric;
+		public bool IsManualOrGeneric
+		{
+			get => isManualOrGeneric;
+			set
+			{
+				isManualOrGeneric = value;
+				OnPropertyChanged("IsManualOrGeneric");
 			}
 		}
 

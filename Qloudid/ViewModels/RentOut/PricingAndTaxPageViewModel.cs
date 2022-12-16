@@ -45,8 +45,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteNightlyPricingPageCommand()
 		{
-			//await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
-			await Task.CompletedTask;
+			await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
 		}
 		#endregion
 

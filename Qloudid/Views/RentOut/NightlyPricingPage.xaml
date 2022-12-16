@@ -139,7 +139,10 @@
             Margin="0,40,0,0">
             <StackLayout>
                 <!--=========Start Manual=========-->
-                <Grid RowSpacing="0" ColumnSpacing="20">
+                <Grid 
+                    RowSpacing="0" 
+                    ColumnSpacing="20" 
+                    IsVisible="{Binding IsManualOrGeneric}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="23"/>
                         <RowDefinition Height="10"/>
@@ -1162,6 +1165,331 @@
                 <!--=========End Manual===========-->
 
                 <!--=========Start Generic=========-->
+                <Grid 
+                    RowSpacing="0" 
+                    ColumnSpacing="0" 
+                    IsVisible="{Binding IsManualOrGeneric, Converter={StaticResource InverseBoolConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="23"/>
+                        <RowDefinition Height="6"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="11"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="23"/>
+                        <RowDefinition Height="6"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="23"/>
+                        <RowDefinition Height="6"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="122"/>
+                        <RowDefinition Height="37"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="27"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="9"/>
+                        <RowDefinition Height="75"/>
+
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        FontSize="18"
+                        Opacity="0.70"
+	    	            TextColor="White"
+	    	            Text="Override your existing pricing"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                    <BoxView 
+                        Grid.Row="2"
+		                BackgroundColor="White" 
+		                Opacity="0.1"/>
+
+                    <Label
+                        Grid.Row="3"
+	    	            FontFamily="PoppinsRegularFontFamily"
+	    	            FontSize="13" LineHeight="1.1"
+                        HorizontalTextAlignment="Start"
+	    	            Text="By following the next few prompts, we will overwrite your existing pricing and generate 2 years worth of new pricing."
+	    	            TextColor="White"
+                        Opacity="0.70" Margin="0,10,0,27"/>
+
+                    <Frame 
+                        Grid.Row="4"
+                        Padding="13"
+                        CornerRadius="8"
+                        HasShadow="False"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#F4B400" 
+                        Margin="0,0,0,45">
+                        <Label
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="13" LineHeight="1.1"
+	    	                Text="If instead you simply wish to extend the pricing you already have, adjust the start date below. 2 years of pricing will be generated from that start date"
+	    	                TextColor="#181A1F"/>
+                    </Frame>
+
+                    <Label
+                        Grid.Row="5"
+	    	            FontFamily="PoppinsSemiBoldFontFamily"
+	    	            FontSize="14"
+                        HorizontalTextAlignment="Start"
+	    	            Text="Start date"
+	    	            TextColor="White"
+                        Opacity="0.70" />
+
+                    <Frame 
+                        Grid.Row="7" 
+                        Padding="12,0,12,0"
+                        HasShadow="False"
+                        CornerRadius="10"
+                        WidthRequest="135"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37" 
+                        HorizontalOptions="StartAndExpand">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+			    	            Title="Start date"
+			    	            FontFamily="PoppinsRegularFontFamily"
+			    	            FontSize="15"
+                                ItemDisplayBinding="{Binding Time}"
+			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
+			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
+			    	            TextColor="White"
+			    	            TitleColor="Gray" />
+
+                            <Label
+                                Grid.Column="1"
+				                FontFamily="{StaticResource MaterialFontFamily}"
+				                FontSize="15"
+				                HorizontalTextAlignment="Center"
+				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				                TextColor="#F40000"
+				                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Label
+                        Grid.Row="9"
+                        FontSize="18"
+                        Opacity="0.70"
+	    	            TextColor="White"
+	    	            Text="Standard price per night"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                    <BoxView 
+                        Grid.Row="11"
+		                BackgroundColor="White" 
+		                Opacity="0.1"/>
+
+                    <Label
+                        Grid.Row="12"
+	    	            FontFamily="PoppinsRegularFontFamily"
+	    	            FontSize="13" LineHeight="1.1"
+                        HorizontalTextAlignment="Start"
+	    	            Text="Tell us the average price you would charge for a night in your property. We'll use this as a base for your pricing model."
+	    	            TextColor="White"
+                        Opacity="0.70" Margin="0,10,0,30"/>
+
+                    <Label
+                        Grid.Row="13"
+	    	            FontFamily="PoppinsSemiBoldFontFamily"
+	    	            FontSize="14"
+                        HorizontalTextAlignment="Start"
+	    	            Text="Price"
+	    	            TextColor="White"
+                        Opacity="0.70" />
+
+                    <Frame 
+                        Grid.Row="15" 
+                        Padding="12,0,12,0"
+                        HasShadow="False"
+                        CornerRadius="10"
+                        WidthRequest="135"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37" 
+                        HorizontalOptions="StartAndExpand">
+                        <controls:CustomEntry 
+                            FontSize="15"
+                            TextColor="White"
+                            PlaceholderColor="Gray"
+                            Placeholder="Price"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Frame>
+
+                    <Label
+                        Grid.Row="17"
+                        FontSize="18"
+                        Opacity="0.70"
+	    	            TextColor="White"
+	    	            Text="Seasonality"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                    <BoxView 
+                        Grid.Row="19"
+		                BackgroundColor="White" 
+		                Opacity="0.1"/>
+
+                    <Label
+                        Grid.Row="20"
+	    	            FontFamily="PoppinsRegularFontFamily"
+	    	            FontSize="13" LineHeight="1.1"
+                        HorizontalTextAlignment="Start"
+	    	            Text="To help us create your pricing model, select a seasonality that closest matches your property."
+	    	            TextColor="White"
+                        Opacity="0.70" Margin="0,10,0,27"/>
+
+                    <Label
+                        Grid.Row="21"
+	    	            FontFamily="PoppinsSemiBoldFontFamily"
+	    	            FontSize="14"
+                        HorizontalTextAlignment="Start"
+	    	            Text="Seasonality"
+	    	            TextColor="White"
+                        Opacity="0.70" />
+
+                    <Frame 
+                        Grid.Row="23" 
+                        Padding="12,0,12,0"
+                        HasShadow="False"
+                        CornerRadius="10"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+			    	            Title="Seasonality"
+			    	            FontFamily="PoppinsRegularFontFamily"
+			    	            FontSize="15"
+                                ItemDisplayBinding="{Binding Time}"
+			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
+			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
+			    	            TextColor="White"
+			    	            TitleColor="Gray" />
+
+                            <Label
+                                Grid.Column="1"
+				                FontFamily="{StaticResource MaterialFontFamily}"
+				                FontSize="15"
+				                HorizontalTextAlignment="Center"
+				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				                TextColor="#F40000"
+				                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <ImageButton 
+                        Grid.Row="25"
+                        CornerRadius="8"
+                        BackgroundColor="White"/>
+
+                    <Label
+                        Grid.Row="27"
+                        FontSize="18"
+                        Opacity="0.70"
+	    	            TextColor="White"
+	    	            Text="Minimum nights stay"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                    <BoxView 
+                        Grid.Row="29"
+		                BackgroundColor="White" 
+		                Opacity="0.1"/>
+
+                    <Label
+                        Grid.Row="31"
+	    	            FontFamily="PoppinsRegularFontFamily"
+	    	            FontSize="13" 
+                        HorizontalTextAlignment="Start"
+	    	            Text="Shortest duration a guest can stay for?"
+	    	            TextColor="White"
+                        Opacity="0.70" />
+
+                    <Button
+                        Grid.Row="33"
+                        BorderWidth="2"
+                        BorderColor="#242A37"
+                        CornerRadius="12"
+                        BackgroundColor="Transparent"/>
+
+                    <Grid 
+                        RowSpacing="0" 
+                        ColumnSpacing="0" 
+                        Grid.Row="33" 
+                        HeightRequest="45"
+                        VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <Button 
+                            Padding="0"
+                            FontSize="25"
+                            Grid.Column="1" 
+                            CornerRadius="10"
+                            TextColor="#F40000"
+                            BackgroundColor="#242A37"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
+
+                        <Label
+                            FontSize="24"
+                            Grid.Column="2"
+	    	                TextColor="White"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="1"/>
+                                    <Span Text=" night"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Button 
+                            Padding="0"
+                            FontSize="25"
+                            Grid.Column="3" 
+                            CornerRadius="10"
+                            TextColor="#4CD964"
+                            BackgroundColor="#242A37"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                    </Grid>
+                </Grid>
                 <!--=========End Generic===========-->
             </StackLayout>
         </ScrollView>
