@@ -37,6 +37,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Nightly Pricing Page Command.
+		private ICommand nightlyPricingPageCommand;
+		public ICommand NightlyPricingPageCommand
+		{
+			get => nightlyPricingPageCommand ?? (nightlyPricingPageCommand = new Command(async () => await ExecuteNightlyPricingPageCommand()));
+		}
+		private async Task ExecuteNightlyPricingPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
+		}
+		#endregion
+
 		#region Cleaning Fee Page Command.
 		private ICommand cleaningFeePageCommand;
 		public ICommand CleaningFeePageCommand
@@ -57,7 +69,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSecurityDepositPageCommand()
 		{
-			await Navigation.PushAsync(new Views.RentOut.SecurityDepositPage());
+			//await Navigation.PushAsync(new Views.RentOut.SecurityDepositPage());
+			await Task.CompletedTask;
 		}
 		#endregion
 
