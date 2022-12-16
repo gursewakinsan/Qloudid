@@ -820,6 +820,7 @@
                             CornerRadius="10"
                             TextColor="#F40000"
                             BackgroundColor="#242A37"
+                            Command="{Binding GuestDurationStayMinusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
@@ -832,7 +833,7 @@
                             FontFamily="PoppinsRegularFontFamily">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="1"/>
+                                    <Span Text="{Binding GuestDurationStayCount}"/>
                                     <Span Text=" night"/>
                                 </FormattedString>
                             </Label.FormattedText>
@@ -845,6 +846,7 @@
                             CornerRadius="10"
                             TextColor="#4CD964"
                             BackgroundColor="#242A37"
+                            Command="{Binding GuestDurationStayPlusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
                     </Grid>
@@ -1133,6 +1135,7 @@
                             CornerRadius="10"
                             TextColor="#F40000"
                             BackgroundColor="#242A37"
+                            Command="{Binding StayOfferDiscountMinusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
@@ -1158,6 +1161,7 @@
                             CornerRadius="10"
                             TextColor="#4CD964"
                             BackgroundColor="#242A37"
+                            Command="{Binding StayOfferDiscountPlusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
                     </Grid>
@@ -1461,6 +1465,7 @@
                             CornerRadius="10"
                             TextColor="#F40000"
                             BackgroundColor="#242A37"
+                            Command="{Binding MinimumNightsStayMinusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
@@ -1486,6 +1491,7 @@
                             CornerRadius="10"
                             TextColor="#4CD964"
                             BackgroundColor="#242A37"
+                            Command="{Binding MinimumNightsStayPlusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
                     </Grid>
