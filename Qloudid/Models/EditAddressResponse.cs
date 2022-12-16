@@ -245,7 +245,7 @@ namespace Qloudid.Models
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "children_allowed")]
 		private bool childrenAllowed;
-		public bool ChildrenAllowed 
+		public bool ChildrenAllowed
 		{
 			get => childrenAllowed;
 			set
@@ -441,6 +441,90 @@ namespace Qloudid.Models
 				OnPropertyChanged("PetsAllowedBg");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "cleening_fee_applicable")]
+		private bool cleeningFeeApplicable;
+		public bool CleeningFeeApplicable
+		{
+			get => cleeningFeeApplicable;
+			set
+			{
+				cleeningFeeApplicable = value;
+				OnPropertyChanged("CleeningFeeApplicable");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "cleening_fee")]
+		private int cleeningFee;
+		public int CleeningFee
+		{
+			get => cleeningFee;
+			set
+			{
+				cleeningFee = value;
+				OnPropertyChanged("CleeningFee");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "security_fee_applicable")]
+		private bool securityFeeApplicable;
+		public bool SecurityFeeApplicable
+		{
+			get => securityFeeApplicable;
+			set
+			{
+				securityFeeApplicable = value;
+				OnPropertyChanged("SecurityFeeApplicable");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "security_fee")]
+		private int securityFee;
+		public int SecurityFee
+		{
+			get => securityFee;
+			set
+			{
+				securityFee = value;
+				OnPropertyChanged("SecurityFee");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "security_fee_updated")]
+		private bool securityFeeUpdated;
+		public bool SecurityFeeUpdated
+		{
+			get => securityFeeUpdated;
+			set
+			{
+				securityFeeUpdated = value;
+				OnPropertyChanged("SecurityFeeUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "fee_updated")]
+		private bool feeUpdated;
+		public bool FeeUpdated
+		{
+			get => feeUpdated;
+			set
+			{
+				feeUpdated = value;
+				OnPropertyChanged("FeeUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "pricing_updated")]
+		private bool pricingUpdated;
+		public bool PricingUpdated
+		{
+			get => pricingUpdated;
+			set
+			{
+				pricingUpdated = value;
+				OnPropertyChanged("PricingUpdated");
+			}
+		}
 	}
-	
 }
+

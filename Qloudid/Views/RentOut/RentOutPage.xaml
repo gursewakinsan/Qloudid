@@ -364,7 +364,11 @@
 						CornerRadius="13"
                         HeightRequest="26"
 						BackgroundColor="#F4B400"
-                        VerticalOptions="CenterAndExpand"/>
+                        VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
 
                     <Label
 						Grid.Row="9"
@@ -374,7 +378,11 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="9"
@@ -385,7 +393,11 @@
 						TextColor="White" 
                         Opacity="0.60"
                         VerticalTextAlignment="Center"
-						HorizontalTextAlignment="Start"/>
+						HorizontalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="9"
@@ -395,7 +407,11 @@
 						HorizontalTextAlignment="End"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 						TextColor="White"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <BoxView 
 						Grid.Row="10" 

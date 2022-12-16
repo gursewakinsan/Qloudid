@@ -81,6 +81,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Pricing & Tax Page Command.
+		private ICommand pricingAndTaxPageCommand;
+		public ICommand PricingAndTaxPageCommand
+		{
+			get => pricingAndTaxPageCommand ?? (pricingAndTaxPageCommand = new Command(async () => await ExecutePricingAndTaxPageCommand()));
+		}
+		private async Task ExecutePricingAndTaxPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.PricingAndTaxPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
