@@ -199,7 +199,7 @@ namespace Qloudid.ViewModels
 					ApartmentId = Address.Id,
 					Title = PricingTitle,
 					StartDate = AddPricingPeriod.StartDate,
-					EndDate = SelectedEndDate,
+					EndDate = $"{SelectedExpiryDate.Year}-{SelectedExpiryDate.Month}-{SelectedExpiryDate.Day}",
 					MondayOpen = IsMondayOpen ? 1 : 0,
 					TuesdayOpen = IsTuesdayOpen ? 1 : 0,
 					WednesdayOpen = IsWednesdayOpen ? 1 : 0,
@@ -218,8 +218,8 @@ namespace Qloudid.ViewModels
 					SundayPrice = SundayPrice,
 				};
 				int[] array = { MondayPrice, TuesdayPrice, WednesdayPrice, ThursdayPrice, FridayPrice, SaturdayPrice, SundayPrice };
-				int max = 0;
-				int min = 0;
+				int max = array[0];
+				int min = array[0];
 				for (int i = 0; i <= array.Length - 1; i++)
 				{
 					if (array[i] > max)
@@ -318,17 +318,6 @@ namespace Qloudid.ViewModels
 			{
 				pricingTitle = value;
 				OnPropertyChanged("PricingTitle");
-			}
-		}
-
-		private string selectedEndDate;
-		public string SelectedEndDate
-		{
-			get => selectedEndDate;
-			set
-			{
-				selectedEndDate = value;
-				OnPropertyChanged("SelectedEndDate");
 			}
 		}
 
