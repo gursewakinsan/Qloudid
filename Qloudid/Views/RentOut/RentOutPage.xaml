@@ -161,11 +161,11 @@
 			HasShadow="False"
 			IsClippedToBounds="True">
             <ScrollView VerticalScrollBarVisibility="Never" IsVisible="{Binding IsPageLoad}">
-                <Grid RowSpacing="0" ColumnSpacing="15" Margin="28,40,28,0">
+                <Grid RowSpacing="0" ColumnSpacing="15" Margin="28,35,28,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="23"/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="11"/>
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="65"/>
@@ -202,7 +202,9 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
 						FontFamily="PoppinsRegularFontFamily"
-						FontSize="16" LineHeight="1.1"
+						FontSize="16"
+                        MaxLines="1"
+                        LineBreakMode="TailTruncation"
                         HorizontalTextAlignment="Start"
 						Text="All section must turn green to continue."
 						TextColor="White"

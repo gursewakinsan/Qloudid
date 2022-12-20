@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.NightlyPricingListPage"
+     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Nightly pricing"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" LineHeight="1.1"
+            HorizontalTextAlignment="Start"
+	    	Text="You can set and edit your property pricing from here"
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="14"
+            HorizontalTextAlignment="Start"
+	    	Text="Pricing periods"
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <ScrollView 
+            Grid.Row="9"
+            Grid.ColumnSpan="5"
+            Padding="28,15,28,5"
+            Orientation="Vertical"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout 
+                Grid.Row="10" 
+                Spacing="0" 
+                IsVisible="{Binding IsPageLoad}"
+                VerticalOptions="StartAndExpand"
+                BindableLayout.ItemsSource="{Binding NightlyPricingList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="0">
+                            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,15" IsVisible="{Binding IsDeleted}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="70"/>
+                                </Grid.RowDefinitions>
+                                <Button
+                                    Grid.Row="0"
+                                    BorderWidth="2"
+                                    CornerRadius="12"
+                                    BorderColor="#F40000" 
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnButtonNightlyPricingClicked"/>
+                                <Grid 
+                                    ColumnSpacing="0" Margin="20,5,20,5"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridNightlyPricingClicked"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Spacing="0"
+                                        Grid.Column="0"
+                                        VerticalOptions="CenterAndExpand">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnStackLayoutNightlyPricingClicked"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <Label
+	    	                                FontFamily="PoppinsRegularFontFamily"
+	    	                                FontSize="15" 
+                                            HorizontalTextAlignment="Start"
+                                            VerticalTextAlignment="End"
+	    	                                Text="{Binding PricingTitle}"
+	    	                                TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label
+	    	                                FontFamily="PoppinsRegularFontFamily"
+	    	                                FontSize="13"
+                                            HorizontalTextAlignment="Start"
+                                            VerticalTextAlignment="Start"
+	    	                                Text="{Binding PricingDate}"
+	    	                                TextColor="White" Opacity="0.70"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <Label
+			                            Grid.Column="1"
+			                            FontFamily="{StaticResource MaterialFontFamily}"
+			                            FontSize="22"
+			                            HorizontalTextAlignment="End"
+			                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			                            TextColor="White"
+			                            VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </Grid>
+
+                            <Frame
+                                Padding="0"
+                                CornerRadius="12"
+                                HasShadow="False"
+                                BackgroundColor="#242A37"
+                                IsClippedToBounds="True" 
+                                HeightRequest="70"
+                                Margin="0,0,0,15"
+                                IsVisible="{Binding IsDeleted, Converter={StaticResource InverseBoolConverter}}">
+                                <Grid 
+                                    ColumnSpacing="0" Margin="20,5,20,5"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="23"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Spacing="0"
+                                        Grid.Column="0"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Label
+	    	                                FontFamily="PoppinsRegularFontFamily"
+	    	                                FontSize="15" 
+                                            HorizontalTextAlignment="Start"
+                                            VerticalTextAlignment="End"
+	    	                                Text="{Binding PricingTitle}"
+	    	                                TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"/>
+
+                                        <Label
+	    	                                FontFamily="PoppinsRegularFontFamily"
+	    	                                FontSize="13"
+                                            HorizontalTextAlignment="Start"
+                                            VerticalTextAlignment="Start"
+	    	                                TextColor="White" Opacity="0.70"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding PricingDate}"/>
+                                                    <Span Text=" - ("/>
+                                                    <Span Text="{Binding Currency}"/>
+                                                    <Span Text="{Binding MinimumPrice}"/>
+                                                    <Span Text="-"/>
+                                                    <Span Text="{Binding Currency}"/>
+                                                    <Span Text="{Binding MaximumPrice}"/>
+                                                    <Span Text=")"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <Label
+			                            Grid.Column="1"
+			                            FontFamily="{StaticResource MaterialFontFamily}"
+			                            FontSize="22"
+			                            HorizontalTextAlignment="End"
+			                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+			                            TextColor="White"
+			                            VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="10" 
+            CornerRadius="30"
+            Text="Add pricing"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding AddNightlyPricingCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
+</ContentPage>

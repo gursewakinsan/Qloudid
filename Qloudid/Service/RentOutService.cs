@@ -61,5 +61,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.NightlyPricingListResponse>> NightlyPricingListAsync(Models.NightlyPricingListRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.NightlyPricingListResponse>>(HttpWebRequest.Create(EndPointsList.ListPricingUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> RemovePricingGapAsync(Models.RemovePricingGapRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.RemovePricingGapUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

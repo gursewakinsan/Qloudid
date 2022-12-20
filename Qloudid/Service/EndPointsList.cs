@@ -178,5 +178,7 @@
 		public const string UpdateApartmentHouseRulesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentHouseRules";
 		public const string UpdateCleeningUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateCleening";
 		public const string UpdateSecurityUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateSecurity";
+		public const string ListPricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/listPricing";
+		public const string RemovePricingGapUrl = "https://www.qloudid.com/user/index.php/QloudidApp/removePricingGap";
 	}
 }
