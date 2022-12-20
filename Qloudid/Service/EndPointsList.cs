@@ -182,5 +182,6 @@
 		public const string RemovePricingGapUrl = "https://www.qloudid.com/user/index.php/QloudidApp/removePricingGap";
 		public const string AddPricingPeriodUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPricingPeriod";
 		public const string AddPricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPricing";
+		public const string GeneratePricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generatePricing";
 	}
 }

@@ -1378,16 +1378,16 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <controls:CustomPicker
+                            <controls:CustomDatePicker
                                 Grid.Column="0"
-			    	            Title="Start date"
-			    	            FontFamily="PoppinsRegularFontFamily"
-			    	            FontSize="15"
-                                ItemDisplayBinding="{Binding Time}"
-			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
-			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
-			    	            TextColor="White"
-			    	            TitleColor="Gray" />
+						        BackgroundColor="Transparent"
+						        Date="{Binding SelectedStartDate}"
+						        FontFamily="PoppinsRegularFontFamily"
+						        FontSize="15"
+						        Format="yyyy-MM-dd"
+						        MaximumDate="{Binding BindStartMaximumDate}"
+						        MinimumDate="{Binding BindStartMinimumDate}"
+						        TextColor="White" />
 
                             <Label
                                 Grid.Column="1"
@@ -1446,6 +1446,8 @@
                             TextColor="White"
                             PlaceholderColor="Gray"
                             Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding StandardPricePerNight}"
                             BackgroundColor="Transparent"
                             FontFamily="PoppinsRegularFontFamily"/>
                     </Frame>
@@ -1499,11 +1501,19 @@
 			    	            Title="Seasonality"
 			    	            FontFamily="PoppinsRegularFontFamily"
 			    	            FontSize="15"
-                                ItemDisplayBinding="{Binding Time}"
-			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
-			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
 			    	            TextColor="White"
-			    	            TitleColor="Gray" />
+			    	            TitleColor="Gray"
+                                SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
+                                <controls:CustomPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Gradual Seasonality</x:String>
+                                        <x:String>Flat Rate Seasonality</x:String>
+                                        <x:String>Quarterly Seasonality</x:String>
+                                        <x:String>Summer Peak Seasonality</x:String>
+                                    </x:Array>
+                                </controls:CustomPicker.ItemsSource>
+                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                            </controls:CustomPicker>
 
                             <Label
                                 Grid.Column="1"
@@ -1519,7 +1529,9 @@
                     <ImageButton 
                         Grid.Row="25"
                         CornerRadius="8"
-                        BackgroundColor="White"/>
+                        Aspect="AspectFill"
+                        x:Name="imgSeasonality"
+                        BackgroundColor="Transparent"/>
 
                     <Label
                         Grid.Row="27"
@@ -1544,63 +1556,65 @@
 	    	            TextColor="White"
                         Opacity="0.70" />
 
-                    <Button
+                    <Frame 
+                        Padding="0"
                         Grid.Row="33"
-                        BorderWidth="2"
-                        BorderColor="#242A37"
                         CornerRadius="12"
-                        BackgroundColor="Transparent"/>
+                        HasShadow="False" 
+                        BorderColor="#242A37"
+                        BackgroundColor="Transparent"
+                        IsClippedToBounds="True">
+                        <Grid 
+                            RowSpacing="0" 
+                            ColumnSpacing="0" 
+                            Grid.Row="33" 
+                            HeightRequest="45"
+                            VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Button 
+                                Padding="0"
+                                FontSize="25"
+                                Grid.Column="1" 
+                                CornerRadius="10"
+                                TextColor="#F40000"
+                                BackgroundColor="#242A37"
+                                Command="{Binding MinimumNightsStayMinusCommand}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
-                    <Grid 
-                        RowSpacing="0" 
-                        ColumnSpacing="0" 
-                        Grid.Row="33" 
-                        HeightRequest="45"
-                        VerticalOptions="CenterAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
-                        <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="1" 
-                            CornerRadius="10"
-                            TextColor="#F40000"
-                            BackgroundColor="#242A37"
-                            Command="{Binding MinimumNightsStayMinusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
+                            <Label
+                                FontSize="24"
+                                Grid.Column="2"
+	    	                    TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding TNights}"/>
+                                        <Span Text=" night"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                        <Label
-                            FontSize="24"
-                            Grid.Column="2"
-	    	                TextColor="White"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="PoppinsRegularFontFamily">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="1"/>
-                                    <Span Text=" night"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="3" 
-                            CornerRadius="10"
-                            TextColor="#4CD964"
-                            BackgroundColor="#242A37"
-                            Command="{Binding MinimumNightsStayPlusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
-                    </Grid>
+                            <Button 
+                                Padding="0"
+                                FontSize="25"
+                                Grid.Column="3" 
+                                CornerRadius="10"
+                                TextColor="#4CD964"
+                                BackgroundColor="#242A37"
+                                Command="{Binding MinimumNightsStayPlusCommand}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                        </Grid>
+                    </Frame>
                 </Grid>
                 <!--=========End Generic===========-->
             </StackLayout>

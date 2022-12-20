@@ -139,6 +139,20 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteMinimumNightsStayMinusCommand()
 		{
+			if (TNights > 1)
+				TNights--;
+		}
+		#endregion
+
+		#region Minimum Nights Stay Plus Command.
+		private ICommand minimumNightsStayPlusCommand;
+		public ICommand MinimumNightsStayPlusCommand
+		{
+			get => minimumNightsStayPlusCommand ?? (minimumNightsStayPlusCommand = new Command(() => ExecuteMinimumNightsStayPlusCommand()));
+		}
+		private void ExecuteMinimumNightsStayPlusCommand()
+		{
+			TNights++;
 		}
 		#endregion
 
@@ -171,74 +185,98 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteAddPricingCommand()
 		{
-			if (string.IsNullOrEmpty(PricingTitle))
-				await Helper.Alert.DisplayAlert("Pricing title is required.");
-			else if (!IsMondayOpen && !IsTuesdayOpen && !IsWednesdayOpen && !IsThursdayOpen && !IsFridayOpen && !IsSaturdayOpen && !IsSundayOpen)
-				await Helper.Alert.DisplayAlert("Please select days can guests arrive.");
-			else if (IsMondayOpen && MondayPrice == 0)
-				await Helper.Alert.DisplayAlert("Monday price cannot be zero");
-			else if (IsTuesdayOpen && TuesdayPrice == 0)
-				await Helper.Alert.DisplayAlert("Tuesday price cannot be zero");
-			else if (IsWednesdayOpen && WednesdayPrice == 0)
-				await Helper.Alert.DisplayAlert("Wednesday price cannot be zero");
-			else if (IsThursdayOpen && ThursdayPrice == 0)
-				await Helper.Alert.DisplayAlert("Thursday price cannot be zero");
-			else if (IsFridayOpen && FridayPrice == 0)
-				await Helper.Alert.DisplayAlert("Friday price cannot be zero");
-			else if (IsSaturdayOpen && SaturdayPrice == 0)
-				await Helper.Alert.DisplayAlert("Saturday price cannot be zero");
-			else if (IsSundayOpen && SundayPrice == 0)
-				await Helper.Alert.DisplayAlert("Sunday price cannot be zero");
+			if(IsManualOrGeneric)
+			{
+				if (string.IsNullOrEmpty(PricingTitle))
+					await Helper.Alert.DisplayAlert("Pricing title is required.");
+				else if (!IsMondayOpen && !IsTuesdayOpen && !IsWednesdayOpen && !IsThursdayOpen && !IsFridayOpen && !IsSaturdayOpen && !IsSundayOpen)
+					await Helper.Alert.DisplayAlert("Please select days can guests arrive.");
+				else if (IsMondayOpen && MondayPrice == 0)
+					await Helper.Alert.DisplayAlert("Monday price cannot be zero");
+				else if (IsTuesdayOpen && TuesdayPrice == 0)
+					await Helper.Alert.DisplayAlert("Tuesday price cannot be zero");
+				else if (IsWednesdayOpen && WednesdayPrice == 0)
+					await Helper.Alert.DisplayAlert("Wednesday price cannot be zero");
+				else if (IsThursdayOpen && ThursdayPrice == 0)
+					await Helper.Alert.DisplayAlert("Thursday price cannot be zero");
+				else if (IsFridayOpen && FridayPrice == 0)
+					await Helper.Alert.DisplayAlert("Friday price cannot be zero");
+				else if (IsSaturdayOpen && SaturdayPrice == 0)
+					await Helper.Alert.DisplayAlert("Saturday price cannot be zero");
+				else if (IsSundayOpen && SundayPrice == 0)
+					await Helper.Alert.DisplayAlert("Sunday price cannot be zero");
+				else
+				{
+					IsPageLoad = false;
+					DependencyService.Get<IProgressBar>().Show();
+					IRentOutService service = new RentOutService();
+					Models.AddPricingRequest request = new Models.AddPricingRequest()
+					{
+						ApartmentId = Address.Id,
+						Title = PricingTitle,
+						StartDate = AddPricingPeriod.StartDate,
+						EndDate = $"{SelectedExpiryDate.Year}-{SelectedExpiryDate.Month}-{SelectedExpiryDate.Day}",
+						MondayOpen = IsMondayOpen ? 1 : 0,
+						TuesdayOpen = IsTuesdayOpen ? 1 : 0,
+						WednesdayOpen = IsWednesdayOpen ? 1 : 0,
+						ThursdayOpen = IsThursdayOpen ? 1 : 0,
+						FridayOpen = IsFridayOpen ? 1 : 0,
+						SaturdayOpen = IsSaturdayOpen ? 1 : 0,
+						SundayOpen = IsSundayOpen ? 1 : 0,
+						ShortestDuration = ShortestDuration,
+						DiscountForSeven = DiscountForSeven,
+						MondayPrice = MondayPrice,
+						TuesdayPrice = TuesdayPrice,
+						WednesdayPrice = WednesdayPrice,
+						ThursdayPrice = ThursdayPrice,
+						FridayPrice = FridayPrice,
+						SaturdayPrice = SundayPrice,
+						SundayPrice = SundayPrice,
+					};
+					int[] array = { MondayPrice, TuesdayPrice, WednesdayPrice, ThursdayPrice, FridayPrice, SaturdayPrice, SundayPrice };
+					int max = array[0];
+					int min = array[0];
+					for (int i = 0; i <= array.Length - 1; i++)
+					{
+						if (array[i] > max)
+						{
+							if (array[i] > 0)
+								max = array[i];
+						}
+						if (array[i] < min)
+						{
+							if (array[i] > 0)
+								min = array[i];
+						}
+					}
+					request.MinimumPrice = min;
+					request.MaximumPrice = max;
+					await service.AddPricingAsync(request);
+					await Navigation.PopAsync();
+					DependencyService.Get<IProgressBar>().Hide();
+					IsPageLoad = true;
+				}
+			}
 			else
 			{
-				IsPageLoad = false;
-				DependencyService.Get<IProgressBar>().Show();
-				IRentOutService service = new RentOutService();
-				Models.AddPricingRequest request = new Models.AddPricingRequest()
+				if (StandardPricePerNight == 0)
+					await Helper.Alert.DisplayAlert("Price per night cannot be zero.");
+				else
 				{
-					ApartmentId = Address.Id,
-					Title = PricingTitle,
-					StartDate = AddPricingPeriod.StartDate,
-					EndDate = $"{SelectedExpiryDate.Year}-{SelectedExpiryDate.Month}-{SelectedExpiryDate.Day}",
-					MondayOpen = IsMondayOpen ? 1 : 0,
-					TuesdayOpen = IsTuesdayOpen ? 1 : 0,
-					WednesdayOpen = IsWednesdayOpen ? 1 : 0,
-					ThursdayOpen = IsThursdayOpen ? 1 : 0,
-					FridayOpen = IsFridayOpen ? 1 : 0,
-					SaturdayOpen = IsSaturdayOpen ? 1 : 0,
-					SundayOpen = IsSundayOpen ? 1 : 0,
-					ShortestDuration = ShortestDuration,
-					DiscountForSeven = DiscountForSeven,
-					MondayPrice = MondayPrice,
-					TuesdayPrice = TuesdayPrice,
-					WednesdayPrice = WednesdayPrice,
-					ThursdayPrice = ThursdayPrice,
-					FridayPrice = FridayPrice,
-					SaturdayPrice = SundayPrice,
-					SundayPrice = SundayPrice,
-				};
-				int[] array = { MondayPrice, TuesdayPrice, WednesdayPrice, ThursdayPrice, FridayPrice, SaturdayPrice, SundayPrice };
-				int max = array[0];
-				int min = array[0];
-				for (int i = 0; i <= array.Length - 1; i++)
-				{
-					if (array[i] > max)
+					DependencyService.Get<IProgressBar>().Show();
+					IRentOutService service = new RentOutService();
+					Models.GeneratePricingRequest generatePricingRequest = new Models.GeneratePricingRequest()
 					{
-						if (array[i] > 0)
-							max = array[i];
-					}
-					if (array[i] < min)
-					{
-						if (array[i] > 0)
-							min = array[i];
-					}
+						DatePicker = $"{SelectedStartDate.Year}-{SelectedStartDate.Month}-{SelectedStartDate.Day}",
+						StandardPricePerNight = StandardPricePerNight,
+						ApartmentId = Address.Id,
+						SeasonalityTemplate = SeasonalityTemplate,
+						TNights = TNights
+					};
+					await service.GeneratePricingAsync(generatePricingRequest);
+					await Navigation.PopAsync();
+					DependencyService.Get<IProgressBar>().Hide();
 				}
-				request.MinimumPrice = min;
-				request.MaximumPrice = max;
-				await service.AddPricingAsync(request);
-				await Navigation.PopAsync();
-				DependencyService.Get<IProgressBar>().Hide();
-				IsPageLoad = true;
 			}
 		}
 		#endregion
@@ -600,6 +638,53 @@ namespace Qloudid.ViewModels
 		}
 		public DateTime BindExpiryMinimumDate => DateTime.Today;
 		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
+
+		//Generic Tab
+		private DateTime selectedStartDate = DateTime.Today;
+		public DateTime SelectedStartDate
+		{
+			get => selectedStartDate;
+			set
+			{
+				selectedStartDate = value;
+				OnPropertyChanged("SelectedStartDate");
+			}
+		}
+
+		private int standardPricePerNight;
+		public int StandardPricePerNight
+		{
+			get => standardPricePerNight;
+			set
+			{
+				standardPricePerNight = value;
+				OnPropertyChanged("StandardPricePerNight");
+			}
+		}
+
+		private int seasonalityTemplate;
+		public int SeasonalityTemplate
+		{
+			get => seasonalityTemplate;
+			set
+			{
+				seasonalityTemplate = value;
+				OnPropertyChanged("SeasonalityTemplate");
+			}
+		}
+
+		private int tNights = 1;
+		public int TNights
+		{
+			get => tNights;
+			set
+			{
+				tNights = value;
+				OnPropertyChanged("TNights");
+			}
+		}
+		public DateTime BindStartMinimumDate => DateTime.Today;
+		public DateTime BindStartMaximumDate => DateTime.Today.AddYears(70);
 		#endregion
 	}
 }

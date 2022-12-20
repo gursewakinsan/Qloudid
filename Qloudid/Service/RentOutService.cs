@@ -97,5 +97,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> GeneratePricingAsync(Models.GeneratePricingRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.GeneratePricingUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
