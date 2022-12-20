@@ -173,6 +173,22 @@ namespace Qloudid.ViewModels
 		{
 			if (string.IsNullOrEmpty(PricingTitle))
 				await Helper.Alert.DisplayAlert("Pricing title is required.");
+			else if (!IsMondayOpen && !IsTuesdayOpen && !IsWednesdayOpen && !IsThursdayOpen && !IsFridayOpen && !IsSaturdayOpen && !IsSundayOpen)
+				await Helper.Alert.DisplayAlert("Please select days can guests arrive.");
+			else if (IsMondayOpen && MondayPrice == 0)
+				await Helper.Alert.DisplayAlert("Monday price cannot be zero");
+			else if (IsTuesdayOpen && TuesdayPrice == 0)
+				await Helper.Alert.DisplayAlert("Tuesday price cannot be zero");
+			else if (IsWednesdayOpen && WednesdayPrice == 0)
+				await Helper.Alert.DisplayAlert("Wednesday price cannot be zero");
+			else if (IsThursdayOpen && ThursdayPrice == 0)
+				await Helper.Alert.DisplayAlert("Thursday price cannot be zero");
+			else if (IsFridayOpen && FridayPrice == 0)
+				await Helper.Alert.DisplayAlert("Friday price cannot be zero");
+			else if (IsSaturdayOpen && SaturdayPrice == 0)
+				await Helper.Alert.DisplayAlert("Saturday price cannot be zero");
+			else if (IsSundayOpen && SundayPrice == 0)
+				await Helper.Alert.DisplayAlert("Sunday price cannot be zero");
 			else
 			{
 				IsPageLoad = false;
@@ -202,14 +218,20 @@ namespace Qloudid.ViewModels
 					SundayPrice = SundayPrice,
 				};
 				int[] array = { MondayPrice, TuesdayPrice, WednesdayPrice, ThursdayPrice, FridayPrice, SaturdayPrice, SundayPrice };
-				int max = array[0];
-				int min = array[0];
+				int max = 0;
+				int min = 0;
 				for (int i = 0; i <= array.Length - 1; i++)
 				{
 					if (array[i] > max)
-						max = array[i];
+					{
+						if (array[i] > 0)
+							max = array[i];
+					}
 					if (array[i] < min)
-						min = array[i];
+					{
+						if (array[i] > 0)
+							min = array[i];
+					}
 				}
 				request.MinimumPrice = min;
 				request.MaximumPrice = max;
