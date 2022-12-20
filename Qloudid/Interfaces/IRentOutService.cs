@@ -13,5 +13,7 @@ namespace Qloudid.Interfaces
         Task<int> UpdateSecurityAsync(Models.UpdateSecurityRequest model);
         Task<List<Models.NightlyPricingListResponse>> NightlyPricingListAsync(Models.NightlyPricingListRequest model);
         Task<int> RemovePricingGapAsync(Models.RemovePricingGapRequest model);
+        Task<Models.AddPricingPeriodResponse> AddPricingPeriodAsync(Models.AddPricingPeriodRequest model);
+        Task<int> AddPricingAsync(Models.AddPricingRequest model);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -15,6 +16,8 @@ namespace Qloudid.ViewModels
 			Address = Helper.Helper.SelectedUserAddress;
 			ManualBg = Color.FromHex("#0C8CE8");
 			IsManualOrGeneric = true;
+			IsMondayOpen = IsTuesdayOpen = IsWednesdayOpen = false;
+			IsThursdayOpen = IsFridayOpen = IsSaturdayOpen = IsSundayOpen = false;
 		}
 		#endregion
 
@@ -53,18 +56,25 @@ namespace Qloudid.ViewModels
 			switch (day)
 			{
 				case "Monday":
+					IsMondayOpen = !IsMondayOpen;
 					break;
 				case "Tuesday":
+					IsTuesdayOpen = !IsTuesdayOpen;
 					break;
 				case "Wednesday":
+					IsWednesdayOpen = !IsWednesdayOpen;
 					break;
 				case "Thursday":
+					IsThursdayOpen = !IsThursdayOpen;
 					break;
 				case "Friday":
+					IsFridayOpen = !IsFridayOpen;
 					break;
 				case "Saturday":
+					IsSaturdayOpen = !IsSaturdayOpen;
 					break;
 				case "Sunday":
+					IsSundayOpen = !IsSundayOpen;
 					break;
 			}
 		}
@@ -78,8 +88,8 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteGuestDurationStayMinusCommand()
 		{
-			if (GuestDurationStayCount > 1)
-				GuestDurationStayCount = GuestDurationStayCount - 1;
+			if (ShortestDuration > 1)
+				ShortestDuration--;
 
 		}
 		#endregion
@@ -92,7 +102,7 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteGuestDurationStayPlusCommand()
 		{
-			GuestDurationStayCount = GuestDurationStayCount + 1;
+			ShortestDuration++;
 		}
 		#endregion
 
@@ -104,6 +114,8 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteStayOfferDiscountMinusCommand()
 		{
+			if (DiscountForSeven > 0)
+				DiscountForSeven--;
 		}
 		#endregion
 
@@ -115,6 +127,7 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteStayOfferDiscountPlusCommand()
 		{
+			DiscountForSeven++;
 		}
 		#endregion
 
@@ -129,7 +142,97 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Add Pricing Period Command.
+		private ICommand addPricingPeriodCommand;
+		public ICommand AddPricingPeriodCommand
+		{
+			get => addPricingPeriodCommand ?? (addPricingPeriodCommand = new Command(async() =>await ExecuteAddPricingPeriodCommand()));
+		}
+		private async Task ExecuteAddPricingPeriodCommand()
+		{
+			IsPageLoad = false;
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			AddPricingPeriod = await service.AddPricingPeriodAsync(new Models.AddPricingPeriodRequest()
+			{
+				ApartmentId = Address.Id
+			});
+			SelectedExpiryDate = Convert.ToDateTime(AddPricingPeriod.EndDate);
+			DependencyService.Get<IProgressBar>().Hide();
+			IsPageLoad = true;
+		}
+		#endregion
+
+		#region Add Pricing Command.
+		private ICommand addPricingCommand;
+		public ICommand AddPricingCommand
+		{
+			get => addPricingCommand ?? (addPricingCommand = new Command(async () => await ExecuteAddPricingCommand()));
+		}
+		private async Task ExecuteAddPricingCommand()
+		{
+			if (string.IsNullOrEmpty(PricingTitle))
+				await Helper.Alert.DisplayAlert("Pricing title is required.");
+			else
+			{
+				IsPageLoad = false;
+				DependencyService.Get<IProgressBar>().Show();
+				IRentOutService service = new RentOutService();
+				Models.AddPricingRequest request = new Models.AddPricingRequest()
+				{
+					ApartmentId = Address.Id,
+					Title = PricingTitle,
+					StartDate = AddPricingPeriod.StartDate,
+					EndDate = SelectedEndDate,
+					MondayOpen = IsMondayOpen ? 1 : 0,
+					TuesdayOpen = IsTuesdayOpen ? 1 : 0,
+					WednesdayOpen = IsWednesdayOpen ? 1 : 0,
+					ThursdayOpen = IsThursdayOpen ? 1 : 0,
+					FridayOpen = IsFridayOpen ? 1 : 0,
+					SaturdayOpen = IsSaturdayOpen ? 1 : 0,
+					SundayOpen = IsSundayOpen ? 1 : 0,
+					ShortestDuration = ShortestDuration,
+					DiscountForSeven = DiscountForSeven,
+					MondayPrice = MondayPrice,
+					TuesdayPrice = TuesdayPrice,
+					WednesdayPrice = WednesdayPrice,
+					ThursdayPrice = ThursdayPrice,
+					FridayPrice = FridayPrice,
+					SaturdayPrice = SundayPrice,
+					SundayPrice = SundayPrice,
+				};
+				int[] array = { MondayPrice, TuesdayPrice, WednesdayPrice, ThursdayPrice, FridayPrice, SaturdayPrice, SundayPrice };
+				int max = array[0];
+				int min = array[0];
+				for (int i = 0; i <= array.Length - 1; i++)
+				{
+					if (array[i] > max)
+						max = array[i];
+					if (array[i] < min)
+						min = array[i];
+				}
+				request.MinimumPrice = min;
+				request.MaximumPrice = max;
+				await service.AddPricingAsync(request);
+				await Navigation.PopAsync();
+				DependencyService.Get<IProgressBar>().Hide();
+				IsPageLoad = true;
+			}
+		}
+		#endregion
+
 		#region Properties.
+		private Models.AddPricingPeriodResponse addPricingPeriod;
+		public Models.AddPricingPeriodResponse AddPricingPeriod
+		{
+			get => addPricingPeriod;
+			set
+			{
+				addPricingPeriod = value;
+				OnPropertyChanged("AddPricingPeriod");
+			}
+		}
+
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
 		{
@@ -185,16 +288,307 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private int guestDurationStayCount = 1;
-		public int GuestDurationStayCount
+		private string pricingTitle;
+		public string PricingTitle
 		{
-			get => guestDurationStayCount;
+			get => pricingTitle;
 			set
 			{
-				guestDurationStayCount = value;
-				OnPropertyChanged("GuestDurationStayCount");
+				pricingTitle = value;
+				OnPropertyChanged("PricingTitle");
 			}
 		}
+
+		private string selectedEndDate;
+		public string SelectedEndDate
+		{
+			get => selectedEndDate;
+			set
+			{
+				selectedEndDate = value;
+				OnPropertyChanged("SelectedEndDate");
+			}
+		}
+
+		private bool isMondayOpen;
+		public bool IsMondayOpen
+		{
+			get => isMondayOpen;
+			set
+			{
+				isMondayOpen = value;
+				OnPropertyChanged("IsMondayOpen");
+				MondayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) MondayPrice = 0;
+			}
+		}
+
+		private Color mondayOpenBg;
+		public Color MondayOpenBg
+		{
+			get => mondayOpenBg;
+			set
+			{
+				mondayOpenBg = value;
+				OnPropertyChanged("MondayOpenBg");
+			}
+		}
+
+		private bool isTuesdayOpen;
+		public bool IsTuesdayOpen
+		{
+			get => isTuesdayOpen;
+			set
+			{
+				isTuesdayOpen = value;
+				OnPropertyChanged("IsTuesdayOpen");
+				TuesdayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) TuesdayPrice = 0;
+			}
+		}
+
+		private Color tuesdayOpenBg;
+		public Color TuesdayOpenBg
+		{
+			get => tuesdayOpenBg;
+			set
+			{
+				tuesdayOpenBg = value;
+				OnPropertyChanged("TuesdayOpenBg");
+			}
+		}
+
+		private bool isWednesdayOpen;
+		public bool IsWednesdayOpen
+		{
+			get => isWednesdayOpen;
+			set
+			{
+				isWednesdayOpen = value;
+				OnPropertyChanged("IsWednesdayOpen");
+				WednesdayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) WednesdayPrice = 0;
+			}
+		}
+
+		private Color wednesdayOpenBg;
+		public Color WednesdayOpenBg
+		{
+			get => wednesdayOpenBg;
+			set
+			{
+				wednesdayOpenBg = value;
+				OnPropertyChanged("WednesdayOpenBg");
+			}
+		}
+
+		private bool isThursdayOpen;
+		public bool IsThursdayOpen
+		{
+			get => isThursdayOpen;
+			set
+			{
+				isThursdayOpen = value;
+				OnPropertyChanged("IsThursdayOpen");
+				ThursdayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) ThursdayPrice = 0;
+			}
+		}
+
+		private Color thursdayOpenBg;
+		public Color ThursdayOpenBg
+		{
+			get => thursdayOpenBg;
+			set
+			{
+				thursdayOpenBg = value;
+				OnPropertyChanged("ThursdayOpenBg");
+			}
+		}
+
+		private bool isFridayOpen;
+		public bool IsFridayOpen
+		{
+			get => isFridayOpen;
+			set
+			{
+				isFridayOpen = value;
+				OnPropertyChanged("IsFridayOpen");
+				FridayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) FridayPrice = 0;
+			}
+		}
+
+		private Color fridayOpenBg;
+		public Color FridayOpenBg
+		{
+			get => fridayOpenBg;
+			set
+			{
+				fridayOpenBg = value;
+				OnPropertyChanged("FridayOpenBg");
+			}
+		}
+
+		private bool isSaturdayOpen;
+		public bool IsSaturdayOpen
+		{
+			get => isSaturdayOpen;
+			set
+			{
+				isSaturdayOpen = value;
+				OnPropertyChanged("IsSaturdayOpen");
+				SaturdayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) SaturdayPrice = 0;
+			}
+		}
+
+		private Color saturdayOpenBg;
+		public Color SaturdayOpenBg
+		{
+			get => saturdayOpenBg;
+			set
+			{
+				saturdayOpenBg = value;
+				OnPropertyChanged("SaturdayOpenBg");
+			}
+		}
+
+		private bool isSundayOpen;
+		public bool IsSundayOpen
+		{
+			get => isSundayOpen;
+			set
+			{
+				isSundayOpen = value;
+				OnPropertyChanged("IsSundayOpen");
+				SundayOpenBg = value ? Color.FromHex("#0C8CE8") : Color.FromHex("#242A37");
+				if (!value) SundayPrice = 0;
+			}
+		}
+
+		private Color sundayOpenBg;
+		public Color SundayOpenBg
+		{
+			get => sundayOpenBg;
+			set
+			{
+				sundayOpenBg = value;
+				OnPropertyChanged("SundayOpenBg");
+			}
+		}
+
+		private DateTime selectedExpiryDate;
+		public DateTime SelectedExpiryDate
+		{
+			get => selectedExpiryDate;
+			set
+			{
+				selectedExpiryDate = value;
+				OnPropertyChanged("SelectedExpiryDate");
+			}
+		}
+
+		private int shortestDuration = 1;
+		public int ShortestDuration
+		{
+			get => shortestDuration;
+			set
+			{
+				shortestDuration = value;
+				OnPropertyChanged("ShortestDuration");
+			}
+		}
+
+		private int discountForSeven;
+		public int DiscountForSeven
+		{
+			get => discountForSeven;
+			set
+			{
+				discountForSeven = value;
+				OnPropertyChanged("DiscountForSeven");
+			}
+		}
+
+		private int mondayPrice;
+		public int MondayPrice
+		{
+			get => mondayPrice;
+			set
+			{
+				mondayPrice = value;
+				OnPropertyChanged("MondayPrice");
+			}
+		}
+
+		private int tuesdayPrice;
+		public int TuesdayPrice
+		{
+			get => tuesdayPrice;
+			set
+			{
+				tuesdayPrice = value;
+				OnPropertyChanged("TuesdayPrice");
+			}
+		}
+
+		private int wednesdayPrice;
+		public int WednesdayPrice
+		{
+			get => wednesdayPrice;
+			set
+			{
+				wednesdayPrice = value;
+				OnPropertyChanged("WednesdayPrice");
+			}
+		}
+
+		private int thursdayPrice;
+		public int ThursdayPrice
+		{
+			get => thursdayPrice;
+			set
+			{
+				thursdayPrice = value;
+				OnPropertyChanged("ThursdayPrice");
+			}
+		}
+
+		private int fridayPrice;
+		public int FridayPrice
+		{
+			get => fridayPrice;
+			set
+			{
+				fridayPrice = value;
+				OnPropertyChanged("FridayPrice");
+			}
+		}
+
+		private int saturdayPrice;
+		public int SaturdayPrice
+		{
+			get => saturdayPrice;
+			set
+			{
+				saturdayPrice = value;
+				OnPropertyChanged("SaturdayPrice");
+			}
+		}
+
+		private int sundayPrice;
+		public int SundayPrice
+		{
+			get => sundayPrice;
+			set
+			{
+				sundayPrice = value;
+				OnPropertyChanged("SundayPrice");
+			}
+		}
+		public DateTime BindExpiryMinimumDate => DateTime.Today;
+		public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
 		#endregion
 	}
 }

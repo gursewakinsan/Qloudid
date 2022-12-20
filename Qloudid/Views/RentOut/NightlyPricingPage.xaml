@@ -21,6 +21,8 @@
             <RowDefinition Height="45"/>
             <RowDefinition Height="57"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28"/>
@@ -136,7 +138,7 @@
             Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="9" 
-            Margin="0,40,0,0">
+            Margin="0,40,0,2">
             <StackLayout>
                 <!--=========Start Manual=========-->
                 <Grid 
@@ -210,6 +212,7 @@
                             TextColor="White"
                             PlaceholderColor="Gray"
                             Placeholder="Add title"
+                            Text="{Binding PricingTitle}"
                             BackgroundColor="Transparent"
                             FontFamily="PoppinsRegularFontFamily"/>
                     </Frame>
@@ -237,16 +240,14 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <controls:CustomPicker
+                            <Label  
                                 Grid.Column="0"
-			    	            Title="Start date"
-			    	            FontFamily="PoppinsRegularFontFamily"
-			    	            FontSize="15"
-                                ItemDisplayBinding="{Binding Time}"
-			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
-			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
-			    	            TextColor="White"
-			    	            TitleColor="Gray" />
+                                TextColor="White"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			    	            FontSize="15" 
+                                Text="{Binding AddPricingPeriod.StartDate}"/>
 
                             <Label
                                 Grid.Column="1"
@@ -282,16 +283,16 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <controls:CustomPicker
+                            <controls:CustomDatePicker
                                 Grid.Column="0"
-			    	            Title="End date"
-			    	            FontFamily="PoppinsRegularFontFamily"
-			    	            FontSize="15"
-                                ItemDisplayBinding="{Binding Time}"
-			    	            ItemsSource="{Binding MonFriFromTimeInfo}"
-			    	            SelectedItem="{Binding SelectedMonFriFromTimeInfo}"
-			    	            TextColor="White"
-			    	            TitleColor="Gray" />
+						        BackgroundColor="Transparent"
+						        Date="{Binding SelectedExpiryDate}"
+						        FontFamily="PoppinsRegularFontFamily"
+						        FontSize="15"
+						        Format="yyyy-MM-dd"
+						        MaximumDate="{Binding BindExpiryMaximumDate}"
+						        MinimumDate="{Binding BindExpiryMinimumDate}"
+						        TextColor="White" />
 
                             <Label
                                 Grid.Column="1"
@@ -328,7 +329,7 @@
                         HorizontalOptions="StartAndExpand">
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding MondayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -356,7 +357,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -364,14 +364,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsMondayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Monday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -379,7 +379,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsMondayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Monday"/>
                                     </Label.GestureRecognizers>
@@ -389,7 +390,7 @@
 
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding TuesdayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -417,7 +418,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -425,14 +425,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsTuesdayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Tuesday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -440,7 +440,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsTuesdayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Tuesday"/>
                                     </Label.GestureRecognizers>
@@ -457,7 +458,7 @@
                         HorizontalOptions="StartAndExpand">
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding WednesdayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -485,7 +486,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -493,14 +493,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsWednesdayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Wednesday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -508,7 +508,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsWednesdayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Wednesday"/>
                                     </Label.GestureRecognizers>
@@ -518,7 +519,7 @@
 
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding ThursdayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -546,7 +547,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -554,14 +554,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsThursdayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Thursday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -569,7 +569,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsThursdayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Thursday"/>
                                     </Label.GestureRecognizers>
@@ -586,7 +587,7 @@
                         HorizontalOptions="StartAndExpand">
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding FridayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -614,7 +615,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -622,14 +622,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsFridayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Friday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -637,7 +637,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsFridayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Friday"/>
                                     </Label.GestureRecognizers>
@@ -647,7 +648,7 @@
 
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding SaturdayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -675,7 +676,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -683,14 +683,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsSaturdayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Saturday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -698,7 +698,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsSaturdayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Saturday"/>
                                     </Label.GestureRecognizers>
@@ -715,7 +716,7 @@
                         HorizontalOptions="StartAndExpand">
                         <Frame
                             CornerRadius="12"
-                            BackgroundColor="#242A37"
+                            BackgroundColor="{Binding SundayOpenBg}"
                             IsClippedToBounds="True" 
                             HasShadow="False" 
                             Padding="20,0,20,0"
@@ -743,7 +744,6 @@
                                 </Label>
 
                                 <Label
-                                    IsVisible="True"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -751,14 +751,14 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsSundayOpen}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Sunday"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
                                 <Label
-                                    IsVisible="False"
 			                        Padding="0"
 			                        BackgroundColor="Transparent"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
@@ -766,7 +766,8 @@
                                     VerticalTextAlignment="Center"
                                     HorizontalTextAlignment="Center"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			                        TextColor="White">
+			                        TextColor="White"
+                                    IsVisible="{Binding IsSundayOpen, Converter={StaticResource InverseBoolConverter}}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding SelectedDayCommand}" CommandParameter="Sunday"/>
                                     </Label.GestureRecognizers>
@@ -797,9 +798,68 @@
                         BorderColor="#242A37"
                         Grid.ColumnSpan="2"
                         CornerRadius="12"
-                        BackgroundColor="Transparent"/>
+                        BackgroundColor="Transparent" IsVisible="False"/>
 
-                    <Grid 
+                    <Frame 
+                        Padding="0"
+                        Grid.Row="24"
+                        CornerRadius="12"
+                        HasShadow="False" 
+                        Grid.ColumnSpan="2"
+                        BorderColor="#242A37"
+                        BackgroundColor="Transparent"
+                        IsClippedToBounds="True">
+                        <Grid 
+                        RowSpacing="0" 
+                        ColumnSpacing="0" Margin="2"
+                        HeightRequest="45" VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Button 
+                            Padding="0"
+                            FontSize="25"
+                            Grid.Column="1" 
+                            CornerRadius="10"
+                            TextColor="#F40000"
+                            BackgroundColor="#242A37"
+                            Command="{Binding GuestDurationStayMinusCommand}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
+
+                            <Label
+                            FontSize="24"
+                            Grid.Column="2"
+	    	                TextColor="White"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding ShortestDuration}"/>
+                                        <Span Text=" night"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Button 
+                            Padding="0"
+                            FontSize="25"
+                            Grid.Column="3" 
+                            CornerRadius="10"
+                            TextColor="#4CD964"
+                            BackgroundColor="#242A37"
+                            Command="{Binding GuestDurationStayPlusCommand}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                        </Grid>
+                    </Frame>
+
+                    <Grid  IsVisible="False"
                         RowSpacing="0" 
                         ColumnSpacing="0" 
                         Grid.Row="24" 
@@ -833,12 +893,12 @@
                             FontFamily="PoppinsRegularFontFamily">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{Binding GuestDurationStayCount}"/>
+                                    <Span Text="{Binding ShortestDuration}"/>
                                     <Span Text=" night"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        
+
                         <Button 
                             Padding="0"
                             FontSize="25"
@@ -904,15 +964,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="0"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="100"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding MondayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsMondayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="1"
@@ -932,15 +997,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="2"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="100"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding TuesdayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsTuesdayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="3"
@@ -960,15 +1030,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="4"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="100"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding WednesdayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsWednesdayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="5"
@@ -988,15 +1063,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="6"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="100"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding ThursdayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsThursdayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="7"
@@ -1016,15 +1096,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="8"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="150"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding FridayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsFridayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="9"
@@ -1044,15 +1129,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="10"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="150"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding SaturdayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsSaturdayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="11"
@@ -1072,15 +1162,20 @@
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsRegularFontFamily"/>
 
-                        <Label
+                        <controls:CustomEntry
                             Grid.Row="12"
                             FontSize="14"
                             Grid.Column="2"
 	    	                TextColor="White"
-	    	                Text="150"
-                            VerticalTextAlignment="Center"
+                            Placeholder="Price"
+                            Keyboard="Numeric"
+                            Text="{Binding SundayPrice}"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
                             HorizontalTextAlignment="End"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"
+                            IsReadOnly="{Binding IsSundayOpen, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <BoxView 
                             Grid.Row="13"
@@ -1106,7 +1201,7 @@
 		                BackgroundColor="White" 
 		                Opacity="0.1"/>
 
-                    <Button
+                    <Button IsVisible="False"
                         Grid.Row="35"
                         BorderWidth="2"
                         BorderColor="#242A37"
@@ -1114,21 +1209,30 @@
                         CornerRadius="12"
                         BackgroundColor="Transparent"/>
 
-                    <Grid 
+                    <Frame 
+                        Padding="0"
+                        Grid.Row="35"
+                        CornerRadius="12"
+                        HasShadow="False" 
+                        Grid.ColumnSpan="2"
+                        BorderColor="#242A37"
+                        BackgroundColor="Transparent"
+                        IsClippedToBounds="True">
+                        <Grid 
                         RowSpacing="0" 
                         ColumnSpacing="0" 
                         Grid.Row="35" 
                         Grid.ColumnSpan="2"
                         HeightRequest="45"
                         VerticalOptions="CenterAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
-                        <Button 
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Button 
                             Padding="0"
                             FontSize="25"
                             Grid.Column="1" 
@@ -1139,22 +1243,22 @@
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
-                        <Label
+                            <Label
                             FontSize="24"
                             Grid.Column="2"
 	    	                TextColor="White"
                             VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="10"/>
-                                    <Span Text=" %"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding DiscountForSeven}"/>
+                                        <Span Text=" %"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
 
-                        <Button 
+                            <Button 
                             Padding="0"
                             FontSize="25"
                             Grid.Column="3" 
@@ -1164,7 +1268,9 @@
                             Command="{Binding StayOfferDiscountPlusCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
                             Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
-                    </Grid>
+                        </Grid>
+                    </Frame>
+                    
                 </Grid>
                 <!--=========End Manual===========-->
 
@@ -1499,5 +1605,17 @@
                 <!--=========End Generic===========-->
             </StackLayout>
         </ScrollView>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="10" 
+            CornerRadius="30"
+            Text="Add pricing"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding AddPricingCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

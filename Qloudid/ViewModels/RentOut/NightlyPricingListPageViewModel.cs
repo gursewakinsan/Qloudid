@@ -63,9 +63,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteAddPricingCommand()
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			IRentOutService service = new RentOutService();
-			DependencyService.Get<IProgressBar>().Hide();
+			await Navigation.PushAsync(new Views.RentOut.NightlyPricingPage());
 		}
 		#endregion
 

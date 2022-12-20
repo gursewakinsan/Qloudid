@@ -266,7 +266,7 @@
             FontSize="16"
             TextColor="White"
             BackgroundColor="#F40000"
-            Command="{Binding AddNightlyPricingCommand}"
+            Command="{Binding AddPricingCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>
