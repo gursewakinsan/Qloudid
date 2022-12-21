@@ -6,11 +6,11 @@
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:controls="clr-namespace:Qloudid.Controls"
-    ios:Page.UseSafeArea="True"
+    ios:Page.UseSafeArea="False"
 	BackgroundColor="#282A34"
 	NavigationPage.HasNavigationBar="False">
     <Grid
-		Margin="0,14,0,0"
+		Margin="0,50,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
         <Grid.RowDefinitions>
