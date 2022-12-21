@@ -53,10 +53,17 @@ namespace Qloudid.Views.RentOut
             OnNightlyPricingClicked(control.BindingContext as Models.NightlyPricingListResponse);
         }
 
+        private void OnFrameNightlyPricingClicked(object sender, System.EventArgs e)
+        {
+            Frame control = sender as Frame;
+            OnNightlyPricingClicked(control.BindingContext as Models.NightlyPricingListResponse);
+        }
         void OnNightlyPricingClicked(Models.NightlyPricingListResponse nightlyPricing)
         {
             viewModel.RemovePricingGapCommand.Execute(nightlyPricing);
         }
         #endregion
+
+        
     }
 }

@@ -196,9 +196,15 @@
                                 HeightRequest="70"
                                 Margin="0,0,0,15"
                                 IsVisible="{Binding IsDeleted, Converter={StaticResource InverseBoolConverter}}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameNightlyPricingClicked"/>
+                                </Frame.GestureRecognizers>
                                 <Grid 
                                     ColumnSpacing="0" Margin="20,5,20,5"
                                     VerticalOptions="CenterAndExpand">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridNightlyPricingClicked"/>
+                                    </Grid.GestureRecognizers>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="23"/>
@@ -207,6 +213,9 @@
                                         Spacing="0"
                                         Grid.Column="0"
                                         VerticalOptions="CenterAndExpand">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnStackLayoutNightlyPricingClicked"/>
+                                        </StackLayout.GestureRecognizers>
                                         <Label
 	    	                                FontFamily="PoppinsRegularFontFamily"
 	    	                                FontSize="15" 
@@ -215,7 +224,11 @@
 	    	                                Text="{Binding PricingTitle}"
 	    	                                TextColor="White"
                                             MaxLines="1"
-                                            LineBreakMode="TailTruncation"/>
+                                            LineBreakMode="TailTruncation">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
 
                                         <Label
 	    	                                FontFamily="PoppinsRegularFontFamily"
@@ -237,6 +250,9 @@
                                                     <Span Text=")"/>
                                                 </FormattedString>
                                             </Label.FormattedText>
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                            </Label.GestureRecognizers>
                                         </Label>
                                     </StackLayout>
 
@@ -247,7 +263,11 @@
 			                            HorizontalTextAlignment="End"
 			                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
 			                            TextColor="White"
-			                            VerticalTextAlignment="Center"/>
+			                            VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelNightlyPricingClicked"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
                                 </Grid>
                             </Frame>
                         </StackLayout>

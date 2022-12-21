@@ -44,14 +44,19 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteRemovePricingGapCommand(Models.NightlyPricingListResponse nightlyPricing)
 		{
-			DependencyService.Get<IProgressBar>().Show();
-			IRentOutService service = new RentOutService();
-			await service.RemovePricingGapAsync(new Models.RemovePricingGapRequest()
+			if (nightlyPricing.IsDeleted)
 			{
-				Id = nightlyPricing.Id
-			});
-			NightlyPricingListCommand.Execute(null);
-			DependencyService.Get<IProgressBar>().Hide();
+				DependencyService.Get<IProgressBar>().Show();
+				IRentOutService service = new RentOutService();
+				await service.RemovePricingGapAsync(new Models.RemovePricingGapRequest()
+				{
+					Id = nightlyPricing.Id
+				});
+				NightlyPricingListCommand.Execute(null);
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+			else
+				await Navigation.PushAsync(new Views.RentOut.UpdateNightlyPricingPage(nightlyPricing));
 		}
 		#endregion
 

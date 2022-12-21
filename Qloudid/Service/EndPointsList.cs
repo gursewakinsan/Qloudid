@@ -183,5 +183,6 @@
 		public const string AddPricingPeriodUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPricingPeriod";
 		public const string AddPricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addPricing";
 		public const string GeneratePricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/generatePricing";
+		public const string UpdatePricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePricing";
 	}
 }

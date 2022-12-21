@@ -2,7 +2,7 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.RentOut.NightlyPricingPage"
+    x:Class="Qloudid.Views.RentOut.UpdateNightlyPricingPage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:controls="clr-namespace:Qloudid.Controls"
@@ -19,7 +19,6 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="45"/>
-            <RowDefinition Height="57"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="65"/>
             <RowDefinition Height="2"/>
@@ -91,60 +90,16 @@
 		    BackgroundColor="White" 
 		    Opacity="0.1"/>
 
-        <Frame 
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Grid.Row="8"
-            Padding="0"
-            CornerRadius="10"
-            HasShadow="False"
-            BorderColor="#2A2A31"
-            BackgroundColor="Transparent"
-            IsClippedToBounds="True">
-            <Grid ColumnSpacing="0">
-                <Label
-                    Grid.Column="0"
-		            FontSize="14"
-		            Text="Manual"
-		            TextColor="White"
-                    Opacity="0.7" 
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    BackgroundColor="{Binding ManualBg}"
-                    FontFamily="PoppinsMediumFontFamily">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SelectedPriceCommand}" CommandParameter="Manual"/>
-                    </Label.GestureRecognizers>
-                </Label>
-
-                <Label
-                    Grid.Column="1"
-		            FontSize="14"
-		            Text="Generic"
-		            TextColor="White"
-                    Opacity="0.7" 
-                    BackgroundColor="{Binding GenericBg}"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    FontFamily="PoppinsMediumFontFamily">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SelectedPriceCommand}" CommandParameter="Generic"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </Grid>
-        </Frame>
-
         <ScrollView 
             Grid.Column="1"
             Grid.ColumnSpan="3"
-            Grid.Row="9" 
-            Margin="0,40,0,2">
+            Grid.Row="8" 
+            Margin="0,0,0,2">
             <StackLayout>
                 <!--=========Start Manual=========-->
                 <Grid 
                     RowSpacing="0" 
-                    ColumnSpacing="20" 
-                    IsVisible="{Binding IsManualOrGeneric}">
+                    ColumnSpacing="20" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="23"/>
                         <RowDefinition Height="10"/>
@@ -247,7 +202,7 @@
                                 VerticalTextAlignment="Center"
                                 FontFamily="PoppinsRegularFontFamily"
 			    	            FontSize="15" 
-                                Text="{Binding AddPricingPeriod.StartDate}"/>
+                                Text="{Binding UpdateSelectedNightlyPricing.PricingStartDate}"/>
 
                             <Label
                                 Grid.Column="1"
@@ -810,9 +765,9 @@
                         BackgroundColor="Transparent"
                         IsClippedToBounds="True">
                         <Grid 
-                        RowSpacing="0" 
-                        ColumnSpacing="0" Margin="2"
-                        HeightRequest="45" VerticalOptions="CenterAndExpand">
+                            RowSpacing="0" 
+                            ColumnSpacing="0" Margin="2"
+                            HeightRequest="45" VerticalOptions="CenterAndExpand">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="45"/>
@@ -821,23 +776,23 @@
                                 <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
                             <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="1" 
-                            CornerRadius="10"
-                            TextColor="#F40000"
-                            BackgroundColor="#242A37"
-                            Command="{Binding GuestDurationStayMinusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
+                                Padding="0"
+                                FontSize="25"
+                                Grid.Column="1" 
+                                CornerRadius="10"
+                                TextColor="#F40000"
+                                BackgroundColor="#242A37"
+                                Command="{Binding GuestDurationStayMinusCommand}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
                             <Label
-                            FontSize="24"
-                            Grid.Column="2"
-	    	                TextColor="White"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="PoppinsRegularFontFamily">
+                                FontSize="24"
+                                Grid.Column="2"
+	    	                    TextColor="White"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="{Binding ShortestDuration}"/>
@@ -847,69 +802,17 @@
                             </Label>
 
                             <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="3" 
-                            CornerRadius="10"
-                            TextColor="#4CD964"
-                            BackgroundColor="#242A37"
-                            Command="{Binding GuestDurationStayPlusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                                Padding="0"
+                                FontSize="25"
+                                Grid.Column="3" 
+                                CornerRadius="10"
+                                TextColor="#4CD964"
+                                BackgroundColor="#242A37"
+                                Command="{Binding GuestDurationStayPlusCommand}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
                         </Grid>
                     </Frame>
-
-                    <Grid  IsVisible="False"
-                        RowSpacing="0" 
-                        ColumnSpacing="0" 
-                        Grid.Row="24" 
-                        Grid.ColumnSpan="2"
-                        HeightRequest="45"
-                        VerticalOptions="CenterAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
-                        <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="1" 
-                            CornerRadius="10"
-                            TextColor="#F40000"
-                            BackgroundColor="#242A37"
-                            Command="{Binding GuestDurationStayMinusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
-
-                        <Label
-                            FontSize="24"
-                            Grid.Column="2"
-	    	                TextColor="White"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="PoppinsRegularFontFamily">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding ShortestDuration}"/>
-                                    <Span Text=" night"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-
-                        <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="3" 
-                            CornerRadius="10"
-                            TextColor="#4CD964"
-                            BackgroundColor="#242A37"
-                            Command="{Binding GuestDurationStayPlusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
-                    </Grid>
 
                     <Label
                         Grid.Row="26"
@@ -1201,373 +1104,20 @@
 		                BackgroundColor="White" 
 		                Opacity="0.1"/>
 
-                    <Button IsVisible="False"
-                        Grid.Row="35"
-                        BorderWidth="2"
-                        BorderColor="#242A37"
-                        Grid.ColumnSpan="2"
-                        CornerRadius="12"
-                        BackgroundColor="Transparent"/>
-
                     <Frame 
                         Padding="0"
                         Grid.Row="35"
                         CornerRadius="12"
                         HasShadow="False" 
                         Grid.ColumnSpan="2"
-                        BorderColor="#242A37"
-                        BackgroundColor="Transparent"
-                        IsClippedToBounds="True">
-                        <Grid 
-                        RowSpacing="0" 
-                        ColumnSpacing="0" 
-                        Grid.Row="35" 
-                        Grid.ColumnSpan="2"
-                        HeightRequest="45"
-                        VerticalOptions="CenterAndExpand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="45"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="45"/>
-                                <ColumnDefinition Width="20"/>
-                            </Grid.ColumnDefinitions>
-                            <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="1" 
-                            CornerRadius="10"
-                            TextColor="#F40000"
-                            BackgroundColor="#242A37"
-                            Command="{Binding StayOfferDiscountMinusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
-
-                            <Label
-                            FontSize="24"
-                            Grid.Column="2"
-	    	                TextColor="White"
-                            VerticalTextAlignment="Center"
-                            HorizontalTextAlignment="Center"
-                            FontFamily="PoppinsRegularFontFamily">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{Binding DiscountForSeven}"/>
-                                        <Span Text=" %"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-                            <Button 
-                            Padding="0"
-                            FontSize="25"
-                            Grid.Column="3" 
-                            CornerRadius="10"
-                            TextColor="#4CD964"
-                            BackgroundColor="#242A37"
-                            Command="{Binding StayOfferDiscountPlusCommand}"
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
-                        </Grid>
-                    </Frame>
-                    
-                </Grid>
-                <!--=========End Manual===========-->
-
-                <!--=========Start Generic=========-->
-                <Grid 
-                    RowSpacing="0" 
-                    ColumnSpacing="0" 
-                    IsVisible="{Binding IsManualOrGeneric, Converter={StaticResource InverseBoolConverter}}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="8"/>
-                        <RowDefinition Height="1"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="23"/>
-                        <RowDefinition Height="6"/>
-                        <RowDefinition Height="55"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="11"/>
-                        <RowDefinition Height="1"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="23"/>
-                        <RowDefinition Height="6"/>
-                        <RowDefinition Height="55"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="1"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="23"/>
-                        <RowDefinition Height="6"/>
-                        <RowDefinition Height="55"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="122"/>
-                        <RowDefinition Height="37"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="1"/>
-                        <RowDefinition Height="27"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="9"/>
-                        <RowDefinition Height="75"/>
-
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Label
-                        Grid.Row="0"
-                        FontSize="18"
-                        Opacity="0.70"
-	    	            TextColor="White"
-	    	            Text="Override your existing pricing"
-                        HorizontalTextAlignment="Start"
-                        FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                    <BoxView 
-                        Grid.Row="2"
-		                BackgroundColor="White" 
-		                Opacity="0.1"/>
-
-                    <Label
-                        Grid.Row="3"
-	    	            FontFamily="PoppinsRegularFontFamily"
-	    	            FontSize="13" LineHeight="1.1"
-                        HorizontalTextAlignment="Start"
-	    	            Text="By following the next few prompts, we will overwrite your existing pricing and generate 2 years worth of new pricing."
-	    	            TextColor="White"
-                        Opacity="0.70" Margin="0,10,0,27"/>
-
-                    <Frame 
-                        Grid.Row="4"
-                        Padding="13"
-                        CornerRadius="8"
-                        HasShadow="False"
-                        IsClippedToBounds="True"
-                        BackgroundColor="#F4B400" 
-                        Margin="0,0,0,45">
-                        <Label
-	    	                FontFamily="PoppinsRegularFontFamily"
-	    	                FontSize="13" LineHeight="1.1"
-	    	                Text="If instead you simply wish to extend the pricing you already have, adjust the start date below. 2 years of pricing will be generated from that start date"
-	    	                TextColor="#181A1F"/>
-                    </Frame>
-
-                    <Label
-                        Grid.Row="5"
-	    	            FontFamily="PoppinsSemiBoldFontFamily"
-	    	            FontSize="14"
-                        HorizontalTextAlignment="Start"
-	    	            Text="Start date"
-	    	            TextColor="White"
-                        Opacity="0.70" />
-
-                    <Frame 
-                        Grid.Row="7" 
-                        Padding="12,0,12,0"
-                        HasShadow="False"
-                        CornerRadius="10"
-                        WidthRequest="135"
-                        IsClippedToBounds="True"
-                        BackgroundColor="#242A37" 
-                        HorizontalOptions="StartAndExpand">
-                        <Grid ColumnSpacing="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="15"/>
-                            </Grid.ColumnDefinitions>
-                            <controls:CustomDatePicker
-                                Grid.Column="0"
-						        BackgroundColor="Transparent"
-						        Date="{Binding SelectedStartDate}"
-						        FontFamily="PoppinsRegularFontFamily"
-						        FontSize="15"
-						        Format="yyyy-MM-dd"
-						        MaximumDate="{Binding BindStartMaximumDate}"
-						        MinimumDate="{Binding BindStartMinimumDate}"
-						        TextColor="White" />
-
-                            <Label
-                                Grid.Column="1"
-				                FontFamily="{StaticResource MaterialFontFamily}"
-				                FontSize="15"
-				                HorizontalTextAlignment="Center"
-				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-				                TextColor="#F40000"
-				                VerticalTextAlignment="Center" />
-                        </Grid>
-                    </Frame>
-
-                    <Label
-                        Grid.Row="9"
-                        FontSize="18"
-                        Opacity="0.70"
-	    	            TextColor="White"
-	    	            Text="Standard price per night"
-                        HorizontalTextAlignment="Start"
-                        FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                    <BoxView 
-                        Grid.Row="11"
-		                BackgroundColor="White" 
-		                Opacity="0.1"/>
-
-                    <Label
-                        Grid.Row="12"
-	    	            FontFamily="PoppinsRegularFontFamily"
-	    	            FontSize="13" LineHeight="1.1"
-                        HorizontalTextAlignment="Start"
-	    	            Text="Tell us the average price you would charge for a night in your property. We'll use this as a base for your pricing model."
-	    	            TextColor="White"
-                        Opacity="0.70" Margin="0,10,0,30"/>
-
-                    <Label
-                        Grid.Row="13"
-	    	            FontFamily="PoppinsSemiBoldFontFamily"
-	    	            FontSize="14"
-                        HorizontalTextAlignment="Start"
-	    	            Text="Price"
-	    	            TextColor="White"
-                        Opacity="0.70" />
-
-                    <Frame 
-                        Grid.Row="15" 
-                        Padding="12,0,12,0"
-                        HasShadow="False"
-                        CornerRadius="10"
-                        WidthRequest="135"
-                        IsClippedToBounds="True"
-                        BackgroundColor="#242A37" 
-                        HorizontalOptions="StartAndExpand">
-                        <controls:CustomEntry 
-                            FontSize="15"
-                            TextColor="White"
-                            PlaceholderColor="Gray"
-                            Placeholder="Price"
-                            Keyboard="Numeric"
-                            Text="{Binding StandardPricePerNight}"
-                            BackgroundColor="Transparent"
-                            FontFamily="PoppinsRegularFontFamily"/>
-                    </Frame>
-
-                    <Label
-                        Grid.Row="17"
-                        FontSize="18"
-                        Opacity="0.70"
-	    	            TextColor="White"
-	    	            Text="Seasonality"
-                        HorizontalTextAlignment="Start"
-                        FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                    <BoxView 
-                        Grid.Row="19"
-		                BackgroundColor="White" 
-		                Opacity="0.1"/>
-
-                    <Label
-                        Grid.Row="20"
-	    	            FontFamily="PoppinsRegularFontFamily"
-	    	            FontSize="13" LineHeight="1.1"
-                        HorizontalTextAlignment="Start"
-	    	            Text="To help us create your pricing model, select a seasonality that closest matches your property."
-	    	            TextColor="White"
-                        Opacity="0.70" Margin="0,10,0,27"/>
-
-                    <Label
-                        Grid.Row="21"
-	    	            FontFamily="PoppinsSemiBoldFontFamily"
-	    	            FontSize="14"
-                        HorizontalTextAlignment="Start"
-	    	            Text="Seasonality"
-	    	            TextColor="White"
-                        Opacity="0.70" />
-
-                    <Frame 
-                        Grid.Row="23" 
-                        Padding="12,0,12,0"
-                        HasShadow="False"
-                        CornerRadius="10"
-                        IsClippedToBounds="True"
-                        BackgroundColor="#242A37">
-                        <Grid ColumnSpacing="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="15"/>
-                            </Grid.ColumnDefinitions>
-                            <controls:CustomPicker
-                                Grid.Column="0"
-			    	            Title="Seasonality"
-			    	            FontFamily="PoppinsRegularFontFamily"
-			    	            FontSize="15"
-			    	            TextColor="White"
-			    	            TitleColor="Gray"
-                                SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
-                                <controls:CustomPicker.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Gradual Seasonality</x:String>
-                                        <x:String>Flat Rate Seasonality</x:String>
-                                        <x:String>Quarterly Seasonality</x:String>
-                                        <x:String>Summer Peak Seasonality</x:String>
-                                    </x:Array>
-                                </controls:CustomPicker.ItemsSource>
-                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
-                            </controls:CustomPicker>
-
-                            <Label
-                                Grid.Column="1"
-				                FontFamily="{StaticResource MaterialFontFamily}"
-				                FontSize="15"
-				                HorizontalTextAlignment="Center"
-				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-				                TextColor="#F40000"
-				                VerticalTextAlignment="Center" />
-                        </Grid>
-                    </Frame>
-
-                    <ImageButton 
-                        Grid.Row="25"
-                        CornerRadius="8"
-                        Aspect="AspectFill"
-                        x:Name="imgSeasonality"
-                        BackgroundColor="Transparent"/>
-
-                    <Label
-                        Grid.Row="27"
-                        FontSize="18"
-                        Opacity="0.70"
-	    	            TextColor="White"
-	    	            Text="Minimum nights stay"
-                        HorizontalTextAlignment="Start"
-                        FontFamily="PoppinsSemiBoldFontFamily"/>
-
-                    <BoxView 
-                        Grid.Row="29"
-		                BackgroundColor="White" 
-		                Opacity="0.1"/>
-
-                    <Label
-                        Grid.Row="31"
-	    	            FontFamily="PoppinsRegularFontFamily"
-	    	            FontSize="13" 
-                        HorizontalTextAlignment="Start"
-	    	            Text="Shortest duration a guest can stay for?"
-	    	            TextColor="White"
-                        Opacity="0.70" />
-
-                    <Frame 
-                        Padding="0"
-                        Grid.Row="33"
-                        CornerRadius="12"
-                        HasShadow="False" 
                         BorderColor="#242A37"
                         BackgroundColor="Transparent"
                         IsClippedToBounds="True">
                         <Grid 
                             RowSpacing="0" 
                             ColumnSpacing="0" 
-                            Grid.Row="33" 
+                            Grid.Row="35" 
+                            Grid.ColumnSpan="2"
                             HeightRequest="45"
                             VerticalOptions="CenterAndExpand">
                             <Grid.ColumnDefinitions>
@@ -1584,7 +1134,7 @@
                                 CornerRadius="10"
                                 TextColor="#F40000"
                                 BackgroundColor="#242A37"
-                                Command="{Binding MinimumNightsStayMinusCommand}"
+                                Command="{Binding StayOfferDiscountMinusCommand}"
                                 FontFamily="{StaticResource MaterialFontFamily}"
                                 Text="{x:Static fontawesome:QloudidAppFlatIcons.Minus}"/>
 
@@ -1597,8 +1147,8 @@
                                 FontFamily="PoppinsRegularFontFamily">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding TNights}"/>
-                                        <Span Text=" night"/>
+                                        <Span Text="{Binding DiscountForSeven}"/>
+                                        <Span Text=" %"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -1610,26 +1160,27 @@
                                 CornerRadius="10"
                                 TextColor="#4CD964"
                                 BackgroundColor="#242A37"
-                                Command="{Binding MinimumNightsStayPlusCommand}"
+                                Command="{Binding StayOfferDiscountPlusCommand}"
                                 FontFamily="{StaticResource MaterialFontFamily}"
                                 Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
                         </Grid>
                     </Frame>
+
                 </Grid>
-                <!--=========End Generic===========-->
+                <!--=========End Manual===========-->
             </StackLayout>
         </ScrollView>
 
         <Button 
             Grid.Column="1"
             Grid.ColumnSpan="3"
-            Grid.Row="10" 
+            Grid.Row="9" 
             CornerRadius="30"
-            Text="Add pricing"
+            Text="Update"
             FontSize="16"
             TextColor="White"
             BackgroundColor="#F40000"
-            Command="{Binding AddPricingCommand}"
+            Command="{Binding UpdatePricingCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

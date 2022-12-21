@@ -16,5 +16,6 @@ namespace Qloudid.Interfaces
         Task<Models.AddPricingPeriodResponse> AddPricingPeriodAsync(Models.AddPricingPeriodRequest model);
         Task<int> AddPricingAsync(Models.AddPricingRequest model);
         Task<int> GeneratePricingAsync(Models.GeneratePricingRequest model);
+        Task<int> UpdatePricingAsync(Models.UpdatePricingRequest model);
     }
 }
