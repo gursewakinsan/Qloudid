@@ -45,7 +45,10 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteNightlyPricingPageCommand()
 		{
-			await Navigation.PushAsync(new Views.RentOut.NightlyPricingListPage());
+			if (Address.IsCurrencyUpdated)
+				await Navigation.PushAsync(new Views.RentOut.NightlyPricingListPage());
+			else
+				await Navigation.PushAsync(new Views.RentOut.AddCurrencyPage());
 		}
 		#endregion
 

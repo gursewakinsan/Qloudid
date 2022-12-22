@@ -365,7 +365,7 @@
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
-						BackgroundColor="#F4B400"
+						BackgroundColor="{Binding PricingBg}"
                         VerticalOptions="CenterAndExpand">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
@@ -378,9 +378,25 @@
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="13"
 						HorizontalTextAlignment="Center"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.TransitConnectionHorizontal}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center">
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPricing}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="9"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPricing, Converter={StaticResource InverseBoolConverter}}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
                         </Label.GestureRecognizers>

@@ -77,6 +77,9 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "departure_time")]
 		public string DepartureTime { get; set; }
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "currency_updated")]
+		public bool IsCurrencyUpdated { get; set; }
+
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_layout")]
 		private string propertyLayout;
 		public string PropertyLayout
@@ -501,6 +504,19 @@ namespace Qloudid.Models
 				OnPropertyChanged("SecurityFeeUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "policy_updated")]
+		private bool policyUpdated;
+		public bool PolicyUpdated
+		{
+			get => policyUpdated;
+			set
+			{
+				policyUpdated = value;
+				OnPropertyChanged("PolicyUpdated");
+			}
+		}
+		
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "fee_updated")]
 		private bool feeUpdated;

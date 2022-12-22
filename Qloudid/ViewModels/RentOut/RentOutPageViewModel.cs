@@ -50,6 +50,23 @@ namespace Qloudid.ViewModels
 				ArrivalAndRulesIconBg = Color.FromHex("#F4B400");
 				IsArrivalAndRulesIconChecked = false;
 			}
+
+			if (response.PricingUpdated && response.FeeUpdated && response.SecurityFeeUpdated && response.PolicyUpdated)
+			{
+				IsPricing = true;
+				PricingBg = Color.FromHex("#4CD964");
+			}
+			else if (!response.PricingUpdated && !response.FeeUpdated && !response.SecurityFeeUpdated && !response.PolicyUpdated)
+			{
+				IsPricing = false;
+				PricingBg = Color.FromHex("#F40000");
+			}
+			else if (!response.PricingUpdated || !response.FeeUpdated || !response.SecurityFeeUpdated || !response.PolicyUpdated)
+			{
+				IsPricing = false;
+				PricingBg = Color.FromHex("#F4B400");
+			}
+
 			Address = response;
 			Helper.Helper.SelectedUserAddress = Address;
 			DependencyService.Get<IProgressBar>().Hide();
@@ -135,6 +152,28 @@ namespace Qloudid.ViewModels
 			{
 				isPageLoad = value;
 				OnPropertyChanged("IsPageLoad");
+			}
+		}
+
+		private bool isPricing;
+		public bool IsPricing
+		{
+			get => isPricing;
+			set
+			{
+				isPricing = value;
+				OnPropertyChanged("IsPricing");
+			}
+		}
+
+		private Color pricingBg;
+		public Color PricingBg
+		{
+			get => pricingBg;
+			set
+			{
+				pricingBg = value;
+				OnPropertyChanged("PricingBg");
 			}
 		}
 		#endregion

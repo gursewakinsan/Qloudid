@@ -124,5 +124,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> AddCurrencyAsync(Models.AddCurrencyRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddCurrencyUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

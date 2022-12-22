@@ -265,4 +265,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconThreePartColor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconCurrencyPage.png" />
+  </ItemGroup>
 </Project>
