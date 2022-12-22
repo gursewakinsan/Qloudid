@@ -21,6 +21,8 @@
             <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="65"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -238,16 +240,14 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                            <controls:CustomDatePicker
+                            <Label  
                                 Grid.Column="0"
-						        BackgroundColor="Transparent"
-						        Date="{Binding SelectedExpiryDate}"
-						        FontFamily="PoppinsRegularFontFamily"
-						        FontSize="15"
-						        Format="yyyy-MM-dd"
-						        MaximumDate="{Binding BindExpiryMaximumDate}"
-						        MinimumDate="{Binding BindExpiryMinimumDate}"
-						        TextColor="White" />
+                                TextColor="White"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"
+			    	            FontSize="15" 
+                                Text="{Binding UpdateSelectedNightlyPricing.PricingEndDate}"/>
 
                             <Label
                                 Grid.Column="1"
@@ -1181,6 +1181,18 @@
             TextColor="White"
             BackgroundColor="#F40000"
             Command="{Binding UpdatePricingCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="11" 
+            CornerRadius="30"
+            Text="Delete"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding DeletePricingCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

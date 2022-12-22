@@ -156,10 +156,11 @@ namespace Qloudid.ViewModels
 				IRentOutService service = new RentOutService();
 				Models.UpdatePricingRequest request = new Models.UpdatePricingRequest()
 				{
+					Pid = UpdateSelectedNightlyPricing.Id,
 					ApartmentId = Address.Id,
 					Title = PricingTitle,
 					StartDate = UpdateSelectedNightlyPricing.PricingStartDate,
-					//EndDate = $"{SelectedExpiryDate.Year}-{SelectedExpiryDate.Month}-{SelectedExpiryDate.Day}",
+					EndDate = UpdateSelectedNightlyPricing.PricingEndDate,
 					MondayOpen = IsMondayOpen ? 1 : 0,
 					TuesdayOpen = IsTuesdayOpen ? 1 : 0,
 					WednesdayOpen = IsWednesdayOpen ? 1 : 0,
@@ -199,6 +200,26 @@ namespace Qloudid.ViewModels
 				await Navigation.PopAsync();
 				DependencyService.Get<IProgressBar>().Hide();
 			}
+		}
+		#endregion
+
+		#region Delete Pricing Command.
+		private ICommand deletePricingCommand;
+		public ICommand DeletePricingCommand
+		{
+			get => deletePricingCommand ?? (deletePricingCommand = new Command(async () => await ExecuteDeletePricingCommand()));
+		}
+		private async Task ExecuteDeletePricingCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			await service.DeletePricingUrlAsync(new Models.DeletePricingRequest()
+			{
+				Pid = UpdateSelectedNightlyPricing.Id,
+				ApartmentId = Address.Id
+			});
+			await Navigation.PopAsync();
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

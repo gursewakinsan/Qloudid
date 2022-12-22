@@ -115,5 +115,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> DeletePricingUrlAsync(Models.DeletePricingRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.DeletePricingUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
