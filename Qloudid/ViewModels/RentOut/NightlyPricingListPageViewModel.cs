@@ -72,6 +72,23 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(async () => await ExecuteBackCommand()));
+		}
+		private async Task ExecuteBackCommand()
+		{
+			if (Helper.Helper.IsFromCurrencyPage)
+			{
+				Helper.Helper.IsFromCurrencyPage = false;
+				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+			}
+			await Navigation.PopAsync();
+		}
+		#endregion
+
 		#region Properties.
 		private List<Models.NightlyPricingListResponse> nightlyPricingList;
 		public List<Models.NightlyPricingListResponse> NightlyPricingList

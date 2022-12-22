@@ -31,7 +31,8 @@ namespace Qloudid.ViewModels
 				ApartmentId = Address.Id,
 				CurrencyId = CurrencyId,
 			});
-			await Navigation.PopAsync();
+			Helper.Helper.IsFromCurrencyPage = true;
+			await Navigation.PushAsync(new Views.RentOut.NightlyPricingListPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

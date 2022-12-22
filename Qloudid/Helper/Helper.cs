@@ -108,6 +108,8 @@ namespace Qloudid.Helper
 		public static Models.TenantInvoicePayNow TenantInvoicePayNow { get; set; }
         public static bool IsSignIn { get; set; }
 
+		public static bool IsFromCurrencyPage { get; set; } = false;
+
 
         public static string[] ColorList =
 		{
