@@ -110,6 +110,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Photo, Text & Availability Command.
+		private ICommand photoTextAndAvailabilityCommand;
+		public ICommand PhotoTextAndAvailabilityCommand
+		{
+			get => photoTextAndAvailabilityCommand ?? (photoTextAndAvailabilityCommand = new Command(async () => await ExecutePhotoTextAndAvailabilityCommand()));
+		}
+		private async Task ExecutePhotoTextAndAvailabilityCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.PhotoAndTextPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

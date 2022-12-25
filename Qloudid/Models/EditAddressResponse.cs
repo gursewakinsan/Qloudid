@@ -541,6 +541,78 @@ namespace Qloudid.Models
 				OnPropertyChanged("PricingUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_nickname")]
+		private string propertyNickname;
+		public string PropertyNickname
+		{
+			get => propertyNickname;
+			set
+			{
+				propertyNickname = value;
+				OnPropertyChanged("PropertyNickname");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_heading")]
+		private string propertyHeading;
+		public string PropertyHeading
+		{
+			get => propertyHeading;
+			set
+			{
+				propertyHeading = value;
+				OnPropertyChanged("PropertyHeading");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "apartment_description")]
+		private string apartmentDescription;
+		public string ApartmentDescription
+		{
+			get => apartmentDescription;
+			set
+			{
+				apartmentDescription = value;
+				OnPropertyChanged("ApartmentDescription");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "nickname_updated")]
+		private bool nicknameUpdated;
+		public bool NicknameUpdated
+		{
+			get => nicknameUpdated;
+			set
+			{
+				nicknameUpdated = value;
+				OnPropertyChanged("NicknameUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "headline_updated")]
+		private bool headLineUpdated;
+		public bool HeadLineUpdated
+		{
+			get => headLineUpdated;
+			set
+			{
+				headLineUpdated = value;
+				OnPropertyChanged("HeadLineUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "description_updated")]
+		private bool descriptionUpdated;
+		public bool DescriptionUpdated
+		{
+			get => descriptionUpdated;
+			set
+			{
+				descriptionUpdated = value;
+				OnPropertyChanged("DescriptionUpdated");
+			}
+		}
 	}
 }
 

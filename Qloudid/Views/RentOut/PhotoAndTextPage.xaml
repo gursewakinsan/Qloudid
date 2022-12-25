@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.PhotoAndTextPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Photo &amp; Text"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" LineHeight="1.1"
+            HorizontalTextAlignment="Start"
+	    	Text="These is a list of section and its status"
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    FontSize="16"
+		    Text="Sections"
+		    TextColor="White"
+            Opacity="0.7"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="10"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <ScrollView
+            Grid.ColumnSpan="5"
+            Grid.Row="11"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" Margin="28,0,28,0" ColumnSpacing="15" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="26"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <!--Photos-->
+                <BoxView 
+			        Grid.Row="0" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.PricingUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="0"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center" 
+                    IsVisible="{Binding Address.PricingUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+			        Grid.Row="0" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="0"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center" 
+                    IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="0"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Photos"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="0"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="1" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+
+                <!--Property nickname-->
+                <BoxView 
+			        Grid.Row="2" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.FeeUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.FeeUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+			        Grid.Row="2" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.FeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.FeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="2"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Property nickname"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="3" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+
+                <!--Listing headline-->
+                <BoxView 
+			        Grid.Row="4" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.SecurityFeeUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="4"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.SecurityFeeUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+			        Grid.Row="4" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.SecurityFeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="4"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.SecurityFeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="4"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Listing headline"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="4"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="5" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+
+                <!--Listing description-->
+                <BoxView 
+			        Grid.Row="6" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="6"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="6"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Listing description"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="6"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="7" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+
+                <!--Availability-->
+                <BoxView 
+			        Grid.Row="8" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AvailabilityPageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="8"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AvailabilityPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="8"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Availability"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AvailabilityPageCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="8"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AvailabilityPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="9" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

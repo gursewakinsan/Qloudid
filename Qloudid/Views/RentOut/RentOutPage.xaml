@@ -445,7 +445,11 @@
 						CornerRadius="13"
                         HeightRequest="26"
 						BackgroundColor="#F40000"
-                        VerticalOptions="CenterAndExpand"/>
+                        VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
 
                     <Label
 						Grid.Row="11"
@@ -455,7 +459,11 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="11"
@@ -466,7 +474,11 @@
 						TextColor="White" 
                         Opacity="0.60"
                         VerticalTextAlignment="Center"
-						HorizontalTextAlignment="Start"/>
+						HorizontalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="11"
@@ -476,7 +488,11 @@
 						HorizontalTextAlignment="End"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 						TextColor="White"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <BoxView 
 						Grid.Row="12" 
