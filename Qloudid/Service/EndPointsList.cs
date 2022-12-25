@@ -186,5 +186,11 @@
 		public const string UpdatePricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePricing";
 		public const string DeletePricingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deletePricing";
 		public const string AddCurrencyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addCurrency";
+		
+		public const string UpdateHeadingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateHeading";
+		public const string UpdateDescriptionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDescription";
+		public const string UpdateNicknameUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateNickname";
+		public const string ChangeDescriptionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/changeDescription";
+		public const string ChangeListingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/changeListing";
 	}
 }

@@ -133,5 +133,50 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> UpdateHeadingAsync(Models.UpdateTextOrAvailabilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateHeadingUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateDescriptionAsync(Models.UpdateTextOrAvailabilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateDescriptionUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateNicknameAsync(Models.UpdateTextOrAvailabilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateNicknameUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ChangeDescriptionUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ChangeListingUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

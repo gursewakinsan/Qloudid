@@ -19,5 +19,10 @@ namespace Qloudid.Interfaces
         Task<int> UpdatePricingAsync(Models.UpdatePricingRequest model);
         Task<int> DeletePricingUrlAsync(Models.DeletePricingRequest model);
         Task<int> AddCurrencyAsync(Models.AddCurrencyRequest model);
+        Task<int> UpdateHeadingAsync(Models.UpdateTextOrAvailabilityRequest model);
+        Task<int> UpdateDescriptionAsync(Models.UpdateTextOrAvailabilityRequest model);
+        Task<int> UpdateNicknameAsync(Models.UpdateTextOrAvailabilityRequest model);
+        Task<int> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model);
+        Task<int> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model);
     }
 }
