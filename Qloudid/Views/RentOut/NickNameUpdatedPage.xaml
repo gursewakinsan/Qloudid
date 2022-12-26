@@ -1,12 +1,155 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Qloudid.Views.RentOut.NickNameUpdatedPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.NickNameUpdatedPage" 
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="Black"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Property name"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" LineHeight="1.1"
+            HorizontalTextAlignment="Start"
+	    	Text="We ask for a property nickname to make it easier for you to identify different properties."
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+        
+        <Grid 
+            RowSpacing="8"
+            ColumnSpacing="0"
+            Margin="0,40,0,0"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="7"
+            VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+		        FontSize="14"
+		        Text="Nickname"
+		        TextColor="White"
+                Opacity="0.7"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Start"
+                FontFamily="PoppinsRegularFontFamily"/>
+
+            <Frame 
+                Grid.Row="1"
+                Padding="12,0,12,0"
+                CornerRadius="10"
+                HasShadow="False"
+                BackgroundColor="#2A2A31"
+                IsClippedToBounds="True">
+                <controls:CustomEntry 
+                    FontSize="15"
+                    TextColor="White"
+                    Placeholder="Nickname"
+                    PlaceholderColor="Gray"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    Text="{Binding Address.PropertyNickname}"/>
+            </Frame>
+
+            <Label
+                Grid.Row="2"
+		        FontSize="13"
+		        Text="(minimum 1) 37/50"
+		        TextColor="White"
+                Opacity="0.42"
+                VerticalTextAlignment="End"
+                HorizontalTextAlignment="Start"
+                FontFamily="PoppinsRegularFontFamily"/>
+        </Grid>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8" 
+            CornerRadius="30"
+            Text="Update"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding UpdateNickNameCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
 </ContentPage>

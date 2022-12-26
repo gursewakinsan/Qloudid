@@ -161,20 +161,20 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model)
+		public Task<string> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ChangeDescriptionUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.ChangeDescriptionUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}
 
-		public Task<int> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model)
+		public Task<string> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.ChangeListingUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.ChangeListingUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

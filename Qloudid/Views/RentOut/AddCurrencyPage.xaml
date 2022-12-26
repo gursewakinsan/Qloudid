@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.RentOut.AddCurrencyPage"
-     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:controls="clr-namespace:Qloudid.Controls"
     ios:Page.UseSafeArea="True"
@@ -91,8 +91,6 @@
 		    BackgroundColor="White" 
 		    Opacity="0.1"/>
 
-       
-
         <Button 
             Grid.Column="1"
             Grid.ColumnSpan="3"
@@ -131,7 +129,6 @@
                 VerticalTextAlignment="Center"
                 FontFamily="PoppinsRegularFontFamily"/>
         </Grid>
-        
 
         <Grid 
             RowSpacing="8"

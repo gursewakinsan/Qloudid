@@ -76,6 +76,7 @@
     <Compile Include="Renderers\CameraPreviewRenderer.cs" />
     <Compile Include="Renderers\CropViewRenderer.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
+    <Compile Include="Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomFloatingLabelEntryRenderer.cs" />
     <Compile Include="Renderers\CustomFrameRenderer.cs" />

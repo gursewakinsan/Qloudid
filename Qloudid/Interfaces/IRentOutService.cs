@@ -22,7 +22,7 @@ namespace Qloudid.Interfaces
         Task<int> UpdateHeadingAsync(Models.UpdateTextOrAvailabilityRequest model);
         Task<int> UpdateDescriptionAsync(Models.UpdateTextOrAvailabilityRequest model);
         Task<int> UpdateNicknameAsync(Models.UpdateTextOrAvailabilityRequest model);
-        Task<int> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model);
-        Task<int> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model);
+        Task<string> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model);
+        Task<string> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model);
     }
 }
