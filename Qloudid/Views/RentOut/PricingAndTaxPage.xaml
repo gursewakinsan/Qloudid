@@ -6,7 +6,7 @@
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     ios:Page.UseSafeArea="True"
-	BackgroundColor="Black"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
     <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
         <Grid.RowDefinitions>

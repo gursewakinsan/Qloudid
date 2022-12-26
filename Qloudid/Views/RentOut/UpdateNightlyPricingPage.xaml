@@ -7,7 +7,7 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:controls="clr-namespace:Qloudid.Controls"
     ios:Page.UseSafeArea="True"
-	BackgroundColor="Black"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
     <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
         <Grid.RowDefinitions>
@@ -96,7 +96,8 @@
             Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="8" 
-            Margin="0,0,0,2">
+            Margin="0,0,0,2"
+            VerticalScrollBarVisibility="Never">
             <StackLayout>
                 <!--=========Start Manual=========-->
                 <Grid 
