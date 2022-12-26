@@ -230,7 +230,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#4CD964"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.FeeUpdated}">
+                    IsVisible="{Binding Address.NicknameUpdated}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -245,7 +245,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center"
-                    IsVisible="{Binding Address.FeeUpdated}">
+                    IsVisible="{Binding Address.NicknameUpdated}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
                     </Label.GestureRecognizers>
@@ -258,7 +258,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#F40000"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.FeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.NicknameUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -273,7 +273,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center"
-                    IsVisible="{Binding Address.FeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.NicknameUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
                     </Label.GestureRecognizers>
@@ -323,7 +323,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#4CD964"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.SecurityFeeUpdated}">
+                    IsVisible="{Binding Address.HeadLineUpdated}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -338,7 +338,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center"
-                    IsVisible="{Binding Address.SecurityFeeUpdated}">
+                    IsVisible="{Binding Address.HeadLineUpdated}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
                     </Label.GestureRecognizers>
@@ -351,7 +351,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#F40000"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.SecurityFeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.HeadLineUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -366,7 +366,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center"
-                    IsVisible="{Binding Address.SecurityFeeUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.HeadLineUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
                     </Label.GestureRecognizers>
@@ -414,8 +414,37 @@
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.DescriptionUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="6"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.DescriptionUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <BoxView 
+			        Grid.Row="6" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
 			        BackgroundColor="#F40000"
-                    VerticalOptions="CenterAndExpand">
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.DescriptionUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}" />
                     </BoxView.GestureRecognizers>
@@ -429,7 +458,8 @@
 		    	    HorizontalTextAlignment="Center"
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
-		    	    VerticalTextAlignment="Center">
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.DescriptionUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
                     </Label.GestureRecognizers>
