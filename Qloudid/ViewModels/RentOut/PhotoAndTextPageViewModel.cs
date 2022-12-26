@@ -35,6 +35,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Photos Updated Page Command.
+		private ICommand photosUpdatedPageCommand;
+		public ICommand PhotosUpdatedPageCommand
+		{
+			get => photosUpdatedPageCommand ?? (photosUpdatedPageCommand = new Command(async () => await ExecutePhotosUpdatedPageCommand()));
+		}
+		private async Task ExecutePhotosUpdatedPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.PhotosUpdatedPage());
+		}
+		#endregion
+
 		#region Nick Name Updated Page Command.
 		private ICommand nickNameUpdatedPageCommand;
 		public ICommand NickNameUpdatedPageCommand

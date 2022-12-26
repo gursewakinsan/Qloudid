@@ -139,7 +139,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.PricingUpdated}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -154,7 +154,7 @@
 		    	    VerticalTextAlignment="Center" 
                     IsVisible="{Binding Address.PricingUpdated}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -167,7 +167,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -182,7 +182,7 @@
 		    	    VerticalTextAlignment="Center" 
                     IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -197,7 +197,7 @@
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -211,7 +211,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PhotosPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
