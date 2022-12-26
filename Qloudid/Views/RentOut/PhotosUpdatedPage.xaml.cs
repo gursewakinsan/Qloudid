@@ -19,5 +19,13 @@ namespace Qloudid.Views.RentOut
             BindingContext = viewModel = new PhotosUpdatedPageViewModel(this.Navigation);
         }
         #endregion
+
+        #region On Appearing.
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.DisplayPhotosCommand.Execute(null);
+        }
+        #endregion
     }
 }

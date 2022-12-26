@@ -24,5 +24,8 @@ namespace Qloudid.Interfaces
         Task<int> UpdateNicknameAsync(Models.UpdateTextOrAvailabilityRequest model);
         Task<string> ChangeDescriptionAsync(Models.ChangeTextOrAvailabilityRequest model);
         Task<string> ChangeListingAsync(Models.ChangeTextOrAvailabilityRequest model);
+        Task<List<Models.DisplayPhotosResponse>> DisplayPhotosAsync(Models.DisplayPhotosRequest model);
+        Task<int> DeleteApartmentPhotoAsync(Models.DeleteApartmentPhotoRequest model);
+        Task<int> AddApartmentPhotosAsync(Models.AddApartmentPhotosRequest model);
     }
 }

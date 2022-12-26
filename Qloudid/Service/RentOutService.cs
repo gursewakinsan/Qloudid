@@ -178,5 +178,32 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.DisplayPhotosResponse>> DisplayPhotosAsync(Models.DisplayPhotosRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.DisplayPhotosResponse>>(HttpWebRequest.Create(EndPointsList.DisplayPhotosUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> DeleteApartmentPhotoAsync(Models.DeleteApartmentPhotoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.DeleteApartmentPhotoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddApartmentPhotosAsync(Models.AddApartmentPhotosRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddApartmentPhotosUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
