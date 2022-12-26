@@ -1,8 +1,10 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -30,6 +32,10 @@ namespace Qloudid.ViewModels
 			{
 				ApartmentId = Address.Id,
 			});
+			if (response == null) response = new System.Collections.Generic.List<Models.DisplayPhotosResponse>();
+			foreach (var item in response) item.IsAddNewPhoto = false;
+			response.Add(new Models.DisplayPhotosResponse() { IsAddNewPhoto = true });
+			DisplayPhotos = new ObservableCollection<Models.DisplayPhotosResponse>(response);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -62,10 +68,13 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
+			string userImageInfo = Convert.ToBase64String(UserImageData);
 			await service.AddApartmentPhotosAsync(new Models.AddApartmentPhotosRequest()
 			{
+				ApartmentId = Address.Id,
+				UpdateInfo = userImageInfo
 			});
-			await Navigation.PopAsync();
+			DisplayPhotosCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -81,6 +90,19 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Address");
 			}
 		}
+
+		private ObservableCollection<Models.DisplayPhotosResponse> displayPhotos;
+		public ObservableCollection<Models.DisplayPhotosResponse> DisplayPhotos
+		{
+			get => displayPhotos;
+			set
+			{
+				displayPhotos = value;
+				OnPropertyChanged("DisplayPhotos");
+			}
+		}
+
+		public byte[] UserImageData { get; set; }
 		#endregion
 	}
 }

@@ -5,7 +5,7 @@
     x:Class="Qloudid.Views.RentOut.PhotosUpdatedPage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-    xmlns:controls="clr-namespace:Qloudid.Controls"
+    xmlns:controls="clr-namespace:Qloudid.Controls" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
@@ -189,7 +189,69 @@
             VerticalTextAlignment="Center"
             HorizontalTextAlignment="End"
             FontFamily="PoppinsRegularFontFamily"/>
-        
-        
+
+        <syncfusion:SfListView
+		    x:Name="listView"
+		    Grid.Row="11"
+		    Margin="0,32,0,5"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+		    IsScrollBarVisible="False"
+		    ItemSize="115"
+		    ItemTapped="OnListViewItemTapped"
+		    ItemsSource="{Binding DisplayPhotos}"
+		    VerticalOptions="StartAndExpand">
+            <syncfusion:SfListView.LayoutManager>
+                <syncfusion:GridLayout SpanCount="3" />
+            </syncfusion:SfListView.LayoutManager>
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        HeightRequest="95"
+                        WidthRequest="95"
+                        Margin="0,0,0,20"
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="StartAndExpand">
+                        <ImageButton
+                            CornerRadius="8"
+                            BackgroundColor="#242A37"
+                            Source="{Binding ApartmentPhotoPath}"
+                            Aspect="AspectFill"
+                            IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}"/>
+
+                        <Button
+                            FontSize="25"
+                            CornerRadius="8"
+                            TextColor="White"
+                            BackgroundColor="#242A37"
+                            Clicked="OnAddNewImageButtonClicked"
+                            IsVisible="{Binding IsAddNewPhoto}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+
+                        <Frame 
+                            Padding="0"
+                            CornerRadius="12"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            HasShadow="False"
+                            Margin="0,0,10,10"
+                            BackgroundColor="#B90303"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="EndAndExpand"
+                            IsClippedToBounds="True"
+                            IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}">
+                            <Label
+                                FontSize="15"
+                                TextColor="#242A37"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
     </Grid>
 </ContentPage>
