@@ -35,6 +35,42 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Nick Name Updated Page Command.
+		private ICommand nickNameUpdatedPageCommand;
+		public ICommand NickNameUpdatedPageCommand
+		{
+			get => nickNameUpdatedPageCommand ?? (nickNameUpdatedPageCommand = new Command(async () => await ExecuteNickNameUpdatedPageCommand()));
+		}
+		private async Task ExecuteNickNameUpdatedPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.NickNameUpdatedPage());
+		}
+		#endregion
+
+		#region Head Line Updated Page Command.
+		private ICommand headLineUpdatedPageCommand;
+		public ICommand HeadLineUpdatedPageCommand
+		{
+			get => headLineUpdatedPageCommand ?? (headLineUpdatedPageCommand = new Command(async () => await ExecuteHeadLineUpdatedPageCommand()));
+		}
+		private async Task ExecuteHeadLineUpdatedPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.HeadLineUpdatedPage());
+		}
+		#endregion
+
+		#region Description Updated Page Command.
+		private ICommand descriptionUpdatedPageCommand;
+		public ICommand DescriptionUpdatedPageCommand
+		{
+			get => descriptionUpdatedPageCommand ?? (descriptionUpdatedPageCommand = new Command(async () => await ExecuteDescriptionUpdatedPageCommand()));
+		}
+		private async Task ExecuteDescriptionUpdatedPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.DescriptionUpdatedPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

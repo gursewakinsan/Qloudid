@@ -232,7 +232,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.NicknameUpdated}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -247,7 +247,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.NicknameUpdated}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -260,7 +260,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.NicknameUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -275,7 +275,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.NicknameUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -290,7 +290,7 @@
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -304,7 +304,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PropertyNicknamePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding NickNameUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -325,7 +325,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.HeadLineUpdated}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -340,7 +340,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.HeadLineUpdated}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -353,7 +353,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.HeadLineUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -368,7 +368,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.HeadLineUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -383,7 +383,7 @@
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -397,7 +397,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding HeadLineUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -418,7 +418,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.DescriptionUpdated}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -433,7 +433,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.DescriptionUpdated}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingHeadlinePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
                 
@@ -446,7 +446,7 @@
                     VerticalOptions="CenterAndExpand"
                     IsVisible="{Binding Address.DescriptionUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}" />
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}" />
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -461,7 +461,7 @@
 		    	    VerticalTextAlignment="Center"
                     IsVisible="{Binding Address.DescriptionUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -476,7 +476,7 @@
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -490,7 +490,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ListingDescriptionPageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding DescriptionUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
