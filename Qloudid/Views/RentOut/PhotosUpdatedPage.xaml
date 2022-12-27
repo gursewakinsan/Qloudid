@@ -141,14 +141,14 @@
             BackgroundColor="#F40000"
             HorizontalOptions="StartAndExpand">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding ChangeListingCommand}"/>
+                <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
             </Frame.GestureRecognizers>
             <StackLayout 
                 Orientation="Horizontal" 
                 HorizontalOptions="CenterAndExpand" 
                 VerticalOptions="CenterAndExpand" Spacing="6">
                 <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ChangeListingCommand}"/>
+                    <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
                 </StackLayout.GestureRecognizers>
                 <Label
 			        FontFamily="PoppinsRegularFontFamily"
@@ -158,7 +158,7 @@
                     Text="Upload photo"
 			        VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ChangeListingCommand}"/>
+                        <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -172,7 +172,7 @@
 			        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
 			        TextColor="White">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ChangeListingCommand}"/>
+                        <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
@@ -186,6 +186,7 @@
 		    Text="(minimum 16) 3/24"
 		    TextColor="White"
             Opacity="0.42"
+            HorizontalOptions="EndAndExpand"
             VerticalTextAlignment="Center"
             HorizontalTextAlignment="End"
             FontFamily="PoppinsRegularFontFamily"/>
