@@ -27,5 +27,7 @@ namespace Qloudid.Interfaces
         Task<List<Models.DisplayPhotosResponse>> DisplayPhotosAsync(Models.DisplayPhotosRequest model);
         Task<int> DeleteApartmentPhotoAsync(Models.DeleteApartmentPhotoRequest model);
         Task<int> AddApartmentPhotosAsync(Models.AddApartmentPhotosRequest model);
+        Task<int> UpdateBlockedAsync(Models.UpdateBlockedRequest model);
+        Task<int> UpdateAvailableAsync(Models.UpdateAvailableRequest model);
     }
 }

@@ -83,6 +83,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Availability Page Command.
+		private ICommand availabilityPageCommand;
+		public ICommand AvailabilityPageCommand
+		{
+			get => availabilityPageCommand ?? (availabilityPageCommand = new Command(async () => await ExecuteAvailabilityPageCommand()));
+		}
+		private async Task ExecuteAvailabilityPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.BlockDatesPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

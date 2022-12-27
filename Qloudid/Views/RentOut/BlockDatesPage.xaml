@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.BlockDatesPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="57"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Block dates"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" LineHeight="1.1"
+            HorizontalTextAlignment="Start"
+	    	Text="Block your dates using a date picker or a date ranger."
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <Frame 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+            Padding="0"
+            CornerRadius="10"
+            HasShadow="False"
+            BorderColor="#2A2A31"
+            BackgroundColor="Transparent"
+            IsClippedToBounds="True">
+            <Grid ColumnSpacing="0">
+                <Label
+                    Grid.Column="0"
+		            FontSize="14"
+		            Text="Date picker"
+		            TextColor="White"
+                    Opacity="0.7" 
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="{Binding DateDickerBg}"
+                    FontFamily="PoppinsMediumFontFamily">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectedDatePickerCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Column="1"
+		            FontSize="14"
+		            Text="Range"
+		            TextColor="White"
+                    Opacity="0.7" 
+                    BackgroundColor="{Binding RangeBg}"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsMediumFontFamily">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectedDatePickerCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Frame>
+
+        <Grid
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="7"
+            RowSpacing="0"
+            ColumnSpacing="20" 
+            Margin="0,35,0,5"
+            IsVisible="{Binding IsDateDickerSelected, Converter={StaticResource InverseBoolConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Column="0"
+		        FontSize="18"
+		        Text="Range"
+                Grid.ColumnSpan="2"
+		        TextColor="White"
+                Opacity="0.7" 
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="2"
+	    	    FontFamily="PoppinsRegularFontFamily"
+	    	    FontSize="14"
+                HorizontalTextAlignment="Start"
+	    	    Text="Start date"
+	    	    TextColor="White"
+                Opacity="0.42"/>
+
+            <Label
+                Grid.Column="1"
+                Grid.Row="2"
+	    	    FontFamily="PoppinsRegularFontFamily"
+	    	    FontSize="14"
+                HorizontalTextAlignment="Start"
+	    	    Text="End date"
+	    	    TextColor="White"
+                Opacity="0.42"/>
+
+            <Frame 
+                Grid.Column="0"
+                Grid.Row="4" 
+                Padding="20,0,20,0"
+                HasShadow="False"
+                CornerRadius="10"
+                IsClippedToBounds="True"
+                BackgroundColor="#242A37" >
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomDatePicker
+                        Grid.Column="0"
+					    BackgroundColor="Transparent"
+					    Date="{Binding SelectedStartDate}"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="15"
+					    Format="yyyy-MM-dd"
+					    TextColor="White" />
+
+                    <Label
+                        Grid.Column="1"
+				        FontFamily="{StaticResource MaterialFontFamily}"
+				        FontSize="15"
+				        HorizontalTextAlignment="Center"
+				        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				        TextColor="#F40000"
+				        VerticalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+
+            <Frame 
+                Grid.Column="1"
+                Grid.Row="4" 
+                Padding="20,0,20,0"
+                HasShadow="False"
+                CornerRadius="10"
+                IsClippedToBounds="True"
+                BackgroundColor="#242A37" >
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomDatePicker
+                        Grid.Column="0"
+					    BackgroundColor="Transparent"
+					    Date="{Binding SelectedEndDate}"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="15"
+					    Format="yyyy-MM-dd"
+					    TextColor="White" />
+
+                    <Label
+                        Grid.Column="1"
+				        FontFamily="{StaticResource MaterialFontFamily}"
+				        FontSize="15"
+				        HorizontalTextAlignment="Center"
+				        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				        TextColor="#F40000"
+				        VerticalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="6"
+	    	    FontFamily="PoppinsRegularFontFamily"
+	    	    FontSize="14"
+                HorizontalTextAlignment="Start"
+	    	    Text="Action"
+	    	    TextColor="White"
+                Opacity="0.42"/>
+
+            <Frame 
+                Grid.Row="8" 
+                Padding="12,0,12,0"
+                HasShadow="False"
+                CornerRadius="10"
+                IsClippedToBounds="True"
+                BackgroundColor="#242A37">
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomPicker
+                        Grid.Column="0"
+			    	    Title="Seasonality"
+			    	    FontFamily="PoppinsRegularFontFamily"
+			    	    FontSize="15"
+			    	    TextColor="White"
+			    	    TitleColor="Gray"
+                        SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
+                        <controls:CustomPicker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Available dates</x:String>
+                                <x:String>Block dates</x:String>
+                            </x:Array>
+                        </controls:CustomPicker.ItemsSource>
+                        <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                    </controls:CustomPicker>
+
+                    <Label
+                        Grid.Column="1"
+				        FontFamily="{StaticResource MaterialFontFamily}"
+				        FontSize="15"
+				        HorizontalTextAlignment="Center"
+				        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				        TextColor="#F40000"
+				        VerticalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+        </Grid>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8" 
+            CornerRadius="30"
+            Text="Submit"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding DateRangeCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            IsVisible="{Binding IsDateDickerSelected, Converter={StaticResource InverseBoolConverter}}"/>
+    </Grid>
+</ContentPage>

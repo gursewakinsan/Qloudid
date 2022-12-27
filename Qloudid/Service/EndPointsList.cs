@@ -191,9 +191,11 @@
 		public const string UpdateNicknameUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateNickname";
 		public const string ChangeDescriptionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/changeDescription";
 		public const string ChangeListingUrl = "https://www.qloudid.com/user/index.php/QloudidApp/changeListing";
-
 		public const string DisplayPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/displayPhotos";
 		public const string DeleteApartmentPhotoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteApartmentPhoto";
 		public const string AddApartmentPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addApartmentPhotos";
+
+		public const string UpdateBlockedUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBlocked";
+		public const string UpdateAvailableUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAvailable";
 	}
 }
