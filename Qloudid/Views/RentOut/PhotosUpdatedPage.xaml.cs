@@ -17,7 +17,6 @@ namespace Qloudid.Views.RentOut
         PhotosUpdatedPageViewModel viewModel;
         private IMedia _mediaPicker;
         ImageSource _imageSource;
-		int photoId = 0;
         #endregion
 
         #region Constructor.
@@ -82,7 +81,9 @@ namespace Qloudid.Views.RentOut
 					await mediaFile.GetStream().CopyToAsync(memoryStream);
 					byte[] imageAsByte = memoryStream.ToArray();
 					//viewModel.UserImageData = imageAsByte;
-					
+					viewModel.UserImageData = imageAsByte;
+					viewModel.AddApartmentPhotosCommand.Execute(null);
+
 				}
 			}
 			catch (System.Exception ex)
@@ -119,10 +120,7 @@ namespace Qloudid.Views.RentOut
 				await mediaFile.GetStream().CopyToAsync(memoryStream);
 				byte[] imageAsByte = memoryStream.ToArray();
 				viewModel.UserImageData = imageAsByte;
-				if (photoId == 0)
-					viewModel.AddApartmentPhotosCommand.Execute(null);
-				
-
+				viewModel.AddApartmentPhotosCommand.Execute(null);
 			}
 			catch (Exception ex)
 			{
@@ -138,7 +136,6 @@ namespace Qloudid.Views.RentOut
 
         private async void OnAddNewImageButtonClicked(object sender, EventArgs e)
         {
-			photoId = 0;
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
 			{
@@ -150,5 +147,30 @@ namespace Qloudid.Views.RentOut
 					break;
 			}
 		}
-    }
+
+        #region Delete Photo.
+        private void OnImageButtonDeletePhotoClicked(object sender, EventArgs e)
+        {
+			ImageButton control = sender as ImageButton;
+			OnDeletePhotoClicked(control.BindingContext as Models.DisplayPhotosResponse);
+		}
+
+        private void OnFrameDeletePhotoClicked(object sender, EventArgs e)
+        {
+			Frame control = sender as Frame;
+			OnDeletePhotoClicked(control.BindingContext as Models.DisplayPhotosResponse);
+		}
+
+        private void OnLabelDeletePhotoClicked(object sender, EventArgs e)
+        {
+			Label control = sender as Label;
+			OnDeletePhotoClicked(control.BindingContext as Models.DisplayPhotosResponse);
+		}
+
+		void OnDeletePhotoClicked(Models.DisplayPhotosResponse deleteDisplayPhotos)
+		{ 
+			viewModel.DeleteApartmentPhotoCommand.Execute(deleteDisplayPhotos);
+		}
+		#endregion
+	}
 }

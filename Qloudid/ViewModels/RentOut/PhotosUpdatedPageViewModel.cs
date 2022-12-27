@@ -44,16 +44,17 @@ namespace Qloudid.ViewModels
 		private ICommand deleteApartmentPhotoCommand;
 		public ICommand DeleteApartmentPhotoCommand
 		{
-			get => deleteApartmentPhotoCommand ?? (deleteApartmentPhotoCommand = new Command(async () => await ExecuteDeleteApartmentPhotoCommand()));
+			get => deleteApartmentPhotoCommand ?? (deleteApartmentPhotoCommand = new Command<Models.DisplayPhotosResponse>(async (deletePhoto) => await ExecuteDeleteApartmentPhotoCommand(deletePhoto)));
 		}
-		private async Task ExecuteDeleteApartmentPhotoCommand()
+		private async Task ExecuteDeleteApartmentPhotoCommand(Models.DisplayPhotosResponse deletePhoto)
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
 			await service.DeleteApartmentPhotoAsync(new Models.DeleteApartmentPhotoRequest()
 			{
+				PhotoId = deletePhoto.Id
 			});
-			await Navigation.PopAsync();
+			DisplayPhotos.Remove(deletePhoto);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

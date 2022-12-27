@@ -217,6 +217,7 @@
                             BackgroundColor="#242A37"
                             Source="{Binding ApartmentPhotoPath}"
                             Aspect="AspectFill"
+                            Clicked="OnImageButtonDeletePhotoClicked"
                             IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}"/>
 
                         <Button
@@ -235,19 +236,26 @@
                             WidthRequest="24"
                             HeightRequest="24"
                             HasShadow="False"
-                            Margin="0,0,10,10"
+                            Margin="0,0,5,5"
                             BackgroundColor="#B90303"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="EndAndExpand"
                             IsClippedToBounds="True"
                             IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFrameDeletePhotoClicked"/>
+                            </Frame.GestureRecognizers>
                             <Label
                                 FontSize="15"
                                 TextColor="#242A37"
                                 VerticalTextAlignment="Center"
                                 HorizontalTextAlignment="Center"
                                 FontFamily="{StaticResource MaterialFontFamily}"
-                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelDeletePhotoClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </Frame>
                     </Grid>
                 </DataTemplate>
