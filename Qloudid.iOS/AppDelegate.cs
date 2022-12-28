@@ -24,6 +24,7 @@ namespace Qloudid.iOS
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 			Syncfusion.XForms.iOS.TextInputLayout.SfTextInputLayoutRenderer.Init();
 			Syncfusion.ListView.XForms.iOS.SfListViewRenderer.Init();
+            Syncfusion.SfCalendar.XForms.iOS.SfCalendarRenderer.Init();
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
 			LoadApplication(new App(null));

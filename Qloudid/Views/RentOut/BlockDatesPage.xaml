@@ -5,7 +5,8 @@
     x:Class="Qloudid.Views.RentOut.BlockDatesPage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-    xmlns:controls="clr-namespace:Qloudid.Controls"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+    xmlns:controls="clr-namespace:Qloudid.Controls" 
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
@@ -19,7 +20,7 @@
             <RowDefinition Height="23"/>
             <RowDefinition Height="57"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="65"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -124,7 +125,103 @@
                 </Label>
             </Grid>
         </Frame>
+        
+        <!--Start Date picker-->
+        <Frame 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="7"
+            Padding="15,0,15,0"
+            CornerRadius="8"
+            HasShadow="False"
+            BackgroundColor="#242A37"
+            IsClippedToBounds="True"  
+            Margin="0,20,0,20"
+            IsVisible="{Binding IsDateDickerSelected}">
+            <syncfusion:SfCalendar 
+                x:Name="calendar"
+                BackgroundColor="#242A37"
+                SelectionMode="MultiSelection"
+                ShowLeadingAndTrailingDays="False">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings 
+                        WeekEndTextColor="#ffffff"
+                        HeaderBackgroundColor="#242A37"
+                        DayHeaderTextColor="#ffffff"
+                        DateSelectionColor="#FA7D5D"
+                        SelectedDayTextColor="#842A13"
+                        CurrentMonthTextColor="#ffffff"
+                        CurrentMonthBackgroundColor="#242A37"
+                        DayHeaderBackgroundColor="#242A37"
+                        HeaderTextColor="#ffffff"
+                        TodayBorderColor="#ffffff"
+                        TodayTextColor="#ffffff"/>
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+        </Frame>
 
+        <Grid 
+            ColumnSpacing="16" 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="123"/>
+            </Grid.ColumnDefinitions>
+            <Frame 
+                Grid.Column="0"
+                Padding="12,0,12,0"
+                HasShadow="False"
+                CornerRadius="10"
+                IsClippedToBounds="True"
+                BackgroundColor="#242A37">
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomPicker
+                        Grid.Column="0"
+			    	    Title="Seasonality"
+			    	    FontFamily="PoppinsRegularFontFamily"
+			    	    FontSize="15"
+			    	    TextColor="White"
+			    	    TitleColor="Gray"
+                        SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
+                        <controls:CustomPicker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Available dates</x:String>
+                                <x:String>Block dates</x:String>
+                            </x:Array>
+                        </controls:CustomPicker.ItemsSource>
+                        <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                    </controls:CustomPicker>
+
+                    <Label
+                        Grid.Column="1"
+				        FontFamily="{StaticResource MaterialFontFamily}"
+				        FontSize="15"
+				        HorizontalTextAlignment="Center"
+				        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+				        TextColor="#F40000"
+				        VerticalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+            
+            <Button
+			    Grid.Column="1"
+			    FontSize="35"
+                Padding="0"
+                TextColor="#2A2A31"
+                BackgroundColor="#F40000"
+                CornerRadius="10"
+                FontFamily="{StaticResource MaterialFontFamily}"
+			    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+        </Grid>
+        <!--End Date picker-->
+
+        <!--Start date Range-->
         <Grid
             Grid.Column="1"
             Grid.ColumnSpan="3"
@@ -308,5 +405,6 @@
             Command="{Binding DateRangeCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"
             IsVisible="{Binding IsDateDickerSelected, Converter={StaticResource InverseBoolConverter}}"/>
+        <!--End date Range-->
     </Grid>
 </ContentPage>

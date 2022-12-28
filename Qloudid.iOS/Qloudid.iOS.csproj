@@ -172,6 +172,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>19.3.0.43</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>19.3.0.43</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>19.3.0.43</Version>
     </PackageReference>
