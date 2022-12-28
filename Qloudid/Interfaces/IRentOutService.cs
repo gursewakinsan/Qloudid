@@ -29,5 +29,8 @@ namespace Qloudid.Interfaces
         Task<int> AddApartmentPhotosAsync(Models.AddApartmentPhotosRequest model);
         Task<int> UpdateBlockedAsync(Models.UpdateBlockedRequest model);
         Task<int> UpdateAvailableAsync(Models.UpdateAvailableRequest model);
+        Task<List<Models.GetBlockedDatesResponse>> GetBlockedDatesAsync(Models.GetBlockedDatesRequest model);
+        Task<int> UpdateSelectedBlockedAsync(Models.UpdateSelectedBlockedRequest model);
+        Task<int> UpdateSelectedAvailableAsync(Models.UpdateSelectedBlockedRequest model);
     }
 }

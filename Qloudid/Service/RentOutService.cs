@@ -223,5 +223,32 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.GetBlockedDatesResponse>> GetBlockedDatesAsync(Models.GetBlockedDatesRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.GetBlockedDatesResponse>>(HttpWebRequest.Create(EndPointsList.GetBlockedDatesUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateSelectedBlockedAsync(Models.UpdateSelectedBlockedRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateSelectedBlockedUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateSelectedAvailableAsync(Models.UpdateSelectedBlockedRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateSelectedAvailableUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

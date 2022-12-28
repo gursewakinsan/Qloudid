@@ -139,12 +139,16 @@
             Margin="0,20,0,20"
             IsVisible="{Binding IsDateDickerSelected}">
             <syncfusion:SfCalendar 
-                x:Name="calendar"
+                x:Name="calendar" 
+                SelectedDates="{Binding SelectedDateList}"
                 BackgroundColor="#242A37"
                 SelectionMode="MultiSelection"
-                ShowLeadingAndTrailingDays="False">
+                ShowLeadingAndTrailingDays="False"
+                BlackoutDates="{Binding BlackoutDateList}"
+                BlackoutDatesViewMode="Strikethrough">
                 <syncfusion:SfCalendar.MonthViewSettings>
                     <syncfusion:MonthViewSettings 
+                        BlackoutColor="#B5BEC6" 
                         WeekEndTextColor="#ffffff"
                         HeaderBackgroundColor="#242A37"
                         DayHeaderTextColor="#ffffff"
@@ -216,6 +220,7 @@
                 TextColor="#2A2A31"
                 BackgroundColor="#F40000"
                 CornerRadius="10"
+                Command="{Binding SaveSelectedDatesCommand}"
                 FontFamily="{StaticResource MaterialFontFamily}"
 			    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
         </Grid>

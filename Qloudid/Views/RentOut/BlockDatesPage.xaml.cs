@@ -15,6 +15,12 @@ namespace Qloudid.Views.RentOut
             BindingContext = viewModel = new BlockDatesPageViewModel(this.Navigation);
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.GetBlockedDatesCommand.Execute(null);
+        }
+
         private void OnCustomPickerSelectedIndexChanged(object sender, System.EventArgs e)
         {
             Controls.CustomPicker picker = sender as Controls.CustomPicker;

@@ -4,6 +4,7 @@ using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -14,9 +15,34 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
-			IsDateDickerSelected = false;
+			IsDateDickerSelected = true;
 			SelectedStartDate = DateTime.Today;
 			SelectedEndDate = DateTime.Today;
+		}
+		#endregion
+
+		#region Get Blocked Dates Command.
+		private ICommand getBlockedDatesCommand;
+		public ICommand GetBlockedDatesCommand
+		{
+			get => getBlockedDatesCommand ?? (getBlockedDatesCommand = new Command(async () => await ExecuteGetBlockedDatesCommand()));
+		}
+		private async Task ExecuteGetBlockedDatesCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			var response = await service.GetBlockedDatesAsync(new Models.GetBlockedDatesRequest()
+			{
+				ApartmentId = Address.Id
+			});
+			if (response?.Count > 0)
+			{
+				List<DateTime> dateTimes = new List<DateTime>();
+				foreach (var date in response)
+					dateTimes.Add(Convert.ToDateTime(date.BlockedDate));
+				BlackoutDateList = dateTimes;
+			}
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -91,6 +117,66 @@ namespace Qloudid.ViewModels
 				else
 					UpdateBlockedCommand.Execute(null);
 			}
+		}
+		#endregion
+
+		#region Save Selected Dates Command.
+		private ICommand saveSelectedDatesCommand;
+		public ICommand SaveSelectedDatesCommand
+		{
+			get => saveSelectedDatesCommand ?? (saveSelectedDatesCommand = new Command(() => ExecuteSaveSelectedDatesCommand()));
+		}
+		private async void ExecuteSaveSelectedDatesCommand()
+		{
+			if (SelectedDateList?.Count == 0)
+				await Helper.Alert.DisplayAlert("Please select dates");
+			else
+			{
+				if (PickerSelectedAction == 0)
+					UpdateSelectedAvailableCommand.Execute(null);
+				else
+					UpdateSelectedBlockedCommand.Execute(null);
+			}
+		}
+		#endregion
+
+		#region Update Selected Blocked Command.
+		private ICommand updateSelectedBlockedCommand;
+		public ICommand UpdateSelectedBlockedCommand
+		{
+			get => updateSelectedBlockedCommand ?? (updateSelectedBlockedCommand = new Command(async () => await ExecuteUpdateSelectedBlockedCommand()));
+		}
+		private async Task ExecuteUpdateSelectedBlockedCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			await service.UpdateSelectedBlockedAsync(new Models.UpdateSelectedBlockedRequest()
+			{
+				ApartmentId = Address.Id,
+				SelectedDates = string.Join(",", SelectedDateList)
+			});
+			await Navigation.PopAsync();
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Selected Available Command.
+		private ICommand updateSelectedAvailableCommand;
+		public ICommand UpdateSelectedAvailableCommand
+		{
+			get => updateSelectedAvailableCommand ?? (updateSelectedAvailableCommand = new Command(async () => await ExecuteUpdateSelectedAvailableCommand()));
+		}
+		private async Task ExecuteUpdateSelectedAvailableCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			await service.UpdateSelectedAvailableAsync(new Models.UpdateSelectedBlockedRequest()
+			{
+				ApartmentId = Address.Id,
+				SelectedDates = string.Join(",", SelectedDateList)
+			});
+			await Navigation.PopAsync();
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -170,6 +256,28 @@ namespace Qloudid.ViewModels
 			{
 				selectedEndDate = value;
 				OnPropertyChanged("SelectedEndDate");
+			}
+		}
+
+		private List<DateTime> blackoutDateList;
+		public List<DateTime> BlackoutDateList
+		{
+			get => blackoutDateList;
+			set
+			{
+				blackoutDateList = value;
+				OnPropertyChanged("BlackoutDateList");
+			}
+		}
+
+		private List<DateTime> selectedDateList;
+		public List<DateTime> SelectedDateList
+		{
+			get => selectedDateList;
+			set
+			{
+				selectedDateList = value;
+				OnPropertyChanged("SelectedDateList");
 			}
 		}
 		#endregion
