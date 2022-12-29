@@ -145,7 +145,7 @@
                 SelectionMode="MultiSelection"
                 ShowLeadingAndTrailingDays="False"
                 BlackoutDates="{Binding BlackoutDateList}"
-                BlackoutDatesViewMode="Strikethrough">
+                BlackoutDatesViewMode="Strikethrough" EnableDatesInPast="False">
                 <syncfusion:SfCalendar.MonthViewSettings>
                     <syncfusion:MonthViewSettings 
                         BlackoutColor="#B5BEC6" 
@@ -159,7 +159,10 @@
                         DayHeaderBackgroundColor="#242A37"
                         HeaderTextColor="#ffffff"
                         TodayBorderColor="#ffffff"
-                        TodayTextColor="#ffffff"/>
+                        TodayTextColor="#ffffff" 
+                        DateTextAlignment="Center" 
+                        DisabledBackgroundColor="#242A37" 
+                        DisabledTextColor="#B5BEC6"/>
                 </syncfusion:SfCalendar.MonthViewSettings>
             </syncfusion:SfCalendar>
         </Frame>

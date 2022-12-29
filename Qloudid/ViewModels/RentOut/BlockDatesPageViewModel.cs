@@ -150,10 +150,13 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
+			List<string> dates = new List<string>();
+            foreach (var item in SelectedDateList)
+				dates.Add($"{item.Year}-{item.Month}-{item.Day}");
 			await service.UpdateSelectedBlockedAsync(new Models.UpdateSelectedBlockedRequest()
 			{
 				ApartmentId = Address.Id,
-				SelectedDates = string.Join(",", SelectedDateList)
+				SelectedDates = string.Join(",", dates)
 			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
@@ -170,10 +173,13 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
+			List<string> dates = new List<string>();
+			foreach (var item in SelectedDateList)
+				dates.Add($"{item.Year}-{item.Month}-{item.Day}");
 			await service.UpdateSelectedAvailableAsync(new Models.UpdateSelectedBlockedRequest()
 			{
 				ApartmentId = Address.Id,
-				SelectedDates = string.Join(",", SelectedDateList)
+				SelectedDates = string.Join(",", dates)
 			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
