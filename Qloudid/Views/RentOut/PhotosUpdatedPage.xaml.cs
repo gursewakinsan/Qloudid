@@ -127,14 +127,10 @@ namespace Qloudid.Views.RentOut
 				Debug.WriteLine(ex.Message);
 			}
 		}
-        #endregion
+		#endregion
 
-        private void OnListViewItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
-        {
-
-        }
-
-        private async void OnAddNewImageButtonClicked(object sender, EventArgs e)
+		#region On Add New Button Clicked.
+		private async void OnAddNewImageButtonClicked(object sender, EventArgs e)
         {
 			string result = await DisplayActionSheet("Select", "Cancel", null, "Take Photo", "Pick Photo");
 			switch (result)
@@ -147,6 +143,7 @@ namespace Qloudid.Views.RentOut
 					break;
 			}
 		}
+        #endregion
 
         #region Delete Photo.
         private void OnImageButtonDeletePhotoClicked(object sender, EventArgs e)

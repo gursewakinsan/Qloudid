@@ -200,5 +200,6 @@
 		public const string UpdateSelectedBlockedUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateSelectedBlocked";
 		public const string UpdateSelectedAvailableUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateSelectedAvailable";
 		public const string GetSratedDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getsratedDetail";
+		public const string UpdateGetStartedPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateGetStartedPhotos";
 	}
 }

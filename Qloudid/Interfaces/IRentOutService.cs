@@ -33,5 +33,6 @@ namespace Qloudid.Interfaces
         Task<int> UpdateSelectedBlockedAsync(Models.UpdateSelectedBlockedRequest model);
         Task<int> UpdateSelectedAvailableAsync(Models.UpdateSelectedBlockedRequest model);
         Task<List<Models.GetSratedDetailResponse>> GetSratedDetailAsync(Models.GetSratedDetailRequest model);
+        Task<string> UpdateGetStartedPhotosAsync(Models.UpdateGetStartedPhotosRequest model);
     }
 }

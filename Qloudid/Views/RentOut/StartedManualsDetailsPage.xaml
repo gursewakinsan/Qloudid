@@ -2,12 +2,367 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.RentOut.StartedManualsDetailsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    x:Class="Qloudid.Views.RentOut.StartedManualsDetailsPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="{Binding SelectedStartedManuals.GetStartedTitle}"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" LineHeight="1.1"
+            HorizontalTextAlignment="Start"
+	    	Text="This is where you describe in words and images on how to turn power on &amp; off"
+	    	TextColor="White"
+            Opacity="0.42"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <Grid  
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="7" 
+            RowSpacing="21"
+            Margin="0,40,0,0" IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="57"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+		        FontSize="14"
+		        TextColor="White"
+                Opacity="0.7" 
+                HorizontalTextAlignment="Start"
+                FontFamily="PoppinsRegularFontFamily">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Do you have an "/>
+                        <Span Text="{Binding SelectedStartedManuals.GetStartedTitle}"/>
+                        <Span Text="?"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Frame 
+                Grid.Row="1"
+                Padding="0"
+                CornerRadius="10"
+                HasShadow="False"
+                BorderColor="#2A2A31"
+                BackgroundColor="Transparent"
+                IsClippedToBounds="True">
+                <Grid ColumnSpacing="0">
+                    <Label
+                        Grid.Column="0"
+		                FontSize="14"
+		                Text="No"
+		                TextColor="White"
+                        Opacity="0.7" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        BackgroundColor="{Binding NoButtonBg}"
+                        FontFamily="PoppinsMediumFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding YesNoButtonCommand}" CommandParameter="No"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Column="1"
+		                FontSize="14"
+		                Text="Yes"
+		                TextColor="White"
+                        Opacity="0.7" 
+                        BackgroundColor="{Binding YesButtonBg}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsMediumFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding YesNoButtonCommand}" CommandParameter="Yes"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Frame>
+        </Grid>
+
+        <ScrollView
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Margin="0,40,0,5"
+            Grid.Row="8"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="108"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="21"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+		            FontSize="14"
+		            TextColor="White"
+                    Opacity="0.7" 
+                    Text="Text box"
+                    HorizontalTextAlignment="Start"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Padding="15"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Editor 
+                        FontSize="13"
+                        TextColor="White"
+                        Placeholder="Describe with words"
+                        PlaceholderColor="Gray"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text=""/>
+                </Frame>
+
+                <Grid 
+                    Grid.Row="3"
+                    RowSpacing="6"
+                    Margin="0,40,0,0"
+                    ColumnSpacing="20"
+                    Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+		                FontSize="13"
+		                TextColor="White"
+                        Opacity="0.42" 
+                        Text="Code"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily"/>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+		                FontSize="13"
+		                TextColor="White"
+                        Opacity="0.42" 
+                        Text="Secret password"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily"/>
+
+                    <Frame 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="12,0,12,0"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        BackgroundColor="#242A37"
+                        IsClippedToBounds="True">
+                        <controls:CustomEntry 
+                            FontSize="15"
+                            TextColor="White"
+                            Placeholder="Code"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text=""/>
+                    </Frame>
+
+                    <Frame 
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Padding="12,0,12,0"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        BackgroundColor="#242A37"
+                        IsClippedToBounds="True">
+                        <controls:CustomEntry 
+                            FontSize="15"
+                            TextColor="White"
+                            Placeholder="Password"
+                            PlaceholderColor="Gray"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text=""/>
+                    </Frame>
+                </Grid>
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+		            FontSize="16"
+		            TextColor="White"
+                    Opacity="0.7" 
+                    Text="Photos"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    CornerRadius="18"
+                    WidthRequest="36"
+                    Padding="0"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="#4CD964"
+                    HorizontalOptions="EndAndExpand"
+                    Clicked="OnAddNewImageButtonClicked"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+			        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+
+                <BoxView 
+                    Grid.ColumnSpan="2"
+                    Grid.Row="7"
+		            BackgroundColor="White" 
+		            Opacity="0.1"/>
+
+                <syncfusion:SfListView
+		            x:Name="listView"
+		            Grid.Row="9"
+		            ItemSize="100"
+                    Grid.ColumnSpan="2"
+                    IsScrollBarVisible="False"
+                    HeightRequest="{Binding ListViewHeightRequest}"
+                    VerticalOptions="StartAndExpand"
+		            ItemsSource="{Binding SelectedStartedManuals.Images}">
+                    <syncfusion:SfListView.LayoutManager>
+                        <syncfusion:GridLayout SpanCount="3" />
+                    </syncfusion:SfListView.LayoutManager>
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                HeightRequest="100"
+                                WidthRequest="100"
+                                Margin="0,0,0,20"
+                                HorizontalOptions="StartAndExpand" 
+                                VerticalOptions="StartAndExpand">
+                                <ImageButton
+                                    CornerRadius="8"
+                                    BackgroundColor="#242A37"
+                                    Source="{Binding ApartmentPhotoPath}"
+                                    Aspect="AspectFill"
+                                    IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}"/>
+
+                                <Button
+                                    FontSize="25"
+                                    CornerRadius="8"
+                                    TextColor="White"
+                                    BackgroundColor="#242A37"
+                                    Clicked="OnAddNewImageButtonClicked"
+                                    IsVisible="{Binding IsAddNewPhoto}"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </Grid>
+        </ScrollView>
+
+        <Button 
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="9" 
+            CornerRadius="30"
+            Text="Submit"
+            FontSize="16"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding SubmitCleaningFeeCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
 </ContentPage>

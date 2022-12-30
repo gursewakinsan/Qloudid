@@ -35,6 +35,20 @@ namespace Qloudid.Models
         public bool CodeRequired { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "images")]
-        public List<object> Images { get; set; }
+        public List<SratedImages> Images { get; set; }
+    }
+
+    public class SratedImages : BaseModel
+    {
+        private bool isAddNewPhoto;
+        public bool IsAddNewPhoto
+        {
+            get => isAddNewPhoto;
+            set
+            {
+                isAddNewPhoto = value;
+                OnPropertyChanged("IsAddNewPhoto");
+            }
+        }
     }
 }

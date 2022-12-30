@@ -199,7 +199,6 @@
             Grid.ColumnSpan="3"
 		    IsScrollBarVisible="False"
 		    ItemSize="115"
-		    ItemTapped="OnListViewItemTapped"
 		    ItemsSource="{Binding DisplayPhotos}"
 		    VerticalOptions="StartAndExpand">
             <syncfusion:SfListView.LayoutManager>
