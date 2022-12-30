@@ -268,5 +268,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateGetStartedDescriptionAsync(Models.UpdateGetStartedDescriptionRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateGetStartedDescriptionUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

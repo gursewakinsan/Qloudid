@@ -95,7 +95,8 @@
             Grid.ColumnSpan="3"
             Grid.Row="7" 
             RowSpacing="21"
-            Margin="0,40,0,0" IsVisible="False">
+            Margin="0,40,0,0" 
+            IsVisible="{Binding SelectedStartedManuals.YesNoRequired}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="57"/>
@@ -207,7 +208,7 @@
                         PlaceholderColor="Gray"
                         BackgroundColor="Transparent"
                         FontFamily="PoppinsRegularFontFamily"
-                        Text=""/>
+                        Text="{Binding SelectedStartedManuals.GetStartedDescription}"/>
                 </Frame>
 
                 <Grid 
@@ -215,7 +216,8 @@
                     RowSpacing="6"
                     Margin="0,40,0,0"
                     ColumnSpacing="20"
-                    Grid.ColumnSpan="2">
+                    Grid.ColumnSpan="2"
+                    IsVisible="{Binding SelectedStartedManuals.IsCodeRequired}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="20"/>
                         <RowDefinition Height="55"/>
@@ -257,7 +259,7 @@
                             PlaceholderColor="Gray"
                             BackgroundColor="Transparent"
                             FontFamily="PoppinsRegularFontFamily"
-                            Text=""/>
+                            Text="{Binding SelectedStartedManuals.GetStartedCode}"/>
                     </Frame>
 
                     <Frame 
@@ -275,7 +277,7 @@
                             PlaceholderColor="Gray"
                             BackgroundColor="Transparent"
                             FontFamily="PoppinsRegularFontFamily"
-                            Text=""/>
+                            Text="{Binding SelectedStartedManuals.GetStartedPassword}"/>
                     </Frame>
                 </Grid>
 
@@ -333,14 +335,18 @@
                                 <ImageButton
                                     CornerRadius="8"
                                     BackgroundColor="#242A37"
-                                    Source="{Binding ApartmentPhotoPath}"
+                                    Source="{Binding ImagePath}"
                                     Aspect="AspectFill"
+                                    HeightRequest="100"
+                                    WidthRequest="100"
                                     IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}"/>
 
                                 <Button
                                     FontSize="25"
                                     CornerRadius="8"
                                     TextColor="White"
+                                    HeightRequest="100"
+                                    WidthRequest="100"
                                     BackgroundColor="#242A37"
                                     Clicked="OnAddNewImageButtonClicked"
                                     IsVisible="{Binding IsAddNewPhoto}"
@@ -362,7 +368,7 @@
             FontSize="16"
             TextColor="White"
             BackgroundColor="#F40000"
-            Command="{Binding SubmitCleaningFeeCommand}"
+            Command="{Binding UpdateGetStartedDescriptionCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

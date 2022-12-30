@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
@@ -14,7 +15,6 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
-			YesNoButtonCommand.Execute("Yes");
 		}
 		#endregion
 
@@ -31,10 +31,12 @@ namespace Qloudid.ViewModels
 				case "Yes":
 					YesButtonBg = Color.FromHex("#0C8CE8");
 					NoButtonBg = Color.Transparent;
+					SelectedStartedManuals.IsAvailable = true;
 					break;
 				case "No":
 					YesButtonBg = Color.Transparent;
 					NoButtonBg = Color.FromHex("#0C8CE8");
+					SelectedStartedManuals.IsAvailable = false;
 					break;
 			}
 		}
@@ -56,7 +58,41 @@ namespace Qloudid.ViewModels
 				GId = SelectedStartedManuals.Id,
 				UpdateInfo = userImageInfo
 			});
+			SelectedStartedManuals.Images.Remove(SelectedStartedManuals.Images.FirstOrDefault(x => x.IsAddNewPhoto));
+			SelectedStartedManuals.Images.Add(new Models.StartedImages() { IsAddNewPhoto = true });
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Update Get Started Description Command.
+		private ICommand updateGetStartedDescriptionCommand;
+		public ICommand UpdateGetStartedDescriptionCommand
+		{
+			get => updateGetStartedDescriptionCommand ?? (updateGetStartedDescriptionCommand = new Command(async () => await ExecuteUpdateGetStartedDescriptionCommand()));
+		}
+		private async Task ExecuteUpdateGetStartedDescriptionCommand()
+		{
+			if (string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedDescription))
+				await Helper.Alert.DisplayAlert("Description is required.");
+			else if (SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedCode))
+				await Helper.Alert.DisplayAlert("Code is required.");
+			else if (SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedPassword))
+				await Helper.Alert.DisplayAlert("Password is required.");
+			else
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IRentOutService service = new RentOutService();
+				await service.UpdateGetStartedDescriptionAsync(new Models.UpdateGetStartedDescriptionRequest()
+				{
+					GId = SelectedStartedManuals.Id,
+					PropertyNickname = SelectedStartedManuals.GetStartedDescription,
+					GetStartedCode = SelectedStartedManuals.GetStartedCode,
+					GetStartedPassword = SelectedStartedManuals.GetStartedPassword,
+					IsAvailable = SelectedStartedManuals.IsAvailable ? 1 : 0
+				});
+				await Navigation.PopAsync();
+				DependencyService.Get<IProgressBar>().Hide();
+			}
 		}
 		#endregion
 

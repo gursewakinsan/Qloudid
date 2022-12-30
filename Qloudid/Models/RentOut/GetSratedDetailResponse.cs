@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace Qloudid.Models
 {
-    public class GetSratedDetailResponse
+    public class GetSratedDetailResponse: BaseModel
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "user_apartment_get_started_id")]
         public int UserApartmentGetStartedId { get; set; }
@@ -17,29 +17,86 @@ namespace Qloudid.Models
         public string GetStartedTitle { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "is_available")]
-        public bool IsAvailable { get; set; }
+        private bool isAvailable;
+        public bool IsAvailable
+        {
+            get => isAvailable;
+            set
+            {
+                isAvailable = value;
+                OnPropertyChanged("IsAvailable");
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "getstarted_code")]
-        public string GetStartedCode { get; set; }
+        private string getStartedCode;
+        public string GetStartedCode
+        {
+            get => getStartedCode;
+            set
+            {
+                getStartedCode = value;
+                OnPropertyChanged("GetStartedCode");
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "getstarted_password")]
-        public string GetStartedPassword { get; set; }
+        private string getStartedPassword;
+        public string GetStartedPassword
+        {
+            get => getStartedPassword;
+            set
+            {
+                getStartedPassword = value;
+                OnPropertyChanged("GetStartedPassword");
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "get_started_description")]
-        public string GetStartedDescription { get; set; }
+        private string getStartedDescription;
+        public string GetStartedDescription
+        {
+            get => getStartedDescription;
+            set
+            {
+                getStartedDescription = value;
+                OnPropertyChanged("GetStartedDescription");
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "yes_no_required")]
         public bool YesNoRequired { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "code_required")]
-        public bool CodeRequired { get; set; }
+        public bool IsCodeRequired { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "images")]
-        public List<SratedImages> Images { get; set; }
+        private ObservableCollection<StartedImages> images;
+        public ObservableCollection<StartedImages> Images
+        {
+            get => images;
+            set
+            {
+                images = value;
+                OnPropertyChanged("Images");
+            }
+        }
     }
 
-    public class SratedImages : BaseModel
+    public class StartedImages : BaseModel
     {
+        [Newtonsoft.Json.JsonProperty(PropertyName = "image_path")]
+        private string imagePath;
+        public string ImagePath
+        {
+            get => imagePath;
+            set
+            {
+                imagePath = value;
+                OnPropertyChanged("ImagePath");
+            }
+        }
+
         private bool isAddNewPhoto;
         public bool IsAddNewPhoto
         {

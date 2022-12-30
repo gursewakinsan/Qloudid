@@ -26,9 +26,9 @@ namespace Qloudid.Views.RentOut
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new StartedManualsDetailsPageViewModel(this.Navigation);
             foreach (var item in selectedStartedManuals.Images) item.IsAddNewPhoto = false;
-            if (selectedStartedManuals.Images == null)
-                selectedStartedManuals.Images = new System.Collections.Generic.List<Models.SratedImages>();
-            selectedStartedManuals.Images.Add(new Models.SratedImages() { IsAddNewPhoto = true });
+			if (selectedStartedManuals.Images == null)
+				selectedStartedManuals.Images = new System.Collections.ObjectModel.ObservableCollection<Models.StartedImages>();
+            selectedStartedManuals.Images.Add(new Models.StartedImages() { IsAddNewPhoto = true });
             if (selectedStartedManuals.Images.Count <= 3)
                 viewModel.ListViewHeightRequest = 100;
             else if (selectedStartedManuals.Images.Count <= 6)
@@ -40,7 +40,12 @@ namespace Qloudid.Views.RentOut
             else
                 viewModel.ListViewHeightRequest = 500;
             viewModel.SelectedStartedManuals = selectedStartedManuals;
-        }
+			if(selectedStartedManuals.IsAvailable)
+				viewModel.YesNoButtonCommand.Execute("Yes");
+			else
+				viewModel.YesNoButtonCommand.Execute("No");
+
+		}
         #endregion
 
         #region On Add New Button Clicked.
@@ -86,6 +91,11 @@ namespace Qloudid.Views.RentOut
 					await mediaFile.GetStream().CopyToAsync(memoryStream);
 					byte[] imageAsByte = memoryStream.ToArray();
 					viewModel.UserImageData = imageAsByte;
+					viewModel.SelectedStartedManuals.Images.Add(new Models.StartedImages()
+					{
+						ImagePath = mediaFile.Path,
+						IsAddNewPhoto = false
+					});
 					viewModel.UpdateGetStartedPhotosCommand.Execute(null);
 				}
 			}
@@ -117,6 +127,11 @@ namespace Qloudid.Views.RentOut
 				await mediaFile.GetStream().CopyToAsync(memoryStream);
 				byte[] imageAsByte = memoryStream.ToArray();
 				viewModel.UserImageData = imageAsByte;
+				viewModel.SelectedStartedManuals.Images.Add(new Models.StartedImages()
+				{
+					ImagePath = mediaFile.Path,
+					IsAddNewPhoto = false
+				});
 				viewModel.UpdateGetStartedPhotosCommand.Execute(null);
 			}
 			catch (Exception ex)
