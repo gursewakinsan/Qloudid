@@ -250,5 +250,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.GetSratedDetailResponse>> GetSratedDetailAsync(Models.GetSratedDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.GetSratedDetailResponse>>(HttpWebRequest.Create(EndPointsList.GetSratedDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

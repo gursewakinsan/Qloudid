@@ -122,6 +122,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Started Manuals Page Command.
+		private ICommand startedManualsPageCommand;
+		public ICommand StartedManualsPageCommand
+		{
+			get => startedManualsPageCommand ?? (startedManualsPageCommand = new Command(async () => await ExecuteStartedManualsPageCommand()));
+		}
+		private async Task ExecuteStartedManualsPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.ManualsPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

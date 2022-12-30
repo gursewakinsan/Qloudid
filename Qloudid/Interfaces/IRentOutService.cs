@@ -32,5 +32,6 @@ namespace Qloudid.Interfaces
         Task<List<Models.GetBlockedDatesResponse>> GetBlockedDatesAsync(Models.GetBlockedDatesRequest model);
         Task<int> UpdateSelectedBlockedAsync(Models.UpdateSelectedBlockedRequest model);
         Task<int> UpdateSelectedAvailableAsync(Models.UpdateSelectedBlockedRequest model);
+        Task<List<Models.GetSratedDetailResponse>> GetSratedDetailAsync(Models.GetSratedDetailRequest model);
     }
 }

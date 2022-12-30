@@ -359,88 +359,9 @@
 						BackgroundColor="White" 
 						Opacity="0.1"/>
 
-                    <!--Pricing-->
-                    <BoxView 
-						Grid.Row="9" 
-						Grid.Column="0" 
-						CornerRadius="13"
-                        HeightRequest="26"
-						BackgroundColor="{Binding PricingBg}"
-                        VerticalOptions="CenterAndExpand">
-                        <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
-                        </BoxView.GestureRecognizers>
-                    </BoxView>
-
-                    <Label
-						Grid.Row="9"
-						Grid.Column="0"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="13"
-						HorizontalTextAlignment="Center"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-						TextColor="#242A37"
-						VerticalTextAlignment="Center"
-                        IsVisible="{Binding IsPricing}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                    <Label
-						Grid.Row="9"
-						Grid.Column="0"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="13"
-						HorizontalTextAlignment="Center"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
-						TextColor="#242A37"
-						VerticalTextAlignment="Center"
-                        IsVisible="{Binding IsPricing, Converter={StaticResource InverseBoolConverter}}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                    <Label
-						Grid.Row="9"
-                        Grid.Column="1"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="15"
-						Text="Pricing"
-						TextColor="White" 
-                        Opacity="0.60"
-                        VerticalTextAlignment="Center"
-						HorizontalTextAlignment="Start">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                    <Label
-						Grid.Row="9"
-						Grid.Column="2"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="25"
-						HorizontalTextAlignment="End"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						TextColor="White"
-						VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                    <BoxView 
-						Grid.Row="10" 
-                        Grid.Column="1"
-                        Grid.ColumnSpan="2"
-						BackgroundColor="White" 
-						Opacity="0.1"/>
-
                     <!--Photo, text & availability-->
                     <BoxView 
-						Grid.Row="11" 
+						Grid.Row="9" 
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
@@ -452,7 +373,7 @@
                     </BoxView>
 
                     <Label
-						Grid.Row="11"
+						Grid.Row="9"
 						Grid.Column="0"
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="13"
@@ -466,7 +387,7 @@
                     </Label>
 
                     <Label
-						Grid.Row="11"
+						Grid.Row="9"
                         Grid.Column="1"
 						FontFamily="PoppinsRegularFontFamily"
 						FontSize="15"
@@ -481,7 +402,7 @@
                     </Label>
 
                     <Label
-						Grid.Row="11"
+						Grid.Row="9"
 						Grid.Column="2"
 						FontFamily="{StaticResource MaterialFontFamily}"
 						FontSize="25"
@@ -495,20 +416,103 @@
                     </Label>
 
                     <BoxView 
+						Grid.Row="10" 
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+						BackgroundColor="White" 
+						Opacity="0.1"/>
+
+                    <!--Pricing, Fees & Channels-->
+                    <BoxView 
+						Grid.Row="11" 
+						Grid.Column="0" 
+						CornerRadius="13"
+                        HeightRequest="26"
+						BackgroundColor="{Binding PricingBg}"
+                        VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+
+                    <Label
+						Grid.Row="11"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPricing}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="11"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPricing, Converter={StaticResource InverseBoolConverter}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="11"
+                        Grid.Column="1"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="15"
+						Text="Pricing, Fees &amp; Channels"
+						TextColor="White" 
+                        Opacity="0.60"
+                        VerticalTextAlignment="Center"
+						HorizontalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="11"
+						Grid.Column="2"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="25"
+						HorizontalTextAlignment="End"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+						TextColor="White"
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PricingAndTaxPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView 
 						Grid.Row="12" 
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
 						BackgroundColor="White" 
 						Opacity="0.1"/>
 
-                    <!--Fees & Channels-->
+                    <!--Get started manuals-->
                     <BoxView 
 						Grid.Row="13" 
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
 						BackgroundColor="#F40000"
-                        VerticalOptions="CenterAndExpand"/>
+                        VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
 
                     <Label
 						Grid.Row="13"
@@ -518,18 +522,26 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="13"
                         Grid.Column="1"
 						FontFamily="PoppinsRegularFontFamily"
 						FontSize="15"
-						Text="Fees &amp; Channels"
+						Text="Get started manuals"
 						TextColor="White" 
                         Opacity="0.60"
                         VerticalTextAlignment="Center"
-						HorizontalTextAlignment="Start"/>
+						HorizontalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="13"
@@ -539,7 +551,11 @@
 						HorizontalTextAlignment="End"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
 						TextColor="White"
-						VerticalTextAlignment="Center"/>
+						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <BoxView 
 						Grid.Row="14" 
