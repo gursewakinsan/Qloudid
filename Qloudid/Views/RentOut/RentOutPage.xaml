@@ -507,7 +507,7 @@
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
-						BackgroundColor="#F40000"
+						BackgroundColor="{Binding GetStartedBg}"
                         VerticalOptions="CenterAndExpand">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
@@ -522,7 +522,23 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center">
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsGetStarted, Converter={StaticResource InverseBoolConverter}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="13"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsGetStarted}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding StartedManualsPageCommand}"/>
                         </Label.GestureRecognizers>

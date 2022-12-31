@@ -67,6 +67,22 @@ namespace Qloudid.ViewModels
 				PricingBg = Color.FromHex("#F4B400");
 			}
 
+			if (response.GetStartedUpdated == 0)
+			{
+				IsGetStarted = false;
+				GetStartedBg = Color.FromHex("#F40000");
+			}
+			else if (response.GetStartedUpdated == 1)
+			{
+				IsGetStarted = true;
+				GetStartedBg = Color.FromHex("#4CD964");
+			}
+			else if (response.GetStartedUpdated == 2)
+			{
+				IsGetStarted = false;
+				GetStartedBg = Color.FromHex("#F4B400");
+			}
+
 			Address = response;
 			Helper.Helper.SelectedUserAddress = Address;
 			DependencyService.Get<IProgressBar>().Hide();
@@ -198,6 +214,28 @@ namespace Qloudid.ViewModels
 			{
 				pricingBg = value;
 				OnPropertyChanged("PricingBg");
+			}
+		}
+
+		private Color getStartedBg;
+		public Color GetStartedBg
+		{
+			get => getStartedBg;
+			set
+			{
+				getStartedBg = value;
+				OnPropertyChanged("GetStartedBg");
+			}
+		}
+
+		private bool isGetStarted;
+		public bool IsGetStarted
+		{
+			get => isGetStarted;
+			set
+			{
+				isGetStarted = value;
+				OnPropertyChanged("IsGetStarted");
 			}
 		}
 		#endregion

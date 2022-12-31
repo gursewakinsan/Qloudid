@@ -613,6 +613,17 @@ namespace Qloudid.Models
 				OnPropertyChanged("DescriptionUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "get_started_updated")]
+		private int getStartedUpdated;
+		public int GetStartedUpdated
+		{
+			get => getStartedUpdated;
+			set
+			{
+				getStartedUpdated = value;
+				OnPropertyChanged("GetStartedUpdated");
+			}
+		}
 	}
 }
-
