@@ -72,11 +72,11 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteUpdateGetStartedDescriptionCommand()
 		{
-			if (string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedDescription))
+			if (SelectedStartedManuals.IsAvailable && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedDescription))
 				await Helper.Alert.DisplayAlert("Description is required.");
-			else if (SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedCode))
+			else if (SelectedStartedManuals.IsAvailable && SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedCode))
 				await Helper.Alert.DisplayAlert("Code is required.");
-			else if (SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedPassword))
+			else if (SelectedStartedManuals.IsAvailable && SelectedStartedManuals.IsCodeRequired && string.IsNullOrWhiteSpace(SelectedStartedManuals.GetStartedPassword))
 				await Helper.Alert.DisplayAlert("Password is required.");
 			else
 			{
