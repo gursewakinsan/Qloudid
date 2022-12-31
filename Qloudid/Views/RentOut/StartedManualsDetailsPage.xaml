@@ -164,6 +164,7 @@
             Grid.ColumnSpan="3"
             Margin="0,40,0,5"
             Grid.Row="8"
+            IsVisible="{Binding SelectedStartedManuals.IsAvailable}"
             VerticalScrollBarVisibility="Never">
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.ColumnDefinitions>
