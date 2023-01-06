@@ -202,5 +202,8 @@
 		public const string GetSratedDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getsratedDetail";
 		public const string UpdateGetStartedPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateGetStartedPhotos";
 		public const string UpdateGetStartedDescriptionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateGetStartedDescription";
+
+		public const string UpdateTouristTaxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateTouristTax";
+		public const string UpdateChannelPublishUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateChannelPublish";
 	}
 }

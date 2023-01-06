@@ -625,5 +625,41 @@ namespace Qloudid.Models
 				OnPropertyChanged("GetStartedUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "tourist_tax_updated")]
+		private bool touristTaxUpdated;
+		public bool TouristTaxUpdated
+		{
+			get => touristTaxUpdated;
+			set
+			{
+				touristTaxUpdated = value;
+				OnPropertyChanged("TouristTaxUpdated");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "tourist_tax_applicable")]
+		private bool touristTaxApplicable;
+		public bool TouristTaxApplicable
+		{
+			get => touristTaxApplicable;
+			set
+			{
+				touristTaxApplicable = value;
+				OnPropertyChanged("TouristTaxApplicable");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "tourist_tax")]
+		private string touristTax;
+		public string TouristTax
+		{
+			get => touristTax;
+			set
+			{
+				touristTax = value;
+				OnPropertyChanged("TouristTax");
+			}
+		}
 	}
 }

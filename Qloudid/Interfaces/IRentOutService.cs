@@ -35,5 +35,6 @@ namespace Qloudid.Interfaces
         Task<List<Models.GetSratedDetailResponse>> GetSratedDetailAsync(Models.GetSratedDetailRequest model);
         Task<string> UpdateGetStartedPhotosAsync(Models.UpdateGetStartedPhotosRequest model);
         Task<string> UpdateGetStartedDescriptionAsync(Models.UpdateGetStartedDescriptionRequest model);
+        Task<string> UpdateTouristTaxAsync(Models.UpdateTouristTaxRequest model);
     }
 }

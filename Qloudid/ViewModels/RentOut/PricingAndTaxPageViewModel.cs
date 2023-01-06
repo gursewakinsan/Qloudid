@@ -77,6 +77,19 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Tourist Tax Page Command.
+		private ICommand touristTaxPageCommand;
+		public ICommand TouristTaxPageCommand
+		{
+			get => touristTaxPageCommand ?? (touristTaxPageCommand = new Command(async () => await ExecuteTouristTaxPageCommand()));
+		}
+		private async Task ExecuteTouristTaxPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.TouristAndTaxPage());
+
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

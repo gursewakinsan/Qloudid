@@ -414,10 +414,39 @@
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
-			        BackgroundColor="#F40000"
-                    VerticalOptions="CenterAndExpand">
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.TouristTaxUpdated}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="6"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.TouristTaxUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <BoxView 
+			        Grid.Row="6" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.TouristTaxUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -429,9 +458,10 @@
 		    	    HorizontalTextAlignment="Center"
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
-		    	    VerticalTextAlignment="Center">
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.TouristTaxUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -446,7 +476,7 @@
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -460,7 +490,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding TouristTaxPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
