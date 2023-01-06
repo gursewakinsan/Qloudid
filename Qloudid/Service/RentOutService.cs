@@ -286,5 +286,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateChannelPublishAsync(Models.UpdateChannelPublishRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateChannelPublishUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

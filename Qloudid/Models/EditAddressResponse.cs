@@ -661,5 +661,89 @@ namespace Qloudid.Models
 				OnPropertyChanged("TouristTax");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_dstrict_rent")]
+		private bool publishDstrictRent;
+		public bool PublishDstrictRent
+		{
+			get => publishDstrictRent;
+			set
+			{
+				publishDstrictRent = value;
+				OnPropertyChanged("PublishDstrictRent");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_airnub")]
+		private bool publishAirnub;
+		public bool PublishAirnub
+		{
+			get => publishAirnub;
+			set
+			{
+				publishAirnub = value;
+				OnPropertyChanged("PublishAirnub");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_booking")]
+		private bool publishBooking;
+		public bool PublishBooking
+		{
+			get => publishBooking;
+			set
+			{
+				publishBooking = value;
+				OnPropertyChanged("PublishBooking");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_exptd")]
+		private bool publishExptd;
+		public bool PublishExptd
+		{
+			get => publishExptd;
+			set
+			{
+				publishExptd = value;
+				OnPropertyChanged("PublishExptd");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_vrbo")]
+		private bool publishVrbo;
+		public bool PublishVrbo
+		{
+			get => publishVrbo;
+			set
+			{
+				publishVrbo = value;
+				OnPropertyChanged("PublishVrbo");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_trip")]
+		private bool publishTrip;
+		public bool PublishTrip
+		{
+			get => publishTrip;
+			set
+			{
+				publishTrip = value;
+				OnPropertyChanged("PublishTrip");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "publish_tui")]
+		private bool publishTui;
+		public bool PublishTui
+		{
+			get => publishTui;
+			set
+			{
+				publishTui = value;
+				OnPropertyChanged("PublishTui");
+			}
+		}
 	}
 }
