@@ -174,21 +174,70 @@
 
             <Frame 
                 Grid.Row="1"
-                Padding="12,0,12,0"
-                CornerRadius="10"
+                Padding="20,0,20,0"
                 HasShadow="False"
-                BackgroundColor="#2A2A31"
-                IsClippedToBounds="True">
-                <controls:CustomEntry 
-                    FontSize="15"
-                    TextColor="White"
-                    Keyboard="Numeric"
-                    MaxLength="4"
-                    Placeholder="How much"
-                    PlaceholderColor="Gray"
-                    BackgroundColor="Transparent"
-                    FontFamily="PoppinsRegularFontFamily"
-                    Text="{Binding Address.TouristTax}"/>
+                CornerRadius="12"
+                IsClippedToBounds="True"
+                BackgroundColor="#242A37">
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomPicker
+                        Grid.Column="0"
+					    Title="Select tax amount"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="15"
+					    TextColor="White"
+					    TitleColor="Gray"
+                        SelectedItem="{Binding SelectedTaxAmount}">
+                        <controls:CustomPicker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                                <x:String>10</x:String>
+                                <x:String>11</x:String>
+                                <x:String>12</x:String>
+                                <x:String>13</x:String>
+                                <x:String>14</x:String>
+                                <x:String>15</x:String>
+                                <x:String>16</x:String>
+                                <x:String>17</x:String>
+                                <x:String>18</x:String>
+                                <x:String>19</x:String>
+                                <x:String>20</x:String>
+                                <x:String>21</x:String>
+                                <x:String>22</x:String>
+                                <x:String>23</x:String>
+                                <x:String>24</x:String>
+                                <x:String>25</x:String>
+                                <x:String>26</x:String>
+                                <x:String>27</x:String>
+                                <x:String>28</x:String>
+                                <x:String>29</x:String>
+                                <x:String>30</x:String>
+                            </x:Array>
+                        </controls:CustomPicker.ItemsSource>
+                    </controls:CustomPicker>
+
+                    <Label
+                        Grid.Column="1"
+					    FontFamily="{StaticResource MaterialFontFamily}"
+					    FontSize="15"
+					    HorizontalTextAlignment="Center"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+					    TextColor="#F40000"
+					    VerticalTextAlignment="Center" />
+                </Grid>
             </Frame>
         </Grid>
 

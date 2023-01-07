@@ -13,6 +13,7 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
+			SelectedTaxAmount = Address.TouristTax;
 			if (Address.TouristTaxApplicable)
 			{
 				TouristTaxYesBg = Color.FromHex("#0C8CE8");
@@ -34,8 +35,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteUpdateTouristTaxCommand()
 		{
-			if (Address.TouristTaxApplicable && string.IsNullOrWhiteSpace(Address.TouristTax))
-				await Helper.Alert.DisplayAlert("Tax amount is required.");
+			if (Address.TouristTaxApplicable && SelectedTaxAmount.Equals("0"))
+				await Helper.Alert.DisplayAlert("Tax amount cannot be zero.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();
@@ -43,7 +44,7 @@ namespace Qloudid.ViewModels
 				await service.UpdateTouristTaxAsync(new Models.UpdateTouristTaxRequest()
 				{
 					ApartmentId = Address.Id,
-					TouristTax = Address.TouristTax,
+					TouristTax = Address.TouristTaxApplicable ? SelectedTaxAmount : "0",
 					TouristTaxApplicable = Address.TouristTaxApplicable ? 1 : 0
 				});
 				await Navigation.PopAsync();
@@ -106,6 +107,17 @@ namespace Qloudid.ViewModels
 			{
 				touristTaxYesBg = value;
 				OnPropertyChanged("TouristTaxYesBg");
+			}
+		}
+
+		private string selectedTaxAmount;
+		public string SelectedTaxAmount
+		{
+			get => selectedTaxAmount;
+			set
+			{
+				selectedTaxAmount = value;
+				OnPropertyChanged("SelectedTaxAmount");
 			}
 		}
 		#endregion
