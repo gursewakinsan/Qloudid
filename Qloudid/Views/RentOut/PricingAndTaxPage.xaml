@@ -501,16 +501,45 @@
 		    	    BackgroundColor="White" 
 		    	    Opacity="0.1"/>
 
-                <!--Promotions-->
+                <!--Fee & Channels-->
+                <BoxView 
+			        Grid.Row="8" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.ChannelsUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="8"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.ChannelsUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
                 <BoxView 
 			        Grid.Row="8" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
 			        BackgroundColor="#F40000"
-                    VerticalOptions="CenterAndExpand">
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.ChannelsUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}" />
                     </BoxView.GestureRecognizers>
                 </BoxView>
 
@@ -522,9 +551,10 @@
 		    	    HorizontalTextAlignment="Center"
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
-		    	    VerticalTextAlignment="Center">
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.ChannelsUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -533,13 +563,13 @@
                     Grid.Column="1"
 		    	    FontFamily="PoppinsRegularFontFamily"
 		    	    FontSize="15"
-		    	    Text="Promotions"
+		    	    Text="Fee &amp; Channels"
 		    	    TextColor="White" 
                     Opacity="0.60"
                     VerticalTextAlignment="Center"
 		    	    HorizontalTextAlignment="Start">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -553,7 +583,7 @@
 		    	    TextColor="White"
 		    	    VerticalTextAlignment="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
+                        <TapGestureRecognizer Command="{Binding FeeAndChannelsPageCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 

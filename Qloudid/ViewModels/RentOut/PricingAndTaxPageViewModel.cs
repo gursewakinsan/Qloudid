@@ -90,6 +90,19 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Fee & Channels Page Command.
+		private ICommand feeAndChannelsPageCommand;
+		public ICommand FeeAndChannelsPageCommand
+		{
+			get => feeAndChannelsPageCommand ?? (feeAndChannelsPageCommand = new Command(async () => await ExecuteFeeAndChannelsPageCommand()));
+		}
+		private async Task ExecuteFeeAndChannelsPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.FeeAndChannelsPage());
+
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

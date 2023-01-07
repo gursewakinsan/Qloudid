@@ -745,5 +745,17 @@ namespace Qloudid.Models
 				OnPropertyChanged("PublishTui");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "channels_updated")]
+		private bool channelsUpdated;
+		public bool ChannelsUpdated
+		{
+			get => channelsUpdated;
+			set
+			{
+				channelsUpdated = value;
+				OnPropertyChanged("ChannelsUpdated");
+			}
+		}
 	}
 }
