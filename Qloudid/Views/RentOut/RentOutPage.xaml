@@ -621,7 +621,8 @@
                         ColumnSpacing="14" 
                         Grid.Row="16" 
                         Grid.Column="0" 
-                        Grid.ColumnSpan="3">
+                        Grid.ColumnSpan="3"
+                        IsVisible="{Binding IsReadyToPublish, Converter={StaticResource InverseBoolConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
@@ -649,6 +650,43 @@
                             CornerRadius="10"
                             FontFamily="PoppinsSemiBoldFontFamily"
 							Text="I'm ready to publish"/>
+                    </Grid>
+
+                    <Grid 
+                        ColumnSpacing="14" 
+                        Grid.Row="16" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="3"
+                        IsVisible="{Binding IsReadyToPublish}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button
+							Grid.Column="0"
+							FontSize="30"
+                            Padding="0"
+                            TextColor="#0F9D58"
+                            BorderWidth="1"
+                            BorderColor="#2A2A31"
+                            BackgroundColor="Transparent"
+                            CornerRadius="10"
+                            Command="{Binding PublishApartmentonChannelCommand}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                        <Button
+							Grid.Column="1"
+							FontSize="16"
+                            Padding="0"
+                            TextColor="White"
+                            BorderWidth="1"
+                            BorderColor="#0F9D58"
+                            BackgroundColor="Transparent"
+                            CornerRadius="10"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+							Text="I'm ready to publish"
+                            Command="{Binding PublishApartmentonChannelCommand}"/>
                     </Grid>
                 </Grid>
             </ScrollView>

@@ -37,7 +37,11 @@ namespace Qloudid.ViewModels
 			GetStartedManualsUpdated(response);
 			Address = response;
             Helper.Helper.SelectedUserAddress = Address;
-            DependencyService.Get<IProgressBar>().Hide();
+			if (IsApartment && IsArrivalAndRulesIconChecked && IsPhotoTextAndAvailability && IsPricing && IsGetStarted)
+				IsReadyToPublish = true;
+			else
+				IsReadyToPublish = false;
+			DependencyService.Get<IProgressBar>().Hide();
             IsPageLoad = true;
         }
 
@@ -353,6 +357,17 @@ namespace Qloudid.ViewModels
 			{
 				isPhotoTextAndAvailability = value;
 				OnPropertyChanged("IsPhotoTextAndAvailability");
+			}
+		}
+
+		private bool isReadyToPublish;
+		public bool IsReadyToPublish
+		{
+			get => isReadyToPublish;
+			set
+			{
+				isReadyToPublish = value;
+				OnPropertyChanged("IsReadyToPublish");
 			}
 		}
 		#endregion
