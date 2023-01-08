@@ -223,7 +223,7 @@
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
-						BackgroundColor="#4CD964"
+						BackgroundColor="{Binding ApartmentBg}"
                         VerticalOptions="CenterAndExpand">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
@@ -238,7 +238,23 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 						TextColor="#242A37"
+                        IsVisible="{Binding IsApartment}"
 						VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+						Grid.Row="5"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsApartment, Converter={StaticResource InverseBoolConverter}}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding GoToDoApartmentPageCommand}"/>
                         </Label.GestureRecognizers>
@@ -365,12 +381,27 @@
 						Grid.Column="0" 
 						CornerRadius="13"
                         HeightRequest="26"
-						BackgroundColor="#F40000"
+						BackgroundColor="{Binding PhotoTextAndAvailabilityBg}"
                         VerticalOptions="CenterAndExpand">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
                         </BoxView.GestureRecognizers>
                     </BoxView>
+
+                    <Label
+						Grid.Row="7"
+						Grid.Column="0"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="13"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+						TextColor="#242A37"
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPhotoTextAndAvailability}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Label
 						Grid.Row="9"
@@ -380,7 +411,8 @@
 						HorizontalTextAlignment="Center"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 						TextColor="#242A37"
-						VerticalTextAlignment="Center">
+						VerticalTextAlignment="Center"
+                        IsVisible="{Binding IsPhotoTextAndAvailability, Converter={StaticResource InverseBoolConverter}}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PhotoTextAndAvailabilityCommand}"/>
                         </Label.GestureRecognizers>

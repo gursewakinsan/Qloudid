@@ -22,14 +22,49 @@ namespace Qloudid.ViewModels
 			get => getAddressByIdCommand ?? (getAddressByIdCommand = new Command(async () => await ExecuteGetAddressByIdCommand()));
 		}
 		private async Task ExecuteGetAddressByIdCommand()
+        {
+            IsPageLoad = false;
+            DependencyService.Get<IProgressBar>().Show();
+            IDashboardService service = new DashboardService();
+            var response = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+            {
+                id = Helper.Helper.SelectedUserDeliveryAddress.Id
+            });
+            ApartmentUpdated(response);
+            ArrivalAndRulesUpdated(response);
+            PhotoTextAndAvailabilityUpdated(response);
+            PricingFeesAndChannelsUpdated(response);
+			GetStartedManualsUpdated(response);
+			Address = response;
+            Helper.Helper.SelectedUserAddress = Address;
+            DependencyService.Get<IProgressBar>().Hide();
+            IsPageLoad = true;
+        }
+
+        #endregion
+
+        #region Rent out item updated
+        void ApartmentUpdated(Models.EditAddressResponse response)
 		{
-			IsPageLoad = false;
-			DependencyService.Get<IProgressBar>().Show();
-			IDashboardService service = new DashboardService();
-			var response = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+			if (response.BedroomUpdated && response.BathroomUpdated && response.PropertyCompositionUpdated && response.OtherRoomUpdated)
 			{
-				id = Helper.Helper.SelectedUserDeliveryAddress.Id
-			});
+				IsApartment = true;
+				ApartmentBg = Color.FromHex("#4CD964");
+			}
+			else if(!response.BedroomUpdated && !response.BathroomUpdated && !response.PropertyCompositionUpdated && !response.OtherRoomUpdated)
+			{
+				IsApartment = false;
+				ApartmentBg = Color.FromHex("#F40000");
+			}
+			else if (!response.BedroomUpdated || !response.BathroomUpdated || !response.PropertyCompositionUpdated || !response.OtherRoomUpdated)
+			{
+				IsApartment = false;
+				ApartmentBg = Color.FromHex("#F4B400");
+			}
+		}
+
+		void ArrivalAndRulesUpdated(Models.EditAddressResponse response)
+		{
 			if (response.ArrivalDepartureUpdated && response.HouseRulesUpdated)
 			{
 				ArrivalAndRulesIconBg = Color.FromHex("#4CD964");
@@ -50,7 +85,29 @@ namespace Qloudid.ViewModels
 				ArrivalAndRulesIconBg = Color.FromHex("#F4B400");
 				IsArrivalAndRulesIconChecked = false;
 			}
+		}
 
+		void PhotoTextAndAvailabilityUpdated(Models.EditAddressResponse response)
+		{
+			if (response.PricingUpdated && response.NicknameUpdated && response.HeadLineUpdated && response.DescriptionUpdated)
+			{
+				IsPhotoTextAndAvailability = true;
+				PhotoTextAndAvailabilityBg = Color.FromHex("#4CD964");
+			}
+			else if (!response.PricingUpdated && !response.NicknameUpdated && !response.HeadLineUpdated && !response.DescriptionUpdated)
+			{
+				IsPhotoTextAndAvailability = false;
+				PhotoTextAndAvailabilityBg = Color.FromHex("#F40000");
+			}
+			else if (!response.PricingUpdated || !response.NicknameUpdated || !response.HeadLineUpdated || !response.DescriptionUpdated)
+			{
+				IsPhotoTextAndAvailability = false;
+				PhotoTextAndAvailabilityBg = Color.FromHex("#F4B400");
+			}
+		}
+
+		void PricingFeesAndChannelsUpdated(Models.EditAddressResponse response)
+		{
 			if (response.PricingUpdated && response.FeeUpdated && response.SecurityFeeUpdated && response.PolicyUpdated)
 			{
 				IsPricing = true;
@@ -66,7 +123,10 @@ namespace Qloudid.ViewModels
 				IsPricing = false;
 				PricingBg = Color.FromHex("#F4B400");
 			}
+		}
 
+		void GetStartedManualsUpdated(Models.EditAddressResponse response)
+		{
 			if (response.GetStartedUpdated == 0)
 			{
 				IsGetStarted = false;
@@ -82,11 +142,6 @@ namespace Qloudid.ViewModels
 				IsGetStarted = false;
 				GetStartedBg = Color.FromHex("#F4B400");
 			}
-
-			Address = response;
-			Helper.Helper.SelectedUserAddress = Address;
-			DependencyService.Get<IProgressBar>().Hide();
-			IsPageLoad = true;
 		}
 		#endregion
 
@@ -254,6 +309,50 @@ namespace Qloudid.ViewModels
 			{
 				isGetStarted = value;
 				OnPropertyChanged("IsGetStarted");
+			}
+		}
+
+		private Color apartmentBg;
+		public Color ApartmentBg
+		{
+			get => apartmentBg;
+			set
+			{
+				apartmentBg = value;
+				OnPropertyChanged("ApartmentBg");
+			}
+		}
+
+		private bool isApartment;
+		public bool IsApartment
+		{
+			get => isApartment;
+			set
+			{
+				isApartment = value;
+				OnPropertyChanged("IsApartment");
+			}
+		}
+
+		private Color photoTextAndAvailabilityBg;
+		public Color PhotoTextAndAvailabilityBg
+		{
+			get => photoTextAndAvailabilityBg;
+			set
+			{
+				photoTextAndAvailabilityBg = value;
+				OnPropertyChanged("PhotoTextAndAvailabilityBg");
+			}
+		}
+
+		private bool isPhotoTextAndAvailability;
+		public bool IsPhotoTextAndAvailability
+		{
+			get => isPhotoTextAndAvailability;
+			set
+			{
+				isPhotoTextAndAvailability = value;
+				OnPropertyChanged("IsPhotoTextAndAvailability");
 			}
 		}
 		#endregion
