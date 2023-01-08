@@ -37,5 +37,6 @@ namespace Qloudid.Interfaces
         Task<string> UpdateGetStartedDescriptionAsync(Models.UpdateGetStartedDescriptionRequest model);
         Task<string> UpdateTouristTaxAsync(Models.UpdateTouristTaxRequest model);
         Task<string> UpdateChannelPublishAsync(Models.UpdateChannelPublishRequest model);
+        Task<string> PublishApartmentonChannelAsync(Models.PublishApartmentonChannelRequest model);
     }
 }

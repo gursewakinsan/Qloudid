@@ -150,6 +150,24 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Publish Apartmenton Channel Command.
+		private ICommand publishApartmentonChannelCommand;
+		public ICommand PublishApartmentonChannelCommand
+		{
+			get => publishApartmentonChannelCommand ?? (publishApartmentonChannelCommand = new Command(async () => await ExecutePublishApartmentonChannelCommand()));
+		}
+		private async Task ExecutePublishApartmentonChannelCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			await service.PublishApartmentonChannelAsync(new Models.PublishApartmentonChannelRequest()
+			{
+				ApartmentId = Address.Id
+			});
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
