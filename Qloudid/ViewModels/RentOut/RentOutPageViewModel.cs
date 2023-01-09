@@ -112,17 +112,17 @@ namespace Qloudid.ViewModels
 
 		void PricingFeesAndChannelsUpdated(Models.EditAddressResponse response)
 		{
-			if (response.PricingUpdated && response.FeeUpdated && response.SecurityFeeUpdated && response.PolicyUpdated)
+			if (response.PricingUpdated && response.FeeUpdated && response.SecurityFeeUpdated && response.TouristTaxUpdated && response.ChannelsUpdated)
 			{
 				IsPricing = true;
 				PricingBg = Color.FromHex("#4CD964");
 			}
-			else if (!response.PricingUpdated && !response.FeeUpdated && !response.SecurityFeeUpdated && !response.PolicyUpdated)
+			else if (!response.PricingUpdated && !response.FeeUpdated && !response.SecurityFeeUpdated && !response.TouristTaxUpdated && !response.ChannelsUpdated)
 			{
 				IsPricing = false;
 				PricingBg = Color.FromHex("#F40000");
 			}
-			else if (!response.PricingUpdated || !response.FeeUpdated || !response.SecurityFeeUpdated || !response.PolicyUpdated)
+			else if (!response.PricingUpdated || !response.FeeUpdated || !response.SecurityFeeUpdated || !response.TouristTaxUpdated || !response.ChannelsUpdated)
 			{
 				IsPricing = false;
 				PricingBg = Color.FromHex("#F4B400");

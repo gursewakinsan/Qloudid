@@ -603,10 +603,10 @@
                         CornerRadius="12"
                         HeightRequest="44"
                         TextColor="White"
-                        CommandParameter="8"
+                        CommandParameter="7"
                         BackgroundColor="#0F9D58"
                         VerticalOptions="CenterAndExpand"
-                        IsVisible="{Binding Address.PublishExptd}"
+                        IsVisible="{Binding Address.PublishTrip}"
                         Command="{Binding UpdateChannelPublishCommand}"
                         FontFamily="{StaticResource MaterialFontFamily}"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
@@ -621,13 +621,13 @@
                         HeightRequest="44"
                         TextColor="#466285"
                         BorderColor="#242A37"
-                        CommandParameter="8"
+                        CommandParameter="7"
                         BackgroundColor="Transparent"
                         VerticalOptions="CenterAndExpand"
                         Command="{Binding UpdateChannelPublishCommand}"
                         FontFamily="{StaticResource MaterialFontFamily}"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-                        IsVisible="{Binding Address.PublishExptd, Converter={StaticResource InverseBoolConverter}}"/>
+                        IsVisible="{Binding Address.PublishTrip, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <StackLayout
                         Grid.Row="10"
@@ -641,7 +641,7 @@
 	    	                TextColor="White"
                             FontFamily="PoppinsRegularFontFamily">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding UpdateChannelPublishCommand}" CommandParameter="8"/>
+                                <TapGestureRecognizer Command="{Binding UpdateChannelPublishCommand}" CommandParameter="7"/>
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -652,7 +652,7 @@
 	    	                TextColor="White"
                             FontFamily="PoppinsRegularFontFamily">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding UpdateChannelPublishCommand}" CommandParameter="8"/>
+                                <TapGestureRecognizer Command="{Binding UpdateChannelPublishCommand}" CommandParameter="7"/>
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
