@@ -507,7 +507,7 @@
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
-			        BackgroundColor="#F40000"
+			        BackgroundColor="#F4B400"
                     VerticalOptions="CenterAndExpand">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding AvailabilityPageCommand}"/>

@@ -682,7 +682,7 @@
                             TextColor="White"
                             BorderWidth="1"
                             BorderColor="#0F9D58"
-                            BackgroundColor="Transparent"
+                            BackgroundColor="#0F9D58"
                             CornerRadius="10"
                             FontFamily="PoppinsSemiBoldFontFamily"
 							Text="I'm ready to publish"
