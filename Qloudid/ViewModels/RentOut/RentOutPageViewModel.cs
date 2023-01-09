@@ -40,7 +40,7 @@ namespace Qloudid.ViewModels
 			if (IsApartment && IsArrivalAndRulesIconChecked && IsPhotoTextAndAvailability && IsPricing && IsGetStarted)
 				IsReadyToPublish = true;
 			else
-				IsReadyToPublish = true;
+				IsReadyToPublish = false;
 			DependencyService.Get<IProgressBar>().Hide();
             IsPageLoad = true;
         }
