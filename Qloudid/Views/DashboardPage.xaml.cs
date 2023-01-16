@@ -99,13 +99,13 @@ namespace Qloudid.Views
 			});
 		}
 
-		private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
+		/*private void OnCarouselViewPositionChanged(object sender, PositionChangedEventArgs e)
 		{
 			carouselViewPosition = e.CurrentPosition;
 			string color = viewModel.DashboardItemList[carouselViewPosition].IconColor;
 			indicatorView.SelectedIndicatorColor = Color.FromHex(color);
 			btnLearnMore.TextColor = Color.FromHex(color);
-		}
+		}*/
 
 		private void OnLearnMoreButtonClicked(object sender, EventArgs e)
 		{
@@ -130,13 +130,27 @@ namespace Qloudid.Views
 			OnTapped(Convert.ToInt32(control.ClassId));
         }
 
-        private void OnTapped(int id)
+		private void ImageOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Image control = sender as Image;
+			OnTapped(Convert.ToInt32(control.ClassId));
+		}
+
+		private void FrameOnGestureRecognizerTapped(object sender, EventArgs e)
+		{
+			Frame control = sender as Frame;
+			OnTapped(Convert.ToInt32(control.ClassId));
+		}
+
+		private void OnTapped(int id)
         {
 			if (id == 0)
-				viewModel.ConsentCommand.Execute(null);
+				viewModel.BookingCommand.Execute(null);
 			else if (id == 1)
-				viewModel.LandLoardConsentCommand.Execute(null);
+				viewModel.ConsentCommand.Execute(null);
 			else if (id == 2)
+				viewModel.LandLoardConsentCommand.Execute(null);
+			else if (id == 3)
 				viewModel.ManageCardCommand.Execute(null);
         }
     }

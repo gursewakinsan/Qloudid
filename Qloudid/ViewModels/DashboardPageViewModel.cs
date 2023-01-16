@@ -385,6 +385,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Booking Command.
+		private ICommand bookingCommand;
+		public ICommand BookingCommand
+		{
+			get => bookingCommand ?? (bookingCommand = new Command(async () => await ExecuteBookingCommand()));
+		}
+		private async Task ExecuteBookingCommand()
+		{
+			await Navigation.PushAsync(new Views.Booking.ManageYourReservationsPage());
+		}
+		#endregion
+
 		#region Employer Request Count Command.
 		private ICommand employerRequestCountCommand;
 		public ICommand EmployerRequestCountCommand
@@ -436,19 +448,20 @@ namespace Qloudid.ViewModels
 			if (DashboardItemList == null)
 			{
 				var dashboardItems = new List<DashboardItem>();
-				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
-				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
-				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here." });
-				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis." });
-				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code." });
-				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation." });
-				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request." });
-				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." });
-				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency." });
-				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." });
-				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." });
-				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." });
-				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." });
+				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention" });
+				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
+				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
+				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here." });
+				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis." });
+				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code." });
+				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation." });
+				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request." });
+				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." });
+				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency." });
+				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." });
+				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." });
+				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." });
+				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." });
 				DashboardItemList = dashboardItems;
 			}
 		}
@@ -578,7 +591,6 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 	}
-	
 }
 public class DashboardItem
 {

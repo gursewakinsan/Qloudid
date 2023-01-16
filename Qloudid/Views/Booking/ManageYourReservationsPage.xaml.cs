@@ -1,0 +1,18 @@
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using Qloudid.ViewModels;
+
+namespace Qloudid.Views.Booking
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ManageYourReservationsPage : ContentPage
+    {
+        ManageYourReservationsPageViewModel viewModel;
+        public ManageYourReservationsPage()
+        {
+            InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "");
+            BindingContext = viewModel = new ManageYourReservationsPageViewModel(this.Navigation);
+        }
+    }
+}

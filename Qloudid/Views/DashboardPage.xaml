@@ -3,15 +3,220 @@
 	x:Class="Qloudid.Views.DashboardPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	Title="Qloudid"
-	BackgroundColor="White"
+	BackgroundColor="Black"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
-	<ContentPage.Content>
+    <Grid Margin="0,20,0,37" RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="63"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="63"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Frame
+            Grid.Row="0"
+            Grid.Column="1"
+            HasShadow="False"
+            CornerRadius="8"
+            Padding="5,10,5,10"
+            BorderColor="#242A37"
+            IsClippedToBounds="True"
+            BackgroundColor="Transparent">
+            <Grid ColumnSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="14"/>
+                </Grid.ColumnDefinitions>
+                <Image 
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    Source="iconFlagOfSweden.png"
+                    BackgroundColor="Transparent"/>
+                
+                <Label
+                    FontSize="14"
+                    Grid.Column="1"
+					TextColor="White"
+					VerticalTextAlignment="Center"
+					HorizontalTextAlignment="End" 
+					FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+            </Grid>
+        </Frame>
+            
+        <Label
+			Grid.Row="0"
+			FontSize="14"
+			Text="Qloud ID"
+            Grid.Column="2"
+			TextColor="White"
+            VerticalTextAlignment="Center"
+            BackgroundColor="Transparent"
+            HorizontalTextAlignment="Center"
+			FontFamily="SFProRegularFontFamily"/>
+        
+        <Button
+            Padding="0"
+			Grid.Row="0"
+            FontSize="17"
+            BorderWidth="1"
+			Grid.Column="3"
+			CornerRadius="8"
+			WidthRequest="40"
+            TextColor="White"
+            VerticalOptions="End"
+            BorderColor="#242A37"
+            HorizontalOptions="Center"
+            BackgroundColor="Transparent"
+            Command="{Binding SettingsCommand}"
+            FontFamily="{StaticResource MaterialFontFamily}"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.CogOutline}"/>
+
+        <Image
+			Grid.Row="2"
+            Grid.Column="2"
+			Aspect="AspectFit"
+            WidthRequest="150" 
+            BackgroundColor="Transparent"
+			HorizontalOptions="CenterAndExpand"
+			Source="iconLogoColorGradient.png"/>
+
+        <Grid
+            Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            ColumnSpacing="20">
+            <Button
+				FontSize="14"
+				BorderWidth="1"
+				Grid.Column="0"
+                Text="My Network"
+				CornerRadius="15"
+				TextColor="Gray"
+				BorderColor="#363541"
+				BackgroundColor="Transparent"
+                Command="{Binding MyNetWorkCommand}"
+				FontFamily="PoppinsRegularFontFamily"/>
+
+            <Button
+				FontSize="14"
+				Grid.Column="1"
+                Text="Scan QR"
+				CornerRadius="15"
+				TextColor="White"
+				BackgroundColor="#242A37"
+                Clicked="OnLoginToDesktopClicked"
+				FontFamily="PoppinsRegularFontFamily"/>
+        </Grid>
+
+        <ScrollView
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Padding="0,0,20,0"
+            Orientation="Horizontal"
+            HorizontalScrollBarVisibility="Never">
+            <StackLayout 
+				Spacing="14" 
+				Orientation="Horizontal"
+				BindableLayout.ItemsSource="{Binding DashboardItemList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+							WidthRequest="270"
+							CornerRadius="15"
+							HasShadow="False"
+							Padding="20,0,20,0"
+                            ClassId="{Binding Id}"
+							IsClippedToBounds="True"
+							HorizontalOptions="StartAndExpand">
+                            <Frame.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#8579B9" Offset="1.0" />
+                                    <GradientStop Color="#5E508D" Offset="0.1" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FrameOnGestureRecognizerTapped" />
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnSpacing="18" ClassId="{Binding Id}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GridOnGestureRecognizerTapped" />
+                                </Grid.GestureRecognizers>
+                                <Image
+									Grid.Column="0"
+									Aspect="AspectFill"
+                                    HeightRequest="45"
+                                    ClassId="{Binding Id}"
+                                    VerticalOptions="CenterAndExpand"
+									Source="iconThreePartColor.png"
+									BackgroundColor="Transparent">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ImageOnGestureRecognizerTapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+                                <StackLayout 
+                                    Spacing="0"
+                                    Grid.Column="1"
+                                    ClassId="{Binding Id}"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGestureRecognizerTapped" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label
+										FontSize="18"
+										TextColor="White"
+                                        ClassId="{Binding Id}"
+                                        Text="{Binding Heading}"
+                                        FontFamily="PoppinsBoldFontFamily">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Label
+										FontSize="13"
+										TextColor="White"
+                                        ClassId="{Binding Id}"
+                                        Text="{Binding SubHeading}"
+                                        FontFamily="PoppinsRegularFontFamily">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+    
+    
+    
+    
+	<!--<ContentPage.Content>
 		<Grid
 			Margin="0,40,0,0"
 			BackgroundColor="White"
@@ -354,7 +559,7 @@
 					VerticalOptions="EndAndExpand" />
 			</StackLayout>
 		</Grid>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 
 
 
