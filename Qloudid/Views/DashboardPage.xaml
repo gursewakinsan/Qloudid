@@ -12,7 +12,7 @@
 	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
-    <Grid Margin="0,22,0,37" RowSpacing="0" ColumnSpacing="0">
+    <Grid Margin="0,22,0,0" RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="53"/>
