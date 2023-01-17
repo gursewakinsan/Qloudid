@@ -4,6 +4,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.ViewModels
 {
@@ -241,7 +242,7 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserEmail = response.email;
 					UserInfo = user;
 					Microsoft.AppCenter.AppCenter.SetUserId(response.email);
-					EmployerRequestCountCommand.Execute(null);
+					//EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
 
@@ -250,6 +251,18 @@ namespace Qloudid.ViewModels
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
 					else if (response.identificator == 0 || response.identificator == -1)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+					else
+					{
+						IDashboardService dashboardService = new DashboardService();
+						var dashboardServiceResponse = await dashboardService.ApartmentReservationConfermationRequiredAsync(new Models.ApartmentReservationConfermationRequest()
+						{
+							UserId = Helper.Helper.UserId
+						});
+						if (dashboardServiceResponse?.Count > 0)
+							DashboardItemList[0].IsBooking = true;
+						else
+							DashboardItemList[0].IsBooking = false;
+					}
 				}
 				else
 					await Navigation.PushAsync(new Views.InvalidCertificatePage());
@@ -448,21 +461,21 @@ namespace Qloudid.ViewModels
 			if (DashboardItemList == null)
 			{
 				var dashboardItems = new List<DashboardItem>();
-				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention" });
-				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
-				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started." });
-				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here." });
-				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis." });
-				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code." });
-				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation." });
-				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request." });
-				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." });
-				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency." });
-				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." });
-				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." });
-				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." });
-				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." });
-				DashboardItemList = dashboardItems;
+				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention" , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency." , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." , IsBooking = true });
+				DashboardItemList = new ObservableCollection<DashboardItem>(dashboardItems);
 			}
 		}
 		#endregion
@@ -579,8 +592,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public List<DashboardItem> dashboardItemList;
-		public List<DashboardItem> DashboardItemList
+		public ObservableCollection<DashboardItem> dashboardItemList;
+		public ObservableCollection<DashboardItem> DashboardItemList
 		{
 			get => dashboardItemList;
 			set
@@ -592,11 +605,22 @@ namespace Qloudid.ViewModels
 		#endregion
 	}
 }
-public class DashboardItem
+public class DashboardItem : Qloudid.Models.BaseModel
 {
 	public int Id { get; set; }
 	public string Heading { get; set; }
 	public string SubHeading { get; set; }
 	public string HeadingIcon { get; set; }
 	public string IconColor { get; set; }
+
+	private bool isBooking;
+	public bool IsBooking
+	{ 
+		get => isBooking;
+		set
+		{
+			isBooking = value;
+			OnPropertyChanged("IsBooking");
+		}
+	}
 }

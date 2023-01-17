@@ -23,5 +23,9 @@ namespace Qloudid.Interfaces
 		Task<Models.ReceivedRequestDetailTenantsResponse> ReceivedRequestDetailTenantsAsync(Models.ReceivedRequestDetailTenantsRequest request);
 		Task<int> ApproveTenantRequestAsync(Models.ApproveTenantRequest request);
 		Task<int> RejectTenantRequestAsync(Models.RejectTenantRequest request);
+
+		//Booking
+		Task<List<Models.ApartmentReservationConfermationResponse>> ApartmentReservationConfermationRequiredAsync(Models.ApartmentReservationConfermationRequest request);
+		Task<List<Models.ApartmentReservationHistoryResponse>> ApartmentReservationHistoryAsync(Models.ApartmentReservationHistoryRequest request);
 	}
 }

@@ -169,5 +169,24 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		//Booking
+		public Task<List<Models.ApartmentReservationConfermationResponse>> ApartmentReservationConfermationRequiredAsync(Models.ApartmentReservationConfermationRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentReservationConfermationResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentReservationConfermationRequiredListUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
+
+		public Task<List<Models.ApartmentReservationHistoryResponse>> ApartmentReservationHistoryAsync(Models.ApartmentReservationHistoryRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentReservationHistoryResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentReservationHistoryListUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

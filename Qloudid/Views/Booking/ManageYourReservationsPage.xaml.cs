@@ -14,5 +14,11 @@ namespace Qloudid.Views.Booking
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new ManageYourReservationsPageViewModel(this.Navigation);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.ManageReservationsCommand.Execute(null);
+        }
     }
 }

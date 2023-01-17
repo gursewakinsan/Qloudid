@@ -143,6 +143,7 @@
 							Padding="20,0,20,0"
                             ClassId="{Binding Id}"
 							IsClippedToBounds="True"
+                            IsVisible="{Binding IsBooking}"
 							HorizontalOptions="StartAndExpand">
                             <Frame.Background>
                                 <LinearGradientBrush>
