@@ -462,7 +462,7 @@ namespace Qloudid.ViewModels
 			if (DashboardItemList == null)
 			{
 				var dashboardItems = new List<DashboardItem>();
-				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention" , IsBooking = true });
+				dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention" , IsBooking = false });
 				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.", IsBooking = true });
 				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.", IsBooking = true });
 				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", IsBooking = true });
