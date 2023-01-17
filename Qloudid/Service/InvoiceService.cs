@@ -15,5 +15,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> ConfirmApartmentReservationAsync(Models.ConfirmApartmentReservationRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.ConfirmApartmentReservationUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

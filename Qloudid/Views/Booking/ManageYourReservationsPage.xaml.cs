@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 
@@ -19,6 +20,14 @@ namespace Qloudid.Views.Booking
         {
             base.OnAppearing();
             viewModel.ManageReservationsCommand.Execute(null);
+        }
+
+        private async void OnConfirmButtonClicked(object sender, System.EventArgs e)
+        {
+            Button button = sender as Button;
+            Helper.Helper.IsManageYourReservations = true;
+            Helper.Helper.HotelBookingId = button.ClassId;
+            await Navigation.PushAsync(new Hotel.VerifyHotelPasswordPage());
         }
     }
 }

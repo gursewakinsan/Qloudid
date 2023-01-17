@@ -35,7 +35,21 @@ namespace Qloudid.ViewModels
 					password = Password 
 				});
 				ClearPassword();
-				if (response == 3 || response ==1)
+				if (Helper.Helper.IsManageYourReservations)
+				{
+					Helper.Helper.IsManageYourReservations = false;
+					IInvoiceService invoiceService = new InvoiceService();
+					await invoiceService.ConfirmApartmentReservationAsync(new Models.ConfirmApartmentReservationRequest()
+					{
+						PropertyId = Helper.Helper.HotelBookingId,
+						UserId = Helper.Helper.UserId,
+						IsCompany = Helper.Helper.UserOrCompanyAddress,
+						InvoiceAddressId = Helper.Helper.InvoiceAddressDetail.Id,
+						CardId = Helper.Helper.CardDetail.id
+					});
+					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				}
+				else if (response == 3 || response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
 

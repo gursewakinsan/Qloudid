@@ -300,7 +300,9 @@
 			                            CornerRadius="10"
                                         Text="Confirm"
                                         TextColor="White"
+                                        ClassId="{Binding Id}"
                                         BackgroundColor="#1A0E3E"
+                                        Clicked="OnConfirmButtonClicked"
                                         FontFamily="PoppinsSemiBoldFontFamily"/>
                                 </Grid>
                             </Frame>

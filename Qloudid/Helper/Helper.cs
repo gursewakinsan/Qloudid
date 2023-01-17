@@ -110,6 +110,7 @@ namespace Qloudid.Helper
 
 		public static bool IsFromCurrencyPage { get; set; } = false;
 
+		public static bool IsManageYourReservations { get; set; } = false;
 
         public static string[] ColorList =
 		{

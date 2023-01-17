@@ -155,6 +155,7 @@
 
 		//Invoice.
 		public const string PayRentInvoiceUrl = "https://www.qloudid.com/user/index.php/QloudidApp/payRentInvoice";
+		public const string ConfirmApartmentReservationUrl = "https://www.qloudid.com/user/index.php/QloudidApp/confirmApartmentReservation";
 
 		//MyCountries/
 		public const string CheckMobileNumberUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkMobileNumber";

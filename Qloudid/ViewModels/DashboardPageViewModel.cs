@@ -15,6 +15,7 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			UserInfo = Helper.Helper.UserInfo;
+			Helper.Helper.IsManageYourReservations = false;
 			if (UserInfo == null) UserInfo = new Models.User();
 			if (UserInfo.UserImage == null)
 				UserImage = string.Empty;

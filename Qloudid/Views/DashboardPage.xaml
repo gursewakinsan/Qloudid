@@ -80,7 +80,7 @@
             TextColor="White"
             VerticalOptions="End"
             BorderColor="#242A37"
-            HorizontalOptions="Center"
+            HorizontalOptions="EndAndExpand"
             BackgroundColor="Transparent"
             Command="{Binding SettingsCommand}"
             FontFamily="{StaticResource MaterialFontFamily}"
