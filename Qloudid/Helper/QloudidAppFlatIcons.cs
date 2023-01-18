@@ -80,5 +80,9 @@
 		public const string StorefrontOutline = "\U000f10c1";
 		public const string AccountOutline = "\U000f0013";
 		public const string BedOutline = "\U000f0099";
+
+		public const string ReorderHorizontal = "\U000f0688";
+		public const string LockOutline = "\U000f0341";
+		public const string ImageOutline = "\U000f0976";
 	}
 }

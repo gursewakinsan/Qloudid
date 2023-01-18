@@ -207,6 +207,8 @@
 		public const string UpdateChannelPublishUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateChannelPublish";
 		public const string PublishApartmentonChannelUrl = "https://www.qloudid.com/user/index.php/QloudidApp/publishApartmentonChannel";
 
+		public const string ApartmentBookingListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentBookingList";
+
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";
 		public const string ApartmentReservationHistoryListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationHistoryList";

@@ -227,6 +227,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Booking Page Command.
+		private ICommand bookingPageCommand;
+		public ICommand BookingPageCommand
+		{
+			get => bookingPageCommand ?? (bookingPageCommand = new Command(async () => await ExecuteBookingPageCommand()));
+		}
+		private async Task ExecuteBookingPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.BookingListPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

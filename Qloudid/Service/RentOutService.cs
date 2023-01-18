@@ -304,5 +304,15 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.ApartmentBookingListResponse>> ApartmentBookingListAsync(Models.ApartmentBookingListRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentBookingListResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentBookingListUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
 	}
 }
