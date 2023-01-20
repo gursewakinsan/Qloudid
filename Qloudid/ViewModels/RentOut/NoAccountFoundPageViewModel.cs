@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using System.Threading.Tasks;
 
-namespace Qloudid.ViewModels.RentOut
+namespace Qloudid.ViewModels
 {
     public class NoAccountFoundPageViewModel : BaseViewModel
     {

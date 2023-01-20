@@ -13,7 +13,6 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
-			SendBookingRequestInfo = Helper.Helper.SendBookingRequestInfo;
 		}
 		#endregion
 
@@ -28,6 +27,7 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
 			await service.SendBookingRequestInfoAsync(Helper.Helper.SendBookingRequestInfo);
+			SkipCommand.Execute(null);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -40,6 +40,9 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSkipCommand()
 		{
+			this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+			this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+			await Navigation.PopAsync();
 		}
 		#endregion
 
@@ -52,17 +55,6 @@ namespace Qloudid.ViewModels
 			{
 				address = value;
 				OnPropertyChanged("Address");
-			}
-		}
-
-		private Models.SendBookingRequestInfoRequest sendBookingRequestInfo;
-		public Models.SendBookingRequestInfoRequest SendBookingRequestInfo
-		{
-			get => sendBookingRequestInfo;
-			set
-			{
-				sendBookingRequestInfo = value;
-				OnPropertyChanged("SendBookingRequestInfo");
 			}
 		}
 		#endregion

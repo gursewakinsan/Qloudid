@@ -42,7 +42,7 @@ namespace Qloudid.ViewModels
 				if (response.Id > 0)
 				{
 					Helper.Helper.SendBookingRequestInfo.GuestUserId = response.Id;
-					await Navigation.PushAsync(new Views.RentOut.AccountFoundPage());
+					await Navigation.PushAsync(new Views.RentOut.AccountFoundPage($"{response.FirstName} {response.LastName}, {response.CountryName}"));
 				}
 				else
 					await Navigation.PushAsync(new Views.RentOut.NoAccountFoundPage());

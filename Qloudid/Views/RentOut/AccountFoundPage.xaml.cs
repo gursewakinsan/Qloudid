@@ -8,11 +8,12 @@ namespace Qloudid.Views.RentOut
     public partial class AccountFoundPage : ContentPage
     {
         AccountFoundPageViewModel viewModel;
-        public AccountFoundPage()
+        public AccountFoundPage(string gustInfo)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new AccountFoundPageViewModel(this.Navigation);
+            lblGustInfo.Text = gustInfo;
         }
     }
 }
