@@ -247,6 +247,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconFlagOfSweden.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\matchFound.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

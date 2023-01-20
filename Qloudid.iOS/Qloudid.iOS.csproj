@@ -278,4 +278,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconFlagOfSweden.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\matchFound.png" />
+  </ItemGroup>
 </Project>
