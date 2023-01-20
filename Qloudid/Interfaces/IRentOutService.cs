@@ -39,5 +39,8 @@ namespace Qloudid.Interfaces
         Task<string> UpdateChannelPublishAsync(Models.UpdateChannelPublishRequest model);
         Task<string> PublishApartmentonChannelAsync(Models.PublishApartmentonChannelRequest model);
         Task<List<Models.ApartmentBookingListResponse>> ApartmentBookingListAsync(Models.ApartmentBookingListRequest model);
+        Task<int> CheckAvailablityDatesAsync(Models.CheckAvailablityDatesRequest model);
+        Task<Models.VerifyUserUsingPhoneDetailResponse> VerifyUserUsingPhoneDetailAsync(Models.VerifyUserUsingPhoneDetailRequest model);
+        Task<int> SendBookingRequestInfoAsync(Models.SendBookingRequestInfoRequest model);
     }
 }

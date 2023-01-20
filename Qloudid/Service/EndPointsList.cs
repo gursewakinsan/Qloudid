@@ -206,8 +206,11 @@
 		public const string UpdateTouristTaxUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateTouristTax";
 		public const string UpdateChannelPublishUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateChannelPublish";
 		public const string PublishApartmentonChannelUrl = "https://www.qloudid.com/user/index.php/QloudidApp/publishApartmentonChannel";
-
 		public const string ApartmentBookingListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentBookingList";
+
+		public const string CheckAvailablityDatesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkAvailablityDates";
+		public const string VerifyUserUsingPhoneDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyUserUsingPhoneDetail";
+		public const string SendBookingRequestInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendBookingRequestInfo";
 
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";

@@ -314,5 +314,31 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<int> CheckAvailablityDatesAsync(Models.CheckAvailablityDatesRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckAvailablityDatesUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<Models.VerifyUserUsingPhoneDetailResponse> VerifyUserUsingPhoneDetailAsync(Models.VerifyUserUsingPhoneDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<Models.VerifyUserUsingPhoneDetailResponse>(HttpWebRequest.Create(EndPointsList.VerifyUserUsingPhoneDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> SendBookingRequestInfoAsync(Models.SendBookingRequestInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.SendBookingRequestInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
