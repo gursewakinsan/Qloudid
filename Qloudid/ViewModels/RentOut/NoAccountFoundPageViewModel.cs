@@ -32,6 +32,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteTryAgainCommand()
 		{
+			this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+			this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
 			await Navigation.PopAsync();
 		}
 		#endregion

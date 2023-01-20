@@ -59,7 +59,6 @@
                     <Label
 		                FontSize="20"
                         x:Name="lblGustInfo"
-		                Text="Kowaken Ghirmai, 46 Sweden"
 		                TextColor="White" Opacity="0.70"
                         HorizontalTextAlignment="Center"
                         FontFamily="PoppinsRegularFontFamily"/>
