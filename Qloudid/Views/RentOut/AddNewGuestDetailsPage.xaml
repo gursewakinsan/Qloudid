@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.AddNewGuestDetailsPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="11"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Guest details"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="22"
+            HorizontalTextAlignment="Start"
+	    	Text="To check-in the guest"
+	    	TextColor="White"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+		    FontSize="18"
+		    Text="Guest"
+		    TextColor="#F4B400"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <ScrollView
+            Grid.Row="9" 
+            Padding="28,20,28,5"
+            Grid.ColumnSpan="5"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="22">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="120"/>
+
+
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label
+                    Grid.Row="0"
+	    	        FontSize="13"
+                    Text="Country"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    Grid.ColumnSpan="2"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="2" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+			    	        FontSize="15"
+			    	        TextColor="White"
+			    	        TitleColor="Gray"
+                            Title="Select country"
+                            ItemsSource="{Binding CountryList}"
+                            SelectedItem="{Binding SelectedCountry}"
+                            FontFamily="PoppinsRegularFontFamily"
+                            ItemDisplayBinding="{Binding CountryName}"/>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="4"
+	    	        FontSize="13"
+                    Text="First name"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+                
+                <Frame 
+                    Grid.Row="6"
+                    Grid.Column="0" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="First name"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding FirstName}"/>
+                </Frame>
+
+                <Label
+                    Grid.Row="4"
+	    	        FontSize="13"
+                    Text="Last name"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="6"
+                    Grid.Column="1" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Last name"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding LastName}"/>
+                </Frame>
+
+                <Grid 
+                    RowSpacing="0" 
+                    ColumnSpacing="22" 
+                    Grid.Row="8" 
+                    Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="6"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Row="0"
+	    	            FontSize="13"
+                        Text="Mobile no"
+                        Grid.Column="0"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily"/>
+
+                    <Frame 
+                        Grid.Row="2" 
+                        HasShadow="False"
+                        CornerRadius="10"
+                        Grid.Column="0"
+                        Padding="15,0,15,0"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+			    	            FontSize="15"
+			    	            TextColor="White"
+			    	            TitleColor="Gray"
+                                Title="Select country code"
+                                ItemsSource="{Binding CountryCodeList}"
+                                SelectedItem="{Binding SelectedCountryCode}"
+                                FontFamily="PoppinsRegularFontFamily"
+                                ItemDisplayBinding="{Binding DisplayCountryCode}"/>
+
+                            <Label
+				                FontSize="15"
+                                Grid.Column="1"
+                                TextColor="#F40000"
+                                VerticalTextAlignment="Center"
+				                HorizontalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                        </Grid>
+                    </Frame>
+
+                    <Label
+                        Grid.Row="0"
+	    	            FontSize="13"
+                        Text="(Remove first 0)"
+                        Grid.Column="1"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily"/>
+
+                    <Frame 
+                        Grid.Row="2"
+                        Grid.Column="1" 
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+				            FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Mobile number"
+                            PlaceholderColor="Gray"
+                            VerticalOptions="CenterAndExpand"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding PhoneNumber}"/>
+                    </Frame>
+                </Grid>
+
+                <Label
+                    Grid.Row="10"
+	    	        FontSize="13"
+                    Text="Email address"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    Grid.ColumnSpan="2"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="12"
+                    Grid.ColumnSpan="2" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Email address"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding EmailAddress}"/>
+                </Frame>
+
+                <Label
+                    Grid.ColumnSpan="2"
+                    Grid.Row="14"
+		            FontSize="18"
+		            Text="Identification"
+		            TextColor="#F4B400"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsBoldFontFamily"/>
+
+                <BoxView 
+                    Grid.ColumnSpan="2"
+                    Grid.Row="16"
+		            BackgroundColor="White" 
+		            Opacity="0.1"/>
+
+                <Label
+                    Grid.Row="18"
+	    	        FontSize="13"
+                    Text="ID Type"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="20" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+			    	        FontSize="15"
+			    	        TextColor="White"
+			    	        TitleColor="Gray"
+                            Title="Select ID type"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <controls:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Passport</x:String>
+                                </x:Array>
+                            </controls:CustomPicker.ItemsSource>
+                            <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                        </controls:CustomPicker>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="18"
+	    	        FontSize="13"
+                    Text="ID number"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="20"
+                    Grid.Column="1" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="ID number"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding IDNumber}"/>
+                </Frame>
+
+                <Label
+                    Grid.Row="22"
+	    	        FontSize="13"
+                    Text="Issue dates"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="24" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomDatePicker
+                            FontSize="15"
+                            Grid.Column="0"
+					        TextColor="White" 
+                            Format="yyyy-MM-dd"
+					        BackgroundColor="Transparent"
+					        Date="{Binding SelectedIssueDate}"
+					        FontFamily="PoppinsRegularFontFamily"
+                            MaximumDate="{Binding BindIssueMaximumDate}"
+						    MinimumDate="{Binding BindIssueMinimumDate}"/>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="22"
+	    	        FontSize="13"
+                    Text="Expire dates"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="24" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomDatePicker
+                            FontSize="15"
+                            Grid.Column="0"
+					        TextColor="White" 
+                            Format="yyyy-MM-dd"
+					        BackgroundColor="Transparent"
+					        Date="{Binding SelectedExpiryDate}"
+					        FontFamily="PoppinsRegularFontFamily"
+                            MaximumDate="{Binding BindExpiryMaximumDate}"
+						    MinimumDate="{Binding BindExpiryMinimumDate}"/>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="26"
+	    	        FontSize="13"
+                    Text="ID photo front"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <ImageButton
+                    Grid.Row="28"
+                    Grid.Column="0"
+                    Aspect="AspectFill"
+                    CornerRadius="16" 
+                    IsVisible="False"
+                    Clicked="OnIdPhotoFrontClicked"
+                    x:Name="imgBtnIdPhotoFront"
+                    BackgroundColor="Transparent"/>
+
+                <Button
+			        Grid.Row="28"
+                    Grid.Column="0"
+			        FontSize="30"
+                    TextColor="White"
+                    CornerRadius="16"
+                    x:Name="btnIdPhotoFront"
+                    BackgroundColor="#242A37"
+                    Clicked="OnIdPhotoFrontClicked"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+			        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+
+                <Label
+                    Grid.Row="26"
+	    	        FontSize="13"
+                    Text="ID photo back"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White" 
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <ImageButton
+                    Grid.Row="28"
+                    Grid.Column="1"
+                    Aspect="AspectFill"
+                    CornerRadius="16" 
+                    IsVisible="False"
+                    x:Name="imgBtnIdPhotoBack"
+                    Clicked="OnIdPhotoBackClicked"
+                    BackgroundColor="Transparent"/>
+
+                <Button
+			        Grid.Row="28"
+                    Grid.Column="1"
+			        FontSize="30"
+                    TextColor="White"
+                    CornerRadius="16"
+                    x:Name="btnIdPhotoBack"
+                    BackgroundColor="#242A37"
+                    Clicked="OnIdPhotoBackClicked"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+			        Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+            </Grid>
+        </ScrollView>
+
+        <controls:CustomButton
+            Text="Submit"
+            Margin="0"
+	        Grid.Row="10"
+            FontSize="20"
+            Grid.Column="1"
+            BorderWidth="0"
+            CornerRadius="30"
+            TextColor="White"
+            Grid.ColumnSpan="3"
+	        BackgroundColor="#F40000"
+            FontFamily="PoppinsBoldFontFamily"
+            Command="{Binding CheckAvailablityDatesCommand}"/>
+    </Grid>
+</ContentPage>
