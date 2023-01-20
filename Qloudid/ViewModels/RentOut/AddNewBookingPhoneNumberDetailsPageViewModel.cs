@@ -39,10 +39,13 @@ namespace Qloudid.ViewModels
 					CountryId = SelectedCountry.Id,
 					PhoneNumber = PhoneNumber
 				});
-				if (response.Id > 0)//AccountFoundPage"
-					await Navigation.PushAsync(new Views.RentOut.AddNewBookingPhoneNumberDetailsPage());
-				else//AccountNotFoundPage"
-					await Helper.Alert.DisplayAlert("Please select different dates");
+				if (response.Id > 0)
+				{
+					Helper.Helper.SendBookingRequestInfo.GuestUserId = response.Id;
+					await Navigation.PushAsync(new Views.RentOut.AccountFoundPage());
+				}
+				else
+					await Navigation.PushAsync(new Views.RentOut.NoAccountFoundPage());
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}

@@ -38,7 +38,21 @@ namespace Qloudid.ViewModels
 					EndDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}"
 				});
 				if (response == 0)
+				{
+					Models.SendBookingRequestInfoRequest request = new Models.SendBookingRequestInfoRequest()
+					{
+						ApartmentId = Address.Id,
+						CheckinDate = $"{CheckInDate.Day}-{CheckInDate.Month}-{CheckInDate.Year}",
+						CheckoutDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}",
+						GuestAdults = Adults,
+						GuestChildren = Children,
+						HotelPropertyType = 2,
+						IsPaid = Paid,
+						RoomPrice = Price,
+					};
+					Helper.Helper.SendBookingRequestInfo = request;
 					await Navigation.PushAsync(new Views.RentOut.AddNewBookingPhoneNumberDetailsPage());
+				}
 				else
 					await Helper.Alert.DisplayAlert("Please select different dates");
 				DependencyService.Get<IProgressBar>().Hide();
