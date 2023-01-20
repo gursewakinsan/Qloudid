@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.RentOut.AddNewBookingDetailsPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="53"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="11"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconThreePartColor.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Booking"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="22"
+            HorizontalTextAlignment="Start"
+	    	Text="Add a reservation"
+	    	TextColor="White"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+		    FontSize="18"
+		    Text="Details"
+		    TextColor="#F4B400"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    BackgroundColor="White" 
+		    Opacity="0.1"/>
+
+        <ScrollView
+            Grid.Row="9" 
+            Padding="28,20,28,5"
+            Grid.ColumnSpan="5"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="22">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+	    	        FontSize="13"
+                    Text="Check-in"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="2" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomDatePicker
+                            FontSize="15"
+                            Grid.Column="0"
+					        TextColor="White" 
+                            Format="yyyy-MM-dd"
+					        BackgroundColor="Transparent"
+					        Date="{Binding CheckInDate}"
+					        FontFamily="PoppinsRegularFontFamily"
+                            MaximumDate="{Binding BindCheckInMaximumDate}"
+						    MinimumDate="{Binding BindCheckInMinimumDate}"/>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="0"
+	    	        FontSize="13"
+                    Text="Check-out"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="2" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomDatePicker
+                            FontSize="15"
+                            Grid.Column="0"
+					        TextColor="White" 
+                            Format="yyyy-MM-dd"
+					        BackgroundColor="Transparent"
+					        Date="{Binding CheckOutDate}"
+					        FontFamily="PoppinsRegularFontFamily"
+                            MaximumDate="{Binding BindCheckOutMaximumDate}"
+						    MinimumDate="{Binding BindCheckOutMinimumDate}"/>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="4"
+	    	        FontSize="13"
+                    Text="Adults"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="6"
+                    Grid.Column="0" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        Keyboard="Numeric"
+                        BackgroundColor="Transparent"
+                        Placeholder="Adults"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding Adults}"/>
+                </Frame>
+
+                <Label
+                    Grid.Row="4"
+	    	        FontSize="13"
+                    Text="Children"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="6"
+                    Grid.Column="1" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        Keyboard="Numeric"
+                        BackgroundColor="Transparent"
+                        Placeholder="Children"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding Children}"/>
+                </Frame>
+
+                <Label
+                    Grid.Row="8"
+	    	        FontSize="13"
+                    Text="Paid (Yes/No)"
+                    Grid.Column="0"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+
+                <Frame 
+                    Grid.Row="10" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+			    	        FontSize="15"
+			    	        TextColor="White"
+			    	        TitleColor="Gray"
+                            Title="Select paid options"
+                            FontFamily="PoppinsRegularFontFamily"
+                            SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
+                            <controls:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Paid-cash</x:String>
+                                    <x:String>Paid-Other plateform</x:String>
+                                    <x:String>Not paid</x:String>
+                                </x:Array>
+                            </controls:CustomPicker.ItemsSource>
+                            <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                        </controls:CustomPicker>
+
+                        <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="8"
+	    	        FontSize="13"
+                    Text="How much per night"
+                    Grid.Column="1"
+                    Opacity="0.42"
+                    TextColor="White"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+                    FontFamily="PoppinsRegularFontFamily"/>
+                
+                <Frame 
+                    Grid.Row="10"
+                    Grid.Column="1" 
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+						FontSize="15"
+                        TextColor="White"
+                        Keyboard="Numeric"
+                        BackgroundColor="Transparent"
+                        Placeholder="Price"
+                        PlaceholderColor="Gray"
+                        VerticalOptions="CenterAndExpand"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding Price}"/>
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+        <controls:CustomButton
+            Text="Next"
+            Margin="0"
+	        Grid.Row="10"
+            FontSize="20"
+            Grid.Column="1"
+            BorderWidth="0"
+            CornerRadius="30"
+            TextColor="White"
+            Grid.ColumnSpan="3"
+	        BackgroundColor="#F40000"
+            FontFamily="PoppinsBoldFontFamily"
+            Command="{Binding CheckAvailablityDatesCommand}"/>
+    </Grid>
+</ContentPage>

@@ -29,9 +29,21 @@ namespace Qloudid.ViewModels
 			IRentOutService service = new RentOutService();
 			ApartmentBookingList = await service.ApartmentBookingListAsync(new Models.ApartmentBookingListRequest()
 			{
-				ApartmentId =28// Address.Id,
+				ApartmentId = Address.Id
 			});
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Add New Apartment Booking Command.
+		private ICommand addNewApartmentBookingCommand;
+		public ICommand AddNewApartmentBookingCommand
+		{
+			get => addNewApartmentBookingCommand ?? (addNewApartmentBookingCommand = new Command(async () => await ExecuteAddNewApartmentBookingCommand()));
+		}
+		private async Task ExecuteAddNewApartmentBookingCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.AddNewBookingDetailsPage());
 		}
 		#endregion
 
