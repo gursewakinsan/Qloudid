@@ -42,5 +42,11 @@ namespace Qloudid.Interfaces
         Task<int> CheckAvailablityDatesAsync(Models.CheckAvailablityDatesRequest model);
         Task<Models.VerifyUserUsingPhoneDetailResponse> VerifyUserUsingPhoneDetailAsync(Models.VerifyUserUsingPhoneDetailRequest model);
         Task<int> SendBookingRequestInfoAsync(Models.SendBookingRequestInfoRequest model);
+        Task<int> CheckPhoneInfoAsync(Models.CheckPhoneInfoRequest model);
+        Task<int> CheckEmailInfoAsync(Models.CheckEmailInfoRequest model);
+        Task<int> CreateUserAsync(Models.CreateUserRequest model);
+        Task<int> AddIdentificatorRegisteredUserAsync(Models.AddIdentificatorRegisteredUserRequest model);
+        Task<int> AddIdentificatorImagesRegisteredUserAsync(Models.AddIdentificatorImagesRegisteredUserRequest model);
+        Task<int> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model);
     }
 }

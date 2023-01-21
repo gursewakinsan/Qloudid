@@ -136,8 +136,6 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="6"/>
                     <RowDefinition Height="120"/>
-
-
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -286,31 +284,13 @@
                         Padding="15,0,15,0"
                         IsClippedToBounds="True"
                         BackgroundColor="#242A37">
-                        <Grid ColumnSpacing="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="15"/>
-                            </Grid.ColumnDefinitions>
-                            <controls:CustomPicker
-                                Grid.Column="0"
-			    	            FontSize="15"
-			    	            TextColor="White"
-			    	            TitleColor="Gray"
-                                Title="Select country code"
-                                ItemsSource="{Binding CountryCodeList}"
-                                SelectedItem="{Binding SelectedCountryCode}"
-                                FontFamily="PoppinsRegularFontFamily"
-                                ItemDisplayBinding="{Binding DisplayCountryCode}"/>
-
-                            <Label
-				                FontSize="15"
-                                Grid.Column="1"
-                                TextColor="#F40000"
-                                VerticalTextAlignment="Center"
-				                HorizontalTextAlignment="Center"
-                                FontFamily="{StaticResource MaterialFontFamily}"
-				                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
-                        </Grid>
+                        <Label
+			    	        FontSize="15"
+			    	        TextColor="White"
+                            Text="{Binding SelectedCountry.DisplayCountryCode}"
+                            FontFamily="PoppinsRegularFontFamily"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"/>
                     </Frame>
 
                     <Label
@@ -644,6 +624,6 @@
             Grid.ColumnSpan="3"
 	        BackgroundColor="#F40000"
             FontFamily="PoppinsBoldFontFamily"
-            Command="{Binding CheckAvailablityDatesCommand}"/>
+            Command="{Binding AddNewGuestDetailsCommand}"/>
     </Grid>
 </ContentPage>

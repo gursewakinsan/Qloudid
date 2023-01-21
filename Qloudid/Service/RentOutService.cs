@@ -340,5 +340,59 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> CheckPhoneInfoAsync(Models.CheckPhoneInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckPhoneInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> CheckEmailInfoAsync(Models.CheckEmailInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CheckEmailInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> CreateUserAsync(Models.CreateUserRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CreateUserUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddIdentificatorRegisteredUserAsync(Models.AddIdentificatorRegisteredUserRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddIdentificatorRegisteredUserUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddIdentificatorImagesRegisteredUserAsync(Models.AddIdentificatorImagesRegisteredUserRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddIdentificatorImagesRegisteredUserUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.SendBookingToNewUserUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

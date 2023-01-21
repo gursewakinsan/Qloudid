@@ -21,6 +21,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteCreateAccountCommand()
 		{
+			await Navigation.PushAsync(new Views.RentOut.AddNewGuestDetailsPage());
 		}
 		#endregion
 
