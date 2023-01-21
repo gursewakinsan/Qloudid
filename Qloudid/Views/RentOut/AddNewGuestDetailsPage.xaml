@@ -348,6 +348,7 @@
                     <controls:CustomEntry
 						FontSize="15"
                         TextColor="White"
+                        Keyboard="Email"
                         BackgroundColor="Transparent"
                         Placeholder="Email address"
                         PlaceholderColor="Gray"

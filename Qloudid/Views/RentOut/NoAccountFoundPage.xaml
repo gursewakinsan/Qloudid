@@ -101,7 +101,7 @@
                         TextColor="White"
 	                    BackgroundColor="#F40000"
                         FontFamily="PoppinsRegularFontFamily"
-                        Command="{Binding SendBookingRequestInfoCommand}"/>
+                        Command="{Binding CreateAccountCommand}"/>
                 </Grid>
             </controls:CustomFrame>
         </Grid>

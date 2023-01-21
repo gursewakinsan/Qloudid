@@ -82,7 +82,7 @@ namespace Qloudid.ViewModels
 								PNumber = PhoneNumber
 							});
 
-							int addIdentificatorResponse = await service.AddIdentificatorRegisteredUserAsync(new Models.AddIdentificatorRegisteredUserRequest()
+							await service.AddIdentificatorRegisteredUserAsync(new Models.AddIdentificatorRegisteredUserRequest()
 							{
 								CountryId = SelectedCountry.Id,
 								IssueDate = $"{SelectedIssueDate.Day}/{SelectedIssueDate.Month}/{SelectedIssueDate.Year}",
@@ -109,9 +109,16 @@ namespace Qloudid.ViewModels
 							await service.SendBookingToNewUserAsync(new Models.SendBookingToNewUserRequest()
 							{
 								GuestUserId = guestUserId,
-								
+								ApartmentId = Address.Id,
+								CheckInDate = Helper.Helper.SendBookingRequestInfo.CheckinDate,
+								CheckOutDate = Helper.Helper.SendBookingRequestInfo.CheckoutDate,
+								GuestAdults = Helper.Helper.SendBookingRequestInfo.GuestAdults,
+								GuestChildren = Helper.Helper.SendBookingRequestInfo.GuestChildren,
+								IsPaid = Helper.Helper.SendBookingRequestInfo.IsPaid,
+								RoomPrice = Helper.Helper.SendBookingRequestInfo.RoomPrice
 							});
 							await Navigation.PushAsync(new Views.RentOut.PaymentsPersonalPage());
+							DependencyService.Get<IProgressBar>().Hide();
 						}
 					}
 					else

@@ -368,29 +368,29 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> AddIdentificatorRegisteredUserAsync(Models.AddIdentificatorRegisteredUserRequest model)
+		public Task<string> AddIdentificatorRegisteredUserAsync(Models.AddIdentificatorRegisteredUserRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddIdentificatorRegisteredUserUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.AddIdentificatorRegisteredUserUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}
 
-		public Task<int> AddIdentificatorImagesRegisteredUserAsync(Models.AddIdentificatorImagesRegisteredUserRequest model)
+		public Task<string> AddIdentificatorImagesRegisteredUserAsync(Models.AddIdentificatorImagesRegisteredUserRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddIdentificatorImagesRegisteredUserUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.AddIdentificatorImagesRegisteredUserUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}
 
-		public Task<int> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model)
+		public Task<string> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.SendBookingToNewUserUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.SendBookingToNewUserUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}
