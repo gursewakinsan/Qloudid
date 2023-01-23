@@ -210,13 +210,15 @@
 		public const string CheckAvailablityDatesUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkAvailablityDates";
 		public const string VerifyUserUsingPhoneDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/verifyUserUsingPhoneDetail";
 		public const string SendBookingRequestInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendBookingRequestInfo";
-
 		public const string CheckPhoneInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkPhoneInfo";
 		public const string CheckEmailInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkEmailInfo";
 		public const string CreateUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/createUser";
 		public const string AddIdentificatorRegisteredUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorRegisteredUser";
 		public const string AddIdentificatorImagesRegisteredUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorImagesRegisteredUser";
 		public const string SendBookingToNewUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendBookingToNewUser";
+
+		public const string UpdateUserPersonalAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateUserPersonalAddress";
+		public const string SaveCompanyDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/saveCompanyDetails";
 
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";

@@ -48,5 +48,7 @@ namespace Qloudid.Interfaces
         Task<string> AddIdentificatorRegisteredUserAsync(Models.AddIdentificatorRegisteredUserRequest model);
         Task<string> AddIdentificatorImagesRegisteredUserAsync(Models.AddIdentificatorImagesRegisteredUserRequest model);
         Task<string> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model);
+        Task<string> UpdateUserPersonalAddressAsync(Models.UpdateUserPersonalAddressRequest model);
+        Task<string> SaveCompanyDetailsAsync(Models.SaveCompanyDetailsRequest model);
     }
 }
