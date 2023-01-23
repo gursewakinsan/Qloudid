@@ -59,6 +59,14 @@
                 </Label>
             </StackLayout>
 
+            <Image
+                Grid.Row="1"
+                Margin="0,71,0,-30"
+                Aspect="AspectFit"
+                Source="noMissing.png"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand"/>
+
             <controls:CustomFrame
 			    Grid.Row="2"
                 HasShadow="False"
