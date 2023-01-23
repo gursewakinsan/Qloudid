@@ -50,7 +50,60 @@ namespace Qloudid.ViewModels
 			{
 				DependencyService.Get<IProgressBar>().Show();
 				IRentOutService service = new RentOutService();
-				int phoneInfoResponse = await service.CheckPhoneInfoAsync(new Models.CheckPhoneInfoRequest()
+				Models.CreateUserResponse response = await service.CreateUserAsync(new Models.CreateUserRequest()
+				{
+					FirstName = FirstName,
+					LastName = LastName,
+					Email = EmailAddress,
+					PCountry = SelectedCountry.Id,
+					PNumber = PhoneNumber,
+					IdNumber = IDNumber
+				});
+				if (response.Id > 0)
+				{
+					await service.AddIdentificatorRegisteredUserAsync(new Models.AddIdentificatorRegisteredUserRequest()
+					{
+						CountryId = SelectedCountry.Id,
+						IssueDate = $"{SelectedIssueDate.Day}/{SelectedIssueDate.Month}/{SelectedIssueDate.Year}",
+						ExpiryDate = $"{SelectedExpiryDate.Day}/{SelectedExpiryDate.Month}/{SelectedExpiryDate.Year}",
+						GuestUserId = response.Id,
+						IdentificatorId = 1,
+						IdentificatorText = IDNumber
+					});
+
+					await service.AddIdentificatorImagesRegisteredUserAsync(new Models.AddIdentificatorImagesRegisteredUserRequest()
+					{
+						ImageId = 1,
+						GuestUserId = response.Id,
+						ImageData = Convert.ToBase64String(UserImageDataFront)
+					});
+
+					await service.AddIdentificatorImagesRegisteredUserAsync(new Models.AddIdentificatorImagesRegisteredUserRequest()
+					{
+						ImageId = 2,
+						GuestUserId = response.Id,
+						ImageData = Convert.ToBase64String(UserImageDataBack)
+					});
+
+					Helper.Helper.BookingId = await service.SendBookingToNewUserAsync(new Models.SendBookingToNewUserRequest()
+					{
+						GuestUserId = response.Id,
+						ApartmentId = Address.Id,
+						CheckInDate = Helper.Helper.SendBookingRequestInfo.CheckinDate,
+						CheckOutDate = Helper.Helper.SendBookingRequestInfo.CheckoutDate,
+						GuestAdults = Helper.Helper.SendBookingRequestInfo.GuestAdults,
+						GuestChildren = Helper.Helper.SendBookingRequestInfo.GuestChildren,
+						IsPaid = Helper.Helper.SendBookingRequestInfo.IsPaid,
+						RoomPrice = Helper.Helper.SendBookingRequestInfo.RoomPrice
+					});
+					await Navigation.PushAsync(new Views.RentOut.PaymentsPersonalPage());
+				}
+				else
+					await Helper.Alert.DisplayAlert(response.Message);
+				DependencyService.Get<IProgressBar>().Hide();
+
+
+				/*int phoneInfoResponse = await service.CheckPhoneInfoAsync(new Models.CheckPhoneInfoRequest()
 				{
 					CountryId = SelectedCountry.Id,
 					PhoneNumber = PhoneNumber
@@ -79,7 +132,8 @@ namespace Qloudid.ViewModels
 								LastName = LastName,
 								Email = EmailAddress,
 								PCountry = SelectedCountry.Id,
-								PNumber = PhoneNumber
+								PNumber = PhoneNumber,
+								IdNumber = IDNumber
 							});
 
 							await service.AddIdentificatorRegisteredUserAsync(new Models.AddIdentificatorRegisteredUserRequest()
@@ -125,7 +179,7 @@ namespace Qloudid.ViewModels
 						await Helper.Alert.DisplayAlert("Email already in use.");
 				}
 				else
-					await Helper.Alert.DisplayAlert("Phone number already in use.");
+					await Helper.Alert.DisplayAlert("Phone number already in use.");*/
 			}
 		}
 		#endregion

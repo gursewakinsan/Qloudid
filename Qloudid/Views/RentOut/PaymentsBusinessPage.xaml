@@ -438,7 +438,7 @@
                     <Label
                         Grid.Row="12"
 	    	            FontSize="13"
-                        Text="Issue year"
+                        Text="Expiry year"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Opacity="0.42"
@@ -466,7 +466,7 @@
 			    	            FontSize="15"
 			    	            TextColor="White"
 			    	            TitleColor="Gray"
-                                Title="Select issue year"
+                                Title="Select expiry year"
                                 ItemsSource="{Binding IssueYearList}"
 							    SelectedItem="{Binding SelectedIssueYear}"
                                 FontFamily="PoppinsRegularFontFamily">
@@ -487,7 +487,7 @@
                     <Label
                         Grid.Row="12"
 	    	            FontSize="13"
-                        Text="Issue month"
+                        Text="Expiry month"
                         Grid.Column="2"
                         Grid.ColumnSpan="2"
                         Opacity="0.42"
@@ -515,7 +515,7 @@
 			    	            FontSize="15"
 			    	            TextColor="White"
 			    	            TitleColor="Gray"
-                                Title="Select issue month"
+                                Title="Select expiry month"
                                 ItemsSource="{Binding IssueMonthList}"
 							    SelectedItem="{Binding SelectedIssueMonth}"
                                 FontFamily="PoppinsRegularFontFamily">

@@ -359,11 +359,11 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<int> CreateUserAsync(Models.CreateUserRequest model)
+		public Task<Models.CreateUserResponse> CreateUserAsync(Models.CreateUserRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.CreateUserUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<Models.CreateUserResponse>(HttpWebRequest.Create(EndPointsList.CreateUserUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

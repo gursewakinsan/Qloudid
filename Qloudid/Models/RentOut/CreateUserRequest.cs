@@ -16,5 +16,8 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "p_number")]
         public string PNumber { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id_number")]
+        public string IdNumber { get; set; }
     }
 }
