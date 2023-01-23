@@ -16,6 +16,7 @@ namespace Qloudid.ViewModels
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
 			IsCompanyCard = Helper.Helper.SendBookingRequestInfo.IsPaid == 3 ? true : false;
+			BindMonthAndYear();
 		}
 		#endregion
 
