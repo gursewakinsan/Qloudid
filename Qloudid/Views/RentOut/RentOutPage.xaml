@@ -169,24 +169,24 @@
                         IsVisible="{Binding Address.IsPublished}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
-                            <RowDefinition Height="12"/>
+                            <RowDefinition Height="15"/>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="29"/>
+                            <RowDefinition Height="12"/>
                             <RowDefinition Height="1"/>
-                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="1"/>
-                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="1"/>
-                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="1"/>
-                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="1"/>
-                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="1"/>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="26"/>
+                            <ColumnDefinition Width="40"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
@@ -195,7 +195,7 @@
                             Grid.ColumnSpan="2"
                             Grid.Row="0"
 						    FontSize="20"
-						    Text="PROPERTY MANAGER"
+						    Text="Milano"
 						    TextColor="White"
                             HorizontalTextAlignment="Start"
                             FontFamily="PoppinsSemiBoldFontFamily"/>
@@ -206,11 +206,9 @@
                             Grid.ColumnSpan="3"
 						    FontFamily="PoppinsRegularFontFamily"
 						    FontSize="16"
-                            MaxLines="2"
-                            LineHeight="1.2"
                             LineBreakMode="TailTruncation"
                             HorizontalTextAlignment="Start"
-						    Text="Manage your property, guest and obligations from here"
+						    Text="Mjölnerbacken 61, 174 60, Stockholm"
 						    TextColor="White"
                             Opacity="0.42"/>
 
@@ -218,26 +216,26 @@
 						    Grid.Row="4" 
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
-						    BackgroundColor="White" 
-						    Opacity="0.1"/>
+                            Opacity="0.67"
+						    BackgroundColor="#F4B400" />
 
                         <!--Bookings-->
-                        <Label
-						    Grid.Row="5"
+                        <Button
+						    Grid.Row="7"
 						    Grid.Column="0"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="20"
-						    HorizontalTextAlignment="Start"
+						    FontSize="15"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                            CornerRadius="20"
+                            BackgroundColor="#242A37"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="StartAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ReorderHorizontal}"
-						    TextColor="White"
-						    VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BookingPageCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
+						    TextColor="White" Command="{Binding BookingPageCommand}"/>
 
                         <Label
-						    Grid.Row="5"
+						    Grid.Row="7"
                             Grid.Column="1"
 						    FontFamily="PoppinsRegularFontFamily"
 						    FontSize="15"
@@ -252,13 +250,13 @@
                         </Label>
 
                         <Label
-						    Grid.Row="5"
+						    Grid.Row="7"
 						    Grid.Column="2"
 						    FontFamily="{StaticResource MaterialFontFamily}"
 						    FontSize="20"
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						    TextColor="#4CD964"
+						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BookingPageCommand}" />
@@ -273,22 +271,22 @@
 						    Opacity="0.1"/>
 
                         <!--Calendar-->
-                        <Label
-						    Grid.Row="7"
+                        <Button
+						    Grid.Row="5"
 						    Grid.Column="0"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="20"
-						    HorizontalTextAlignment="Start"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ShareVariantOutline}"
 						    TextColor="White"
-						    VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
-                            </Label.GestureRecognizers>
-                        </Label>
+						    FontSize="15"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                            CornerRadius="20"
+                            BackgroundColor="#242A37"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="StartAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"/>
 
                         <Label
-						    Grid.Row="7"
+						    Grid.Row="5"
                             Grid.Column="1"
 						    FontFamily="PoppinsRegularFontFamily"
 						    FontSize="15"
@@ -303,13 +301,13 @@
                         </Label>
 
                         <Label
-						    Grid.Row="7"
+						    Grid.Row="5"
 						    Grid.Column="2"
 						    FontFamily="{StaticResource MaterialFontFamily}"
 						    FontSize="20"
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						    TextColor="#4CD964"
+						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer />
@@ -324,19 +322,19 @@
 						    Opacity="0.1"/>
 
                         <!--Check-in & out-->
-                        <Label
+                        <Button
 						    Grid.Row="9"
 						    Grid.Column="0"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="20"
-						    HorizontalTextAlignment="Start"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.LockOutline}"
-						    TextColor="White"
-						    VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
-                            </Label.GestureRecognizers>
-                        </Label>
+						    FontSize="15"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                            CornerRadius="20"
+                            TextColor="White"
+                            BackgroundColor="#242A37"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="StartAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.LockOutline}"/>
 
                         <Label
 						    Grid.Row="9"
@@ -360,7 +358,7 @@
 						    FontSize="20"
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						    TextColor="#4CD964"
+						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer />
@@ -375,19 +373,19 @@
 						    Opacity="0.1"/>
 
                         <!--Police report & guest book-->
-                        <Label
+                        <Button
 						    Grid.Row="11"
 						    Grid.Column="0"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="20"
-						    HorizontalTextAlignment="Start"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeVariant}"
-						    TextColor="White"
-						    VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
-                            </Label.GestureRecognizers>
-                        </Label>
+						    FontSize="15"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                            CornerRadius="20"
+                            TextColor="White"
+                            BackgroundColor="#242A37"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="StartAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.HomeVariant}"/>
 
                         <Label
 						    Grid.Row="11"
@@ -411,7 +409,7 @@
 						    FontSize="20"
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						    TextColor="#4CD964"
+						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer />
@@ -426,19 +424,20 @@
 						    Opacity="0.1"/>
 
                         <!--Property details-->
-                        <Label
+                        <Button
 						    Grid.Row="13"
 						    Grid.Column="0"
-						    FontFamily="{StaticResource MaterialFontFamily}"
-						    FontSize="20"
-						    HorizontalTextAlignment="Start"
-						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ImageOutline}"
-						    TextColor="White"
-						    VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding PropertyDetailsCommand}"/>
-                            </Label.GestureRecognizers>
-                        </Label>
+						    FontSize="15"
+                            HeightRequest="40"
+                            WidthRequest="40"
+                            CornerRadius="20"
+                            TextColor="White"
+                            BackgroundColor="#242A37"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="StartAndExpand"
+                            Command="{Binding PropertyDetailsCommand}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ImageOutline}"/>
 
                         <Label
 						    Grid.Row="13"
@@ -462,7 +461,7 @@
 						    FontSize="20"
 						    HorizontalTextAlignment="End"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-						    TextColor="#4CD964"
+						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding PropertyDetailsCommand}"/>

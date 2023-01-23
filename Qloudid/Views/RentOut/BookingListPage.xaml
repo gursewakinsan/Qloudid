@@ -53,12 +53,21 @@
             </Label.GestureRecognizers>
         </Label>
 
-        <Image
+        <Button 
             Grid.Row="0"
+            Padding="0"
+            FontSize="20"
             Grid.Column="3"
-            Aspect="AspectFill"
-            Source="iconSmallLogo.png"
-            BackgroundColor="Transparent"/>
+            CornerRadius="6"
+            HeightRequest="35"
+            WidthRequest="35"
+            TextColor="White"
+            BackgroundColor="#4CD964"
+            HorizontalOptions="EndAndExpand"
+            VerticalOptions="CenterAndExpand"
+            FontFamily="{StaticResource MaterialFontFamily}"
+            Command="{Binding AddNewApartmentBookingCommand}"
+            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
 
         <Label
             Grid.Column="1"
@@ -86,33 +95,18 @@
             Grid.Row="6"
 		    FontSize="18"
 		    Text="Bookings"
-		    TextColor="#F4B400"
+            Opacity="0.42"
+		    TextColor="White"
             HorizontalTextAlignment="Start"
             VerticalTextAlignment="Center"
             FontFamily="PoppinsBoldFontFamily"/>
-
-        <Button 
-            Grid.Row="6"
-            Padding="0"
-            FontSize="20"
-            Grid.Column="3"
-            CornerRadius="6"
-            HeightRequest="35"
-            WidthRequest="35"
-            TextColor="White"
-            BackgroundColor="#4CD964"
-            HorizontalOptions="EndAndExpand"
-            VerticalOptions="CenterAndExpand"
-            FontFamily="{StaticResource MaterialFontFamily}"
-            Command="{Binding AddNewApartmentBookingCommand}"
-            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
 
         <BoxView 
 		    Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="8"
-		    BackgroundColor="White" 
-		    Opacity="0.1"/>
+		    BackgroundColor="#F4B400" 
+		    Opacity="0.67"/>
 
         <ListView
             Grid.Row="9"
