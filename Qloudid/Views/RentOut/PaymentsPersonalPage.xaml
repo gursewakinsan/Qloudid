@@ -18,7 +18,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="11"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
@@ -88,7 +88,8 @@
             Grid.Row="6"
 		    FontSize="18"
 		    Text="Guest Home address"
-		    TextColor="#F4B400"
+		    Opacity="0.42"
+		    TextColor="White"
             HorizontalTextAlignment="Start"
             VerticalTextAlignment="Center"
             FontFamily="PoppinsBoldFontFamily"/>
@@ -97,8 +98,8 @@
 		    Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="8"
-		    BackgroundColor="White" 
-		    Opacity="0.1"/>
+		    BackgroundColor="#F4B400" 
+            Opacity="0.67"/>
 
         <ScrollView
             Grid.Row="9" 
@@ -316,7 +317,8 @@
                     Grid.Row="12"
 		            FontSize="18"
 		            Text="Guest Personal Card"
-		            TextColor="#F4B400"
+		            Opacity="0.42"
+		            TextColor="White"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
                     FontFamily="PoppinsBoldFontFamily"/>
@@ -324,8 +326,8 @@
                 <BoxView 
                     Grid.ColumnSpan="4"
                     Grid.Row="14"
-		            BackgroundColor="White" 
-		            Opacity="0.1"/>
+		            BackgroundColor="#F4B400" 
+		            Opacity="0.67"/>
 
                 <Label
                     Grid.Row="16"
@@ -523,7 +525,8 @@
                     Grid.Row="32"
 		            FontSize="18"
 		            Text="Receipt"
-		            TextColor="#F4B400"
+		            Opacity="0.42"
+		            TextColor="White"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
                     FontFamily="PoppinsBoldFontFamily"/>
@@ -531,8 +534,8 @@
                 <BoxView 
                     Grid.ColumnSpan="4"
                     Grid.Row="34"
-		            BackgroundColor="White" 
-		            Opacity="0.1"/>
+		            BackgroundColor="#F4B400" 
+		            Opacity="0.67"/>
 
                 <Label
                     Grid.Row="36"

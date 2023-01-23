@@ -18,7 +18,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="11"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
@@ -56,6 +56,7 @@
         </Label>
 
         <Image
+            IsVisible="False"
             Grid.Row="0"
             Grid.Column="3"
             Aspect="AspectFill"
@@ -88,7 +89,8 @@
             Grid.Row="6"
 		    FontSize="18"
 		    Text="Details"
-		    TextColor="#F4B400"
+		    Opacity="0.42"
+		    TextColor="White"
             HorizontalTextAlignment="Start"
             VerticalTextAlignment="Center"
             FontFamily="PoppinsBoldFontFamily"/>
@@ -97,8 +99,8 @@
 		    Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="8"
-		    BackgroundColor="White" 
-		    Opacity="0.1"/>
+		    BackgroundColor="#F4B400" 
+		    Opacity="0.67"/>
 
         <ScrollView
             Grid.Row="9" 

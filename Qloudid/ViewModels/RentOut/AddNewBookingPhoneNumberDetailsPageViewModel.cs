@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -14,7 +15,7 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
-			CountryList = new ObservableCollection<Models.Country>(Helper.Helper.CountryList);
+			CountryList = new ObservableCollection<Models.Country>(Helper.Helper.CountryList.OrderBy(x => x.CountryCode));
 			SelectedCountry = CountryList[0];
 		}
 		#endregion
