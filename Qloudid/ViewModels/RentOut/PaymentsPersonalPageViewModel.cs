@@ -59,6 +59,63 @@ namespace Qloudid.ViewModels
         }
 		#endregion
 
+		#region Update User Personal Address Command.
+		private ICommand updateUserPersonalAddressCommand;
+		public ICommand UpdateUserPersonalAddressCommand
+		{
+			get => updateUserPersonalAddressCommand ?? (updateUserPersonalAddressCommand = new Command(async () => await ExecuteUpdateUserPersonalAddressCommand()));
+		}
+		private async Task ExecuteUpdateUserPersonalAddressCommand()
+		{
+			if (string.IsNullOrWhiteSpace(NameOnTheDoor))
+				await Helper.Alert.DisplayAlert("Name on the door is required.");
+			else if (string.IsNullOrWhiteSpace(StreetAddress))
+				await Helper.Alert.DisplayAlert("Street address is required.");
+			else if (string.IsNullOrWhiteSpace(Number))
+				await Helper.Alert.DisplayAlert("Number is required.");
+			else if (string.IsNullOrWhiteSpace(ZipCode))
+				await Helper.Alert.DisplayAlert("Zip code is required.");
+			else if (string.IsNullOrWhiteSpace(City))
+				await Helper.Alert.DisplayAlert("City is required.");
+			else if (string.IsNullOrWhiteSpace(NameOnTheCard))
+				await Helper.Alert.DisplayAlert("Name on the card is required.");
+			else if (string.IsNullOrWhiteSpace(CardNumber))
+				await Helper.Alert.DisplayAlert("Card number is required.");
+			else if (string.IsNullOrWhiteSpace(CVC))
+				await Helper.Alert.DisplayAlert("CVC is required.");
+			else
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IRentOutService service = new RentOutService();
+				await service.UpdateUserPersonalAddressAsync(new Models.UpdateUserPersonalAddressRequest()
+				{
+					CardNumber = CardNumber,
+					Cvv = CVC,
+					D_Address = NameOnTheDoor,
+					D_City = City,
+					D_PoNumber = Number,
+					D_Zip = ZipCode,
+					ExpiryMonth = SelectedIssueMonth,
+					ExpiryYear = SelectedIssueYear,
+					NameOnCard = NameOnTheCard,
+					IsCompany = IsPrivate ? 0 : 1,
+					BookingId = Helper.Helper.BookingId
+				});
+				if (!IsPrivate)
+					await Navigation.PushAsync(new Views.RentOut.PaymentsBusinessPage());
+				else
+				{
+					this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+					this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+					this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+					this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+					await Navigation.PopAsync();
+				}
+				DependencyService.Get<IProgressBar>().Hide();
+			}
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
@@ -183,6 +240,94 @@ namespace Qloudid.ViewModels
 					CompanyBg = Color.FromHex("#4CD964");
 				}
 				OnPropertyChanged("IsPrivate");
+			}
+		}
+
+		private string nameOnTheDoor;
+		public string NameOnTheDoor
+		{
+			get => nameOnTheDoor;
+			set
+			{
+				nameOnTheDoor = value;
+				OnPropertyChanged("NameOnTheDoor");
+			}
+		}
+
+		private string streetAddress;
+		public string StreetAddress
+		{
+			get => streetAddress;
+			set
+			{
+				streetAddress = value;
+				OnPropertyChanged("StreetAddress");
+			}
+		}
+
+		private string number;
+		public string Number
+		{
+			get => number;
+			set
+			{
+				number = value;
+				OnPropertyChanged("Number");
+			}
+		}
+
+		private string zipCode;
+		public string ZipCode
+		{
+			get => zipCode;
+			set
+			{
+				zipCode = value;
+				OnPropertyChanged("ZipCode");
+			}
+		}
+
+		private string city;
+		public string City
+		{
+			get => city;
+			set
+			{
+				city = value;
+				OnPropertyChanged("City");
+			}
+		}
+
+		private string nameOnTheCard;
+		public string NameOnTheCard
+		{
+			get => nameOnTheCard;
+			set
+			{
+				nameOnTheCard = value;
+				OnPropertyChanged("NameOnTheCard");
+			}
+		}
+
+		private string cardNumber;
+		public string CardNumber
+		{
+			get => cardNumber;
+			set
+			{
+				cardNumber = value;
+				OnPropertyChanged("CardNumber");
+			}
+		}
+
+		private string cvc;
+		public string CVC
+		{
+			get => cvc;
+			set
+			{
+				cvc = value;
+				OnPropertyChanged("CVC");
 			}
 		}
 		#endregion

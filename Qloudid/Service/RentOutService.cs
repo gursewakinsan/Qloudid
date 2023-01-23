@@ -386,11 +386,11 @@ namespace Qloudid.Service
 			});
 		}
 
-		public Task<string> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model)
+		public Task<int> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{
-				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.SendBookingToNewUserUrl), string.Empty, model.ToJson());
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.SendBookingToNewUserUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

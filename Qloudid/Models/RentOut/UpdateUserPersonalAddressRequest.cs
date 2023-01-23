@@ -27,12 +27,12 @@
         public string NameOnCard { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "cvv")]
-        public int Cvv { get; set; }
+        public string Cvv { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "expiry_month")]
-        public int ExpiryMonth { get; set; }
+        public string ExpiryMonth { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "expiry_year")]
-        public int ExpiryYear { get; set; }
+        public string ExpiryYear { get; set; }
     }
 }

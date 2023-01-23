@@ -271,12 +271,12 @@
 						FontSize="15"
                         TextColor="White"
                         BackgroundColor="Transparent"
-                        Placeholder="Zip"
+                        Placeholder="Zip code"
                         Keyboard="Numeric"
                         PlaceholderColor="Gray"
                         VerticalOptions="CenterAndExpand"
                         FontFamily="PoppinsRegularFontFamily"
-                        Text="{Binding Number}"/>
+                        Text="{Binding ZipCode}"/>
                 </Frame>
 
                 <Label
@@ -594,6 +594,6 @@
             Grid.ColumnSpan="3"
 	        BackgroundColor="#F40000"
             FontFamily="PoppinsBoldFontFamily"
-            Command="{Binding AddNewGuestDetailsCommand}"/>
+            Command="{Binding UpdateUserPersonalAddressCommand}"/>
     </Grid>
 </ContentPage>

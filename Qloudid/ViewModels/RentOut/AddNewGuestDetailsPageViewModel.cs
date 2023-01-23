@@ -106,7 +106,7 @@ namespace Qloudid.ViewModels
 								ImageData = Convert.ToBase64String(UserImageDataBack)
 							});
 
-							await service.SendBookingToNewUserAsync(new Models.SendBookingToNewUserRequest()
+							Helper.Helper.BookingId = await service.SendBookingToNewUserAsync(new Models.SendBookingToNewUserRequest()
 							{
 								GuestUserId = guestUserId,
 								ApartmentId = Address.Id,
