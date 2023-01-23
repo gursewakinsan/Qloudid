@@ -10,9 +10,9 @@
         public string dzip { get; set; }
         public string dpo_number { get; set; }
         public string card_number { get; set; }
-        public int cvv { get; set; }
-        public int expiry_month { get; set; }
-        public int expiry_year { get; set; }
+        public string cvv { get; set; }
+        public string expiry_month { get; set; }
+        public string expiry_year { get; set; }
         public string name_on_card { get; set; }
     }
 }

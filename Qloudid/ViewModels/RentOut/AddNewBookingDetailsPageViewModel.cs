@@ -25,37 +25,46 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteCheckAvailablityDatesCommand()
 		{
-			if (CheckInDate == CheckOutDate)
-				await Helper.Alert.DisplayAlert("Check-in and Check-out date cannot be same");
+			if (string.IsNullOrWhiteSpace(Adults))
+				await Helper.Alert.DisplayAlert("Adults is required.");
+			else if (string.IsNullOrWhiteSpace(Children))
+				await Helper.Alert.DisplayAlert("Children is required.");
+			else if(string.IsNullOrWhiteSpace(Price))
+				await Helper.Alert.DisplayAlert("Price is required.");
 			else
 			{
-				DependencyService.Get<IProgressBar>().Show();
-				IRentOutService service = new RentOutService();
-				int response = await service.CheckAvailablityDatesAsync(new Models.CheckAvailablityDatesRequest()
+				if (CheckInDate == CheckOutDate)
+					await Helper.Alert.DisplayAlert("Check-in and Check-out date cannot be same");
+				else
 				{
-					ApartmentId = Address.Id,
-					StartDate = $"{CheckInDate.Day}-{CheckInDate.Month}-{CheckInDate.Year}",
-					EndDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}"
-				});
-				if (response == 0)
-				{
-					Models.SendBookingRequestInfoRequest request = new Models.SendBookingRequestInfoRequest()
+					DependencyService.Get<IProgressBar>().Show();
+					IRentOutService service = new RentOutService();
+					int response = await service.CheckAvailablityDatesAsync(new Models.CheckAvailablityDatesRequest()
 					{
 						ApartmentId = Address.Id,
-						CheckinDate = $"{CheckInDate.Day}-{CheckInDate.Month}-{CheckInDate.Year}",
-						CheckoutDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}",
-						GuestAdults = Adults,
-						GuestChildren = Children,
-						HotelPropertyType = 2,
-						IsPaid = Paid,
-						RoomPrice = Price,
-					};
-					Helper.Helper.SendBookingRequestInfo = request;
-					await Navigation.PushAsync(new Views.RentOut.AddNewBookingPhoneNumberDetailsPage());
+						StartDate = $"{CheckInDate.Day}-{CheckInDate.Month}-{CheckInDate.Year}",
+						EndDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}"
+					});
+					if (response == 0)
+					{
+						Models.SendBookingRequestInfoRequest request = new Models.SendBookingRequestInfoRequest()
+						{
+							ApartmentId = Address.Id,
+							CheckinDate = $"{CheckInDate.Day}-{CheckInDate.Month}-{CheckInDate.Year}",
+							CheckoutDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}",
+							GuestAdults = Adults,
+							GuestChildren = Children,
+							HotelPropertyType = 2,
+							IsPaid = Paid,
+							RoomPrice = Price,
+						};
+						Helper.Helper.SendBookingRequestInfo = request;
+						await Navigation.PushAsync(new Views.RentOut.AddNewBookingPhoneNumberDetailsPage());
+					}
+					else
+						await Helper.Alert.DisplayAlert("Please select different dates");
+					DependencyService.Get<IProgressBar>().Hide();
 				}
-				else
-					await Helper.Alert.DisplayAlert("Please select different dates");
-				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
 		#endregion
@@ -94,8 +103,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private int adults;
-		public int Adults
+		private string adults;
+		public string Adults
 		{
 			get => adults;
 			set
@@ -105,8 +114,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private int children;
-		public int Children
+		private string children;
+		public string Children
 		{
 			get => children;
 			set
@@ -127,8 +136,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private int price;
-		public int Price
+		private string price;
+		public string Price
 		{
 			get => price;
 			set

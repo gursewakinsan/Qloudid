@@ -239,6 +239,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Property Details Command.
+		private ICommand propertyDetailsCommand;
+		public ICommand PropertyDetailsCommand
+		{
+			get => propertyDetailsCommand ?? (propertyDetailsCommand = new Command( () =>  ExecutePropertyDetailsCommand()));
+		}
+		private void ExecutePropertyDetailsCommand()
+		{
+			Address.IsPublished = false;
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address

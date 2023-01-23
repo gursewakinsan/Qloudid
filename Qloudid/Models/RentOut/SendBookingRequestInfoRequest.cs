@@ -18,15 +18,15 @@
         public int GuestUserId { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "room_price")]
-        public int RoomPrice { get; set; }
+        public string RoomPrice { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "guest_adults")]
-        public int GuestAdults { get; set; }
+        public string GuestAdults { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "is_paid")]
         public int IsPaid { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "guest_children")]
-        public int GuestChildren { get; set; }
+        public string GuestChildren { get; set; }
     }
 }

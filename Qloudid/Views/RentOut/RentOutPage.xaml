@@ -436,7 +436,7 @@
 						    TextColor="White"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding PropertyDetailsCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -451,7 +451,7 @@
                             VerticalTextAlignment="Center"
 						    HorizontalTextAlignment="Start">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding PropertyDetailsCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -465,7 +465,7 @@
 						    TextColor="#4CD964"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding PropertyDetailsCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 
