@@ -35,6 +35,8 @@ namespace Qloudid.ViewModels
 			{
 				if (CheckInDate == CheckOutDate)
 					await Helper.Alert.DisplayAlert("Check-in and Check-out date cannot be same");
+				else if (CheckInDate > CheckOutDate)
+					await Helper.Alert.DisplayAlert("Check-in date cannot be greater than Check-out date");
 				else
 				{
 					DependencyService.Get<IProgressBar>().Show();

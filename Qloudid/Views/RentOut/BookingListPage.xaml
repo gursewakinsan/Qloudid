@@ -13,7 +13,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="53"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -85,6 +85,7 @@
             Grid.Row="4"
 	    	FontFamily="PoppinsRegularFontFamily"
 	    	FontSize="22"
+            Opacity="0.70"
             HorizontalTextAlignment="Start"
 	    	Text="Send pre-checkin guide"
 	    	TextColor="White"/>
@@ -118,6 +119,7 @@
 		    ItemTapped="OnBookingsItemTapped"
 		    ItemsSource="{Binding ApartmentBookingList}"
 		    SeparatorVisibility="None"
+            VerticalOptions="StartAndExpand"
 		    VerticalScrollBarVisibility="Never">
             <ListView.ItemTemplate>
                 <DataTemplate>

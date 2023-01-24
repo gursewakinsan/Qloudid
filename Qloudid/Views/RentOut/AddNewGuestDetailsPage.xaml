@@ -14,7 +14,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="53"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -79,6 +79,7 @@
             Grid.Row="4"
 	    	FontFamily="PoppinsRegularFontFamily"
 	    	FontSize="22"
+            Opacity="0.70"
             HorizontalTextAlignment="Start"
 	    	Text="To check-in the guest"
 	    	TextColor="White"/>

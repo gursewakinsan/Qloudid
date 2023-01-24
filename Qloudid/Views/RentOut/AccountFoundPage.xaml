@@ -4,18 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.RentOut.AccountFoundPage"
     xmlns:controls="clr-namespace:Qloudid.Controls"
-	BackgroundImageSource="matchFound.png"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper">
-    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,55,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0">
+        <Image
+            Aspect="Fill"
+            Source="matchFound.png"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="StartAndExpand"/>
+
         <Button 
             Text="Skip"
-            Grid.Row="0"
-            Margin="0,0,28,0"
+            Margin="0,55,28,0"
             BorderWidth="1"
             FontSize="14"
             Padding="0"
@@ -26,10 +27,10 @@
             Command="{Binding SkipCommand}"
             BackgroundColor="Transparent"
             HorizontalOptions="EndAndExpand"
+            VerticalOptions="StartAndExpand"
             FontFamily="PoppinsSemiBoldFontFamily"/>
 
         <controls:CustomFrame
-			Grid.Row="1"
             HasShadow="False"
             Padding="28,48,28,0"
 			CornerRadius="38,38,0,0"
