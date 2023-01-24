@@ -92,8 +92,8 @@
                             FontFamily="PoppinsBoldFontFamily"/>
 
                         <Label
+                            x:Name="lblText"
 		                    FontSize="20"
-		                    Text="Is connected to the phone no: +46 76 207 21 92"
 		                    TextColor="White" Opacity="0.70"
                             HorizontalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily"/>

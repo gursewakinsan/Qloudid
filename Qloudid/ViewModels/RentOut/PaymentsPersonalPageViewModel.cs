@@ -33,7 +33,7 @@ namespace Qloudid.ViewModels
 			for (int i = 0; i < 50; i++)
 			{
 				IssueYearList.Add($"{issueYear}");
-				issueYear = issueYear - 1;
+				issueYear = issueYear + 1;
 			}
 			SelectedIssueYear = IssueYearList[0];
 		}
