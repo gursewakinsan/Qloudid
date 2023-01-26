@@ -23,7 +23,7 @@ namespace Qloudid.Views.RentOut
 
         private void OnBookingsItemTapped(object sender, ItemTappedEventArgs e)
         {
-            listBookings.SelectedItem = null;
+            //listBookings.SelectedItem = null;
         }
     }
 }

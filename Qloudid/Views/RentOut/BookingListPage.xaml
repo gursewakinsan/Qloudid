@@ -12,7 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="53"/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
@@ -109,7 +109,107 @@
 		    BackgroundColor="#F4B400" 
 		    Opacity="0.67"/>
 
-        <ListView
+        <ScrollView
+            Grid.Row="9"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout
+                BindableLayout.ItemsSource="{Binding ApartmentBookingList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Button 
+                                Grid.Row="0"
+                                Padding="0"
+                                FontSize="16"
+                                Grid.Column="0"
+                                CornerRadius="23"
+                                HeightRequest="46"
+                                WidthRequest="46"
+                                TextColor="White"
+                                BackgroundColor="#242A37"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Text="{Binding CircleCount}"
+                                FontFamily="PoppinsBoldFontFamily"/>
+
+                            <StackLayout 
+                                Grid.Row="0"
+                                Spacing="0"
+                                Margin="19,0,0,0"
+                                Grid.Column="1"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand">
+                                <Label
+                                    FontSize="15"
+                                    TextColor="White"
+                                    Opacity="0.70"
+	    	                        Text="{Binding CheckinDate}"
+                                    HorizontalTextAlignment="Start"
+	    	                        FontFamily="PoppinsRegularFontFamily"/>
+
+                                <Label
+                                    FontSize="12"
+                                    TextColor="White"
+                                    Opacity="0.42"
+                                    HorizontalTextAlignment="Start"
+	    	                        FontFamily="PoppinsRegularFontFamily">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding GuestAdult}"/>
+                                            <Span Text=" adults &amp; "/>
+                                            <Span Text="{Binding GuestChildren}"/>
+                                            <Span Text=" children"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+
+                            <Label
+                                Grid.Row="0"
+                                FontSize="14"
+                                Grid.Column="2"
+                                TextColor="#FFE9AD"
+	    	                    Text="Send"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+	    	                    FontFamily="PoppinsRegularFontFamily"/>
+
+                            <Label
+			                    Grid.Row="0"
+			                    Grid.Column="3"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    FontSize="20" 
+			                    HorizontalTextAlignment="Start"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			                    TextColor="White"
+			                    VerticalTextAlignment="Center"/>
+
+                            <BoxView 
+		                        Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                Grid.Row="1"
+		                        BackgroundColor="White" 
+		                        Opacity="0.1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+        
+
+        <!--<ListView
             Grid.Row="9"
             Grid.Column="1"
             Grid.ColumnSpan="3"
@@ -212,6 +312,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </Grid>
 </ContentPage>
