@@ -27,9 +27,11 @@ namespace Qloudid.ViewModels
 		{
 			if (string.IsNullOrWhiteSpace(Adults))
 				await Helper.Alert.DisplayAlert("Adults is required.");
+			else if (Convert.ToInt32(Adults) < 1)
+				await Helper.Alert.DisplayAlert("At least one adults is required.");
 			else if (string.IsNullOrWhiteSpace(Children))
 				await Helper.Alert.DisplayAlert("Children is required.");
-			else if(string.IsNullOrWhiteSpace(Price))
+			else if (string.IsNullOrWhiteSpace(Price))
 				await Helper.Alert.DisplayAlert("Price is required.");
 			else
 			{
@@ -105,7 +107,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private string adults;
+		private string adults ="1";
 		public string Adults
 		{
 			get => adults;
@@ -116,7 +118,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private string children;
+		private string children ="0";
 		public string Children
 		{
 			get => children;
