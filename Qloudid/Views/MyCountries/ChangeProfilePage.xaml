@@ -7,9 +7,223 @@
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:controls="clr-namespace:Qloudid.Controls"
     ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
-    <Grid
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <Button 
+            Grid.Row="0"
+            Grid.Column="3"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding GoToMyCountriesCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="3"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToMyCountriesCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Accounts"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" Opacity="0.42"
+            HorizontalTextAlignment="Start"
+	    	Text="Your created accounts "
+	    	TextColor="White"/>
+
+        <StackLayout
+            Spacing="25" 
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal" 
+            HorizontalOptions="StartAndExpand">
+            <Label
+		        FontSize="18"
+		        Text="Your accounts"
+		        TextColor="#F4B400"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+
+            <Label
+		        FontSize="16"
+                Opacity="0.42"
+		        Text="Children"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsRegularFontFamily"/>
+        </StackLayout>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    BackgroundColor="#F4B400" 
+            Opacity="0.67"/>
+
+        <ScrollView 
+            Grid.Row="9"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" 
+            VerticalScrollBarVisibility="Never">
+            <StackLayout 
+				Spacing="0" 
+                Margin="0,5,0,0"
+				VerticalOptions="StartAndExpand"
+				BindableLayout.ItemsSource="{Binding CurrentCountryDetailInfo}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="24">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton
+					            Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="30"
+                                WidthRequest="40"
+                                CornerRadius="4"
+                                Aspect="Fill"
+                                Clicked="ImageButton_Clicked"
+                                Source="{Binding CountryFlag}"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"/>
+
+                            <Label
+					            Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="15"
+                                TextColor="White"
+                                Text="{Binding CountryName}"
+                                HorizontalTextAlignment="Start"
+	    			            VerticalTextAlignment="Center"
+	    			            FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            Grid.Row="0"
+					            FontSize="20"
+                                Grid.Column="2"
+                                TextColor="White"
+					            HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+                                IsVisible="{Binding CurrentCountry, Converter={StaticResource InverseBoolConverter}}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            Grid.Row="0"
+					            FontSize="20"
+                                Grid.Column="2"
+                                TextColor="#4CD964"
+					            HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                IsVisible="{Binding CurrentCountry}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <BoxView 
+					            Grid.Column="1"
+					            Grid.ColumnSpan="2"
+					            Grid.Row="1"
+					            BackgroundColor="White" 
+					            Opacity="0.1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+    
+    
+    
+    <!--<Grid
 		Margin="0,22,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -230,5 +444,5 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </ScrollView>
-    </Grid>
+    </Grid>-->
 </ContentPage>

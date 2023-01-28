@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.AppStorePage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            Source="iconSmallLogo.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Appstore"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="16" Opacity="0.42"
+            HorizontalTextAlignment="Start"
+	    	Text="Red border apps requires attention"
+	    	TextColor="White"/>
+
+        <StackLayout
+            Spacing="25" 
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal" 
+            HorizontalOptions="StartAndExpand">
+            <Label
+		        FontSize="18"
+		        Text="Active"
+		        TextColor="#F4B400"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+
+            <Label
+		        FontSize="16"
+                Opacity="0.42"
+		        Text="Not active"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsRegularFontFamily"/>
+        </StackLayout>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    BackgroundColor="#F4B400" 
+            Opacity="0.67"/>
+
+        <ScrollView 
+            Grid.Row="9"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Margin="0,27,0,0"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+                RowSpacing="10" 
+                ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--ID & Sign-->
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"/>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Consent" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Grid>
+                </Frame>
+
+                <!--Consent-->
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="ID &amp; Sign" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Grid>
+                </Frame>
+
+                <!--Pay-->
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowSpacing="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Pay" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+
+                <!--Check-in-->
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"/>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Check-in" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Grid>
+                </Frame>
+
+                <!--Children-->
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.AccountOutline}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Children" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+
+                <!--Next of kin-->
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Heart}"/>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Next of kin" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Grid>
+                </Frame>
+
+                <!--Property-->
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowSpacing="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="White"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Home}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Property" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

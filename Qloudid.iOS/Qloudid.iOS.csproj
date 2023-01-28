@@ -281,4 +281,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\matchFound.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flagOfSpain.png" />
+  </ItemGroup>
 </Project>

@@ -6,9 +6,268 @@
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#F4F5F6"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
-	<ContentPage.Content>
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="66"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="Fill"
+            HeightRequest="40"
+            WidthRequest="40"
+            Source="iconSmallLogo.png"
+			BackgroundColor="Transparent"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="EndAndExpand"/>
+
+        <Grid
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            ColumnSpacing="27">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="66"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton 
+                Grid.Column="0"
+                BorderWidth="2"
+                CornerRadius="33"
+                BorderColor="White"
+                Aspect="AspectFill"
+                BackgroundColor="Transparent"/>
+
+            <StackLayout
+                Grid.Column="1" Spacing="9">
+                <Label
+					FontSize="30"
+                    HeightRequest="40"
+					Text="Kowaken G" Margin="0,-8,0,0"
+					TextColor="White"
+                    VerticalOptions="StartAndExpand"
+					HorizontalOptions="StartAndExpand"
+					FontFamily="PoppinsBoldFontFamily"/>
+
+                <Label
+	    			FontSize="16"
+					Opacity="0.42"
+	    			Text="Qloud ID Private"
+	    			TextColor="White"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    FontFamily="PoppinsRegularFontFamily"/>
+            </StackLayout>
+        </Grid>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"
+		    FontSize="16"
+		    Text="Details"
+            Opacity="0.42"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"
+		    BackgroundColor="#F4B400" 
+		    Opacity="0.67"/>
+
+        <ScrollView
+            Grid.Row="7"
+            Grid.ColumnSpan="5"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="24" Margin="28,10,28,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <!--Account-->
+                <Button
+					Grid.Row="0"
+                    FontSize="15"
+                    Grid.Column="0"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    CornerRadius="20"
+                    TextColor="White"
+                    BackgroundColor="#242A37"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"/>
+
+                <Label
+					Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="15"
+                    TextColor="White"
+                    Text="Account"
+                    HorizontalTextAlignment="Start"
+	    			VerticalTextAlignment="Center"
+	    			FontFamily="PoppinsRegularFontFamily"/>
+
+                <Label
+					Grid.Row="0"
+					FontSize="20"
+                    Grid.Column="2"
+                    TextColor="White"
+					HorizontalTextAlignment="End"
+                    VerticalTextAlignment="Center"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+
+                <BoxView 
+					Grid.Column="1"
+					Grid.ColumnSpan="2"
+					Grid.Row="1"
+					BackgroundColor="White" 
+					Opacity="0.1"/>
+
+                <!--Language-->
+                <Button
+					Grid.Row="2"
+                    FontSize="15"
+                    Grid.Column="0"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    CornerRadius="20"
+                    TextColor="White"
+                    BackgroundColor="#242A37"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Connect}"/>
+
+                <Label
+					Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="15"
+                    TextColor="White"
+                    Text="Language"
+                    HorizontalTextAlignment="Start"
+	    			VerticalTextAlignment="Center"
+	    			FontFamily="PoppinsRegularFontFamily"/>
+
+                <Label
+					Grid.Row="2"
+					FontSize="20"
+                    Grid.Column="2"
+                    TextColor="White"
+					HorizontalTextAlignment="End"
+                    VerticalTextAlignment="Center"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+
+                <BoxView 
+					Grid.Column="1"
+					Grid.ColumnSpan="2"
+					Grid.Row="3"
+					BackgroundColor="White" 
+					Opacity="0.1"/>
+
+                <!--Certificate-->
+                <Button
+					Grid.Row="4"
+                    FontSize="15"
+                    Grid.Column="0"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    CornerRadius="20"
+                    TextColor="White"
+                    BackgroundColor="#242A37"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ReorderHorizontal}"/>
+
+                <Label
+					Grid.Row="4"
+                    Grid.Column="1"
+                    FontSize="15"
+                    TextColor="White"
+                    Text="Certificate"
+                    HorizontalTextAlignment="Start"
+	    			VerticalTextAlignment="Center"
+	    			FontFamily="PoppinsRegularFontFamily"/>
+
+                <Label
+					Grid.Row="4"
+					FontSize="20"
+                    Grid.Column="2"
+                    TextColor="White"
+					HorizontalTextAlignment="End"
+                    VerticalTextAlignment="Center"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+
+                <BoxView 
+					Grid.Column="1"
+					Grid.ColumnSpan="2"
+					Grid.Row="5"
+					BackgroundColor="White" 
+					Opacity="0.1"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+    
+    
+    
+	<!--<ContentPage.Content>
 		<Grid BackgroundColor="White" RowSpacing="20">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="84" />
@@ -71,7 +330,7 @@
 				</ImageButton.Source>
 			</ImageButton>
 
-			<!--<Label
+			--><!--<Label
 				Grid.Row="0"
 				Grid.Column="1"
 				Margin="0,10,0,0"
@@ -97,7 +356,7 @@
 						Size="80"
 						Color="White" />
 				</ImageButton.Source>
-			</ImageButton>-->
+			</ImageButton>--><!--
 
 			<Grid
 				Grid.Row="1"
@@ -347,5 +606,5 @@
 					Opacity="0.2" />
             </Grid>
 		</Grid>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>

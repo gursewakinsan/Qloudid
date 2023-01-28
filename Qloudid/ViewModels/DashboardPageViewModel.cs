@@ -452,7 +452,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteMyNetWorkCommand()
 		{
-			await Navigation.PushAsync(new Views.Dependent.DependentListPage());
+			await Navigation.PushAsync(new Views.AppStorePage());
+			//await Navigation.PushAsync(new Views.Dependent.DependentListPage());
 		}
 		#endregion
 
@@ -508,6 +509,18 @@ namespace Qloudid.ViewModels
 			Helper.Helper.PreCheckInUserActiveStatusInfo = responseUserActiveStatus;
 			DependencyService.Get<IProgressBar>().Hide();
 			await Navigation.PushAsync(new Views.PreCheckIn.MissingPreCheckInInfoPage());
+		}
+		#endregion
+
+		#region Go To My Countries Command.
+		private ICommand goToMyCountriesCommand;
+		public ICommand GoToMyCountriesCommand
+		{
+			get => goToMyCountriesCommand ?? (goToMyCountriesCommand = new Command(async () => await ExecuteGoToMyCountriesCommand()));
+		}
+		private async Task ExecuteGoToMyCountriesCommand()
+		{
+			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
 		#endregion
 

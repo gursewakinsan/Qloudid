@@ -75,8 +75,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteBackCommand()
 		{
-			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-			await Task.CompletedTask;
+			//Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			await Navigation.PopAsync();
 		}
 		#endregion
 

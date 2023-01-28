@@ -27,10 +27,18 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IMyCountriesService service = new MyCountriesService();
-			CurrentCountryDetailInfo = await service.CurrentCountryDetailAsync(new Models.CurrentCountryDetailRequest()
+			var currentCountryDetailInfo = await service.CurrentCountryDetailAsync(new Models.CurrentCountryDetailRequest()
 			{
 				UserId = Helper.Helper.UserId
 			});
+            foreach (var item in currentCountryDetailInfo)
+            {
+				if (item.CountryName.Equals("Sweden"))
+					item.CountryFlag = "iconFlagOfSweden.png";
+				if (item.CountryName.Equals("Spain"))
+					item.CountryFlag = "flagOfSpain.png";
+			}
+			CurrentCountryDetailInfo = currentCountryDetailInfo;
 
 			UserCountrySummary = await service.UserCountrySummaryAsync(new Models.UserCountrySummaryRequest()
 			{

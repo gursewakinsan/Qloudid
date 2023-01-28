@@ -46,6 +46,12 @@ namespace Qloudid.Views.MyCountries
             OnPlusButtonTapped(button.BindingContext as Models.CurrentCountryDetailResponse);
         }
 
+        private void ImageButton_Clicked(object sender, System.EventArgs e)
+        {
+            ImageButton button = sender as ImageButton;
+            OnPlusButtonTapped(button.BindingContext as Models.CurrentCountryDetailResponse);
+        }
+
         void OnPlusButtonTapped(Models.CurrentCountryDetailResponse response)
         {
             viewModel.SelectedCurrentCountryDetailCommand.Execute(response);

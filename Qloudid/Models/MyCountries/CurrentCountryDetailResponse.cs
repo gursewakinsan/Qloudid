@@ -13,5 +13,7 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "current_country")]
         public bool CurrentCountry { get; set; }
+
+        public string CountryFlag { get; set; }
     }
 }
