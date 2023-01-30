@@ -18,7 +18,7 @@ namespace Qloudid.Views.MyCountries
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            viewModel.CurrentCountryDetailCommand.Execute(null);
+            viewModel.SelectedTabCommand.Execute(Helper.Helper.CountryOrChildren);
         }
 
         #region On Plus Button Tapped.
@@ -55,6 +55,26 @@ namespace Qloudid.Views.MyCountries
         void OnPlusButtonTapped(Models.CurrentCountryDetailResponse response)
         {
             viewModel.SelectedCurrentCountryDetailCommand.Execute(response);
+        }
+        #endregion
+
+        #region On Dependent Clicked.
+        private void OnDependentImageClicked(object sender, System.EventArgs e)
+        {
+            ImageButton control = sender as ImageButton;
+            OnDependentClicked(control.BindingContext as Models.DependentResponse);
+        }
+
+        private void OnDependentLabelClicked(object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnDependentClicked(control.BindingContext as Models.DependentResponse);
+        }
+
+        private void OnDependentClicked(Models.DependentResponse dependent)
+        {
+            if (dependent != null)
+                viewModel.DependentDetailCommand.Execute(dependent.Id);
         }
         #endregion
     }

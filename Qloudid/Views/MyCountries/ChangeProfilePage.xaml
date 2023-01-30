@@ -60,7 +60,7 @@
             BorderWidth="1"
             BorderColor="White"
             Opacity="0.1"
-            Command="{Binding GoToMyCountriesCommand}"
+            Command="{Binding AddCountryOrChildrenCommand}"
             BackgroundColor="Transparent"/>
 
         <Label
@@ -73,7 +73,7 @@
 			TextColor="White"
 			VerticalTextAlignment="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding GoToMyCountriesCommand}"/>
+                <TapGestureRecognizer Command="{Binding AddCountryOrChildrenCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 
@@ -104,22 +104,61 @@
             Grid.ColumnSpan="2"
             Orientation="Horizontal" 
             HorizontalOptions="StartAndExpand">
+            <!--Your accounts-->
             <Label
 		        FontSize="18"
 		        Text="Your accounts"
 		        TextColor="#F4B400"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
-                FontFamily="PoppinsSemiBoldFontFamily"/>
+                FontFamily="PoppinsSemiBoldFontFamily"
+                IsVisible="{Binding YourAccountsSelectedTab}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="Country"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+		        FontSize="16"
+                Opacity="0.42"
+		        Text="Your accounts"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsRegularFontFamily"
+                IsVisible="{Binding YourAccountsSelectedTab, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="Country"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!--Children-->
+            <Label
+		        FontSize="18"
+		        Text="Children"
+                TextColor="#F4B400"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"
+                IsVisible="{Binding ChildrenSelectedTab}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="Children"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label
 		        FontSize="16"
                 Opacity="0.42"
 		        Text="Children"
-		        TextColor="White"
+                TextColor="White"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
-                FontFamily="PoppinsRegularFontFamily"/>
+                FontFamily="PoppinsRegularFontFamily"
+                IsVisible="{Binding ChildrenSelectedTab, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="Children"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
 
         <BoxView 
@@ -129,11 +168,13 @@
 		    BackgroundColor="#F4B400" 
             Opacity="0.67"/>
 
+        <!--Your accounts-->
         <ScrollView 
             Grid.Row="9"
 			Grid.Column="1"
             Grid.ColumnSpan="3" 
-            VerticalScrollBarVisibility="Never">
+            VerticalScrollBarVisibility="Never"
+            IsVisible="{Binding IsChildrenTabSelected, Converter={StaticResource InverseBoolConverter}}">
             <StackLayout 
 				Spacing="0" 
                 Margin="0,5,0,0"
@@ -205,6 +246,84 @@
 					            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <BoxView 
+					            Grid.Column="1"
+					            Grid.ColumnSpan="2"
+					            Grid.Row="1"
+					            BackgroundColor="White" 
+					            Opacity="0.1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+        <!--Children-->
+        <ScrollView 
+            Grid.Row="9"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" 
+            VerticalScrollBarVisibility="Never"
+            IsVisible="{Binding IsChildrenTabSelected}">
+            <StackLayout 
+				Spacing="0" 
+                Margin="0,5,0,0"
+				VerticalOptions="StartAndExpand"
+				BindableLayout.ItemsSource="{Binding DependentList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="24">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton
+					            Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                CornerRadius="20"
+                                Aspect="Fill"
+                                Padding="0"
+                                Clicked="OnDependentImageClicked"
+                                Source="{Binding ImagePath}"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"/>
+
+                            <Label
+					            Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="15"
+                                TextColor="White"
+                                Text="{Binding Name}"
+                                HorizontalTextAlignment="Start"
+	    			            VerticalTextAlignment="Center"
+	    			            FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnDependentLabelClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+					            Grid.Row="0"
+					            FontSize="20"
+                                Grid.Column="2"
+                                TextColor="White"
+					            HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnDependentLabelClicked"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
