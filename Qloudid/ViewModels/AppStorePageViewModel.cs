@@ -24,6 +24,7 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteChildrenCommand()
 		{
 			//await Navigation.PushAsync(new Views.Dependent.DependentListPage());
+			Helper.Helper.CountryOrChildren = "Children";
 			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
 		#endregion

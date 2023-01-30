@@ -111,7 +111,7 @@ namespace Qloudid.Helper
 		public static bool IsManageYourReservations { get; set; } = false;
         public static Models.SendBookingRequestInfoRequest SendBookingRequestInfo { get; set; }
         public static int BookingId { get; set; }
-		public static string CountryOrChildren { get; set; } = "Country";
+		public static string CountryOrChildren { get; set; }
 
 
 		public static string[] ColorList =
