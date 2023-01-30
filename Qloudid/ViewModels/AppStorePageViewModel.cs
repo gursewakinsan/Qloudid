@@ -23,7 +23,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteChildrenCommand()
 		{
-			await Navigation.PushAsync(new Views.Dependent.DependentListPage());
+			//await Navigation.PushAsync(new Views.Dependent.DependentListPage());
+			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
 		#endregion
 

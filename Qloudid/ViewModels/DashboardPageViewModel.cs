@@ -520,6 +520,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteGoToMyCountriesCommand()
 		{
+			Helper.Helper.CountryOrChildren = "Children";
 			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
 		#endregion
