@@ -89,6 +89,7 @@ namespace Qloudid.ViewModels
 				else if (response.Result == 1)
 				{
 					wrongPasswordCountDown = 0;
+					Helper.Helper.IsFirstTime = false;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 					if (Device.RuntimePlatform == Device.iOS)
 					{
