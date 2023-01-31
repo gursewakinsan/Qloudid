@@ -236,22 +236,31 @@ namespace Qloudid.ViewModels
 						user_id = response.id,
 						email = response.email,
 						UserImage = response.image,
+						CardCount = response.card_count,
+						PassportCount = response.passport_count
 					};
 					Helper.Helper.CountryCode = response.country_code;
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
 					Helper.Helper.UserEmail = response.email;
 					UserInfo = user;
+					Helper.Helper.UserInfo = user;
+					IsCardCount = response.card_count;
+					IsPassportCount = response.passport_count;
 					Microsoft.AppCenter.AppCenter.SetUserId(response.email);
 					EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
-
+					
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
-					if (response.identificator == 1 || response.identificator == 2)
+
+					/*if (response.identificator == 1 || response.identificator == 2)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
 					else if (response.identificator == 0 || response.identificator == -1)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
+					*/
+					if (!response.passport_count || !response.card_count)
+						Application.Current.MainPage = new NavigationPage(new Views.CompleteSignUpPage());
 					else
 					{
 						IDashboardService dashboardService = new DashboardService();
@@ -330,7 +339,11 @@ namespace Qloudid.ViewModels
 					UserInfo.last_name = response.last_name;
 					UserInfo.user_id = response.id;
 					UserInfo.email = response.email;
+					UserInfo.CardCount = response.card_count;
+					UserInfo.PassportCount = response.passport_count;
 					Helper.Helper.UserInfo = UserInfo;
+					IsCardCount = response.card_count;
+					IsPassportCount = response.passport_count;
 					//DisplayUserName = $"{response.first_name} {response.last_name}";
 					EmployerRequestCountCommand.Execute(null);
 
@@ -468,19 +481,19 @@ namespace Qloudid.ViewModels
 
 				var dashboardItems = new List<DashboardItem>();
 				//dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 1, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 2, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency."  , ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency."  , ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 14, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 15, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." ,  ImgWidth = imgWidth });
 				DashboardItemList = new ObservableCollection<DashboardItem>(dashboardItems);
 			}
 		}
@@ -522,6 +535,68 @@ namespace Qloudid.ViewModels
 		{
 			Helper.Helper.CountryOrChildren = "Country";
 			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
+		}
+		#endregion
+
+		#region Pay Command.
+		private ICommand payCommand;
+		public ICommand PayCommand
+		{
+			get => payCommand ?? (payCommand = new Command(async () => await ExecutePayCommand()));
+		}
+		private async Task ExecutePayCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdatePayRequiredAsync(new Models.UpdatePayRequiredRequest()
+			{
+				Pay = 1,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			if (Helper.Helper.GenerateCertificateIdentificatorValue == 1)
+				Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+			else if (Helper.Helper.GenerateCertificateIdentificatorValue == 2)
+				Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Passport Command.
+		private ICommand passportCommand;
+		public ICommand PassportCommand
+		{
+			get => passportCommand ?? (passportCommand = new Command(async () => await ExecutePassportCommand()));
+		}
+		private async Task ExecutePassportCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdateCheckRequiredAsync(new Models.UpdateCheckRequiredRequest()
+			{
+				Check = 1,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
+			{
+				//Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				Helper.Helper.SelectedIdentificatorText = "Passport";
+				Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+			}
+			else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
+			{
+				var response = await service.IdentificatorDetailAsync(new Models.IdentificatorDetailRequest()
+				{
+					UserId = Helper.Helper.UserId
+				});
+				if (response?.Count == 2)
+					Application.Current.MainPage = new NavigationPage(new Views.Info.IdentificatorPageForCheckIn());
+				else
+				{
+					Helper.Helper.SelectedIdentificatorId = response[0].IdentificationType;
+					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPhotoPage());
+				}
+			}
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -643,9 +718,32 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsBooking");
 			}
 		}
+
+		private bool isCardCount = true;
+		public bool IsCardCount
+		{
+			get => isCardCount;
+			set
+			{
+				isCardCount = value;
+				OnPropertyChanged("IsCardCount");
+			}
+		}
+
+		private bool isPassportCount = true;
+		public bool IsPassportCount
+		{
+			get => isPassportCount;
+			set
+			{
+				isPassportCount = value;
+				OnPropertyChanged("IsPassportCount");
+			}
+		}
 		#endregion
 	}
 }
+
 public class DashboardItem : Qloudid.Models.BaseModel
 {
 	public int Id { get; set; }

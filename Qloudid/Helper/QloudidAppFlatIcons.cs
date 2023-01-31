@@ -84,5 +84,6 @@
 		public const string ReorderHorizontal = "\U000f0688";
 		public const string LockOutline = "\U000f0341";
 		public const string ImageOutline = "\U000f0976";
+		public const string AlertCircle = "\U000f0028";
 	}
 }

@@ -10,5 +10,7 @@
 		public int result { get; set; }
 		public int identificator { get; set; }
 		public int country_code { get; set; }
+        public bool passport_count { get; set; }
+        public bool card_count { get; set; }
 	}
 }

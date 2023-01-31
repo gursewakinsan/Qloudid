@@ -47,7 +47,9 @@ namespace Qloudid.ViewModels
 						user_id = response.user_id,
 						email = response.email,
 						certificate_key = response.certificate_key,
-						result = response.result
+						result = response.result,
+						CardCount = response.card_count,
+						PassportCount = response.passport_count
 					};
 					Helper.Helper.QrCertificateKey = response.certificate_key;
 					Helper.Helper.UserId = user.user_id;

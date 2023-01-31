@@ -143,15 +143,19 @@ namespace Qloudid.Views
 		}
 
 		private void OnTapped(int id)
-        {
+		{
 			if (id == 0)
-				viewModel.BookingCommand.Execute(null);
+				viewModel.PayCommand.Execute(null);
 			else if (id == 1)
-				viewModel.ConsentCommand.Execute(null);
+				viewModel.PassportCommand.Execute(null);
 			else if (id == 2)
-				viewModel.LandLoardConsentCommand.Execute(null);
+				viewModel.BookingCommand.Execute(null);
 			else if (id == 3)
+				viewModel.ConsentCommand.Execute(null);
+			else if (id == 4)
+				viewModel.LandLoardConsentCommand.Execute(null);
+			else if (id == 5)
 				viewModel.ManageCardCommand.Execute(null);
-        }
+		}
     }
 }
