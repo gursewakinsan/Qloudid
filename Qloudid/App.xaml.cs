@@ -398,7 +398,7 @@ namespace Qloudid
 					break;
 				case "DstrictsWaitListResturant":
 					string[] waitList = uri.LocalPath.Split('/');
-					Models.SubmitWaitListResturantDetail  submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[2]);
+					Models.SubmitWaitListResturantDetail submitWaitList = JsonConvert.DeserializeObject<Models.SubmitWaitListResturantDetail>(waitList[2]);
 					MainPage = new NavigationPage(new Views.WaitList.VerifyWaitResturantPasswordPage(submitWaitList));
 					break;
 				case "VerifyDependentChekIn":
@@ -428,6 +428,14 @@ namespace Qloudid
 					string[] payNow = uri.LocalPath.Split('/');
 					Helper.Helper.TenantInvoicePayNow = JsonConvert.DeserializeObject<Models.TenantInvoicePayNow>(payNow[2]);
 					MainPage = new NavigationPage(new Views.Invoice.TenantInvoicePayNowInfoPage());
+					break;
+				case "DstrictsAppCompleteSignUp":
+					string[] completeSignUp = uri.LocalPath.Split('/');
+					Models.CompleteSignUpRequest request = JsonConvert.DeserializeObject<Models.CompleteSignUpRequest>(completeSignUp[2]);
+					if (!request.CardCount)
+						PayCommand.Execute(null);
+					else if (!request.PassportCount)
+						PassportCommand.Execute(null);
 					break;
 			}
 		}
@@ -492,6 +500,14 @@ namespace Qloudid
 						string[] payNow = uri.LocalPath.Split('/');
 						Helper.Helper.TenantInvoicePayNow = JsonConvert.DeserializeObject<Models.TenantInvoicePayNow>(payNow[4]);
 						MainPage = new NavigationPage(new Views.Invoice.TenantInvoicePayNowInfoPage());
+						break;
+					case "DstrictsAppCompleteSignUp":
+						string[] completeSignUp = uri.LocalPath.Split('/');
+						Models.CompleteSignUpRequest request = JsonConvert.DeserializeObject<Models.CompleteSignUpRequest>(completeSignUp[4]);
+						if (!request.CardCount)
+							PayCommand.Execute(null);
+						else if (!request.PassportCount)
+							PassportCommand.Execute(null);
 						break;
 				}
 			}
@@ -627,6 +643,68 @@ namespace Qloudid
 		void VerifyHabitantPage(string id)
 		{
 			MainPage = new NavigationPage(new Views.VerifyPassword.VerifyHabitantPasswordPage(id));
+		}
+		#endregion
+
+		#region Pay Command.
+		private ICommand payCommand;
+		public ICommand PayCommand
+		{
+			get => payCommand ?? (payCommand = new Command(async () => await ExecutePayCommand()));
+		}
+		private async Task ExecutePayCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdatePayRequiredAsync(new Models.UpdatePayRequiredRequest()
+			{
+				Pay = 1,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			if (Helper.Helper.GenerateCertificateIdentificatorValue == 1)
+				Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+			else if (Helper.Helper.GenerateCertificateIdentificatorValue == 2)
+				Application.Current.MainPage = new NavigationPage(new Views.AddDeliveryAddressPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Passport Command.
+		private ICommand passportCommand;
+		public ICommand PassportCommand
+		{
+			get => passportCommand ?? (passportCommand = new Command(async () => await ExecutePassportCommand()));
+		}
+		private async Task ExecutePassportCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IAccountRestoreService service = new AccountRestoreService();
+			await service.UpdateCheckRequiredAsync(new Models.UpdateCheckRequiredRequest()
+			{
+				Check = 1,
+				Certificate = Helper.Helper.QrCertificateKey
+			});
+			if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
+			{
+				//Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+				Helper.Helper.SelectedIdentificatorText = "Passport";
+				Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+			}
+			else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
+			{
+				var response = await service.IdentificatorDetailAsync(new Models.IdentificatorDetailRequest()
+				{
+					UserId = Helper.Helper.UserId
+				});
+				if (response?.Count == 2)
+					Application.Current.MainPage = new NavigationPage(new Views.Info.IdentificatorPageForCheckIn());
+				else
+				{
+					Helper.Helper.SelectedIdentificatorId = response[0].IdentificationType;
+					Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPhotoPage());
+				}
+			}
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 	}
