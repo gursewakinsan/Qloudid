@@ -68,9 +68,12 @@ namespace Qloudid.ViewModels
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
 					if (response.identificator == 3)
 						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
-					
+
 					else if (!response.passport_count || !response.card_count)
+					{
+						Helper.Helper.IsFirstTime = false;
 						Application.Current.MainPage = new NavigationPage(new Views.CompleteSignUpPage());
+					}
 
 					/*else if (response.identificator == 1 || response.identificator == 2)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
