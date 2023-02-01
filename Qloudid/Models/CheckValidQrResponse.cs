@@ -1,6 +1,6 @@
 ﻿namespace Qloudid.Models
 {
-	public class CheckValidQrResponse
+	public class CheckValidQrResponse : BaseModel
 	{
 		public string first_name { get; set; }
 		public string last_name { get; set; }
@@ -12,5 +12,8 @@
 		public int country_code { get; set; }
         public bool passport_count { get; set; }
         public bool card_count { get; set; }
-	}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "precheck_in_count")]
+		public bool PreCheckInCount { get; set; }
+    }
 }

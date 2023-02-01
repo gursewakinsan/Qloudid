@@ -20,7 +20,8 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "total_days")]
         public int TotalDays { get; set; }
 
-
+        [Newtonsoft.Json.JsonProperty(PropertyName = "precheckin_status")]
+        public bool PreCheckInStatus { get; set; }
 
         /*[Newtonsoft.Json.JsonProperty(PropertyName = "user_id")]
         public int guest_adult { get; set; }

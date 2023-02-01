@@ -357,7 +357,80 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
-                
+
+                <Frame
+					WidthRequest="{Binding ImgWidth}"
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="3"
+					IsClippedToBounds="True"
+					IsVisible="{Binding IsPreCheckIn}"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#8579B9" Offset="1.0" />
+                            <GradientStop Color="#5E508D" Offset="0.1" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameOnGestureRecognizerTapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GridOnGestureRecognizerTapped" />
+                        </Grid.GestureRecognizers>
+                        <Image
+							Grid.Column="0"
+							Aspect="AspectFill"
+							HeightRequest="45"
+							ClassId="3"
+							VerticalOptions="CenterAndExpand"
+							Source="iconThreePartColor.png"
+							BackgroundColor="Transparent">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ImageOnGestureRecognizerTapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="3"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGestureRecognizerTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="3"
+								Text="Precheck in"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="3"
+								Text="Manage your reservation for precheckin"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
                 <StackLayout 
 					Spacing="14" 
 					Orientation="Horizontal"

@@ -259,6 +259,8 @@ namespace Qloudid.ViewModels
 					else if (response.identificator == 0 || response.identificator == -1)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());
 					*/
+					IsPreCheckIn = response.PreCheckInCount;
+
 					if (!response.passport_count || !response.card_count)
 						Application.Current.MainPage = new NavigationPage(new Views.CompleteSignUpPage());
 					else
@@ -352,6 +354,18 @@ namespace Qloudid.ViewModels
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());
 					else if (response.identificator == 0 || response.identificator == -1)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompleteCheckInInfoPage());*/
+
+					IsPreCheckIn = response.PreCheckInCount;
+
+					IDashboardService dashboardService = new DashboardService();
+					var dashboardServiceResponse = await dashboardService.ApartmentReservationConfermationRequiredAsync(new Models.ApartmentReservationConfermationRequest()
+					{
+						UserId = Helper.Helper.UserId
+					});
+					if (dashboardServiceResponse?.Count > 0)
+						IsBooking = true;
+					else
+						IsBooking = false;
 				}
 			}
 		}
@@ -424,6 +438,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Pre Check In Command.
+		private ICommand preCheckInCommand;
+		public ICommand PreCheckInCommand
+		{
+			get => preCheckInCommand ?? (preCheckInCommand = new Command(async () => await ExecutePreCheckInCommand()));
+		}
+		private async Task ExecutePreCheckInCommand()
+		{
+			await Navigation.PushAsync(new Views.Booking.ManagePreCheckinReservationPage());
+		}
+		#endregion
+
 		#region Employer Request Count Command.
 		private ICommand employerRequestCountCommand;
 		public ICommand EmployerRequestCountCommand
@@ -481,19 +507,19 @@ namespace Qloudid.ViewModels
 
 				var dashboardItems = new List<DashboardItem>();
 				//dashboardItems.Add(new DashboardItem() { Id = 0, Heading = "Booking", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "A booking requires your attention", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 3, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency."  , ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 14, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." ,  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 15, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 4, Heading = "Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 5, Heading = "Landloard Consent", IconColor = "#FF0000", HeadingIcon = Helper.QloudidAppFlatIcons.Home, SubHeading = "Get started.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 6, Heading = "Cards", IconColor = "#00FF00", HeadingIcon = Helper.QloudidAppFlatIcons.CardBulletedOutline, SubHeading = "Mange your cards here.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.",  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency."  , ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 14, Heading = "Guardian", IconColor = "#800080", HeadingIcon = Helper.QloudidAppFlatIcons.Guardian, SubHeading = "Guardian request." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 15, Heading = "Employer Search", IconColor = "#008080", HeadingIcon = Helper.QloudidAppFlatIcons.EmployerSearch, SubHeading = "Connect with an employer, a landlord or a school here." ,  ImgWidth = imgWidth });
+				dashboardItems.Add(new DashboardItem() { Id = 16, Heading = "School", IconColor = "#000080", HeadingIcon = Helper.QloudidAppFlatIcons.School, SubHeading = "School search." ,  ImgWidth = imgWidth });
 				DashboardItemList = new ObservableCollection<DashboardItem>(dashboardItems);
 			}
 		}
@@ -738,6 +764,17 @@ namespace Qloudid.ViewModels
 			{
 				isPassportCount = value;
 				OnPropertyChanged("IsPassportCount");
+			}
+		}
+
+		private bool isPreCheckIn = false;
+		public bool IsPreCheckIn
+		{
+			get => isPreCheckIn;
+			set
+			{
+				isPreCheckIn = value;
+				OnPropertyChanged("IsPreCheckIn");
 			}
 		}
 		#endregion

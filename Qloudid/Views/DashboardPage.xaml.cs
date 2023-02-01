@@ -151,10 +151,12 @@ namespace Qloudid.Views
 			else if (id == 2)
 				viewModel.BookingCommand.Execute(null);
 			else if (id == 3)
-				viewModel.ConsentCommand.Execute(null);
+				viewModel.PreCheckInCommand.Execute(null);
 			else if (id == 4)
-				viewModel.LandLoardConsentCommand.Execute(null);
+				viewModel.ConsentCommand.Execute(null);
 			else if (id == 5)
+				viewModel.LandLoardConsentCommand.Execute(null);
+			else if (id == 6)
 				viewModel.ManageCardCommand.Execute(null);
 		}
     }
