@@ -31,6 +31,7 @@ namespace Qloudid
 
 		public void OpenAppFromWeb(string signInText)
 		{
+			Helper.Helper.IsFirstTime = false;
 			if (Helper.Helper.UserInfo == null)
 				FillUserInfo();
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
@@ -71,6 +72,7 @@ namespace Qloudid
 
 		public void AppToAppLogin()
 		{
+			Helper.Helper.IsFirstTime = false;
 			if (Helper.Helper.UserInfo == null)
 				FillUserInfo();
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
@@ -93,6 +95,7 @@ namespace Qloudid
 
 		protected override void OnAppLinkRequestReceived(Uri uri)
 		{
+			Helper.Helper.IsFirstTime = false;
 			if (Helper.Helper.UserInfo == null)
 				FillUserInfo();
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
@@ -369,6 +372,7 @@ namespace Qloudid
 		#region Dstricts App Functionality iOS.
 		public void DstrictsAppFunctionality_iOS(Uri uri)
 		{
+			Helper.Helper.IsFirstTime = false;
 			if (Helper.Helper.UserInfo == null)
 				FillUserInfo();
 			if (!string.IsNullOrWhiteSpace(Helper.Helper.UserInfo.first_name))
@@ -444,6 +448,7 @@ namespace Qloudid
 		#region Dstricts App Functionality Android.
 		public void DstrictsAppFunctionality(Uri uri)
 		{
+			Helper.Helper.IsFirstTime = false;
 			if (Application.Current.Properties.ContainsKey("QrCode"))
 			{
 				Helper.Helper.AppToAppName = "DstrictsApp";
