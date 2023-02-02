@@ -27,5 +27,6 @@ namespace Qloudid.Interfaces
 		//Booking
 		Task<List<Models.ApartmentReservationConfermationResponse>> ApartmentReservationConfermationRequiredAsync(Models.ApartmentReservationConfermationRequest request);
 		Task<List<Models.ApartmentReservationHistoryResponse>> ApartmentReservationHistoryAsync(Models.ApartmentReservationHistoryRequest request);
+		Task<List<Models.ApartmentPreCheckinRequiredListResponse>> ApartmentPreCheckinRequiredListAsync(Models.ApartmentPreCheckinRequiredListRequest request);
 	}
 }

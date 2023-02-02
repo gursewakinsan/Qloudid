@@ -188,5 +188,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.ApartmentPreCheckinRequiredListResponse>> ApartmentPreCheckinRequiredListAsync(Models.ApartmentPreCheckinRequiredListRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentPreCheckinRequiredListResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentPreCheckinRequiredListUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

@@ -29,21 +29,21 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
-		#region Manage Reservations Command.
-		private ICommand manageReservationsCommand;
-		public ICommand ManageReservationsCommand
+		#region Apartment Pre Checkin Required List Command.
+		private ICommand apartmentPreCheckinRequiredListCommand;
+		public ICommand ApartmentPreCheckinRequiredListCommand
 		{
-			get => manageReservationsCommand ?? (manageReservationsCommand = new Command(async () => await ExecuteManageReservationsCommand()));
+			get => apartmentPreCheckinRequiredListCommand ?? (apartmentPreCheckinRequiredListCommand = new Command(async () => await ExecuteApartmentPreCheckinRequiredListCommand()));
 		}
-		private async Task ExecuteManageReservationsCommand()
+		private async Task ExecuteApartmentPreCheckinRequiredListCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
-			var response = await service.ApartmentReservationConfermationRequiredAsync(new Models.ApartmentReservationConfermationRequest()
+			var response = await service.ApartmentPreCheckinRequiredListAsync(new Models.ApartmentPreCheckinRequiredListRequest()
 			{
 				UserId = Helper.Helper.UserId
 			});
-			if (response == null)
+			if (response?.Count > 0)
 			{
 				PreCheckinReservationInfo = response.Where(x => x.PreCheckInStatus == false).ToList();
 				PreCheckinReservationHistory = response.Where(x => x.PreCheckInStatus == true).ToList();
@@ -52,9 +52,60 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Pre Check In Page Command.
+		private ICommand preCheckInPageCommand;
+		public ICommand PreCheckInPageCommand
+		{
+			get => preCheckInPageCommand ?? (preCheckInPageCommand = new Command<string>(async (enc) => await ExecutePreCheckInPageCommand(enc)));
+		}
+		private async Task ExecutePreCheckInPageCommand(string enc)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IPreCheckInService preCheckInService = new PreCheckInService();
+			var responsePreCheckInService = await preCheckInService.GetPreCheckinStatusAsync(new Models.GetPreCheckinStatusRequest()
+			{
+				Id = enc,
+				userId = Helper.Helper.UserId
+			});
+			Helper.Helper.PreCheckinStatusInfo = responsePreCheckInService;
+			if (responsePreCheckInService != null)
+				Helper.Helper.HotelCheckedIn = responsePreCheckInService.Checkid;
+
+			if (responsePreCheckInService?.Result == 0)
+			{
+				Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.UnauthorizedPreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+				return;
+			}
+			else if (responsePreCheckInService?.Result == 1)
+			{
+				Helper.Helper.PreCheckinStatus = 1;
+				Helper.Helper.IsPreCheckIn = true;
+				await Navigation.PushAsync(new Views.PreCheckIn.PreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+				return;
+			}
+			else if (responsePreCheckInService?.Result == 2)
+			{
+				Helper.Helper.PreCheckinStatus = 2;
+				Helper.Helper.IsPreCheckIn = true;
+				await Navigation.PushAsync(new Views.PreCheckIn.PreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+				return;
+			}
+			else if (responsePreCheckInService?.Result == 3)
+			{
+				Application.Current.MainPage = new NavigationPage(new Views.PreCheckIn.AlreadyDonePreCheckInPage());
+				DependencyService.Get<IProgressBar>().Hide();
+				return;
+			}
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
-		private List<Models.ApartmentReservationConfermationResponse> preCheckinReservationInfo;
-		public List<Models.ApartmentReservationConfermationResponse> PreCheckinReservationInfo
+		private List<Models.ApartmentPreCheckinRequiredListResponse> preCheckinReservationInfo;
+		public List<Models.ApartmentPreCheckinRequiredListResponse> PreCheckinReservationInfo
 		{
 			get => preCheckinReservationInfo;
 			set
@@ -64,8 +115,8 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private List<Models.ApartmentReservationConfermationResponse> preCheckinReservationHistory;
-		public List<Models.ApartmentReservationConfermationResponse> PreCheckinReservationHistory
+		private List<Models.ApartmentPreCheckinRequiredListResponse> preCheckinReservationHistory;
+		public List<Models.ApartmentPreCheckinRequiredListResponse> PreCheckinReservationHistory
 		{
 			get => preCheckinReservationHistory;
 			set

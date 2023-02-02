@@ -72,7 +72,7 @@
                     <Label
 					    FontSize="32"
 					    TextColor="White"
-                        Text="Complete precheck in"
+                        Text="Your reservations"
                         FontFamily="PoppinsRegularFontFamily"/>
                 </StackLayout>
 
@@ -128,7 +128,7 @@
                                         FontSize="17"
                                         Grid.ColumnSpan="2"
 				                        TextColor="White"
-                                        Text="Confirm your reservation"
+                                        Text="Complete precheck in"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsBoldFontFamily"/>
@@ -301,7 +301,8 @@
                                         Text="Confirm"
                                         TextColor="White"
                                         ClassId="{Binding Id}"
-                                        BackgroundColor="#1A0E3E"
+                                        BackgroundColor ="#1A0E3E"
+                                        Clicked="OnConfirmButtonClicked"
                                         FontFamily="PoppinsSemiBoldFontFamily"/>
                                 </Grid>
                             </Frame>

@@ -223,5 +223,6 @@
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";
 		public const string ApartmentReservationHistoryListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationHistoryList";
+		public const string ApartmentPreCheckinRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentPrecheckinRequiredList";
 	}
 }
