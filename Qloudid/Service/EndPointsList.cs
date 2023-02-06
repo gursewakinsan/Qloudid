@@ -150,7 +150,8 @@
 		public const string UpdateAccessibilityUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAccessibility";
 		public const string UpdateOverbathUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateOverbath";
 		public const string UpdatePropertyStartUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePropertyStart";
-
+		public const string UpdateOwnerInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateOwnerInfo";
+		
 		//Aparment.
 		public const string CheckinAparmentOwnerUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkinAparmentOwner";
 

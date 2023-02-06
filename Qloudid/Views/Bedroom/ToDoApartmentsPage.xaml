@@ -248,7 +248,7 @@
 				            TextColor="#242A37"/>
                     </Grid>
                 </Frame>
-                
+
                 <Frame
                     Padding="0"
                     Grid.Row="4"
@@ -339,7 +339,7 @@
 				            TextColor="#242A37"/>
                     </Grid>
                 </Frame>
-                
+
                 <Frame
                     Padding="0"
                     Grid.Row="6"
@@ -430,7 +430,7 @@
 				            TextColor="#242A37"/>
                     </Grid>
                 </Frame>
-                
+
                 <Frame
                     Padding="0"
                     Grid.Row="8"
@@ -471,6 +471,97 @@
 				            FontFamily="{StaticResource MaterialFontFamily}"
 				            FontSize="15"
                             Command="{Binding OtherRoomsPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+
+                <!--Ownership-->
+                <Frame
+                    Padding="0"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37" 
+                    IsVisible="{Binding UserAddress.OwnershipUpdated}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Ownership"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#4CD964"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding OwnershipUpdatedPageCommand}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+				            TextColor="#242A37"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    Padding="0"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    CornerRadius="16"
+                    IsClippedToBounds="True" 
+                    HasShadow="False"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding UserAddress.OwnershipUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid Margin="20,0,20,0" VerticalOptions="CenterAndExpand" HeightRequest="40">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+						    FontFamily="PoppinsRegularFontFamily"
+						    FontSize="16"
+						    Text="Ownership"
+						    TextColor="White" 
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OwnershipUpdatedPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            CornerRadius="20"
+				            Grid.Column="1"
+                            BackgroundColor="#D84B25"
+				            FontFamily="{StaticResource MaterialFontFamily}"
+				            FontSize="15"
+                            Command="{Binding OwnershipUpdatedPageCommand}"
 				            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 				            TextColor="#242A37"/>
                     </Grid>

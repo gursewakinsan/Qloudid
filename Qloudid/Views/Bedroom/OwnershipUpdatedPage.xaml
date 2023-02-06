@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.OwnershipUpdatedPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="2" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+            IsVisible="False"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddPropertyCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+            IsVisible="False"
+			BackgroundColor="Transparent"
+			Command="{Binding AddPropertyCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" />
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="9" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="19" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="6" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="9" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="19" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="6" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Type"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Describe the property"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Building type"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    BackgroundColor="#F4B400"/>
+
+                <Label
+					Grid.Row="8"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					HorizontalTextAlignment="Start"
+					Opacity="0.42"
+					TextColor="White"
+					Text="Type of property"
+					VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="10"
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="224"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+                    HorizontalOptions="StartAndExpand">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Select property type"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+                            ItemDisplayBinding="{Binding PropertyType}"
+							ItemsSource="{Binding PropertyTypeInfo}"
+							SelectedItem="{Binding SelectedPropertyType}"
+							TextColor="White"
+							TitleColor="Gray" />
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F4B400"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Label
+			        Grid.Row="12"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Ownership"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="14"
+                    Opacity="0.32"
+                    BackgroundColor="#F4B400"/>
+
+                <Label
+					Grid.Row="16"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					HorizontalTextAlignment="Start"
+					Opacity="0.42"
+					TextColor="White"
+					Text="Did you buy it or rent it"
+					VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="18"
+                    Padding="20,0,20,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="224"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+                    HorizontalOptions="StartAndExpand">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Grid.Column="0"
+							Title="Property"
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="15"
+							TextColor="White"
+							TitleColor="Gray"
+                            SelectedIndexChanged="OnBoughtOrRentSelectedIndexChanged">
+                            <controls:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Bought</x:String>
+                                    <x:String>Rent</x:String>
+                                </x:Array>
+                            </controls:CustomPicker.ItemsSource>
+                            <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                        </controls:CustomPicker>
+
+                        <Label
+                            Grid.Column="1"
+						    FontFamily="{StaticResource MaterialFontFamily}"
+						    FontSize="15"
+						    HorizontalTextAlignment="Center"
+						    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						    TextColor="#F4B400"
+						    VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Grid Grid.Row="20" RowSpacing="0" ColumnSpacing="0" IsVisible="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="6" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="6" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <Label
+					    Grid.Row="0"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="13"
+					    HorizontalTextAlignment="Start"
+					    Opacity="0.42"
+					    TextColor="White"
+					    Text="Is it yours?"
+					    VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="2"
+                        Padding="20,0,20,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="224"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37"
+                        HorizontalOptions="StartAndExpand">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+							    Title="Select"
+							    FontFamily="PoppinsRegularFontFamily"
+							    FontSize="15"
+							    TextColor="White"
+							    TitleColor="Gray"
+                                SelectedIndexChanged="OnIsItYoursSelectedIndexChanged">
+                                <controls:CustomPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Yes</x:String>
+                                        <x:String>No</x:String>
+                                    </x:Array>
+                                </controls:CustomPicker.ItemsSource>
+                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                            </controls:CustomPicker>
+
+                            <Label
+                                Grid.Column="1"
+						        FontFamily="{StaticResource MaterialFontFamily}"
+						        FontSize="15"
+						        HorizontalTextAlignment="Center"
+						        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						        TextColor="#F4B400"
+						        VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Label
+					    Grid.Row="4"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="13"
+					    HorizontalTextAlignment="Start"
+					    Opacity="0.42"
+					    TextColor="White"
+					    Text="Are you allowed to rent out"
+					    VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="6"
+                        Padding="20,0,20,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="224"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37"
+                        HorizontalOptions="StartAndExpand">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+							    Title="Select"
+							    FontFamily="PoppinsRegularFontFamily"
+							    FontSize="15"
+							    TextColor="White"
+							    TitleColor="Gray"
+                                SelectedIndexChanged="OnAllowedToRentOutSelectedIndexChanged">
+                                <controls:CustomPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Yes</x:String>
+                                        <x:String>No</x:String>
+                                    </x:Array>
+                                </controls:CustomPicker.ItemsSource>
+                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                            </controls:CustomPicker>
+
+                            <Label
+                                Grid.Column="1"
+						        FontFamily="{StaticResource MaterialFontFamily}"
+						        FontSize="15"
+						        HorizontalTextAlignment="Center"
+						        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						        TextColor="#F4B400"
+						        VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="20" RowSpacing="0" ColumnSpacing="0" IsVisible="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="6" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="6" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <Label
+					    Grid.Row="0"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="13"
+					    HorizontalTextAlignment="Start"
+					    Opacity="0.42"
+					    TextColor="White"
+					    Text="Is the contract on you"
+					    VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="2"
+                        Padding="20,0,20,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="224"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37"
+                        HorizontalOptions="StartAndExpand">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+							    Title="Select"
+							    FontFamily="PoppinsRegularFontFamily"
+							    FontSize="15"
+							    TextColor="White"
+							    TitleColor="Gray"
+                                SelectedIndexChanged="OnContractOnYouSelectedIndexChanged">
+                                <controls:CustomPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Yes</x:String>
+                                        <x:String>No</x:String>
+                                    </x:Array>
+                                </controls:CustomPicker.ItemsSource>
+                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                            </controls:CustomPicker>
+
+                            <Label
+                                Grid.Column="1"
+						        FontFamily="{StaticResource MaterialFontFamily}"
+						        FontSize="15"
+						        HorizontalTextAlignment="Center"
+						        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						        TextColor="#F4B400"
+						        VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Label
+                        x:Name="lbl"
+					    Grid.Row="4"
+					    FontFamily="PoppinsRegularFontFamily"
+					    FontSize="13"
+					    HorizontalTextAlignment="Start"
+					    Opacity="0.42"
+					    TextColor="White"
+					    Text="Are you allowed to rent out?"
+					    VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        x:Name="frame"
+                        Grid.Row="6"
+                        Padding="20,0,20,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="224"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37"
+                        HorizontalOptions="StartAndExpand">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomPicker
+                                Grid.Column="0"
+							    Title="Select"
+							    FontFamily="PoppinsRegularFontFamily"
+							    FontSize="15"
+							    TextColor="White"
+							    TitleColor="Gray"
+                                SelectedIndexChanged="OnAreYouAllowedSelectedIndexChanged">
+                                <controls:CustomPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Yes</x:String>
+                                        <x:String>No</x:String>
+                                    </x:Array>
+                                </controls:CustomPicker.ItemsSource>
+                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
+                            </controls:CustomPicker>
+
+                            <Label
+                                Grid.Column="1"
+						        FontFamily="{StaticResource MaterialFontFamily}"
+						        FontSize="15"
+						        HorizontalTextAlignment="Center"
+						        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						        TextColor="#F4B400"
+						        VerticalTextAlignment="Center" />
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+        <Button 
+            Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            CornerRadius="30"
+            Text="Submit"
+            FontSize="16"
+            Margin="0,0,0,5"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding UpdateOwnerInfoCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
+</ContentPage>

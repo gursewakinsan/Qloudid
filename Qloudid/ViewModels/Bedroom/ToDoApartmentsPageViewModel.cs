@@ -83,6 +83,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Ownership Updated Page Command.
+		private ICommand ownershipUpdatedPageCommand;
+		public ICommand OwnershipUpdatedPageCommand
+		{
+			get => ownershipUpdatedPageCommand ?? (ownershipUpdatedPageCommand = new Command(async () => await ExecuteOwnershipUpdatedPageCommand()));
+		}
+		private async Task ExecuteOwnershipUpdatedPageCommand()
+		{
+			await Navigation.PushAsync(new Views.Bedroom.OwnershipUpdatedPage());
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse userAddress;
 		public Models.EditAddressResponse UserAddress

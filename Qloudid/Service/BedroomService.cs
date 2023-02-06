@@ -206,5 +206,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateOwnerInfoAsync(Models.UpdateOwnerInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateOwnerInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }
