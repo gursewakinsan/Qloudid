@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-	x:Class="Qloudid.Views.TestPage"
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:Qloudid.Controls"
-	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.GetStartedPropertyPage"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
@@ -56,8 +54,8 @@
                 TextColor="Black"
                 WidthRequest="219"
                 BackgroundColor="#6263ED"
+                Command="{Binding UpdatePropertyStartCommand}"
                 HorizontalOptions="CenterAndExpand"
-                Command="{Binding AddCurrencyCommand}"
                 FontFamily="PoppinsSemiBoldFontFamily"/>
         </Grid>
     </Grid>

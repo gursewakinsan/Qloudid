@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.AddCreateYourPropertyPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Image
+			Grid.Row="0"
+			Grid.Column="3"
+			Aspect="AspectFit"
+			BackgroundColor="Transparent"
+			HeightRequest="40"
+            IsVisible="False"
+			HorizontalOptions="EndAndExpand"
+			Source="iconSmallLogo.png"
+			VerticalOptions="CenterAndExpand"
+			WidthRequest="40" />
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="39" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="78" />
+                    <RowDefinition Height="16" />
+                    <RowDefinition Height="78" />
+                    <RowDefinition Height="16" />
+                    <RowDefinition Height="78" />
+                    <RowDefinition Height="16" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Add"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Create your property"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="You got 3 options"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    BackgroundColor="#F4B400"/>
+
+                <!--Manually-->
+                <Frame
+                    Grid.Row="8"
+                    Padding="0"
+                    HasShadow="False"
+                    CornerRadius="16"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ManuallyCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ManuallyCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+							Grid.Column="0" 
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.70"
+							TextColor="White"
+							Text="Manually"
+							VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ManuallyCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button
+                            Padding="0"
+                            CornerRadius="18"
+                            Grid.Column="1"
+                            HeightRequest="36"
+                            Opacity="0.32"
+                            FontSize="30"
+                            TextColor="#F4B400"
+                            BackgroundColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            Command="{Binding ManuallyCommand}"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+
+                <!--Connect with Airbnb-->
+                <Frame
+                    Grid.Row="10"
+                    Padding="0"
+                    HasShadow="False"
+                    CornerRadius="16"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+							Grid.Column="0" 
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.70"
+							TextColor="White"
+							Text="Connect with Airbnb"
+							VerticalTextAlignment="Center"/>
+
+                        <Button
+                            Padding="0"
+                            CornerRadius="18"
+                            Grid.Column="1"
+                            HeightRequest="36"
+                            Opacity="0.32"
+                            FontSize="30"
+                            TextColor="#F4B400"
+                            BackgroundColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+
+                <!--Landlord invitation-->
+                <Frame
+                    Grid.Row="12"
+                    Padding="0"
+                    HasShadow="False"
+                    CornerRadius="16"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+							Grid.Column="0" 
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="16"
+							HorizontalTextAlignment="Start"
+							Opacity="0.70"
+							TextColor="White"
+							Text="Landlord invitation"
+							VerticalTextAlignment="Center"/>
+
+                        <Button
+                            Padding="0"
+                            CornerRadius="18"
+                            Grid.Column="1"
+                            HeightRequest="36"
+                            Opacity="0.32"
+                            FontSize="30"
+                            TextColor="#F4B400"
+                            BackgroundColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

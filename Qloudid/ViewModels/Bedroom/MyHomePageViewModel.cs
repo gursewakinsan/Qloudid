@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -31,6 +32,18 @@ namespace Qloudid.ViewModels
 				UserId = Helper.Helper.UserId
 			});
 			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
+		#region Add Property Command.
+		private ICommand addPropertyCommand;
+		public ICommand AddPropertyCommand
+		{
+			get => addPropertyCommand ?? (addPropertyCommand = new Command(async () => await ExecuteAddPropertyCommand()));
+		}
+		private async Task ExecuteAddPropertyCommand()
+		{
+			await Navigation.PushAsync(new Views.Bedroom.AddCreateYourPropertyPage());
 		}
 		#endregion
 

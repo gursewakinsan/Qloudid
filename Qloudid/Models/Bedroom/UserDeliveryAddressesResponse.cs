@@ -26,6 +26,15 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "bathroom_updated")]
         public bool BathroomUpdated { get; set; }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "other_room_updated")]
+        public bool IsOtherRoomUpdated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "property_composition_updated")]
+        public bool IsPropertyCompositionUpdated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "ownership_updated")]
+        public bool IsOwnershipUpdated { get; set; }
+
         [Newtonsoft.Json.JsonProperty(PropertyName = "property_nickname")]
         public string PropertyNickName { get; set; }
 
@@ -38,13 +47,10 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "subheading_address")]
         public string SubheadingAddress { get; set; }
 
-        [Newtonsoft.Json.JsonProperty(PropertyName = "other_room_updated")]
-        public bool IsOtherRoomUpdated { get; set; }
-
-        [Newtonsoft.Json.JsonProperty(PropertyName = "property_composition_updated")]
-        public bool IsPropertyCompositionUpdated { get; set; }
-
         public string DisplayName => string.IsNullOrWhiteSpace(PropertyNickName) ? NameOnHouse : PropertyNickName;
         public bool IsBedroomBathroomUpdated => (BedroomUpdated && BathroomUpdated) ? true : false;
+        public bool IsGreenCheck => (BedroomUpdated && BathroomUpdated && IsOtherRoomUpdated && IsPropertyCompositionUpdated && IsOwnershipUpdated) ? true : false;
+        public bool IsRedBell => (!BedroomUpdated && !BathroomUpdated && !IsOtherRoomUpdated && !IsPropertyCompositionUpdated && !IsOwnershipUpdated) ? true : false;
+        public bool IsYellowBell => (BedroomUpdated || BathroomUpdated || IsOtherRoomUpdated || IsPropertyCompositionUpdated || IsOwnershipUpdated) ? true : false;
     }
 }

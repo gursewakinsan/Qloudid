@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.ProfileEnterPropertyDetailsPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+            IsVisible="False"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+            IsVisible="False"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" />
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="20"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="39" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="19" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="55" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="75"/>
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.ColumnSpan="3"
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Profile"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Enter property details"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+                    Grid.Column="0"
+			        Grid.Row="4"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Entry code"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+					Grid.Column="2"
+			        Grid.Row="4"
+					Padding="0"
+                    TextColor="#4CD964" 
+					FontSize="50" 
+                    Margin="0,-13,0,0"
+                    IsVisible="{Binding IsEntryCode}"
+                    HorizontalTextAlignment="End"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IsEntryCodeCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label 
+				    Grid.Column="2"
+			        Grid.Row="4"
+				    FontSize="50"
+                    TextColor="#E53614"
+                    Margin="0,-13,0,0"
+				    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="End"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+				    Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+                    IsVisible="{Binding IsEntryCode, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IsEntryCodeCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="3"
+                    BackgroundColor="#F4B400"/>
+
+                <Grid
+                    Grid.Row="7"
+                    RowSpacing="8"
+                    Margin="0,20,0,0"
+                    Grid.ColumnSpan="3"
+                    IsVisible="{Binding IsEntryCode}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                    <Label
+						Grid.Row="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="The code"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="1"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37"
+                        HorizontalOptions="StartAndExpand">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Code"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding Code}"/>
+                    </Frame>
+                </Grid>
+
+                <Label
+			        Grid.Row="9"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Delivery address"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="11"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="3"
+                    BackgroundColor="#F4B400"/>
+
+                <Label
+				    Grid.Row="13"
+                    Grid.ColumnSpan="3"
+				    FontFamily="PoppinsRegularFontFamily"
+				    FontSize="13"
+				    HorizontalTextAlignment="Start"
+				    Opacity="0.42"
+				    TextColor="White"
+				    Text="Name on the door"
+				    VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="15"
+                    Grid.ColumnSpan="3"
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="108"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+					    FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Name on the door"
+                        PlaceholderColor="Gray"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding NameOnTheDoor}"/>
+                </Frame>
+
+                <Label
+				    Grid.Row="17"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+				    FontFamily="PoppinsRegularFontFamily"
+				    FontSize="13"
+				    HorizontalTextAlignment="Start"
+				    Opacity="0.42"
+				    TextColor="White"
+				    Text="Street address"
+				    VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="19"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="108"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+					    FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Street address"
+                        PlaceholderColor="Gray"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding DeliveryAddress}"/>
+                </Frame>
+
+                <Label
+				    Grid.Row="17"
+                    Grid.Column="2"
+				    FontFamily="PoppinsRegularFontFamily"
+				    FontSize="13"
+				    HorizontalTextAlignment="Start"
+				    Opacity="0.42"
+				    TextColor="White"
+				    Text="Number"
+				    VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="19"
+                    Grid.Column="2"
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="108"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+					    FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Number"
+                        PlaceholderColor="Gray"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding DeliveryPortNumber}"/>
+                </Frame>
+
+                <Label
+				    Grid.Row="21"
+                    Grid.Column="0"
+				    FontFamily="PoppinsRegularFontFamily"
+				    FontSize="13"
+				    HorizontalTextAlignment="Start"
+				    Opacity="0.42"
+				    TextColor="White"
+				    Text="Zip code"
+				    VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="23"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="108"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+					    FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="Zip code"
+                        PlaceholderColor="Gray"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding DeliveryZipCode}"/>
+                </Frame>
+
+                <Label
+				    Grid.Row="21"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+				    FontFamily="PoppinsRegularFontFamily"
+				    FontSize="13"
+				    HorizontalTextAlignment="Start"
+				    Opacity="0.42"
+				    TextColor="White"
+				    Text="City"
+				    VerticalTextAlignment="Center"/>
+
+                <Frame 
+                    Grid.Row="23"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Padding="15,0,15,0"
+                    HasShadow="False"
+                    CornerRadius="12"
+                    WidthRequest="108"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <controls:CustomEntry
+					    FontSize="15"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Placeholder="City"
+                        PlaceholderColor="Gray"
+                        FontFamily="PoppinsRegularFontFamily"
+                        Text="{Binding DeliveryCity}"/>
+                </Frame>
+
+                <Label
+                    Grid.Column="0"
+			        Grid.Row="25"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Invoice address"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+					Grid.Column="2"
+			        Grid.Row="25"
+					Padding="0"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="50" Margin="0,-13,0,0"
+                    HorizontalTextAlignment="End"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
+					TextColor="#4CD964"
+                    IsVisible="{Binding IsInvoiceAddressSame}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label 
+				    Grid.Column="2"
+			        Grid.Row="25"
+				    FontSize="50"
+                    TextColor="#E53614"
+                    Margin="0,-13,0,0"
+				    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="End"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+				    Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
+                    IsVisible="{Binding IsInvoiceAddressSame, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IsInvoiceAddressSameCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView
+                    Grid.Row="27"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="3"
+                    BackgroundColor="#F4B400"/>
+
+                <Grid
+                    Grid.Row="28"
+                    Margin="0,20,0,0"
+                    RowSpacing="0"
+                    ColumnSpacing="20"
+                    Grid.ColumnSpan="3"
+                    IsVisible="{Binding IsInvoiceAddressSame, Converter={StaticResource InverseBoolConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="27"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="75"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+						Grid.Row="0"
+                        Grid.ColumnSpan="3"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="Name on the card"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Name on the card"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding NameOnTheCard}"/>
+                    </Frame>
+
+                    <Label
+						Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="Street address"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Street address"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding InvoiceAddress}"/>
+                    </Frame>
+
+                    <Label
+						Grid.Row="4"
+                        Grid.Column="2"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="Number"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="6"
+                        Grid.Column="2"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Number"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding InvoicePortNumber}"/>
+                    </Frame>
+
+                    <Label
+						Grid.Row="8"
+                        Grid.Column="0"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="Zip code"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="10"
+                        Grid.Column="0"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="Zip code"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding InvoiceZipCode}"/>
+                    </Frame>
+
+                    <Label
+						Grid.Row="8"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="13"
+						HorizontalTextAlignment="Start"
+						Opacity="0.42"
+						TextColor="White"
+						Text="City"
+						VerticalTextAlignment="Center"/>
+
+                    <Frame 
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Padding="15,0,15,0"
+                        HasShadow="False"
+                        CornerRadius="12"
+                        WidthRequest="108"
+                        IsClippedToBounds="True"
+                        BackgroundColor="#242A37">
+                        <controls:CustomEntry
+						    FontSize="15"
+                            TextColor="White"
+                            Keyboard="Numeric"
+                            BackgroundColor="Transparent"
+                            Placeholder="City"
+                            PlaceholderColor="Gray"
+                            FontFamily="PoppinsRegularFontFamily"
+                            Text="{Binding InvoiceCity}"/>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+        <Button 
+            Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            CornerRadius="30"
+            Text="Submit"
+            FontSize="16"
+            Margin="0,0,0,5"
+            TextColor="White"
+            BackgroundColor="#F40000"
+            Command="{Binding AddProfileCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
+</ContentPage>

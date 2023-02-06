@@ -284,4 +284,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\flagOfSpain.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phoneImage.png" />
+  </ItemGroup>
 </Project>

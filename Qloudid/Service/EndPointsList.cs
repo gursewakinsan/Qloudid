@@ -149,6 +149,7 @@
 		public const string UpdateBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBathroom";
 		public const string UpdateAccessibilityUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAccessibility";
 		public const string UpdateOverbathUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateOverbath";
+		public const string UpdatePropertyStartUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePropertyStart";
 
 		//Aparment.
 		public const string CheckinAparmentOwnerUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkinAparmentOwner";

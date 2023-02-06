@@ -49,7 +49,23 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteGoToMyHomePageCommand()
 		{
-			await Navigation.PushAsync(new Views.Bedroom.MyHomePage());
+			if (!Helper.Helper.IsPropertyStarted)
+				await Navigation.PushAsync(new Views.Bedroom.GetStartedPropertyPage());
+			else
+			{
+				DependencyService.Get<IProgressBar>().Show();
+				IBedroomService service = new BedroomService();
+				var responses = await service.UserDeliveryAddressesAsync(new Models.UserDeliveryAddressesRequest()
+				{
+					UserId = Helper.Helper.UserId
+				});
+				if (responses?.Count > 0)
+					await Navigation.PushAsync(new Views.Bedroom.MyHomePage());
+				else
+					await Navigation.PushAsync(new Views.Bedroom.AddCreateYourPropertyPage());
+				DependencyService.Get<IProgressBar>().Hide();
+				
+			}
 		}
 		#endregion
 	}

@@ -6,9 +6,218 @@
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
     <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddPropertyCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding AddPropertyCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" />
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Properties"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Access your properties"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Properties"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    BackgroundColor="#F4B400"/>
+
+                <StackLayout
+                    Grid.Row="8"
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand" 
+                    BindableLayout.ItemsSource="{Binding UserDeliveryAddresses}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="0"
+                                HasShadow="False"
+                                CornerRadius="16"
+                                BackgroundColor="#242A37"
+                                IsClippedToBounds="True" 
+                                Margin="0,0,0,16"
+                                HeightRequest="78">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped"/>
+                                </Frame.GestureRecognizers>
+                                <Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="36"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+							            Grid.Column="0" 
+							            FontFamily="PoppinsRegularFontFamily"
+							            FontSize="16"
+							            HorizontalTextAlignment="Start"
+							            TextColor="White"
+							            Text="{Binding DisplayName}"
+							            VerticalTextAlignment="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Button
+                                        Padding="0"
+                                        CornerRadius="18"
+                                        Grid.Column="1"
+                                        HeightRequest="36"
+                                        FontSize="20"
+                                        TextColor="#242A37"
+                                        Clicked="OnButtonTapped"
+                                        BackgroundColor="#4CD964"
+                                        VerticalOptions="CenterAndExpand"
+                                        IsVisible="{Binding IsGreenCheck}"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+							            Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                                    <Button
+                                        Padding="0"
+                                        CornerRadius="18"
+                                        Grid.Column="1"
+                                        HeightRequest="36"
+                                        FontSize="20"
+                                        Clicked="OnButtonTapped"
+                                        TextColor="#242A37"
+                                        BackgroundColor="#F4B400"
+                                        VerticalOptions="CenterAndExpand"
+                                        IsVisible="{Binding IsYellowBell}"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+							            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                                    <Button
+                                        Padding="0"
+                                        CornerRadius="18"
+                                        Grid.Column="1"
+                                        HeightRequest="36"
+                                        FontSize="20"
+                                        TextColor="#242A37"
+                                        Clicked="OnButtonTapped"
+                                        BackgroundColor="#F40000"
+                                        IsVisible="{Binding IsRedBell}"
+                                        VerticalOptions="CenterAndExpand"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+							            Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+
+    <!--<Grid
 		Margin="0,22,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -276,5 +485,5 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </ScrollView>
-    </Grid>
+    </Grid>-->
 </ContentPage>

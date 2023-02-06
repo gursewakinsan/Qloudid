@@ -112,9 +112,10 @@ namespace Qloudid.Helper
         public static Models.SendBookingRequestInfoRequest SendBookingRequestInfo { get; set; }
         public static int BookingId { get; set; }
 		public static string CountryOrChildren { get; set; }
+        public static bool IsPropertyStarted { get; set; }
 
 
-		public static string[] ColorList =
+        public static string[] ColorList =
 		{
 			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",
 			"#F29133", "#66D0C3", "#6830F1", "#9D3AF0", "#5785E5", "#5982F0", "#EB6559F", "#FA8D23", "#F4629D", "#662FFE",

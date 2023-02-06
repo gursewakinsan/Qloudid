@@ -239,6 +239,7 @@ namespace Qloudid.ViewModels
 						CardCount = response.card_count,
 						PassportCount = response.passport_count
 					};
+					Helper.Helper.IsPropertyStarted = response.PropertyStarted;
 					Helper.Helper.CountryCode = response.country_code;
 					Helper.Helper.UserInfo = user;
 					Helper.Helper.UserId = user.user_id;
@@ -334,6 +335,7 @@ namespace Qloudid.ViewModels
 						UserInfo.UserImage = UserImage;
 						Helper.Helper.UserInfo.UserImage = response.image;
 					}
+					Helper.Helper.IsPropertyStarted = response.PropertyStarted;
 					Helper.Helper.UserId = response.id;
 					Helper.Helper.UserEmail = response.email;
 					Helper.Helper.CountryCode = response.country_code;

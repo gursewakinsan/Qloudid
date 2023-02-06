@@ -9026,22 +9026,25 @@ namespace Qloudid.Droid
 			public const int notify_panel_notification_icon_bg = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int roundedbg = 2131165372;
+			public const int phoneImage = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int roundedbgdark = 2131165373;
-			
-			// aapt resource value: 0x7F0700BF
-			public const int splashScreenBg = 2131165375;
+			public const int roundedbg = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int splash_screen = 2131165374;
+			public const int roundedbgdark = 2131165374;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int tooltip_frame_dark = 2131165376;
+			public const int splashScreenBg = 2131165376;
+			
+			// aapt resource value: 0x7F0700BF
+			public const int splash_screen = 2131165375;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int tooltip_frame_light = 2131165377;
+			public const int tooltip_frame_dark = 2131165377;
+			
+			// aapt resource value: 0x7F0700C2
+			public const int tooltip_frame_light = 2131165378;
 			
 			static Drawable()
 			{

@@ -15,5 +15,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "precheck_in_count")]
 		public bool PreCheckInCount { get; set; }
-    }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "property_started")]
+		public bool PropertyStarted { get; set; }
+	}
 }
