@@ -51,6 +51,6 @@
         public bool IsBedroomBathroomUpdated => (BedroomUpdated && BathroomUpdated) ? true : false;
         public bool IsGreenCheck => (BedroomUpdated && BathroomUpdated && IsOtherRoomUpdated && IsPropertyCompositionUpdated && IsOwnershipUpdated) ? true : false;
         public bool IsRedBell => (!BedroomUpdated && !BathroomUpdated && !IsOtherRoomUpdated && !IsPropertyCompositionUpdated && !IsOwnershipUpdated) ? true : false;
-        public bool IsYellowBell => (BedroomUpdated || BathroomUpdated || IsOtherRoomUpdated || IsPropertyCompositionUpdated || IsOwnershipUpdated) ? true : false;
+        public bool IsYellowBell => (!BedroomUpdated || !BathroomUpdated || !IsOtherRoomUpdated || !IsPropertyCompositionUpdated || !IsOwnershipUpdated) ? true : false;
     }
 }

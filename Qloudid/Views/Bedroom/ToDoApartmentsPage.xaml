@@ -84,6 +84,8 @@
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="17"/>
                     <RowDefinition Height="80"/>
+                    <RowDefinition Height="17"/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -479,7 +481,7 @@
                 <!--Ownership-->
                 <Frame
                     Padding="0"
-                    Grid.Row="8"
+                    Grid.Row="10"
                     Grid.Column="1"
                     CornerRadius="16"
                     IsClippedToBounds="True" 
@@ -524,7 +526,7 @@
 
                 <Frame
                     Padding="0"
-                    Grid.Row="8"
+                    Grid.Row="10"
                     Grid.Column="1"
                     CornerRadius="16"
                     IsClippedToBounds="True" 
