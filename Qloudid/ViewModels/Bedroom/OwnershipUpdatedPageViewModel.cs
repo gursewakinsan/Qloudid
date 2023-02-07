@@ -14,23 +14,36 @@ namespace Qloudid.ViewModels
 		public OwnershipUpdatedPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			UserAddress = Helper.Helper.SelectedUserAddress;
 		}
 		#endregion
 
-		#region Property Type Command.
-		private ICommand propertyTypeCommand;
-		public ICommand PropertyTypeCommand
+		#region Get Address By Id Command.
+		private ICommand getAddressByIdCommand;
+		public ICommand GetAddressByIdCommand
 		{
-			get => propertyTypeCommand ?? (propertyTypeCommand = new Command(async () => await ExecutePropertyTypeCommand()));
+			get => getAddressByIdCommand ?? (getAddressByIdCommand = new Command(async () => await ExecuteGetAddressByIdCommand()));
 		}
-		private async Task ExecutePropertyTypeCommand()
+		private async Task ExecuteGetAddressByIdCommand()
 		{
 			DependencyService.Get<IProgressBar>().Show();
-			IBedroomService service = new BedroomService();
-			var responsesPropertyTypeInfo = await service.PropertyTypeAsync();
+			IDashboardService service = new DashboardService();
+			var response = await service.GetAddressByIdAsync(new Models.EditAddressRequest()
+			{
+				id = Helper.Helper.SelectedUserDeliveryAddress.Id
+			});
+			UserAddress = response;
+			Helper.Helper.SelectedUserAddress = response;
+
+			IBedroomService bedroomService = new BedroomService();
+			var responsesPropertyTypeInfo = await bedroomService.PropertyTypeAsync();
 			PropertyTypeInfo = new ObservableCollection<Models.PropertyTypeResponse>(responsesPropertyTypeInfo);
-			SelectedPropertyType = PropertyTypeInfo[0];
+			SelectedPropertyType = PropertyTypeInfo.FirstOrDefault(x => x.Id == UserAddress.PropertyType);
+			OwnershipDetail = response.OwnershipDetail - 1;
+			BoughtByYou = response.BoughtByYou == 1 ? 0 : 1;
+			BoughtRentAllowed = response.BoughtRentAllowed == 1 ? 0 : 1;
+			RentContractOnYou = response.RentContractOnYou == 1 ? 0 : 1;
+			AllowedToRentOut = response.AllowedToRentOut == 1 ? 0 : 1;
+
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -49,11 +62,11 @@ namespace Qloudid.ViewModels
 			{
 				ApartmentId = SelectedApartment.Id,
 				PropertyType = SelectedPropertyType.Id,
-				OwnershipDetail = OwnershipDetail,
-				BoughtByYou = BoughtByYou,
-				BoughtRentAllowed = BoughtRentAllowed,
-				RentContractOnYou = RentContractOnYou,
-				AllowedToRentOut = AllowedToRentOut
+				OwnershipDetail = OwnershipDetail + 1,
+				BoughtByYou = BoughtByYou == 0 ? 1 : 0,
+				BoughtRentAllowed = BoughtRentAllowed == 0 ? 1 : 0,
+				RentContractOnYou = RentContractOnYou == 0 ? 1 : 0,
+				AllowedToRentOut = AllowedToRentOut == 0 ? 1 : 0
 			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
@@ -93,12 +106,61 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("UserAddress");
 			}
 		}
-		public int OwnershipDetail { get; set; } = 1;
-		public int BoughtByYou { get; set; } = 1;
-		public int BoughtRentAllowed { get; set; } = 1;
-		public int RentContractOnYou { get; set; } = 1;
-		public int AllowedToRentOut { get; set; } = 1;
-        public Models.UserDeliveryAddressesResponse SelectedApartment => Helper.Helper.SelectedUserDeliveryAddress;
+
+		public int ownershipDetail;
+		public int OwnershipDetail
+		{
+			get => ownershipDetail;
+			set
+			{
+				ownershipDetail = value;
+				OnPropertyChanged("OwnershipDetail");
+			}
+		}
+
+		public int boughtByYou;
+		public int BoughtByYou
+		{
+			get => boughtByYou;
+			set
+			{
+				boughtByYou = value;
+				OnPropertyChanged("BoughtByYou");
+			}
+		}
+
+		public int boughtRentAllowed;
+		public int BoughtRentAllowed
+		{
+			get => boughtRentAllowed;
+			set
+            {
+                boughtRentAllowed = value;
+				OnPropertyChanged("BoughtRentAllowed");
+            }
+		}
+
+		public int rentContractOnYou;
+		public int RentContractOnYou
+		{
+			get => rentContractOnYou; 
+			set
+            {
+                rentContractOnYou = value;
+				OnPropertyChanged("RentContractOnYou");
+			}
+		}
+
+		public int allowedToRentOut;
+		public int AllowedToRentOut
+		{
+			get => allowedToRentOut; set
+            {
+                allowedToRentOut = value;
+                OnPropertyChanged("AllowedToRentOut");
+            }
+		}
+		public Models.UserDeliveryAddressesResponse SelectedApartment => Helper.Helper.SelectedUserDeliveryAddress;
 		#endregion
 	}
 }

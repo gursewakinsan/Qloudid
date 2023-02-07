@@ -235,6 +235,7 @@
 							FontSize="15"
 							TextColor="White"
 							TitleColor="Gray"
+                            SelectedIndex="{Binding OwnershipDetail}"
                             SelectedIndexChanged="OnBoughtOrRentSelectedIndexChanged">
                             <controls:CustomPicker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
@@ -242,7 +243,6 @@
                                     <x:String>Rent</x:String>
                                 </x:Array>
                             </controls:CustomPicker.ItemsSource>
-                            <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                         </controls:CustomPicker>
 
                         <Label
@@ -298,6 +298,7 @@
 							    FontSize="15"
 							    TextColor="White"
 							    TitleColor="Gray"
+                                SelectedIndex="{Binding BoughtByYou}"
                                 SelectedIndexChanged="OnIsItYoursSelectedIndexChanged">
                                 <controls:CustomPicker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
@@ -305,7 +306,6 @@
                                         <x:String>No</x:String>
                                     </x:Array>
                                 </controls:CustomPicker.ItemsSource>
-                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                             </controls:CustomPicker>
 
                             <Label
@@ -350,6 +350,7 @@
 							    FontSize="15"
 							    TextColor="White"
 							    TitleColor="Gray"
+                                SelectedIndex="{Binding BoughtRentAllowed}"
                                 SelectedIndexChanged="OnAllowedToRentOutSelectedIndexChanged">
                                 <controls:CustomPicker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
@@ -357,7 +358,6 @@
                                         <x:String>No</x:String>
                                     </x:Array>
                                 </controls:CustomPicker.ItemsSource>
-                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                             </controls:CustomPicker>
 
                             <Label
@@ -414,6 +414,7 @@
 							    FontSize="15"
 							    TextColor="White"
 							    TitleColor="Gray"
+                                SelectedIndex="{Binding RentContractOnYou}"
                                 SelectedIndexChanged="OnContractOnYouSelectedIndexChanged">
                                 <controls:CustomPicker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
@@ -421,7 +422,6 @@
                                         <x:String>No</x:String>
                                     </x:Array>
                                 </controls:CustomPicker.ItemsSource>
-                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                             </controls:CustomPicker>
 
                             <Label
@@ -468,6 +468,7 @@
 							    FontSize="15"
 							    TextColor="White"
 							    TitleColor="Gray"
+                                SelectedIndex="{Binding AllowedToRentOut}"
                                 SelectedIndexChanged="OnAreYouAllowedSelectedIndexChanged">
                                 <controls:CustomPicker.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
@@ -475,7 +476,6 @@
                                         <x:String>No</x:String>
                                     </x:Array>
                                 </controls:CustomPicker.ItemsSource>
-                                <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                             </controls:CustomPicker>
 
                             <Label
