@@ -333,6 +333,7 @@
                             BackgroundColor="#242A37"
                             VerticalOptions="CenterAndExpand"
                             HorizontalOptions="StartAndExpand"
+                            Command="{Binding ManageCheckInOutCommand}"
                             FontFamily="{StaticResource MaterialFontFamily}"
 						    Text="{x:Static fontawesome:QloudidAppFlatIcons.LockOutline}"/>
 
@@ -347,7 +348,7 @@
                             VerticalTextAlignment="Center"
 						    HorizontalTextAlignment="Start">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding ManageCheckInOutCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -361,7 +362,7 @@
 						    TextColor="#F4B400"
 						    VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding ManageCheckInOutCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 

@@ -38,7 +38,7 @@
 		public const string CreditCardScan = "\U000f0ff4";
 		public const string AccountNetworkOutline = "\U000f0be6";
 		public const string Hops = "\U000f02df";
-
+		public const string BookmarkCheck = "\U000f00c1";
 		public const string CoronaCare = "\U000f02e1";
 		public const string Connect = "\U000f1546";
 		public const string Parent = "\U000f0172";

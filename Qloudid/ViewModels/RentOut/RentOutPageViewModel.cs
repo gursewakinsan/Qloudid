@@ -239,6 +239,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Manage Check In Out Command.
+		private ICommand manageCheckInOutCommand;
+		public ICommand ManageCheckInOutCommand
+		{
+			get => manageCheckInOutCommand ?? (manageCheckInOutCommand = new Command(async () => await ExecuteManageCheckInOutCommand()));
+		}
+		private async Task ExecuteManageCheckInOutCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.ManageCheckedInAndOutPage());
+		}
+		#endregion
+
 		#region Property Details Command.
 		private ICommand propertyDetailsCommand;
 		public ICommand PropertyDetailsCommand

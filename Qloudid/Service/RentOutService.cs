@@ -412,5 +412,23 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.ApartmentCheckedinInfoResponse>> ApartmentCheckedinInfoAsync(Models.ApartmentCheckedinInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentCheckedinInfoResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentCheckedinInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<string> CheckoutApartmentGuestAsync(Models.CheckoutApartmentGuestRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.CheckoutApartmentGuestUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

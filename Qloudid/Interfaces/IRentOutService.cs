@@ -50,5 +50,7 @@ namespace Qloudid.Interfaces
         Task<int> SendBookingToNewUserAsync(Models.SendBookingToNewUserRequest model);
         Task<string> UpdateUserPersonalAddressAsync(Models.UpdateUserPersonalAddressRequest model);
         Task<string> SaveCompanyDetailsAsync(Models.SaveCompanyDetailsRequest model);
+        Task<List<Models.ApartmentCheckedinInfoResponse>> ApartmentCheckedinInfoAsync(Models.ApartmentCheckedinInfoRequest model);
+        Task<string> CheckoutApartmentGuestAsync(Models.CheckoutApartmentGuestRequest model);
     }
 }

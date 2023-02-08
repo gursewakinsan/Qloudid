@@ -218,9 +218,10 @@
 		public const string AddIdentificatorRegisteredUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorRegisteredUser";
 		public const string AddIdentificatorImagesRegisteredUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addIdentificatorImagesRegisteredUser";
 		public const string SendBookingToNewUserUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendBookingToNewUser";
-
 		public const string UpdateUserPersonalAddressUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateUserPersonalAddress";
 		public const string SaveCompanyDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/saveCompanyDetails";
+		public const string ApartmentCheckedinInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCheckedinInfo";
+		public const string CheckoutApartmentGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkoutApartmentGuest";
 
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";
