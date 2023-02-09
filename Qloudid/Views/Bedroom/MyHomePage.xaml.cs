@@ -59,7 +59,10 @@ namespace Qloudid.Views.Bedroom
         {
             Helper.Helper.SelectedUserDeliveryAddress = userDelivery;
             //await Navigation.PushAsync(new MyHomeDetailsPage());
-            await Navigation.PushAsync(new ApartmentInfoPage());
+            if (!userDelivery.IsOwnershipUpdated)
+                await Navigation.PushAsync(new OwnershipUpdatedPage());
+            else
+                await Navigation.PushAsync(new ApartmentInfoPage());
         }
         #endregion
     }

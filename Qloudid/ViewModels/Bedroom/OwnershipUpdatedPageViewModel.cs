@@ -68,6 +68,12 @@ namespace Qloudid.ViewModels
 				RentContractOnYou = RentContractOnYou == 0 ? 1 : 0,
 				AllowedToRentOut = AllowedToRentOut == 0 ? 1 : 0
 			});
+			if (Helper.Helper.IsAddMoreAddresses)
+			{
+				Helper.Helper.IsAddMoreAddresses = false;
+				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+			}
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
 		}

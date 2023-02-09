@@ -73,14 +73,19 @@ namespace Qloudid.ViewModels
 					IsNameSame = IsNameSame,
 					IsInvoiceAddressSame = IsInvoiceAddressSame
 				};
+				Helper.Helper.IsAddMoreAddresses = true;
 				int response = await service.AddDeliveryAddressAsync(request);
 				if (response == 0)
 					await Helper.Alert.DisplayAlert("Something went wrong, Please try again.");
 				else
 				{
-					this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
-					await Navigation.PopAsync();
+					Helper.Helper.SelectedUserDeliveryAddress = new Models.UserDeliveryAddressesResponse()
+					{
+						Id = response
+					};
+					await Navigation.PushAsync(new Views.Bedroom.OwnershipUpdatedPage());
 				}
+				//Helper.Helper.IsAddMoreAddresses = false;
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
