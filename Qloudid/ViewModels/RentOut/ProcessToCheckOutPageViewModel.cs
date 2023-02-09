@@ -32,7 +32,7 @@ namespace Qloudid.ViewModels
 				CheckoutId = SelectedApartmentCheckedInInfo.Id,
 				ActualCheckoutDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}"
 			});
-			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -46,6 +46,7 @@ namespace Qloudid.ViewModels
 			{
 				selectedApartmentCheckedInInfo = value;
 				OnPropertyChanged("SelectedApartmentCheckedInInfo");
+				CheckOutDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate);
 				BindCheckOutMinimumDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate);
 				BindCheckOutMaximumDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate).AddYears(70);
 			}
@@ -62,7 +63,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private DateTime checkOutDate;
+		private DateTime checkOutDate = DateTime.Today;
 		public DateTime CheckOutDate
 		{
 			get => checkOutDate;

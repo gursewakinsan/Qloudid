@@ -74,6 +74,8 @@ namespace Qloudid.ViewModels
 						Helper.Helper.IsFirstTime = false;
 						Application.Current.MainPage = new NavigationPage(new Views.CompleteSignUpPage());
 					}
+					else
+						Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 
 					/*else if (response.identificator == 1 || response.identificator == 2)
 						Application.Current.MainPage = new NavigationPage(new Views.Info.WantToCompletePayInfoMsgPage());

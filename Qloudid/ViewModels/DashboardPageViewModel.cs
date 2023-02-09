@@ -33,6 +33,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteLoginToDesktopCommand(string qrCode)
 		{
+			//Helper.Helper.UserId = 368;
 			DependencyService.Get<IProgressBar>().Show();
 			IDashboardService service = new DashboardService();
 			string[] ip = qrCode.Split('/');

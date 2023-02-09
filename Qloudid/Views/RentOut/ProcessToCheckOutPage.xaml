@@ -286,11 +286,12 @@
                         </Grid.ColumnDefinitions>
                         <controls:CustomDatePicker
                             FontSize="15"
+                            x:Name="dPicker"
                             Grid.Column="0"
 					        TextColor="White" 
                             Format="yyyy-MM-dd"
 					        BackgroundColor="Transparent"
-					        Date="{Binding CheckInDate}"
+					        Date="{Binding CheckOutDate}"
 					        FontFamily="PoppinsRegularFontFamily"
                             MaximumDate="{Binding BindCheckOutMaximumDate}"
 						    MinimumDate="{Binding BindCheckOutMinimumDate}"/>
