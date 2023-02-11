@@ -13,7 +13,9 @@ namespace Qloudid.ViewModels
 		{
 			Navigation = navigation;
 			Address = Helper.Helper.SelectedUserAddress;
-			if (Address.CleeningFeeApplicable)
+			ChargeYesOrNoSelectedIndex = Address.CleeningFeeApplicable ? 1 : 0;
+			CleeningByWhom = Address.CleeningByWhom;
+			/*if (Address.CleeningFeeApplicable)
 			{
 				CleaningFeeYesBg = Color.FromHex("#0C8CE8");
 				CleaningFeeNoBg = Color.Transparent;
@@ -22,7 +24,7 @@ namespace Qloudid.ViewModels
 			{
 				CleaningFeeYesBg = Color.Transparent;
 				CleaningFeeNoBg = Color.FromHex("#0C8CE8"); 
-			}
+			}*/
 		}
 		#endregion
 
@@ -62,8 +64,9 @@ namespace Qloudid.ViewModels
 			await service.UpdateCleeningAsync(new Models.UpdateCleeningRequest()
 			{
 				ApartmentId = Address.Id,
-				UpdateInfo = Address.CleeningFeeApplicable ? 1 : 0,
-				CleeningFee = Address.CleeningFee
+				UpdateInfo = ChargeYesOrNoSelectedIndex,
+				CleeningFee = Address.CleeningFee,
+				CleeningByWhom = CleeningByWhom
 			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
@@ -112,6 +115,46 @@ namespace Qloudid.ViewModels
 			{
 				cleaningFeeYesBg = value;
 				OnPropertyChanged("CleaningFeeYesBg");
+			}
+		}
+
+		private int chargeYesOrNoSelectedIndex;
+		public int ChargeYesOrNoSelectedIndex
+		{
+			get => chargeYesOrNoSelectedIndex;
+			set
+			{
+				chargeYesOrNoSelectedIndex = value;
+				if (value == 0)
+				{
+					Address.CleeningFee = 0;
+					IsCleeningFeeReadOnly = true;
+				}
+				else
+					IsCleeningFeeReadOnly = false;
+				OnPropertyChanged("ChargeYesOrNoSelectedIndex");
+			}
+		}
+
+		private bool isCleeningFeeReadOnly;
+		public bool IsCleeningFeeReadOnly
+		{
+			get => isCleeningFeeReadOnly;
+			set
+			{
+				isCleeningFeeReadOnly = value;
+				OnPropertyChanged("IsCleeningFeeReadOnly");
+			}
+		}
+
+		private int cleeningByWhom;
+		public int CleeningByWhom
+		{
+			get => cleeningByWhom;
+			set
+			{
+				cleeningByWhom = value;
+				OnPropertyChanged("CleeningByWhom");
 			}
 		}
 		#endregion

@@ -222,6 +222,7 @@
 		public const string SaveCompanyDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/saveCompanyDetails";
 		public const string ApartmentCheckedinInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCheckedinInfo";
 		public const string CheckoutApartmentGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkoutApartmentGuest";
+		public const string ApartmentCheckedOutInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCheckedOutInfo";
 
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";

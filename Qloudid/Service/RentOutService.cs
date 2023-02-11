@@ -422,6 +422,15 @@ namespace Qloudid.Service
 			});
 		}
 
+		public Task<List<Models.ApartmentCheckedinInfoResponse>> ApartmentCheckedOutInfoAsync(Models.ApartmentCheckedinInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ApartmentCheckedinInfoResponse>>(HttpWebRequest.Create(EndPointsList.ApartmentCheckedOutInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
 		public Task<string> CheckoutApartmentGuestAsync(Models.CheckoutApartmentGuestRequest model)
 		{
 			return Task.Factory.StartNew(() =>

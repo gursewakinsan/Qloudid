@@ -18,9 +18,10 @@ namespace Qloudid.Views.RentOut
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            viewModel.ApartmentCheckedinInfoCommand.Execute(null);
+            viewModel.SelectedTabCommand.Execute("CheckedIn");
         }
 
+        #region On Checked In Tapped.
         void OnButtonClicked(System.Object sender, System.EventArgs e)
         {
             Button control = sender as Button;
@@ -39,11 +40,35 @@ namespace Qloudid.Views.RentOut
             CheckedInListTapped(control.BindingContext as Models.ApartmentCheckedinInfoResponse);
         }
 
-        async void CheckedInListTapped(Models.ApartmentCheckedinInfoResponse apartment)
+        async void CheckedInListTapped(Models.ApartmentCheckedinInfoResponse apartmentCheckedIn)
         {
-            await Navigation.PushAsync(new ProcessToCheckOutPage(apartment));
+            await Navigation.PushAsync(new ProcessToCheckInPage(apartmentCheckedIn));
+        }
+        #endregion
+
+        #region On Checked Out Tapped.
+        void OnButtonCheckedOutClicked(System.Object sender, System.EventArgs e)
+        {
+            Button control = sender as Button;
+            CheckedOutListTapped(control.BindingContext as Models.ApartmentCheckedinInfoResponse);
         }
 
-        
+        void OnLabelCheckedOutClicked(System.Object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            CheckedOutListTapped(control.BindingContext as Models.ApartmentCheckedinInfoResponse);
+        }
+
+        void OnStackLayoutCheckedOutClicked(System.Object sender, System.EventArgs e)
+        {
+            StackLayout control = sender as StackLayout;
+            CheckedOutListTapped(control.BindingContext as Models.ApartmentCheckedinInfoResponse);
+        }
+
+        async void CheckedOutListTapped(Models.ApartmentCheckedinInfoResponse apartmentCheckedOut)
+        {
+            await Navigation.PushAsync(new ProcessToCheckOutPage(apartmentCheckedOut));
+        }
+        #endregion
     }
 }

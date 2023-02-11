@@ -95,6 +95,9 @@ namespace Qloudid.Models
 		[Newtonsoft.Json.JsonProperty(PropertyName = "allowed_to_rent_out")]
 		public int AllowedToRentOut { get; set; }
 
+		[Newtonsoft.Json.JsonProperty(PropertyName = "cleening_by_whom")]
+		public int CleeningByWhom { get; set; }
+		
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_layout")]
 		private string propertyLayout;
 		public string PropertyLayout

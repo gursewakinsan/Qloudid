@@ -79,7 +79,7 @@
 	    	Text="Checked-in &amp; out`s"
 	    	TextColor="White"/>
 
-        <StackLayout
+         <StackLayout
             Spacing="25" 
             Grid.Row="6"
             Grid.Column="1"
@@ -93,9 +93,41 @@
 		        TextColor="#F4B400"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
-                FontFamily="PoppinsSemiBoldFontFamily"/>
+                FontFamily="PoppinsSemiBoldFontFamily"
+                IsVisible="{Binding CheckedInSelectedTab}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedIn"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+		        FontSize="16"
+                Opacity="0.42"
+		        Text="Checked-in"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsRegularFontFamily"
+                IsVisible="{Binding CheckedInSelectedTab, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedIn"/>
+                </Label.GestureRecognizers>
+            </Label>
 
             <!--Checked-out-->
+            <Label
+		        FontSize="18"
+		        Text="Checked-out"
+                TextColor="#F4B400"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"
+                IsVisible="{Binding CheckedOutSelectedTab}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedOut"/>
+                </Label.GestureRecognizers>
+            </Label>
+
             <Label
 		        FontSize="16"
                 Opacity="0.42"
@@ -103,7 +135,12 @@
                 TextColor="White"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
-                FontFamily="PoppinsRegularFontFamily"/>
+                FontFamily="PoppinsRegularFontFamily"
+                IsVisible="{Binding CheckedOutSelectedTab, Converter={StaticResource InverseBoolConverter}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedOut"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
 
         <BoxView 
@@ -117,7 +154,8 @@
         <ScrollView 
             Grid.Row="9"
 			Grid.Column="1"
-            Grid.ColumnSpan="3" 
+            Grid.ColumnSpan="3"
+            IsVisible="{Binding IsCheckedIn}"
             VerticalScrollBarVisibility="Never">
             <StackLayout 
 				Spacing="0" 
@@ -198,6 +236,107 @@
 					            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnLabelClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <BoxView 
+					            Grid.Column="1"
+					            Grid.ColumnSpan="2"
+					            Grid.Row="1"
+					            BackgroundColor="White" 
+					            Opacity="0.1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+        <!--Checked-out List-->
+        <ScrollView 
+            Grid.Row="9"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never"
+            IsVisible="{Binding IsCheckedIn, Converter={StaticResource InverseBoolConverter}}">
+            <StackLayout 
+				Spacing="0" 
+                Margin="0,5,0,0"
+				VerticalOptions="StartAndExpand"
+				BindableLayout.ItemsSource="{Binding ApartmentCheckedOutInfo}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0" ColumnSpacing="24">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="85"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Button
+					            Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="46"
+                                WidthRequest="46"
+                                CornerRadius="23"
+                                Padding="0"
+                                FontSize="20"
+                                TextColor="White"
+                                Clicked="OnButtonCheckedOutClicked"
+                                BackgroundColor="#242A37"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:QloudidAppFlatIcons.BookmarkCheck}"/>
+
+                            <StackLayout
+                                Spacing="0"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalOptions="CenterAndExpand">
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnStackLayoutCheckedOutClicked"/>
+                                    </StackLayout.GestureRecognizers>
+                                <Label
+                                    FontSize="15"
+                                    TextColor="White"
+                                    Text="{Binding Name}"
+                                    HorizontalTextAlignment="Start"
+	    			                VerticalTextAlignment="Center"
+	    			                FontFamily="PoppinsRegularFontFamily">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelCheckedOutClicked"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label
+                                    FontSize="14"
+                                    Opacity="0.42"
+                                    TextColor="White"
+                                    Text="{Binding Duration}"
+                                    HorizontalTextAlignment="Start"
+	    			                VerticalTextAlignment="Center"
+	    			                FontFamily="PoppinsRegularFontFamily">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelCheckedOutClicked"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            
+
+                            <Label
+					            Grid.Row="0"
+					            FontSize="20"
+                                Grid.Column="2"
+                                TextColor="#FFE9AD"
+					            HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+					            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelCheckedOutClicked"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
