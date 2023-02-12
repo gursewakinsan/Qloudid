@@ -18,5 +18,8 @@
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_started")]
 		public bool PropertyStarted { get; set; }
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "country_of_residence")]
+		public int CountryOfResidence { get; set; }
 	}
 }

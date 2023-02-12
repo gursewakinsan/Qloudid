@@ -27,10 +27,14 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
-			await service.CheckoutApartmentGuestAsync(new Models.CheckoutApartmentGuestRequest()
+			await service.UpdateDamagedRentableInfoAsync(new Models.UpdateDamagedRentableInfoRequest()
 			{
+				ApartmentId = Address.Id,
+				IfDamaged = IfDamaged,
+				IfRentable = IfRentable,
+				IsCleened = IsCleened,
 				CheckoutId = SelectedApartmentCheckedInInfo.Id,
-				ActualCheckoutDate = $"{CheckOutDate.Day}-{CheckOutDate.Month}-{CheckOutDate.Year}"
+				CleeningDate = IsCleened == 1 ? $"{CleanedDate.Day}/{CleanedDate.Month}/{CleanedDate.Year}" : string.Empty
 			});
 			await Navigation.PopAsync();
 			DependencyService.Get<IProgressBar>().Hide();
@@ -46,9 +50,6 @@ namespace Qloudid.ViewModels
 			{
 				selectedApartmentCheckedInInfo = value;
 				OnPropertyChanged("SelectedApartmentCheckedInInfo");
-				CheckOutDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate);
-				BindCheckOutMinimumDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate);
-				BindCheckOutMaximumDate = Convert.ToDateTime(selectedApartmentCheckedInInfo.CheckinDate).AddYears(70);
 			}
 		}
 
@@ -63,38 +64,58 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private DateTime checkOutDate = DateTime.Today;
-		public DateTime CheckOutDate
+		private int isCleened = 1;
+		public int IsCleened
 		{
-			get => checkOutDate;
+			get => isCleened;
 			set
 			{
-				checkOutDate = value;
-				OnPropertyChanged("CheckOutDate");
+				isCleened = value;
+				if (value == 1)
+					IsCleanedDate = true;
+				else
+					IsCleanedDate = false;
+				OnPropertyChanged("IsCleened");
 			}
 		}
 
-		private DateTime bindCheckOutMinimumDate = DateTime.Today;
-		public DateTime BindCheckOutMinimumDate
+		private bool isCleanedDate;
+		public bool IsCleanedDate
 		{
-			get => bindCheckOutMinimumDate;
+			get => isCleanedDate;
 			set
 			{
-				bindCheckOutMinimumDate = value;
-				OnPropertyChanged("BindCheckOutMinimumDate");
+				isCleanedDate = value;
+				OnPropertyChanged("IsCleanedDate");
 			}
 		}
 
-		private DateTime bindCheckOutMaximumDate = DateTime.Today.AddYears(70);
-		public DateTime BindCheckOutMaximumDate
+		private int ifDamaged = 0;
+		public int IfDamaged
 		{
-			get => bindCheckOutMaximumDate;
+			get => ifDamaged;
 			set
 			{
-				bindCheckOutMaximumDate = value;
-				OnPropertyChanged("BindCheckOutMaximumDate");
+				ifDamaged = value;
+				OnPropertyChanged("IfDamaged");
 			}
 		}
+
+		private int ifRentable = 1;
+		public int IfRentable
+		{
+			get => ifRentable;
+			set
+			{
+				ifRentable = value;
+				OnPropertyChanged("IfRentable");
+			}
+		}
+
+		public DateTime BindCleanedDateMinimumDate => DateTime.Today.AddYears(-70);
+		public DateTime BindCleanedDateMaximumDate => DateTime.Today;
+		public DateTime CleanedDate { get; set; } = DateTime.Today;
 		#endregion
 	}
 }
+//,,,cleening_date,apartment_id

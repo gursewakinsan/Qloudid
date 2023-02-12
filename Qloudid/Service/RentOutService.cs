@@ -439,5 +439,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> UpdateDamagedRentableInfoAsync(Models.UpdateDamagedRentableInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateDamagedRentableInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

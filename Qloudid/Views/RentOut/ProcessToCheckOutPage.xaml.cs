@@ -15,7 +15,6 @@ namespace Qloudid.Views.RentOut
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new ProcessToCheckOutPageViewModel(this.Navigation);
             viewModel.SelectedApartmentCheckedInInfo = apartment;
-            dPicker.Date = Convert.ToDateTime(apartment.CheckinDate);
         }
     }
 }

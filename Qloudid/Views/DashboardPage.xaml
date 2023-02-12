@@ -52,7 +52,7 @@
                 <Image 
                     Grid.Column="0"
                     Aspect="AspectFit"
-                    Source="iconFlagOfSweden.png"
+                    Source="{Binding MyCountyIcon}"
                     BackgroundColor="Transparent">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToMyCountriesCommand}"/>

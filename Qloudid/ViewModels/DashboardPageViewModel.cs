@@ -253,7 +253,10 @@ namespace Qloudid.ViewModels
 					EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
-					
+					if (response.country_code == 46)
+						MyCountyIcon = "iconFlagOfSweden.png";
+					else
+						MyCountyIcon = "flagOfSpain.png";
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
 
 					/*if (response.identificator == 1 || response.identificator == 2)
@@ -350,6 +353,12 @@ namespace Qloudid.ViewModels
 					IsCardCount = response.card_count;
 					IsPassportCount = response.passport_count;
 					//DisplayUserName = $"{response.first_name} {response.last_name}";
+
+					if (response.country_code == 46)
+						MyCountyIcon = "iconFlagOfSweden.png";
+					else
+						MyCountyIcon = "flagOfSpain.png";
+
 					EmployerRequestCountCommand.Execute(null);
 
 					Helper.Helper.GenerateCertificateIdentificatorValue = response.identificator;
@@ -780,9 +789,21 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IsPreCheckIn");
 			}
 		}
+
+		private string myCountyIcon;
+		public string MyCountyIcon
+		{
+			get => myCountyIcon;
+			set
+			{
+				myCountyIcon = value;
+				OnPropertyChanged("MyCountyIcon");
+			}
+		}
 		#endregion
 	}
 }
+
 
 public class DashboardItem : Qloudid.Models.BaseModel
 {
