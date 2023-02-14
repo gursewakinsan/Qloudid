@@ -1,0 +1,860 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.ApartmenHometInfoPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="79"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="86"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="86"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            HeightRequest="40"
+            VerticalOptions="CenterAndExpand"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Button 
+            Grid.Row="0"
+            Grid.Column="4"
+            CornerRadius="8"
+            BorderWidth="1"
+            Grid.ColumnSpan="2"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <StackLayout
+            Grid.Row="0"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Margin="10,0,0,0"
+            Orientation="Horizontal"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ManageCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Label
+		        FontSize="14"
+		        Text="Manage"
+		        TextColor="White"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ManageCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                FontSize="22"
+			    FontFamily="{StaticResource MaterialFontFamily}"
+			    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			    TextColor="White"
+			    VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ManageCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <StackLayout
+            Spacing="0"
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="5">
+             <Label
+		        Text="Welcome to"
+                FontSize="18"
+                 Opacity="0.70"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+
+            <Label
+		        Text="Casa"
+                FontSize="50"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+
+            <Label
+		        Text="{Binding UserDeliveryAddresses.PropertyNickName}"
+                FontSize="50"
+                 Opacity="0.42"
+		        TextColor="White"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily"/>
+        </StackLayout>
+
+        <Label
+            Grid.Row="3"
+		    FontSize="18"
+		    Text="Stay"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+		    TextColor="#F4B400"
+            IsVisible="{Binding IsStay}"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsSemiBoldFontFamily">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StayOrRentOutCommand}" CommandParameter="Stay"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Grid.Row="3"
+		    FontSize="18"
+		    Text="Stay"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+		    TextColor="White"
+            Opacity="0.42"
+            HorizontalTextAlignment="Start"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            IsVisible="{Binding IsStay, Converter={StaticResource InverseBoolConverter}}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StayOrRentOutCommand}" CommandParameter="Stay"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Grid.Row="3"
+		    FontSize="18"
+		    Text="Rent out"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+		    TextColor="#F4B400"
+            IsVisible="{Binding IsRentOut}"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsSemiBoldFontFamily">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StayOrRentOutCommand}" CommandParameter="RentOut"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Grid.Row="3"
+		    FontSize="18"
+		    Text="Rent out"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+		    TextColor="White"
+            Opacity="0.42"
+            HorizontalTextAlignment="End"
+            VerticalTextAlignment="Center"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            IsVisible="{Binding IsRentOut, Converter={StaticResource InverseBoolConverter}}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StayOrRentOutCommand}" CommandParameter="RentOut"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+         <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Grid.Row="5"
+		    BackgroundColor="#F4B400" 
+            Opacity="0.67"/>
+
+        <!--Stay-->
+        <Frame
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding IsFinishSetUp}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding StayCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding StayCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            Command="{Binding StayCommand}"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding StayCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Finish set up"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding StayCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="So that you can Pay &amp; Shop &amp; get deliveries"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding StayCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+        <!--Rent out-->
+         <Frame
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding IsSetupNotCompleted}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer  />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Setup Not completed"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Please complete apartment detail first"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+        <ScrollView
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Orientation="Horizontal"
+            HorizontalScrollBarVisibility="Never"
+            IsVisible="{Binding IsWiFi}">
+             <StackLayout Spacing="14" Orientation="Horizontal">
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding WiFiCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding WiFiCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            Command="{Binding WiFiCommand}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding WiFiCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Wi-fi"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WiFiCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Please update your wi-fi details"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WiFiCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer  />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="2 tenants"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="You can add more or update details"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+             </StackLayout>
+        </ScrollView>
+
+        <!--IsPublished1Box-->
+         <Frame
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+                    IsVisible="{Binding IsPublished1Box}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ManageCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding ManageCommand}"/>
+                        </Grid.GestureRecognizers>
+
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            Command="{Binding ManageCommand}"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding ManageCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Earn money. Rent out"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ManageCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Please finish the setup for this flow by clicking here"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding ManageCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+        <!--IsPublished4Box-->
+        <ScrollView
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Orientation="Horizontal"
+            HorizontalScrollBarVisibility="Never"
+            IsVisible="{Binding IsPublished4Box}">
+             <StackLayout Spacing="14" Orientation="Horizontal">
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding WiFiCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding WiFiCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Calender"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Please verify the calender"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BookingCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            Command="{Binding BookingCommand}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding BookingCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Booking"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BookingCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Add &amp; list reservations"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding BookingCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            Command="{Binding CheckInCheckOutCommand}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Check-in &amp; checkout"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CheckInCheckOutCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Check-in &amp; checkout guests"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer  />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  />
+                        </Grid.GestureRecognizers>
+                         <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Police report &amp; guest book"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Verify the police reports"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+             </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

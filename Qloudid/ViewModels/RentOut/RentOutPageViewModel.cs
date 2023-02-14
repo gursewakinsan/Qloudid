@@ -36,6 +36,11 @@ namespace Qloudid.ViewModels
             PricingFeesAndChannelsUpdated(response);
 			GetStartedManualsUpdated(response);
 			Address = response;
+			if (Helper.Helper.IsPublished4Box)
+			{
+				Helper.Helper.IsPublished4Box = false;
+				Address.IsPublished = false;
+			}
             Helper.Helper.SelectedUserAddress = Address;
 			if (IsApartment && IsArrivalAndRulesIconChecked && IsPhotoTextAndAvailability && IsPricing && IsGetStarted)
 				IsReadyToPublish = true;

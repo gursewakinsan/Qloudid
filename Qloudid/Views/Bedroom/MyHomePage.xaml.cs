@@ -62,7 +62,8 @@ namespace Qloudid.Views.Bedroom
             if (!userDelivery.IsOwnershipUpdated)
                 await Navigation.PushAsync(new OwnershipUpdatedPage());
             else
-                await Navigation.PushAsync(new ApartmentInfoPage());
+                await Navigation.PushAsync(new ApartmenHometInfoPage());
+            //await Navigation.PushAsync(new ApartmentInfoPage());
         }
         #endregion
     }
