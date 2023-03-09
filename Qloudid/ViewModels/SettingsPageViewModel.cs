@@ -61,6 +61,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Account Command.
+		private ICommand accountCommand;
+		public ICommand AccountCommand
+		{
+			get => accountCommand ?? (accountCommand = new Command(async () => await ExecuteAccountCommand()));
+		}
+		private async Task ExecuteAccountCommand()
+		{
+			await Navigation.PushAsync(new Views.CertificateDetailPage());
+		}
+		#endregion
+
 		#region Properties.
 		public Models.User UserInfo => Helper.Helper.UserInfo;
 		#endregion

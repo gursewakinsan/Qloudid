@@ -525,7 +525,7 @@ namespace Qloudid.ViewModels
 				dashboardItems.Add(new DashboardItem() { Id = 7, Heading = "Corona Care", IconColor = "#0000FF", HeadingIcon = Helper.QloudidAppFlatIcons.CoronaCare, SubHeading = "Help or ask for help in the corona crisis.", ImgWidth = imgWidth });
 				dashboardItems.Add(new DashboardItem() { Id = 8, Heading = "Connect", IconColor = "#FFFF00", HeadingIcon = Helper.QloudidAppFlatIcons.Connect, SubHeading = "Connect with your kin using code.",  ImgWidth = imgWidth });
 				dashboardItems.Add(new DashboardItem() { Id = 9, Heading = "Parent", IconColor = "#00FFFF", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent invitation.",  ImgWidth = imgWidth });
-				dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
+				//dashboardItems.Add(new DashboardItem() { Id = 10, Heading = "Employer", IconColor = "#FF00FF", HeadingIcon = Helper.QloudidAppFlatIcons.Employer, SubHeading = "Employer request.", ImgWidth = imgWidth });
 				dashboardItems.Add(new DashboardItem() { Id = 11, Heading = "Parent", IconColor = "#800000", HeadingIcon = Helper.QloudidAppFlatIcons.Parent, SubHeading = "Parent request." ,  ImgWidth = imgWidth });
 				dashboardItems.Add(new DashboardItem() { Id = 12, Heading = "Kin", IconColor = "#808000", HeadingIcon = Helper.QloudidAppFlatIcons.Kin, SubHeading = "A kin wants to connect with you in case of emergency."  , ImgWidth = imgWidth });
 				dashboardItems.Add(new DashboardItem() { Id = 13, Heading = "Duties", IconColor = "#008000", HeadingIcon = Helper.QloudidAppFlatIcons.Duties, SubHeading = "At companies." ,  ImgWidth = imgWidth });

@@ -150,6 +150,7 @@
                     BackgroundColor="#242A37"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand"
+					Command="{Binding AccountCommand}"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}"/>
 
@@ -161,7 +162,11 @@
                     Text="Account"
                     HorizontalTextAlignment="Start"
 	    			VerticalTextAlignment="Center"
-	    			FontFamily="PoppinsRegularFontFamily"/>
+	    			FontFamily="PoppinsRegularFontFamily">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding AccountCommand}"/>
+					</Label.GestureRecognizers>
+				</Label>
 
                 <Label
 					Grid.Row="0"
@@ -171,7 +176,11 @@
 					HorizontalTextAlignment="End"
                     VerticalTextAlignment="Center"
                     FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding AccountCommand}"/>
+					</Label.GestureRecognizers>
+				</Label>
 
                 <BoxView 
 					Grid.Column="1"
