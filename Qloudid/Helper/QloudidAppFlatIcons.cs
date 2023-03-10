@@ -48,7 +48,7 @@
 		public const string Guardian = "\U000f08b1";
 		public const string EmployerSearch = "\U000f0935";
 		public const string School = "\U000f0474";
-
+		public const string AlertCircleOutline = "\U000f05d6";
 		public const string PassportBiometric = "\U000f0de1";
 		public const string Security = "\U000f0483";
 		public const string Country = "\U000f034d";

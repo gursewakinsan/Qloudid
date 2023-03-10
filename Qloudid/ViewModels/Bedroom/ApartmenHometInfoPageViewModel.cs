@@ -137,6 +137,42 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Pre Check In Guest Command.
+		private ICommand preCheckInGuestCommand;
+		public ICommand PreCheckInGuestCommand
+		{
+			get => preCheckInGuestCommand ?? (preCheckInGuestCommand = new Command(async () => await ExecutePPreCheckInGuestCommand()));
+		}
+		private async Task ExecutePPreCheckInGuestCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.PreCheckInGuestPage());
+		}
+		#endregion
+
+		#region Check Out Guest Command.
+		private ICommand checkOutGuestCommand;
+		public ICommand CheckOutGuestCommand
+		{
+			get => checkOutGuestCommand ?? (checkOutGuestCommand = new Command(async () => await ExecuteCheckOutGuestCommand()));
+		}
+		private async Task ExecuteCheckOutGuestCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.CheckOutGuestPage());
+		}
+		#endregion
+
+		#region Police Report Guest Command.
+		private ICommand policeReportGuestCommand;
+		public ICommand PoliceReportGuestCommand
+		{
+			get => policeReportGuestCommand ?? (policeReportGuestCommand = new Command(async () => await ExecutePoliceReportGuestCommand()));
+		}
+		private async Task ExecutePoliceReportGuestCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.PoliceReportGuestPage());
+		}
+		#endregion
+
 
 		#region Stay Or Rent Out Command.
 		private ICommand stayOrRentOutCommand;

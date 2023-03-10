@@ -728,6 +728,75 @@
                     BackgroundColor="#242A37"
 					HorizontalOptions="StartAndExpand">
                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer  Command="{Binding PreCheckInGuestCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding PreCheckInGuestCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            Command="{Binding PreCheckInGuestCommand}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding PreCheckInGuestCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Pre Check-in"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PreCheckInGuestCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Please precheck-in here"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding PreCheckInGuestCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
                         <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
                     </Frame.GestureRecognizers>
                     <Grid ColumnSpacing="18" ClassId="0">
@@ -765,7 +834,7 @@
 								FontSize="18"
 								TextColor="White"
 								ClassId="0"
-								Text="Check-in &amp; checkout"
+								Text="Check-in"
 								FontFamily="PoppinsBoldFontFamily">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding CheckInCheckOutCommand}"/>
@@ -777,7 +846,7 @@
 								TextColor="White"
 								ClassId="0"
                                 MaxLines="2"
-								Text="Check-in &amp; checkout guests"
+								Text="Check-in guests"
 								FontFamily="PoppinsRegularFontFamily">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer  Command="{Binding CheckInCheckOutCommand}"/>
@@ -797,7 +866,7 @@
                     BackgroundColor="#242A37"
 					HorizontalOptions="StartAndExpand">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer  />
+                        <TapGestureRecognizer  Command="{Binding CheckOutGuestCommand}"/>
                     </Frame.GestureRecognizers>
                     <Grid ColumnSpacing="18" ClassId="0">
                         <Grid.ColumnDefinitions>
@@ -805,9 +874,9 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer  />
+                            <TapGestureRecognizer  Command="{Binding CheckOutGuestCommand}"/>
                         </Grid.GestureRecognizers>
-                         <Button
+                        <Button
                             FontSize="25"
 			                Grid.Column="0"
                             CornerRadius="23"
@@ -815,6 +884,7 @@
                             HeightRequest="46"
                             TextColor="#242A37"
                             BackgroundColor="#F40000"
+                            Command="{Binding CheckOutGuestCommand}"
                             VerticalOptions="CenterAndExpand"
                             HorizontalOptions="CenterAndExpand"
 			                FontFamily="{StaticResource MaterialFontFamily}"
@@ -827,7 +897,76 @@
 							HorizontalOptions="StartAndExpand"
 							VerticalOptions="CenterAndExpand">
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer  />
+                                <TapGestureRecognizer  Command="{Binding CheckOutGuestCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Check-out"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CheckOutGuestCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Check-out guests"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding CheckOutGuestCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PoliceReportGuestCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding PoliceReportGuestCommand}"/>
+                        </Grid.GestureRecognizers>
+                         <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                             Command="{Binding PoliceReportGuestCommand}"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding PoliceReportGuestCommand}"/>
                             </StackLayout.GestureRecognizers>
                             <Label
 								FontSize="18"
@@ -836,7 +975,7 @@
 								Text="Police report &amp; guest book"
 								FontFamily="PoppinsBoldFontFamily">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer />
+                                    <TapGestureRecognizer Command="{Binding PoliceReportGuestCommand}"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
@@ -848,7 +987,7 @@
 								Text="Verify the police reports"
 								FontFamily="PoppinsRegularFontFamily">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer  />
+                                    <TapGestureRecognizer Command="{Binding PoliceReportGuestCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
                         </StackLayout>
