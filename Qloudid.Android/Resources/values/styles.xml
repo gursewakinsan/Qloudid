@@ -30,7 +30,7 @@
   </style>
 
 	<style name="Theme.Splash" parent="android:Theme">
-		<item name="android:windowBackground">@drawable/splashScreenBg</item>
+		<item name="android:windowBackground">#000</item>
 		<item name="android:windowNoTitle">true</item>
 	</style>
 </resources>
