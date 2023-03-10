@@ -60,7 +60,7 @@
 		public const string ArrowRight = "\U000f0054";
 		public const string PlusBox = "\U000f0416";
 		public const string ChevronRightBox = "\U000f09da";
-
+		public const string BagChecked = "\U000f0f3d";
 		public const string Menu = "\U000f035c";
 		public const string PhoneOutline = "\U000f0df0";
 		public const string ShareVariantOutline = "\U000f1514";

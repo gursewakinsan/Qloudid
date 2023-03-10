@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -206,6 +207,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("IconArbete");
 			}
 		}
+
+		public string DisplayCurrentDate => DateTime.Now.ToString("ddd, dd MMM yyy");
 		#endregion
 	}
 }
