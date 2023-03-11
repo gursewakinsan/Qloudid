@@ -799,5 +799,17 @@ namespace Qloudid.Models
 				OnPropertyChanged("OwnershipUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "photo_updated")]
+		private bool photoUpdated;
+		public bool PhotoUpdated
+		{
+			get => photoUpdated;
+			set
+			{
+				photoUpdated = value;
+				OnPropertyChanged("PhotoUpdated");
+			}
+		}
 	}
 }

@@ -76,7 +76,7 @@
 	    	FontFamily="PoppinsRegularFontFamily"
 	    	FontSize="16" Opacity="0.42"
             HorizontalTextAlignment="Start"
-	    	Text="Checked-in &amp; out`s"
+	    	Text="Checked-in"
 	    	TextColor="White"/>
 
          <StackLayout
@@ -87,7 +87,7 @@
             Orientation="Horizontal" 
             HorizontalOptions="StartAndExpand">
             <!--Checked-in-->
-            <Label
+            <!--<Label
 		        FontSize="18"
 		        Text="Checked-in"
 		        TextColor="#F4B400"
@@ -98,24 +98,23 @@
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedIn"/>
                 </Label.GestureRecognizers>
-            </Label>
+            </Label>-->
 
             <Label
-		        FontSize="16"
+		        FontSize="18"
                 Opacity="0.42"
 		        Text="Checked-in"
 		        TextColor="White"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
-                FontFamily="PoppinsRegularFontFamily"
-                IsVisible="{Binding CheckedInSelectedTab, Converter={StaticResource InverseBoolConverter}}">
+                FontFamily="PoppinsSemiBoldFontFamily">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedIn"/>
+                    <TapGestureRecognizer />
                 </Label.GestureRecognizers>
             </Label>
 
             <!--Checked-out-->
-            <Label
+            <!--<Label
 		        FontSize="18"
 		        Text="Checked-out"
                 TextColor="#F4B400"
@@ -140,7 +139,7 @@
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SelectedTabCommand}" CommandParameter="CheckedOut"/>
                 </Label.GestureRecognizers>
-            </Label>
+            </Label>-->
         </StackLayout>
 
         <BoxView 

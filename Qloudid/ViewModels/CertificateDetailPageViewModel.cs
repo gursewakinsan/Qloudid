@@ -27,7 +27,6 @@ namespace Qloudid.ViewModels
 			IDashboardService service = new DashboardService();
 			CertificateExpiryInfo = await service.GetCertificateExpiryInfoAsync(new Models.CertificateExpiryInfoRequest() { Certificatekey = Helper.Helper.QrCertificateKey });
 			DependencyService.Get<IProgressBar>().Hide();
-			await Task.CompletedTask;
 		}
 		#endregion
 

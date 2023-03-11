@@ -137,7 +137,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#4CD964"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.PricingUpdated}">
+                    IsVisible="{Binding Address.PhotoUpdated}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -152,7 +152,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center" 
-                    IsVisible="{Binding Address.PricingUpdated}">
+                    IsVisible="{Binding Address.PhotoUpdated}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>
@@ -165,7 +165,7 @@
                     HeightRequest="26"
 			        BackgroundColor="#F40000"
                     VerticalOptions="CenterAndExpand"
-                    IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.PhotoUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <BoxView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </BoxView.GestureRecognizers>
@@ -180,7 +180,7 @@
 		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
 		    	    TextColor="#242A37"
 		    	    VerticalTextAlignment="Center" 
-                    IsVisible="{Binding Address.PricingUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    IsVisible="{Binding Address.PhotoUpdated, Converter={StaticResource InverseBoolConverter}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PhotosUpdatedPageCommand}"/>
                     </Label.GestureRecognizers>

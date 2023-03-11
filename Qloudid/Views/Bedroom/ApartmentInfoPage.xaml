@@ -161,6 +161,510 @@
 			HasShadow="False"
 			IsClippedToBounds="True">
             <ScrollView VerticalScrollBarVisibility="Never">
+                <Grid RowSpacing="0" ColumnSpacing="17" Margin="28,40,28,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="26"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="13"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout
+                        Grid.Row="0"
+                        Spacing="23"
+                        Grid.ColumnSpan="3">
+                        <Label
+						    FontSize="20"
+						    Text="Milano"
+						    TextColor="White"
+                            HorizontalTextAlignment="Start"
+                            FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                        <Label
+						    FontSize="16"
+						    Opacity="0.42"
+						    TextColor="White"
+                            HorizontalTextAlignment="Start"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Address.Address}"/>
+                                    <Span Text=","/>
+                                    <Span Text="{Binding Address.PortNumber}"/>
+                                    <Span Text=","/>
+                                    <Span Text="{Binding Address.Zipcode}"/>
+                                    <Span Text=","/>
+                                    <Span Text="{Binding Address.City}"/>
+                                    <Span Text=","/>
+                                    <Span Text="Sweden"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="2"
+                        Opacity="0.67"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="#F4B400"/>
+
+                    <!--Bedrooms-->
+                    <Button
+                        Grid.Row="3"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        IsVisible="{Binding Address.BedroomUpdated}"
+                        Command="{Binding BedroomPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="3"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding BedroomPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.BedroomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="Bedrooms"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="3"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BedroomPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="4"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                    <!--Bathrooms-->
+                    <Button
+                        Grid.Row="5"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        IsVisible="{Binding Address.BathroomUpdated}"
+                        Command="{Binding BathroomPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="5"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding BathroomPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.BathroomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Text="Bathrooms"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="5"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BathroomPageCommand}"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
+                    <BoxView
+                        Grid.Row="6"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                    <!--Other rooms-->
+                    <Button
+                        Grid.Row="7"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        IsVisible="{Binding Address.OtherRoomUpdated}"
+                        Command="{Binding OtherRoomsPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="7"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding OtherRoomsPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.OtherRoomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Text="Other rooms"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="7"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OtherRoomsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="8"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                    <!--Property infra-->
+                    <Button
+                        Grid.Row="9"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        IsVisible="{Binding Address.PropertyCompositionUpdated}"
+                        Command="{Binding PropertyCompositionPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="9"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding PropertyCompositionPageCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.PropertyCompositionUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Text="Property infra"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                         <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="9"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                         <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PropertyCompositionPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="10"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                     <!--Wifi-->
+                    <Button
+                        Grid.Row="11"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding EditWiFiCommand}"
+                        IsVisible="{Binding Address.IsWiFiUpdated}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="11"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding EditWiFiCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.IsWiFiUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="11"
+                        Grid.Column="1"
+                        Text="Wifi"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="11"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EditWiFiCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="12"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                     <!--Ownership-->
+                    <Button
+                        Grid.Row="13"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding OwnershipCommand}"
+                        IsVisible="{Binding OwnershipUpdated}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Button
+                        Grid.Row="13"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#F40000"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding OwnershipCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+                        IsVisible="{Binding Address.OwnershipUpdated, Converter={StaticResource InverseBoolConverter}}"/>
+
+                    <Label
+                        Grid.Row="13"
+                        Grid.Column="1"
+                        Text="Ownership"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OwnershipCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="13"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OwnershipCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="14"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+                </Grid>
+            </ScrollView>
+
+
+
+
+
+
+
+
+            <!--<ScrollView VerticalScrollBarVisibility="Never">
                 <StackLayout VerticalOptions="StartAndExpand" Spacing="0" Padding="0,0,0,20" IsVisible="{Binding IsPageLoad}">
                     <Label
                         Margin="28,40,0,8"
@@ -254,7 +758,7 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
-                                            <!--Bedroom-->
+                                            Bedroom
                                             <BoxView 
                                                 Grid.Row="4" 
                                                 Grid.Column="0" 
@@ -322,7 +826,7 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
-                                            <!--Bathroom-->
+                                            Bathroom
                                             <BoxView 
                                                 Grid.Row="6" 
                                                 Grid.Column="0" 
@@ -390,7 +894,7 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
-                                            <!--Property infra-->
+                                            Property infra
                                             <BoxView 
                                                 Grid.Row="8" 
                                                 Grid.Column="0" 
@@ -458,7 +962,7 @@
                                                 </Label.GestureRecognizers>
                                             </Label>
 
-                                            <!--Other rooms-->
+                                            Other rooms
                                             <BoxView 
                                                 Grid.Row="10" 
                                                 Grid.Column="0" 
@@ -1637,7 +2141,7 @@
                         </Grid>
                     </Grid>
                 </StackLayout>
-            </ScrollView>
+            </ScrollView>-->
         </controls:CustomFrame>
     </Grid>
 </ContentPage>
