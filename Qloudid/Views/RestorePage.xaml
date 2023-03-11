@@ -9,19 +9,162 @@
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="{StaticResource AppBg}"
+	BackgroundColor="#181A1F"
 	NavigationPage.HasNavigationBar="False"
 	mc:Ignorable="d">
-	<ContentPage.Content>
+	<Grid RowSpacing="0" ColumnSpacing="0" Margin="28,0,28,10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="24"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="18"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height="20"/>
+		</Grid.RowDefinitions>
+		<StackLayout
+			Spacing="12"
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand">
+			<Image
+				WidthRequest="150"
+				HeightRequest="150"
+				Aspect="AspectFit"
+				HorizontalOptions="CenterAndExpand"
+				Source="iconLogoColorGradient.png"/>
+
+			<Label
+				FontSize="32"
+				Text="Qloud ID"
+				TextColor="White"
+				HorizontalOptions="CenterAndExpand"
+				FontFamily="PoppinsBoldFontFamily"/>
+		</StackLayout>
+
+		<StackLayout
+			Spacing="5"
+			Grid.Row="1">
+			<StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="CenterAndExpand">
+				<Label
+					FontSize="14"
+					TextColor="White"
+					Opacity="0.70"
+					FontFamily="PoppinsRegularFontFamily"
+					Text="By tapping “Sign in”, you agree to our "/>
+
+				<Label
+					FontSize="14"
+					TextColor="White"
+					TextDecorations="Underline"
+					FontFamily="PoppinsMediumFontFamily"
+					Text="Terms."/>
+			</StackLayout>
+			
+			<StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="CenterAndExpand">
+				<Label
+					FontSize="14"
+					TextColor="White"
+					Opacity="0.70"
+					FontFamily="PoppinsRegularFontFamily"
+					Text="Learn how we process your data in "/>
+
+				<Label
+					FontSize="14"
+					TextColor="White"
+					TextDecorations="Underline"
+					FontFamily="PoppinsMediumFontFamily"
+					Text="Privacy"/>
+			</StackLayout>
+			
+			<StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="CenterAndExpand">
+				<Label
+					FontSize="14"
+					TextColor="White"
+					TextDecorations="Underline"
+					FontFamily="PoppinsMediumFontFamily"
+					Text="Privacy "/>
+
+				<Label
+					FontSize="14"
+					TextColor="White"
+					Opacity="0.70"
+					FontFamily="PoppinsRegularFontFamily"
+					Text="and "/>
+
+				<Label
+					FontSize="14"
+					TextColor="White"
+					TextDecorations="Underline"
+					FontFamily="PoppinsMediumFontFamily"
+					Text="Cookies Policy."/>
+			</StackLayout>
+        </StackLayout>
+
+		<Button
+			Padding="0"
+			Grid.Row="3"
+			CornerRadius="25"
+			BackgroundColor="White"
+			Command="{Binding NewUserCommand}"/>
+
+		<Label
+			Grid.Row="3"
+			FontSize="14"
+			Opacity="0.70"
+			TextColor="#181A1F"
+			FontFamily="PoppinsMediumFontFamily"
+			Text="CREATE ACCOUNT"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding NewUserCommand}"/>
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Button
+			Padding="0"
+			Grid.Row="5"
+			CornerRadius="25"
+			BorderWidth="1"
+			BorderColor="Wheat"
+			Opacity="0.10"
+			BackgroundColor="Transparent"
+			Command="{Binding UserRestoreCommand}"/>
+
+		<Label
+			Grid.Row="5"
+			FontSize="14"
+			TextColor="White"
+			FontFamily="PoppinsMediumFontFamily"
+			Text="SIGN IN"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding UserRestoreCommand}"/>
+			</Label.GestureRecognizers>
+		</Label>
+
+		<Label
+			Grid.Row="7"
+			FontSize="14"
+			Opacity="0.42"
+			TextColor="White"
+			FontFamily="PoppinsRegularFontFamily"
+			Text="Trouble signing in?"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding UserRestoreCommand}"/>
+			</Label.GestureRecognizers>
+		</Label>
+	</Grid>
+
+
+
+	<!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<StackLayout Padding="0,40,0,40" Spacing="50">
-				<!--<Image
-					Aspect="AspectFit"
-					HeightRequest="150"
-					HorizontalOptions="CenterAndExpand"
-					Source="appLogo.png"
-					VerticalOptions="StartAndExpand"
-					WidthRequest="150" />-->
 				<StackLayout
 					HorizontalOptions="CenterAndExpand"
 					Spacing="0"
@@ -109,5 +252,5 @@
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>
-	</ContentPage.Content>
+	</ContentPage.Content>-->
 </ContentPage>
