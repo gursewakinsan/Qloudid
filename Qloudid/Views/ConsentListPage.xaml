@@ -51,7 +51,7 @@
 				FontFamily="SFProRegularFontFamily"
 				FontSize="17"
 				HorizontalTextAlignment="Center"
-				Text="Consent"
+				Text="Consent1"
 				TextColor="Black"
 				VerticalTextAlignment="Start" />
 

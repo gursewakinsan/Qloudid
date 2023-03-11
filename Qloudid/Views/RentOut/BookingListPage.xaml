@@ -53,28 +53,36 @@
             </Label.GestureRecognizers>
         </Label>
 
-        <Button 
+         <Button 
             Grid.Row="0"
-            Padding="0"
-            FontSize="20"
             Grid.Column="3"
-            CornerRadius="6"
-            HeightRequest="35"
-            WidthRequest="35"
-            TextColor="White"
-            BackgroundColor="#4CD964"
-            HorizontalOptions="EndAndExpand"
-            VerticalOptions="CenterAndExpand"
-            FontFamily="{StaticResource MaterialFontFamily}"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
             Command="{Binding AddNewApartmentBookingCommand}"
-            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="3"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddNewApartmentBookingCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
 
         <Label
             Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="2"
 		    FontSize="33"
-		    Text="Arrivals"
+		    Text="Bookings"
 		    TextColor="White"
             HorizontalTextAlignment="Start"
             FontFamily="PoppinsBoldFontFamily"/>
@@ -87,7 +95,7 @@
 	    	FontSize="22"
             Opacity="0.70"
             HorizontalTextAlignment="Start"
-	    	Text="Send pre-checkin guide"
+	    	Text="Manage your arrivals"
 	    	TextColor="White"/>
 
         <Label
@@ -120,7 +128,7 @@
                     <DataTemplate>
                         <Grid RowSpacing="0" ColumnSpacing="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="80"/>
                                 <RowDefinition Height="1"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -132,35 +140,34 @@
                             <Button 
                                 Grid.Row="0"
                                 Padding="0"
-                                FontSize="16"
+                                FontSize="20"
                                 Grid.Column="0"
                                 CornerRadius="23"
                                 HeightRequest="46"
                                 WidthRequest="46"
-                                TextColor="White"
-                                BackgroundColor="#242A37"
+                                TextColor="#242A37"
+                                BackgroundColor="#F40000"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"
-                                Text="{Binding CircleCount}"
-                                FontFamily="PoppinsBoldFontFamily"/>
+                                FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircleOutline}"/>
 
                             <StackLayout 
                                 Grid.Row="0"
                                 Spacing="0"
-                                Margin="19,0,0,0"
+                                Margin="24,0,0,0"
                                 Grid.Column="1"
                                 HorizontalOptions="StartAndExpand"
                                 VerticalOptions="CenterAndExpand">
                                 <Label
-                                    FontSize="15"
+                                    FontSize="16"
                                     TextColor="White"
-                                    Opacity="0.70"
 	    	                        Text="{Binding CheckinDate}"
                                     HorizontalTextAlignment="Start"
 	    	                        FontFamily="PoppinsRegularFontFamily"/>
 
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     TextColor="White"
                                     Opacity="0.42"
                                     HorizontalTextAlignment="Start"
@@ -181,7 +188,7 @@
                                 FontSize="14"
                                 Grid.Column="2"
                                 TextColor="#FFE9AD"
-	    	                    Text="Send"
+	    	                    Text="Re-send"
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
 	    	                    FontFamily="PoppinsRegularFontFamily"/>
@@ -196,7 +203,8 @@
 			                    TextColor="White"
 			                    VerticalTextAlignment="Center"/>
 
-                            <BoxView 
+                            <BoxView
+                                Margin="24,0,0,0"
 		                        Grid.Column="1"
                                 Grid.ColumnSpan="3"
                                 Grid.Row="1"
