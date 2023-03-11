@@ -56,7 +56,14 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserEmail = user.email;
 					Helper.Helper.UserInfo = user;
 					if (Application.Current.Properties.Count > 0)
-						Application.Current.Properties.Clear();
+					{
+						//Application.Current.Properties.Clear();
+						Application.Current.Properties.Remove("QrCode");
+						Application.Current.Properties.Remove("FirstName");
+						Application.Current.Properties.Remove("LastName");
+						Application.Current.Properties.Remove("UserId");
+						Application.Current.Properties.Remove("Email");
+					}
 
 					Application.Current.Properties.Add("QrCode", response.certificate_key);
 					Application.Current.Properties.Add("FirstName", response.first_name);
