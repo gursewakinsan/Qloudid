@@ -168,8 +168,11 @@
                         <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="13"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="10"/>
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="1"/>
@@ -184,48 +187,47 @@
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="1"/>
                     </Grid.RowDefinitions>
-                    <StackLayout
-                        Grid.Row="0"
-                        Spacing="23"
-                        Grid.ColumnSpan="3">
-                        <Label
-						    FontSize="20"
-						    Text="Milano"
-						    TextColor="White"
-                            HorizontalTextAlignment="Start"
-                            FontFamily="PoppinsSemiBoldFontFamily"/>
+                    <Label
+                        Grid.Row="1"
+				        FontSize="20"
+						Text="Milano" 
+                        Grid.ColumnSpan="3"
+						TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsSemiBoldFontFamily"/>
 
-                        <Label
-						    FontSize="16"
-						    Opacity="0.42"
-						    TextColor="White"
-                            HorizontalTextAlignment="Start"
-                            FontFamily="PoppinsRegularFontFamily">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding Address.Address}"/>
-                                    <Span Text=","/>
-                                    <Span Text="{Binding Address.PortNumber}"/>
-                                    <Span Text=","/>
-                                    <Span Text="{Binding Address.Zipcode}"/>
-                                    <Span Text=","/>
-                                    <Span Text="{Binding Address.City}"/>
-                                    <Span Text=","/>
-                                    <Span Text="Sweden"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>
+                    <Label 
+                        Grid.Row="3"
+				        FontSize="16"
+						Opacity="0.42"
+                        Grid.ColumnSpan="3"
+						TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Address.Address}"/>
+                                <Span Text=","/>
+                                <Span Text="{Binding Address.PortNumber}"/>
+                                <Span Text=","/>
+                                <Span Text="{Binding Address.Zipcode}"/>
+                                <Span Text=","/>
+                                <Span Text="{Binding Address.City}"/>
+                                <Span Text=","/>
+                                <Span Text="Sweden"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
                     <BoxView
-                        Grid.Row="2"
+                        Grid.Row="5"
                         Opacity="0.67"
                         Grid.ColumnSpan="3"
                         BackgroundColor="#F4B400"/>
 
                     <!--Bedrooms-->
                     <Button
-                        Grid.Row="3"
+                        Grid.Row="6"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -242,7 +244,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="3"
+                        Grid.Row="6"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -259,7 +261,7 @@
                         IsVisible="{Binding Address.BedroomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="3"
+                        Grid.Row="6"
                         Grid.Column="1"
                         Text="Bedrooms"
                         FontSize="16"
@@ -274,7 +276,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="3"
+                        Grid.Row="6"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -289,7 +291,7 @@
                     </Label>
 
                     <BoxView
-                        Grid.Row="4"
+                        Grid.Row="7"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
@@ -297,7 +299,7 @@
 
                     <!--Bathrooms-->
                     <Button
-                        Grid.Row="5"
+                        Grid.Row="8"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -314,7 +316,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="5"
+                        Grid.Row="8"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -331,7 +333,7 @@
                         IsVisible="{Binding Address.BathroomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="5"
+                        Grid.Row="8"
                         Grid.Column="1"
                         Text="Bathrooms"
                         FontSize="16"
@@ -346,7 +348,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="5"
+                        Grid.Row="8"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -361,7 +363,7 @@
                         </Label>
 
                     <BoxView
-                        Grid.Row="6"
+                        Grid.Row="9"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
@@ -369,7 +371,7 @@
 
                     <!--Other rooms-->
                     <Button
-                        Grid.Row="7"
+                        Grid.Row="10"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -386,7 +388,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="7"
+                        Grid.Row="10"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -403,7 +405,7 @@
                         IsVisible="{Binding Address.OtherRoomUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="7"
+                        Grid.Row="10"
                         Grid.Column="1"
                         Text="Other rooms"
                         FontSize="16"
@@ -418,7 +420,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="7"
+                        Grid.Row="10"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -433,7 +435,7 @@
                     </Label>
 
                     <BoxView
-                        Grid.Row="8"
+                        Grid.Row="11"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
@@ -441,7 +443,7 @@
 
                     <!--Property infra-->
                     <Button
-                        Grid.Row="9"
+                        Grid.Row="12"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -458,7 +460,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="9"
+                        Grid.Row="12"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -475,7 +477,7 @@
                         IsVisible="{Binding Address.PropertyCompositionUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="9"
+                        Grid.Row="12"
                         Grid.Column="1"
                         Text="Property infra"
                         FontSize="16"
@@ -490,7 +492,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="9"
+                        Grid.Row="12"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -505,7 +507,7 @@
                     </Label>
 
                     <BoxView
-                        Grid.Row="10"
+                        Grid.Row="13"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
@@ -513,7 +515,7 @@
 
                      <!--Wifi-->
                     <Button
-                        Grid.Row="11"
+                        Grid.Row="14"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -530,7 +532,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="11"
+                        Grid.Row="14"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -547,7 +549,7 @@
                         IsVisible="{Binding Address.IsWiFiUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="11"
+                        Grid.Row="14"
                         Grid.Column="1"
                         Text="Wifi"
                         FontSize="16"
@@ -562,7 +564,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="11"
+                        Grid.Row="14"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -577,7 +579,7 @@
                     </Label>
 
                     <BoxView
-                        Grid.Row="12"
+                        Grid.Row="15"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
@@ -585,7 +587,7 @@
 
                      <!--Ownership-->
                     <Button
-                        Grid.Row="13"
+                        Grid.Row="16"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -602,7 +604,7 @@
 					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                     <Button
-                        Grid.Row="13"
+                        Grid.Row="16"
                         Padding="0"
                         FontSize="15"
                         Grid.Column="0"
@@ -619,7 +621,7 @@
                         IsVisible="{Binding Address.OwnershipUpdated, Converter={StaticResource InverseBoolConverter}}"/>
 
                     <Label
-                        Grid.Row="13"
+                        Grid.Row="16"
                         Grid.Column="1"
                         Text="Ownership"
                         FontSize="16"
@@ -634,7 +636,7 @@
                     </Label>
 
                     <Label
-                        Grid.Row="13"
+                        Grid.Row="16"
                         Padding="0"
                         FontSize="20"
                         Grid.Column="2"
@@ -649,7 +651,7 @@
                     </Label>
 
                     <BoxView
-                        Grid.Row="14"
+                        Grid.Row="17"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"
