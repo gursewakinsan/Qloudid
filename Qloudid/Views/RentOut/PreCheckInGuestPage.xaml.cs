@@ -23,7 +23,10 @@ namespace Qloudid.Views.RentOut
 
         void OnPreCheckInItemTapped(System.Object sender, ItemTappedEventArgs e)
         {
+            Models.ReservationHistoryListResponse response = e.Item as Models.ReservationHistoryListResponse;
             listPreCheckIn.SelectedItem = null;
+            if (response.PreCheckInStatus == 0 || response.PreCheckInStatus == 2)
+                viewModel.ResendPreCheckInInfoCommand.Execute(response.Id);
         }
     }
 }

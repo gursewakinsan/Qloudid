@@ -206,5 +206,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<string> ResendPrecheckinInfoAsync(Models.ResendPrecheckinInfoRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.ResendPrecheckinInfoUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }

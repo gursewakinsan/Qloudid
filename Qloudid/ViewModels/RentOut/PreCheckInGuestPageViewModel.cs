@@ -28,7 +28,8 @@ namespace Qloudid.ViewModels
 			IDashboardService service = new DashboardService();
 			var responses = await service.ReservationHistoryListAsync(new Models.ReservationHistoryListRequest()
 			{
-				UserId = Helper.Helper.UserId
+				UserId = Helper.Helper.UserId,
+				ApartmentId = SelectedApartment.Id
 			});
 			if (responses?.Count > 0)
 			{
@@ -61,7 +62,28 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Resend Pre Check In Info Command.
+		private ICommand resendPreCheckInInfoCommand;
+		public ICommand ResendPreCheckInInfoCommand
+		{
+			get => resendPreCheckInInfoCommand ?? (resendPreCheckInInfoCommand = new Command<string>(async (checkId) => await ExecuteResendPreCheckInInfoCommand(checkId)));
+		}
+		private async Task ExecuteResendPreCheckInInfoCommand(string checkId)
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			await service.ResendPrecheckinInfoAsync(new Models.ResendPrecheckinInfoRequest()
+			{
+				CheckId = System.Convert.ToInt32(checkId)
+			});
+			ReservationHistoryListCommand.Execute(null);
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
+		public Models.UserDeliveryAddressesResponse SelectedApartment => Helper.Helper.SelectedUserDeliveryAddress;
+
 		private List<Models.ReservationHistoryListResponse> reservationHistoryList;
 		public List<Models.ReservationHistoryListResponse> ReservationHistoryList
 		{

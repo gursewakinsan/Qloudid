@@ -231,5 +231,6 @@
 		public const string ApartmentPreCheckinRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentPrecheckinRequiredList";
 
 		public const string ReservationHistoryListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/reservationHistoryList";
+		public const string ResendPrecheckinInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/resendPrecheckinInfo";
 	}
 }

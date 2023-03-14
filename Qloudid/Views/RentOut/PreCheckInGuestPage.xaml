@@ -250,7 +250,7 @@
                                 IsVisible="{Binding IsAction}">
                                 <Label
 			                        FontSize="14"
-                                    Text="Action"
+                                    Text="Re-send"
 			                        TextColor="#FFE9AD"
                                     IsVisible="{Binding IsAction}"
                                     FontFamily="PoppinsRegularFontFamily"/>
