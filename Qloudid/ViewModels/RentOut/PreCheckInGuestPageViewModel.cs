@@ -13,57 +13,63 @@ namespace Qloudid.ViewModels
 		public PreCheckInGuestPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			BindData();
 		}
 		#endregion
 
-		#region Bind Data.
-		void BindData()
+		#region Reservation History List Command.
+		private ICommand reservationHistoryListCommand;
+		public ICommand ReservationHistoryListCommand
 		{
-			List<TestItems> items = new List<TestItems>();
-			items.Add(new TestItems()
+			get => reservationHistoryListCommand ?? (reservationHistoryListCommand = new Command(async () => await ExecuteReservationHistoryListCommand()));
+		}
+		private async Task ExecuteReservationHistoryListCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IDashboardService service = new DashboardService();
+			var responses = await service.ReservationHistoryListAsync(new Models.ReservationHistoryListRequest()
 			{
-				IsAction =true,
-				CircleBg =Color.FromHex("#F40000"),
-				CategoryName ="Today"
+				UserId = Helper.Helper.UserId
 			});
-			items.Add(new TestItems()
+			if (responses?.Count > 0)
 			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#F40000"),
-				CategoryName = "2023-01-05"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#F4B400"),
-				CategoryName = "2023-01-12"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#4A5192"),
-				CategoryName = "2023-01-19"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = false,
-				CircleBg = Color.FromHex("#4A5192"),
-				CategoryName = "2023-01-26"
-			});
-			PreCheckInList = items;
+				foreach (var item in responses)
+				{
+					if (item.PreCheckInStatus == 0)
+					{
+						item.IconRed = true;
+						item.IsAction = true;
+					}
+					else if (item.PreCheckInStatus == 1)
+					{
+						item.IconGreen = true;
+						item.IsAction = false;
+					}
+					else if (item.PreCheckInStatus == 2)
+					{
+						item.IconYellow = true;
+						item.IsAction = true;
+					}
+					else if (item.PreCheckInStatus == 3)
+					{
+						item.IconBlue = true;
+						item.IsAction = false;
+					}
+				}
+			}
+			ReservationHistoryList = responses;
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
 		#region Properties.
-		private List<TestItems> preCheckInList;
-		public List<TestItems> PreCheckInList
+		private List<Models.ReservationHistoryListResponse> reservationHistoryList;
+		public List<Models.ReservationHistoryListResponse> ReservationHistoryList
 		{
-			get => preCheckInList;
+			get => reservationHistoryList;
 			set
 			{
-				preCheckInList = value;
-				OnPropertyChanged("PreCheckInList");
+				reservationHistoryList = value;
+				OnPropertyChanged("ReservationHistoryList");
 			}
 		}
 		#endregion

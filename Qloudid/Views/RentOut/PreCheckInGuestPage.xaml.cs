@@ -15,6 +15,12 @@ namespace Qloudid.Views.RentOut
             BindingContext = viewModel = new PreCheckInGuestPageViewModel(this.Navigation);
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.ReservationHistoryListCommand.Execute(null);
+        }
+
         void OnPreCheckInItemTapped(System.Object sender, ItemTappedEventArgs e)
         {
             listPreCheckIn.SelectedItem = null;

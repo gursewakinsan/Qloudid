@@ -197,5 +197,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.ReservationHistoryListResponse>> ReservationHistoryListAsync(Models.ReservationHistoryListRequest request)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.ReservationHistoryListResponse>>(HttpWebRequest.Create(EndPointsList.ReservationHistoryListUrl), string.Empty, request.ToJson());
+				return res;
+			});
+		}
 	}
 }
