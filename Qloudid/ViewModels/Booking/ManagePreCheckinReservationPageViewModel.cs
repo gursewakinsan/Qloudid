@@ -45,8 +45,15 @@ namespace Qloudid.ViewModels
 			});
 			if (response?.Count > 0)
 			{
-				PreCheckinReservationInfo = response.Where(x => x.PreCheckInStatus == false).ToList();
-				PreCheckinReservationHistory = response.Where(x => x.PreCheckInStatus == true).ToList();
+                foreach (var item in response)
+                {
+					if (item.PreCheckInStatus == 0)
+						item.IsStartPreCheckIn = true;
+					else
+						item.IsStartPreCheckIn = false;
+                }
+				PreCheckinReservationInfo = response.Where(x => x.PreCheckInStatus == 0 || x.PreCheckInStatus == 2).ToList();
+				PreCheckinReservationHistory = response.Where(x => x.PreCheckInStatus == 1).ToList();
 			}
 			DependencyService.Get<IProgressBar>().Hide();
 		}

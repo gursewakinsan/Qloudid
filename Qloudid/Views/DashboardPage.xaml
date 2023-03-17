@@ -365,14 +365,9 @@
 					Padding="20,0,20,0"
 					ClassId="3"
 					IsClippedToBounds="True"
+					BackgroundColor="#FFE69F"
 					IsVisible="{Binding IsPreCheckIn}"
 					HorizontalOptions="StartAndExpand">
-                    <Frame.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#8579B9" Offset="1.0" />
-                            <GradientStop Color="#5E508D" Offset="0.1" />
-                        </LinearGradientBrush>
-                    </Frame.Background>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="FrameOnGestureRecognizerTapped" />
                     </Frame.GestureRecognizers>
@@ -408,7 +403,7 @@
                             </StackLayout.GestureRecognizers>
                             <Label
 								FontSize="18"
-								TextColor="White"
+								TextColor="#181A1F"
 								ClassId="3"
 								Text="Precheck in"
 								FontFamily="PoppinsBoldFontFamily">
@@ -419,8 +414,9 @@
 
                             <Label
 								FontSize="13"
-								TextColor="White"
+								TextColor="#181A1F"
 								ClassId="3"
+								Opacity="0.70"
 								Text="Manage your reservation for precheckin"
 								FontFamily="PoppinsRegularFontFamily">
                                 <Label.GestureRecognizers>

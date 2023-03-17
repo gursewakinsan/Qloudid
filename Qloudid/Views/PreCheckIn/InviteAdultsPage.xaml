@@ -7,7 +7,7 @@
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
 		Margin="0,22,0,5"
@@ -30,6 +30,7 @@
 			HorizontalOptions="StartAndExpand" />
 
 		<Image
+			IsVisible="False"
 			Grid.Row="0"
 			Grid.Column="3"
 			Margin="0,0,-10,0"
@@ -43,6 +44,7 @@
 
 
 		<Label
+			IsVisible="False"
 			Grid.Row="0"
 			Grid.Column="2"
 			FontFamily="PoppinsRegularFontFamily"
@@ -61,20 +63,30 @@
 				<Label
 					FontAttributes="Bold"
 					FontFamily="PoppinsBoldFontFamily"
-					FontSize="40"
-					Text="Invite adult"
+					FontSize="33"
+					Text="Invite"
 					TextColor="White" />
 
 				<Label
-					Margin="0,5,0,58"
+					Margin="0,0,0,51"
 					FontFamily="PoppinsRegularFontFamily"
-					FontSize="16"
-					LineBreakMode="TailTruncation"
-					LineHeight="1.2"
-					MaxLines="2"
-					Opacity="0.7"
-					Text="Select the option you wish to use to invite an adult to express check in."
+					FontSize="25"
+					Opacity="0.42"
+					Text="Invite to pre-check"
 					TextColor="White" />
+
+				<Label
+                    Text="Guests"
+                    FontSize="18"
+                    Opacity="0.70"
+				    TextColor="White"
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                <BoxView
+					Margin="0,13,0,26"
+					HeightRequest="1"
+                    Opacity="0.67"
+                    BackgroundColor="#F4B400"/>
 
 				<Frame
 					Padding="20,0,20,0"
@@ -96,7 +108,7 @@
 						</Grid.ColumnDefinitions>
 
 						<Label
-							FontFamily="PoppinsSemiBoldFontFamily"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							LineBreakMode="TailTruncation"
 							MaxLines="1"
@@ -146,7 +158,7 @@
 						</Grid.ColumnDefinitions>
 
 						<Label
-							FontFamily="PoppinsSemiBoldFontFamily"
+							FontFamily="PoppinsRegularFontFamily"
 							FontSize="16"
 							LineBreakMode="TailTruncation"
 							MaxLines="1"

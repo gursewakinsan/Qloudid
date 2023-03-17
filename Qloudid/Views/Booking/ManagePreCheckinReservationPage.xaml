@@ -64,30 +64,31 @@
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="CenterAndExpand">
                     <Label
-                        Text="Manage"
-                        FontSize="32"
+                        Text="Pre-check"
+                        FontSize="33"
 					    TextColor="White"
                         FontFamily="PoppinsBoldFontFamily"/>
 
                     <Label
-					    FontSize="32"
+					    FontSize="25"
 					    TextColor="White"
-                        Text="Your reservations"
+                        Opacity="0.42"
+                        Text="Manage pre-checkings"
                         FontFamily="PoppinsRegularFontFamily"/>
                 </StackLayout>
 
                 <Label
                     Grid.Row="2"
-                    Text="To do"
+                    Text="Started / unfinished"
                     FontSize="18"
-                    Opacity="0.42"
+                    Opacity="0.70"
 				    TextColor="White"
                     FontFamily="PoppinsSemiBoldFontFamily"/>
 
                 <BoxView
                     Grid.Row="4"
-                    Opacity="0.10"
-                    BackgroundColor="White"/>
+                    Opacity="0.67"
+                    BackgroundColor="#F4B400"/>
 
                 <StackLayout 
 				    Spacing="14" 
@@ -100,10 +101,10 @@
                                 HasShadow="False"
                                 CornerRadius="10"
                                 IsClippedToBounds="True"
-                                BackgroundColor="#4A3E73">
+                                BackgroundColor="#FFE69F">
                                 <Grid RowSpacing="0" ColumnSpacing="20">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="62"/>
+                                        <ColumnDefinition Width="90"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
@@ -118,34 +119,33 @@
                                         <RowDefinition Height="1"/>
                                         <RowDefinition Height="44"/>
                                         <RowDefinition Height="1"/>
-                                        <RowDefinition Height="44"/>
-                                        <RowDefinition Height="1"/>
-                                        <RowDefinition Height="24"/>
+                                        <RowDefinition Height="25"/>
                                         <RowDefinition Height="50"/>
                                     </Grid.RowDefinitions>
                                     <Label
                                         Grid.Row="0"
                                         FontSize="17"
                                         Grid.ColumnSpan="2"
-				                        TextColor="White"
-                                        Text="Complete precheck in"
+				                        TextColor="Black"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding PropertyNickName}"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsBoldFontFamily"/>
 
                                     <BoxView
                                         Grid.Row="2"
-                                        Opacity="0.10"
+                                        Opacity="0.32"
                                         Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
+                                        BackgroundColor="#181A1F"/>
 
                                     <Label
-                                        Text="To"
+                                        Text="Dates"
                                         Grid.Row="3"
                                         FontSize="14"
                                         Grid.Column="0"
-                                        Opacity="0.42"
-				                        TextColor="White"
+				                        TextColor="#181A1F"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsRegularFontFamily"/>
@@ -154,25 +154,26 @@
                                         Grid.Row="3"
                                         FontSize="14"
                                         Grid.Column="1"
-				                        TextColor="White"
+				                        TextColor="Black"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
-                                        Text="{Binding PropertyNickName}"
+                                        Text="{Binding Duration}"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
                                         FontFamily="PoppinsRegularFontFamily"/>
 
                                     <BoxView
                                         Grid.Row="4"
-                                        Opacity="0.10"
+                                        Opacity="0.32"
                                         Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
+                                        BackgroundColor="#181A1F"/>
 
                                     <Label
-                                        Text="Price"
+                                        Text="Guests"
                                         Grid.Row="5"
                                         FontSize="14"
                                         Grid.Column="0"
-                                        Opacity="0.42"
-				                        TextColor="White"
+				                        TextColor="#181A1F"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsRegularFontFamily"/>
@@ -181,32 +182,26 @@
                                         Grid.Row="5"
                                         FontSize="14"
                                         Grid.Column="1"
-				                        TextColor="White"
+				                        TextColor="Black"
+                                        Text="{Binding Guest}"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
-                                        FontFamily="PoppinsRegularFontFamily">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding Price}"/>
-                                                <Span Text=" "/>
-                                                <Span Text="SEK"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+                                        FontFamily="PoppinsRegularFontFamily"/>
 
                                     <BoxView
                                         Grid.Row="6"
-                                        Opacity="0.10"
+                                        Opacity="0.32"
                                         Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
+                                        BackgroundColor="#181A1F"/>
 
                                     <Label
-                                        Text="Nights"
+                                        Text="Pre-checked"
                                         Grid.Row="7"
                                         FontSize="14"
                                         Grid.Column="0"
-                                        Opacity="0.42"
-				                        TextColor="White"
+				                        TextColor="#181A1F"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsRegularFontFamily"/>
@@ -215,25 +210,26 @@
                                         Grid.Row="7"
                                         FontSize="14"
                                         Grid.Column="1"
-				                        TextColor="White"
+				                        TextColor="Black"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
                                         Text="{Binding TotalDays}"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
                                         FontFamily="PoppinsRegularFontFamily"/>
 
                                     <BoxView
                                         Grid.Row="8"
-                                        Opacity="0.10"
+                                        Opacity="0.32"
                                         Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
+                                        BackgroundColor="#181A1F"/>
 
                                     <Label
-                                        Text="Guests"
+                                        Text="Remaining"
                                         Grid.Row="9"
                                         FontSize="14"
                                         Grid.Column="0"
-                                        Opacity="0.42"
-				                        TextColor="White"
+				                        TextColor="#181A1F"
                                         HorizontalTextAlignment="Start"
                                         VerticalTextAlignment="Center"
                                         FontFamily="PoppinsRegularFontFamily"/>
@@ -242,68 +238,48 @@
                                         Grid.Row="9"
                                         FontSize="14"
                                         Grid.Column="1"
-				                        TextColor="White"
+				                        TextColor="Black"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
                                         Text="{Binding Guest}"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
                                         FontFamily="PoppinsRegularFontFamily"/>
 
                                     <BoxView
                                         Grid.Row="10"
-                                        Opacity="0.10"
+                                        Opacity="0.32"
                                         Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
+                                        BackgroundColor="#181A1F"/>
 
-                                    <Label
-                                        Text="Dates"
-                                        Grid.Row="11"
-                                        FontSize="14"
-                                        Grid.Column="0"
-                                        Opacity="0.42"
-				                        TextColor="White"
-                                        HorizontalTextAlignment="Start"
-                                        VerticalTextAlignment="Center"
-                                        FontFamily="PoppinsRegularFontFamily"/>
-
-                                    <Label
-                                        Grid.Row="11"
-                                        FontSize="14"
-                                        Grid.Column="1"
-				                        TextColor="White"
-                                        Text="{Binding Duration}"
-                                        HorizontalTextAlignment="End"
-                                        VerticalTextAlignment="Center"
-                                        FontFamily="PoppinsRegularFontFamily"/>
-
-                                    <BoxView
-                                        Grid.Row="12"
-                                        Opacity="0.10"
-                                        Grid.ColumnSpan="2"
-                                        BackgroundColor="White"/>
 
                                     <Button
                                         Padding="0"
-			                            Grid.Row="14"
-                                        FontSize="20"
-			                            Grid.Column="0"
-			                            CornerRadius="10"
-                                        TextColor="#F40000"
-                                        BackgroundColor="#392B69"
-                                        FontFamily="{StaticResource MaterialFontFamily}"
-			                            Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
-
-                                    <Button
-                                        Padding="0"
-			                            Grid.Row="14"
+			                            Grid.Row="12"
                                         FontSize="14"
-			                            Grid.Column="1"
-			                            CornerRadius="10"
-                                        Text="Confirm"
+			                            Grid.ColumnSpan="2"
+			                            CornerRadius="25"
+                                        Text="Start pre-checkin"
                                         TextColor="White"
                                         ClassId="{Binding Id}"
-                                        BackgroundColor ="#1A0E3E"
+                                        IsVisible="{Binding IsStartPreCheckIn}"
+                                        BackgroundColor ="Black"
                                         Clicked="OnConfirmButtonClicked"
                                         FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                                    <Button
+                                        Padding="0"
+			                            Grid.Row="12"
+                                        FontSize="14"
+			                            Grid.ColumnSpan="2"
+			                            CornerRadius="25"
+                                        Text="Finish remaining"
+                                        TextColor="White"
+                                        ClassId="{Binding Id}"
+                                        BackgroundColor ="Black"
+                                        Clicked="OnConfirmButtonClicked"
+                                        FontFamily="PoppinsSemiBoldFontFamily"
+                                        IsVisible="{Binding IsStartPreCheckIn, Converter={StaticResource InverseBoolConverter}}"/>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
@@ -312,7 +288,7 @@
 
                 <Label
                     Grid.Row="8"
-                    Text="History"
+                    Text="Pre check-in"
                     FontSize="18"
                     Opacity="0.42"
 				    TextColor="White"
@@ -344,22 +320,36 @@
                                     FontSize="15"
 			                        Grid.Column="0"
 			                        CornerRadius="20"
-                                    TextColor="#4CD964"
+                                    BackgroundColor="#4CD964"
                                     HeightRequest="40"
-                                    BackgroundColor="#242A37"
+                                    TextColor="#242A37"
                                     VerticalOptions="CenterAndExpand"
                                     FontFamily="{StaticResource MaterialFontFamily}"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
-                                <Label
+                                <StackLayout
+                                    Spacing="0"
                                     Grid.Row="0"
-                                    FontSize="15"
                                     Grid.Column="1"
-				                    TextColor="White"
-                                    HorizontalTextAlignment="Start"
-                                    VerticalTextAlignment="Center"
-                                    FontFamily="PoppinsRegularFontFamily"
-                                    Text="{Binding PropertyNickName}"/>
+                                    VerticalOptions="CenterAndExpand">
+                                    <Label
+                                        Opacity="0.70"
+                                        FontSize="16"
+				                        TextColor="White"
+                                        HorizontalTextAlignment="Start"
+                                        VerticalTextAlignment="Center"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        Text="{Binding PropertyNickName}"/>
+
+                                    <Label
+                                        Opacity="0.42"
+                                        FontSize="14"
+				                        TextColor="White"
+                                        HorizontalTextAlignment="Start"
+                                        VerticalTextAlignment="Center"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        Text="Pre-checked all"/>
+                                </StackLayout>
 
                                 <Label
                                     Padding="0"
