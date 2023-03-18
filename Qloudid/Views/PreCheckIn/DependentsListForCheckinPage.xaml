@@ -42,9 +42,11 @@
 			MaxLines="1"
 			Text="Check in"
 			TextColor="White"
+			IsVisible="False"
 			VerticalTextAlignment="Center" />
 
 		<Image
+			IsVisible="False"
 			Grid.Row="0"
 			Grid.Column="3"
 			Margin="0,0,-10,0"
@@ -66,20 +68,30 @@
 			<Label
 				FontAttributes="Bold"
 				FontFamily="PoppinsBoldFontFamily"
-				FontSize="40"
+				FontSize="33"
 				Text="Child"
 				TextColor="White" />
 
 			<Label
-				Margin="0,5,0,58"
+				Margin="0,0,0,51"
 				FontFamily="PoppinsRegularFontFamily"
-				FontSize="16"
-				LineBreakMode="TailTruncation"
-				LineHeight="1.2"
-				MaxLines="2"
-				Opacity="0.7"
-				Text="Select one child at the time and submit for checking-in the child"
+				FontSize="25"
+				Opacity="0.42"
+				Text="Pre-check the child"
 				TextColor="White" />
+
+			 <Label
+                    Text="Guests"
+                    FontSize="18"
+                    Opacity="0.70"
+				    TextColor="White"
+                    FontFamily="PoppinsSemiBoldFontFamily"/>
+
+                <BoxView
+					Margin="0,13,0,10"
+                    Opacity="0.67"
+					HeightRequest="1"
+                    BackgroundColor="#F4B400"/>
 
 			<ListView
 				x:Name="listDependentsForCheckin"
@@ -92,7 +104,97 @@
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
-							<Frame
+							<Grid RowSpacing="0" ColumnSpacing="14">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="80"/>
+									<RowDefinition Height="1"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="46"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="auto"/>
+								</Grid.ColumnDefinitions>
+								<ImageButton
+									Grid.Column="0"
+									Padding="0"
+									Grid.Row="0"
+									BackgroundColor="Transparent"
+									CornerRadius="23"
+									HeightRequest="46"
+									Aspect="AspectFill"
+									Source="{Binding ChildImage}"
+									HorizontalOptions="EndAndExpand"
+									VerticalOptions="CenterAndExpand"
+									WidthRequest="46" />
+
+								<StackLayout
+									Spacing="0"
+									Grid.Row="0"
+									Grid.Column="1"
+									HorizontalOptions="StartAndExpand"
+									VerticalOptions="CenterAndExpand">
+									<Label
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="16"
+										Text="{Binding Name}"
+										TextColor="White"/>
+
+									<Label
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="14"
+										Text="Son"
+										Opacity="0.42"
+										TextColor="White"/>
+								</StackLayout>
+
+								<Label
+									Grid.Column="2"
+									Padding="0"
+									Grid.Row="0"
+									FontFamily="{StaticResource MaterialFontFamily}"
+									FontSize="20"
+									IsVisible="{Binding IsSelect}"
+									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+									TextColor="#4CD964"
+									VerticalTextAlignment="Center"
+									HorizontalTextAlignment="End"/>
+
+								<StackLayout
+									Spacing="0"
+									Grid.Row="0"
+									Grid.Column="2"
+									Orientation="Horizontal"
+									HorizontalOptions="EndAndExpand"
+									VerticalOptions="CenterAndExpand"
+									IsVisible="{Binding IsSelect, Converter={StaticResource InverseBoolConverter}}">
+
+									<Label
+										FontFamily="PoppinsRegularFontFamily"
+										FontSize="14"
+										Text="Select"
+										TextColor="#FFE9AD"
+										VerticalTextAlignment="Center"/>
+
+									<Label
+										FontFamily="{StaticResource MaterialFontFamily}"
+										FontSize="25"
+										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+										TextColor="#FFE9AD"
+										VerticalTextAlignment="Center"/>
+								</StackLayout>
+
+								<BoxView
+									Opacity="0.1"
+									Grid.Row="1"
+									Grid.Column="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="White"/>
+
+								</Grid>
+
+
+
+							<!--<Frame
 								Margin="0,0,0,20"
 								Padding="20,0,20,0"
 								BackgroundColor="{Binding FrameBorderColor}"
@@ -151,7 +253,7 @@
 										VerticalOptions="CenterAndExpand"
 										WidthRequest="44" />
 								</Grid>
-							</Frame>
+							</Frame>-->
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>

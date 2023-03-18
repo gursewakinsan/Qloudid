@@ -72,5 +72,15 @@ namespace Qloudid.Views.PreCheckIn
 			if (!adults.IsConfirmed)
 				viewModel.ResendInvitationCommand.Execute(adults.Id);
 		}
-	}
+
+        async void OnButtonAddNewAdultsClicked(System.Object sender, System.EventArgs e)
+        {
+			await Navigation.PushAsync(new InviteAdultsPage());
+		}
+
+        async void OnButtonAddNewChildClicked(System.Object sender, System.EventArgs e)
+        {
+			await Navigation.PushAsync(new DependentsListForCheckinPage());
+		}
+    }
 }

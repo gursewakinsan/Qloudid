@@ -120,6 +120,7 @@
 									TextColor="#242A37"
 									VerticalOptions="CenterAndExpand"
 									WidthRequest="46"
+									Clicked="OnButtonReInviteAdultsTapped"
 									IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"/>
 
 								<StackLayout
@@ -330,7 +331,8 @@
 									Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircle}"
 									TextColor="#242A37"
 									VerticalOptions="CenterAndExpand"
-									WidthRequest="46"/>
+									WidthRequest="46"
+									Clicked="OnButtonAddNewAdultsClicked"/>
 
 								<StackLayout
 									Spacing="0"
@@ -338,6 +340,9 @@
 									Grid.Column="1"
 									HorizontalOptions="StartAndExpand"
 									VerticalOptions="CenterAndExpand">
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnAdultsTapped"/>
+									</StackLayout.GestureRecognizers>
 									<Label
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="16"
@@ -368,7 +373,9 @@
 									Orientation="Horizontal"
 									HorizontalOptions="EndAndExpand"
 									VerticalOptions="CenterAndExpand">
-
+									<StackLayout.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnAdultsTapped"/>
+									</StackLayout.GestureRecognizers>
 									<Label
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="14"
@@ -490,28 +497,11 @@
 									FontSize="20"
 									HeightRequest="46"
 									HorizontalOptions="EndAndExpand"
-									IsVisible="{Binding IsConfirmed}"
 									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 									TextColor="#242A37"
 									VerticalOptions="CenterAndExpand"
 									WidthRequest="46" />
-
-								<Button
-									Grid.Column="0"
-									Padding="0"
-									Grid.Row="0"
-									BackgroundColor="#F40000"
-									CornerRadius="23"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HeightRequest="46"
-									HorizontalOptions="EndAndExpand"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircle}"
-									TextColor="#242A37"
-									VerticalOptions="CenterAndExpand"
-									WidthRequest="46"
-									IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"/>
-
+								
 								<StackLayout
 									Spacing="0"
 									Grid.Row="0"
@@ -522,31 +512,14 @@
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="16"
 										Text="{Binding Name}"
-										TextColor="White"
-										IsVisible="{Binding IsConfirmed}"/>
-
-									<Label
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="16"
-										Text="{Binding Name}"
-										TextColor="White"
-										IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"/>
-
+										TextColor="White"/>
+									
 									<Label
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="14"
 										Text="Done"
 										Opacity="0.42"
-										TextColor="White"
-										IsVisible="{Binding IsConfirmed}"/>
-
-									<Label
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="14"
-										Text="Not invite"
-										Opacity="0.42"
-										TextColor="White"
-										IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}"/>
+										TextColor="White"/>
 								</StackLayout>
 
 								<Label
@@ -555,35 +528,10 @@
 									Grid.Row="0"
 									FontFamily="{StaticResource MaterialFontFamily}"
 									FontSize="20"
-									IsVisible="{Binding IsConfirmed}"
 									Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
 									TextColor="#4CD964"
 									VerticalTextAlignment="Center"
 									HorizontalTextAlignment="End"/>
-
-								<StackLayout
-									Spacing="0"
-									Grid.Row="0"
-									Grid.Column="2"
-									Orientation="Horizontal"
-									HorizontalOptions="EndAndExpand"
-									VerticalOptions="CenterAndExpand"
-									IsVisible="{Binding IsConfirmed, Converter={StaticResource InverseBoolConverter}}">
-
-									<Label
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="14"
-										Text="Re-invite"
-										TextColor="#FFE9AD"
-										VerticalTextAlignment="Center"/>
-
-									<Label
-										FontFamily="{StaticResource MaterialFontFamily}"
-										FontSize="25"
-										Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-										TextColor="#FFE9AD"
-										VerticalTextAlignment="Center"/>
-								</StackLayout>
 
 								<BoxView
 									Opacity="0.1"
@@ -665,6 +613,7 @@
 									HorizontalOptions="EndAndExpand"
 									Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircle}"
 									TextColor="#242A37"
+									Clicked="OnButtonAddNewChildClicked"
 									VerticalOptions="CenterAndExpand"
 									WidthRequest="46"/>
 
@@ -674,6 +623,9 @@
 									Grid.Column="1"
 									HorizontalOptions="StartAndExpand"
 									VerticalOptions="CenterAndExpand">
+									<StackLayout.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnChildrenTapped" />
+										</StackLayout.GestureRecognizers>
 									<Label
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="16"
@@ -704,7 +656,9 @@
 									Orientation="Horizontal"
 									HorizontalOptions="EndAndExpand"
 									VerticalOptions="CenterAndExpand">
-
+									<StackLayout.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnChildrenTapped" />
+										</StackLayout.GestureRecognizers>
 									<Label
 										FontFamily="PoppinsRegularFontFamily"
 										FontSize="14"

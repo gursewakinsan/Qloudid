@@ -53,6 +53,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Back Button Control Command.
+		private ICommand backButtonControlCommand;
+		public ICommand BackButtonControlCommand
+		{
+			get => backButtonControlCommand ?? (backButtonControlCommand = new Command(() => ExecuteBackButtonControlCommand()));
+		}
+		private void ExecuteBackButtonControlCommand()
+		{
+			Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+		}
+		#endregion
+
 		#region Resend Invitation Command.
 		private ICommand resendInvitationCommand;
 		public ICommand ResendInvitationCommand

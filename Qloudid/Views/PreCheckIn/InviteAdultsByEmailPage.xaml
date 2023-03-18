@@ -29,11 +29,7 @@
 		<usercontrols:BackButtonControl
 			Grid.Row="0"
 			Grid.Column="1"
-			HorizontalOptions="StartAndExpand">
-			<usercontrols:BackButtonControl.GestureRecognizers>
-				<TapGestureRecognizer Command="{Binding CloseCommand}" />
-			</usercontrols:BackButtonControl.GestureRecognizers>
-		</usercontrols:BackButtonControl>
+			HorizontalOptions="StartAndExpand"/>
 
 		<Image
 			Grid.Row="0"
