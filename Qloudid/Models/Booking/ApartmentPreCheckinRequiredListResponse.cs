@@ -26,12 +26,22 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "guest_adult")]
         public int GuestAdult { get; set; }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "guest_adult_left")]
+        public int GuestAdultLeft { get; set; }
+
         [Newtonsoft.Json.JsonProperty(PropertyName = "guest_children")]
         public int GuestChildren { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "guest_children_left")]
+        public int GuestChildrenLeft { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "enc")]
         public string Enc { get; set; }
 
         public bool IsStartPreCheckIn { get; set; }
+
+        public Xamarin.Forms.Color CardBg { get; set; }
+
+        public string PreCheckedIn => $"{GuestAdult - GuestAdultLeft} adults & {GuestChildren - GuestChildrenLeft} children";
     }
 }

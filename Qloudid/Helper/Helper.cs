@@ -114,6 +114,7 @@ namespace Qloudid.Helper
 		public static string CountryOrChildren { get; set; }
         public static bool IsPropertyStarted { get; set; }
 		public static bool IsPublished4Box { get; set; } = false;
+        public static string PropertyNickName { get; set; }
 
         public static string[] ColorList =
 		{

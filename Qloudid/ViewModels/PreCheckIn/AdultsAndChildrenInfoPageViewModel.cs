@@ -72,6 +72,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
+		public string PropertyNickName => Helper.Helper.PropertyNickName;
+
 		private int totalCount;
 		public int TotalCount
 		{

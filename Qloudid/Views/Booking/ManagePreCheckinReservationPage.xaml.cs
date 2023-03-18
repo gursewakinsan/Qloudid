@@ -26,6 +26,7 @@ namespace Qloudid.Views.Booking
         {
             Button button = sender as Button;
             var preCheckIn = button.BindingContext as Models.ApartmentPreCheckinRequiredListResponse;
+            Helper.Helper.PropertyNickName = preCheckIn.PropertyNickName;
             viewModel.PreCheckInPageCommand.Execute(preCheckIn.Enc);
             /*Models.GetPreCheckinStatusResponse fillData = new Models.GetPreCheckinStatusResponse()
             {

@@ -45,13 +45,19 @@ namespace Qloudid.ViewModels
 			});
 			if (response?.Count > 0)
 			{
-                foreach (var item in response)
-                {
+				foreach (var item in response)
+				{
 					if (item.PreCheckInStatus == 0)
+					{
 						item.IsStartPreCheckIn = true;
+						item.CardBg = Color.FromHex("#FFB2B2");
+					}
 					else
+					{
 						item.IsStartPreCheckIn = false;
-                }
+						item.CardBg = Color.FromHex("#FFE69F");
+					}
+				}
 				PreCheckinReservationInfo = response.Where(x => x.PreCheckInStatus == 0 || x.PreCheckInStatus == 2).ToList();
 				PreCheckinReservationHistory = response.Where(x => x.PreCheckInStatus == 1).ToList();
 			}

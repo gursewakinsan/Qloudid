@@ -101,7 +101,7 @@
                                 HasShadow="False"
                                 CornerRadius="10"
                                 IsClippedToBounds="True"
-                                BackgroundColor="#FFE69F">
+                                BackgroundColor="{Binding CardBg}">
                                 <Grid RowSpacing="0" ColumnSpacing="20">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="90"/>
@@ -213,7 +213,7 @@
 				                        TextColor="Black"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
-                                        Text="{Binding TotalDays}"
+                                        Text="{Binding PreCheckedIn}"
                                         MaxLines="1"
                                         LineBreakMode="TailTruncation"
                                         FontFamily="PoppinsRegularFontFamily"/>
@@ -241,10 +241,18 @@
 				                        TextColor="Black"
                                         HorizontalTextAlignment="End"
                                         VerticalTextAlignment="Center"
-                                        Text="{Binding Guest}"
                                         MaxLines="1"
                                         LineBreakMode="TailTruncation"
-                                        FontFamily="PoppinsRegularFontFamily"/>
+                                        FontFamily="PoppinsRegularFontFamily">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding GuestAdultLeft}"/>
+                                                <Span Text=" adults &amp; "/>
+                                                <Span Text="{Binding GuestChildrenLeft}"/>
+                                                <Span Text=" children"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
 
                                     <BoxView
                                         Grid.Row="10"
