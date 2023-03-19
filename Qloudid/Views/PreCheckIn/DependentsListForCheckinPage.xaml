@@ -88,7 +88,7 @@
                     FontFamily="PoppinsSemiBoldFontFamily"/>
 
                 <BoxView
-					Margin="0,13,0,10"
+					Margin="0,13,0,0"
                     Opacity="0.67"
 					HeightRequest="1"
                     BackgroundColor="#F4B400"/>
@@ -101,6 +101,12 @@
 				ItemsSource="{Binding DependentsListForCheckinInfo}"
 				SeparatorVisibility="None"
 				VerticalScrollBarVisibility="Never">
+				<ListView.Margin>
+					<OnPlatform x:TypeArguments="Thickness">
+						<On Platform="Android" Value="0,10,0,0" />
+						<On Platform="iOS" Value="0,-10,0,0" />
+					</OnPlatform>
+				</ListView.Margin>
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
