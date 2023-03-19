@@ -80,6 +80,7 @@ namespace Qloudid.ViewModels
 				Id = id
 			});
 			DependencyService.Get<IProgressBar>().Hide();
+			//DependentsCheckedInListCommand.Execute(null);
 		}
 		#endregion
 
