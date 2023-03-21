@@ -42,7 +42,8 @@ namespace Qloudid.Views.RentOut
 
         async void CheckedInListTapped(Models.ApartmentCheckedinInfoResponse apartmentCheckedIn)
         {
-            await Navigation.PushAsync(new ProcessToCheckInPage(apartmentCheckedIn));
+            if (apartmentCheckedIn.ListStatus == 1 || apartmentCheckedIn.ListStatus == 2)
+                await Navigation.PushAsync(new ProcessToCheckInPage(apartmentCheckedIn));
         }
         #endregion
 

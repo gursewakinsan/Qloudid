@@ -40,5 +40,21 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "guest")]
         public string Guest { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "list_status")]
+        public int ListStatus { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "subheading")]
+        public string Subheading { get; set; }
+
+        public bool IconRed { get; set; }
+
+        public bool IconYellow { get; set; }
+
+        public bool IconBlue { get; set; }
+
+        public bool IconGreen { get; set; }
+
+        public bool IsAction { get; set; }
     }
 }

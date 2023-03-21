@@ -27,10 +27,37 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IRentOutService service = new RentOutService();
-			ApartmentCheckedinInfo = await service.ApartmentCheckedinInfoAsync(new Models.ApartmentCheckedinInfoRequest()
+			var responses = await service.ApartmentCheckedinInfoAsync(new Models.ApartmentCheckedinInfoRequest()
 			{
 				ApartmentId = Address.Id //28
 			});
+			if (responses?.Count > 0)
+			{
+				foreach (var item in responses)
+				{
+					if (item.ListStatus == 0)
+					{
+						item.IconBlue = true;
+						item.IsAction = false;
+					}
+					else if (item.ListStatus == 1)
+					{
+						item.IconRed = true;
+						item.IsAction = true;
+					}
+					else if (item.ListStatus == 2)
+					{
+						item.IconYellow = true;
+						item.IsAction = true;
+					}
+					else if (item.ListStatus == 3)
+					{
+						item.IconGreen = true;
+						item.IsAction = false;
+					}
+				}
+			}
+			ApartmentCheckedinInfo = responses;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
