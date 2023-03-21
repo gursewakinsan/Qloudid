@@ -14,5 +14,10 @@ namespace Qloudid.Views.Identity
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new IdentityCardListPageViewModel(this.Navigation);
         }
+
+        void OnIdentityItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            listIdentity.SelectedItem = null;
+        }
     }
 }

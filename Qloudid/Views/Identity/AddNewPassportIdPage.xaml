@@ -2,8 +2,143 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.Identity.AddNewPassportIdPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    x:Class="Qloudid.Views.Identity.AddNewPassportIdPage"
+     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" IsVisible="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddPropertyCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding AddPropertyCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" IsVisible="False"/>
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="26" />
+                    <RowDefinition Height="78" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+					<RowDefinition Height="26" />
+					<RowDefinition Height="78" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="78" />
+					<RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Passport"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="ID type selected"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="#F4B400"
+                    Text="Kowaken Ghirmai"
+			        VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IdentityCardListPageCommand}"/>
+					</Label.GestureRecognizers>
+				</Label>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    BackgroundColor="#F4B400"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>

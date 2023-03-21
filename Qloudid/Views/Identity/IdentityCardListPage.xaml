@@ -2,8 +2,283 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.Identity.IdentityCardListPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    x:Class="Qloudid.Views.Identity.IdentityCardListPage"
+     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+     <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="104" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+         <Button 
+            Grid.Row="0"
+            Grid.Column="3"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            BackgroundColor="Transparent"/>
+
+         <StackLayout
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="10,0,0,0"
+            Orientation="Horizontal"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer />
+            </StackLayout.GestureRecognizers>
+            <Label
+		        FontSize="14"
+		        Text="Add ID"
+		        TextColor="White"
+                VerticalTextAlignment="Center"
+                FontFamily="PoppinsSemiBoldFontFamily">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                FontSize="22"
+			    FontFamily="{StaticResource MaterialFontFamily}"
+			    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			    TextColor="White"
+			    VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <Label
+		    Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			HorizontalTextAlignment="Start"
+			Text="Identity"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+	        Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+            Opacity="0.42"
+		    HorizontalTextAlignment="Start"
+			Text="Your identity cards"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+		    Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsSemiBoldFontFamily"
+		    FontSize="18"
+            Opacity="0.70"
+			HorizontalTextAlignment="Start"
+			Text="Only swedish"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <BoxView
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="#5B5B79"/>
+
+        <ListView
+            Grid.Row="9"
+            Grid.Column="1"
+            HasUnevenRows="True"
+		    Grid.ColumnSpan="3"
+            Margin="0,-10,0,0"
+			x:Name="listIdentity"
+            SeparatorVisibility="None"
+			BackgroundColor="Transparent"
+			ItemTapped="OnIdentityItemTapped"
+			ItemsSource="{Binding IdentityModelList}"
+			VerticalScrollBarVisibility="Never">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+			                    Grid.Row="1"
+			                    Grid.Column="0"
+			                    Padding="0"
+                                FontSize="20"
+                                CornerRadius="23"
+                                HeightRequest="46"
+                                WidthRequest="46"
+                                TextColor="#242A37"
+			                    BackgroundColor="#F40000"
+                                VerticalOptions="CenterAndExpand"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircleOutline}"
+                                IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>
+
+                            <Button
+			                    Grid.Row="1"
+			                    Grid.Column="0"
+			                    Padding="0"
+                                FontSize="20"
+                                CornerRadius="23"
+                                HeightRequest="46"
+                                WidthRequest="46"
+                                TextColor="#242A37"
+			                    BackgroundColor="#4CD964"
+                                VerticalOptions="CenterAndExpand"
+                                IsVisible="{Binding IsChecked}"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                            <StackLayout
+                                Spacing="0"
+                                Grid.Row="1"
+			                    Grid.Column="1"
+                                Margin="20,0,0,0"
+                                VerticalOptions="CenterAndExpand">
+                                <Label
+			                        FontSize="16"
+			                        TextColor="White"
+                                    Text="{Binding Title}"
+                                    FontFamily="PoppinsRegularFontFamily"/>
+
+                                <Label
+			                        FontSize="14"
+                                    Opacity="0.42"
+			                        TextColor="White"
+                                    Text="{Binding SubTitle}"
+                                    FontFamily="PoppinsRegularFontFamily"/>
+                            </StackLayout>
+
+                            <StackLayout
+                                Spacing="5"
+                                Grid.Row="1"
+			                    Grid.Column="2"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="EndAndExpand"
+                                IsVisible="{Binding IsChecked}">
+                                <Label
+			                        FontSize="14"
+                                    Text="Verified"
+			                        TextColor="#4CD964"
+                                    FontFamily="PoppinsRegularFontFamily"/>
+
+                                <Label
+			                        FontSize="20"
+			                        TextColor="#4CD964"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+                            </StackLayout>
+
+                            <StackLayout
+                                Spacing="5"
+                                Grid.Row="1"
+			                    Grid.Column="2"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="EndAndExpand"
+                                IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}">
+                                <Label
+			                        FontSize="14"
+                                    Text="Verify"
+			                        TextColor="#FFE9AD"
+                                    FontFamily="PoppinsRegularFontFamily"/>
+
+                                <Label
+			                        FontSize="20"
+			                        TextColor="#FFE9AD"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+                            </StackLayout>
+
+                            <BoxView
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Opacity="0.2"
+                                Margin="20,0,0,0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="White"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>
