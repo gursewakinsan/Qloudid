@@ -1,12 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Qloudid.Views.Identity.NoIdentityCardAddedPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Identity.NoIdentityCardAddedPage"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#242A37"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Spacing="8" IsVisible="False">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Label
+			    Margin="18,0,0,0"
+			    FontFamily="{StaticResource MaterialFontFamily}"
+			    FontSize="25"
+			    HorizontalTextAlignment="Start"
+			    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			    TextColor="White"
+			    VerticalTextAlignment="Center" 
+                VerticalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+			    FontFamily="PoppinsBoldFontFamily"
+			    FontSize="16"
+                Text="Error"
+			    HorizontalTextAlignment="Start"
+			    TextColor="White"
+                VerticalOptions="CenterAndExpand"
+			    VerticalTextAlignment="Center" />
         </StackLayout>
-    </ContentPage.Content>
+
+        <Label
+            Grid.Row="2"
+		    FontFamily="PoppinsRegularFontFamily"
+		    FontSize="22"
+            Text="First finish apartment flow"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+		    TextColor="White"/>
+
+        <Image
+            x:Name="imgNoMissing"
+            Grid.Row="1"
+            Source="noMissing.png"
+            BackgroundColor="Transparent"
+            Margin="55,71,55,40" 
+            Aspect="AspectFit"/>
+
+        <controls:CustomButton 
+            Grid.Row="4"
+            CornerRadius="28"
+            FontSize="14"
+            Text="Add Identity card"
+            BorderWidth="0"
+            BackgroundColor="#F4B400"
+            Command="{Binding CloseCommand}"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
+    </Grid>
 </ContentPage>

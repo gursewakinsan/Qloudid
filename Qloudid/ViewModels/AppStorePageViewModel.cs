@@ -67,6 +67,18 @@ namespace Qloudid.ViewModels
 				
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        #region Add Identity card Command.
+        private ICommand addIdentityCardCommand;
+        public ICommand AddIdentityCardCommand
+        {
+            get => addIdentityCardCommand ?? (addIdentityCardCommand = new Command(async () => await ExecuteAddIdentityCardCommand()));
+        }
+        private async Task ExecuteAddIdentityCardCommand()
+        {
+			await Navigation.PushAsync(new Views.Identity.NoIdentityCardAddedPage());
+        }
+        #endregion
+    }
 }
