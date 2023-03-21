@@ -131,7 +131,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--ID & Sign-->
+                <!--Consent-->
                 <Frame
                     Grid.Row="0"
                     Grid.Column="0"
@@ -164,8 +164,8 @@
                             FontFamily="PoppinsRegularFontFamily"/>
                     </Grid>
                 </Frame>
-
-                <!--Consent-->
+               
+                <!--ID & Sign-->
                 <Frame
                     Grid.Row="0"
                     Grid.Column="1"
@@ -174,7 +174,13 @@
                     Padding="10,17,10,14"
                     BackgroundColor="#242A37"
                     IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
+                    </Frame.GestureRecognizers>
                     <Grid RowSpacing="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="20"/>
@@ -186,7 +192,11 @@
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
-			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <Label
                             Grid.Row="1"
@@ -195,7 +205,11 @@
 		                    TextColor="White"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
                 </Frame>
 
