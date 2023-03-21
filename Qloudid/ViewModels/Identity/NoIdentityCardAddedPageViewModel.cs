@@ -21,7 +21,7 @@ namespace Qloudid.ViewModels
         }
         private async Task ExecuteAddIdentityCardCommand()
         {
-            await Navigation.PushAsync(new Page());
+            await Navigation.PushAsync(new Views.Identity.AddYourIdCardPage());
         }
         #endregion
     }

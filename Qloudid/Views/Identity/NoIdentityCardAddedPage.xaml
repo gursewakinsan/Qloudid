@@ -9,12 +9,12 @@
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#242A37"
 	NavigationPage.HasNavigationBar="False">
-    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,50">
+    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="36"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="56"/>
         </Grid.RowDefinitions>
         <StackLayout Orientation="Horizontal" Grid.Row="0" Spacing="8" IsVisible="False">
@@ -45,31 +45,45 @@
 			    VerticalTextAlignment="Center" />
         </StackLayout>
 
-        <Label
-            Grid.Row="2"
-		    FontFamily="PoppinsRegularFontFamily"
-		    FontSize="22"
-            Text="First finish apartment flow"
-            HorizontalTextAlignment="Center"
-            VerticalTextAlignment="Center"
-		    TextColor="White"/>
-
-        <Image
+         <Image
             x:Name="imgNoMissing"
             Grid.Row="1"
             Source="noMissing.png"
             BackgroundColor="Transparent"
-            Margin="55,71,55,40" 
+            Margin="0,0,0,45" 
             Aspect="AspectFit"/>
 
-        <controls:CustomButton 
+        <Label
+            Grid.Row="2"
+		    FontFamily="PoppinsBoldFontFamily"
+		    FontSize="22"
+            Text="No Identity card is added"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+		    TextColor="White"/>
+
+        <Label
+            Grid.Row="3"
+		    FontFamily="PoppinsRegularFontFamily"
+		    FontSize="16"
+            Margin="28,25,28,41"
+            Opacity="0.70"
+            LineHeight="1.1"
+            Text="In order to use our app for travel, shopping online or check in to hotel or apartment. You must add an ID"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+		    TextColor="White"/>
+
+        <Button 
             Grid.Row="4"
             CornerRadius="28"
-            FontSize="14"
+            FontSize="16"
             Text="Add Identity card"
             BorderWidth="0"
+            TextColor="Black"
+            Margin="28,0,28,0"
             BackgroundColor="#F4B400"
-            Command="{Binding CloseCommand}"
+            Command="{Binding AddIdentityCardCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>
