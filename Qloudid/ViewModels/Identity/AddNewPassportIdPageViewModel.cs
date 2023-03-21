@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
@@ -23,6 +24,15 @@ namespace Qloudid.ViewModels
         {
             await Navigation.PushAsync(new Views.Identity.IdentityCardListPage());
         }
+        #endregion
+
+        #region Properties.
+        public DateTime BindIssueMinimumDate => DateTime.Today.AddYears(-70);
+        public DateTime BindIssueMaximumDate => DateTime.Today.AddDays(-1);
+        public DateTime SelectedIssueDate { get; set; }
+        public DateTime BindExpiryMinimumDate => DateTime.Today;
+        public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
+        public DateTime SelectedExpiryDate { get; set; }
         #endregion
     }
 }

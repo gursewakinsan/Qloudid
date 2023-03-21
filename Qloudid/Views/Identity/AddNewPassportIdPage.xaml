@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.Identity.AddNewPassportIdPage"
      xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
@@ -77,7 +77,7 @@
             Grid.ColumnSpan="3"
             VerticalScrollBarVisibility="Never">
             <Grid
-		        ColumnSpacing="0"
+		        ColumnSpacing="44"
 		        RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="45" />
@@ -88,19 +88,27 @@
                     <RowDefinition Height="17" />
                     <RowDefinition Height="1" />
                     <RowDefinition Height="26" />
-                    <RowDefinition Height="78" />
-					<RowDefinition Height="50" />
-					<RowDefinition Height="25" />
-                    <RowDefinition Height="17" />
-                    <RowDefinition Height="1" />
-					<RowDefinition Height="26" />
-					<RowDefinition Height="78" />
-					<RowDefinition Height="25" />
-					<RowDefinition Height="78" />
 					<RowDefinition Height="20" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="27" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="45" />
+					<RowDefinition Height="20" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="24" />
+					<RowDefinition Height="111" />
                 </Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
                 <Label
 			        Grid.Row="0"
+					Grid.ColumnSpan="2"
 			        FontAttributes="Bold"
 			        FontFamily="PoppinsBoldFontFamily"
 			        FontSize="33"
@@ -112,7 +120,8 @@
 			        VerticalTextAlignment="Center"/>
 
                 <Label
-			        Grid.Row="2" 
+			        Grid.Row="2"
+					Grid.ColumnSpan="2"
 			        FontFamily="PoppinsRegularFontFamily"
 			        FontSize="25"
 			        HorizontalTextAlignment="Start"
@@ -123,6 +132,7 @@
 
                 <Label
 			        Grid.Row="4"
+					Grid.ColumnSpan="2"
 			        FontFamily="PoppinsSemiBoldFontFamily"
 			        FontSize="18"
 			        HorizontalTextAlignment="Start"
@@ -137,7 +147,137 @@
                 <BoxView
                     Grid.Row="6"
                     Opacity="0.32"
+					Grid.ColumnSpan="2"
                     BackgroundColor="#F4B400"/>
+
+				 <Label
+			        Grid.Row="8"
+					Grid.Column="0"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Passport number"
+			        VerticalTextAlignment="Center"/>
+
+				<controls:CustomEntry
+					Grid.Row="9"
+					BackgroundColor="Transparent"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Placeholder="Passport number"
+					PlaceholderColor="#797A7D"
+					TextColor="White" />
+
+				<BoxView
+                    Grid.Row="10"
+                    Opacity="0.1"
+					Grid.Column="0"
+                    BackgroundColor="White"/>
+
+				<Label
+			        Grid.Row="12"
+					Grid.Column="0"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Issue date"
+			        VerticalTextAlignment="Center"/>
+
+				<controls:CustomDatePicker
+					Grid.Row="13"
+					Grid.Column="0"
+					Date="{Binding SelectedIssueDate}"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Format="yyyy-MM-dd"
+					MaximumDate="{Binding BindIssueMaximumDate}"
+					MinimumDate="{Binding BindIssueMinimumDate}"
+					TextColor="White" />
+
+				<BoxView
+                    Grid.Row="14"
+                    Opacity="0.1"
+					Grid.Column="0"
+                    BackgroundColor="White"/>
+
+				<Label
+			        Grid.Row="12"
+					Grid.Column="1"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Expire date"
+			        VerticalTextAlignment="Center"/>
+
+				<controls:CustomDatePicker
+					Grid.Row="13"
+					Grid.Column="1"
+					Date="{Binding SelectedExpiryDate}"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Format="yyyy-MM-dd"
+					MaximumDate="{Binding BindExpiryMaximumDate}"
+					MinimumDate="{Binding BindExpiryMinimumDate}"
+					TextColor="White" />
+
+				<BoxView
+                    Grid.Row="14"
+                    Opacity="0.1"
+					Grid.Column="1"
+                    BackgroundColor="White"/>
+
+				<Label
+			        Grid.Row="16"
+					Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="15"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+					Opacity="0.42"
+                    Text="Upload passport copy"
+			        VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding IdentityCardListPageCommand}"/>
+					</Label.GestureRecognizers>
+				</Label>
+
+                <BoxView
+                    Grid.Row="18"
+                    Opacity="0.32"
+					Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400"/>
+
+				<Grid Grid.Row="20" Grid.ColumnSpan="2" ColumnSpacing="19" RowSpacing="0">
+					<Button
+						Grid.Row="0"
+						Grid.Column="0"
+						Padding="0"
+						FontSize="50"
+						CornerRadius="10"
+						TextColor="White" 
+						BackgroundColor="#242A37"
+						Command="{Binding IdentityCardListPageCommand}"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Menu}"/>
+
+					<Button
+						Grid.Row="0"
+						Grid.Column="1"
+						Padding="0"
+						FontSize="50"
+						CornerRadius="10"
+						TextColor="White" 
+						BackgroundColor="#242A37"
+						Command="{Binding IdentityCardListPageCommand}"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.Menu}"/>
+				</Grid>
             </Grid>
         </ScrollView>
     </Grid>
