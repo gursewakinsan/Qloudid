@@ -13,57 +13,67 @@ namespace Qloudid.ViewModels
 		public CheckOutGuestPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			BindData();
+			Address = Helper.Helper.SelectedUserAddress;
 		}
 		#endregion
 
-		#region Bind Data.
-		void BindData()
+		#region Apartment Checked Out Info Command.
+		private ICommand apartmentCheckedOutInfoCommand;
+		public ICommand ApartmentCheckedOutInfoCommand
 		{
-			List<TestItems> items = new List<TestItems>();
-			items.Add(new TestItems()
+			get => apartmentCheckedOutInfoCommand ?? (apartmentCheckedOutInfoCommand = new Command(async () => await ExecuteApartmentCheckedOutInfoCommand()));
+		}
+		private async Task ExecuteApartmentCheckedOutInfoCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRentOutService service = new RentOutService();
+			var responses = await service.ApartmentCheckedOutInfoAsync(new Models.ApartmentCheckedinInfoRequest()
 			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#F40000"),
-				CategoryName = "Today"
+				ApartmentId = Address.Id //28
 			});
-			items.Add(new TestItems()
+
+			
+			if (responses?.Count > 0)
 			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#F40000"),
-				CategoryName = "2023-01-05"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = true,
-				CircleBg = Color.FromHex("#F40000"),
-				CategoryName = "2023-01-12"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = false,
-				CircleBg = Color.FromHex("#4A5192"),
-				CategoryName = "2023-01-19"
-			});
-			items.Add(new TestItems()
-			{
-				IsAction = false,
-				CircleBg = Color.FromHex("#4A5192"),
-				CategoryName = "2023-01-26"
-			});
-			PreCheckInList = items;
+				foreach (var item in responses)
+				{
+					if (item.CheckedIn == 1)
+					{
+						item.IconRed = true;
+						item.IsAction = true;
+					}
+					else if (item.CheckedIn == 2)
+					{
+						item.IconGreen = true;
+						item.IsAction = false;
+					}
+				}
+			}
+			ApartmentCheckedOutInfo = responses;
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
 		#region Properties.
-		private List<TestItems> preCheckInList;
-		public List<TestItems> PreCheckInList
+		private Models.EditAddressResponse address;
+		public Models.EditAddressResponse Address
 		{
-			get => preCheckInList;
+			get => address;
 			set
 			{
-				preCheckInList = value;
-				OnPropertyChanged("PreCheckInList");
+				address = value;
+				OnPropertyChanged("Address");
+			}
+		}
+
+		private List<Models.ApartmentCheckedinInfoResponse> apartmentCheckedOutInfo;
+		public List<Models.ApartmentCheckedinInfoResponse> ApartmentCheckedOutInfo
+		{
+			get => apartmentCheckedOutInfo;
+			set
+			{
+				apartmentCheckedOutInfo = value;
+				OnPropertyChanged("ApartmentCheckedOutInfo");
 			}
 		}
 		#endregion

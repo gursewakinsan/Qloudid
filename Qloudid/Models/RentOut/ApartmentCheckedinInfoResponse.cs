@@ -47,6 +47,12 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "subheading")]
         public string Subheading { get; set; }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "checked_in")]
+        public int CheckedIn { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "got_to_cleaning")]
+        public int GotToCleaning { get; set; }
+
         public bool IconRed { get; set; }
 
         public bool IconYellow { get; set; }

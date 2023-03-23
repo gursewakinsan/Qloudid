@@ -113,11 +113,11 @@
             HasUnevenRows="True"
 		    Grid.ColumnSpan="3"
             Margin="0,-10,0,0"
-			x:Name="listPreCheckIn"
+			x:Name="listApartmentCheckedOutInfo"
             SeparatorVisibility="None"
 			BackgroundColor="Transparent"
-			ItemTapped="OnPreCheckInItemTapped"
-			ItemsSource="{Binding PreCheckInList}"
+			ItemTapped="OnApartmentCheckedOutInfoItemTapped"
+			ItemsSource="{Binding ApartmentCheckedOutInfo}"
 			VerticalScrollBarVisibility="Never">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -144,8 +144,8 @@
                                 HeightRequest="46"
                                 WidthRequest="46"
                                 TextColor="#242A37"
-                                IsVisible="{Binding IsAction}"
-			                    BackgroundColor="{Binding CircleBg}"
+                                IsVisible="{Binding IconRed}"
+			                    BackgroundColor="#F40000"
                                 VerticalOptions="CenterAndExpand"
 			                    FontFamily="{StaticResource MaterialFontFamily}"
 			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircleOutline}"/>
@@ -163,7 +163,7 @@
                                 VerticalOptions="CenterAndExpand"
 			                    FontFamily="{StaticResource MaterialFontFamily}"
 			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
-                                IsVisible="{Binding IsAction, Converter={StaticResource InverseBoolConverter}}"/>
+                                IsVisible="{Binding IconGreen}"/>
 
                             <StackLayout
                                 Spacing="0"
@@ -174,14 +174,14 @@
                                 <Label
 			                        FontSize="16"
 			                        TextColor="White"
-                                    Text="{Binding CategoryName}"
+                                    Text="{Binding Name}"
                                     FontFamily="PoppinsRegularFontFamily"/>
 
                                 <Label
 			                        FontSize="14"
                                     Opacity="0.42"
 			                        TextColor="White"
-                                    Text="Not yet"
+                                    Text="{Binding Duration}"
                                     FontFamily="PoppinsRegularFontFamily"/>
                             </StackLayout>
 
