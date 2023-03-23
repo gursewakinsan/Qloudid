@@ -105,7 +105,208 @@
 		    BackgroundColor="#F4B400" 
             Opacity="0.67"/>
 
-        <ScrollView 
+        <Grid RowSpacing="0" ColumnSpacing="25" Margin="0,20,0,0" Grid.Row="9"
+			Grid.Column="1"
+            Grid.ColumnSpan="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="11"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="155"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    BorderColor="#242A37"
+                    Padding="24,37,24,30"
+                    IsClippedToBounds="True"
+                    BackgroundColor="Transparent">
+                <Grid RowSpacing="0" ColumnSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="77"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37"/>
+
+                    <Label
+                            Grid.Column="0"
+                            Grid.Row="1"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14" Opacity="0.42"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+	    	                Text="Contract"
+	    	                TextColor="White"/>
+
+                    <Label
+                            Grid.Column="1"
+                            Grid.Row="1"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+	    	                Text="{Binding SelectedApartmentCheckedInInfo.Name}"
+	    	                TextColor="White"/>
+
+                    <BoxView
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37"/>
+
+                    <Label
+                            Grid.Column="0"
+                            Grid.Row="3"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14" Opacity="0.42"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+	    	                Text="Check-in"
+	    	                TextColor="White"/>
+
+                    <Label
+                            Grid.Column="1"
+                            Grid.Row="3"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+	    	                Text="{Binding SelectedApartmentCheckedInInfo.CheckInDate}"
+	    	                TextColor="White"/>
+
+                    <BoxView
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37"/>
+
+                    <Label
+                            Grid.Column="0"
+                            Grid.Row="5"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14" Opacity="0.42"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+	    	                Text="Check-out"
+	    	                TextColor="White"/>
+
+                    <Label
+                            Grid.Column="1"
+                            Grid.Row="5"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+	    	                Text="{Binding SelectedApartmentCheckedInInfo.CheckedOutDate}"
+	    	                TextColor="White"/>
+
+                    <BoxView
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37"/>
+
+                    <Label
+                            Grid.Column="0"
+                            Grid.Row="7"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14" Opacity="0.42"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+	    	                Text="Guests"
+	    	                TextColor="White"/>
+
+                    <Label
+                            Grid.Column="1"
+                            Grid.Row="7"
+	    	                FontFamily="PoppinsRegularFontFamily"
+	    	                FontSize="14"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+	    	                Text="{Binding SelectedApartmentCheckedInInfo.Guest}"
+	    	                TextColor="White"/>
+
+                    <BoxView
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37"/>
+                </Grid>
+            </Frame>
+
+            <BoxView
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#242A37"/>
+
+            <Label
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    LineHeight="1.2"
+	    	        FontFamily="PoppinsRegularFontFamily"
+	    	        FontSize="13" Opacity="0.42"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="Center"
+	    	        Text="Add the date the guest checked out"
+	    	        TextColor="White"/>
+
+            <Frame 
+                    Grid.Row="4" 
+                    HasShadow="False"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Padding="15,0,15,0"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:CustomDatePicker
+                            FontSize="15"
+                            x:Name="dPicker"
+                            Grid.Column="0"
+					        TextColor="White" 
+                            Format="yyyy-MM-dd"
+					        BackgroundColor="Transparent"
+					        Date="{Binding CheckOutDate}"
+					        FontFamily="PoppinsRegularFontFamily"
+                            MaximumDate="{Binding BindCheckOutMaximumDate}"
+						    MinimumDate="{Binding BindCheckOutMinimumDate}"/>
+
+                    <Label
+				            FontSize="15"
+                            Grid.Column="1"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center"
+				            HorizontalTextAlignment="Center"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+				            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                </Grid>
+            </Frame>
+        </Grid>
+
+        <!--<ScrollView 
             Grid.Row="9"
 			Grid.Column="1"
             Grid.ColumnSpan="3" 
@@ -308,7 +509,7 @@
                     </Grid>
                 </Frame>
             </Grid>
-        </ScrollView>
+        </ScrollView>-->
 
         <Button 
             Grid.Column="1"

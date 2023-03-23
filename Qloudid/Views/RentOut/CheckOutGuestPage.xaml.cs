@@ -50,9 +50,9 @@ namespace Qloudid.Views.RentOut
             Models.ApartmentCheckedinInfoResponse apartment = e.Item as Models.ApartmentCheckedinInfoResponse;
             listApartmentCheckedOutInfo.SelectedItem = null;
             if (apartment.CheckedIn == 1)
-                await Navigation.PushAsync(new ProcessToCheckOutPage(apartment));
-            else if (apartment.CheckedIn == 2 && apartment.GotToCleaning == 1)
                 await Navigation.PushAsync(new ProcessToCheckInPage(apartment));
+            else if (apartment.CheckedIn == 2 && apartment.GotToCleaning == 1)
+                await Navigation.PushAsync(new ProcessToCheckOutPage(apartment));
         }
         #endregion
     }
