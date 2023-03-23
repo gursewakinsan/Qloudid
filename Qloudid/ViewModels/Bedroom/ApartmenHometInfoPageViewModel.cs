@@ -39,8 +39,8 @@ namespace Qloudid.ViewModels
 			{
 				IsFinishSetUp = true;
 			}
-
-			/*if (IsApartmentUpdated && response.IsWiFiUpdated)
+			
+            /*if (IsApartmentUpdated && response.IsWiFiUpdated)
 				IsApartmentAndWifiUpdated = false;
 			else if (!IsApartmentUpdated && !response.IsWiFiUpdated)
 			{
@@ -60,8 +60,9 @@ namespace Qloudid.ViewModels
 				IsApartmentAndWifiUpdated = true;
 				WifiCardWidthRequest = App.ScreenWidth - 55;
 			}*/
-			Address = response;
-			Helper.Helper.SelectedUserAddress = Address;
+            Address = response;
+            StayOrRentOutCommand.Execute("Stay");
+            Helper.Helper.SelectedUserAddress = Address;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion

@@ -15,9 +15,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="30"/>
-            <RowDefinition Height="33"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="52"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="17"/>
@@ -112,13 +112,18 @@
             Grid.Column="1"
             HasUnevenRows="True"
 		    Grid.ColumnSpan="3"
-            Margin="0,-10,0,0"
 			x:Name="listPreCheckIn"
             SeparatorVisibility="None"
 			BackgroundColor="Transparent"
 			ItemTapped="OnPreCheckInItemTapped"
 			ItemsSource="{Binding ReservationHistoryList}"
 			VerticalScrollBarVisibility="Never">
+            <ListView.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,-10,0,0" />
+                    <On Platform="Android" Value="0" />
+                </OnPlatform>
+            </ListView.Margin>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
