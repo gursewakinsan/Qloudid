@@ -837,8 +837,8 @@ namespace Qloudid.Models
 		}
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "total_keys")]
-		private int totalKeys;
-		public int TotalKeys
+		private string totalKeys;
+		public string TotalKeys
 		{
 			get => totalKeys;
 			set

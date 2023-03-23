@@ -12,6 +12,6 @@
         public string KeyDescription { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "total_keys")]
-        public int TotalKeys { get; set; }
+        public string TotalKeys { get; set; }
     }
 }

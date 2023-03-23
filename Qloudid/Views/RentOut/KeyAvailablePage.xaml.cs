@@ -27,18 +27,6 @@ namespace Qloudid.Views.RentOut
 			viewModel.DisplayKeyPhotosCommand.Execute(null);
 		}
 
-        private void OnCustomPickerSelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            Controls.CustomPicker picker = sender as Controls.CustomPicker;
-            if (picker.SelectedIndex == -1)
-                return;
-            else
-            {
-                if (viewModel != null)
-                    viewModel.Address.TotalKeys = picker.SelectedIndex;
-            }
-        }
-
 		#region On Appearing.
 		protected override void OnAppearing()
 		{

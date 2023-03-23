@@ -5,6 +5,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using Syncfusion.SfCalendar.XForms;
 
 namespace Qloudid.ViewModels
 {
@@ -32,7 +33,17 @@ namespace Qloudid.ViewModels
 			{
 				ApartmentId = Address.Id,
 			});
-			DisplayKeyPhotos = new ObservableCollection<Models.DisplayKeyPhotosResponse>(response);
+			if (response.Count <= 3)
+				ListViewHeightRequest = 120;
+			else if (response.Count <= 6)
+                ListViewHeightRequest = 240;
+			else if (response.Count <= 9)
+                ListViewHeightRequest = 360;
+			else if (response.Count <= 12)
+                ListViewHeightRequest = 480;
+			else
+                ListViewHeightRequest = 540;
+            DisplayKeyPhotos = new ObservableCollection<Models.DisplayKeyPhotosResponse>(response);
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -120,7 +131,18 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		public byte[] UserImageData { get; set; }
+        private double listViewHeightRequest;
+        public double ListViewHeightRequest
+        {
+            get => listViewHeightRequest;
+            set
+            {
+                listViewHeightRequest = value;
+                OnPropertyChanged("ListViewHeightRequest");
+            }
+        }
+
+        public byte[] UserImageData { get; set; }
 		#endregion
 	}
 }

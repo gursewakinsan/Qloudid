@@ -16,12 +16,12 @@
             <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="5"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="65"/>
-            <RowDefinition Height="2"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28"/>
@@ -94,6 +94,7 @@
             Grid.ColumnSpan="3"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="50"
+            Margin="0,-7,0,0"
 			HorizontalTextAlignment="End"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitch}"
 			TextColor="#4FD471"
@@ -110,6 +111,7 @@
             Grid.ColumnSpan="3"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="50"
+            Margin="0,-7,0,0"
 			HorizontalTextAlignment="End"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ToggleSwitchOff}"
 			TextColor="#E53614"
@@ -131,6 +133,7 @@
             Grid.Row="9"
             Grid.Column="1"
             Grid.ColumnSpan="3"
+            IsVisible="{Binding Address.KeyAvailable}"
             VerticalScrollBarVisibility="Never">
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
@@ -157,7 +160,7 @@
                     Grid.Row="1"
 		            FontSize="13"
                     Grid.ColumnSpan="2"
-		            Text="How many  keys?"
+		            Text="How many keys?"
 		            TextColor="White"
                     Opacity="0.42"
                     VerticalTextAlignment="Center"
@@ -181,12 +184,12 @@
                         </Grid.ColumnDefinitions>
                         <controls:CustomPicker
                             Grid.Column="0"
-			    	        Title="Currency"
+			    	        Title="Select"
 			    	        FontFamily="PoppinsRegularFontFamily"
 			    	        FontSize="15"
 			    	        TextColor="White"
 			    	        TitleColor="Gray"
-                            SelectedIndexChanged="OnCustomPickerSelectedIndexChanged">
+                            SelectedItem="{Binding Address.TotalKeys}">
                             <controls:CustomPicker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>0</x:String>
@@ -198,7 +201,6 @@
                                     <x:String>6</x:String>
                                 </x:Array>
                             </controls:CustomPicker.ItemsSource>
-                            <controls:CustomPicker.SelectedIndex>0</controls:CustomPicker.SelectedIndex>
                         </controls:CustomPicker>
 
                         <Label
@@ -252,53 +254,53 @@
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
                     FontFamily="PoppinsBoldFontFamily"/>
+                
+                <Frame
+                    Padding="0"
+                    Grid.Row="9"
+                    CornerRadius="8"
+                    Grid.Column="1"
+                    HasShadow="False"
+                    IsClippedToBounds="True"
+                    BackgroundColor="#242A37">
+                    <StackLayout
+                        Spacing="2"
+                        Margin="10,0,0,0"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
+                        </StackLayout.GestureRecognizers>
+                        <Label
+		                    FontSize="14"
+		                    Text="Add image"
+		                    TextColor="White"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsSemiBoldFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            FontSize="22"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			                TextColor="White"
+			                VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddNewImageButtonClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
 
                 <BoxView 
                     Grid.Row="11"
                     Grid.ColumnSpan="2"
 		            BackgroundColor="#F4B400" 
 		            Opacity="0.67"/>
-
-                <Button 
-                    Grid.Row="9"
-                    Grid.Column="1"
-                    CornerRadius="8"
-                    Grid.ColumnSpan="1"
-                    Command="{Binding AddImageCommand}"
-                    BackgroundColor="#242A37"/>
-
-                <StackLayout
-                    Grid.Row="9"
-                    Grid.Column="1"
-                    Margin="10,0,0,0"
-                    Orientation="Horizontal"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding AddImageCommand}"/>
-                    </StackLayout.GestureRecognizers>
-                    <Label
-		                FontSize="14"
-		                Text="Add image"
-		                TextColor="White"
-                        VerticalTextAlignment="Center"
-                        FontFamily="PoppinsSemiBoldFontFamily">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddImageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-
-                    <Label
-                        FontSize="22"
-			            FontFamily="{StaticResource MaterialFontFamily}"
-			            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
-			            TextColor="White"
-			            VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddImageCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
 
                 <syncfusion:SfListView
 		            x:Name="listView"
@@ -307,6 +309,7 @@
                     Grid.ColumnSpan="2"
 		            IsScrollBarVisible="False"
 		            ItemSize="115"
+                    HeightRequest="{Binding ListViewHeightRequest}"
 		            ItemsSource="{Binding DisplayKeyPhotos}"
 		            VerticalOptions="StartAndExpand">
                     <syncfusion:SfListView.LayoutManager>
@@ -316,12 +319,11 @@
                     <DataTemplate>
                         <ImageButton
                             CornerRadius="8"
-                            HeightRequest="100"
-                            WidthRequest="100"
+                            HeightRequest="95"
+                            WidthRequest="95"
                             BackgroundColor="#242A37"
                             Source="{Binding ApartmentPhotoPath}"
                             Aspect="AspectFill"
-                            Margin="0,0,0,10"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"/>
                         <!--<Grid
