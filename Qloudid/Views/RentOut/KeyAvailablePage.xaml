@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.RentOut.KeyAvailablePage"
      xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls" 
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
@@ -146,6 +146,7 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="8"/>
                     <RowDefinition Height="1"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -298,6 +299,86 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
+
+                <syncfusion:SfListView
+		            x:Name="listView"
+		            Grid.Row="12"
+		            Margin="0,16,0,5"
+                    Grid.ColumnSpan="2"
+		            IsScrollBarVisible="False"
+		            ItemSize="115"
+		            ItemsSource="{Binding DisplayKeyPhotos}"
+		            VerticalOptions="StartAndExpand">
+                    <syncfusion:SfListView.LayoutManager>
+                        <syncfusion:GridLayout SpanCount="3" />
+                    </syncfusion:SfListView.LayoutManager>
+                    <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageButton
+                            CornerRadius="8"
+                            HeightRequest="100"
+                            WidthRequest="100"
+                            BackgroundColor="#242A37"
+                            Source="{Binding ApartmentPhotoPath}"
+                            Aspect="AspectFill"
+                            Margin="0,0,0,10"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+                        <!--<Grid
+                            HeightRequest="95"
+                            WidthRequest="95"
+                            Margin="0,0,0,20"
+                            HorizontalOptions="StartAndExpand" 
+                            VerticalOptions="StartAndExpand">
+                            <ImageButton
+                                CornerRadius="8"
+                                BackgroundColor="#242A37"
+                                Source="{Binding ApartmentPhotoPath}"
+                                Aspect="AspectFill"
+                                Clicked="OnImageButtonDeletePhotoClicked"
+                                IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}"/>
+
+                            <Button
+                                FontSize="25"
+                                CornerRadius="8"
+                                TextColor="White"
+                                BackgroundColor="#242A37"
+                                Clicked="OnAddNewImageButtonClicked"
+                                IsVisible="{Binding IsAddNewPhoto}"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+
+                            <Frame 
+                                Padding="0"
+                                CornerRadius="12"
+                                WidthRequest="24"
+                                HeightRequest="24"
+                                HasShadow="False"
+                                Margin="0,0,5,5"
+                                BackgroundColor="#B90303"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                IsClippedToBounds="True"
+                                IsVisible="{Binding IsAddNewPhoto, Converter={StaticResource InverseBoolConverter}}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameDeletePhotoClicked"/>
+                                </Frame.GestureRecognizers>
+                            <Label
+                                FontSize="15"
+                                TextColor="#242A37"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLabelDeletePhotoClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Frame>
+                    </Grid>-->
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
             </Grid>
         </ScrollView>
 
@@ -310,7 +391,7 @@
             FontSize="16"
             TextColor="White"
             BackgroundColor="#F40000"
-            Command="{Binding AddCurrencyCommand}"
+            Command="{Binding UpdateApartmentKeyInfoCommand}"
             FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

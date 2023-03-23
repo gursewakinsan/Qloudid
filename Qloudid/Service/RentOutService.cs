@@ -188,6 +188,8 @@ namespace Qloudid.Service
 			});
 		}
 
+		
+		
 		public Task<int> DeleteApartmentPhotoAsync(Models.DeleteApartmentPhotoRequest model)
 		{
 			return Task.Factory.StartNew(() =>
@@ -445,6 +447,34 @@ namespace Qloudid.Service
 			return Task.Factory.StartNew(() =>
 			{
 				var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.UpdateDamagedRentableInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		//Key
+		public Task<List<Models.DisplayKeyPhotosResponse>> DisplayKeyPhotosAsync(Models.DisplayKeyPhotosRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.DisplayKeyPhotosResponse>>(HttpWebRequest.Create(EndPointsList.DisplayKeyPhotosUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> AddApartmentKeyPhotosAsync(Models.AddApartmentKeyPhotosRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddApartmentKeyPhotosUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<int> UpdateApartmentKeyInfoAsync(Models.UpdateApartmentKeyInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateApartmentKeyInfoUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}
