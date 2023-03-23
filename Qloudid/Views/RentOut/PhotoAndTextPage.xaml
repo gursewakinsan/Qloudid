@@ -123,6 +123,8 @@
                     <RowDefinition Height="1"/>
                     <RowDefinition Height="70"/>
                     <RowDefinition Height="1"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="26"/>
@@ -222,9 +224,102 @@
 		    	    BackgroundColor="White" 
 		    	    Opacity="0.1"/>
 
-                <!--Property nickname-->
+                <!--Key available-->
                 <BoxView 
 			        Grid.Row="2" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#4CD964"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.KeyUpdated}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.KeyUpdated}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+			        Grid.Row="2" 
+			        Grid.Column="0" 
+			        CornerRadius="13"
+                    HeightRequest="26"
+			        BackgroundColor="#F40000"
+                    VerticalOptions="CenterAndExpand"
+                    IsVisible="{Binding Address.KeyUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="0"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="13"
+		    	    HorizontalTextAlignment="Center"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"
+		    	    TextColor="#242A37"
+		    	    VerticalTextAlignment="Center"
+                    IsVisible="{Binding Address.KeyUpdated, Converter={StaticResource InverseBoolConverter}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="2"
+                    Grid.Column="1"
+		    	    FontFamily="PoppinsRegularFontFamily"
+		    	    FontSize="15"
+		    	    Text="Key available"
+		    	    TextColor="White" 
+                    Opacity="0.60"
+                    VerticalTextAlignment="Center"
+		    	    HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+		    	    Grid.Row="2"
+		    	    Grid.Column="2"
+		    	    FontFamily="{StaticResource MaterialFontFamily}"
+		    	    FontSize="25"
+		    	    HorizontalTextAlignment="End"
+		    	    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+		    	    TextColor="White"
+		    	    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyAvailablePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView 
+		    	    Grid.Row="3" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+		    	    BackgroundColor="White" 
+		    	    Opacity="0.1"/>
+
+                <!--Property nickname-->
+                <BoxView 
+			        Grid.Row="4" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -237,7 +332,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="2"
+		    	    Grid.Row="4"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -252,7 +347,7 @@
                 </Label>
 
                 <BoxView 
-			        Grid.Row="2" 
+			        Grid.Row="4" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -265,7 +360,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="2"
+		    	    Grid.Row="4"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -280,7 +375,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="2"
+		    	    Grid.Row="4"
                     Grid.Column="1"
 		    	    FontFamily="PoppinsRegularFontFamily"
 		    	    FontSize="15"
@@ -295,7 +390,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="2"
+		    	    Grid.Row="4"
 		    	    Grid.Column="2"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="25"
@@ -309,7 +404,7 @@
                 </Label>
 
                 <BoxView 
-		    	    Grid.Row="3" 
+		    	    Grid.Row="5" 
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
 		    	    BackgroundColor="White" 
@@ -317,7 +412,7 @@
 
                 <!--Listing headline-->
                 <BoxView 
-			        Grid.Row="4" 
+			        Grid.Row="6" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -330,7 +425,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="4"
+		    	    Grid.Row="6"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -345,7 +440,7 @@
                 </Label>
 
                 <BoxView 
-			        Grid.Row="4" 
+			        Grid.Row="6" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -358,7 +453,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="4"
+		    	    Grid.Row="6"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -373,7 +468,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="4"
+		    	    Grid.Row="6"
                     Grid.Column="1"
 		    	    FontFamily="PoppinsRegularFontFamily"
 		    	    FontSize="15"
@@ -388,7 +483,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="4"
+		    	    Grid.Row="6"
 		    	    Grid.Column="2"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="25"
@@ -402,7 +497,7 @@
                 </Label>
 
                 <BoxView 
-		    	    Grid.Row="5" 
+		    	    Grid.Row="7" 
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
 		    	    BackgroundColor="White" 
@@ -410,7 +505,7 @@
 
                 <!--Listing description-->
                 <BoxView 
-			        Grid.Row="6" 
+			        Grid.Row="8" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -423,7 +518,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="6"
+		    	    Grid.Row="8"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -438,7 +533,7 @@
                 </Label>
                 
                 <BoxView 
-			        Grid.Row="6" 
+			        Grid.Row="8" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -451,7 +546,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="6"
+		    	    Grid.Row="8"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -466,7 +561,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="6"
+		    	    Grid.Row="8"
                     Grid.Column="1"
 		    	    FontFamily="PoppinsRegularFontFamily"
 		    	    FontSize="15"
@@ -481,7 +576,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="6"
+		    	    Grid.Row="8"
 		    	    Grid.Column="2"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="25"
@@ -495,7 +590,7 @@
                 </Label>
 
                 <BoxView 
-		    	    Grid.Row="7" 
+		    	    Grid.Row="9" 
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
 		    	    BackgroundColor="White" 
@@ -503,7 +598,7 @@
 
                 <!--Availability-->
                 <BoxView 
-			        Grid.Row="8" 
+			        Grid.Row="10" 
 			        Grid.Column="0" 
 			        CornerRadius="13"
                     HeightRequest="26"
@@ -515,7 +610,7 @@
                 </BoxView>
 
                 <Label
-		    	    Grid.Row="8"
+		    	    Grid.Row="10"
 		    	    Grid.Column="0"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="13"
@@ -529,7 +624,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="8"
+		    	    Grid.Row="10"
                     Grid.Column="1"
 		    	    FontFamily="PoppinsRegularFontFamily"
 		    	    FontSize="15"
@@ -544,7 +639,7 @@
                 </Label>
 
                 <Label
-		    	    Grid.Row="8"
+		    	    Grid.Row="10"
 		    	    Grid.Column="2"
 		    	    FontFamily="{StaticResource MaterialFontFamily}"
 		    	    FontSize="25"
@@ -558,7 +653,7 @@
                 </Label>
 
                 <BoxView 
-		    	    Grid.Row="9" 
+		    	    Grid.Row="11" 
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
 		    	    BackgroundColor="White" 

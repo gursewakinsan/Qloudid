@@ -47,6 +47,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Key Available Page Command.
+		private ICommand keyAvailablePageCommand;
+		public ICommand KeyAvailablePageCommand
+		{
+			get => keyAvailablePageCommand ?? (keyAvailablePageCommand = new Command(async () => await ExecuteKeyAvailablePageCommand()));
+		}
+		private async Task ExecuteKeyAvailablePageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.KeyAvailablePage());
+		}
+		#endregion
+
 		#region Nick Name Updated Page Command.
 		private ICommand nickNameUpdatedPageCommand;
 		public ICommand NickNameUpdatedPageCommand

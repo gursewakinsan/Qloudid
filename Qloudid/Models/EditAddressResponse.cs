@@ -811,5 +811,53 @@ namespace Qloudid.Models
 				OnPropertyChanged("PhotoUpdated");
 			}
 		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "key_available")]
+		private bool keyAvailable;
+		public bool KeyAvailable
+		{
+			get => keyAvailable;
+			set
+			{
+				keyAvailable = value;
+				OnPropertyChanged("KeyAvailable");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "key_description")]
+		private string keyDescription;
+		public string KeyDescription
+		{
+			get => keyDescription;
+			set
+			{
+				keyDescription = value;
+				OnPropertyChanged("KeyDescription");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "total_keys")]
+		private int totalKeys;
+		public int TotalKeys
+		{
+			get => totalKeys;
+			set
+			{
+				totalKeys = value;
+				OnPropertyChanged("TotalKeys");
+			}
+		}
+
+		[Newtonsoft.Json.JsonProperty(PropertyName = "key_updated")]
+		private bool keyUpdated;
+		public bool KeyUpdated
+		{
+			get => keyUpdated;
+			set
+			{
+				keyUpdated = value;
+				OnPropertyChanged("KeyUpdated");
+			}
+		}
 	}
 }
