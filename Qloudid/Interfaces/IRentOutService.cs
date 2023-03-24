@@ -54,6 +54,7 @@ namespace Qloudid.Interfaces
         Task<string> CheckoutApartmentGuestAsync(Models.CheckoutApartmentGuestRequest model);
         Task<List<Models.ApartmentCheckedinInfoResponse>> ApartmentCheckedOutInfoAsync(Models.ApartmentCheckedinInfoRequest model);
         Task<string> UpdateDamagedRentableInfoAsync(Models.UpdateDamagedRentableInfoRequest model);
+        Task<List<Models.ApartmentCheckedOutCleeningHistoryResponse>> ApartmentCheckedOutCleeningHistoryAsync(Models.ApartmentCheckedOutCleeningHistoryRequest model);
 
         //Key
         Task<List<Models.DisplayKeyPhotosResponse>> DisplayKeyPhotosAsync(Models.DisplayKeyPhotosRequest model);

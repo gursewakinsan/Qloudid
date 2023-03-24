@@ -224,6 +224,7 @@
 		public const string CheckoutApartmentGuestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkoutApartmentGuest";
 		public const string ApartmentCheckedOutInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCheckedOutInfo";
 		public const string UpdateDamagedRentableInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateDamagedRentableInfo";
+		public const string ApartmentCheckedOutCleeningHistoryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentCheckedOutCleeningHistory";
 
 		//Key
 		public const string DisplayKeyPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/displayKeyPhotos";

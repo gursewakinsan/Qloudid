@@ -174,7 +174,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
-
+		#region Clean Now Page Command.
+		private ICommand cleanNowPageCommand;
+		public ICommand CleanNowPageCommand
+		{
+			get => cleanNowPageCommand ?? (cleanNowPageCommand = new Command(async () => await ExecuteCleanNowPageCommand()));
+		}
+		private async Task ExecuteCleanNowPageCommand()
+		{
+			await Navigation.PushAsync(new Views.RentOut.AssignCleaningTaskNowPage());
+		}
+		#endregion
+		
 		#region Stay Or Rent Out Command.
 		private ICommand stayOrRentOutCommand;
 		public ICommand StayOrRentOutCommand
