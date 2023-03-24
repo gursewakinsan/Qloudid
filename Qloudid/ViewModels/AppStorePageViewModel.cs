@@ -79,6 +79,18 @@ namespace Qloudid.ViewModels
         {
 			await Navigation.PushAsync(new Views.Identity.NoIdentityCardAddedPage());
         }
-        #endregion
-    }
+		#endregion
+
+		#region Pre Check In Command.
+		private ICommand preCheckInCommand;
+		public ICommand PreCheckInCommand
+		{
+			get => preCheckInCommand ?? (preCheckInCommand = new Command(async () => await ExecutePreCheckInCommand()));
+		}
+		private async Task ExecutePreCheckInCommand()
+		{
+			await Navigation.PushAsync(new Views.Booking.ManagePreCheckinReservationPage());
+		}
+		#endregion
+	}
 }
