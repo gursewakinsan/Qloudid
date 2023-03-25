@@ -66,7 +66,7 @@
 		public const string ShareVariantOutline = "\U000f1514";
 		public const string SettingIcon = "\U000f08bb";
 		public const string Minus = "\U000f0374";
-
+		public const string MessageTextOutline = "\U000f036a";
 		public const string Heart = "\U000f02d1";
 		public const string HomeAnalytics = "\U000f0eba";
 

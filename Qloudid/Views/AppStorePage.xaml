@@ -21,7 +21,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -57,6 +57,7 @@
             Grid.Row="0"
             Grid.Column="3"
             Aspect="AspectFill"
+            IsVisible="False"
             Source="iconSmallLogo.png"
             BackgroundColor="Transparent"/>
 
@@ -75,9 +76,9 @@
             Grid.ColumnSpan="3"
             Grid.Row="4"
 	    	FontFamily="PoppinsRegularFontFamily"
-	    	FontSize="16" Opacity="0.42"
+	    	FontSize="25" Opacity="0.42"
             HorizontalTextAlignment="Start"
-	    	Text="Red border apps requires attention"
+	    	Text="Enjoy and explore apps"
 	    	TextColor="White"/>
 
         <StackLayout
@@ -90,7 +91,8 @@
             <Label
 		        FontSize="18"
 		        Text="Active"
-		        TextColor="#F4B400"
+                Opacity="0.70"
+		        TextColor="White"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
                 FontFamily="PoppinsSemiBoldFontFamily"/>
@@ -100,6 +102,7 @@
                 Opacity="0.42"
 		        Text="Not active"
 		        TextColor="White"
+                IsVisible="False"
                 HorizontalTextAlignment="Start"
                 VerticalTextAlignment="Center"
                 FontFamily="PoppinsRegularFontFamily"/>
@@ -109,8 +112,7 @@
 		    Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.Row="8"
-		    BackgroundColor="#F4B400" 
-            Opacity="0.67"/>
+		    BackgroundColor="#5B5B79"/>
 
         <ScrollView 
             Grid.Row="9"
@@ -133,12 +135,13 @@
                 </Grid.ColumnDefinitions>
                 <!--Consent-->
                 <Frame
-                    Grid.Row="0"
+                    Grid.Row="1"
                     Grid.Column="0"
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Grid RowSpacing="5">
                         <Grid.RowDefinitions>
@@ -148,11 +151,11 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#D587FA"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
-			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"/>
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
 
                         <Label
                             Grid.Row="1"
@@ -168,11 +171,12 @@
                 <!--ID & Sign-->
                 <Frame
                     Grid.Row="0"
-                    Grid.Column="1"
+                    Grid.Column="0"
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
@@ -188,11 +192,11 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#78BDEE"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
-			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}">
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
                             </Label.GestureRecognizers>
@@ -216,11 +220,12 @@
                 <!--Pay-->
                 <Frame
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
@@ -236,11 +241,11 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#FFECB8"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
-			                Text="{x:Static fontawesome:QloudidAppFlatIcons.CardAccountDetailsOutline}">
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.CardBulletedOutline}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ManageCardCommand}"/>
                             </Label.GestureRecognizers>
@@ -263,12 +268,13 @@
 
                 <!--Check-in-->
                 <Frame
-                    Grid.Row="1"
-                    Grid.Column="0"
+                    Grid.Row="0"
+                    Grid.Column="2"
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PreCheckInCommand}"/>
@@ -284,7 +290,7 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#B7FFCA"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
@@ -316,7 +322,8 @@
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
@@ -332,11 +339,11 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#FFE9AD"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
-			                Text="{x:Static fontawesome:QloudidAppFlatIcons.AccountOutline}">
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Account}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ChildrenCommand}"/>
                             </Label.GestureRecognizers>
@@ -364,7 +371,8 @@
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Grid RowSpacing="5">
                         <Grid.RowDefinitions>
@@ -374,7 +382,7 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#EF793F"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"
@@ -391,14 +399,15 @@
                     </Grid>
                 </Frame>
 
-                <!--Property-->
+                 <!--Address book-->
                 <Frame
                     Grid.Row="2"
                     Grid.Column="0"
                     CornerRadius="8"
                     HasShadow="False"
                     Padding="10,17,10,14"
-                    BackgroundColor="#242A37"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
@@ -414,7 +423,56 @@
                         <Label
 			                Grid.Row="0"
 			                FontSize="30"
-                            TextColor="White"
+                            TextColor="#FFE9AD"
+			                HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Start"
+                            FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.MessageTextOutline}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="1"
+		                    FontSize="12"
+		                    Text="Address book" 
+		                    TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+
+                <!--Property-->
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    Padding="10,17,10,14"
+                    BorderColor="#242A37"
+                    BackgroundColor="Transparent"
+                    IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Grid RowSpacing="5">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Label
+			                Grid.Row="0"
+			                FontSize="30"
+                            TextColor="#F29DFE"
 			                HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Start"
                             FontFamily="{StaticResource MaterialFontFamily}"

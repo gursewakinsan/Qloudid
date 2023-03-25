@@ -21,6 +21,8 @@ namespace Qloudid.ViewModels
 				ExpirationYearList.Add($"{currentYear}");
 				currentYear = currentYear + 1;
 			}
+			FirstName = Helper.Helper.UserInfo.first_name;
+			LastName = Helper.Helper.UserInfo.last_name;
 		}
 		#endregion
 
@@ -36,8 +38,10 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Card number is required.");
 			else if (CardNumber.Length < 16)
 				await Helper.Alert.DisplayAlert("Please enter 16 digits card number.");
-			else if (string.IsNullOrWhiteSpace(CardHolderName))
-				await Helper.Alert.DisplayAlert("Card holder name is required.");
+			else if (string.IsNullOrWhiteSpace(FirstName))
+				await Helper.Alert.DisplayAlert("First name is required.");
+			else if (string.IsNullOrWhiteSpace(LastName))
+				await Helper.Alert.DisplayAlert("Last name is required.");
 			else if (string.IsNullOrWhiteSpace(ExpirationMonth))
 				await Helper.Alert.DisplayAlert("Expiration month is required.");
 			else if (string.IsNullOrWhiteSpace(ExpirationYear))
@@ -53,7 +57,7 @@ namespace Qloudid.ViewModels
 					UserId = Helper.Helper.UserId,
 					certi = Helper.Helper.QrCertificateKey,
 					CardNumber = CardNumber,
-					CardHolderName = CardHolderName,
+					CardHolderName = $"{FirstName} {LastName}",
 					ExpirationMonth = ExpirationMonth,
 					ExpirationYear = ExpirationYear,
 					Cvv = Cvv
@@ -133,6 +137,28 @@ namespace Qloudid.ViewModels
 			{
 				isNameOnCard = value;
 				OnPropertyChanged("IsNameOnCard");
+			}
+		}
+
+		private string firstName;
+		public string FirstName
+		{
+			get => firstName;
+			set
+			{
+				firstName = value;
+				OnPropertyChanged("FirstName");
+			}
+		}
+
+		private string lastName;
+		public string LastName
+		{
+			get => lastName;
+			set
+			{
+				lastName = value;
+				OnPropertyChanged("LastName");
 			}
 		}
 		#endregion

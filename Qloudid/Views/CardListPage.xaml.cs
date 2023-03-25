@@ -21,10 +21,5 @@ namespace Qloudid.Views
 			if (!Helper.Helper.IsAddMoreCard)
 				viewModel.GetAllCardCommand.Execute(null);
 		}
-
-		private void OnCardsItemTapped(object sender, ItemTappedEventArgs e)
-		{
-			listCards.SelectedItem = null;
-		}
 	}
 }
