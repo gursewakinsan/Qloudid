@@ -15,6 +15,12 @@ namespace Qloudid.Views.Identity
             BindingContext = viewModel = new IdentityCardListPageViewModel(this.Navigation);
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModel.IdentificatorListCommand.Execute(null);
+        }
+
         void OnIdentityItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             listIdentity.SelectedItem = null;

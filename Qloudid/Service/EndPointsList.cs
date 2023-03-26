@@ -231,6 +231,10 @@
 		public const string AddApartmentKeyPhotosUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addApartmentKeyPhotos";
 		public const string UpdateApartmentKeyInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateApartmentKeyInfo";
 
+		//Identity
+		public const string IdentificatorCountDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/identificatorCountDetail";
+		public const string IdentificatorListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/identificatorList";
+
 		//Booking
 		public const string ApartmentReservationConfermationRequiredListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationConfermationRequiredList";
 		public const string ApartmentReservationHistoryListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/apartmentReservationHistoryList";

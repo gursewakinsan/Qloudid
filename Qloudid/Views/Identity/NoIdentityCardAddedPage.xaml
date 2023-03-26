@@ -17,7 +17,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="56"/>
         </Grid.RowDefinitions>
-        <StackLayout Orientation="Horizontal" Grid.Row="0" Spacing="8" IsVisible="False">
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Spacing="2">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CloseCommand}" />
             </StackLayout.GestureRecognizers>
@@ -38,7 +38,7 @@
             <Label
 			    FontFamily="PoppinsBoldFontFamily"
 			    FontSize="16"
-                Text="Error"
+                Text="Back"
 			    HorizontalTextAlignment="Start"
 			    TextColor="White"
                 VerticalOptions="CenterAndExpand"

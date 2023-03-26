@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Qloudid.Service;
+using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -11,37 +13,52 @@ namespace Qloudid.ViewModels
         public IdentityCardListPageViewModel(INavigation navigation)
         {
             Navigation = navigation;
-            IdentityModelList = new List<IdentityModel>();
-            IdentityModelList.Add(new IdentityModel()
+        }
+        #endregion
+
+        #region Add Identity card Command.
+        private ICommand addIdentityCardCommand;
+        public ICommand AddIdentityCardCommand
+        {
+            get => addIdentityCardCommand ?? (addIdentityCardCommand = new Command(async () => await ExecuteAddIdentityCardCommand()));
+        }
+        private async Task ExecuteAddIdentityCardCommand()
+        {
+            if (IdentificatorCountDetail.TotalCount == 3) return;
+            await Navigation.PushAsync(new Views.Identity.AddYourIdCardPage());
+        }
+        #endregion
+
+        #region Identificator List Command.
+        private ICommand identificatorListCommand;
+        public ICommand IdentificatorListCommand
+        {
+            get => identificatorListCommand ?? (identificatorListCommand = new Command(async () => await ExecuteIdentificatorListCommand()));
+        }
+        private async Task ExecuteIdentificatorListCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IIdentityService service = new IdentityService();
+            IdentificatorList = await service.IdentificatorListAsync(new Models.IdentificatorListRequest()
             {
-                Title = "National card",
-                SubTitle = "Expires: 01/11 2028",
-                IsChecked = false
+                UserId = Helper.Helper.UserId
             });
-            IdentityModelList.Add(new IdentityModel()
-            {
-                Title = "Driver license",
-                SubTitle = "Expires: 11/11 2024",
-                IsChecked = false
-            });
-            IdentityModelList.Add(new IdentityModel()
-            {
-                Title = "Passport",
-                SubTitle = "Expires: 11/11 2023",
-                IsChecked = true
-            });
+            DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
 
         #region Properties.
-        public List<IdentityModel> IdentityModelList { get; set; }
+        private List<Models.IdentificatorListResponse> identificatorList;
+        public List<Models.IdentificatorListResponse> IdentificatorList
+        {
+            get => identificatorList;
+            set
+            {
+                identificatorList = value;
+                OnPropertyChanged("IdentificatorList");
+            }
+        }
+        public Models.IdentificatorCountDetailResponse IdentificatorCountDetail => Helper.Helper.IdentificatorCountDetail;
         #endregion
-    }
-
-    public class IdentityModel
-    {
-        public string Title { get; set; }
-        public string SubTitle { get; set; }
-        public bool IsChecked { get; set; }
     }
 }

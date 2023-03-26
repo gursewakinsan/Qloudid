@@ -21,6 +21,7 @@
     <None Remove="AppFonts\SFProDisplayRegular.ttf" />
     <None Remove="AppFonts\SFProDisplaySemibold.ttf" />
     <None Remove="CountryJson.json" />
+    <None Remove="Models\Identity\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -570,5 +571,8 @@
     <EmbeddedResource Update="Views\YourSignaturePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Identity\" />
   </ItemGroup>
 </Project>

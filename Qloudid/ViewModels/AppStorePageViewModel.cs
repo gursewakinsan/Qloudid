@@ -77,8 +77,19 @@ namespace Qloudid.ViewModels
         }
         private async Task ExecuteAddIdentityCardCommand()
         {
-			await Navigation.PushAsync(new Views.Identity.NoIdentityCardAddedPage());
-        }
+			DependencyService.Get<IProgressBar>().Show();
+			IIdentityService service = new IdentityService();
+			var responses = await service.IdentificatorCountDetailAsync(new Models.IdentificatorCountDetailRequest()
+			{
+				UserId = Helper.Helper.UserId
+			});
+			Helper.Helper.IdentificatorCountDetail = responses;
+			if (responses.TotalCount == 0)
+				await Navigation.PushAsync(new Views.Identity.NoIdentityCardAddedPage());
+			else
+				await Navigation.PushAsync(new Views.Identity.IdentityCardListPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
 		#endregion
 
 		#region Pre Check In Command.

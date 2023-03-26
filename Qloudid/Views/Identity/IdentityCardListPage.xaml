@@ -70,6 +70,7 @@
             BorderWidth="1"
             BorderColor="White"
             Opacity="0.1"
+            Command="{Binding AddIdentityCardCommand}"
             BackgroundColor="Transparent"/>
 
          <StackLayout
@@ -80,7 +81,7 @@
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer />
+                <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
             </StackLayout.GestureRecognizers>
             <Label
 		        FontSize="14"
@@ -89,7 +90,7 @@
                 VerticalTextAlignment="Center"
                 FontFamily="PoppinsSemiBoldFontFamily">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
                 </Label.GestureRecognizers>
             </Label>
 
@@ -100,7 +101,7 @@
 			    TextColor="White"
 			    VerticalTextAlignment="Center">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Command="{Binding AddIdentityCardCommand}"/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
@@ -157,7 +158,7 @@
             SeparatorVisibility="None"
 			BackgroundColor="Transparent"
 			ItemTapped="OnIdentityItemTapped"
-			ItemsSource="{Binding IdentityModelList}"
+			ItemsSource="{Binding IdentificatorList}"
 			VerticalScrollBarVisibility="Never">
             <ListView.Margin>
                 <OnPlatform x:TypeArguments="Thickness">
@@ -220,14 +221,14 @@
                                 <Label
 			                        FontSize="16"
 			                        TextColor="White"
-                                    Text="{Binding Title}"
+                                    Text="{Binding IdName}"
                                     FontFamily="PoppinsRegularFontFamily"/>
 
                                 <Label
 			                        FontSize="14"
                                     Opacity="0.42"
 			                        TextColor="White"
-                                    Text="{Binding SubTitle}"
+                                    Text="{Binding ExpiryDate}"
                                     FontFamily="PoppinsRegularFontFamily"/>
                             </StackLayout>
 
