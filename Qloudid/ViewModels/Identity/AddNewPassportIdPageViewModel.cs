@@ -33,6 +33,7 @@ namespace Qloudid.ViewModels
         public DateTime BindExpiryMinimumDate => DateTime.Today;
         public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
         public DateTime SelectedExpiryDate { get; set; }
+        public string IdentificatorTitle => Helper.Helper.SelectedIdentificatorText;
         #endregion
     }
 }

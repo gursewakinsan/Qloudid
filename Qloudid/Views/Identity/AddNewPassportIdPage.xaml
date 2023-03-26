@@ -116,7 +116,7 @@
 			        LineBreakMode="TailTruncation"
 			        MaxLines="1"
 			        TextColor="White"
-                    Text="Passport"
+                    Text="{Binding IdentificatorTitle}"
 			        VerticalTextAlignment="Center"/>
 
                 <Label
@@ -158,7 +158,7 @@
 			        HorizontalTextAlignment="Start"
 			        Opacity="0.42"
 			        TextColor="White"
-                    Text="Passport number"
+                    Text="{Binding IdentificatorTitle}"
 			        VerticalTextAlignment="Center"/>
 
 				<controls:CustomEntry
@@ -166,7 +166,7 @@
 					BackgroundColor="Transparent"
 					FontFamily="PoppinsRegularFontFamily"
 					FontSize="15"
-					Placeholder="Passport number"
+					Placeholder="{Binding IdentificatorTitle}"
 					PlaceholderColor="#797A7D"
 					TextColor="White" />
 
@@ -240,8 +240,14 @@
 			        HorizontalTextAlignment="Start"
 			        TextColor="White"
 					Opacity="0.42"
-                    Text="Upload passport copy"
 			        VerticalTextAlignment="Center">
+					<Label.FormattedText>
+						<FormattedString>
+							<Span Text="Upload "/>
+							<Span Text="{Binding IdentificatorTitle}"/>
+							<Span Text=" copy"/>
+						</FormattedString>
+					</Label.FormattedText>
 					<Label.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding IdentityCardListPageCommand}"/>
 					</Label.GestureRecognizers>

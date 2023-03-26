@@ -20,7 +20,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="0"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="35"/>
@@ -128,12 +128,16 @@
             Grid.Row="8"
 		    BackgroundColor="#5B5B79"/>
 
-		 <ScrollView
+		 <!--<ScrollView
 			Grid.Row="9"
 				Grid.Column="1"
 				Grid.ColumnSpan="3"
-			VerticalScrollBarVisibility="Never">
-			 <StackLayout BindableLayout.ItemsSource="{Binding CardList}" Margin="0,10,0,0">
+			VerticalScrollBarVisibility="Never">-->
+			 <StackLayout
+				 Grid.Row="9"
+				Grid.Column="1"
+				Grid.ColumnSpan="3"
+				 BindableLayout.ItemsSource="{Binding CardList}" Margin="0,10,0,0">
 				 <BindableLayout.ItemTemplate>
 					 <DataTemplate>
 						<Grid
@@ -211,7 +215,7 @@
 					</DataTemplate>
 				 </BindableLayout.ItemTemplate>
 			 </StackLayout>
-		 </ScrollView>
+		 <!--</ScrollView>-->
     </Grid>
 
 
