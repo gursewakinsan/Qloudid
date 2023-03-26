@@ -89,7 +89,10 @@ namespace Qloudid.ViewModels
 					}
 				}
 				else if (response == 5)
+				{
+					Helper.Helper.IsAddMoreCard = false;
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				}
 				DependencyService.Get<IProgressBar>().Hide();
 			}
 		}
