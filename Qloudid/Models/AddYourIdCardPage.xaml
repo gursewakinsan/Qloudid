@@ -146,11 +146,11 @@
 						BackgroundColor="#F4B400"
 						IsClippedToBounds="True">
 						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+							<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="Passport"/>
 						</Frame.GestureRecognizers>
 						<Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
 							<Grid.GestureRecognizers>
-								<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+								<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="Passport"/>
 							</Grid.GestureRecognizers>
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="*"/>
@@ -166,7 +166,7 @@
 							    Text="Passport"
 							    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+									<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="Passport"/>
 								</Label.GestureRecognizers>
 							</Label>
 
@@ -178,7 +178,7 @@
 							    Text="Best recommended "
 							    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+									<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="Passport"/>
 								</Label.GestureRecognizers>
 							</Label>
 						</StackLayout>
@@ -193,6 +193,7 @@
                             BackgroundColor="#181A1F"
                             VerticalOptions="CenterAndExpand"
 							Command="{Binding AddPassportCommand}"
+							CommandParameter="Passport"
                             FontFamily="{StaticResource MaterialFontFamily}"
 							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
 					</Grid>
@@ -225,7 +226,7 @@
 					VerticalOptions="CenterAndExpand"
 					IsVisible="{Binding IdentificatorCountDetail.NationalCardCount, Converter={StaticResource InverseBoolConverter}}">
 					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+						<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="NationalCard"/>
                     </Frame.GestureRecognizers>
 				</Frame>
 
@@ -241,11 +242,11 @@
 					VerticalOptions="CenterAndExpand"
 					IsVisible="{Binding IdentificatorCountDetail.NationalCardCount, Converter={StaticResource InverseBoolConverter}}">
 					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+						<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="NationalCard"/>
                     </Frame.GestureRecognizers>
 					<Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
 						<Grid.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+							<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="NationalCard"/>
                         </Grid.GestureRecognizers>
                             <Grid.ColumnDefinitions>
 								<ColumnDefinition Width="*"/>
@@ -261,7 +262,7 @@
 							    Text="National card"
 							    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+									<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="NationalCard"/>
 								</Label.GestureRecognizers>
 							</Label>
 						</StackLayout>
@@ -276,6 +277,7 @@
                             BackgroundColor="White"
                             VerticalOptions="CenterAndExpand"
 							Command="{Binding AddPassportCommand}"
+							CommandParameter="NationalCard"
                             FontFamily="{StaticResource MaterialFontFamily}"
 							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
 					</Grid>
@@ -294,7 +296,7 @@
 					VerticalOptions="CenterAndExpand"
 					IsVisible="{Binding IdentificatorCountDetail.DlCount, Converter={StaticResource InverseBoolConverter}}">
 					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+						<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="DriverLicense"/>
                     </Frame.GestureRecognizers>
 				</Frame>
 
@@ -314,7 +316,7 @@
                     </Frame.GestureRecognizers>
 					<Grid VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
 						<Grid.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+							<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="DriverLicense"/>
                         </Grid.GestureRecognizers>
                             <Grid.ColumnDefinitions>
 								<ColumnDefinition Width="*"/>
@@ -330,7 +332,7 @@
 							    Text="Driver license"
 							    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding AddPassportCommand}"/>
+									<TapGestureRecognizer Command="{Binding AddPassportCommand}" CommandParameter="DriverLicense"/>
 								</Label.GestureRecognizers>
 							</Label>
 						</StackLayout>
@@ -345,6 +347,7 @@
                             BackgroundColor="White"
                             VerticalOptions="CenterAndExpand"
 							Command="{Binding AddPassportCommand}"
+							CommandParameter="DriverLicense"
                             FontFamily="{StaticResource MaterialFontFamily}"
 							Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
 					</Grid>

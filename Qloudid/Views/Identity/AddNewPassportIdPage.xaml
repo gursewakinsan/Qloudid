@@ -15,6 +15,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="*" />
+			<RowDefinition Height="58"/>
+			<RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28" />
@@ -168,7 +170,8 @@
 					FontSize="15"
 					Placeholder="{Binding IdentificatorTitle}"
 					PlaceholderColor="#797A7D"
-					TextColor="White" />
+					TextColor="White"
+					Text="{Binding IdentificatorText}"/>
 
 				<BoxView
                     Grid.Row="10"
@@ -266,11 +269,26 @@
 						Padding="0"
 						FontSize="50"
 						CornerRadius="10"
-						TextColor="White" 
+						TextColor="White"
+						x:Name="btn1"
 						BackgroundColor="#242A37"
-						Command="{Binding IdentityCardListPageCommand}"
+						Clicked="ImageData1Clicked"
 						FontFamily="{StaticResource MaterialFontFamily}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.Menu}"/>
+
+					<ImageButton
+						x:Name="image1"
+						Grid.Row="0"
+						Grid.Column="0"
+						Aspect="AspectFill"
+						CornerRadius="10"
+						Padding="0"
+						IsVisible="False"
+						BackgroundColor="Transparent">
+						<ImageButton.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData1Clicked" />
+						</ImageButton.GestureRecognizers>
+					</ImageButton>
 
 					<Button
 						Grid.Row="0"
@@ -278,13 +296,41 @@
 						Padding="0"
 						FontSize="50"
 						CornerRadius="10"
-						TextColor="White" 
+						TextColor="White"
+						x:Name="btn2"
 						BackgroundColor="#242A37"
-						Command="{Binding IdentityCardListPageCommand}"
+						Clicked="ImageData2Clicked"
 						FontFamily="{StaticResource MaterialFontFamily}"
 						Text="{x:Static fontawesome:QloudidAppFlatIcons.Menu}"/>
+
+					<ImageButton
+						x:Name="image2"
+						Grid.Row="0"
+						Grid.Column="1"
+						Aspect="AspectFill"
+						CornerRadius="10"
+						Padding="0"
+						IsVisible="False"
+						BackgroundColor="Transparent">
+						<ImageButton.GestureRecognizers>
+							<TapGestureRecognizer Tapped="ImageData2Clicked" />
+						</ImageButton.GestureRecognizers>
+					</ImageButton>
 				</Grid>
             </Grid>
         </ScrollView>
+
+		<Button
+			Grid.Row="2"
+			 Grid.Column="1"
+			 Grid.ColumnSpan="3"
+            Text="Submit"
+            FontSize="15"
+            Padding="0"
+            CornerRadius="10"
+            TextColor="Black"
+            Command="{Binding SaveIdentifyInfoCommand}"
+            BackgroundColor="White"
+            FontFamily="PoppinsSemiBoldFontFamily"/>
     </Grid>
 </ContentPage>

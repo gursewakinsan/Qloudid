@@ -38,7 +38,7 @@ namespace Qloudid.ViewModels
         #endregion
 
         #region Add Passport Command.
-        public Models.IdentificatorCountDetailResponse IdentificatorCountDetail;
+        public Models.IdentificatorCountDetailResponse IdentificatorCountDetail => Helper.Helper.IdentificatorCountDetail;
         #endregion
     }
 }
