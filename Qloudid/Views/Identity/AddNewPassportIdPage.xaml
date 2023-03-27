@@ -139,12 +139,10 @@
 			        FontSize="18"
 			        HorizontalTextAlignment="Start"
 			        TextColor="#F4B400"
-                    Text="Kowaken Ghirmai"
-			        VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding IdentityCardListPageCommand}"/>
-					</Label.GestureRecognizers>
-				</Label>
+					MaxLines="1"
+					LineBreakMode="TailTruncation"
+                    Text="{Binding DisplayUserName}"
+			        VerticalTextAlignment="Center"/>
 
                 <BoxView
                     Grid.Row="6"
@@ -251,9 +249,6 @@
 							<Span Text=" copy"/>
 						</FormattedString>
 					</Label.FormattedText>
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding IdentityCardListPageCommand}"/>
-					</Label.GestureRecognizers>
 				</Label>
 
                 <BoxView

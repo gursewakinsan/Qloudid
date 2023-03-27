@@ -69,8 +69,13 @@ namespace Qloudid.ViewModels
 			if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
 			{
 				//Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
-				Helper.Helper.SelectedIdentificatorText = "Passport";
-				Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+
+
+				//Helper.Helper.SelectedIdentificatorText = "Passport";
+				//Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
+
+				await Navigation.PushAsync(new Views.Identity.AddYourIdCardPage());
+
 			}
 			else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
 			{

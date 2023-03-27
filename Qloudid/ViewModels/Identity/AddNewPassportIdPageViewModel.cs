@@ -109,7 +109,7 @@ namespace Qloudid.ViewModels
         public DateTime BindExpiryMaximumDate => DateTime.Today.AddYears(70);
         public DateTime SelectedExpiryDate { get; set; }
         public string IdentificatorTitle => Helper.Helper.SelectedIdentificatorText;
-
+		public string DisplayUserName => Helper.Helper.UserInfo.DisplayUserName;
 		public int IdentificatorId { get; set; }
 		public string IdentificatorText { get; set; }
 		public byte[] CroppedImage1;
