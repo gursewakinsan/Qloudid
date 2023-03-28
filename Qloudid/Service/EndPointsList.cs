@@ -242,5 +242,9 @@
 
 		public const string ReservationHistoryListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/reservationHistoryList";
 		public const string ResendPrecheckinInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/resendPrecheckinInfo";
+
+		//Repair
+		public const string UserApartmentTicketListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userApartmentTicketList";
+
 	}
 }

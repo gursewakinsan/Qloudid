@@ -22,6 +22,9 @@
     <None Remove="AppFonts\SFProDisplaySemibold.ttf" />
     <None Remove="CountryJson.json" />
     <None Remove="Models\Identity\" />
+    <None Remove="Views\Repair\" />
+    <None Remove="ViewModels\Repair\" />
+    <None Remove="Models\Repair\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -574,5 +577,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Identity\" />
+    <Folder Include="Views\Repair\" />
+    <Folder Include="ViewModels\Repair\" />
+    <Folder Include="Models\Repair\" />
   </ItemGroup>
 </Project>

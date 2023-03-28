@@ -185,7 +185,29 @@ namespace Qloudid.ViewModels
 			await Navigation.PushAsync(new Views.RentOut.AssignCleaningTaskNowPage());
 		}
 		#endregion
-		
+
+		#region Home Repair Command.
+		private ICommand homeRepairCommand;
+		public ICommand HomeRepairCommand
+		{
+			get => homeRepairCommand ?? (homeRepairCommand = new Command(async () => await ExecuteHomeRepairCommand()));
+		}
+		private async Task ExecuteHomeRepairCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IRepairService service = new RepairService();
+			var response = await service.UserApartmentTicketListAsync(new Models.UserApartmentTicketListRequest()
+			{
+				ApartmentId = Address.Id
+			});
+			if (response?.Count > 0)
+				await Navigation.PushAsync(new Views.Repair.RepairListPage());
+			else
+				await Navigation.PushAsync(new Views.Repair.NoRepairListPage());
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Stay Or Rent Out Command.
 		private ICommand stayOrRentOutCommand;
 		public ICommand StayOrRentOutCommand

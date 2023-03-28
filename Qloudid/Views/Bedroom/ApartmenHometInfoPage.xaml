@@ -1062,6 +1062,76 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
+
+                 <!--Home repair-->
+                 <Frame
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="0"
+                     WidthRequest="240"
+					IsClippedToBounds="True"
+                    BackgroundColor="#242A37"
+					HorizontalOptions="StartAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HomeRepairCommand}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="46"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding HomeRepairCommand}"/>
+                        </Grid.GestureRecognizers>
+                         <Button
+                            FontSize="25"
+			                Grid.Column="0"
+                            CornerRadius="23"
+                            WidthRequest="46"
+                            HeightRequest="46"
+                            TextColor="#242A37"
+                            BackgroundColor="#F40000"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                             Command="{Binding HomeRepairCommand}"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.BellOutline}"/>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="0"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding HomeRepairCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="0"
+								Text="Home repair"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HomeRepairCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="0"
+                                MaxLines="2"
+								Text="Find good help for your home repairs"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HomeRepairCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
              </StackLayout>
         </ScrollView>
     </Grid>
