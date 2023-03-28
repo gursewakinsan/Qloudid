@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.Identity.IdentityCardListPage"
-     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"

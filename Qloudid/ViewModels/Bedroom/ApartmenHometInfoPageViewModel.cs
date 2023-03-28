@@ -200,7 +200,7 @@ namespace Qloudid.ViewModels
 			{
 				ApartmentId = Address.Id
 			});
-			if (response?.Count > 0)
+			if (response?.Count >0)
 				await Navigation.PushAsync(new Views.Repair.RepairListPage());
 			else
 				await Navigation.PushAsync(new Views.Repair.NoRepairListPage());
