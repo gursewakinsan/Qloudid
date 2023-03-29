@@ -78,10 +78,8 @@ namespace Qloudid.ViewModels
 						}
 					}
 				}
-				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
-				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+				await Navigation.PushAsync(new Views.Repair.RepairListPage());
 				DependencyService.Get<IProgressBar>().Hide();
-				await Navigation.PopAsync();
 			}
 		}
 		#endregion

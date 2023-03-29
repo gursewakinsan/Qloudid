@@ -42,7 +42,7 @@
             Opacity="0.1"
             HeightRequest="40"
             VerticalOptions="CenterAndExpand"
-            Command="{Binding CloseCommand}"
+            Command="{Binding BackCommand}"
             BackgroundColor="Transparent"/>
 
         <Label
@@ -55,7 +55,7 @@
 			TextColor="White"
 			VerticalTextAlignment="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 

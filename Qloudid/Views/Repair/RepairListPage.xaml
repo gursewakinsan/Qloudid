@@ -59,7 +59,7 @@
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
 			TextColor="White">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
             </Label.GestureRecognizers>
         </Label>
 
