@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Repair.NoRepairListPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+    BackgroundImageSource="imgNoRepair.png"
+	NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image
+            IsVisible="False"
+            Aspect="AspectFill"
+            Source="imgNoRepair.png"/>
+
+        <Frame
+            Margin="28,0,28,10"
+            Padding="26"
+            CornerRadius="12"
+            HasShadow="False"
+            IsClippedToBounds="True"
+            BackgroundColor="#181A1F"
+            VerticalOptions="EndAndExpand">
+            <StackLayout Spacing="5" VerticalOptions="CenterAndExpand">
+                <Label
+			        FontFamily="PoppinsSemiBoldFontFamily"
+		            FontSize="25"
+			        HorizontalTextAlignment="Center"
+			        Text="Find craftsmen"
+			        TextColor="White" />
+
+                <Label
+			        FontFamily="PoppinsRegularFontFamily"
+		            FontSize="20"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Center"
+			        Text="Quickly, safely and easily"
+			        TextColor="White" />
+
+                 <Button
+			        Padding="0"
+                    FontSize="25"
+                    TextColor="#181A1F"
+                    HeightRequest="40"
+                    WidthRequest="56"
+                    CornerRadius="8"
+                    Margin="0,25,0,0"
+			        BackgroundColor="White"
+                    Command="{Binding HomeRepairPageCommand}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+			        Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Repair.HomeRepairPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+    ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button 
+            Grid.Row="0"
+            Grid.Column="1"
+            CornerRadius="8"
+            BorderWidth="1"
+            BorderColor="White"
+            Opacity="0.1"
+            Command="{Binding CloseCommand}"
+            BackgroundColor="Transparent"/>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="22"
+			HorizontalTextAlignment="Center"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White"
+			VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Image
+            Grid.Row="0"
+            Grid.Column="3"
+            Aspect="AspectFill"
+            IsVisible="False"
+            Source="iconSmallLogo.png"
+            BackgroundColor="Transparent"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+		    FontSize="33"
+		    Text="Get help"
+		    TextColor="White"
+            HorizontalTextAlignment="Start"
+            FontFamily="PoppinsBoldFontFamily"/>
+
+        <Label
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"
+	    	FontFamily="PoppinsRegularFontFamily"
+	    	FontSize="25" Opacity="0.42"
+            HorizontalTextAlignment="Start"
+	    	Text="Home repair simplified"
+	    	TextColor="White"/>
+
+        <Label
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+	    	FontFamily="PoppinsSemiBoldFontFamily"
+	    	FontSize="18" Opacity="0.70"
+            HorizontalTextAlignment="Start"
+	    	Text="Select"
+	    	TextColor="White"/>
+
+        <BoxView 
+		    Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Grid.Row="8"
+		    BackgroundColor="#5B5B79"/>
+        
+        <syncfusion:SfListView
+		    x:Name="listView"
+		    Grid.Row="9"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+		    Margin="0,26,0,5"
+		    IsScrollBarVisible="False"
+		    ItemSize="115"
+            ItemTapped="OnApartmentProblemDetailItemTapped"
+            HeightRequest="{Binding ListViewHeightRequest}"
+		    ItemsSource="{Binding UserApartmentProblemDetail}"
+		    VerticalOptions="StartAndExpand">
+            <syncfusion:SfListView.LayoutManager>
+                <syncfusion:GridLayout SpanCount="3" />
+            </syncfusion:SfListView.LayoutManager>
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        CornerRadius="8"
+                        HasShadow="False"
+                        Padding="10,17,10,14"
+                        BorderColor="#242A37"
+                        Margin="0,0,10,10"
+                        BackgroundColor="Transparent"
+                        IsClippedToBounds="True">
+                        <Grid RowSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Label
+			                    Grid.Row="0"
+			                    FontSize="30"
+                                TextColor="{Binding TicketIconColor}"
+			                    HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Start"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{Binding TicketIcon}"/>
+
+                            <Label
+                                Grid.Row="1"
+		                        FontSize="12"
+		                        Text="{Binding TicketTitle}" 
+		                        TextColor="White"
+                                MaxLines="1"
+                                LineBreakMode="TailTruncation"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                FontFamily="PoppinsRegularFontFamily"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </Grid>
+</ContentPage>

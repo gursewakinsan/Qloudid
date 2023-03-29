@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Repair.CreateNewRepairTicketPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+		    Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			HorizontalTextAlignment="Start"
+			Text="Create"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+	        Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+            Opacity="0.42"
+		    HorizontalTextAlignment="Start"
+			Text="Your ticket &amp; get help"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+		    Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsSemiBoldFontFamily"
+		    FontSize="18"
+            Opacity="0.70"
+			HorizontalTextAlignment="Start"
+			Text="Select"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <BoxView
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="#5B5B79"/>
+
+        <ScrollView
+            Grid.Row="9"
+            Grid.Column="1"
+		    Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="78"/>
+                    <RowDefinition Height="37"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Frame
+                   Grid.Row="1"
+                   Padding="20,0,20,0"
+                   HasShadow="False"
+                   CornerRadius="16"
+                   BackgroundColor="#89C99A"
+                   IsClippedToBounds="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HomeRepairPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                   <Grid>
+                       <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HomeRepairPageCommand}"/>
+                        </Grid.GestureRecognizers>
+                       <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="*"/>
+                           <ColumnDefinition Width="36"/>
+                       </Grid.ColumnDefinitions>
+                       <StackLayout
+                           Grid.Row="0"
+                            Grid.Column="0"
+                           Spacing="0"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="CenterAndExpand">
+                           <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding HomeRepairPageCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                           <Label
+			                    FontFamily="PoppinsBoldFontFamily"
+			                    FontSize="18"
+		                        HorizontalTextAlignment="Start"
+			                    Text="Get help"
+			                    TextColor="#181A1F"
+			                    VerticalTextAlignment="Center">
+                               <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HomeRepairPageCommand}"/>
+                                </Label.GestureRecognizers>
+                           </Label>
+
+                           <Label
+			                    FontFamily="PoppinsRegularFontFamily"
+			                    FontSize="15"
+		                        HorizontalTextAlignment="Start"
+			                    Text="Report a problem"
+			                    TextColor="#181A1F"
+			                    VerticalTextAlignment="Center">
+                               <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding HomeRepairPageCommand}"/>
+                                </Label.GestureRecognizers>
+                           </Label>
+                       </StackLayout>
+
+                       <Button
+			                Grid.Row="0"
+			                Grid.Column="1"
+			                Padding="0"
+			                BackgroundColor="#181A1F"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                FontSize="20"
+                            HeightRequest="36"
+                            WidthRequest="36"
+                            CornerRadius="18"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Command="{Binding HomeRepairPageCommand}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+			                TextColor="#89C99A"/>
+                   </Grid>
+               </Frame>
+
+                <Frame
+			        Grid.Row="3"
+			        Padding="20,20,20,0"
+			        BackgroundColor="Transparent"
+			        BorderColor="#242A37"
+			        CornerRadius="16"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid RowSpacing="0" ColumnSpacing="17">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="12"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="31"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout
+                            Spacing="0"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2">
+                            <Label
+			                    FontFamily="PoppinsBoldFontFamily"
+			                    FontSize="20"
+		                        HorizontalTextAlignment="Start"
+			                    Text="Better to call"
+			                    TextColor="White"
+			                    VerticalTextAlignment="Center" />
+
+                            <Label
+			                    FontFamily="PoppinsRegularFontFamily"
+			                    FontSize="20"
+		                        HorizontalTextAlignment="Start"
+			                    Text="If your problem is big, for ex"
+			                    TextColor="White"
+			                    VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <BoxView
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Opacity="0.42"
+                            CornerRadius="5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            BackgroundColor="White"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="2"
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+		                    HorizontalTextAlignment="Start"
+			                Text="Heavy water leakage"
+			                TextColor="White"
+                            Opacity="0.42"
+			                VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Opacity="0.42"
+                            CornerRadius="5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            BackgroundColor="White"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="3"
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+		                    HorizontalTextAlignment="Start"
+			                Text="Electricity problem in all rooms"
+			                TextColor="White"
+                            Opacity="0.42"
+			                VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            Opacity="0.42"
+                            CornerRadius="5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            BackgroundColor="White"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="4"
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+		                    HorizontalTextAlignment="Start"
+			                Text="After burglary"
+			                TextColor="White"
+                            Opacity="0.42"
+			                VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Column="0"
+                            Grid.Row="5"
+                            Opacity="0.42"
+                            CornerRadius="5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            BackgroundColor="White"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="5"
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+		                    HorizontalTextAlignment="Start"
+			                Text="After fire"
+			                TextColor="White"
+                            Opacity="0.42"
+			                VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Column="0"
+                            Grid.Row="6"
+                            Opacity="0.42"
+                            CornerRadius="5"
+                            HeightRequest="10"
+                            WidthRequest="10"
+                            BackgroundColor="White"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Grid.Row="6"
+			                FontFamily="PoppinsRegularFontFamily"
+			                FontSize="14"
+		                    HorizontalTextAlignment="Start"
+			                Text="After weather disaster"
+			                TextColor="White"
+                            Opacity="0.42"
+			                VerticalTextAlignment="Center" />
+
+                        <Button
+                            Grid.Row="8"
+                            Grid.ColumnSpan="2"
+                            WidthRequest="149"
+                            CornerRadius="20"
+                            Padding="0"
+                            FontSize="14"
+                            Text="076-2072192"
+                            TextColor="#181A1F"
+                            BackgroundColor="White"
+                            HorizontalOptions="StartAndExpand"
+                            FontFamily="PoppinsSemiBoldFontFamily"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+
