@@ -85,5 +85,13 @@
 		public const string LockOutline = "\U000f0341";
 		public const string ImageOutline = "\U000f0976";
 		public const string AlertCircle = "\U000f0028";
+
+		public const string BedQueen = "\U000f0fd0";
+		public const string ScaleBathroom = "\U000f0473";
+		public const string FoodForkDrink = "\U000f05f2";
+		public const string SofaSingle = "\U000f156e";
+		public const string CeilingLight = "\U000f0769";
+		public const string Beach = "\U000f0092";
+		public const string Door = "\U000f081a";
 	}
 }

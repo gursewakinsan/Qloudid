@@ -245,6 +245,9 @@
 
 		//Repair
 		public const string UserApartmentTicketListUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userApartmentTicketList";
-
+		public const string UserApartmentProblemDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userApartmentProblemDetail";
+		public const string GetTicketSubTitleInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getTicketSubTitleInfo";
+		public const string CreateUserApartmentTicketUrl = "https://www.qloudid.com/user/index.php/QloudidApp/createUserApartmentTicket";
+		public const string AddUserApartmentTicketImageUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addUserApartmentTicketImage";
 	}
 }

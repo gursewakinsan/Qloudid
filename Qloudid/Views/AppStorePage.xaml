@@ -5,7 +5,6 @@
     x:Class="Qloudid.Views.AppStorePage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-    xmlns:controls="clr-namespace:Qloudid.Controls"
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
