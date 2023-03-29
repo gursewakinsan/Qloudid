@@ -48,6 +48,10 @@ namespace Qloudid.ViewModels
 		{
 			if (string.IsNullOrWhiteSpace(ProblemDescription))
 				await Helper.Alert.DisplayAlert("Description is required.");
+			else if (ImageDataInfo == null)
+				await Helper.Alert.DisplayAlert("Image is required.");
+			else if (ImageDataInfo.Count == 0)
+				await Helper.Alert.DisplayAlert("Image is required.");
 			else
 			{
 				DependencyService.Get<IProgressBar>().Show();
@@ -74,8 +78,10 @@ namespace Qloudid.ViewModels
 						}
 					}
 				}
+				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
+				this.Navigation.RemovePage(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2]);
 				DependencyService.Get<IProgressBar>().Hide();
-				Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+				await Navigation.PopAsync();
 			}
 		}
 		#endregion
