@@ -258,7 +258,7 @@ namespace Qloudid.ViewModels
 		}
 		private void ExecuteBackCommand()
 		{
-			Application.Current.MainPage.Navigation.PushAsync(new Views.DashboardPage());
+			Application.Current.MainPage.Navigation.PushAsync(new Views.Bedroom.MyHomePage());
 		}
 		#endregion
 

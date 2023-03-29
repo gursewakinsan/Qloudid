@@ -103,5 +103,17 @@ namespace Qloudid.ViewModels
 			await Navigation.PushAsync(new Views.Booking.ManagePreCheckinReservationPage());
 		}
 		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(() => ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage.Navigation.PushAsync(new Views.DashboardPage());
+		}
+		#endregion
 	}
 }
