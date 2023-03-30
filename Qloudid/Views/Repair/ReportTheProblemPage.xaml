@@ -8,23 +8,17 @@
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
-     <Grid
-		Margin="0,22,0,2"
+      <Grid
+		Margin="0,23,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="52"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="17"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="*" />
+              <RowDefinition Height="5"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28" />
             <ColumnDefinition Width="40" />
@@ -41,32 +35,43 @@
 			BorderColor="White"
 			CornerRadius="8"
 			IsClippedToBounds="True"
-			Opacity="0.1">
+			Opacity="0.10">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
             </Frame.GestureRecognizers>
         </Frame>
 
-        <Label
+        <Button
 			Grid.Row="0"
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
-			FontSize="25"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
+			FontSize="20"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
-			TextColor="White">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
-            </Label.GestureRecognizers>
-        </Label>
+			TextColor="White" />
 
-         <Grid
-            Grid.Row="2"
-            Grid.Column="1"
+        <ScrollView
+            Grid.Row="1"
+			Grid.Column="1"
             Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                     <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                 <Grid
+            Grid.Row="2"
              ColumnSpacing="24"
              RowSpacing="0">
              <Grid.ColumnDefinitions>
@@ -108,10 +113,8 @@
              </StackLayout>
          </Grid>
 
-        <Label
+                 <Label
 		    Grid.Row="4"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
 			FontAttributes="Bold"
 			FontFamily="PoppinsSemiBoldFontFamily"
 		    FontSize="18"
@@ -121,18 +124,11 @@
 			TextColor="White"
 			VerticalTextAlignment="Center" />
 
-        <BoxView
-            Grid.Row="6"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            BackgroundColor="#5B5B79"/>
+                <BoxView
+                    Grid.Row="6"
+                    BackgroundColor="#5B5B79"/>
 
-        <ScrollView
-            Grid.Row="7"
-            Grid.Column="1"
-		    Grid.ColumnSpan="3"
-            VerticalScrollBarVisibility="Never">
-            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid RowSpacing="0" ColumnSpacing="0"  Grid.Row="7">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="26"/>
                     <RowDefinition Height="20"/>
@@ -727,13 +723,15 @@
                     </Frame>
                 </Grid>
             </Grid>
+              
+            </Grid>
         </ScrollView>
 
-         <Button
-            Grid.Row="9"
-            Grid.Column="1"
+            <Button
+            Grid.Row="3"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
              CornerRadius="25"
-		    Grid.ColumnSpan="3"
              WidthRequest="170"
              Text="Submit"
              FontSize="15"

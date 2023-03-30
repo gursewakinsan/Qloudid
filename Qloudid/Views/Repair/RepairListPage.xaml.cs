@@ -20,10 +20,5 @@ namespace Qloudid.Views.Repair
             base.OnAppearing();
             viewModel.UserApartmentTicketListCommand.Execute(null);
         }
-
-        void OnApartmentTicketItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
-        {
-            listTicket.SelectedItem = null;
-        }
     }
 }

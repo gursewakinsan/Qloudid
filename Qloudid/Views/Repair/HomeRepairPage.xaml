@@ -8,99 +8,105 @@
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
-    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="28"/>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="28"/>
-        </Grid.ColumnDefinitions>
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button 
-            Grid.Row="0"
-            Grid.Column="1"
-            CornerRadius="8"
-            BorderWidth="1"
-            BorderColor="White"
-            Opacity="0.1"
-            Command="{Binding CloseCommand}"
-            BackgroundColor="Transparent"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
 
-        <Label
+        <Frame
 			Grid.Row="0"
 			Grid.Column="1"
-			FontFamily="{StaticResource MaterialFontFamily}"
-			FontSize="22"
-			HorizontalTextAlignment="Center"
-			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
-			TextColor="White"
-			VerticalTextAlignment="Center">
-            <Label.GestureRecognizers>
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10">
+            <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
-            </Label.GestureRecognizers>
-        </Label>
+            </Frame.GestureRecognizers>
+        </Frame>
 
-        <Image
-            Grid.Row="0"
-            Grid.Column="3"
-            Aspect="AspectFill"
-            IsVisible="False"
-            Source="iconSmallLogo.png"
-            BackgroundColor="Transparent"/>
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
 
-        <Label
-            Grid.Column="1"
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
             Grid.ColumnSpan="3"
-            Grid.Row="2"
-		    FontSize="33"
-		    Text="Get help"
-		    TextColor="White"
-            HorizontalTextAlignment="Start"
-            FontFamily="PoppinsBoldFontFamily"/>
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Get help"
+			        VerticalTextAlignment="Center"/>
 
-        <Label
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Grid.Row="4"
-	    	FontFamily="PoppinsRegularFontFamily"
-	    	FontSize="25" Opacity="0.42"
-            HorizontalTextAlignment="Start"
-	    	Text="Home repair simplified"
-	    	TextColor="White"/>
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Home repair simplified"
+			        VerticalTextAlignment="Center"/>
 
-        <Label
-            Grid.Row="6"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-	    	FontFamily="PoppinsSemiBoldFontFamily"
-	    	FontSize="18" Opacity="0.70"
-            HorizontalTextAlignment="Start"
-	    	Text="Select"
-	    	TextColor="White"/>
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Select"
+			        VerticalTextAlignment="Center"/>
 
-        <BoxView 
-		    Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Grid.Row="8"
-		    BackgroundColor="#5B5B79"/>
-        
-        <syncfusion:SfListView
+                <BoxView
+                    Grid.Row="6"
+                    BackgroundColor="#5B5B79"/>
+
+                <syncfusion:SfListView
 		    x:Name="listView"
-		    Grid.Row="9"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
+		    Grid.Row="7"
 		    Margin="0,26,0,5"
 		    IsScrollBarVisible="False"
 		    ItemSize="115"
@@ -153,5 +159,7 @@
                 </DataTemplate>
             </syncfusion:SfListView.ItemTemplate>
         </syncfusion:SfListView>
+            </Grid>
+        </ScrollView>
     </Grid>
 </ContentPage>

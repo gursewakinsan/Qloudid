@@ -9,22 +9,13 @@
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
     <Grid
-		Margin="0,22,0,2"
+		Margin="0,23,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="52"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="17"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28" />
             <ColumnDefinition Width="40" />
@@ -41,86 +32,84 @@
 			BorderColor="White"
 			CornerRadius="8"
 			IsClippedToBounds="True"
-			Opacity="0.1">
+			Opacity="0.10">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
             </Frame.GestureRecognizers>
         </Frame>
 
-        <Label
+        <Button
 			Grid.Row="0"
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
-			FontSize="25"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
+			FontSize="20"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
-			TextColor="White">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
-            </Label.GestureRecognizers>
-        </Label>
-
-        <Label
-		    Grid.Row="2"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-			FontAttributes="Bold"
-			FontFamily="PoppinsBoldFontFamily"
-			FontSize="33"
-			HorizontalTextAlignment="Start"
-			Text="Create"
-			TextColor="White"
-			VerticalTextAlignment="Center" />
-
-        <Label
-	        Grid.Row="4"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-			FontFamily="PoppinsRegularFontFamily"
-			FontSize="25"
-            Opacity="0.42"
-		    HorizontalTextAlignment="Start"
-			Text="Your ticket &amp; get help"
-			TextColor="White"
-			VerticalTextAlignment="Center" />
-
-        <Label
-		    Grid.Row="6"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-			FontAttributes="Bold"
-			FontFamily="PoppinsSemiBoldFontFamily"
-		    FontSize="18"
-            Opacity="0.70"
-			HorizontalTextAlignment="Start"
-			Text="Select"
-			TextColor="White"
-			VerticalTextAlignment="Center" />
-
-        <BoxView
-            Grid.Row="8"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            BackgroundColor="#5B5B79"/>
+			TextColor="White" />
 
         <ScrollView
-            Grid.Row="9"
-            Grid.Column="1"
-		    Grid.ColumnSpan="3"
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
             VerticalScrollBarVisibility="Never">
-            <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid
+		        ColumnSpacing="0"
+		        RowSpacing="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
                     <RowDefinition Height="26"/>
                     <RowDefinition Height="78"/>
                     <RowDefinition Height="37"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Create"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Your ticket &amp; get help"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Opacity="0.70"
+                    Text="Select"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="6"
+                    BackgroundColor="#5B5B79"/>
+
                 <Frame
-                   Grid.Row="1"
+                   Grid.Row="8"
                    Padding="20,0,20,0"
                    HasShadow="False"
                    CornerRadius="16"
@@ -189,8 +178,8 @@
                    </Grid>
                </Frame>
 
-                <Frame
-			        Grid.Row="3"
+                 <Frame
+			        Grid.Row="10"
 			        Padding="20"
 			        BackgroundColor="Transparent"
 			        BorderColor="#242A37"
