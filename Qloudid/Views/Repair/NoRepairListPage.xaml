@@ -5,17 +5,22 @@
     x:Class="Qloudid.Views.Repair.NoRepairListPage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	ios:Page.UseSafeArea="True"
+	ios:Page.UseSafeArea="False"
     BackgroundImageSource="imgNoRepair.png"
 	NavigationPage.HasNavigationBar="False">
     <Grid>
+        <Image
+            IsVisible="true"
+            Aspect="AspectFill"
+            Source="imgNoRepair.png"/>
+
         <Button
             FontSize="25"
             CornerRadius="8"
             WidthRequest="40"
             HeightRequest="40"
             TextColor="White"
-            Margin="28,10,0,0"
+            Margin="28,50,0,0"
             BackgroundColor="#181A1F"
             Command="{Binding CloseCommand}"
             VerticalOptions="StartAndExpand"
@@ -23,13 +28,8 @@
             FontFamily="{StaticResource MaterialFontFamily}"
             Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"/>
 
-        <Image
-            IsVisible="False"
-            Aspect="AspectFill"
-            Source="imgNoRepair.png"/>
-
         <Frame
-            Margin="28,0,28,10"
+            Margin="28,0,28,30"
             Padding="26"
             CornerRadius="12"
             HasShadow="False"

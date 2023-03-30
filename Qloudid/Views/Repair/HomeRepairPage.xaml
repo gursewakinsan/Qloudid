@@ -104,6 +104,7 @@
 		    Margin="0,26,0,5"
 		    IsScrollBarVisible="False"
 		    ItemSize="115"
+            SelectionBackgroundColor="Transparent"
             ItemTapped="OnApartmentProblemDetailItemTapped"
             HeightRequest="{Binding ListViewHeightRequest}"
 		    ItemsSource="{Binding UserApartmentProblemDetail}"

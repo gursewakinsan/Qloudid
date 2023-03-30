@@ -240,7 +240,7 @@
                     Opacity="0.42"
 					VerticalTextAlignment="Center" />
 
-                <Grid Grid.Row="11" ColumnSpacing="20" RowSpacing="20">
+                <Grid Grid.Row="11" ColumnSpacing="10" RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
@@ -259,17 +259,17 @@
                         Aspect="AspectFill"
                         Clicked="OnImg1Clicked"
                         CornerRadius="12"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                         IsVisible="{Binding Image_1, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
 			            Grid.Column="0"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg1Clicked"/>
                         </Label.GestureRecognizers>
@@ -312,17 +312,17 @@
                         Clicked="OnImg2Clicked"
                         Aspect="AspectFill"
                         CornerRadius="12"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                         IsVisible="{Binding Image_2, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
 			            Grid.Column="1"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg2Clicked"/>
                         </Label.GestureRecognizers>
@@ -365,17 +365,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg3Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                         IsVisible="{Binding Image_3, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
 			            Grid.Column="2"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg3Clicked"/>
                         </Label.GestureRecognizers>
@@ -418,17 +418,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg4Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                         IsVisible="{Binding Image_4, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
 			            Grid.Column="0"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg4Clicked"/>
                         </Label.GestureRecognizers>
@@ -470,17 +470,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg5Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                         IsVisible="{Binding Image_5, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
 			            Grid.Column="1"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg5Clicked"/>
                         </Label.GestureRecognizers>
@@ -523,17 +523,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg6Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                          IsVisible="{Binding Image_6, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
 			            Grid.Column="2"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg6Clicked"/>
                         </Label.GestureRecognizers>
@@ -576,17 +576,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg7Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
 			            Grid.Row="2"
 			            Grid.Column="0"
                          IsVisible="{Binding Image_7, Converter={StaticResource InverseBoolConverter}}"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg7Clicked"/>
                         </Label.GestureRecognizers>
@@ -628,17 +628,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg8Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
 			            Grid.Row="2"
 			            Grid.Column="1"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                          IsVisible="{Binding Image_8, Converter={StaticResource InverseBoolConverter}}"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg8Clicked"/>
                         </Label.GestureRecognizers>
@@ -681,17 +681,17 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg9Clicked"
-                        BackgroundColor="#242A37"/>
+                        BackgroundColor="#FFE9AD"/>
                     <Label
                          IsVisible="{Binding Image_9, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="2"
 			            Grid.Column="2"
 			            FontFamily="{StaticResource MaterialFontFamily}"
-			            FontSize="40"
+			            FontSize="35"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="White">
+			            TextColor="Black">
                          <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg9Clicked"/>
                         </Label.GestureRecognizers>
