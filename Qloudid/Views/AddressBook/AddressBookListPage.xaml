@@ -7,7 +7,8 @@
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False"
-    xmlns:fontawesome="clr-namespace:Qloudid.Helper" xmlns:controls="clr-namespace:Qloudid.Controls">
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:controls="clr-namespace:Qloudid.Controls">
      <Grid
 		Margin="0,23,0,0"
 		ColumnSpacing="0"
