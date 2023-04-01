@@ -409,11 +409,11 @@
                     BackgroundColor="Transparent"
                     IsClippedToBounds="True">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                        <TapGestureRecognizer Command="{Binding AddressBookCommand}"/>
                     </Frame.GestureRecognizers>
                     <Grid RowSpacing="5">
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                            <TapGestureRecognizer Command="{Binding AddressBookCommand}"/>
                         </Grid.GestureRecognizers>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -428,7 +428,7 @@
                             FontFamily="{StaticResource MaterialFontFamily}"
 			                Text="{x:Static fontawesome:QloudidAppFlatIcons.MessageTextOutline}">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                                <TapGestureRecognizer Command="{Binding AddressBookCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -441,7 +441,7 @@
                             VerticalTextAlignment="Center"
                             FontFamily="PoppinsRegularFontFamily">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoToMyHomePageCommand}"/>
+                                <TapGestureRecognizer Command="{Binding AddressBookCommand}"/>
                             </Label.GestureRecognizers>
                         </Label>
                     </Grid>

@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.AddressBook.AddressBookListPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper" xmlns:controls="clr-namespace:Qloudid.Controls">
+     <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="16" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="35" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="14" />
+			<RowDefinition Height="1" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+		 <StackLayout
+			 Grid.Column="1"
+			 Grid.ColumnSpan="2"
+			 Orientation="Horizontal"
+			 Grid.Row="0" Spacing="8">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Label
+			    FontFamily="{StaticResource MaterialFontFamily}"
+			    FontSize="25"
+			    HorizontalTextAlignment="Start"
+			    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			    TextColor="White"
+			    VerticalTextAlignment="Center" 
+                VerticalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+			    FontFamily="PoppinsBoldFontFamily"
+			    FontSize="16"
+                Text="Addressbook"
+			    HorizontalTextAlignment="Start"
+			    TextColor="White"
+                VerticalOptions="CenterAndExpand"
+			    VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+				 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+			 </Label.GestureRecognizers>
+			</Label>
+        </StackLayout>
+
+         <Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2">
+			 <Frame.GestureRecognizers>
+				 <TapGestureRecognizer Command="{Binding AddNewContactDetailPageCommand}"/>
+			 </Frame.GestureRecognizers>
+		 </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding AddNewContactDetailPageCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+			TextColor="White" />
+
+		 <Frame
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Padding="16,0,16,0"
+			BackgroundColor="#242A37"
+			CornerRadius="8"
+			HasShadow="False"
+			IsClippedToBounds="True">
+			<Grid ColumnSpacing="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="20" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="20" />
+				</Grid.ColumnDefinitions>
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="25"
+					HorizontalTextAlignment="Center"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.SearchIcon}"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<controls:CustomEntry
+					x:Name="searchBar"
+					Grid.Row="0"
+					Grid.Column="1"
+					BackgroundColor="Transparent"
+					FontFamily="SansProRegularFontFamily"
+					FontSize="14"
+					Placeholder="Search"
+					PlaceholderColor="White"
+					ReturnCommand="{Binding SearchButtonCommand}"
+					ReturnType="Search"
+					Text="{Binding SearchText}"
+					TextColor="White"
+					VerticalOptions="CenterAndExpand" />
+
+				<Label
+					x:Name="iconClearSearchBar"
+					Grid.Row="0"
+					Grid.Column="2"
+					FontFamily="{StaticResource MaterialFontFamily}"
+					FontSize="25"
+					HorizontalTextAlignment="Center"
+					IsVisible="False"
+					Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+					TextColor="White"
+					VerticalTextAlignment="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer  />
+					</Label.GestureRecognizers>
+				</Label>
+			</Grid>
+		</Frame>
+
+		 <StackLayout
+			 Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			 Spacing="20"
+			 Orientation="Horizontal">
+			 <Label
+				FontAttributes="Bold"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="18"
+				HorizontalTextAlignment="Start"
+				Text="Private"
+				TextColor="#F4B400"
+				VerticalTextAlignment="Center" />
+
+			 <Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="17"
+				HorizontalTextAlignment="Start"
+				Text="Business"
+				TextColor="White"
+				Opacity="0.42"
+				VerticalTextAlignment="Center" />
+		 </StackLayout>
+
+		 <BoxView
+			Grid.Column="1"
+			Grid.Row="6"
+            Opacity="0.32"
+			 Grid.ColumnSpan="3"
+            BackgroundColor="#F4B400"/>
+
+		 <ScrollView
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<StackLayout BindableLayout.ItemsSource="{Binding UserAddressBookContacts}">
+				<BindableLayout.ItemTemplate>
+					<DataTemplate>
+						<Grid RowSpacing="0" ColumnSpacing="14">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="80"/>
+								<RowDefinition Height="1"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="44"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="20"/>
+							</Grid.ColumnDefinitions>
+							<ImageButton
+								Padding="0"
+								Grid.Row="0"
+								Grid.Column="0"
+								CornerRadius="22"
+								HeightRequest="44"
+								WidthRequest="44"
+								BackgroundColor="Black"
+								HorizontalOptions="EndAndExpand"
+								VerticalOptions="CenterAndExpand"/>
+
+							<StackLayout
+								Spacing="0"
+								Grid.Row="0"
+								Grid.Column="1"
+								HorizontalOptions="StartAndExpand"
+								VerticalOptions="CenterAndExpand">
+								<Label
+									FontSize="16"
+									MaxLines="1"
+									TextColor="White"
+									Text="{Binding Title}"
+									LineBreakMode="TailTruncation"
+									FontFamily="PoppinsRegularFontFamily"/>
+
+								<Label
+									MaxLines="1"
+									FontSize="14"
+									Opacity="0.42"
+									TextColor="White"
+									Text="{Binding SubTitle}"
+									LineBreakMode="TailTruncation"
+									FontFamily="PoppinsRegularFontFamily"/>
+							</StackLayout>
+
+							<Label
+								Grid.Row="0"
+								FontSize="25"
+								Grid.Column="2"
+								TextColor="#4CD964"
+								VerticalTextAlignment="Center"
+								FontFamily="{StaticResource MaterialFontFamily}"
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+
+							<BoxView
+								Opacity="0.1"
+								Grid.Row="1"
+								Grid.Column="1"
+								Grid.ColumnSpan="2"
+								BackgroundColor="White"/>
+						</Grid>
+					</DataTemplate>
+				</BindableLayout.ItemTemplate>
+			</StackLayout>
+		 </ScrollView>
+     </Grid>
+</ContentPage>

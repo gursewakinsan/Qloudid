@@ -25,6 +25,9 @@
     <None Remove="Views\Repair\" />
     <None Remove="ViewModels\Repair\" />
     <None Remove="Models\Repair\" />
+    <None Remove="ViewModels\AddressBook\" />
+    <None Remove="Views\AddressBook\" />
+    <None Remove="Models\AddressBook\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -580,5 +583,8 @@
     <Folder Include="Views\Repair\" />
     <Folder Include="ViewModels\Repair\" />
     <Folder Include="Models\Repair\" />
+    <Folder Include="ViewModels\AddressBook\" />
+    <Folder Include="Views\AddressBook\" />
+    <Folder Include="Models\AddressBook\" />
   </ItemGroup>
 </Project>

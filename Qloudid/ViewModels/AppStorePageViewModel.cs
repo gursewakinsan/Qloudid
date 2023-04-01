@@ -104,6 +104,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Address Book Command.
+		private ICommand addressBookCommand;
+		public ICommand AddressBookCommand
+		{
+			get => addressBookCommand ?? (addressBookCommand = new Command(async () => await ExecuteAddressBookCommand()));
+		}
+		private async Task ExecuteAddressBookCommand()
+		{
+			await Navigation.PushAsync(new Views.AddressBook.AddressBookListPage());
+		}
+		#endregion
+
 		#region Back Command.
 		private ICommand backCommand;
 		public ICommand BackCommand

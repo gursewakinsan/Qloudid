@@ -249,5 +249,8 @@
 		public const string GetTicketSubTitleInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getTicketSubTitleInfo";
 		public const string CreateUserApartmentTicketUrl = "https://www.qloudid.com/user/index.php/QloudidApp/createUserApartmentTicket";
 		public const string AddUserApartmentTicketImageUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addUserApartmentTicketImage";
+
+		//Address Book
+		public const string UserAddressBookContactDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddressBookContactDetails";
 	}
 }
