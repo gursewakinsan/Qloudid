@@ -5,6 +5,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Qloudid.ViewModels
 {
@@ -14,17 +15,33 @@ namespace Qloudid.ViewModels
 		public AddNewContactDetailPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			EmailTypeInfo = new List<Models.EmailTypeInfo>();
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 1, EmailType = "Home" });
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 2, EmailType = "Work" });
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 3, EmailType = "School" });
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 4, EmailType = "iCloud" });
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 5, EmailType = "Other" });
+			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 6, EmailType = "Primary" });
+
 			ListOfContactEmailAddress = new ObservableCollection<Models.ContactEmailDetail>();
-			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail() { Id = 1, IsRemove = false , EmailType = "Home" });
+			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail()
+			{
+				Id = 1,
+				IsRemove = false,
+				EmailTypeInfoList = EmailTypeInfo,
+				SelectedEmailTypeInfo = EmailTypeInfo[0]
+			});
 
 			ListOfContactPhoneNumber = new ObservableCollection<Models.ContactPhoneNumberDetail>();
-			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = 1, IsRemove = false, PhoneType = "Mobile" });
+			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = 1, IsRemove = false, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
 
 			ListOfContactAddressNumber = new ObservableCollection<Models.ContactAddressDetail>();
-			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = false });
+			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = false, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
 
 			ListOfContactCard = new ObservableCollection<Models.ContactCardDetail>();
 			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = 1, IsRemove = false, CardType = "Visa card" });
+
+			var res = Helper.Helper.CountryList;
 		}
 		#endregion
 
@@ -37,7 +54,13 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMoreEmailAddressCommand()
 		{
 			var id = ListOfContactEmailAddress.LastOrDefault().Id;
-			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail() { Id = id + 1, IsRemove = true, EmailType = "Home" });
+			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail()
+			{
+				Id = id + 1,
+				IsRemove = true,
+				EmailTypeInfoList = EmailTypeInfo,
+				SelectedEmailTypeInfo = EmailTypeInfo[0]
+			});
 		}
 		#endregion
 
@@ -50,7 +73,7 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMorePhoneNumberCommand()
 		{
 			var id = ListOfContactPhoneNumber.LastOrDefault().Id;
-			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = id + 1, IsRemove = true, PhoneType = "Mobile" });
+			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = id + 1, IsRemove = true, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0]});
 		}
 		#endregion
 
@@ -63,7 +86,7 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMoreAddressCommand()
 		{
 			var id = ListOfContactAddressNumber.LastOrDefault().Id;
-			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = id + 1, IsRemove = true });
+			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = id + 1, IsRemove = true, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
 		}
 		#endregion
 
@@ -76,8 +99,8 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMoreCardCommand()
 		{
 			var id = ListOfContactCard.LastOrDefault().Id;
-			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = id + 1, IsRemove = true , CardType= "Visa card"});
-			}
+			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = id + 1, IsRemove = true, CardType = "Visa card" });
+		}
 		#endregion
 
 		#region Submit Contact Info Command.
@@ -88,18 +111,116 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSubmitContactInfoCommand()
 		{
-            foreach (var contactEmail in ListOfContactEmailAddress)
+			if (string.IsNullOrWhiteSpace(FirstName))
+			{
+				await Helper.Alert.DisplayAlert("First name is required.");
+				return;
+			}
+			else if (string.IsNullOrWhiteSpace(LastName))
+			{
+				await Helper.Alert.DisplayAlert("Last name is required.");
+				return;
+			}
+			foreach (var contactEmail in ListOfContactEmailAddress)
             {
 				if (string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
 				{
 					await Helper.Alert.DisplayAlert("Email is required.");
 					return;
 				}
-            }
+				else if (!Helper.Helper.IsValid(contactEmail.EmailAddress))
+				{
+					await Helper.Alert.DisplayAlert("Email is valid.");
+					return;
+				}
+			}
+
+			foreach (var contactPhone in ListOfContactPhoneNumber)
+			{
+				if (string.IsNullOrWhiteSpace(contactPhone.PhoneNumber))
+				{
+					await Helper.Alert.DisplayAlert("Phone number is required.");
+					return;
+				}
+			}
+
+			foreach (var contactAddress in ListOfContactAddressNumber)
+			{
+				if (string.IsNullOrWhiteSpace(contactAddress.Address))
+				{
+					await Helper.Alert.DisplayAlert("Address is required.");
+					return;
+				}
+				else if (string.IsNullOrWhiteSpace(contactAddress.Number))
+				{
+					await Helper.Alert.DisplayAlert("Number is required.");
+					return;
+				}
+				else if (string.IsNullOrWhiteSpace(contactAddress.ZipCode))
+				{
+					await Helper.Alert.DisplayAlert("Zip code is required.");
+					return;
+				}
+				else if (string.IsNullOrWhiteSpace(contactAddress.City))
+				{
+					await Helper.Alert.DisplayAlert("City is required.");
+					return;
+				}
+				else if (string.IsNullOrWhiteSpace(contactAddress.State))
+				{
+					await Helper.Alert.DisplayAlert("State is required.");
+					return;
+				}
+			}
+
+			foreach (var contactCard in ListOfContactCard)
+			{
+				if (string.IsNullOrWhiteSpace(contactCard.CardNumber))
+				{
+					await Helper.Alert.DisplayAlert("Card number is required.");
+					return;
+				}
+			}
+
+			Models.AddContactInfoRequest model = new Models.AddContactInfoRequest()
+			{
+				FirstName = FirstName,
+				LastName = LastName
+			};
+            foreach (var emailDetail in ListOfContactEmailAddress)
+            {
+				model.EmailTypeInfo.Add(new Models.EmailTypeInfo()
+				{
+					 Id = emailDetail.SelectedEmailTypeInfo.Id,
+					  EmailType
+				});
+			}
 		}
 		#endregion
 
 		#region Properties.
+		private string firstName;
+		public string FirstName
+		{
+			get => firstName;
+			set
+			{
+				firstName = value;
+				OnPropertyChanged("FirstName");
+			}
+		}
+
+		private string lastName;
+		public string LastName
+		{
+			get => lastName;
+			set
+			{
+				lastName = value;
+				OnPropertyChanged("LastName");
+			}
+		}
+
 		private ObservableCollection<Models.ContactEmailDetail> listOfContactEmailAddress;
 		public ObservableCollection<Models.ContactEmailDetail> ListOfContactEmailAddress
 		{
@@ -143,6 +264,8 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("ListOfContactCard");
 			}
 		}
+
+        public List<Models.EmailTypeInfo> EmailTypeInfo { get; set; }
 		#endregion
 	}
 }

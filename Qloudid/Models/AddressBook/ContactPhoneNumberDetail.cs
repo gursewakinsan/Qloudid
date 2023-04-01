@@ -1,4 +1,6 @@
-﻿namespace Qloudid.Models
+﻿using System.Collections.Generic;
+
+namespace Qloudid.Models
 {
     public class ContactPhoneNumberDetail : BaseModel
     {
@@ -26,6 +28,28 @@
             {
                 phoneNumber = value;
                 OnPropertyChanged("PhoneNumber");
+            }
+        }
+
+        private List<Models.Country> countryList;
+        public List<Models.Country> CountryList
+        {
+            get => countryList;
+            set
+            {
+                countryList = value;
+                OnPropertyChanged("CountryList");
+            }
+        }
+
+        private Models.Country selectedCountry;
+        public Models.Country SelectedCountry
+        {
+            get => selectedCountry;
+            set
+            {
+                selectedCountry = value;
+                OnPropertyChanged("SelectedCountry");
             }
         }
 

@@ -512,28 +512,14 @@
 									</Grid.ColumnDefinitions>
 									<controls:CustomPicker
 										Grid.Column="0"
-			    						FontFamily="PoppinsRegularFontFamily"
 			    						FontSize="15"
 			    						TextColor="White"
 										TitleColor="White"
-										SelectedItem="{Binding PhoneType}"
-										BackgroundColor="Transparent">
-										<controls:CustomPicker.ItemsSource>
-											<x:Array Type="{x:Type x:String}">
-											<x:String>Mobile</x:String>
-											<x:String>Home</x:String>
-											<x:String>Work</x:String>
-											<x:String>School</x:String>
-											<x:String>iPhone</x:String>
-											<x:String>Apple watch</x:String>
-											<x:String>Main</x:String>
-											<x:String>Home fax</x:String>
-											<x:String>Work fax</x:String>
-											<x:String>Pager</x:String>
-											<x:String>Other</x:String>
-										</x:Array>
-									</controls:CustomPicker.ItemsSource>
-								</controls:CustomPicker>
+										ItemsSource="{Binding CountryList}"
+										SelectedItem="{Binding SelectedCountry}"
+										FontFamily="PoppinsRegularFontFamily"
+										ItemDisplayBinding="{Binding DisplayCountryCode}"
+										BackgroundColor="Transparent"/>
 
 								<Label
 									Grid.Column="1"
@@ -562,7 +548,7 @@
 									Keyboard="Numeric"
 									PlaceholderColor="#797A7D"
 									TextColor="White"
-									Text="{Binding EmailAddress}"/>
+									Text="{Binding PhoneNumber}"/>
 
 								<BoxView
 									Grid.Row="4"
@@ -772,22 +758,43 @@
 										Grid.Column="0"
 										BackgroundColor="White"/>
 
-									<controls:CustomEntry
+									<Grid
+										ColumnSpacing="0"
 										Grid.Row="0"
-										Grid.Column="1"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="County"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding County}"/>
+										Grid.Column="1">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"/>
+											<ColumnDefinition Width="20"/>
+										</Grid.ColumnDefinitions>
+										<controls:CustomPicker
+											Grid.Column="0"
+			    							FontSize="15"
+			    							TextColor="White"
+											TitleColor="White"
+											ItemsSource="{Binding CountryList}"
+											SelectedItem="{Binding SelectedCountry}"
+											FontFamily="PoppinsRegularFontFamily"
+											ItemDisplayBinding="{Binding CountryName}"
+											BackgroundColor="Transparent"/>
+
+										<Label
+											Grid.Column="1"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="20"
+											HorizontalTextAlignment="Center"
+											Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+											TextColor="White"
+											Opacity="0.42"
+											VerticalTextAlignment="Center" />
+									</Grid>
+
 
 									<BoxView
 										Grid.Row="1"
 										Opacity="0.1"
 										Grid.Column="1"
 										BackgroundColor="White"/>
+
 								</Grid>
 							</Grid>
 						</DataTemplate>
