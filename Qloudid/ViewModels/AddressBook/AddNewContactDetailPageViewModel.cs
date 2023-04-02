@@ -21,11 +21,19 @@ namespace Qloudid.ViewModels
 			{
 				Id = 1,
 				IsRemove = true,
-				EmailType = "Home"
+				EmailType = "Home",
+				UserId = Helper.Helper.UserId
 			});
 
 			ListOfContactPhoneNumber = new ObservableCollection<Models.ContactPhoneNumberDetail>();
-			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = 1, IsRemove = true, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
+			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail()
+			{
+				Id = 1,
+				IsRemove = true,
+				PhoneType = "Mobile",
+				UserId = Helper.Helper.UserId,
+				CountryList = Helper.Helper.CountryList.OrderBy(x => x.CountryCode).ToList(),
+				SelectedCountry = Helper.Helper.CountryList[0] });
 
 			ListOfContactAddressNumber = new ObservableCollection<Models.ContactAddressDetail>();
 			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = true, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
@@ -50,7 +58,8 @@ namespace Qloudid.ViewModels
 			{
 				Id = id + 1,
 				IsRemove = true,
-				EmailType = "Home"
+				EmailType = "Home",
+				UserId = Helper.Helper.UserId
 			});
 		}
 		#endregion
@@ -64,7 +73,14 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMorePhoneNumberCommand()
 		{
 			var id = ListOfContactPhoneNumber.LastOrDefault().Id;
-			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = id + 1, IsRemove = true, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0]});
+			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail()
+			{
+				Id = id + 1,
+				IsRemove = true,
+				PhoneType = "Mobile",
+				UserId = Helper.Helper.UserId,
+				CountryList = Helper.Helper.CountryList.OrderBy(x => x.CountryCode).ToList(),
+				SelectedCountry = Helper.Helper.CountryList[0]});
 		}
 		#endregion
 
@@ -122,13 +138,17 @@ namespace Qloudid.ViewModels
 				if (string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
 				{
 					await Helper.Alert.DisplayAlert("Email is required.");
+					contactEmail.IsError = 1;
 					return;
 				}
 				else if (!Helper.Helper.IsValid(contactEmail.EmailAddress))
 				{
 					await Helper.Alert.DisplayAlert("Email is valid.");
+					contactEmail.IsError = 1;
 					return;
 				}
+				else
+					contactEmail.IsError = 0;
 			}
 
 			foreach (var contactPhone in ListOfContactPhoneNumber)
@@ -136,8 +156,11 @@ namespace Qloudid.ViewModels
 				if (string.IsNullOrWhiteSpace(contactPhone.PhoneNumber))
 				{
 					await Helper.Alert.DisplayAlert("Phone number is required.");
+					contactPhone.IsError = 1;
 					return;
 				}
+				else
+					contactPhone.IsError = 0;
 			}
 
 			foreach (var contactAddress in ListOfContactAddressNumber)
@@ -178,6 +201,31 @@ namespace Qloudid.ViewModels
 				}
 			}
 			DependencyService.Get<IProgressBar>().Show();
+			IAddressBookService service = new AddressBookService();
+			var emailResponse = await service.CheckValidEmailsAsync(ListOfContactEmailAddress);
+			if (emailResponse?.Count > 0)
+			{
+				var emailData = emailResponse.FirstOrDefault(x => x.IsError == 1);
+				if (emailData != null)
+				{
+					ListOfContactEmailAddress = emailResponse;
+					DependencyService.Get<IProgressBar>().Hide();
+					return;
+				}
+			}
+
+			var phoneResponse = await service.CheckValidPhoneNumbersAsync(ListOfContactPhoneNumber);
+			if (phoneResponse?.Count > 0)
+			{
+				var phoneData = phoneResponse.FirstOrDefault(x => x.IsError == 1);
+				if (phoneData != null)
+				{
+					ListOfContactPhoneNumber = phoneResponse;
+					DependencyService.Get<IProgressBar>().Hide();
+					return;
+				}
+			}
+
 			Models.AddContactInfoRequest model = new Models.AddContactInfoRequest()
 			{
 				UserId = Helper.Helper.UserId,
@@ -231,7 +279,7 @@ namespace Qloudid.ViewModels
 					CardNumber = cardDetail.CardNumber
 				});
 			}
-			IAddressBookService service = new AddressBookService();
+			
 			await service.AddNewContactInfoAsync(model);
 
 			Application.Current.MainPage.Navigation.PushAsync(new Views.AddressBook.AddressBookListPage());

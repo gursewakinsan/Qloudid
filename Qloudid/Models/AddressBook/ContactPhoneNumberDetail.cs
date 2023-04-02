@@ -31,6 +31,7 @@ namespace Qloudid.Models
             }
         }
 
+        [Newtonsoft.Json.JsonIgnore]
         private List<Models.Country> countryList;
         public List<Models.Country> CountryList
         {
@@ -42,6 +43,7 @@ namespace Qloudid.Models
             }
         }
 
+        [Newtonsoft.Json.JsonIgnore]
         private Models.Country selectedCountry;
         public Models.Country SelectedCountry
         {
@@ -53,6 +55,18 @@ namespace Qloudid.Models
             }
         }
 
+        private int isError;
+        public int IsError
+        {
+            get => isError;
+            set
+            {
+                isError = value;
+                OnPropertyChanged("IsError");
+            }
+        }
+
+        [Newtonsoft.Json.JsonIgnore]
         private bool isRemove;
         public bool IsRemove
         {
@@ -63,5 +77,7 @@ namespace Qloudid.Models
                 OnPropertyChanged("IsRemove");
             }
         }
+
+        public int UserId { get; set; }
     }
 }

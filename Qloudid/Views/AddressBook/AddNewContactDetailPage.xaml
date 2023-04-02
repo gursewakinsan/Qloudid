@@ -378,7 +378,15 @@
 									Opacity="0.1"
 									Grid.Column="1"
 									Grid.ColumnSpan="2"
-									BackgroundColor="White"/>
+									BackgroundColor="White"
+									IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"/>
+
+								<BoxView
+									Grid.Row="4"
+									Grid.Column="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="#F40000"
+									IsVisible="{Binding IsError}"/>
 							</Grid>
 						</DataTemplate>
 					</BindableLayout.ItemTemplate>
@@ -564,12 +572,21 @@
 									PlaceholderColor="#797A7D"
 									TextColor="White"
 									Text="{Binding PhoneNumber}"/>
-
+								
 								<BoxView
 									Grid.Row="4"
 									Opacity="0.1"
-									Grid.Column="2"
-									BackgroundColor="White"/>
+									Grid.Column="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="White"
+									IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"/>
+
+								<BoxView
+									Grid.Row="4"
+									Grid.Column="1"
+									Grid.ColumnSpan="2"
+									BackgroundColor="#F40000"
+									IsVisible="{Binding IsError}"/>
 							</Grid>
 						</DataTemplate>
 					</BindableLayout.ItemTemplate>

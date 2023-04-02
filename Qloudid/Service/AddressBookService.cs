@@ -3,6 +3,7 @@ using Qloudid.Helper;
 using Qloudid.Interfaces;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Qloudid.Service
 {
@@ -22,6 +23,24 @@ namespace Qloudid.Service
 			return Task.Factory.StartNew(() =>
 			{
 				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddNewContactInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<ObservableCollection<Models.ContactEmailDetail>> CheckValidEmailsAsync(ObservableCollection<Models.ContactEmailDetail> model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<ObservableCollection<Models.ContactEmailDetail>>(HttpWebRequest.Create(EndPointsList.CheckValidEmailsUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<ObservableCollection<Models.ContactPhoneNumberDetail>> CheckValidPhoneNumbersAsync(ObservableCollection<Models.ContactPhoneNumberDetail> model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<ObservableCollection<Models.ContactPhoneNumberDetail>>(HttpWebRequest.Create(EndPointsList.CheckValidPhoneNumbersUrl), string.Empty, model.ToJson());
 				return res;
 			});
 		}

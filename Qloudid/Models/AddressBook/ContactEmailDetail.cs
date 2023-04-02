@@ -17,6 +17,7 @@ namespace Qloudid.Models
             }
         }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
         private string emailAddress;
         public string EmailAddress
         {
@@ -25,6 +26,17 @@ namespace Qloudid.Models
             {
                 emailAddress = value;
                 OnPropertyChanged("EmailAddress");
+            }
+        }
+
+        private int isError;
+        public int IsError
+        {
+            get => isError;
+            set
+            {
+                isError = value;
+                OnPropertyChanged("IsError");
             }
         }
 
@@ -38,5 +50,7 @@ namespace Qloudid.Models
                 OnPropertyChanged("IsRemove");
             }
         }
+
+        public int UserId { get; set; }
     }
 }
