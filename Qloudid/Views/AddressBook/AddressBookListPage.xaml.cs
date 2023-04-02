@@ -37,5 +37,28 @@ namespace Qloudid.Views.AddressBook
                     Helper.Helper.CountryList = JsonConvert.DeserializeObject<List<Models.Country>>(reader.ReadToEnd());
             }
         }
+
+        void OnImageButtonClicked(System.Object sender, System.EventArgs e)
+        {
+            ImageButton control = sender as ImageButton;
+            OnItemClicked(control.BindingContext as Models.UserAddressBookContactsResponse);
+        }
+
+        void OnStackLayoutClicked(System.Object sender, System.EventArgs e)
+        {
+            StackLayout control = sender as StackLayout;
+            OnItemClicked(control.BindingContext as Models.UserAddressBookContactsResponse);
+        }
+
+        void OnLabelClicked(System.Object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnItemClicked(control.BindingContext as Models.UserAddressBookContactsResponse);
+        }
+
+        async void OnItemClicked(Models.UserAddressBookContactsResponse user)
+        {
+            await Navigation.PushAsync(new UserContactDetailsInfoPage(user.Id));
+        }
     }
 }

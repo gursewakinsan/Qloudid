@@ -208,6 +208,7 @@
 								WidthRequest="44"
 								Aspect="AspectFill"
 								BackgroundColor="Black"
+								Clicked="OnImageButtonClicked"
 								HorizontalOptions="EndAndExpand"
 								VerticalOptions="CenterAndExpand"
 								Source="{Binding UserImage}"/>
@@ -218,6 +219,9 @@
 								Grid.Column="1"
 								HorizontalOptions="StartAndExpand"
 								VerticalOptions="CenterAndExpand">
+								<StackLayout.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnStackLayoutClicked"/>
+								</StackLayout.GestureRecognizers>
 								<Label
 									FontSize="16"
 									MaxLines="1"
@@ -225,6 +229,9 @@
 									Text="{Binding Title}"
 									LineBreakMode="TailTruncation"
 									FontFamily="PoppinsRegularFontFamily">
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnLabelClicked"/>
+									</Label.GestureRecognizers>
 									<Label.FormattedText>
 										<FormattedString>
 											<Span Text="{Binding ContactFirstName}"/>
@@ -241,7 +248,11 @@
 									TextColor="White"
 									Text="{Binding Relation}"
 									LineBreakMode="TailTruncation"
-									FontFamily="PoppinsRegularFontFamily"/>
+									FontFamily="PoppinsRegularFontFamily">
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnLabelClicked"/>
+									</Label.GestureRecognizers>
+								</Label>
 							</StackLayout>
 
 							<Label
@@ -251,7 +262,11 @@
 								TextColor="#4CD964"
 								VerticalTextAlignment="Center"
 								FontFamily="{StaticResource MaterialFontFamily}"
-								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+								Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnLabelClicked"/>
+								</Label.GestureRecognizers>
+							</Label>
 
 							<BoxView
 								Opacity="0.1"
