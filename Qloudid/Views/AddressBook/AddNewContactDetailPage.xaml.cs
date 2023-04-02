@@ -32,28 +32,41 @@ namespace Qloudid.Views.AddressBook
             }
         }
 
-        void OnEmailRemoveClicked(System.Object sender, System.EventArgs e)
+        async void OnEmailRemoveClicked(System.Object sender, System.EventArgs e)
         {
             Button button = sender as Button;
-            viewModel.ListOfContactEmailAddress.Remove(button.BindingContext as Models.ContactEmailDetail);
+            if (viewModel.ListOfContactEmailAddress.Count > 1)
+                viewModel.ListOfContactEmailAddress.Remove(button.BindingContext as Models.ContactEmailDetail);
+            else
+                await Helper.Alert.DisplayAlert("Email information is required.");
+
         }
 
-        void OnPhoneRemoveClicked(System.Object sender, System.EventArgs e)
+        async void OnPhoneRemoveClicked(System.Object sender, System.EventArgs e)
         {
             Button button = sender as Button;
-            viewModel.ListOfContactPhoneNumber.Remove(button.BindingContext as Models.ContactPhoneNumberDetail);
+            if (viewModel.ListOfContactPhoneNumber.Count > 1)
+                viewModel.ListOfContactPhoneNumber.Remove(button.BindingContext as Models.ContactPhoneNumberDetail);
+            else
+                await Helper.Alert.DisplayAlert("Phone information is required.");
         }
 
-        void OnAddressRemoveClicked(System.Object sender, System.EventArgs e)
+        async void OnAddressRemoveClicked(System.Object sender, System.EventArgs e)
         {
             Button button = sender as Button;
-            viewModel.ListOfContactAddressNumber.Remove(button.BindingContext as Models.ContactAddressDetail);
+            if (viewModel.ListOfContactAddressNumber.Count > 1)
+                viewModel.ListOfContactAddressNumber.Remove(button.BindingContext as Models.ContactAddressDetail);
+            else
+                await Helper.Alert.DisplayAlert("Address information is required.");
         }
 
-        void OnCardRemoveClicked(System.Object sender, System.EventArgs e)
+        async void OnCardRemoveClicked(System.Object sender, System.EventArgs e)
         {
             Button button = sender as Button;
-            viewModel.ListOfContactCard.Remove(button.BindingContext as Models.ContactCardDetail);
+            if (viewModel.ListOfContactCard.Count > 1)
+                viewModel.ListOfContactCard.Remove(button.BindingContext as Models.ContactCardDetail);
+            else
+                await Helper.Alert.DisplayAlert("Card information is required.");
         }
     }
 }

@@ -19,18 +19,18 @@ namespace Qloudid.ViewModels
 			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail()
 			{
 				Id = 1,
-				IsRemove = false,
+				IsRemove = true,
 				EmailType = "Home"
 			});
 
 			ListOfContactPhoneNumber = new ObservableCollection<Models.ContactPhoneNumberDetail>();
-			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = 1, IsRemove = false, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
+			ListOfContactPhoneNumber.Add(new Models.ContactPhoneNumberDetail() { Id = 1, IsRemove = true, PhoneType = "Mobile", CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
 
 			ListOfContactAddressNumber = new ObservableCollection<Models.ContactAddressDetail>();
-			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = false, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
+			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = true, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
 
 			ListOfContactCard = new ObservableCollection<Models.ContactCardDetail>();
-			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = 1, IsRemove = false, CardType = "Visa card" });
+			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = 1, IsRemove = true, CardType = "Visa card" });
 
 			var res = Helper.Helper.CountryList;
 		}
@@ -174,6 +174,7 @@ namespace Qloudid.ViewModels
 			DependencyService.Get<IProgressBar>().Show();
 			Models.AddContactInfoRequest model = new Models.AddContactInfoRequest()
 			{
+				UserId = Helper.Helper.UserId,
 				FirstName = FirstName,
 				LastName = LastName
 			};
