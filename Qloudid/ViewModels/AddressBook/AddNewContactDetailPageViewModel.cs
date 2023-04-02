@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
@@ -111,6 +112,11 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Last name is required.");
 				return;
 			}
+			else if (CroppedImage1 == null)
+			{
+				await Helper.Alert.DisplayAlert("Please select photo.");
+				return;
+			}
 			foreach (var contactEmail in ListOfContactEmailAddress)
             {
 				if (string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
@@ -176,7 +182,8 @@ namespace Qloudid.ViewModels
 			{
 				UserId = Helper.Helper.UserId,
 				FirstName = FirstName,
-				LastName = LastName
+				LastName = LastName,
+				ImageData = Convert.ToBase64String(CroppedImage1)
 			};
             foreach (var emailDetail in ListOfContactEmailAddress)
             {
@@ -299,6 +306,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
+		public byte[] CroppedImage1;
 		#endregion
 	}
 }

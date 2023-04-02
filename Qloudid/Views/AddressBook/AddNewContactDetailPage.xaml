@@ -125,10 +125,28 @@
 					TextColor="White"
 					CornerRadius="16"
 					WidthRequest="100"
+					x:Name="btn1"
 					HorizontalOptions="EndAndExpand"
 					BackgroundColor="#242A37"
+					Clicked="ImageData1Clicked"
 					FontFamily="{StaticResource MaterialFontFamily}"
 					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+
+				<ImageButton
+					x:Name="image1"
+					Grid.Row="0"
+					Grid.Column="1"
+					Aspect="AspectFill"
+					Padding="0"
+					IsVisible="False"
+					WidthRequest="100"
+					CornerRadius="16"
+					BackgroundColor="Transparent"
+					HorizontalOptions="EndAndExpand">
+					<ImageButton.GestureRecognizers>
+						<TapGestureRecognizer Tapped="ImageData1Clicked" />
+					</ImageButton.GestureRecognizers>
+				</ImageButton>
 
 				<StackLayout
 					Grid.Row="2"

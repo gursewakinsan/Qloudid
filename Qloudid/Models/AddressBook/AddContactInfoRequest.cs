@@ -24,6 +24,8 @@ namespace Qloudid.Models
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "card_info")]
         public List<CardInfo> CardInfo { get; set; }
+
+        public string ImageData { get; set; }
     }
 
     public class EmailInfo
