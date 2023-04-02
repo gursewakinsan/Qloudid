@@ -141,12 +141,9 @@
 					IsVisible="False"
 					WidthRequest="100"
 					CornerRadius="16"
+					Clicked="ImageData1Clicked"
 					BackgroundColor="Transparent"
-					HorizontalOptions="EndAndExpand">
-					<ImageButton.GestureRecognizers>
-						<TapGestureRecognizer Tapped="ImageData1Clicked" />
-					</ImageButton.GestureRecognizers>
-				</ImageButton>
+					HorizontalOptions="EndAndExpand"/>
 
 				<StackLayout
 					Grid.Row="2"
