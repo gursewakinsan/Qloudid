@@ -10,5 +10,6 @@ namespace Qloudid.Interfaces
         Task<int> AddNewContactInfoAsync(Models.AddContactInfoRequest model);
         Task<ObservableCollection<Models.ContactEmailDetail>> CheckValidEmailsAsync(ObservableCollection<Models.ContactEmailDetail> model);
         Task<ObservableCollection<Models.ContactPhoneNumberDetail>> CheckValidPhoneNumbersAsync(ObservableCollection<Models.ContactPhoneNumberDetail> model);
+        Task<List<Models.UserAddessBookContactDetailInfoResponse>> UserAddessBookContactDetailInfoAsync(Models.UserAddessBookContactDetailInfoRequest model);
     }
 }

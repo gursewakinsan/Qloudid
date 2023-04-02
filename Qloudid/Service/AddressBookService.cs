@@ -44,5 +44,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.UserAddessBookContactDetailInfoResponse>> UserAddessBookContactDetailInfoAsync(Models.UserAddessBookContactDetailInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.UserAddessBookContactDetailInfoResponse>>(HttpWebRequest.Create(EndPointsList.UserAddessBookContactDetailInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

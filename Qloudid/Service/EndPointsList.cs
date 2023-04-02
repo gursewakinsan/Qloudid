@@ -255,5 +255,6 @@
 		public const string AddNewContactInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addNewContactInfo";
 		public const string CheckValidEmailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidEmails";
 		public const string CheckValidPhoneNumbersUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidPhoneNumbers";
+		public const string UserAddessBookContactDetailInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddessBookContactDetailinfo";
 	}
 }
