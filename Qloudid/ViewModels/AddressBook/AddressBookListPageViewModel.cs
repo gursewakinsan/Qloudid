@@ -13,16 +13,6 @@ namespace Qloudid.ViewModels
 		public AddressBookListPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			 var userAddressBookContacts = new List<Models.UserAddressBookContactsResponse>();
-            for (int i = 0; i < 10; i++)
-            {
-				userAddressBookContacts.Add(new Models.UserAddressBookContactsResponse()
-				{
-					Title = $"Title {i}",
-					SubTitle = $"SubTitle {i}"
-				});
-			}
-			UserAddressBookContacts = userAddressBookContacts;
 		}
 		#endregion
 
@@ -36,10 +26,21 @@ namespace Qloudid.ViewModels
 		{
 			DependencyService.Get<IProgressBar>().Show();
 			IAddressBookService service = new AddressBookService();
-			UserAddressBookContacts = await service.GetUserAddressBookContactsAsync(new Models.UserAddressBookContactsRequest()
+			var responses = await service.GetUserAddressBookContactsAsync(new Models.UserAddressBookContactsRequest()
 			{
 				UserId = Helper.Helper.UserId
 			});
+            foreach (var item in responses)
+				item.Relation = "Friend";
+			Models.UserAddressBookContactsResponse user = new Models.UserAddressBookContactsResponse()
+			{
+				ContactFirstName = Helper.Helper.UserInfo.first_name,
+				ContactLastName = Helper.Helper.UserInfo.last_name,
+				UserImage = Helper.Helper.UserInfo.UserImage,
+				Relation = "You"
+			};
+			responses.Insert(0, user);
+			UserAddressBookContacts = responses;
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
@@ -53,6 +54,18 @@ namespace Qloudid.ViewModels
 		private async Task ExecuteAddNewContactDetailPageCommand()
 		{
 			await Navigation.PushAsync(new Views.AddressBook.AddNewContactDetailPage());
+		}
+		#endregion
+
+		#region Back Command.
+		private ICommand backCommand;
+		public ICommand BackCommand
+		{
+			get => backCommand ?? (backCommand = new Command(() => ExecuteBackCommand()));
+		}
+		private void ExecuteBackCommand()
+		{
+			Application.Current.MainPage.Navigation.PushAsync(new Views.AppStorePage());
 		}
 		#endregion
 

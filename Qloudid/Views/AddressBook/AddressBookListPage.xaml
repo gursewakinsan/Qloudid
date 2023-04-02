@@ -37,7 +37,7 @@
 			 Orientation="Horizontal"
 			 Grid.Row="0" Spacing="8">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                <TapGestureRecognizer Command="{Binding BackCommand}" />
             </StackLayout.GestureRecognizers>
             <Label
 			    FontFamily="{StaticResource MaterialFontFamily}"
@@ -48,7 +48,7 @@
 			    VerticalTextAlignment="Center" 
                 VerticalOptions="CenterAndExpand">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
                 </Label.GestureRecognizers>
             </Label>
 
@@ -61,7 +61,7 @@
                 VerticalOptions="CenterAndExpand"
 			    VerticalTextAlignment="Center">
 				<Label.GestureRecognizers>
-				 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+				 <TapGestureRecognizer Command="{Binding BackCommand}"/>
 			 </Label.GestureRecognizers>
 			</Label>
         </StackLayout>
@@ -206,9 +206,11 @@
 								CornerRadius="22"
 								HeightRequest="44"
 								WidthRequest="44"
+								Aspect="AspectFill"
 								BackgroundColor="Black"
 								HorizontalOptions="EndAndExpand"
-								VerticalOptions="CenterAndExpand"/>
+								VerticalOptions="CenterAndExpand"
+								Source="{Binding UserImage}"/>
 
 							<StackLayout
 								Spacing="0"
@@ -222,14 +224,22 @@
 									TextColor="White"
 									Text="{Binding Title}"
 									LineBreakMode="TailTruncation"
-									FontFamily="PoppinsRegularFontFamily"/>
+									FontFamily="PoppinsRegularFontFamily">
+									<Label.FormattedText>
+										<FormattedString>
+											<Span Text="{Binding ContactFirstName}"/>
+											<Span Text=" "/>
+											<Span Text="{Binding ContactLastName}"/>
+										</FormattedString>
+									</Label.FormattedText>
+								</Label>
 
 								<Label
 									MaxLines="1"
 									FontSize="14"
 									Opacity="0.42"
 									TextColor="White"
-									Text="{Binding SubTitle}"
+									Text="{Binding Relation}"
 									LineBreakMode="TailTruncation"
 									FontFamily="PoppinsRegularFontFamily"/>
 							</StackLayout>

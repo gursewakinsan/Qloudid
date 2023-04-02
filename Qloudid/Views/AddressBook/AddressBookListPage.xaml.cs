@@ -22,7 +22,7 @@ namespace Qloudid.Views.AddressBook
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //  viewModel.GetUserAddressBookContactsCommand.Execute(null);
+            viewModel.GetUserAddressBookContactsCommand.Execute(null);
             GetCountries();
         }
 

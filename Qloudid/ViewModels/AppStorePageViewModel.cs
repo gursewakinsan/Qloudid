@@ -112,7 +112,17 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteAddressBookCommand()
 		{
-			await Navigation.PushAsync(new Views.AddressBook.AddressBookListPage());
+			DependencyService.Get<IProgressBar>().Show();
+			IAddressBookService service = new AddressBookService();
+			var responses = await service.GetUserAddressBookContactsAsync(new Models.UserAddressBookContactsRequest()
+			{
+				UserId = Helper.Helper.UserId
+			});
+			if (responses?.Count > 0)
+				await Navigation.PushAsync(new Views.AddressBook.AddressBookListPage());
+			else
+				await Navigation.PushAsync(new Views.AddressBook.AddNewContactDetailPage());
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 

@@ -226,6 +226,8 @@ namespace Qloudid.ViewModels
 			}
 			IAddressBookService service = new AddressBookService();
 			await service.AddNewContactInfoAsync(model);
+
+			Application.Current.MainPage.Navigation.PushAsync(new Views.AddressBook.AddressBookListPage());
 			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
