@@ -16,5 +16,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<int> AddNewContactInfoAsync(Models.AddContactInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.AddNewContactInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 	}
 }

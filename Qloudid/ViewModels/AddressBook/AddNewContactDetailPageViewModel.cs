@@ -15,21 +15,12 @@ namespace Qloudid.ViewModels
 		public AddNewContactDetailPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
-			EmailTypeInfo = new List<Models.EmailTypeInfo>();
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 1, EmailType = "Home" });
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 2, EmailType = "Work" });
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 3, EmailType = "School" });
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 4, EmailType = "iCloud" });
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 5, EmailType = "Other" });
-			EmailTypeInfo.Add(new Models.EmailTypeInfo() { Id = 6, EmailType = "Primary" });
-
 			ListOfContactEmailAddress = new ObservableCollection<Models.ContactEmailDetail>();
 			ListOfContactEmailAddress.Add(new Models.ContactEmailDetail()
 			{
 				Id = 1,
 				IsRemove = false,
-				EmailTypeInfoList = EmailTypeInfo,
-				SelectedEmailTypeInfo = EmailTypeInfo[0]
+				EmailType = "Home"
 			});
 
 			ListOfContactPhoneNumber = new ObservableCollection<Models.ContactPhoneNumberDetail>();
@@ -58,8 +49,7 @@ namespace Qloudid.ViewModels
 			{
 				Id = id + 1,
 				IsRemove = true,
-				EmailTypeInfoList = EmailTypeInfo,
-				SelectedEmailTypeInfo = EmailTypeInfo[0]
+				EmailType = "Home"
 			});
 		}
 		#endregion
@@ -181,7 +171,7 @@ namespace Qloudid.ViewModels
 					return;
 				}
 			}
-
+			DependencyService.Get<IProgressBar>().Show();
 			Models.AddContactInfoRequest model = new Models.AddContactInfoRequest()
 			{
 				FirstName = FirstName,
@@ -189,12 +179,53 @@ namespace Qloudid.ViewModels
 			};
             foreach (var emailDetail in ListOfContactEmailAddress)
             {
-				model.EmailTypeInfo.Add(new Models.EmailTypeInfo()
+				if (model.EmailInfo == null)
+					model.EmailInfo = new List<Models.EmailInfo>();
+				model.EmailInfo.Add(new Models.EmailInfo()
 				{
-					 Id = emailDetail.SelectedEmailTypeInfo.Id,
-					  EmailType
+					EmailType = emailDetail.EmailType,
+					EmailAddress = emailDetail.EmailAddress
 				});
 			}
+			foreach (var phoneNumberDetail in ListOfContactPhoneNumber)
+			{
+				if (model.PhoneInfo == null)
+					model.PhoneInfo = new List<Models.PhoneInfo>();
+				model.PhoneInfo.Add(new Models.PhoneInfo()
+				{
+					CountryCode = phoneNumberDetail.SelectedCountry.CountryCode,
+					PhoneType = phoneNumberDetail.PhoneType,
+					PhoneNumber = phoneNumberDetail.PhoneNumber,
+
+				});
+			}
+			foreach (var contactAddressDetail in ListOfContactAddressNumber)
+			{
+				if (model.AddressInfo == null)
+					model.AddressInfo = new List<Models.AddressInfo>();
+				model.AddressInfo.Add(new Models.AddressInfo()
+				{
+					Address = contactAddressDetail.Address,
+					CodeNumber = contactAddressDetail.Number,
+					ZipCode = contactAddressDetail.ZipCode,
+					City = contactAddressDetail.City,
+					State = contactAddressDetail.State,
+					CountryCode = contactAddressDetail.SelectedCountry.CountryCode,
+				});
+			}
+			foreach (var cardDetail in ListOfContactCard)
+			{
+				if (model.CardInfo == null)
+					model.CardInfo = new List<Models.CardInfo>();
+				model.CardInfo.Add(new Models.CardInfo()
+				{
+					CardType = cardDetail.CardType,
+					CardNumber = cardDetail.CardNumber
+				});
+			}
+			IAddressBookService service = new AddressBookService();
+			await service.AddNewContactInfoAsync(model);
+			DependencyService.Get<IProgressBar>().Hide();
 		}
 		#endregion
 
@@ -265,7 +296,6 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-        public List<Models.EmailTypeInfo> EmailTypeInfo { get; set; }
 		#endregion
 	}
 }

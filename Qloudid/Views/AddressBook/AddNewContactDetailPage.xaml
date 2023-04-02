@@ -903,8 +903,8 @@
 										<controls:CustomPicker.ItemsSource>
 											<x:Array Type="{x:Type x:String}">
 											<x:String>Visa card</x:String>
-											<x:String>Debit card</x:String>
-											<x:String>Credit card</x:String>
+											<x:String>Maestro card</x:String>
+											<x:String>Master card</x:String>
 										</x:Array>
 									</controls:CustomPicker.ItemsSource>
 								</controls:CustomPicker>

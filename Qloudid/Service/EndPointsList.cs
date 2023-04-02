@@ -252,5 +252,6 @@
 
 		//Address Book
 		public const string UserAddressBookContactDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddressBookContactDetails";
+		public const string AddNewContactInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addNewContactInfo";
 	}
 }
