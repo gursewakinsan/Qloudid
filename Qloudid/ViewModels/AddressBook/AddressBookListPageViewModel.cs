@@ -37,6 +37,7 @@ namespace Qloudid.ViewModels
 				ContactFirstName = Helper.Helper.UserInfo.first_name,
 				ContactLastName = Helper.Helper.UserInfo.last_name,
 				UserImage = Helper.Helper.UserInfo.UserImage,
+				Id = Helper.Helper.UserId,
 				Relation = "You"
 			};
 			responses.Insert(0, user);
