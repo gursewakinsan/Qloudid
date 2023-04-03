@@ -196,16 +196,23 @@
 			        TextColor="White"
                     Text="Name"
 			        VerticalTextAlignment="Center"/>
-				
-				<Label
+
+                <Label
 			        Grid.Row="7"
 			        FontFamily="PoppinsRegularFontFamily"
 			        FontSize="15"
 			        HorizontalTextAlignment="Start"
 			        Opacity="0.70"
 			        TextColor="White"
-                    Text="Daniel Jonsson"
-			        VerticalTextAlignment="Center"/>
+			        VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding UserAddessBookContactDetailInfo.ContactFirstName}"/>
+                            <Span Text=" "/>
+                            <Span Text="{Binding UserAddessBookContactDetailInfo.ContactLastName}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
 				<BoxView
                     Grid.Row="8"
