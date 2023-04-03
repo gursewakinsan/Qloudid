@@ -2,8 +2,618 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.AddressBook.UserContactDetailsInfoPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    x:Class="Qloudid.Views.AddressBook.UserContactDetailsInfoPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="20" />
+			<RowDefinition Height="*" />
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2">
+			 <Frame.GestureRecognizers>
+				 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+			 </Frame.GestureRecognizers>
+		 </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+		<Frame
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2">
+			 <Frame.GestureRecognizers>
+				 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+			 </Frame.GestureRecognizers>
+		 </Frame>
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="3"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"
+			TextColor="White" />
+
+		<ScrollView
+			Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+			VerticalScrollBarVisibility="Never">
+			<Grid RowSpacing="0" ColumnSpacing="30">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="100"/>
+					<RowDefinition Height="43"/>
+					<RowDefinition Height="25" />
+					<RowDefinition Height="14" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="23" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="35" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="10" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="10" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="10" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="20" />
+					<RowDefinition Height="10" />
+					<RowDefinition Height="1" />
+					<RowDefinition Height="auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					ColumnSpacing="24"
+					Grid.Row="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="66"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<ImageButton
+						Grid.Column="0"
+						Aspect="AspectFill"
+						Padding="0"
+						CornerRadius="33"
+						HeightRequest="66"
+						BackgroundColor="Transparent"
+						VerticalOptions="CenterAndExpand"
+						Source="{Binding UserAddessBookContactDetailInfo.ContactImage }"/>
+
+					<StackLayout
+						Spacing="0"
+						Grid.Column="1"
+						VerticalOptions="CenterAndExpand">
+						<Label
+							FontAttributes="Bold"
+							FontFamily="PoppinsBoldFontFamily"
+							FontSize="33"
+							HorizontalTextAlignment="Start"
+							TextColor="White"
+							MaxLines="1"
+							LineBreakMode="TailTruncation"
+							VerticalTextAlignment="Center">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding UserAddessBookContactDetailInfo.ContactFirstName}"/>
+									<Span Text=" "/>
+									<Span Text="{Binding UserAddessBookContactDetailInfo.ContactLastName}"/>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+
+						<Label
+							FontFamily="PoppinsRegularFontFamily"
+							FontSize="25"
+							Opacity="0.42"
+							HorizontalTextAlignment="Start"
+							Text="Friend"
+							TextColor="White"
+							VerticalTextAlignment="Center" />
+					</StackLayout>
+				</Grid>
+
+				<StackLayout
+					Grid.Row="2"
+					Spacing="20"
+					Orientation="Horizontal">
+					<Label
+						FontAttributes="Bold"
+						FontFamily="PoppinsSemiBoldFontFamily"
+						FontSize="18"
+						HorizontalTextAlignment="Start"
+						Text="Private"
+						TextColor="#F4B400"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="17"
+						HorizontalTextAlignment="Start"
+						Text="Business"
+						TextColor="White"
+						Opacity="0.42"
+						VerticalTextAlignment="Center" />
+				</StackLayout>
+
+				<BoxView
+					Grid.Row="4"
+					BackgroundColor="#F4B400"/>
+
+				<!--First name + Last name -->
+				<Label
+			        Grid.Row="6"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Name"
+			        VerticalTextAlignment="Center"/>
+				
+				<Label
+			        Grid.Row="7"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="15"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.70"
+			        TextColor="White"
+                    Text="Daniel Jonsson"
+			        VerticalTextAlignment="Center"/>
+
+				<BoxView
+                    Grid.Row="8"
+                    Opacity="0.1"
+					Grid.Column="0"
+					WidthRequest="234"
+                    BackgroundColor="White"
+					HorizontalOptions="StartAndExpand"/>
+
+				<!--Email-->
+				<Label
+					Grid.Row="10"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Email"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+                    Grid.Row="12"
+                    Opacity="0.67"
+					WidthRequest="65"
+                    BackgroundColor="#F4B400"
+					HorizontalOptions="StartAndExpand"/>
+
+				<StackLayout
+					Grid.Row="13"
+					Margin="0,21,0,0" 
+					BindableLayout.ItemsSource="{Binding UserAddessBookContactDetailInfo.Emails}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Grid RowSpacing="0" ColumnSpacing="31">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="20"/>
+									<RowDefinition Height="8"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+									<RowDefinition Height="20"/>
+								</Grid.RowDefinitions>
+								<Label
+									Grid.Row="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="13"
+									HorizontalTextAlignment="Start"
+									Opacity="0.42"
+									TextColor="White"
+									Text="{Binding ContactEmailType}"
+									VerticalTextAlignment="Center"/>
+				
+								<Label
+									Grid.Row="2"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									Text="{Binding ContactEmail}"
+									VerticalTextAlignment="Center"/>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								BackgroundColor="White"/>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<!--Phone-->
+				<Label
+					Grid.Row="14"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Phone"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+                    Grid.Row="16"
+                    Opacity="0.67"
+					WidthRequest="65"
+                    BackgroundColor="#F4B400"
+					HorizontalOptions="StartAndExpand"/>
+
+				<StackLayout
+					Grid.Row="17"
+					Margin="0,21,0,0" 
+					BindableLayout.ItemsSource="{Binding UserAddessBookContactDetailInfo.Phones}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Grid RowSpacing="0" ColumnSpacing="17">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="20"/>
+									<RowDefinition Height="8"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+									<RowDefinition Height="20"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Row="0"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="13"
+									HorizontalTextAlignment="Start"
+									Opacity="0.42"
+									TextColor="White"
+									Text="{Binding ContactPhoneNumberType}"
+									VerticalTextAlignment="Center"/>
+				
+								<Label
+									Grid.Row="2"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									VerticalTextAlignment="Center">
+									<Label.FormattedText>
+										<FormattedString>
+											<Span Text="+"/>
+											<Span Text="{Binding ContactCountryId}"/>
+										</FormattedString>
+									</Label.FormattedText>
+								</Label>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								Grid.Column="0"
+								BackgroundColor="White"/>
+
+								
+								<Label
+									Grid.Column="1"
+									Grid.Row="2"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									Text="{Binding ContactPhoneNumber}"
+									VerticalTextAlignment="Center"/>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								Grid.Column="1"
+								Margin="0,0,64,0"
+								BackgroundColor="White"/>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<!--Address-->
+				<Label
+					Grid.Row="18"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Address"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+                    Grid.Row="20"
+                    Opacity="0.67"
+					WidthRequest="65"
+                    BackgroundColor="#F4B400"
+					HorizontalOptions="StartAndExpand"/>
+
+				<StackLayout
+					Grid.Row="21"
+					Margin="0,21,0,0" 
+					BindableLayout.ItemsSource="{Binding UserAddessBookContactDetailInfo.Addresses}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Grid RowSpacing="0" ColumnSpacing="17">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="20"/>
+									<RowDefinition Height="8"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+									<RowDefinition Height="11"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+									<RowDefinition Height="11"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+
+									<RowDefinition Height="20"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Row="0"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="13"
+									HorizontalTextAlignment="Start"
+									Opacity="0.42"
+									TextColor="White"
+									Text="Mobile"
+									VerticalTextAlignment="Center"/>
+				
+								<Label
+									Grid.Row="2"
+									Grid.ColumnSpan="2"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									VerticalTextAlignment="Center"
+									MaxLines="1"
+									LineBreakMode="TailTruncation">
+									<Label.FormattedText>
+										<FormattedString>
+											<Span Text="{Binding ContactStreetAddress}"/>
+											<Span Text=" "/>
+											<Span Text="{Binding ContactPortNumber}"/>
+										</FormattedString>
+									</Label.FormattedText>
+								</Label>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								Grid.ColumnSpan="2"
+								Margin="0,0,64,0"
+								BackgroundColor="White"/>
+				
+								<Label
+									Grid.Row="5"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									VerticalTextAlignment="Center"
+									Text="{Binding ContactZip}"/>
+
+							<BoxView
+								Grid.Row="6"
+								Opacity="0.1"
+								Grid.Column="0"
+								BackgroundColor="White"/>
+
+								
+								<Label
+									Grid.Column="1"
+									Grid.Row="5"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									Text="{Binding ContactCity}"
+									VerticalTextAlignment="Center"/>
+
+							<BoxView
+								Grid.Row="6"
+								Opacity="0.1"
+								Grid.Column="1"
+								Margin="0,0,64,0"
+								BackgroundColor="White"/>
+
+				
+								<Label
+									Grid.Row="8"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									VerticalTextAlignment="Center"
+									Text="{Binding ContactState}"/>
+
+							<BoxView
+								Grid.Row="9"
+								Opacity="0.1"
+								Grid.Column="0"
+								BackgroundColor="White"/>
+
+								
+								<Label
+									Grid.Column="1"
+									Grid.Row="8"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									Text="{Binding CountryName}"
+									VerticalTextAlignment="Center"/>
+
+							<BoxView
+								Grid.Row="9"
+								Opacity="0.1"
+								Grid.Column="1"
+								Margin="0,0,64,0"
+								BackgroundColor="White"/>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+
+				<!--Card-->
+				<Label
+					Grid.Row="22"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="15"
+					Opacity="0.42"
+					HorizontalTextAlignment="Start"
+					Text="Card"
+					TextColor="White"
+					VerticalTextAlignment="Center" />
+
+				<BoxView
+                    Grid.Row="24"
+                    Opacity="0.67"
+					WidthRequest="65"
+                    BackgroundColor="#F4B400"
+					HorizontalOptions="StartAndExpand"/>
+
+				<StackLayout
+					Grid.Row="25"
+					Margin="0,21,0,0" 
+					BindableLayout.ItemsSource="{Binding UserAddessBookContactDetailInfo.Cards}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate>
+							<Grid RowSpacing="0" ColumnSpacing="17">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="20"/>
+									<RowDefinition Height="8"/>
+									<RowDefinition Height="40"/>
+									<RowDefinition Height="1"/>
+									<RowDefinition Height="20"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<Label
+									Grid.Row="0"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="13"
+									HorizontalTextAlignment="Start"
+									Opacity="0.42"
+									TextColor="White"
+									Text="Mobile"
+									VerticalTextAlignment="Center"/>
+				
+								<Label
+									Grid.Row="2"
+									Grid.Column="0"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									VerticalTextAlignment="Center"
+									Text="{Binding ContactCardType}"/>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								Grid.Column="0"
+								BackgroundColor="White"/>
+
+								
+								<Label
+									Grid.Column="1"
+									Grid.Row="2"
+									FontFamily="PoppinsRegularFontFamily"
+									FontSize="15"
+									HorizontalTextAlignment="Start"
+									Opacity="0.70"
+									TextColor="White"
+									Text="{Binding ContactCardNumber}"
+									VerticalTextAlignment="Center"/>
+
+							<BoxView
+								Grid.Row="3"
+								Opacity="0.1"
+								Grid.Column="1"
+								Margin="0,0,64,0"
+								BackgroundColor="White"/>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</StackLayout>
+			</Grid>
+		</ScrollView>
+	</Grid>
 </ContentPage>

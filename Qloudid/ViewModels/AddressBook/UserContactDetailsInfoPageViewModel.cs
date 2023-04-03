@@ -35,8 +35,8 @@ namespace Qloudid.ViewModels
 		#endregion
 
 		#region Properties.
-		private List<Models.UserAddessBookContactDetailInfoResponse> userAddessBookContactDetailInfo;
-		public List<Models.UserAddessBookContactDetailInfoResponse> UserAddessBookContactDetailInfo
+		private Models.UserAddessBookContactDetailInfoResponse userAddessBookContactDetailInfo;
+		public Models.UserAddessBookContactDetailInfoResponse UserAddessBookContactDetailInfo
 		{
 			get => userAddessBookContactDetailInfo;
 			set

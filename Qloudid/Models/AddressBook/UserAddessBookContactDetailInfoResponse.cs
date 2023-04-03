@@ -61,14 +61,17 @@ namespace Qloudid.Models
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_country")]
         public string ContactCountry { get; set; }
 
-        [Newtonsoft.Json.JsonProperty(PropertyName = "UserContactAddressBookId")]
-        public int user_contact_address_book_id { get; set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "user_contact_address_book_id")]
+        public int UserContactAddressBookId { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_address_type")]
         public int ContactAddressType { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "user_id")]
         public int UserId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "country_name")]
+        public string CountryName { get; set; }
     }
 
     public class Card
@@ -128,3 +131,4 @@ namespace Qloudid.Models
         public int UserId { get; set; }
     }
 }
+

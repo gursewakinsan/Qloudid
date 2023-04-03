@@ -249,7 +249,7 @@ namespace Qloudid.ViewModels
 					model.PhoneInfo = new List<Models.PhoneInfo>();
 				model.PhoneInfo.Add(new Models.PhoneInfo()
 				{
-					CountryCode = phoneNumberDetail.SelectedCountry.CountryCode,
+					CountryCode = phoneNumberDetail.SelectedCountry.Id,
 					PhoneType = phoneNumberDetail.PhoneType,
 					PhoneNumber = phoneNumberDetail.PhoneNumber,
 
@@ -266,7 +266,7 @@ namespace Qloudid.ViewModels
 					ZipCode = contactAddressDetail.ZipCode,
 					City = contactAddressDetail.City,
 					State = contactAddressDetail.State,
-					CountryCode = contactAddressDetail.SelectedCountry.CountryCode,
+					CountryCode = contactAddressDetail.SelectedCountry.Id,
 				});
 			}
 			foreach (var cardDetail in ListOfContactCard)
