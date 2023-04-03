@@ -8,12 +8,12 @@ namespace Qloudid.Views.AddressBook
     public partial class UserContactDetailsInfoPage : ContentPage
     {
         UserContactDetailsInfoPageViewModel viewModel;
-        public UserContactDetailsInfoPage(int selectedContactId)
+        public UserContactDetailsInfoPage(Models.UserAddressBookContactsResponse user)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new UserContactDetailsInfoPageViewModel(this.Navigation);
-            viewModel.SelectedContactId = selectedContactId;
+            viewModel.SelectedUser = user;
         }
 
         protected override void OnAppearing()

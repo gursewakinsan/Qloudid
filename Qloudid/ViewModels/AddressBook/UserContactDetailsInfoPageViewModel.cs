@@ -28,7 +28,8 @@ namespace Qloudid.ViewModels
 			IAddressBookService service = new AddressBookService();
 			UserAddessBookContactDetailInfo = await service.UserAddessBookContactDetailInfoAsync(new Models.UserAddessBookContactDetailInfoRequest()
 			{
-				 ContactId = SelectedContactId
+				ContactId = SelectedUser.Id,
+				IsUser = SelectedUser.IsUser
 			});
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -46,7 +47,7 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-        public int SelectedContactId { get; set; }
+        public Models.UserAddressBookContactsResponse SelectedUser { get; set; }
         #endregion
     }
 }

@@ -12,7 +12,7 @@
         public string ContactLastName { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_relation")]
-        public int ContactRelation { get; set; }
+        public string ContactRelation { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_image")]
         public string ContactImage { get; set; }
@@ -26,6 +26,6 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "UserImage")]
         public string UserImage { get; set; }
 
-        public string Relation { get; set; }
+        public bool IsUser { get; set; } = false;
     }
 }

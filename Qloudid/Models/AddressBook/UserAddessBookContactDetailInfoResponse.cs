@@ -14,7 +14,7 @@ namespace Qloudid.Models
         public string ContactLastName { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_relation")]
-        public int ContactRelation { get; set; }
+        public string ContactRelation { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_image")]
         public string ContactImage { get; set; }
@@ -47,10 +47,10 @@ namespace Qloudid.Models
         public string ContactStreetAddress { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_port_number")]
-        public int ContactPortNumber { get; set; }
+        public string ContactPortNumber { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_zip")]
-        public int ContactZip { get; set; }
+        public string ContactZip { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "contact_city")]
         public string ContactCity { get; set; }
@@ -129,6 +129,9 @@ namespace Qloudid.Models
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "user_id")]
         public int UserId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "country_code")]
+        public int CountryCode { get; set; }
     }
 }
 

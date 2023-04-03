@@ -33,10 +33,17 @@ namespace Qloudid.ViewModels
 				PhoneType = "Mobile",
 				UserId = Helper.Helper.UserId,
 				CountryList = Helper.Helper.CountryList.OrderBy(x => x.CountryCode).ToList(),
-				SelectedCountry = Helper.Helper.CountryList[0] });
+				SelectedCountry = Helper.Helper.CountryList.FirstOrDefault(x => x.Id.Equals(Helper.Helper.CountryOfResidence)) // Helper.Helper.CountryList[0] 
+			});
 
 			ListOfContactAddressNumber = new ObservableCollection<Models.ContactAddressDetail>();
-			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = 1, IsRemove = true, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
+			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() 
+			{
+				Id = 1, 
+				IsRemove = true, 
+				CountryList = Helper.Helper.CountryList, 
+				SelectedCountry = Helper.Helper.CountryList.FirstOrDefault(x => x.Id.Equals(Helper.Helper.CountryOfResidence))
+            });
 
 			ListOfContactCard = new ObservableCollection<Models.ContactCardDetail>();
 			ListOfContactCard.Add(new Models.ContactCardDetail() { Id = 1, IsRemove = true, CardType = "Visa card" });
@@ -80,7 +87,8 @@ namespace Qloudid.ViewModels
 				PhoneType = "Mobile",
 				UserId = Helper.Helper.UserId,
 				CountryList = Helper.Helper.CountryList.OrderBy(x => x.CountryCode).ToList(),
-				SelectedCountry = Helper.Helper.CountryList[0]});
+				SelectedCountry = Helper.Helper.CountryList.FirstOrDefault(x => x.Id.Equals(Helper.Helper.CountryOfResidence))
+            });
 		}
 		#endregion
 
@@ -93,7 +101,13 @@ namespace Qloudid.ViewModels
 		private void ExecuteAddMoreAddressCommand()
 		{
 			var id = ListOfContactAddressNumber.LastOrDefault().Id;
-			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() { Id = id + 1, IsRemove = true, CountryList = Helper.Helper.CountryList, SelectedCountry = Helper.Helper.CountryList[0] });
+			ListOfContactAddressNumber.Add(new Models.ContactAddressDetail() 
+			{
+				Id = id + 1,
+				IsRemove = true,
+				CountryList = Helper.Helper.CountryList, 
+				SelectedCountry = Helper.Helper.CountryList.FirstOrDefault(x => x.Id.Equals(Helper.Helper.CountryOfResidence))
+            });
 		}
 		#endregion
 
@@ -118,7 +132,8 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteSubmitContactInfoCommand()
 		{
-			if (string.IsNullOrWhiteSpace(FirstName))
+            bool isEmailValid = false;
+            if (string.IsNullOrWhiteSpace(FirstName))
 			{
 				await Helper.Alert.DisplayAlert("First name is required.");
 				return;
@@ -128,14 +143,14 @@ namespace Qloudid.ViewModels
 				await Helper.Alert.DisplayAlert("Last name is required.");
 				return;
 			}
-			else if (CroppedImage1 == null)
+            /*else if (CroppedImage1 == null)
 			{
 				await Helper.Alert.DisplayAlert("Please select photo.");
 				return;
-			}
-			foreach (var contactEmail in ListOfContactEmailAddress)
+			}*/
+            foreach (var contactEmail in ListOfContactEmailAddress)
             {
-				if (string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
+				/*if (string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
 				{
 					await Helper.Alert.DisplayAlert("Email is required.");
 					contactEmail.IsError = 1;
@@ -148,10 +163,26 @@ namespace Qloudid.ViewModels
 					return;
 				}
 				else
-					contactEmail.IsError = 0;
-			}
+					contactEmail.IsError = 0;*/
+				
+				if (!string.IsNullOrWhiteSpace(contactEmail.EmailAddress))
+				{
+					if (!Helper.Helper.IsValid(contactEmail.EmailAddress))
+					{
+						isEmailValid = false;
+						await Helper.Alert.DisplayAlert("Please enter valid email address.");
+						contactEmail.IsError = 1;
+						return;
+					}
+					else
+					{
+                        isEmailValid = true;
+                        contactEmail.IsError = 0;
+					}
+                }
+            }
 
-			foreach (var contactPhone in ListOfContactPhoneNumber)
+            foreach (var contactPhone in ListOfContactPhoneNumber)
 			{
 				if (string.IsNullOrWhiteSpace(contactPhone.PhoneNumber))
 				{
@@ -159,11 +190,17 @@ namespace Qloudid.ViewModels
 					contactPhone.IsError = 1;
 					return;
 				}
-				else
+                else if (contactPhone.PhoneNumber.StartsWith("0"))
+                {
+                    await Helper.Alert.DisplayAlert("Phone number cannot be start from zero.");
+                    contactPhone.IsError = 1;
+                    return;
+                }
+                else
 					contactPhone.IsError = 0;
 			}
 
-			foreach (var contactAddress in ListOfContactAddressNumber)
+			/*foreach (var contactAddress in ListOfContactAddressNumber)
 			{
 				if (string.IsNullOrWhiteSpace(contactAddress.Address))
 				{
@@ -199,18 +236,22 @@ namespace Qloudid.ViewModels
 					await Helper.Alert.DisplayAlert("Card number is required.");
 					return;
 				}
-			}
+			}*/
 			DependencyService.Get<IProgressBar>().Show();
 			IAddressBookService service = new AddressBookService();
-			var emailResponse = await service.CheckValidEmailsAsync(ListOfContactEmailAddress);
-			if (emailResponse?.Count > 0)
+
+			if (isEmailValid)
 			{
-				var emailData = emailResponse.FirstOrDefault(x => x.IsError == 1);
-				if (emailData != null)
+				var emailResponse = await service.CheckValidEmailsAsync(ListOfContactEmailAddress);
+				if (emailResponse?.Count > 0)
 				{
-					ListOfContactEmailAddress = emailResponse;
-					DependencyService.Get<IProgressBar>().Hide();
-					return;
+					var emailData = emailResponse.FirstOrDefault(x => x.IsError == 1);
+					if (emailData != null)
+					{
+						ListOfContactEmailAddress = emailResponse;
+						DependencyService.Get<IProgressBar>().Hide();
+						return;
+					}
 				}
 			}
 
@@ -226,12 +267,17 @@ namespace Qloudid.ViewModels
 				}
 			}
 
+			string userImgData = string.Empty;
+			if (CroppedImage1 != null)
+				userImgData = Convert.ToBase64String(CroppedImage1);
+
 			Models.AddContactInfoRequest model = new Models.AddContactInfoRequest()
 			{
 				UserId = Helper.Helper.UserId,
 				FirstName = FirstName,
 				LastName = LastName,
-				ImageData = Convert.ToBase64String(CroppedImage1)
+				ImageData = userImgData,
+				ContactRelation = RelationType
 			};
             foreach (var emailDetail in ListOfContactEmailAddress)
             {
@@ -310,7 +356,19 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private ObservableCollection<Models.ContactEmailDetail> listOfContactEmailAddress;
+		private string relationType = "Mother";
+        public string RelationType
+        {
+            get => relationType;
+            set
+            {
+                relationType = value;
+                OnPropertyChanged("RelationType");
+            }
+        }
+        
+
+        private ObservableCollection<Models.ContactEmailDetail> listOfContactEmailAddress;
 		public ObservableCollection<Models.ContactEmailDetail> ListOfContactEmailAddress
 		{
 			get => listOfContactEmailAddress;

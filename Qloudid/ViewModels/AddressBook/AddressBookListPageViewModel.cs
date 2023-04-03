@@ -30,15 +30,15 @@ namespace Qloudid.ViewModels
 			{
 				UserId = Helper.Helper.UserId
 			});
-            foreach (var item in responses)
-				item.Relation = "Friend";
+           
 			Models.UserAddressBookContactsResponse user = new Models.UserAddressBookContactsResponse()
 			{
 				ContactFirstName = Helper.Helper.UserInfo.first_name,
 				ContactLastName = Helper.Helper.UserInfo.last_name,
 				UserImage = Helper.Helper.UserInfo.UserImage,
 				Id = Helper.Helper.UserId,
-				Relation = "You"
+                ContactRelation = "You",
+				IsUser = true
 			};
 			responses.Insert(0, user);
 			UserAddressBookContacts = responses;

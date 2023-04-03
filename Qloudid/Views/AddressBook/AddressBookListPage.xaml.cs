@@ -58,7 +58,7 @@ namespace Qloudid.Views.AddressBook
 
         async void OnItemClicked(Models.UserAddressBookContactsResponse user)
         {
-            await Navigation.PushAsync(new UserContactDetailsInfoPage(user.Id));
+            await Navigation.PushAsync(new UserContactDetailsInfoPage(user));
         }
     }
 }

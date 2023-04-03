@@ -246,7 +246,7 @@
 									FontSize="14"
 									Opacity="0.42"
 									TextColor="White"
-									Text="{Binding Relation}"
+									Text="{Binding ContactRelation}"
 									LineBreakMode="TailTruncation"
 									FontFamily="PoppinsRegularFontFamily">
 									<Label.GestureRecognizers>
