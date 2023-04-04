@@ -192,7 +192,8 @@
 							Placeholder="Email"
 							PlaceholderColor="#797A7D"
 							Text="{Binding Email}"
-							TextColor="White" />
+							TextColor="White" 
+                            Keyboard="Email"/>
 					</textinputlayout:SfTextInputLayout>
 				</Grid>
 

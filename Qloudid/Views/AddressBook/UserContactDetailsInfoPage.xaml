@@ -122,7 +122,7 @@
 						Padding="0"
 						CornerRadius="33"
 						HeightRequest="66"
-						BackgroundColor="Transparent"
+						BackgroundColor="#242A37"
 						VerticalOptions="CenterAndExpand"
 						Source="{Binding UserAddessBookContactDetailInfo.ContactImage }"/>
 

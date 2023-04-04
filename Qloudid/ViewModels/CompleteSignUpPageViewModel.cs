@@ -66,18 +66,19 @@ namespace Qloudid.ViewModels
 				Check = 1,
 				Certificate = Helper.Helper.QrCertificateKey
 			});
-			if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
-			{
-				//Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
-
-
-				//Helper.Helper.SelectedIdentificatorText = "Passport";
-				//Application.Current.MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
-
-				await Navigation.PushAsync(new Views.Identity.AddYourIdCardPage());
-
-			}
-			else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
+            if (Helper.Helper.GenerateCertificateIdentificatorValue == 0)
+            {
+                //Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+                //Helper.Helper.SelectedIdentificatorText = "Passport";
+                Application.Current.MainPage = new NavigationPage(new Views.Identity.AddYourIdCardPage());
+            }
+            if (Helper.Helper.GenerateCertificateIdentificatorValue == 1)
+            {
+                //Application.Current.MainPage = new NavigationPage(new Views.IdentificatorPage());
+                //Helper.Helper.SelectedIdentificatorText = "Passport";
+                Application.Current.MainPage = new NavigationPage(new Views.AddNewCardPage());
+            }
+            else if (Helper.Helper.GenerateCertificateIdentificatorValue == -1)
 			{
 				var response = await service.IdentificatorDetailAsync(new Models.IdentificatorDetailRequest()
 				{
