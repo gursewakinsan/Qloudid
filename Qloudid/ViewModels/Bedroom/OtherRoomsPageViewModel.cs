@@ -74,7 +74,7 @@ namespace Qloudid.ViewModels
 					break;
 				case 5:
 					OtherRoomInfo.SalRoomAvailable = !OtherRoomInfo.SalRoomAvailable;
-					updateRequest.Id = 2;
+					updateRequest.Id = 5;
 					updateRequest.UpdateInfo = OtherRoomInfo.SalRoomAvailable ? 1 : 0;
 					break;
 				case 6:
@@ -106,6 +106,46 @@ namespace Qloudid.ViewModels
 					OtherRoomInfo.TerraceAvailable = !OtherRoomInfo.TerraceAvailable;
 					updateRequest.Id = 11;
 					updateRequest.UpdateInfo = OtherRoomInfo.TerraceAvailable ? 1 : 0;
+					break;
+				case 12:
+					OtherRoomInfo.StorageAvailable = !OtherRoomInfo.StorageAvailable;
+					updateRequest.Id = 12;
+					updateRequest.UpdateInfo = OtherRoomInfo.StorageAvailable ? 1 : 0;
+					break;
+				case 17:
+					OtherRoomInfo.BicycleRoomAvailable = !OtherRoomInfo.BicycleRoomAvailable;
+					updateRequest.Id = 17;
+					updateRequest.UpdateInfo = OtherRoomInfo.BicycleRoomAvailable ? 1 : 0;
+					break;
+				case 18:
+					OtherRoomInfo.WasteRoomAvailable = !OtherRoomInfo.WasteRoomAvailable;
+					updateRequest.Id = 18;
+					updateRequest.UpdateInfo = OtherRoomInfo.WasteRoomAvailable ? 1 : 0;
+					break;
+				case 19:
+					OtherRoomInfo.StrollerRoomAvailable = !OtherRoomInfo.StrollerRoomAvailable;
+					updateRequest.Id = 19;
+					updateRequest.UpdateInfo = OtherRoomInfo.StrollerRoomAvailable ? 1 : 0;
+					break;
+				case 13:
+					OtherRoomInfo.BasementAvailable = !OtherRoomInfo.BasementAvailable;
+					updateRequest.Id = 13;
+					updateRequest.UpdateInfo = OtherRoomInfo.BasementAvailable ? 1 : 0;
+					break;
+				case 14:
+					OtherRoomInfo.GarageAvailable = !OtherRoomInfo.GarageAvailable;
+					updateRequest.Id = 14;
+					updateRequest.UpdateInfo = OtherRoomInfo.GarageAvailable ? 1 : 0;
+					break;
+				case 15:
+					OtherRoomInfo.KitchenAvailable = !OtherRoomInfo.KitchenAvailable;
+					updateRequest.Id = 15;
+					updateRequest.UpdateInfo = OtherRoomInfo.KitchenAvailable ? 1 : 0;
+					break;
+				case 16:
+					OtherRoomInfo.EntranceAvailable = !OtherRoomInfo.EntranceAvailable;
+					updateRequest.Id = 16;
+					updateRequest.UpdateInfo = OtherRoomInfo.EntranceAvailable ? 1 : 0;
 					break;
 			}
             await service.UpdateOtherRoomInfoAsync(updateRequest);

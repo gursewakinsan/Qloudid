@@ -139,5 +139,103 @@
                 OnPropertyChanged("TerraceAvailable");
             }
         }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "storage_available")]
+        private bool storageAvailable;
+        public bool StorageAvailable
+        {
+            get => storageAvailable;
+            set
+            {
+                storageAvailable = value;
+                OnPropertyChanged("StorageAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bicycle_room_available")]
+        private bool bicycleRoomAvailable;
+        public bool BicycleRoomAvailable
+        {
+            get => bicycleRoomAvailable;
+            set
+            {
+                bicycleRoomAvailable = value;
+                OnPropertyChanged("BicycleRoomAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "waste_room_available")]
+        private bool wasteRoomAvailable;
+        public bool WasteRoomAvailable
+        {
+            get => wasteRoomAvailable;
+            set
+            {
+                wasteRoomAvailable = value;
+                OnPropertyChanged("WasteRoomAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "stroller_room_available")]
+        private bool strollerRoomAvailable;
+        public bool StrollerRoomAvailable
+        {
+            get => strollerRoomAvailable;
+            set
+            {
+                strollerRoomAvailable = value;
+                OnPropertyChanged("StrollerRoomAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "basement_available")]
+        private bool basementAvailable;
+        public bool BasementAvailable
+        {
+            get => basementAvailable;
+            set
+            {
+                basementAvailable = value;
+                OnPropertyChanged("BasementAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "garage_available")]
+        private bool garageAvailable;
+        public bool GarageAvailable
+        {
+            get => garageAvailable;
+            set
+            {
+                garageAvailable = value;
+                OnPropertyChanged("GarageAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "kitchen_available")]
+        private bool kitchenAvailable;
+        public bool KitchenAvailable
+        {
+            get => kitchenAvailable;
+            set
+            {
+                kitchenAvailable = value;
+                OnPropertyChanged("KitchenAvailable");
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "entrance_available")]
+        private bool entranceAvailable;
+        public bool EntranceAvailable
+        {
+            get => entranceAvailable;
+            set
+            {
+                entranceAvailable = value;
+                OnPropertyChanged("EntranceAvailable");
+            }
+        }
     }
 }
+
+

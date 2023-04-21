@@ -8,7 +8,2559 @@
     ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
-    <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,0">
+     <Grid
+		Margin="0,22,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+         <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.2" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding CloseCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+         <ScrollView
+            Margin="0,23,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+             <Grid
+		        ColumnSpacing="10"
+		        RowSpacing="0">
+                 <Grid.RowDefinitions>
+                    <RowDefinition Height="33" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="51" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="100"/>
+
+
+                     <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                 <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="*"/>
+                     <ColumnDefinition Width="*"/>
+                     <ColumnDefinition Width="*"/>
+                 </Grid.ColumnDefinitions>
+                 <Label
+			        Grid.Row="0"
+                    Grid.ColumnSpan="3"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Rooms"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="Mark your rooms"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Pre-selected"
+			        VerticalTextAlignment="Center"/>
+
+                 <Frame
+                     Grid.Row="6"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991">
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Bedroom"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                     </Grid>
+                 </Frame>
+
+                 <Frame
+                     Grid.Row="6"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991">
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Bathroom"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="8"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="All room"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Hall room-->
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.HallRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                         </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Hall room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="10"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1"
+                     IsVisible="{Binding OtherRoomInfo.HallRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.HallRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Hall room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="1" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Living room-->
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.LivingRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Living room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="10"
+                     Grid.Column="1"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2"
+                     IsVisible="{Binding OtherRoomInfo.LivingRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.LivingRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Living room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Work room-->
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.WorkRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3" />
+                          </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Work room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="10"
+                     Grid.Column="2"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3"
+                     IsVisible="{Binding OtherRoomInfo.WorkRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="10"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.WorkRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="2" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Work room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="3" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Hobby room-->
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.HobbyRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Hobby room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="12"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4"
+                     IsVisible="{Binding OtherRoomInfo.HobbyRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.HobbyRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Hobby room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="4" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Sal room-->
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.SalRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Sal room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="12"
+                     Grid.Column="1"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5"
+                     IsVisible="{Binding OtherRoomInfo.SalRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.SalRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Sal room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="5" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Salon room-->
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.SalonRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Salon room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="12"
+                     Grid.Column="2"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6"
+                     IsVisible="{Binding OtherRoomInfo.SalonRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="12"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.SalonRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Salon room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="6" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Vestibule room-->
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.VestibuleRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Vestibule room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="14"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7"
+                     IsVisible="{Binding OtherRoomInfo.VestibuleRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.VestibuleRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Vestibule room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="7" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Dining room-->
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.DiningRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                          </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Dining room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="14"
+                     Grid.Column="1"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8"
+                     IsVisible="{Binding OtherRoomInfo.DiningRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.DiningRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Dining room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="8" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Chamber room-->
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.ChamberRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Chamber room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="14"
+                     Grid.Column="2"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9"
+                     IsVisible="{Binding OtherRoomInfo.ChamberRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="14"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.ChamberRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Chamber room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="9" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="16"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Balcony"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Balcony-->
+                 <Frame
+                     Grid.Row="18"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.BalconyAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Balcony"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="18"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10"
+                     IsVisible="{Binding OtherRoomInfo.BalconyAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="18"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.BalconyAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Balcony"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="10" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="20"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Terrace"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Terrace-->
+                 <Frame
+                     Grid.Row="22"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.TerraceAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Terrace"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="22"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11"
+                     IsVisible="{Binding OtherRoomInfo.TerraceAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="22"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.TerraceAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Terrace"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="11" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="24"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Storage"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Storage-->
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.StorageAvailable}">
+                      <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                          <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                            </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Storage"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="26"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12"
+                     IsVisible="{Binding OtherRoomInfo.StorageAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.StorageAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Terrace"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="12" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                  <!--Bicycle room-->
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.BicycleRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Bicycle room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="26"
+                     Grid.Column="1"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17"
+                     IsVisible="{Binding OtherRoomInfo.BicycleRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="1"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.BicycleRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Bicycle room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="17" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Waste room-->
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.WasteRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Waste room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="26"
+                     Grid.Column="2"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18"
+                     IsVisible="{Binding OtherRoomInfo.WasteRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="26"
+                     Grid.Column="2"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.WasteRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Waste room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="18" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <!--Stroller room-->
+                 <Frame
+                     Grid.Row="28"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.StrollerRoomAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Stroller room"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="28"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19"
+                     IsVisible="{Binding OtherRoomInfo.StrollerRoomAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="28"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.StrollerRoomAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Stroller room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="19" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="30"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Basement"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Basement-->
+                 <Frame
+                     Grid.Row="32"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Basement"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="32"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13"
+                     IsVisible="{Binding OtherRoomInfo.BasementAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="32"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.BasementAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Stroller room"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="34"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Garage"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Garage-->
+                 <Frame
+                     Grid.Row="36"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.GarageAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Garage"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="36"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14"
+                     IsVisible="{Binding OtherRoomInfo.GarageAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="36"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.GarageAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Garage"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="14" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="38"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Kitchen"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Kitchen-->
+                 <Frame
+                     Grid.Row="40"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.KitchenAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Kitchen"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="40"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15"
+                     IsVisible="{Binding OtherRoomInfo.KitchenAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="40"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.KitchenAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Kitchen"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="15" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Label
+			        Grid.Row="42"
+                    Grid.ColumnSpan="3"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="16"
+                    Opacity="0.70"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Entrance"
+			        VerticalTextAlignment="Center"/>
+
+                 <!--Entrance-->
+                 <Frame
+                     Grid.Row="44"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.EntranceAvailable}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#181A1F" 
+			                BackgroundColor="#53B26B"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Entrance"
+                            TextColor="#181A1F" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+
+                 <Button
+                     Grid.Row="40"
+                     Grid.Column="0"
+                     BorderWidth="2"
+                     CornerRadius="8"
+                     BorderColor="#3D3F48"
+                     BackgroundColor="Transparent"
+                     Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16"
+                     IsVisible="{Binding OtherRoomInfo.EntranceAvailable, Converter={StaticResource InverseBoolConverter}}"/>
+
+                 <Frame
+                     Grid.Row="40"
+                     Grid.Column="0"
+                     HasShadow="False"
+                     Padding="10,20,10,14"
+                     CornerRadius="8"
+                     IsClippedToBounds="True"
+                     BackgroundColor="Transparent"
+                     IsVisible="{Binding OtherRoomInfo.EntranceAvailable, Converter={StaticResource InverseBoolConverter}}">
+                     <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                     </Frame.GestureRecognizers>
+                     <Grid
+                        RowSpacing="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="25"/>
+                             <RowDefinition Height="20"/>
+                         </Grid.RowDefinitions>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                        </Grid.GestureRecognizers>
+                         <Button
+			                Grid.Row="0"
+			                Padding="0"
+                            FontSize="15"
+                            HeightRequest="25"
+                            WidthRequest="25"
+                            TextColor="#3D3F48"
+                            BorderWidth="1"
+                            BorderColor="#3D3F48"
+			                BackgroundColor="Transparent"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+                            Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                         <Label
+			                Grid.Row="1"
+			                FontSize="12"
+                            Text="Entrance"
+                            Opacity="0.70"
+                            TextColor="White" 
+                            HorizontalTextAlignment="Center"
+			                VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily">
+                             <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="16" />
+                            </Label.GestureRecognizers>
+                         </Label>
+                     </Grid>
+                 </Frame>
+             </Grid>
+         </ScrollView>
+     </Grid>
+
+
+
+
+
+
+
+
+
+
+    <!--<Grid RowSpacing="0" ColumnSpacing="0" Padding="0,14,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="24" />
             <RowDefinition Height="28" />
@@ -174,7 +2726,7 @@
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
-                    <!--Hall room-->
+                    Hall room
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"
@@ -222,7 +2774,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Living room-->
+                    Living room
                     <Label
                         Grid.Row="2"
                         Grid.Column="1"
@@ -270,7 +2822,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Work room-->
+                    Work room
                     <Label
                         Grid.Row="4"
                         Grid.Column="1"
@@ -318,7 +2870,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Hobby room-->
+                    Hobby room
                     <Label
                         Grid.Row="6"
                         Grid.Column="1"
@@ -366,7 +2918,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Sal room-->
+                    Sal room
                     <Label
                         Grid.Row="8"
                         Grid.Column="1"
@@ -414,7 +2966,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Saloon-->
+                    Saloon
                     <Label
                         Grid.Row="10"
                         Grid.Column="1"
@@ -462,7 +3014,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Vestibule-->
+                    Vestibule
                     <Label
                         Grid.Row="12"
                         Grid.Column="1"
@@ -510,7 +3062,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Dining room-->
+                    Dining room
                     <Label
                         Grid.Row="14"
                         Grid.Column="1"
@@ -558,7 +3110,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Chamber-->
+                    Chamber
                     <Label
                         Grid.Row="16"
                         Grid.Column="1"
@@ -606,7 +3158,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Balcony-->
+                    Balcony
                     <Label
                         Grid.Row="18"
                         Grid.Column="1"
@@ -654,7 +3206,7 @@
 		                BackgroundColor="White"
 		                Opacity="0.1" />
 
-                    <!--Terrace-->
+                    Terrace
                     <Label
                         Grid.Row="20"
                         Grid.Column="1"
@@ -704,5 +3256,5 @@
                 </Grid>
             </Grid>
         </ScrollView>
-    </Grid>
+    </Grid>-->
 </ContentPage>
