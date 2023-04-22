@@ -160,9 +160,19 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
-		
-		//Bathroom
-		public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)
+
+        public Task<int> UpdateAminitySubcategoryAsync(Models.UpdateAminitySubcategoryRequest model)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<int>(HttpWebRequest.Create(EndPointsList.UpdateAminitySubcategoryUrl), string.Empty, model.ToJson());
+                return res;
+            });
+        }
+        
+
+        //Bathroom
+        public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)
 		{
 			return Task.Factory.StartNew(() =>
 			{

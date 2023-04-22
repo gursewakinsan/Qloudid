@@ -16,7 +16,7 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
-		#region AmenitiesSubCategoryDetailCommand.
+		#region Amenities Sub Category Detail Command.
 		private ICommand amenitiesSubCategoryDetailCommand;
 		public ICommand AmenitiesSubCategoryDetailCommand
 		{
@@ -32,10 +32,29 @@ namespace Qloudid.ViewModels
 			});
 			DependencyService.Get<IProgressBar>().Hide();
 		}
-		#endregion
+        #endregion
 
-		#region Properties.
-		private List<Models.AmenitiesSubcategoryDetailResponse> amenitiesSubcategoryDetail;
+        #region Update Aminity Subcategory Command.
+        private ICommand updateAminitySubcategoryCommand;
+        public ICommand UpdateAminitySubcategoryCommand
+        {
+            get => updateAminitySubcategoryCommand ?? (updateAminitySubcategoryCommand = new Command(async () => await ExecuteUpdateAminitySubcategoryCommand()));
+        }
+        private async Task ExecuteUpdateAminitySubcategoryCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IBedroomService service = new BedroomService();
+            int response = await service.UpdateAminitySubcategoryAsync(new Models.UpdateAminitySubcategoryRequest()
+            {
+                CategoryId = CategoryId,
+				
+            });
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+
+        #region Properties.
+        private List<Models.AmenitiesSubcategoryDetailResponse> amenitiesSubcategoryDetail;
 		public List<Models.AmenitiesSubcategoryDetailResponse> AmenitiesSubcategoryDetail
 		{
 			get => amenitiesSubcategoryDetail;

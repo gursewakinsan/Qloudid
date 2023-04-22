@@ -23,6 +23,7 @@ namespace Qloudid.Interfaces
         Task<string> UpdatePropertyStartAsync(Models.UpdatePropertyStartRequest model);
         Task<List<Models.HomeRepairCategoryInfoResponse>> HomeRepairCategoryInfoAsync(Models.HomeRepairCategoryInfoRequest model);
         Task<List<Models.AmenitiesSubcategoryDetailResponse>> AmenitiesSubcategoryDetailAsync(Models.AmenitiesSubcategoryDetailRequest model);
+        Task<int> UpdateAminitySubcategoryAsync(Models.UpdateAminitySubcategoryRequest model);
 
         //Bathroom
         Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model);

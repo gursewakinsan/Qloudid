@@ -143,9 +143,10 @@
 		public const string UpdatePropertyCompositionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePropertyComposition";
 		public const string CategoryInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/categoryInfo";
 		public const string AmenitiesSubcategoryDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/amenitiesSubcategoryDetail";
+		public const string UpdateAminitySubcategoryUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateAminitySubcategory";
 
-		//Bathroom
-		public const string BathroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bathroomDetail";
+        //Bathroom
+        public const string BathroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bathroomDetail";
 		public const string AddBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addBathroom";
 		public const string DeleteBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/deleteBathroom";
 		public const string UpdateBathroomUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateBathroom";
