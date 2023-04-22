@@ -141,6 +141,8 @@
 		public const string PropertyTypeUrl = "https://www.qloudid.com/user/index.php/QloudidApp/propertyType";
 		public const string FloorsInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/floorsInfo";
 		public const string UpdatePropertyCompositionUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updatePropertyComposition";
+		public const string CategoryInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/categoryInfo";
+		public const string AmenitiesSubcategoryDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/amenitiesSubcategoryDetail";
 
 		//Bathroom
 		public const string BathroomDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/bathroomDetail";

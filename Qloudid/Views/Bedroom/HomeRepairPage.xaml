@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.Bedroom.HomeRepairPage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,22,0,2"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="104" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.1">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <Label
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="25"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+
+        <Label
+		    Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			HorizontalTextAlignment="Start"
+			Text="Support"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+	        Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+            Opacity="0.42"
+		    HorizontalTextAlignment="Start"
+			Text="Add your support"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <Label
+		    Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsSemiBoldFontFamily"
+		    FontSize="18"
+            Opacity="0.42"
+			HorizontalTextAlignment="Start"
+			Text="Checked-in"
+			TextColor="White"
+			VerticalTextAlignment="Center" />
+
+        <BoxView
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="#4D4E64"/>
+
+        <ListView
+            Grid.Row="9"
+            Grid.Column="1"
+            HasUnevenRows="True"
+		    Grid.ColumnSpan="3"
+			x:Name="listHomeRepairCategoryInfo"
+            SeparatorVisibility="None"
+			BackgroundColor="Transparent"
+			ItemTapped="OnHomeRepairCategoryInfoItemTapped"
+			ItemsSource="{Binding HomeRepairCategoryInfo}"
+			VerticalScrollBarVisibility="Never">
+            <ListView.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,-10,0,0" />
+                    <On Platform="Android" Value="0" />
+                </OnPlatform>
+            </ListView.Margin>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="15"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Button
+			                    Grid.Row="1"
+			                    Grid.Column="0"
+			                    Padding="0"
+                                FontSize="20"
+                                CornerRadius="23"
+                                HeightRequest="46"
+                                WidthRequest="46"
+                                TextColor="Black"
+			                    BackgroundColor="#FF8A5D"
+                                VerticalOptions="CenterAndExpand"
+			                    FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.AlertCircle}"/>
+
+                            <Label
+                                Grid.Row="1"
+			                    Grid.Column="1"
+			                    FontSize="16"
+			                    TextColor="White"
+                                Margin="20,0,0,0"
+                                Text="{Binding TicketTitle}"
+                                FontFamily="PoppinsRegularFontFamily"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"/>
+
+                            <Label
+                                Grid.Row="1"
+			                    Grid.Column="2"
+			                    FontSize="20"
+                                Opacity="0.42"
+			                    TextColor="White"
+                                HorizontalTextAlignment="End"
+                                VerticalTextAlignment="Center"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+			                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+
+                            <BoxView
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Opacity="0.2"
+                                Margin="20,0,0,0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="White"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

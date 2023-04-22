@@ -136,6 +136,18 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Home Repair Command.
+		private ICommand homeRepairCommand;
+		public ICommand HomeRepairCommand
+		{
+			get => homeRepairCommand ?? (homeRepairCommand = new Command(async () => await ExecuteHomeRepairCommand()));
+		}
+		private async Task ExecuteHomeRepairCommand()
+		{
+			await Navigation.PushAsync(new Views.Bedroom.HomeRepairPage());
+		}
+		#endregion
+		
 		#region Bedroom Page Command.
 		private ICommand bedroomPageCommand;
 		public ICommand BedroomPageCommand

@@ -142,6 +142,24 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
+
+		public Task<List<Models.HomeRepairCategoryInfoResponse>> HomeRepairCategoryInfoAsync(Models.HomeRepairCategoryInfoRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.HomeRepairCategoryInfoResponse>>(HttpWebRequest.Create(EndPointsList.CategoryInfoUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
+
+		public Task<List<Models.AmenitiesSubcategoryDetailResponse>> AmenitiesSubcategoryDetailAsync(Models.AmenitiesSubcategoryDetailRequest model)
+		{
+			return Task.Factory.StartNew(() =>
+			{
+				var res = RestClient.Post<List<Models.AmenitiesSubcategoryDetailResponse>>(HttpWebRequest.Create(EndPointsList.AmenitiesSubcategoryDetailUrl), string.Empty, model.ToJson());
+				return res;
+			});
+		}
 		
 		//Bathroom
 		public Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model)

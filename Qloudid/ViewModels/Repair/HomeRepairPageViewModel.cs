@@ -90,6 +90,35 @@ namespace Qloudid.ViewModels
 		}
 		#endregion
 
+		#region Home Repair Category Info Command.
+		private ICommand homeRepairCategoryInfoCommand;
+		public ICommand HomeRepairCategoryInfoCommand
+		{
+			get => homeRepairCategoryInfoCommand ?? (homeRepairCategoryInfoCommand = new Command(async () => await ExecuteHomeRepairCategoryInfoCommand()));
+		}
+		private async Task ExecuteHomeRepairCategoryInfoCommand()
+		{
+			DependencyService.Get<IProgressBar>().Show();
+			IBedroomService service = new BedroomService();
+			var response = await service.HomeRepairCategoryInfoAsync(new Models.HomeRepairCategoryInfoRequest()
+			{
+				ApartmentId = Address.Id
+			});
+			if (response.Count <= 3)
+				ListViewHeightRequest = 120;
+			else if (response.Count <= 6)
+				ListViewHeightRequest = 240;
+			else if (response.Count <= 9)
+				ListViewHeightRequest = 360;
+			else if (response.Count <= 12)
+				ListViewHeightRequest = 480;
+			else
+				ListViewHeightRequest = 540;
+			HomeRepairCategoryInfo = response;
+			DependencyService.Get<IProgressBar>().Hide();
+		}
+		#endregion
+
 		#region Properties.
 		private Models.EditAddressResponse address;
 		public Models.EditAddressResponse Address
@@ -110,6 +139,17 @@ namespace Qloudid.ViewModels
 			{
 				userApartmentProblemDetail = value;
 				OnPropertyChanged("UserApartmentProblemDetail");
+			}
+		}
+
+		private List<Models.HomeRepairCategoryInfoResponse> homeRepairCategoryInfo;
+		public List<Models.HomeRepairCategoryInfoResponse> HomeRepairCategoryInfo
+		{
+			get => homeRepairCategoryInfo;
+			set
+			{
+				homeRepairCategoryInfo = value;
+				OnPropertyChanged("HomeRepairCategoryInfo");
 			}
 		}
 

@@ -2053,7 +2053,8 @@
                      Padding="10,20,10,14"
                      CornerRadius="8"
                      IsClippedToBounds="True"
-                     BackgroundColor="#89C991">
+                     BackgroundColor="#89C991"
+                     IsVisible="{Binding OtherRoomInfo.BasementAvailable}">
                      <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding UpdateOtherRoomInfoCommand}" CommandParameter="13" />
                      </Frame.GestureRecognizers>
@@ -2484,7 +2485,7 @@
                  </Frame>
 
                  <Button
-                     Grid.Row="40"
+                     Grid.Row="44"
                      Grid.Column="0"
                      BorderWidth="2"
                      CornerRadius="8"
@@ -2494,7 +2495,7 @@
                      IsVisible="{Binding OtherRoomInfo.EntranceAvailable, Converter={StaticResource InverseBoolConverter}}"/>
 
                  <Frame
-                     Grid.Row="40"
+                     Grid.Row="44"
                      Grid.Column="0"
                      HasShadow="False"
                      Padding="10,20,10,14"

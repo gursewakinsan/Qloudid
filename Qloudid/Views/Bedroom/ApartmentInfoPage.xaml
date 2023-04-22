@@ -186,6 +186,8 @@
                         <RowDefinition Height="1"/>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="1"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="1"/>
                     </Grid.RowDefinitions>
                     <Label
                         Grid.Row="1"
@@ -652,6 +654,60 @@
 
                     <BoxView
                         Grid.Row="17"
+                        Opacity="0.1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"/>
+
+                    <!--Home repair-->
+                    <Button
+                        Grid.Row="18"
+                        Padding="0"
+                        FontSize="15"
+                        Grid.Column="0"
+                        HeightRequest="26"
+                        WidthRequest="26"
+                        CornerRadius="13"
+                        TextColor="#242A37"
+                        BackgroundColor="#4CD964"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Command="{Binding HomeRepairCommand}"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                    <Label
+                        Grid.Row="18"
+                        Grid.Column="1"
+                        Text="Home repair"
+                        FontSize="16"
+                        Opacity="0.42"
+                        TextColor="White"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        FontFamily="PoppinsRegularFontFamily">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HomeRepairCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="18"
+                        Padding="0"
+                        FontSize="20"
+                        Grid.Column="2"
+                        TextColor="White"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+					    Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding HomeRepairCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="19"
                         Opacity="0.1"
                         Grid.Column="1"
                         Grid.ColumnSpan="2"

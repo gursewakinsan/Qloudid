@@ -152,7 +152,7 @@
             }
         }
 
-        [Newtonsoft.Json.JsonProperty(PropertyName = "bicycle_room_available")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "bicycle_available")]
         private bool bicycleRoomAvailable;
         public bool BicycleRoomAvailable
         {
@@ -176,7 +176,7 @@
             }
         }
 
-        [Newtonsoft.Json.JsonProperty(PropertyName = "stroller_room_available")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "stroller_available")]
         private bool strollerRoomAvailable;
         public bool StrollerRoomAvailable
         {
@@ -237,5 +237,3 @@
         }
     }
 }
-
-

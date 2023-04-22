@@ -21,6 +21,8 @@ namespace Qloudid.Interfaces
         Task<List<Models.FloorsInfoResponse>> FloorsInfoAsync(Models.FloorsInfoRequest model);
         Task<int> UpdatePropertyCompositionAsync(Models.UpdatePropertyCompositionRequest model);
         Task<string> UpdatePropertyStartAsync(Models.UpdatePropertyStartRequest model);
+        Task<List<Models.HomeRepairCategoryInfoResponse>> HomeRepairCategoryInfoAsync(Models.HomeRepairCategoryInfoRequest model);
+        Task<List<Models.AmenitiesSubcategoryDetailResponse>> AmenitiesSubcategoryDetailAsync(Models.AmenitiesSubcategoryDetailRequest model);
 
         //Bathroom
         Task<List<Models.BathroomDetailResponse>> BathroomDetailAsync(Models.BathroomDetailRequest model);
