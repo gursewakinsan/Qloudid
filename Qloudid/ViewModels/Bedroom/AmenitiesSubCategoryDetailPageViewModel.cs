@@ -4,6 +4,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Qloudid.ViewModels
 {
@@ -53,6 +54,7 @@ namespace Qloudid.ViewModels
 				UserAmenityId = UserAmenityId,
 				WhoWillFixTheProblem = WhoWillFixTheProblem
             });
+			AmenitiesSubcategoryDetail.FirstOrDefault(x => x.AdvanceValues == AdvanceValues).Count = response;
             DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
