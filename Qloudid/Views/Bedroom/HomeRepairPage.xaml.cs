@@ -29,10 +29,17 @@ namespace Qloudid.Views.Bedroom
         #endregion
 
         #region On Home Repair Category Info Item Tapped.
-        async void OnHomeRepairCategoryInfoItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        private async void OnButtonCategoryInfoClicked(object sender, System.EventArgs e)
         {
-            Models.HomeRepairCategoryInfoResponse homeRepair = e.Item as Models.HomeRepairCategoryInfoResponse;
-            listHomeRepairCategoryInfo.SelectedItem = null;
+            Button control = sender as Button;
+            Models.HomeRepairCategoryInfoResponse homeRepair = control.BindingContext as Models.HomeRepairCategoryInfoResponse;
+            await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair.Id));
+        }
+
+        private async void OnLabelCategoryInfoClicked(object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            Models.HomeRepairCategoryInfoResponse homeRepair = control.BindingContext as Models.HomeRepairCategoryInfoResponse;
             await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair.Id));
         }
         #endregion

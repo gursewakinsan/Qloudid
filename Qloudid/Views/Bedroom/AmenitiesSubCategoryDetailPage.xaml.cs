@@ -2,6 +2,9 @@
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
 using Qloudid.Controls;
+using Syncfusion.SfCalendar.XForms;
+using Qloudid.Models;
+using System;
 
 namespace Qloudid.Views.Bedroom
 {
@@ -10,6 +13,7 @@ namespace Qloudid.Views.Bedroom
     {
         #region Variables.
         AmenitiesSubCategoryDetailPageViewModel viewModel;
+        bool isOpen = false;
         #endregion
         
         #region Constructor.
@@ -36,6 +40,7 @@ namespace Qloudid.Views.Bedroom
             Label label = sender as Label;
             Models.AmenitiesSubcategoryDetailResponse amenities = label.BindingContext as Models.AmenitiesSubcategoryDetailResponse;
             amenities.IsOpen = !amenities.IsOpen;
+            isOpen = true;
         }
         #endregion
 
@@ -45,6 +50,13 @@ namespace Qloudid.Views.Bedroom
             Button button = sender as Button;
             Models.AmenitiesSubcategoryDetailResponse amenities = button.BindingContext as Models.AmenitiesSubcategoryDetailResponse;
             amenities.SubCategoryInfo.ForEach(x => x.IsAvailable = true);
+            viewModel.AdvanceValues = amenities.AdvanceValues;
+            viewModel.UpdateType = 3;
+            viewModel.IsAvailable = 0;
+            viewModel.AdvanceValues = 0;
+            viewModel.UserAmenityId = 0;
+            viewModel.WhoWillFixTheProblem = 0;
+            viewModel.UpdateAminitySubcategoryCommand.Execute(null);
         }
 
         private void OnLabelSelectAllClicked(object sender, System.EventArgs e)
@@ -52,6 +64,13 @@ namespace Qloudid.Views.Bedroom
             Label label = sender as Label;
             Models.AmenitiesSubcategoryDetailResponse amenities = label.BindingContext as Models.AmenitiesSubcategoryDetailResponse;
             amenities.SubCategoryInfo.ForEach(x => x.IsAvailable = true);
+            viewModel.AdvanceValues = amenities.AdvanceValues;
+            viewModel.UpdateType = 3;
+            viewModel.IsAvailable = 0;
+            viewModel.AdvanceValues = 0;
+            viewModel.UserAmenityId = 0;
+            viewModel.WhoWillFixTheProblem = 0;
+            viewModel.UpdateAminitySubcategoryCommand.Execute(null);
         }
         #endregion
 
@@ -61,6 +80,12 @@ namespace Qloudid.Views.Bedroom
             Button button = sender as Button;
             Models.SubcategoryInfo subcategoryInfo = button.BindingContext as Models.SubcategoryInfo;
             subcategoryInfo.IsAvailable = !subcategoryInfo.IsAvailable;
+            viewModel.UpdateType = 1;
+            viewModel.WhoWillFixTheProblem = 0;
+            viewModel.IsAvailable = subcategoryInfo.IsAvailable ? 1 : 0;
+            viewModel.AdvanceValues = subcategoryInfo.AdvanceValues;
+            viewModel.UserAmenityId = subcategoryInfo.Id;
+            viewModel.UpdateAminitySubcategoryCommand.Execute(null);
         }
         #endregion
 
@@ -68,10 +93,15 @@ namespace Qloudid.Views.Bedroom
         private void OnCustomPickerSelectedIndexChanged(object sender, System.EventArgs e)
         {
             CustomPicker picker = sender as CustomPicker;
-            if (picker.SelectedIndex == -1 || viewModel == null) return;
+            if (picker.SelectedIndex == -1 || viewModel == null || !isOpen) return;
             else
             {
-                string str = picker.ClassId;
+                viewModel.UpdateType = 2;
+                viewModel.WhoWillFixTheProblem = picker.SelectedIndex +1;
+                viewModel.IsAvailable = 0;
+                viewModel.AdvanceValues = 0;
+                viewModel.UserAmenityId = Convert.ToInt32(picker.ClassId);
+                viewModel.UpdateAminitySubcategoryCommand.Execute(null);
             }
         }
         #endregion

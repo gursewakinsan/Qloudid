@@ -69,6 +69,9 @@ namespace Qloudid.Models
         [Newtonsoft.Json.JsonProperty(PropertyName = "who_will_fix_the_problem")]
         public int WhoWillFixTheProblem { get; set; }
 
+        public int SelectedWhoWillFixTheProblem => WhoWillFixTheProblem - 1;
+        
+
         [Newtonsoft.Json.JsonProperty(PropertyName = "advance_values")]
         public int AdvanceValues { get; set; }
     }

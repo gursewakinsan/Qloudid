@@ -47,7 +47,11 @@ namespace Qloudid.ViewModels
             int response = await service.UpdateAminitySubcategoryAsync(new Models.UpdateAminitySubcategoryRequest()
             {
                 CategoryId = CategoryId,
-				
+				UpdateType = UpdateType,
+				IsAvailable = IsAvailable,
+				AdvanceValues = AdvanceValues,
+				UserAmenityId = UserAmenityId,
+				WhoWillFixTheProblem = WhoWillFixTheProblem
             });
             DependencyService.Get<IProgressBar>().Hide();
         }
@@ -66,6 +70,11 @@ namespace Qloudid.ViewModels
 		}
 
         public int CategoryId { get; set; }
+        public int UpdateType { get; set; }
+        public int IsAvailable { get; set; }
+        public int AdvanceValues { get; set; }
+        public int UserAmenityId { get; set; }
+        public int WhoWillFixTheProblem { get; set; }
         #endregion
     }
 }
