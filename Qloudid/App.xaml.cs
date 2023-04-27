@@ -26,6 +26,7 @@ namespace Qloudid
 			else
 				MainPage = new NavigationPage(new Views.RestorePage());
 
+
 			// MainPage = new NavigationPage(new Views.SelectedIdentificatorPage());
 		}
 
