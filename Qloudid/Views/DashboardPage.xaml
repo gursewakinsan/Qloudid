@@ -73,7 +73,7 @@
                 </Label>
             </Grid>
         </Frame>
-            
+
         <Label
 			Grid.Row="0"
 			FontSize="14"
@@ -83,7 +83,11 @@
             VerticalTextAlignment="Center"
             BackgroundColor="Transparent"
             HorizontalTextAlignment="Center"
-			FontFamily="SFProRegularFontFamily"/>
+			FontFamily="SFProRegularFontFamily">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TestPageCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
         
         <Button
             Padding="0"

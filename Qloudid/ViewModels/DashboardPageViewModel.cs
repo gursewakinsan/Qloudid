@@ -576,10 +576,23 @@ namespace Qloudid.ViewModels
 			Helper.Helper.CountryOrChildren = "Country";
 			await Navigation.PushAsync(new Views.MyCountries.ChangeProfilePage());
 		}
-		#endregion
+        #endregion
 
-		#region Pay Command.
-		private ICommand payCommand;
+        #region Test Page Command.
+        private ICommand testPageCommand;
+        public ICommand TestPageCommand
+        {
+            get => testPageCommand ?? (testPageCommand = new Command(async () => await ExecuteTestPageCommand()));
+        }
+        private async Task ExecuteTestPageCommand()
+        {
+            await Navigation.PushAsync(new Views.TestPages.TestPage1());
+        }
+        #endregion
+        
+
+        #region Pay Command.
+        private ICommand payCommand;
 		public ICommand PayCommand
 		{
 			get => payCommand ?? (payCommand = new Command(async () => await ExecutePayCommand()));

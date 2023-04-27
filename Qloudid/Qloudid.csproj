@@ -11,6 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\TestPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\TestPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="AppFonts\PoppinsBold.ttf" />
     <None Remove="AppFonts\PoppinsMedium.ttf" />
     <None Remove="AppFonts\PoppinsRegular.ttf" />
@@ -511,7 +519,13 @@
     <EmbeddedResource Update="Views\TermsAndConditionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TestPage.xaml">
+    <EmbeddedResource Update="Views\TestPages\TestPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TestPages\TestPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TestPages\TestPage3.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TimeOutPage.xaml">

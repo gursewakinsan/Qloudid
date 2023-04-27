@@ -290,4 +290,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\phoneImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\imgCommunity.png" />
+  </ItemGroup>
 </Project>

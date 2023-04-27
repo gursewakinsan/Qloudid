@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.TestPages.TestPage3"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#1B1D24"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+	NavigationPage.HasNavigationBar="False">
+    <Grid
+		Margin="0,23,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+
+        <Frame
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			BorderColor="White"
+			CornerRadius="8"
+			IsClippedToBounds="True"
+			Opacity="0.10" />
+
+        <Button
+			Grid.Row="0"
+			Grid.Column="1"
+			Padding="0"
+			BackgroundColor="Transparent"
+			Command="{Binding BackCommand}"
+			FontFamily="{StaticResource MaterialFontFamily}"
+			FontSize="20"
+			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+			TextColor="White" />
+
+        <ScrollView
+            Margin="0,30,0,0"
+            Grid.Row="1"
+			Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+		        ColumnSpacing="20"
+		        RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="17" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="9" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="29" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="9" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="19" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="54" />
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="5" />
+                </Grid.RowDefinitions>
+                <Label
+			        Grid.Row="0"
+                    Grid.ColumnSpan="2"
+			        FontAttributes="Bold"
+			        FontFamily="PoppinsBoldFontFamily"
+			        FontSize="33"
+			        HorizontalTextAlignment="Start"
+			        LineBreakMode="TailTruncation"
+			        MaxLines="1"
+			        TextColor="White"
+                    Text="Connect"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="2" 
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="25"
+			        HorizontalTextAlignment="Start"
+			        Opacity="0.42"
+			        TextColor="White"
+                    Text="With your landlord"
+			        VerticalTextAlignment="Center"/>
+
+                <Label
+			        Grid.Row="4"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Landlord details"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="6"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#78BDEE"/>
+
+                <!--Company name-->
+                <Label
+			        Grid.Row="8"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Company name"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="10"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Company name"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Code-->
+                <Label
+			        Grid.Row="12"
+                    Grid.Column="0"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Code"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="14"
+                    HasShadow="False"
+                    Grid.Column="0"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomEntry
+                            Grid.Column="0"
+                            FontSize="15"
+                            TextColor="White"
+                            PlaceholderColor="Gray"
+                            Placeholder="Code"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Column="1"
+                            FontSize="15"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <!--Mobile number-->
+                <Label
+			        Grid.Row="12"
+                    Grid.Column="1"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Mobile number"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="14"
+                    HasShadow="False"
+                    Grid.Column="1"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Mobile number"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Send connect request-->
+                <Label
+			        Grid.Row="16"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Send connect request"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="18"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#78BDEE"/>
+
+                <!--Company email-->
+                <Label
+			        Grid.Row="20"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Company email"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="22"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Company email"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Chairman-->
+                <Label
+			        Grid.Row="24"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Chairman"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="26"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Chairman"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Vice chairman-->
+                <Label
+			        Grid.Row="28"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Vice chairman"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="30"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Vice chairman"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Secretary-->
+                <Label
+			        Grid.Row="32"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Secretary"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="34"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Secretary"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Your property-->
+                <Label
+			        Grid.Row="36"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontSize="18"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Your property"
+			        VerticalTextAlignment="Center"/>
+
+                <BoxView
+                    Grid.Row="38"
+                    Opacity="0.32"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#78BDEE"/>
+
+                <!--Select your property-->
+                <Label
+			        Grid.Row="40"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Select your property"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="42"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    WidthRequest="215"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True"
+                    HorizontalOptions="StartAndExpand">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomEntry
+                            Grid.Column="0"
+                            FontSize="15"
+                            TextColor="White"
+                            PlaceholderColor="Gray"
+                            Placeholder="Select your property"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Column="1"
+                            FontSize="15"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    Grid.Row="44"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="0"
+                    CornerRadius="12"
+                    BackgroundColor="White"
+                    IsClippedToBounds="True">
+                    <StackLayout
+                        Spacing="2"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand">
+                        <Label
+			                FontFamily="PoppinsSemiBoldFontFamily"
+			                FontSize="16"
+			                TextColor="#181A1F"
+                            Text="Sign now"
+			                VerticalTextAlignment="Center"/>
+
+                        <Label
+                            FontSize="22"
+                            TextColor="#181A1F"
+                            VerticalTextAlignment="Center"
+			                FontFamily="{StaticResource MaterialFontFamily}"
+			                Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
