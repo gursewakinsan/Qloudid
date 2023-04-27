@@ -33,14 +33,14 @@ namespace Qloudid.Views.Bedroom
         {
             Button control = sender as Button;
             Models.HomeRepairCategoryInfoResponse homeRepair = control.BindingContext as Models.HomeRepairCategoryInfoResponse;
-            await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair.Id));
+            await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair));
         }
 
         private async void OnLabelCategoryInfoClicked(object sender, System.EventArgs e)
         {
             Label control = sender as Label;
             Models.HomeRepairCategoryInfoResponse homeRepair = control.BindingContext as Models.HomeRepairCategoryInfoResponse;
-            await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair.Id));
+            await Navigation.PushAsync(new AmenitiesSubCategoryDetailPage(homeRepair));
         }
         #endregion
     }

@@ -29,7 +29,7 @@ namespace Qloudid.ViewModels
 			IBedroomService service = new BedroomService();
 			AmenitiesSubcategoryDetail = await service.AmenitiesSubcategoryDetailAsync(new Models.AmenitiesSubcategoryDetailRequest()
 			{
-				CategoryId = CategoryId
+				CategoryId = HomeRepairCategoryInfo.Id
 			});
 			DependencyService.Get<IProgressBar>().Hide();
 		}
@@ -47,7 +47,7 @@ namespace Qloudid.ViewModels
             IBedroomService service = new BedroomService();
             int response = await service.UpdateAminitySubcategoryAsync(new Models.UpdateAminitySubcategoryRequest()
             {
-                CategoryId = CategoryId,
+                CategoryId = HomeRepairCategoryInfo.Id,
 				UpdateType = UpdateType,
 				IsAvailable = IsAvailable,
 				AdvanceValues = AdvanceValues,
@@ -55,7 +55,7 @@ namespace Qloudid.ViewModels
 				WhoWillFixTheProblem = WhoWillFixTheProblem
             });
 			AmenitiesSubcategoryDetail.FirstOrDefault(x => x.AdvanceValues == AdvanceValues).Count = response;
-            DependencyService.Get<IProgressBar>().Hide();
+			DependencyService.Get<IProgressBar>().Hide();
         }
         #endregion
 
@@ -71,7 +71,17 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-        public int CategoryId { get; set; }
+		private Models.HomeRepairCategoryInfoResponse homeRepairCategoryInfo;
+		public Models.HomeRepairCategoryInfoResponse HomeRepairCategoryInfo
+		{
+			get => homeRepairCategoryInfo;
+			set
+			{
+				homeRepairCategoryInfo = value;
+				OnPropertyChanged("HomeRepairCategoryInfo");
+			}
+		}
+
         public int UpdateType { get; set; }
         public int IsAvailable { get; set; }
         public int AdvanceValues { get; set; }

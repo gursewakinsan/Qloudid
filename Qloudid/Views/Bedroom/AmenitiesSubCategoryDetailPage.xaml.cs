@@ -17,12 +17,12 @@ namespace Qloudid.Views.Bedroom
         #endregion
         
         #region Constructor.
-        public AmenitiesSubCategoryDetailPage(int categoryId)
+        public AmenitiesSubCategoryDetailPage(Models.HomeRepairCategoryInfoResponse homeRepair)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
             BindingContext = viewModel = new AmenitiesSubCategoryDetailPageViewModel(this.Navigation);
-            viewModel.CategoryId = categoryId;
+            viewModel.HomeRepairCategoryInfo = homeRepair;
         }
         #endregion
 
@@ -53,7 +53,6 @@ namespace Qloudid.Views.Bedroom
             viewModel.AdvanceValues = amenities.AdvanceValues;
             viewModel.UpdateType = 3;
             viewModel.IsAvailable = 0;
-            viewModel.AdvanceValues = 0;
             viewModel.UserAmenityId = 0;
             viewModel.WhoWillFixTheProblem = 0;
             viewModel.UpdateAminitySubcategoryCommand.Execute(null);
@@ -67,7 +66,6 @@ namespace Qloudid.Views.Bedroom
             viewModel.AdvanceValues = amenities.AdvanceValues;
             viewModel.UpdateType = 3;
             viewModel.IsAvailable = 0;
-            viewModel.AdvanceValues = 0;
             viewModel.UserAmenityId = 0;
             viewModel.WhoWillFixTheProblem = 0;
             viewModel.UpdateAminitySubcategoryCommand.Execute(null);

@@ -89,7 +89,7 @@
 			        FontFamily="PoppinsBoldFontFamily"
 			        FontSize="33"
 			        HorizontalTextAlignment="Start"
-			        Text="All room"
+			        Text="{Binding HomeRepairCategoryInfo.TicketTitle}"
 			        TextColor="White"
 			        VerticalTextAlignment="Center" />
 
