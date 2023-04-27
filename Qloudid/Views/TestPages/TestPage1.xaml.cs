@@ -15,11 +15,17 @@ namespace Qloudid.Views.TestPages
         public TestPage1()
         {
             InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "");
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TestPage2());
+        }
+
+        async void TapGestureRecognizer_Tapped_1(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

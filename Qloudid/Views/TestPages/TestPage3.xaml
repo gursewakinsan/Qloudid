@@ -40,9 +40,9 @@
 			Grid.Column="1"
 			Padding="0"
 			BackgroundColor="Transparent"
-			Command="{Binding BackCommand}"
 			FontFamily="{StaticResource MaterialFontFamily}"
 			FontSize="20"
+            Clicked="TapGestureRecognizer_Tapped_1"
 			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
 			TextColor="White" />
 

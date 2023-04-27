@@ -6,10 +6,10 @@
     xmlns:controls="clr-namespace:Qloudid.Controls"
 	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
 	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	ios:Page.UseSafeArea="False"
+	ios:Page.UseSafeArea="True"
 	NavigationPage.HasNavigationBar="False"
     BackgroundColor="#1B1D24">
-    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,22,0,0">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="0,15,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28"/>
             <ColumnDefinition Width="40"/>
@@ -38,7 +38,7 @@
 			    TextColor="White"
 			    VerticalTextAlignment="Center">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                 </Label.GestureRecognizers>
             </Label>
 
@@ -140,7 +140,7 @@
                                     Grid.Column="0"
                                     HeightRequest="46"
                                     WidthRequest="46"
-                                    CornerRadius="33"
+                                    CornerRadius="23"
                                     FontSize="20"
                                     TextColor="#181A1F"
                                     BackgroundColor="#78BDEE"

@@ -13,7 +13,11 @@
         <Image 
             BackgroundColor="Transparent"
             Source="imgCommunity.png"
-            Aspect="AspectFill"/>
+            Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+            </Image.GestureRecognizers>
+        </Image>
 
         <Frame
             CornerRadius="10"
