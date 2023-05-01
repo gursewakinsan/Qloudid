@@ -13,5 +13,8 @@
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "problem_description")]
         public string ProblemDescription { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "subpart_info")]
+        public string SubpartInfo { get; set; }
     }
 }

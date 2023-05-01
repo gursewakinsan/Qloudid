@@ -8,6 +8,9 @@
         [Newtonsoft.Json.JsonProperty(PropertyName = "ticket_title")]
         public string TicketTitle { get; set; }
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "subpart_info")]
+        public int SubpartInfo { get; set; }
+
         public string TicketIcon { get; set; }
         public string TicketIconColor { get; set; }
     }

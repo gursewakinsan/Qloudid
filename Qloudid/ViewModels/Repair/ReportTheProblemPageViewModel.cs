@@ -30,7 +30,8 @@ namespace Qloudid.ViewModels
 			IRepairService service = new RepairService();
 			TicketSubTitleInfo = await service.GetTicketSubTitleInfoAsync(new Models.GetTicketSubTitleInfoRequest()
 			{
-				TicketId = SelectedApartmentProblemDetail.TicketId
+				TicketId = SelectedApartmentProblemDetail.TicketId,
+				ApartmentId = Address.Id
 			});
 			if (TicketSubTitleInfo?.Count > 0)
 				SelectedTicketSubTitleInfo = TicketSubTitleInfo[0];
@@ -61,7 +62,8 @@ namespace Qloudid.ViewModels
 					ProblemDescription = ProblemDescription,
 					TicketId = SelectedApartmentProblemDetail.TicketId,
 					ApartmentId = Address.Id,
-					SubticketId = SelectedTicketSubTitleInfo.Id
+					SubticketId = SelectedTicketSubTitleInfo.Id,
+					SubpartInfo = SelectedTicketSubTitleInfo.TicketSubtitle
 				});
 
 				if (ImageDataInfo?.Count > 0)

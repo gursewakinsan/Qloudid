@@ -52,5 +52,14 @@ namespace Qloudid.Service
 				return res;
 			});
 		}
-	}
+
+        public Task<List<Models.UserApartmentSubpartProblemDetailResponse>> UserApartmentSubpartProblemDetailAsync(Models.UserApartmentSubpartProblemDetailRequest model)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.UserApartmentSubpartProblemDetailResponse>>(HttpWebRequest.Create(EndPointsList.UserApartmentSubpartProblemDetailUrl), string.Empty, model.ToJson());
+                return res;
+            });
+        }
+    }
 }

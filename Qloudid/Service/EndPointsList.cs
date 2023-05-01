@@ -1,4 +1,6 @@
-﻿namespace Qloudid.Service
+﻿using static System.Net.WebRequestMethods;
+
+namespace Qloudid.Service
 {
 	public class EndPointsList
 	{
@@ -259,5 +261,7 @@
 		public const string CheckValidEmailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidEmails";
 		public const string CheckValidPhoneNumbersUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidPhoneNumbers";
 		public const string UserAddessBookContactDetailInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddessBookContactDetailinfo";
-	}
+
+        public const string UserApartmentSubpartProblemDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userApartmentSubpartProblemDetail";
+    }
 }

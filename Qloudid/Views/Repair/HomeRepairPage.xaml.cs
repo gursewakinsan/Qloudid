@@ -25,7 +25,10 @@ namespace Qloudid.Views.Repair
         {
             Models.UserApartmentProblemDetailResponse userApartment = e.ItemData as Models.UserApartmentProblemDetailResponse;
             listView.SelectedItem = null;
-            await Navigation.PushAsync(new ReportTheProblemPage(userApartment));
+            if (userApartment.SubpartInfo > 0)
+                await Navigation.PushAsync(new ReportTheProblemPage(userApartment));
+            else
+                await Navigation.PushAsync(new UserApartmentSubpartProblemDetailPage(userApartment));
         }
     }
 }

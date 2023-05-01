@@ -1,6 +1,6 @@
 ﻿namespace Qloudid.Models
 {
-    public class GetTicketSubTitleInfoRequest
+    public class UserApartmentSubpartProblemDetailRequest
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "ticket_id")]
         public int TicketId { get; set; }

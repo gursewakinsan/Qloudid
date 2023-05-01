@@ -10,5 +10,6 @@ namespace Qloudid.Interfaces
         Task<List<Models.GetTicketSubTitleInfoResponse>> GetTicketSubTitleInfoAsync(Models.GetTicketSubTitleInfoRequest model);
         Task<int> CreateUserApartmentTicketAsync(Models.CreateUserApartmentTicketRequest model);
         Task<string> AddUserApartmentTicketImageAsync(Models.AddUserApartmentTicketImageRequest model);
+        Task<List<Models.UserApartmentSubpartProblemDetailResponse>> UserApartmentSubpartProblemDetailAsync(Models.UserApartmentSubpartProblemDetailRequest model);
     }
 }
