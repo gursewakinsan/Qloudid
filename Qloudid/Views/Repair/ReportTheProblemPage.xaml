@@ -82,7 +82,7 @@
 			    Grid.Column="0"
 			    Padding="0"
 			    BackgroundColor="{Binding SelectedApartmentProblemDetail.TicketIconColor}"
-			    FontFamily="{StaticResource MaterialFontFamily}"
+			    FontFamily="CustomFontIconOne"
 			    FontSize="25"
                 CornerRadius="33"
                 HeightRequest="66"
