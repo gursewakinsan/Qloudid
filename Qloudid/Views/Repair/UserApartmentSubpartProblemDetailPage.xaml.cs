@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Qloudid.ViewModels;
+using Syncfusion.SfCalendar.XForms;
 
 namespace Qloudid.Views.Repair
 {
@@ -20,6 +21,25 @@ namespace Qloudid.Views.Repair
         {
             base.OnAppearing();
             viewModel.UserApartmentSubpartProblemDetailCommand.Execute(null);
+        }
+
+        private void OnButtonClicked(object sender, System.EventArgs e)
+        {
+            Button control = sender as Button;
+            OnItemTapped(control.BindingContext as Models.UserApartmentSubpartProblemDetailResponse);
+        }
+
+        private void OnLabelTapped(object sender, System.EventArgs e)
+        {
+            Label control = sender as Label;
+            OnItemTapped(control.BindingContext as Models.UserApartmentSubpartProblemDetailResponse);
+        }
+
+        async void OnItemTapped(Models.UserApartmentSubpartProblemDetailResponse response)
+        {
+            viewModel.SelectedApartmentProblemDetail.TicketTitle = response.SubpartTitle;
+            viewModel.SelectedApartmentProblemDetail.SubpartInfo = response.SubpartInfo;
+            await Navigation.PushAsync(new ReportTheProblemPage(viewModel.SelectedApartmentProblemDetail));
         }
     }
 }

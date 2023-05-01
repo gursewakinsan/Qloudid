@@ -34,47 +34,53 @@ namespace Qloudid.ViewModels
 			});
 			foreach (var item in response)
 			{
-				if (item.TicketId == 11)//Bedroom
-				{
-					item.TicketIconColor = "#78BDEE";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.BedQueen;
-				}
-				else if (item.TicketId == 1)//Bathroom
-				{
-					item.TicketIconColor = "#FFECB8";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.ScaleBathroom;
-				}
-				else if (item.TicketId == 9)//Kitchen
+				if (item.TicketId == 1)//All room
+                {
+					item.TicketIconColor = "#89C99A";
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Flat_apartment;
+                }
+				else if (item.TicketId == 2)//Bathroom
+                {
+					item.TicketIconColor = "#55A4DC";
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Shower;
+                }
+				else if (item.TicketId == 3)//Kitchen
 				{
 					item.TicketIconColor = "#B7FFCA";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.FoodForkDrink;
-				}
-				else if (item.TicketId == 12)//Living room
-				{
-					item.TicketIconColor = "#D587FA";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.SofaSingle;
-				}
-				else if (item.TicketId == 7)//Hall way
-				{
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Kitchen; //FoodForkDrink;
+
+                }
+				else if (item.TicketId == 4)//Entrance
+                {
+					item.TicketIconColor = "#A4D1F1";
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Outline_Login;
+                }
+				else if (item.TicketId == 5)//Balcony
+                {
 					item.TicketIconColor = "#FFE9AD";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.CeilingLight;
-				}
-				else if (item.TicketId == 2)//Balcony
-				{
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Outdoordining;
+                }
+				else if (item.TicketId == 6)//Storage
+                {
+					item.TicketIconColor = "#7BA5FF";
+					item.TicketIcon = Helper.QloudidAppFlatIcons.Cycladichome;
+                }
+				else if (item.TicketId == 7)//Basement
+                {
 					item.TicketIconColor = "#EF793F";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.Beach;
-				}
-				else if (item.TicketId == 8)//Basement
-				{
-					item.TicketIconColor = "#B7FFCA";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.Door;
-				}
-				else
-				{
-					item.TicketIconColor = "#D587FA";
-					item.TicketIcon = Helper.QloudidAppFlatIcons.SofaSingle;
-				}
-			}
+					item.TicketIcon = Helper.QloudidAppFlatIcons.HouseLock;
+                }
+                else if (item.TicketId == 8)//Garage
+                {
+                    item.TicketIconColor = "#8579B9";
+                    item.TicketIcon = Helper.QloudidAppFlatIcons.Parking;
+                }
+                else if (item.TicketId == 9)//Outdoor
+                {
+                    item.TicketIconColor = "#EF793F";
+                    item.TicketIcon = Helper.QloudidAppFlatIcons.BBQgrill;
+                }
+            }
 
 			if (response.Count <= 3)
 				ListViewHeightRequest = 120;

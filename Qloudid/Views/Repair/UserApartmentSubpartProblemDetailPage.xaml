@@ -154,6 +154,7 @@
                                     WidthRequest="46"
                                     TextColor="Black"
 			                        BackgroundColor="#78BDEE"
+                                    Clicked="OnButtonClicked"
                                     VerticalOptions="CenterAndExpand"
 			                        FontFamily="{StaticResource MaterialFontFamily}"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
@@ -169,7 +170,7 @@
                                     HorizontalTextAlignment="Start"
                                     VerticalTextAlignment="Center">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer />
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
@@ -184,7 +185,7 @@
                                     FontFamily="{StaticResource MaterialFontFamily}"
 			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer />
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 

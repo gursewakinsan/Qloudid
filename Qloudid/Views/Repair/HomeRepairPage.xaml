@@ -166,8 +166,8 @@
                                     TextColor="#FFA8A8"
 			                        HorizontalTextAlignment="Center"
                                     VerticalTextAlignment="Start"
-                                    FontFamily="{StaticResource MaterialFontFamily}"
-			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"/>
+                                    FontFamily="CustomFontIconOne"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Outline_Edit}"/>
 
                                 <Label
                                     Grid.Row="1"
@@ -200,8 +200,8 @@
                                     TextColor="#FFE9AD"
 			                        HorizontalTextAlignment="Center"
                                     VerticalTextAlignment="Start"
-                                    FontFamily="{StaticResource MaterialFontFamily}"
-			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"/>
+                                    FontFamily="CustomFontIconOne"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.TV}"/>
 
                                 <Label
                                     Grid.Row="1"
@@ -234,8 +234,8 @@
                                     TextColor="#FFCCD2"
 			                        HorizontalTextAlignment="Center"
                                     VerticalTextAlignment="Start"
-                                    FontFamily="{StaticResource MaterialFontFamily}"
-			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Pencil}"/>
+                                    FontFamily="CustomFontIconOne"
+			                        Text="{x:Static fontawesome:QloudidAppFlatIcons.Outline_Login}"/>
 
                                 <Label
                                     Grid.Row="1"
@@ -310,7 +310,7 @@
                                 TextColor="{Binding TicketIconColor}"
 			                    HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Start"
-                                FontFamily="{StaticResource MaterialFontFamily}"
+                                FontFamily="CustomFontIconOne"
 			                    Text="{Binding TicketIcon}"/>
 
                             <Label

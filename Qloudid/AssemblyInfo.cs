@@ -11,3 +11,5 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("SFProDisplayMedium.ttf", Alias = "SFProDisplayMediumFontFamily")]
 [assembly: ExportFont("SFProDisplayRegular.ttf", Alias = "SFProRegularFontFamily")]
 [assembly: ExportFont("SFProDisplaySemibold.ttf", Alias = "SFProSemiboldFontFamily")]
+
+[assembly: ExportFont("IconFontOne.ttf", Alias = "CustomFontIconOne")]

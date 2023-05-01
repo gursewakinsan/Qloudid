@@ -63,7 +63,7 @@ namespace Qloudid.ViewModels
 					TicketId = SelectedApartmentProblemDetail.TicketId,
 					ApartmentId = Address.Id,
 					SubticketId = SelectedTicketSubTitleInfo.Id,
-					SubpartInfo = SelectedTicketSubTitleInfo.TicketSubtitle
+					SubpartInfo = SelectedApartmentProblemDetail.SubpartInfo
 				});
 
 				if (ImageDataInfo?.Count > 0)

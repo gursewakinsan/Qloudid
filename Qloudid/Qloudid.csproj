@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="AppFonts\IconFontOne.ttf" />
     <None Remove="AppFonts\PoppinsBold.ttf" />
     <None Remove="AppFonts\PoppinsMedium.ttf" />
     <None Remove="AppFonts\PoppinsRegular.ttf" />
@@ -39,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="AppFonts\IconFontOne.ttf" />
     <EmbeddedResource Include="AppFonts\PoppinsBold.ttf" />
     <EmbeddedResource Include="AppFonts\PoppinsMedium.ttf" />
     <EmbeddedResource Include="AppFonts\PoppinsRegular.ttf" />
