@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -85,6 +86,99 @@ namespace Qloudid.ViewModels
 				ListViewHeightRequest = 480;
 			else
 				ListViewHeightRequest = 540;
+
+			
+			if (response.Count == 2)
+			{
+				response[0].IsRightLine = true;
+			}
+			else if (response.Count == 3)
+			{
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+			}
+			else if (response.Count == 4)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[2].IsRightLine = false;
+				response[3].IsRightLine = true;
+			}
+			else if (response.Count == 5)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[2].IsRightLine = false;
+				response[3].IsRightLine = true;
+				response[4].IsRightLine = true;
+			}
+			else if (response.Count == 6)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[2].IsRightLine = false;
+				response[3].IsRightLine = true;
+				response[4].IsRightLine = true;
+			}
+			else if (response.Count == 7)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+				response[3].IsBottomLine = true;
+				response[4].IsBottomLine = true;
+				response[5].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[3].IsRightLine = true;
+				response[4].IsRightLine = true;
+				response[5].IsRightLine = true;
+			}
+			else if (response.Count == 8)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+				response[3].IsBottomLine = true;
+				response[4].IsBottomLine = true;
+				response[5].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[3].IsRightLine = true;
+				response[4].IsRightLine = true;
+				response[6].IsRightLine = true;
+				response[7].IsRightLine = true;
+			}
+			else if (response.Count == 9)
+			{
+				response[0].IsBottomLine = true;
+				response[1].IsBottomLine = true;
+				response[2].IsBottomLine = true;
+				response[3].IsBottomLine = true;
+				response[4].IsBottomLine = true;
+				response[5].IsBottomLine = true;
+
+				response[0].IsRightLine = true;
+				response[1].IsRightLine = true;
+				response[3].IsRightLine = true;
+				response[4].IsRightLine = true;
+				response[6].IsRightLine = true;
+				response[7].IsRightLine = true;
+			}
 			UserApartmentProblemDetail = response;
 			DependencyService.Get<IProgressBar>().Hide();
 		}

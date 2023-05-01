@@ -13,5 +13,8 @@
 
         public string TicketIcon { get; set; }
         public string TicketIconColor { get; set; }
+
+        public bool IsRightLine { get; set; } = false;
+        public bool IsBottomLine { get; set; } = false;
     }
 }
