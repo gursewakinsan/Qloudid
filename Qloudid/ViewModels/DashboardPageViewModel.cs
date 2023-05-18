@@ -578,18 +578,17 @@ namespace Qloudid.ViewModels
 		}
         #endregion
 
-        #region Test Page Command.
-        private ICommand testPageCommand;
-        public ICommand TestPageCommand
+        #region Company Search Page Command.
+        private ICommand companySearchPageCommand;
+        public ICommand CompanySearchPageCommand
         {
-            get => testPageCommand ?? (testPageCommand = new Command(async () => await ExecuteTestPageCommand()));
+            get => companySearchPageCommand ?? (companySearchPageCommand = new Command(async () => await ExecuteCompanySearchPageCommand()));
         }
-        private async Task ExecuteTestPageCommand()
+        private async Task ExecuteCompanySearchPageCommand()
         {
-            await Navigation.PushAsync(new Views.TestPages.TestPage1());
+			await Navigation.PushAsync(new Views.Property.CompanySearchPage());
         }
         #endregion
-        
 
         #region Pay Command.
         private ICommand payCommand;

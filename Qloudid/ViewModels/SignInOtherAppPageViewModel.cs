@@ -105,11 +105,9 @@ namespace Qloudid.ViewModels
 					}
 					else
 					{
-						
-						var supportsUri = await Launcher.CanOpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/");
-						if (supportsUri)
-							await Launcher.OpenAsync($"https://{Helper.Helper.AppToAppName}.com/session/" + response.Session);
-					}
+                        string strUrl = $"https://{Helper.Helper.AppToAppName}.com/session/{response.Session}";
+                        await Launcher.OpenAsync(strUrl);
+                    }
 					Helper.Helper.AppToAppName = string.Empty;
 				}
 				DependencyService.Get<IProgressBar>().Hide();

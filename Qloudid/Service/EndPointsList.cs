@@ -263,5 +263,10 @@ namespace Qloudid.Service
 		public const string UserAddessBookContactDetailInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddessBookContactDetailinfo";
 
         public const string UserApartmentSubpartProblemDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userApartmentSubpartProblemDetail";
+
+		public const string CompanyListSearchUrl = "https://www.qloudid.com/user/index.php/QloudidApp/companyListSearch";
+		public const string UserPropertyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userProperty";
+		public const string AddLandloardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addLandloard";
+		public const string SendRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendRequest";
     }
 }

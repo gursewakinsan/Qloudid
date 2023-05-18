@@ -85,7 +85,7 @@
             HorizontalTextAlignment="Center"
 			FontFamily="SFProRegularFontFamily">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TestPageCommand}"/>
+                <TapGestureRecognizer Command="{Binding CompanySearchPageCommand}"/>
             </Label.GestureRecognizers>
         </Label>
         
