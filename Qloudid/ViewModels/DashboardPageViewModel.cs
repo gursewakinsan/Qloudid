@@ -250,7 +250,8 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserInfo = user;
 					IsCardCount = response.card_count;
 					IsPassportCount = response.passport_count;
-					Microsoft.AppCenter.AppCenter.SetUserId(response.email);
+                    IsSendLandloardRequest = response.send_landloard_request;
+                    Microsoft.AppCenter.AppCenter.SetUserId(response.email);
 					EmployerRequestCountCommand.Execute(null);
 					//DisplayUserName = $"{user.first_name} {user.last_name}";
 					//UserImage = response.image;
@@ -354,9 +355,10 @@ namespace Qloudid.ViewModels
 					Helper.Helper.UserInfo = UserInfo;
 					IsCardCount = response.card_count;
 					IsPassportCount = response.passport_count;
-					//DisplayUserName = $"{response.first_name} {response.last_name}";
+					IsSendLandloardRequest = response.send_landloard_request;
+                    //DisplayUserName = $"{response.first_name} {response.last_name}";
 
-					if (response.country_code == 46)
+                    if (response.country_code == 46)
 						MyCountyIcon = "iconFlagOfSweden.png";
 					else
 						MyCountyIcon = "flagOfSpain.png";
@@ -801,7 +803,18 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private bool isPreCheckIn = false;
+		private bool isSendLandloardRequest;
+        public bool IsSendLandloardRequest
+        {
+            get => isSendLandloardRequest;
+            set
+            {
+                isSendLandloardRequest = value;
+                OnPropertyChanged("IsSendLandloardRequest");
+            }
+        }
+        
+        private bool isPreCheckIn = false;
 		public bool IsPreCheckIn
 		{
 			get => isPreCheckIn;

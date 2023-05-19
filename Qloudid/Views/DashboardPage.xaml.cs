@@ -158,6 +158,8 @@ namespace Qloudid.Views
 				viewModel.LandLoardConsentCommand.Execute(null);
 			else if (id == 6)
 				viewModel.ManageCardCommand.Execute(null);
-		}
+            else if (id == 11)
+                viewModel.CompanySearchPageCommand.Execute(null);
+        }
     }
 }

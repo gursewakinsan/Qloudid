@@ -88,12 +88,12 @@
                     FontSize="13"
                     Margin="10,0,10,0"
                     TextColor="White"
-                    Placeholder="Volvo"
+                    Placeholder="Search"
                     ReturnType="Search"
                     PlaceholderColor="Gray"
                     BackgroundColor="Transparent"
-                    Text="{Binding Search}"
-                    ReturnCommand="{Command SearchCommand}"
+                    Text="{Binding SearchText}"
+                    ReturnCommand="{Binding CompanyListSearchCommand}"
                     FontFamily="PoppinsRegularFontFamily"/>
             </Grid>
         </Frame>
@@ -144,6 +144,9 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="20"/>
                                 </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnGridTapped"/>
+                                </Grid.GestureRecognizers>
                                 <Button
 					                Grid.Row="0"
                                     Grid.Column="0"
@@ -152,6 +155,7 @@
                                     CornerRadius="23"
                                     FontSize="20"
                                     TextColor="#181A1F"
+                                    Clicked="OnButtonTapped"
                                     BackgroundColor="#78BDEE"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand"
@@ -164,6 +168,9 @@
                                     Grid.Column="1"
                                     HorizontalOptions="StartAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnStackLayoutTapped"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Label
                                         FontSize="16"
                                         TextColor="White"
@@ -172,7 +179,11 @@
 	    			                    VerticalTextAlignment="Center"
                                         MaxLines="1"
                                         LineBreakMode="TailTruncation"
-	    			                    FontFamily="PoppinsRegularFontFamily"/>
+	    			                    FontFamily="PoppinsRegularFontFamily">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
                                     <Label
                                         FontSize="14"
@@ -183,7 +194,11 @@
                                         LineBreakMode="TailTruncation"
                                         HorizontalTextAlignment="Start"
 	    			                    VerticalTextAlignment="Center"
-	    			                    FontFamily="PoppinsRegularFontFamily"/>
+	    			                    FontFamily="PoppinsRegularFontFamily">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
                                 </StackLayout>
 
                                 <Label
@@ -195,7 +210,11 @@
 					                HorizontalTextAlignment="End"
                                     VerticalTextAlignment="Center"
                                     FontFamily="{StaticResource MaterialFontFamily}"
-					                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"/>
+					                Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLabelTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
 
                                 <BoxView 
 					                Grid.Column="1"

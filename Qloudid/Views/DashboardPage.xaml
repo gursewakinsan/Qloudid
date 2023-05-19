@@ -85,7 +85,7 @@
             HorizontalTextAlignment="Center"
 			FontFamily="SFProRegularFontFamily">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CompanySearchPageCommand}"/>
+                <TapGestureRecognizer />
             </Label.GestureRecognizers>
         </Label>
         
@@ -422,6 +422,76 @@
 								ClassId="3"
 								Opacity="0.70"
 								Text="Manage your reservation for precheckin"
+								FontFamily="PoppinsRegularFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame
+					WidthRequest="{Binding ImgWidth}"
+					CornerRadius="15"
+					HasShadow="False"
+					Padding="20,0,20,0"
+					ClassId="11"
+					IsClippedToBounds="True"
+                    BorderColor="#363541"
+                    BackgroundColor="Transparent"
+					HorizontalOptions="StartAndExpand"
+                    IsVisible="{Binding IsSendLandloardRequest}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameOnGestureRecognizerTapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnSpacing="18" ClassId="11">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GridOnGestureRecognizerTapped" />
+                        </Grid.GestureRecognizers>
+                        <Image
+							Grid.Column="0"
+							Aspect="AspectFill"
+							HeightRequest="45"
+							ClassId="11"
+							VerticalOptions="CenterAndExpand"
+							Source="iconThreePartColor.png"
+							BackgroundColor="Transparent">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ImageOnGestureRecognizerTapped" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <StackLayout 
+							Spacing="0"
+							Grid.Column="1"
+							ClassId="11"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="CenterAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGestureRecognizerTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+								FontSize="18"
+								TextColor="White"
+								ClassId="11"
+								Text="Landlord"
+								FontFamily="PoppinsBoldFontFamily">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+								FontSize="13"
+								TextColor="White"
+								ClassId="11"
+                                MaxLines="2"
+								Text="Connect with landlord"
 								FontFamily="PoppinsRegularFontFamily">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="LabelOnGestureRecognizerTapped" />

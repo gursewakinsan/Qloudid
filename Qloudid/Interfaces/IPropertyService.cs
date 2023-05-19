@@ -8,5 +8,6 @@ namespace Qloudid.Interfaces
         Task<List<Models.CompanyListSearchResponse>> CompanyListSearchAsync(Models.CompanyListSearchRequest model);
         Task<List<Models.UserPropertyResponse>> UserPropertyAsync(Models.UserPropertyRequest model);
         Task<string> AddLandloardAsync(Models.AddLandloardRequest model);
+        Task<string> SendLandloardRequestAsync(Models.SendLandloardRequest model);
     }
 }

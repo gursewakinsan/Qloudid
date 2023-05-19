@@ -24,6 +24,7 @@ namespace Qloudid.ViewModels
         }
         private async Task ExecuteCompanyListSearchCommand()
         {
+            if (string.IsNullOrWhiteSpace(SearchText)) return;
             DependencyService.Get<IProgressBar>().Show();
             IPropertyService service = new PropertyService();
             CompanySearchList = await service.CompanyListSearchAsync(new Models.CompanyListSearchRequest()
@@ -31,22 +32,6 @@ namespace Qloudid.ViewModels
                 Message = SearchText
             });
             DependencyService.Get<IProgressBar>().Hide();
-        }
-        #endregion
-
-        #region Search Command.
-        private ICommand searchCommand;
-        public ICommand SearchCommand
-        {
-            get => searchCommand ?? (searchCommand = new Command(() => ExecuteSearchCommand()));
-        }
-        private void ExecuteSearchCommand()
-        {
-            if(!string.IsNullOrWhiteSpace(Search)) 
-            {
-                SearchText = Search;
-                CompanyListSearchCommand.Execute(null);
-            }
         }
         #endregion
 
@@ -74,18 +59,16 @@ namespace Qloudid.ViewModels
             }
         }
 
-        private string search;
-        public string Search
+        private string searchText;
+        public string SearchText
         {
-            get => search;
+            get => searchText;
             set
             {
-                search = value;
-                OnPropertyChanged("Search");
+                searchText = value;
+                OnPropertyChanged("SearchText");
             }
         }
-
-        public string SearchText { get; set; }
         #endregion
     }
 }

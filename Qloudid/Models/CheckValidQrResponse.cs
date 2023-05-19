@@ -12,8 +12,9 @@
 		public int country_code { get; set; }
         public bool passport_count { get; set; }
         public bool card_count { get; set; }
+        public bool send_landloard_request { get; set; }
 
-		[Newtonsoft.Json.JsonProperty(PropertyName = "precheck_in_count")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "precheck_in_count")]
 		public bool PreCheckInCount { get; set; }
 
 		[Newtonsoft.Json.JsonProperty(PropertyName = "property_started")]

@@ -95,6 +95,10 @@
                     <RowDefinition Height="20" />
                     <RowDefinition Height="8" />
                     <RowDefinition Height="55" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="8" />
+                    <RowDefinition Height="55" />
                     <RowDefinition Height="45" />
                     <RowDefinition Height="30" />
                     <RowDefinition Height="9" />
@@ -202,14 +206,16 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
-                        <controls:CustomEntry
-                            Grid.Column="0"
-                            FontSize="15"
-                            TextColor="White"
-                            PlaceholderColor="Gray"
-                            Placeholder="Code"
-                            BackgroundColor="Transparent"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                        <controls:CustomPicker
+						    Grid.Column="0"
+			    		    FontSize="15"
+			    		    TextColor="White"
+						    TitleColor="White"
+						    ItemsSource="{Binding CountryList}"
+						    SelectedItem="{Binding SelectedCountryCode}"
+						    FontFamily="PoppinsRegularFontFamily"
+						    ItemDisplayBinding="{Binding DisplayCountryCode}"
+						    BackgroundColor="Transparent"/>
 
                         <Label
                             Grid.Column="1"
@@ -249,6 +255,8 @@
                         Placeholder="Mobile number"
                         BackgroundColor="Transparent"
                         Text="{Binding MobileNumber}"
+                        Keyboard="Numeric"
+                        MaxLength="10"
                         FontFamily="PoppinsRegularFontFamily"/>
                 </Frame>
 
@@ -296,6 +304,7 @@
                         Placeholder="Company email"
                         BackgroundColor="Transparent"
                         Text="{Binding CompanyEmail}"
+                        Keyboard="Email"
                         FontFamily="PoppinsRegularFontFamily"/>
                 </Frame>
 
@@ -323,7 +332,8 @@
                         FontSize="15"
                         TextColor="White"
                         PlaceholderColor="Gray"
-                        Placeholder="Chairman"
+                        Placeholder="Chairman email"
+                        Keyboard="Email"
                         BackgroundColor="Transparent"
                         Text="{Binding ChairmenEmail}"
                         FontFamily="PoppinsRegularFontFamily"/>
@@ -353,7 +363,8 @@
                         FontSize="15"
                         TextColor="White"
                         PlaceholderColor="Gray"
-                        Placeholder="Vice chairman"
+                        Placeholder="Vice chairman email"
+                        Keyboard="Email"
                         BackgroundColor="Transparent"
                         Text="{Binding ViceChairmenEmail}"
                         FontFamily="PoppinsRegularFontFamily"/>
@@ -383,15 +394,47 @@
                         FontSize="15"
                         TextColor="White"
                         PlaceholderColor="Gray"
-                        Placeholder="Secretary"
+                        Placeholder="Secretary email"
+                        Keyboard="Email"
                         BackgroundColor="Transparent"
                         Text="{Binding SecratoryEmail}"
                         FontFamily="PoppinsRegularFontFamily"/>
                 </Frame>
 
-                <!--Your property-->
+                <!--Manager Email-->
                 <Label
 			        Grid.Row="36"
+                    Grid.ColumnSpan="2"
+			        FontFamily="PoppinsRegularFontFamily"
+			        FontSize="13"
+                    Opacity="0.42"
+			        HorizontalTextAlignment="Start"
+			        TextColor="White"
+                    Text="Manager"
+			        VerticalTextAlignment="Center"/>
+
+                <Frame
+                    Grid.Row="38"
+                    HasShadow="False"
+                    Grid.ColumnSpan="2"
+                    Padding="10,0,10,0"
+                    CornerRadius="12"
+                    BackgroundColor="#242A37"
+                    IsClippedToBounds="True">
+                    <controls:CustomEntry
+                        FontSize="15"
+                        TextColor="White"
+                        PlaceholderColor="Gray"
+                        Placeholder="Manager email"
+                        Keyboard="Email"
+                        BackgroundColor="Transparent"
+                        Text="{Binding ManagerEmail}"
+                        FontFamily="PoppinsRegularFontFamily"/>
+                </Frame>
+
+                <!--Your property-->
+                <Label
+			        Grid.Row="40"
                     Grid.ColumnSpan="2"
 			        FontFamily="PoppinsSemiBoldFontFamily"
 			        FontSize="18"
@@ -401,14 +444,14 @@
 			        VerticalTextAlignment="Center"/>
 
                 <BoxView
-                    Grid.Row="38"
+                    Grid.Row="42"
                     Opacity="0.32"
                     Grid.ColumnSpan="2"
                     BackgroundColor="#78BDEE"/>
 
                 <!--Select your property-->
                 <Label
-			        Grid.Row="40"
+			        Grid.Row="44"
                     Grid.ColumnSpan="2"
 			        FontFamily="PoppinsRegularFontFamily"
 			        FontSize="13"
@@ -419,7 +462,7 @@
 			        VerticalTextAlignment="Center"/>
 
                 <Frame
-                    Grid.Row="42"
+                    Grid.Row="46"
                     HasShadow="False"
                     Grid.ColumnSpan="2"
                     Padding="10,0,10,0"
@@ -433,14 +476,16 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
-                        <controls:CustomEntry
-                            Grid.Column="0"
-                            FontSize="15"
-                            TextColor="White"
-                            PlaceholderColor="Gray"
-                            Placeholder="Select your property"
-                            BackgroundColor="Transparent"
-                            FontFamily="PoppinsRegularFontFamily"/>
+                        <controls:CustomPicker
+						    Grid.Column="0"
+			    		    FontSize="15"
+			    		    TextColor="White"
+						    TitleColor="White"
+						    ItemsSource="{Binding UserPropertyList}"
+						    SelectedItem="{Binding SelectedUserProperty}"
+						    FontFamily="PoppinsRegularFontFamily"
+						    ItemDisplayBinding="{Binding PropertyNickname}"
+						    BackgroundColor="Transparent"/>
 
                         <Label
                             Grid.Column="1"
@@ -454,7 +499,7 @@
                 </Frame>
 
                 <Frame
-                    Grid.Row="44"
+                    Grid.Row="48"
                     HasShadow="False"
                     Grid.ColumnSpan="2"
                     Padding="0"

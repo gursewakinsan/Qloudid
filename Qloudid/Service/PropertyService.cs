@@ -34,5 +34,14 @@ namespace Qloudid.Service
                 return res;
             });
         }
+
+        public Task<string> SendLandloardRequestAsync(Models.SendLandloardRequest model)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<string>(HttpWebRequest.Create(EndPointsList.SendRequestUrl), string.Empty, model.ToJson());
+                return res;
+            });
+        }
     }
 }
