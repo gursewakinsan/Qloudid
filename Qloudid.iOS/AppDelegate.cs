@@ -43,6 +43,8 @@ namespace Qloudid.iOS
 				{
 					if (url.Host.Equals("DstrictsApp"))
 						App.DstrictsAppFunctionality_iOS(new Uri(url.AbsoluteString));
+					else if (Helper.Helper.VerifyUserConsentClientId.Equals("pickapro"))
+						App.OpenAppFromWeb("pickapro");
 				}
 				if (count == 3)
 				{
