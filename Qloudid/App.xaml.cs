@@ -156,6 +156,11 @@ namespace Qloudid
 					{
 						PreCheckInFlow(uri.Segments[3]);
 					}
+					else if (uri.Segments[3].Equals("pickapro"))
+					{
+						Helper.Helper.VerifyUserConsentClientId = "pickapro";
+                        MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+                    }
 				}
 				else if (uri.Segments != null && uri.Segments.Length == 5)
 				{
