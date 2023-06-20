@@ -61,5 +61,14 @@ namespace Qloudid.Service
                 return res;
             });
         }
+
+        public Task<List<Models.TicketSubTitleIssueInfoResponse>> GetTicketSubTitleIssueInfoAsync(Models.TicketSubTitleIssueInfoRequest model)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                var res = RestClient.Post<List<Models.TicketSubTitleIssueInfoResponse>>(HttpWebRequest.Create(EndPointsList.GetTicketSubTitleIssueInfoUrl), string.Empty, model.ToJson());
+                return res;
+            });
+        }
     }
 }

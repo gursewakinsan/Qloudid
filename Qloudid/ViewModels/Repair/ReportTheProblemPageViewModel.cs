@@ -5,6 +5,7 @@ using Qloudid.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Qloudid.ViewModels
 {
@@ -33,21 +34,45 @@ namespace Qloudid.ViewModels
 				TicketId = SelectedApartmentProblemDetail.TicketId,
 				ApartmentId = Address.Id
 			});
-			if (TicketSubTitleInfo?.Count > 0)
-				SelectedTicketSubTitleInfo = TicketSubTitleInfo[0];
+			/*if (TicketSubTitleInfo?.Count > 0)
+				SelectedTicketSubTitleInfo = TicketSubTitleInfo[0];*/
 			DependencyService.Get<IProgressBar>().Hide();
 		}
-		#endregion
+        #endregion
 
-		#region Submit Report The Problem Command.
-		private ICommand submitReportTheProblemCommand;
+        #region Get Ticket Sub Title Issue Info Command.
+        private ICommand getTicketSubTitleIssueInfoCommand;
+        public ICommand GetTicketSubTitleIssueInfoCommand
+        {
+            get => getTicketSubTitleIssueInfoCommand ?? (getTicketSubTitleIssueInfoCommand = new Command(async () => await ExecuteGetTicketSubTitleIssueInfoCommand()));
+        }
+        private async Task ExecuteGetTicketSubTitleIssueInfoCommand()
+        {
+            DependencyService.Get<IProgressBar>().Show();
+            IRepairService service = new RepairService();
+            TicketSubTitleIssueInfo = await service.GetTicketSubTitleIssueInfoAsync(new Models.TicketSubTitleIssueInfoRequest()
+			{
+				SubticketId = SelectedTicketSubTitleInfo.Id
+            });
+			if(TicketSubTitleIssueInfo?.Count > 0) 
+				IsProblemType = true;
+			else
+                IsProblemType = false;
+            DependencyService.Get<IProgressBar>().Hide();
+        }
+        #endregion
+
+        #region Submit Report The Problem Command.
+        private ICommand submitReportTheProblemCommand;
 		public ICommand SubmitReportTheProblemCommand
 		{
 			get => submitReportTheProblemCommand ?? (submitReportTheProblemCommand = new Command(async () => await ExecuteSubmitReportTheProblemCommand()));
 		}
 		private async Task ExecuteSubmitReportTheProblemCommand()
 		{
-			if (string.IsNullOrWhiteSpace(ProblemDescription))
+			if (SelectedTicketSubTitleInfo == null)
+				await Helper.Alert.DisplayAlert("Type is required.");
+			else if (string.IsNullOrWhiteSpace(ProblemDescription))
 				await Helper.Alert.DisplayAlert("Description is required.");
 			else if (ImageDataInfo == null)
 				await Helper.Alert.DisplayAlert("Image is required.");
@@ -63,7 +88,8 @@ namespace Qloudid.ViewModels
 					TicketId = SelectedApartmentProblemDetail.TicketId,
 					ApartmentId = Address.Id,
 					SubticketId = SelectedTicketSubTitleInfo.Id,
-					SubpartInfo = SelectedApartmentProblemDetail.SubpartInfo
+					SubpartInfo = SelectedApartmentProblemDetail.SubpartInfo,
+					ProblemIssue = string.Join(",", TicketSubTitleIssueInfo.Where(x => x.IsSelected).Select(s => s.Id))
 				});
 
 				if (ImageDataInfo?.Count > 0)
@@ -120,7 +146,18 @@ namespace Qloudid.ViewModels
 			}
 		}
 
-		private Models.GetTicketSubTitleInfoResponse selectedTicketSubTitleInfo;
+        private List<Models.TicketSubTitleIssueInfoResponse> ticketSubTitleIssueInfo;
+        public List<Models.TicketSubTitleIssueInfoResponse> TicketSubTitleIssueInfo
+        {
+            get => ticketSubTitleIssueInfo;
+            set
+            {
+                ticketSubTitleIssueInfo = value;
+                OnPropertyChanged("TicketSubTitleIssueInfo");
+            }
+        }
+
+        private Models.GetTicketSubTitleInfoResponse selectedTicketSubTitleInfo;
 		public Models.GetTicketSubTitleInfoResponse SelectedTicketSubTitleInfo
 		{
 			get => selectedTicketSubTitleInfo;
@@ -128,6 +165,8 @@ namespace Qloudid.ViewModels
 			{
 				selectedTicketSubTitleInfo = value;
 				OnPropertyChanged("SelectedTicketSubTitleInfo");
+				if(selectedTicketSubTitleInfo !=null) 
+					GetTicketSubTitleIssueInfoCommand.Execute(null);
 			}
 		}
 
@@ -240,10 +279,22 @@ namespace Qloudid.ViewModels
 				OnPropertyChanged("Image_9");
 			}
 		}
-		public List<ImageData> ImageDataInfo { get; set; }
+
+        private bool isProblemType;
+        public bool IsProblemType
+        {
+            get => isProblemType;
+            set
+            {
+                isProblemType = value;
+                OnPropertyChanged("IsProblemType");
+            }
+        }
+        public List<ImageData> ImageDataInfo { get; set; }
 		#endregion
 	}
 }
+
 public class ImageData
 {
 	public int ImageId { get; set; }

@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Qloudid.Views.Repair.ReportTheProblemPage"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:Qloudid.Controls"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:controls="clr-namespace:Qloudid.Controls"
 	ios:Page.UseSafeArea="True"
 	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
@@ -72,9 +73,9 @@
                 </Grid.RowDefinitions>
                  <Grid
             Grid.Row="2"
-             ColumnSpacing="24"
+             ColumnSpacing="0"
              RowSpacing="0">
-             <Grid.ColumnDefinitions>
+             <!--<Grid.ColumnDefinitions>
                  <ColumnDefinition Width="66"/>
                  <ColumnDefinition Width="*"/>
              </Grid.ColumnDefinitions>
@@ -90,9 +91,9 @@
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"
 			    Text="{Binding SelectedApartmentProblemDetail.TicketIcon}"
-			    TextColor="#070707"/>
+			    TextColor="#070707"/>-->
 
-             <StackLayout Spacing="0" Grid.Column="1">
+             <StackLayout Spacing="0">
                  <Label
 			        FontAttributes="Bold"
 			        FontFamily="PoppinsBoldFontFamily"
@@ -126,15 +127,17 @@
 
                 <BoxView
                     Grid.Row="6"
-                    BackgroundColor="#5B5B79"/>
+                    Opacity="0.10"
+                    BackgroundColor="White"/>
 
                 <Grid RowSpacing="0" ColumnSpacing="0"  Grid.Row="7">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="26"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
                     <RowDefinition Height="56"/>
-                    <RowDefinition Height="25"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="25"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="6"/>
                     <RowDefinition Height="136"/>
@@ -155,14 +158,12 @@
 					VerticalTextAlignment="Center" />
 
                  <Frame 
-                    BackgroundColor="Transparent" 
+                    BackgroundColor="#242A37" 
                     IsClippedToBounds="True"
                     Grid.Row="3"
                     Padding="0"
                     HasShadow="False"
-                    CornerRadius="12"
-                    BorderColor="White" 
-                    Opacity="0.10"/>
+                    CornerRadius="4"/>
 
                 <Grid 
                     Margin="16,5,16,5"
@@ -192,31 +193,166 @@
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-			            TextColor="#FFE9AD"/>
+			            TextColor="#EF793F"/>
                 </Grid>
 
-                <Label
-					Grid.Row="5"
+                    <Grid Grid.Row="4" Margin="0,40,0,0" RowSpacing="0" ColumnSpacing="0" IsVisible="{Binding IsProblemType}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="8"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label
+		                    Grid.Row="0"
+			                FontFamily="PoppinsRegularFontFamily"
+		                    FontSize="13"
+                            Opacity="0.42"
+			                HorizontalTextAlignment="Start"
+			                Text="Problem type"
+			                TextColor="White"
+			                VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="2"
+                            Opacity="0.10"
+                            BackgroundColor="White"/>
+
+                        <StackLayout
+                            Grid.Row="3" 
+                            Margin="0,20,0,10"
+                            BindableLayout.ItemsSource="{Binding TicketSubTitleIssueInfo}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowSpacing="0" ColumnSpacing="24">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="20"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+									        Padding="0"
+									        FontSize="20"
+									        Grid.Row="0"
+									        Grid.Column="0"
+                                            CornerRadius="4"
+									        TextColor="#242A37"
+									        HeightRequest="45"
+									        ClassId="{Binding Id}"
+									        BackgroundColor="#EF793F"
+									        VerticalOptions="CenterAndExpand"
+									        IsVisible="{Binding IsSelected}"
+                                            Clicked="OnProblemTypeButtonClicked"
+									        FontFamily="{StaticResource MaterialFontFamily}"
+									        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"/>
+
+                                        <Button
+									        Padding="0"
+									        FontSize="20"
+									        Grid.Row="0"
+									        Grid.Column="0"
+                                            CornerRadius="4"
+									        TextColor="White"
+                                            Opacity="0.10"
+									        HeightRequest="45"
+									        ClassId="{Binding Id}"
+                                            BorderColor="White"
+                                            BorderWidth="1"
+                                            Clicked="OnProblemTypeButtonClicked"
+									        BackgroundColor="Transparent"
+									        VerticalOptions="CenterAndExpand"
+									        FontFamily="{StaticResource MaterialFontFamily}"
+									        Text="{x:Static fontawesome:QloudidAppFlatIcons.Check}"
+                                            IsVisible="{Binding IsSelected, Converter={StaticResource InverseBoolConverter}}"/>
+
+                                        <Label
+					                        Grid.Row="0"
+					                        Grid.Column="1"
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        HorizontalTextAlignment="Start"
+					                        Text="{Binding HomeRepairIssue}"
+					                        TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"
+					                        VerticalTextAlignment="Center" 
+                                            IsVisible="{Binding IsSelected}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnProblemTypeLabelClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label
+					                        Grid.Row="0"
+					                        Grid.Column="1"
+					                        FontFamily="PoppinsRegularFontFamily"
+					                        FontSize="16"
+					                        Opacity="0.42"
+					                        HorizontalTextAlignment="Start"
+					                        Text="{Binding HomeRepairIssue}"
+					                        TextColor="White"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"
+					                        VerticalTextAlignment="Center"
+                                            IsVisible="{Binding IsSelected, Converter={StaticResource InverseBoolConverter}}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnProblemTypeLabelClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label
+									         Grid.Row="0"
+					                        Grid.Column="2"
+									        FontFamily="{StaticResource MaterialFontFamily}"
+									        FontSize="20"
+									        HorizontalTextAlignment="Center"
+									        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+									        TextColor="White"
+									        Opacity="0.42"
+									        VerticalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnProblemTypeLabelClicked"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <BoxView
+                                            Grid.Row="1"
+                                            Opacity="0.10"
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            BackgroundColor="White"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </Grid>
+                    
+                    
+                    
+                    <Label
+					Grid.Row="6"
 					FontFamily="PoppinsRegularFontFamily"
-					FontSize="13"
+					FontSize="14"
 					HorizontalTextAlignment="Start"
-					Text="Text box"
+					Text="Describe the problem"
 					TextColor="White"
                     Opacity="0.42"
 					VerticalTextAlignment="Center" />
 
                 <Frame 
-                    BackgroundColor="Transparent" 
+                    BackgroundColor="#242A37" 
                     IsClippedToBounds="True"
-                    Grid.Row="7"
+                    Grid.Row="8"
                     HasShadow="False"
-                    CornerRadius="12"
-                    BorderColor="White" 
-                    Opacity="0.10"/>
+                    CornerRadius="12"/>
 
                 <Editor
                     Margin="16"
-                    Grid.Row="7" 
+                    Grid.Row="8" 
                     FontSize="15"
                     Text="{Binding ProblemDescription}"
                     TextColor="White"
@@ -226,7 +362,7 @@
                     Placeholder="Describe the problem with words."/>
 
                  <Label
-					Grid.Row="9"
+					Grid.Row="10"
 					FontAttributes="Bold"
 					FontFamily="PoppinsSemiBoldFontFamily"
 					FontSize="14"
@@ -236,7 +372,7 @@
                     Opacity="0.42"
 					VerticalTextAlignment="Center" />
 
-                <Grid Grid.Row="11" ColumnSpacing="10" RowSpacing="10">
+                <Grid Grid.Row="12" ColumnSpacing="10" RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
@@ -255,7 +391,7 @@
                         Aspect="AspectFill"
                         Clicked="OnImg1Clicked"
                         CornerRadius="12"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                         IsVisible="{Binding Image_1, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
@@ -265,7 +401,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg1Clicked"/>
                         </Label.GestureRecognizers>
@@ -308,7 +444,7 @@
                         Clicked="OnImg2Clicked"
                         Aspect="AspectFill"
                         CornerRadius="12"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                         IsVisible="{Binding Image_2, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
@@ -318,7 +454,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg2Clicked"/>
                         </Label.GestureRecognizers>
@@ -361,7 +497,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg3Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                         IsVisible="{Binding Image_3, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="0"
@@ -371,7 +507,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg3Clicked"/>
                         </Label.GestureRecognizers>
@@ -414,7 +550,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg4Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                         IsVisible="{Binding Image_4, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
@@ -424,7 +560,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg4Clicked"/>
                         </Label.GestureRecognizers>
@@ -466,7 +602,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg5Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                         IsVisible="{Binding Image_5, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
@@ -476,7 +612,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg5Clicked"/>
                         </Label.GestureRecognizers>
@@ -519,7 +655,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg6Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                          IsVisible="{Binding Image_6, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="1"
@@ -529,7 +665,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg6Clicked"/>
                         </Label.GestureRecognizers>
@@ -572,7 +708,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg7Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
 			            Grid.Row="2"
 			            Grid.Column="0"
@@ -582,7 +718,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg7Clicked"/>
                         </Label.GestureRecognizers>
@@ -624,7 +760,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg8Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
 			            Grid.Row="2"
 			            Grid.Column="1"
@@ -634,7 +770,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg8Clicked"/>
                         </Label.GestureRecognizers>
@@ -677,7 +813,7 @@
                         Aspect="AspectFill"
                         CornerRadius="12"
                         Clicked="OnImg9Clicked"
-                        BackgroundColor="#FFE9AD"/>
+                        BackgroundColor="#242A37"/>
                     <Label
                          IsVisible="{Binding Image_9, Converter={StaticResource InverseBoolConverter}}"
 			            Grid.Row="2"
@@ -687,7 +823,7 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
 			            Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
-			            TextColor="Black">
+			            TextColor="#EF793F">
                          <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImg9Clicked"/>
                         </Label.GestureRecognizers>

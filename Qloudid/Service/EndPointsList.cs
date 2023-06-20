@@ -254,9 +254,10 @@ namespace Qloudid.Service
 		public const string GetTicketSubTitleInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getTicketSubTitleInfo";
 		public const string CreateUserApartmentTicketUrl = "https://www.qloudid.com/user/index.php/QloudidApp/createUserApartmentTicket";
 		public const string AddUserApartmentTicketImageUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addUserApartmentTicketImage";
+		public const string GetTicketSubTitleIssueInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getTicketSubTitleIssueInfo";
 
-		//Address Book
-		public const string UserAddressBookContactDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddressBookContactDetails";
+        //Address Book
+        public const string UserAddressBookContactDetailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userAddressBookContactDetails";
 		public const string AddNewContactInfoUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addNewContactInfo";
 		public const string CheckValidEmailsUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidEmails";
 		public const string CheckValidPhoneNumbersUrl = "https://www.qloudid.com/user/index.php/QloudidApp/checkValidPhoneNumbers";

@@ -89,7 +89,7 @@
 			        FontFamily="PoppinsBoldFontFamily"
 			        FontSize="33"
 			        HorizontalTextAlignment="Start"
-			        Text="All room"
+			        Text="Which room"
 			        TextColor="White"
 			        VerticalTextAlignment="Center" />
 
@@ -101,7 +101,7 @@
 			        FontSize="25"
                     Opacity="0.42"
 		            HorizontalTextAlignment="Start"
-			        Text="These are your rooms"
+			        Text="Pick problem room"
 			        TextColor="White"
 			        VerticalTextAlignment="Center" />
 
@@ -153,7 +153,7 @@
                                     HeightRequest="46"
                                     WidthRequest="46"
                                     TextColor="Black"
-			                        BackgroundColor="#78BDEE"
+			                        BackgroundColor="#EF793F"
                                     Clicked="OnButtonClicked"
                                     VerticalOptions="CenterAndExpand"
 			                        FontFamily="{StaticResource MaterialFontFamily}"

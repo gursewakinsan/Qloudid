@@ -962,5 +962,24 @@ namespace Qloudid.Views.Repair
             viewModel.ImageDataInfo.RemoveAll(x => x.ImageId == 9);
         }
         #endregion
+
+        #region On Problem Type Clicked.
+        private void OnProblemTypeLabelClicked(object sender, EventArgs e)
+        {
+            Label control = sender as Label;
+            OnProblemTypeClicked(control.BindingContext as Models.TicketSubTitleIssueInfoResponse);
+        }
+
+        private void OnProblemTypeButtonClicked(object sender, EventArgs e)
+        {
+            Button control = sender as Button;
+            OnProblemTypeClicked(control.BindingContext as Models.TicketSubTitleIssueInfoResponse);
+        }
+
+        void OnProblemTypeClicked(Models.TicketSubTitleIssueInfoResponse ticketSubTitleIssue)
+        {
+            ticketSubTitleIssue.IsSelected = !ticketSubTitleIssue.IsSelected;
+        }
+        #endregion
     }
 }

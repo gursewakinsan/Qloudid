@@ -51,7 +51,7 @@
 			TextColor="White" />
 
         <ScrollView
-            Margin="0,30,0,0"
+            Margin="0,37,0,0"
             Grid.Row="1"
             Grid.ColumnSpan="5"
             VerticalScrollBarVisibility="Never">
@@ -62,7 +62,7 @@
                     <RowDefinition Height="45" />
                     <RowDefinition Height="4" />
                     <RowDefinition Height="35" />
-                    <RowDefinition Height="29" />
+                    <RowDefinition Height="44" />
                     <RowDefinition Height="29" />
                     <RowDefinition Height="9" />
                     <RowDefinition Height="100" />
@@ -74,7 +74,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="71"/>
+                    <ColumnDefinition Width="65"/>
                     <ColumnDefinition Width="28"/>
                 </Grid.ColumnDefinitions>
                 <Label
@@ -107,32 +107,28 @@
 			        Grid.Row="4"
                     Grid.Column="1"
 			        FontFamily="PoppinsRegularFontFamily"
-			        FontSize="18"
+			        FontSize="15"
 			        HorizontalTextAlignment="Start"
 			        TextColor="White"
-                    Opacity="0.70"
-                    Text="Broken"
+                    Text="Appliances"
 			        VerticalTextAlignment="Center"/>
 
                 <Frame
 			        Grid.Row="4"
 			        Grid.Column="2"
 			        Padding="0"
-			        BackgroundColor="Transparent"
-			        BorderColor="White"
+			        BackgroundColor="#EF793F"
 			        CornerRadius="4"
-			        IsClippedToBounds="True"
-			        Opacity="0.10"/>
+			        IsClippedToBounds="True"/>
 
                 <Label
 			        Grid.Row="4"
                     Grid.Column="2"
-			        FontFamily="PoppinsSemiBoldFontFamily"
+			        FontFamily="PoppinsRegularFontFamily"
 			        FontSize="14"
 			        HorizontalTextAlignment="Center"
-			        TextColor="White"
-                    Opacity="0.70"
-                    Text="See all"
+			        TextColor="#181A1F"
+                    Text="All"
 			        VerticalTextAlignment="Center"/>
 
                 <ScrollView
@@ -140,7 +136,62 @@
                     Grid.ColumnSpan="4"
                     Orientation="Horizontal"
                     HorizontalScrollBarVisibility="Never">
-                    <Grid ColumnSpacing="11">
+                    <Grid ColumnSpacing="10" Padding="28,0,28,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="125"/>
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            CornerRadius="8"
+                            Text="Stove"
+                            FontSize="14"
+                            TextColor="White"
+                            BackgroundColor="#242A37"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Button
+                            Grid.Column="1"
+                            CornerRadius="8"
+                            BorderWidth="1"
+                            Opacity="0.10"
+                            BorderColor="White"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Oven"
+                            FontSize="12"
+                            Opacity="0.70"
+                            TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Button
+                            Grid.Column="2"
+                            CornerRadius="8"
+                            BorderWidth="1"
+                            Opacity="0.10"
+                            BorderColor="White"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"/>
+
+                        <Label
+                            Grid.Column="2"
+                            Text="Refrigerator"
+                            FontSize="12"
+                            Opacity="0.70"
+                            TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontFamily="PoppinsRegularFontFamily"/>
+                    </Grid>
+                    
+                    
+                    <!--<Grid ColumnSpacing="11">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="17"/>
                             <ColumnDefinition Width="125"/>
@@ -249,17 +300,16 @@
                                     FontFamily="PoppinsRegularFontFamily"/>
                             </Grid>
                         </Frame>
-                    </Grid>
+                    </Grid>-->
                 </ScrollView>
 
                  <Label
 			        Grid.Row="8"
                     Grid.Column="1"
 			        FontFamily="PoppinsRegularFontFamily"
-			        FontSize="16"
+			        FontSize="15"
 			        HorizontalTextAlignment="Start"
 			        TextColor="White"
-                    Opacity="0.70"
                     Text="Room"
 			        VerticalTextAlignment="Center"/>
 
@@ -300,7 +350,7 @@
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand">
                         <Grid RowSpacing="20">
-                            <Grid.RowDefinitions>
+                            <!--<Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition Height="20"/>
                             </Grid.RowDefinitions>
@@ -311,14 +361,14 @@
 			                    HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Start"
                                 FontFamily="CustomFontIconOne"
-			                    Text="{Binding TicketIcon}"/>
+			                    Text="{Binding TicketIcon}"/>-->
 
                             <Label
-                                Grid.Row="1"
 		                        FontSize="12"
 		                        Text="{Binding TicketTitle}" 
 		                        TextColor="White"
                                 MaxLines="1"
+                                Opacity="0.70"
                                 LineBreakMode="TailTruncation"
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
