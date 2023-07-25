@@ -189,6 +189,12 @@ namespace Qloudid
 									Helper.Helper.IsSignIn = true;
 									MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
 								}
+								else if (uri.Segments[4].Equals("pickapro"))
+								{
+									Helper.Helper.IsThirdPartyWebLogin = false;
+									Helper.Helper.VerifyUserConsentClientId = uri.Segments[3].Replace("/", "");
+									MainPage = new NavigationPage(new Views.SignInFromWebPage(false));
+								}
 								else
 									MainPage = new NavigationPage(new Views.SignInFromOtherCompanyPage(signInText));
 							}

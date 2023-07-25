@@ -56,6 +56,10 @@ namespace Qloudid.iOS
 						App.PreCheckInFlow(url.PathComponents[2]);
 					else if (url.PathComponents[1].Equals("signin"))
 						App.OpenAppFromWeb(url.PathComponents[1]);
+					else if(url.PathComponents[2].Equals("pickapro"))
+                    {
+						App.OpenAppFromWeb("pickapro");
+					}
 					else
 						App.OpenAppFromWeb(url.PathComponents[2]); 
 				}

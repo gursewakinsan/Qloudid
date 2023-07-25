@@ -65,8 +65,11 @@ namespace Qloudid.ViewModels
 							Helper.Helper.IsSignIn = false;
 							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/demo/index.php/DemoSign");
 						}
-						else if(Helper.Helper.VerifyUserConsentClientId.Equals("pickapro"))
-							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro");
+						else if (!string.IsNullOrWhiteSpace(Helper.Helper.VerifyUserConsentClientId) || Helper.Helper.VerifyUserConsentClientId.Equals("pickapro"))
+						{
+							//await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro");
+							await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro/{Helper.Helper.VerifyUserConsentClientId}");
+						}
 						else
 							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
 					}
