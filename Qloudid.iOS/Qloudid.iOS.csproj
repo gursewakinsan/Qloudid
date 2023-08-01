@@ -93,6 +93,9 @@
     <BundleResource Include="Resources\iconCard.png" />
     <BundleResource Include="Resources\imgVisa.png" />
     <BundleResource Include="Resources\imgNoRepair.png" />
+    <BundleResource Include="Resources\iconBlocks.png" />
+    <BundleResource Include="Resources\iconKey.png" />
+    <BundleResource Include="Resources\iconParas.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

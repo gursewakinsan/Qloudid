@@ -37,6 +37,8 @@
     <None Remove="ViewModels\AddressBook\" />
     <None Remove="Views\AddressBook\" />
     <None Remove="Models\AddressBook\" />
+    <None Remove="Views\LoginPages\" />
+    <None Remove="ViewModels\LoginViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -614,5 +616,7 @@
     <Folder Include="ViewModels\AddressBook\" />
     <Folder Include="Views\AddressBook\" />
     <Folder Include="Models\AddressBook\" />
+    <Folder Include="Views\LoginPages\" />
+    <Folder Include="ViewModels\LoginViewModels\" />
   </ItemGroup>
 </Project>

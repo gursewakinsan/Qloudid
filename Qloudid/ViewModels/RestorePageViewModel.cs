@@ -21,7 +21,7 @@ namespace Qloudid.ViewModels
 		}
 		private async Task ExecuteNewUserCommand()
 		{
-			await Navigation.PushAsync(new Views.CreateAccountPage());
+			await Navigation.PushAsync(new Views.LoginPages.GlobalIdPage());
 		}
 		#endregion
 
