@@ -131,7 +131,7 @@
 			Grid.ColumnSpan="2"
 			ColumnSpacing="15">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="102"/>
+				<ColumnDefinition Width="115"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<Frame
@@ -152,7 +152,8 @@
 						VerticalTextAlignment="Center"
 						BackgroundColor="Transparent"
 						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
+						FontSize="14" MaxLines="1"
+						LineBreakMode="TailTruncation"
 						Text="{Binding CountryName}"
 						TextColor="White" />
 
