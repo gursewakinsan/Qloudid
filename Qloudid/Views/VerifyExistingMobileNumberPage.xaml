@@ -78,7 +78,7 @@
 			Grid.ColumnSpan="2"
 			FontFamily="PoppinsRegularFontFamily"
 			FontSize="25"
-			Opacity="0.4"
+			Opacity="0.42"
 			Text="Is this your number ?"
 			TextColor="White" />
 
