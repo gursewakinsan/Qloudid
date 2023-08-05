@@ -9,9 +9,157 @@
 	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
 	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="6" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="33" />
+			<RowDefinition Height="8" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="54" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="56" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<StackLayout
+            Spacing="7"
+            Orientation="Horizontal" HeightRequest="10"
+            Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="2">
+            <BoxView
+                BackgroundColor="#E83E44"
+                WidthRequest="25"
+                CornerRadius="3"/>
+
+            <BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+
+            <BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+        </StackLayout>
+
+		<Label
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			Text="Restore 👋"
+			TextColor="White" />
+
+		<Label
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+			Opacity="0.4"
+			Text="Restore your account"
+			TextColor="White" />
+
+		<StackLayout
+			Spacing="0"
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			Orientation="Horizontal">
+			<Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Opacity="0.4"
+				Text="Email"
+				TextColor="White" />
+
+			<Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Text=" - "
+				TextColor="White" />
+			
+			<Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Text="(" Opacity="0.4"
+				TextColor="White" />
+
+			<Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Text="Your personal email"
+				TextColor="White" />
+
+			<Label
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Text=")" Opacity="0.4"
+				TextColor="White" />
+
+		</StackLayout>
+
+		<Frame
+			CornerRadius="0"
+			Padding="15,0,15,0"
+			Grid.Row="10"
+			Grid.Column="1"
+			HasShadow="False"
+			Grid.ColumnSpan="2"
+			IsClippedToBounds="True"
+			BackgroundColor="#242A37">
+			<controls:CustomEntry
+				BackgroundColor="Transparent"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="14"
+				Keyboard="Email"
+				Placeholder="Email"
+				PlaceholderColor="#797A7D"
+				Text="{Binding Email}"
+				TextColor="White" />
+		</Frame>
+
+		<controls:CustomButton
+			Margin="0"
+			Grid.Row="12"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			BackgroundColor="#E83E4A"
+			Command="{Binding SubmitRestoreEmailCommand}"
+			CornerRadius="10"
+			BorderWidth="0"
+			FontFamily="PoppinsSemiBoldFontFamily"
+			FontSize="16"
+			Text="Add"
+			TextColor="White" />
+
+	</Grid>
+
+	<!--Commented code date 05 Aug 23-->
+
+	<!--<Grid
 		Margin="0,32,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -134,7 +282,7 @@
 					TextColor="White" />
 			</StackLayout>
 		</StackLayout>
-	</Grid>
+	</Grid>-->
 
 
 	<!--<ContentPage.Content>

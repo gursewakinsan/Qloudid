@@ -9,9 +9,224 @@
 	xmlns:textinputlayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
 	xmlns:usercontrols="clr-namespace:Qloudid.UserControls"
 	ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
+	BackgroundColor="#1B1D24"
 	NavigationPage.HasNavigationBar="False">
 	<Grid
+		Margin="0,32,0,0"
+		ColumnSpacing="0"
+		RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="6" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="33" />
+			<RowDefinition Height="8" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="50" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="54" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="56" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="48" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="28" />
+		</Grid.ColumnDefinitions>
+		<usercontrols:BackButtonControl Grid.Row="0" Grid.Column="1" />
+
+		<StackLayout
+            Spacing="7"
+            Orientation="Horizontal" HeightRequest="10"
+            Grid.Row="2"
+			Grid.Column="1"
+            Grid.ColumnSpan="2">
+            <BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+
+			<BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+
+			<BoxView
+                BackgroundColor="#E83E44"
+                WidthRequest="25"
+                CornerRadius="3"/>
+        </StackLayout>
+
+		<Label
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="33"
+			Text="Phone number"
+			TextColor="White" />
+
+		<Label
+			Grid.Row="6"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="25"
+			Opacity="0.4"
+			Text="Is this your number ?"
+			TextColor="White" />
+
+		<Grid
+			Grid.Row="8"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			ColumnSpacing="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="102"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Label
+				Grid.Column="0"
+				HorizontalTextAlignment="Start"
+				VerticalTextAlignment="Center"
+				FontFamily="PoppinsRegularFontFamily"
+				FontSize="13"
+				Opacity="0.4"
+				Text="Email"
+				TextColor="White" />
+
+			<StackLayout
+				Spacing="0"
+				Grid.Column="1"
+				Orientation="Horizontal">
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					Opacity="0.4"
+					Text="Number - ("
+					TextColor="White" />
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					TextColor="White"
+					Text="Ex, 737155645"/>
+
+				<Label
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="13"
+					Text=")" Opacity="0.4"
+					TextColor="White" />
+			</StackLayout>
+		</Grid>
+		
+		<Grid
+			Grid.Row="10"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			ColumnSpacing="15">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="102"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Frame
+				CornerRadius="0"
+				Padding="15,0,10,0"
+				Grid.Column="0"
+				HasShadow="False"
+				IsClippedToBounds="True"
+				BackgroundColor="#242A37">
+				<Grid ColumnSpacing="10">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="20"/>
+					</Grid.ColumnDefinitions>
+					<Label
+						Grid.Column="0"
+						HorizontalTextAlignment="Start"
+						VerticalTextAlignment="Center"
+						BackgroundColor="Transparent"
+						FontFamily="PoppinsRegularFontFamily"
+						FontSize="14"
+						Text="{Binding CountryName}"
+						TextColor="White" />
+
+					<Label
+						Grid.Column="1"
+						FontFamily="{StaticResource MaterialFontFamily}"
+						FontSize="20"
+						HorizontalTextAlignment="Center"
+						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+						TextColor="#EF793F"
+						VerticalTextAlignment="Center" />
+				</Grid>
+			</Frame>
+			
+
+			<Frame
+				CornerRadius="0"
+				Padding="15,0,15,0"
+				Grid.Column="1"
+				HasShadow="False"
+				IsClippedToBounds="True"
+				BackgroundColor="#242A37">
+				<controls:CustomEntry
+					BackgroundColor="Transparent"
+					FontFamily="PoppinsRegularFontFamily"
+					FontSize="14"
+					Keyboard="Numeric"
+					Placeholder="Mobile number"
+					Text="{Binding MobileNumber}"
+					PlaceholderColor="#797A7D"
+					TextColor="White" />
+			</Frame>
+		</Grid>
+			
+
+		<Grid
+			Grid.Row="12"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			ColumnSpacing="15">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="73"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<controls:CustomButton
+				Grid.Column="1"
+				Margin="0"
+				BackgroundColor="#E83E4A"
+				BorderColor="#E83E4A"
+				Command="{Binding YesMobileNumberCommand}"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="16"
+				Text="Yes"
+				TextColor="White" />
+
+			<controls:CustomButton
+				Grid.Column="0"
+				Margin="0"
+				BackgroundColor="Transparent"
+				BorderColor="#2A2A31"
+				Command="{Binding NoMobileNumberCommand}"
+				CornerRadius="12"
+				FontFamily="PoppinsSemiBoldFontFamily"
+				FontSize="16"
+				Text="No"
+				TextColor="White" />
+		</Grid>
+	</Grid>
+
+
+	<!--Commented code date 05 Aug 23-->
+
+	<!--<Grid
 		Margin="0,32,0,0"
 		ColumnSpacing="0"
 		RowSpacing="0">
@@ -183,7 +398,7 @@
 				</Grid>
 			</Grid>
 		</StackLayout>
-	</Grid>
+	</Grid>-->
 
 
 	<!--<ContentPage.Content>

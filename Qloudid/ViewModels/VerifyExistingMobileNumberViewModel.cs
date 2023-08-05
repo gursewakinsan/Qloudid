@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Linq;
+using Xamarin.Forms;
 using Qloudid.Service;
 using Qloudid.Interfaces;
 using System.Windows.Input;
@@ -12,6 +13,10 @@ namespace Qloudid.ViewModels
 		public VerifyExistingMobileNumberViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			if (Helper.Helper.CountryList != null)
+			{
+				CountryName = Helper.Helper.CountryList.FirstOrDefault(x => x.CountryCode == Helper.Helper.CountryCode).CountryName;
+			}
 		}
 		#endregion
 
@@ -63,6 +68,17 @@ namespace Qloudid.ViewModels
 		#region Properties.
 		public string MobileNumber => Helper.Helper.UserMobileNumber;
 		public string CountryCode => $"+{Helper.Helper.CountryCode}";
-		#endregion
-	}
+
+		private string countryName;
+		public string CountryName
+		{
+			get => countryName;
+			set
+			{
+				countryName = value;
+				OnPropertyChanged("CountryName");
+			}
+		}
+        #endregion
+    }
 }
