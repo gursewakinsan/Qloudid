@@ -12,6 +12,8 @@ namespace Qloudid.ViewModels
 		public RestoreEmailPasswordPageViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			int pos = Helper.Helper.UserEmail.IndexOf("@");
+			DisplayUserEmail = $"xxxx{Helper.Helper.UserEmail.Remove(0, pos)}";
 		}
 		#endregion
 
@@ -218,6 +220,17 @@ namespace Qloudid.ViewModels
 		#region Properties.
 		public string UserEmail => Helper.Helper.UserEmail;
 		public string Password { get; set; } = string.Empty;
+
+		public string displayUserEmail;
+		public string DisplayUserEmail
+		{
+			get => displayUserEmail;
+			set
+			{
+				displayUserEmail = value;
+				OnPropertyChanged("DisplayUserEmail");
+			}
+		}
 
 		public string password1 = "|";
 		public string Password1
