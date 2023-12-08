@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Qloudid.Views.LoginPages.PaymentOnlinePage"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+	ios:Page.UseSafeArea="True"
+	BackgroundColor="#181A1F"
+	NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="28,50,28,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="56"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="56"/>
+        </Grid.ColumnDefinitions>
+        <Image
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Aspect="AspectFit"
+            Source="iconParas.png"/>
+
+        <Label
+		    Grid.Row="2"
+            Grid.ColumnSpan="3"
+			FontAttributes="Bold"
+			FontFamily="PoppinsBoldFontFamily"
+			FontSize="32"
+            Text="Payment"
+			HorizontalTextAlignment="Start"
+			TextColor="White"/>
+
+        <Label
+		    Grid.Row="4"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="32"
+            Text="Online and app"
+			HorizontalTextAlignment="Start"
+			TextColor="White"/>
+
+        <Label
+		    Grid.Row="6"
+            Grid.ColumnSpan="3"
+			FontFamily="PoppinsRegularFontFamily"
+			FontSize="16"
+            Opacity="0.70"
+            LineHeight="1.2"
+            Text="Fast, smooth and secure payment solution from your smart phone"
+			HorizontalTextAlignment="Start"
+			TextColor="White"/>
+
+        <StackLayout
+            Spacing="7"
+            Orientation="Horizontal" HeightRequest="10"
+            Grid.Row="8"
+            Grid.ColumnSpan="3">
+            <BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+
+            <BoxView
+                BackgroundColor="#E83E44"
+                WidthRequest="25"
+                CornerRadius="3"/>
+            
+            <BoxView
+                BackgroundColor="White"
+                WidthRequest="6"
+                Opacity="0.10"
+                CornerRadius="3"/>
+        </StackLayout>
+
+        <Button
+            Grid.Row="10"
+            Grid.Column="0"
+            Text="Skip"
+            FontSize="16"
+            Opacity="0.70"
+            TextColor="White"
+            Command="{Binding SkipCommand}"
+            FontFamily="PoppinsRegularFontFamily"/>
+
+        
+        <Button
+            Grid.Row="10"
+            Grid.Column="2"
+            FontSize="25"
+            CornerRadius="12"
+            TextColor="White"
+            BackgroundColor="#E83E44"
+            Command="{Binding NextCommand}"
+            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronRight}"
+            FontFamily="{StaticResource MaterialFontFamily}"/>
+    </Grid>
+</ContentPage>
