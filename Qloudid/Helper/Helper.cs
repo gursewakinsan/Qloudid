@@ -116,6 +116,8 @@ namespace Qloudid.Helper
         public static bool IsPropertyStarted { get; set; }
 		public static bool IsPublished4Box { get; set; } = false;
         public static string PropertyNickName { get; set; }
+
+        public static string PickaproValue { get; set; }
         public static Models.IdentificatorCountDetailResponse IdentificatorCountDetail { get; set; }
 
         public static string[] ColorList =
