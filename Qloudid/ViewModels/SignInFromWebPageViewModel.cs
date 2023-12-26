@@ -69,14 +69,15 @@ namespace Qloudid.ViewModels
 						{
 							//await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro");
 							//await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro/{Helper.Helper.VerifyUserConsentClientId}");
-							string str = Helper.Helper.PickaproValue;
-                            if (Helper.Helper.PickaproValue.Equals("pickapro1"))
-                                await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro/{Helper.Helper.VerifyUserConsentClientId}");
-                            else if (Helper.Helper.PickaproValue.Equals("pickapro2"))
-                                await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/public/index.php/UserCompanySignUp/signUpEmailInfo/{Helper.Helper.VerifyUserConsentClientId}");
-                            else if (Helper.Helper.PickaproValue.Equals("pickapro3"))
-                                await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/public/index.php/UserCompanySignUp/signUpVerificationQr/{Helper.Helper.VerifyUserConsentClientId}");
-
+							string[] str = Helper.Helper.PickaproValue.Split('_');
+							if (str[0].Equals("pickapro1"))
+								await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/pickapro/index.php/LoginAccount/loginPickapro/{Helper.Helper.VerifyUserConsentClientId}");
+							else if (str[0].Equals("pickapro2"))
+								await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/public/index.php/UserCompanySignUp/signUpEmailInfo/{Helper.Helper.VerifyUserConsentClientId}");
+							else if (str[0].Equals("pickapro3"))
+								await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/public/index.php/UserCompanySignUp/signUpVerificationQr/{Helper.Helper.VerifyUserConsentClientId}");
+							else if (str[0].Equals("pickapro4"))
+								await Xamarin.Essentials.Launcher.OpenAsync($"https://www.qloudid.com/public/index.php/UserCompanySignUp/signUpJobEmailInfo/{Helper.Helper.VerifyUserConsentClientId}/{str[1]}");
                         }
                         else
 							await Xamarin.Essentials.Launcher.OpenAsync("https://www.qloudid.com/user/index.php/LoginAccount/loginapp");
