@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="Qloudid.Views.AddressBook.AddNewContactDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Qloudid.Views.AddressBook.AddNewContactDetailPage"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	ios:Page.UseSafeArea="True"
-	BackgroundColor="#1B1D24"
-	NavigationPage.HasNavigationBar="False"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
     xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:controls="clr-namespace:Qloudid.Controls">
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#1B1D24"
+    NavigationPage.HasNavigationBar="False">
     <Grid
-		Margin="0,23,0,0"
-		ColumnSpacing="0"
-		RowSpacing="0">
-		<Grid.ColumnDefinitions>
+        Margin="0,23,0,0"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28" />
             <ColumnDefinition Width="40" />
             <ColumnDefinition Width="*" />
@@ -23,179 +23,179 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="20" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="5"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="2"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="2" />
         </Grid.RowDefinitions>
-         <Frame
-			Grid.Row="0"
-			Grid.Column="1"
-			Padding="0"
-			BackgroundColor="Transparent"
-			BorderColor="White"
-			CornerRadius="8"
-			IsClippedToBounds="True"
-			Opacity="0.2">
-			 <Frame.GestureRecognizers>
-				 <TapGestureRecognizer Command="{Binding CloseCommand}"/>
-			 </Frame.GestureRecognizers>
-		 </Frame>
+        <Frame
+            Grid.Row="0"
+            Grid.Column="1"
+            Padding="0"
+            BackgroundColor="Transparent"
+            BorderColor="White"
+            CornerRadius="8"
+            IsClippedToBounds="True"
+            Opacity="0.2">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Frame.GestureRecognizers>
+        </Frame>
 
         <Button
-			Grid.Row="0"
-			Grid.Column="1"
-			Padding="0"
-			BackgroundColor="Transparent"
-			Command="{Binding CloseCommand}"
-			FontFamily="{StaticResource MaterialFontFamily}"
-			FontSize="25"
-			Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
-			TextColor="White" />
+            Grid.Row="0"
+            Grid.Column="1"
+            Padding="0"
+            BackgroundColor="Transparent"
+            Command="{Binding CloseCommand}"
+            FontFamily="{StaticResource MaterialFontFamily}"
+            FontSize="25"
+            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronLeft}"
+            TextColor="White" />
 
-		<ScrollView
-			Grid.Row="2"
-			Grid.Column="1"
+        <ScrollView
+            Grid.Row="2"
+            Grid.Column="1"
             Grid.ColumnSpan="3"
-			VerticalScrollBarVisibility="Never">
-			<Grid RowSpacing="0" ColumnSpacing="30">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="100"/>
-					<RowDefinition Height="43"/>
-					<RowDefinition Height="25" />
-					<RowDefinition Height="14" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="26" />
-                    
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="1"/>
-                    <RowDefinition Height="24"/>
+            VerticalScrollBarVisibility="Never">
+            <Grid ColumnSpacing="30" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="43" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="14" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="26" />
+
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="24" />
 
                     <RowDefinition Height="20" />
                     <RowDefinition Height="50" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="34" />
-					<RowDefinition Height="30" />
-					<RowDefinition Height="10" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="auto" />
-					<RowDefinition Height="30" />
-					<RowDefinition Height="10" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="auto" />
-					<RowDefinition Height="30" />
-					<RowDefinition Height="10" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="auto" />
-					<RowDefinition Height="30" />
-					<RowDefinition Height="10" />
-					<RowDefinition Height="1" />
-					<RowDefinition Height="auto" />
-				</Grid.RowDefinitions>
-				<StackLayout
-					Spacing="0"
-					Grid.Column="0"
-					Grid.Row="0"
-					Grid.ColumnSpan="2"
-					VerticalOptions="CenterAndExpand"
-					HorizontalOptions="StartAndExpand">
-					<Label
-						FontAttributes="Bold"
-						FontFamily="PoppinsBoldFontFamily"
-						FontSize="33"
-						HorizontalTextAlignment="Start"
-						Text="Add"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-
-					<Label
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="25"
-						Opacity="0.42"
-						HorizontalTextAlignment="Start"
-						Text="Profile image"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
-				</StackLayout>
-
-				<Button
-					Grid.Row="0"
-					Padding="0"
-					FontSize="30"
-					Grid.Column="1"
-					TextColor="White"
-					CornerRadius="16"
-					WidthRequest="100"
-					x:Name="btn1"
-					HorizontalOptions="EndAndExpand"
-					BackgroundColor="#242A37"
-					Clicked="ImageData1Clicked"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
-
-				<ImageButton
-					x:Name="image1"
-					Grid.Row="0"
-					Grid.Column="1"
-					Aspect="AspectFill"
-					Padding="0"
-					IsVisible="False"
-					WidthRequest="100"
-					CornerRadius="16"
-					Clicked="ImageData1Clicked"
-					BackgroundColor="Transparent"
-					HorizontalOptions="EndAndExpand"/>
-
-				<StackLayout
-					Grid.Row="2"
-					Grid.ColumnSpan="2"
-					Spacing="20"
-					Orientation="Horizontal">
-					<Label
-						FontAttributes="Bold"
-						FontFamily="PoppinsSemiBoldFontFamily"
-						FontSize="18"
-						HorizontalTextAlignment="Start"
-						Text="Private"
-						TextColor="#F4B400"
-						VerticalTextAlignment="Center" />
-
-					<Label
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="17"
-						HorizontalTextAlignment="Start"
-						Text="Business"
-						TextColor="White"
-						Opacity="0.42"
-						VerticalTextAlignment="Center" />
-				</StackLayout>
-
-				<BoxView
-					Grid.Row="4"
-					Grid.ColumnSpan="2"
-					BackgroundColor="#F4B400"/>
-
-				<!--First name-->
-                <Grid
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="34" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Grid.Row="0"
                     Grid.Column="0"
-					ColumnSpacing="0"
-					Grid.Row="6">
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="StartAndExpand"
+                    Spacing="0"
+                    VerticalOptions="CenterAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="PoppinsBoldFontFamily"
+                        FontSize="33"
+                        HorizontalTextAlignment="Start"
+                        Text="Add"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="25"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="Profile image"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <Button
+                    x:Name="btn1"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="#242A37"
+                    Clicked="ImageData1Clicked"
+                    CornerRadius="16"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="30"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+                    TextColor="White"
+                    WidthRequest="100" />
+
+                <ImageButton
+                    x:Name="image1"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="0"
+                    Aspect="AspectFill"
+                    BackgroundColor="Transparent"
+                    Clicked="ImageData1Clicked"
+                    CornerRadius="16"
+                    HorizontalOptions="EndAndExpand"
+                    IsVisible="False"
+                    WidthRequest="100" />
+
+                <StackLayout
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="PoppinsSemiBoldFontFamily"
+                        FontSize="18"
+                        HorizontalTextAlignment="Start"
+                        Text="Private"
+                        TextColor="#F4B400"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="17"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="Business"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <BoxView
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400" />
+
+                <!--  First name  -->
+                <Grid
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    ColumnSpacing="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
                     </Grid.ColumnDefinitions>
                     <controls:CustomPicker
-						Grid.Column="0"
-			    		FontFamily="PoppinsRegularFontFamily"
-			    		FontSize="15"
-			    		TextColor="White"
-						TitleColor="White"
-						SelectedItem="{Binding RelationType}"
-						BackgroundColor="Transparent">
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="15"
+                        SelectedItem="{Binding RelationType}"
+                        TextColor="White"
+                        TitleColor="White">
                         <controls:CustomPicker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Mother</x:String>
@@ -216,846 +216,861 @@
                     </controls:CustomPicker>
 
                     <Label
-						Grid.Column="1"
-						FontFamily="{StaticResource MaterialFontFamily}"
-						FontSize="20"
-						HorizontalTextAlignment="Center"
-						Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-						TextColor="White"
-						Opacity="0.42"
-						VerticalTextAlignment="Center" />
+                        Grid.Column="1"
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.42"
+                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
                 </Grid>
 
                 <BoxView
-					Grid.Row="7"
-					Opacity="0.1"
+                    Grid.Row="7"
                     Grid.Column="0"
-					BackgroundColor="White"/>
+                    BackgroundColor="White"
+                    Opacity="0.1" />
 
                 <Label
-			        Grid.Row="9"
-					Grid.Column="0"
-			        FontFamily="PoppinsRegularFontFamily"
-			        FontSize="13"
-			        HorizontalTextAlignment="Start"
-			        Opacity="0.42"
-			        TextColor="White"
+                    Grid.Row="9"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
                     Text="First name"
-			        VerticalTextAlignment="Center"/>
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<controls:CustomEntry
-					Grid.Row="10"
-					BackgroundColor="Transparent"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Placeholder="First name"
-					PlaceholderColor="#797A7D"
-					TextColor="White"
-					Text="{Binding FirstName}"/>
+                <controls:CustomEntry
+                    Grid.Row="10"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    Placeholder="First name"
+                    PlaceholderColor="#797A7D"
+                    Text="{Binding FirstName}"
+                    TextColor="White" />
 
-				<BoxView
+                <BoxView
                     Grid.Row="11"
-                    Opacity="0.1"
-					Grid.Column="0"
-                    BackgroundColor="White"/>
+                    Grid.Column="0"
+                    BackgroundColor="White"
+                    Opacity="0.1" />
 
-				<!--Last name-->
-				<Label
-			        Grid.Row="9"
-					Grid.Column="1"
-			        FontFamily="PoppinsRegularFontFamily"
-			        FontSize="13"
-			        HorizontalTextAlignment="Start"
-			        Opacity="0.42"
-			        TextColor="White"
+                <!--  Last name  -->
+                <Label
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
                     Text="Last name"
-			        VerticalTextAlignment="Center"/>
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<controls:CustomEntry
-					Grid.Row="10"
-					Grid.Column="1"
-					BackgroundColor="Transparent"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Placeholder="Last name"
-					PlaceholderColor="#797A7D"
-					TextColor="White"
-					Text="{Binding LastName}"/>
+                <controls:CustomEntry
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    Placeholder="Last name"
+                    PlaceholderColor="#797A7D"
+                    Text="{Binding LastName}"
+                    TextColor="White" />
 
-				<BoxView
+                <BoxView
                     Grid.Row="11"
-                    Opacity="0.1"
-					Grid.Column="1"
-                    BackgroundColor="White"/>
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    Opacity="0.1" />
 
-				<!--Email-->
-				<Label
-					Grid.Row="13"
-					Grid.Column="0"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Opacity="0.42"
-					HorizontalTextAlignment="Start"
-					Text="Email"
-					TextColor="White"
-					VerticalTextAlignment="Center" />
+                <!--  Email  -->
+                <Label
+                    Grid.Row="13"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Email"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<Frame
-					Grid.Row="13"
-					Grid.Column="1"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="White"
-					CornerRadius="8"
-					IsClippedToBounds="True"
-					Opacity="0.2"
-					WidthRequest="30"
-					HorizontalOptions="EndAndExpand">
-					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddMoreEmailAddressCommand}"/>
-					</Frame.GestureRecognizers>
-				</Frame>
+                <Frame
+                    Grid.Row="13"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    CornerRadius="8"
+                    HorizontalOptions="EndAndExpand"
+                    IsClippedToBounds="True"
+                    Opacity="0.2"
+                    WidthRequest="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddMoreEmailAddressCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
 
-				<Button
-					Padding="0"
-					FontSize="15"
-					Grid.Row="13"
-					Grid.Column="1"
-					WidthRequest="30"
-					TextColor="White"
-					HorizontalOptions="EndAndExpand"
-					BackgroundColor="Transparent"
-					Command="{Binding AddMoreEmailAddressCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                <Button
+                    Grid.Row="13"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding AddMoreEmailAddressCommand}"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+                    TextColor="White"
+                    WidthRequest="30" />
 
-				<BoxView
-					Grid.Row="15"
-					Grid.ColumnSpan="2"
-					Opacity="0.67"
-					BackgroundColor="#F4B400"/>
+                <BoxView
+                    Grid.Row="15"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400"
+                    Opacity="0.67" />
 
-				<StackLayout
-					Grid.Row="16"
-					Grid.ColumnSpan="2"
-					Margin="10,24,0,0" 
-					BindableLayout.ItemsSource="{Binding ListOfContactEmailAddress}">
-					<BindableLayout.ItemTemplate>
-						<DataTemplate>
-							<Grid RowSpacing="0" ColumnSpacing="31">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="24"/>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="35"/>
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="25"/>
-									<ColumnDefinition Width="100"/>
-									<ColumnDefinition Width="*"/>
-								</Grid.ColumnDefinitions>
-								<Button
-									Padding="0"
-									FontSize="15"
-									Grid.Row="0"
-									Grid.Column="0"
-									TextColor="#242A37"
-									HeightRequest="25"
-									ClassId="{Binding Id}"
-									BackgroundColor="#F40000"
-									VerticalOptions="CenterAndExpand"
-									IsVisible="{Binding IsRemove}"
-									Clicked="OnEmailRemoveClicked"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                <StackLayout
+                    Grid.Row="16"
+                    Grid.ColumnSpan="2"
+                    Margin="10,24,0,0"
+                    BindableLayout.ItemsSource="{Binding ListOfContactEmailAddress}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="31" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="24" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="#F40000"
+                                    ClassId="{Binding Id}"
+                                    Clicked="OnEmailRemoveClicked"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontSize="15"
+                                    HeightRequest="25"
+                                    IsVisible="{Binding IsRemove}"
+                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+                                    TextColor="#242A37"
+                                    VerticalOptions="CenterAndExpand" />
 
-								 <Grid
-									ColumnSpacing="0"
-									Grid.Row="0"
-									Grid.Column="1">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="*"/>
-										<ColumnDefinition Width="20"/>
-									</Grid.ColumnDefinitions>
-									<controls:CustomPicker
-										Grid.Column="0"
-			    						FontFamily="PoppinsRegularFontFamily"
-			    						FontSize="15"
-			    						TextColor="White"
-										TitleColor="White"
-										SelectedItem="{Binding EmailType}"
-										BackgroundColor="Transparent">
-										<controls:CustomPicker.ItemsSource>
-											<x:Array Type="{x:Type x:String}">
-											<x:String>Home</x:String>
-											<x:String>Work</x:String>
-											<x:String>School</x:String>
-											<x:String>iCloud</x:String>
-											<x:String>Other</x:String>
-											<x:String>Primary</x:String>
-										</x:Array>
-									</controls:CustomPicker.ItemsSource>
-								</controls:CustomPicker>
+                                <Grid
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:CustomPicker
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        SelectedItem="{Binding EmailType}"
+                                        TextColor="White"
+                                        TitleColor="White">
+                                        <controls:CustomPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Home</x:String>
+                                                <x:String>Work</x:String>
+                                                <x:String>School</x:String>
+                                                <x:String>iCloud</x:String>
+                                                <x:String>Other</x:String>
+                                                <x:String>Primary</x:String>
+                                            </x:Array>
+                                        </controls:CustomPicker.ItemsSource>
+                                    </controls:CustomPicker>
 
-								<Label
-									Grid.Column="1"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-									TextColor="White"
-									Opacity="0.42"
-									VerticalTextAlignment="Center" />
-								</Grid>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Opacity="0.42"
+                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
 
-								<BoxView
-									Grid.Row="1"
-									Opacity="0.1"
-									Grid.Column="1"
-									Grid.ColumnSpan="1"
-									BackgroundColor="White"/>
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="1"
+                                    BackgroundColor="White"
+                                    Opacity="0.1" />
 
-								<controls:CustomEntry
-									Grid.Row="3"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="Transparent"
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="15"
-									Placeholder="Email"
-									PlaceholderColor="#797A7D"
-									TextColor="White"
-									Keyboard="Email"
-									Text="{Binding EmailAddress}"/>
+                                <controls:CustomEntry
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="15"
+                                    Keyboard="Email"
+                                    Placeholder="Email"
+                                    PlaceholderColor="#797A7D"
+                                    Text="{Binding EmailAddress}"
+                                    TextColor="White" />
 
-								<BoxView
-									Grid.Row="4"
-									Opacity="0.1"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="White"
-									IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"/>
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"
+                                    Opacity="0.1" />
 
-								<BoxView
-									Grid.Row="4"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="#F40000"
-									IsVisible="{Binding IsError}"/>
-							</Grid>
-						</DataTemplate>
-					</BindableLayout.ItemTemplate>
-				</StackLayout>
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#F40000"
+                                    IsVisible="{Binding IsError}" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
 
-				<!--Phone-->
-				<Label
-					Grid.Row="17"
-					Grid.Column="0"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Opacity="0.42"
-					HorizontalTextAlignment="Start"
-					Text="Phone"
-					TextColor="White"
-					VerticalTextAlignment="Center" />
+                <!--  Phone  -->
+                <Label
+                    Grid.Row="17"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Phone"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<Frame
-					Grid.Row="17"
-					Grid.Column="1"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="White"
-					CornerRadius="8"
-					IsClippedToBounds="True"
-					Opacity="0.2"
-					WidthRequest="30"
-					HorizontalOptions="EndAndExpand">
-					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddMorePhoneNumberCommand}"/>
-					</Frame.GestureRecognizers>
-				</Frame>
-				
-				<Button
-					Padding="0"
-					FontSize="15"
-					Grid.Row="17"
-					Grid.Column="1"
-					WidthRequest="30"
-					TextColor="White"
-					HorizontalOptions="EndAndExpand"
-					BackgroundColor="Transparent"
-					Command="{Binding AddMorePhoneNumberCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                <Frame
+                    Grid.Row="17"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    CornerRadius="8"
+                    HorizontalOptions="EndAndExpand"
+                    IsClippedToBounds="True"
+                    Opacity="0.2"
+                    WidthRequest="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddMorePhoneNumberCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
 
-				<BoxView
-					Grid.Row="19"
-					Grid.ColumnSpan="2"
-					Opacity="0.67"
-					BackgroundColor="#F4B400"/>
+                <Button
+                    Grid.Row="17"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding AddMorePhoneNumberCommand}"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+                    TextColor="White"
+                    WidthRequest="30" />
 
-				<StackLayout
-					Grid.Row="20"
-					Grid.ColumnSpan="2"
-					Margin="10,24,0,0" 
-					BindableLayout.ItemsSource="{Binding ListOfContactPhoneNumber}">
-					<BindableLayout.ItemTemplate>
-						<DataTemplate>
-							<Grid RowSpacing="0" ColumnSpacing="31">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="24"/>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="35"/>
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="25"/>
-									<ColumnDefinition Width="100"/>
-									<ColumnDefinition Width="*"/>
-								</Grid.ColumnDefinitions>
-								<Button
-									Padding="0"
-									FontSize="15"
-									Grid.Row="0"
-									Grid.Column="0"
-									TextColor="#242A37"
-									HeightRequest="25"
-									ClassId="{Binding Id}"
-									BackgroundColor="#F40000"
-									VerticalOptions="CenterAndExpand"
-									IsVisible="{Binding IsRemove}"
-									Clicked="OnPhoneRemoveClicked"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                <BoxView
+                    Grid.Row="19"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400"
+                    Opacity="0.67" />
 
-								 <Grid
-									ColumnSpacing="0"
-									Grid.Row="0"
-									Grid.Column="1">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="*"/>
-										<ColumnDefinition Width="20"/>
-									</Grid.ColumnDefinitions>
-									<controls:CustomPicker
-										Grid.Column="0"
-			    						FontFamily="PoppinsRegularFontFamily"
-			    						FontSize="15"
-			    						TextColor="White"
-										TitleColor="White"
-										SelectedItem="{Binding PhoneType}"
-										BackgroundColor="Transparent">
-										<controls:CustomPicker.ItemsSource>
-											<x:Array Type="{x:Type x:String}">
-											<x:String>Mobile</x:String>
-											<x:String>Home</x:String>
-											<x:String>Work</x:String>
-											<x:String>School</x:String>
-											<x:String>iPhone</x:String>
-											<x:String>Apple watch</x:String>
-											<x:String>Main</x:String>
-											<x:String>Home fax</x:String>
-											<x:String>Work fax</x:String>
-											<x:String>Pager</x:String>
-											<x:String>Other</x:String>
-										</x:Array>
-									</controls:CustomPicker.ItemsSource>
-								</controls:CustomPicker>
+                <StackLayout
+                    Grid.Row="20"
+                    Grid.ColumnSpan="2"
+                    Margin="10,24,0,0"
+                    BindableLayout.ItemsSource="{Binding ListOfContactPhoneNumber}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="31" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="24" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="#F40000"
+                                    ClassId="{Binding Id}"
+                                    Clicked="OnPhoneRemoveClicked"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontSize="15"
+                                    HeightRequest="25"
+                                    IsVisible="{Binding IsRemove}"
+                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+                                    TextColor="#242A37"
+                                    VerticalOptions="CenterAndExpand" />
 
-								<Label
-									Grid.Column="1"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-									TextColor="White"
-									Opacity="0.42"
-									VerticalTextAlignment="Center" />
-								</Grid>
+                                <Grid
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:CustomPicker
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        SelectedItem="{Binding PhoneType}"
+                                        TextColor="White"
+                                        TitleColor="White">
+                                        <controls:CustomPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Mobile</x:String>
+                                                <x:String>Home</x:String>
+                                                <x:String>Work</x:String>
+                                                <x:String>School</x:String>
+                                                <x:String>iPhone</x:String>
+                                                <x:String>Apple watch</x:String>
+                                                <x:String>Main</x:String>
+                                                <x:String>Home fax</x:String>
+                                                <x:String>Work fax</x:String>
+                                                <x:String>Pager</x:String>
+                                                <x:String>Other</x:String>
+                                            </x:Array>
+                                        </controls:CustomPicker.ItemsSource>
+                                    </controls:CustomPicker>
 
-								<BoxView
-									Grid.Row="1"
-									Opacity="0.1"
-									Grid.Column="1"
-									BackgroundColor="White"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Opacity="0.42"
+                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
 
-								<Grid
-									ColumnSpacing="0"
-									Grid.Row="3"
-									Grid.Column="1">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="*"/>
-										<ColumnDefinition Width="20"/>
-									</Grid.ColumnDefinitions>
-									<controls:CustomPicker
-										Grid.Column="0"
-			    						FontSize="15"
-			    						TextColor="White"
-										TitleColor="White"
-										ItemsSource="{Binding CountryList}"
-										SelectedItem="{Binding SelectedCountry}"
-										FontFamily="PoppinsRegularFontFamily"
-										ItemDisplayBinding="{Binding DisplayCountryCode}"
-										BackgroundColor="Transparent"/>
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    BackgroundColor="White"
+                                    Opacity="0.1" />
 
-								<Label
-									Grid.Column="1"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-									TextColor="White"
-									Opacity="0.42"
-									VerticalTextAlignment="Center" />
-								</Grid>
+                                <Grid
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:CustomPicker
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        ItemDisplayBinding="{Binding DisplayCountryCode}"
+                                        ItemsSource="{Binding CountryList}"
+                                        SelectedItem="{Binding SelectedCountry}"
+                                        TextColor="White"
+                                        TitleColor="White" />
 
-								<BoxView
-									Grid.Row="4"
-									Opacity="0.1"
-									Grid.Column="1"
-									BackgroundColor="White"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Opacity="0.42"
+                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
 
-								<controls:CustomEntry
-									Grid.Row="3"
-									Grid.Column="2"
-									BackgroundColor="Transparent"
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="15"
-									Placeholder="Phone"
-									Keyboard="Numeric"
-									PlaceholderColor="#797A7D"
-									TextColor="White"
-									Text="{Binding PhoneNumber}"/>
-								
-								<BoxView
-									Grid.Row="4"
-									Opacity="0.1"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="White"
-									IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"/>
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    BackgroundColor="White"
+                                    Opacity="0.1" />
 
-								<BoxView
-									Grid.Row="4"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="#F40000"
-									IsVisible="{Binding IsError}"/>
-							</Grid>
-						</DataTemplate>
-					</BindableLayout.ItemTemplate>
-				</StackLayout>
+                                <controls:CustomEntry
+                                    Grid.Row="3"
+                                    Grid.Column="2"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="15"
+                                    Keyboard="Numeric"
+                                    Placeholder="Phone"
+                                    PlaceholderColor="#797A7D"
+                                    Text="{Binding PhoneNumber}"
+                                    TextColor="White" />
+
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}"
+                                    Opacity="0.1" />
+
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#F40000"
+                                    IsVisible="{Binding IsError}" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
 
 
-				<!--Address-->
-				<Label
-					Grid.Row="21"
-					Grid.Column="0"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Opacity="0.42"
-					HorizontalTextAlignment="Start"
-					Text="Address"
-					TextColor="White"
-					VerticalTextAlignment="Center" />
+                <!--  Address  -->
+                <Label
+                    Grid.Row="21"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Address"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<Frame
-					Grid.Row="21"
-					Grid.Column="1"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="White"
-					CornerRadius="8"
-					IsClippedToBounds="True"
-					Opacity="0.2"
-					WidthRequest="30"
-					HorizontalOptions="EndAndExpand">
-					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddMoreAddressCommand}"/>
-					</Frame.GestureRecognizers>
-				</Frame>
-				
-				<Button
-					Padding="0"
-					FontSize="15"
-					Grid.Row="21"
-					Grid.Column="1"
-					WidthRequest="30"
-					TextColor="White"
-					HorizontalOptions="EndAndExpand"
-					BackgroundColor="Transparent"
-					Command="{Binding AddMoreAddressCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                <Frame
+                    Grid.Row="21"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    CornerRadius="8"
+                    HorizontalOptions="EndAndExpand"
+                    IsClippedToBounds="True"
+                    Opacity="0.2"
+                    WidthRequest="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddMoreAddressCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
 
-				<BoxView
-					Grid.Row="23"
-					Grid.ColumnSpan="2"
-					Opacity="0.67"
-					BackgroundColor="#F4B400"/>
+                <Button
+                    Grid.Row="21"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding AddMoreAddressCommand}"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+                    TextColor="White"
+                    WidthRequest="30" />
 
-				<StackLayout
-					Grid.Row="24"
-					Grid.ColumnSpan="2"
-					Margin="10,24,0,0" 
-					BindableLayout.ItemsSource="{Binding ListOfContactAddressNumber}">
-					<BindableLayout.ItemTemplate>
-						<DataTemplate>
-							<Grid RowSpacing="0" ColumnSpacing="31">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="51"/>
-									<RowDefinition Height="5"/>
-									<RowDefinition Height="51"/>
-									<RowDefinition Height="5"/>
-									<RowDefinition Height="51"/>
-									<RowDefinition Height="30"/>
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="25"/>
-									<ColumnDefinition Width="*"/>
-									<ColumnDefinition Width="*"/>
-								</Grid.ColumnDefinitions>
-								<Button
-									Padding="0"
-									FontSize="15"
-									Grid.Row="0"
-									Grid.Column="0"
-									TextColor="#242A37"
-									HeightRequest="25"
-									ClassId="{Binding Id}"
-									BackgroundColor="#F40000"
-									VerticalOptions="CenterAndExpand"
-									IsVisible="{Binding IsRemove}"
-									Clicked="OnAddressRemoveClicked"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                <BoxView
+                    Grid.Row="23"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400"
+                    Opacity="0.67" />
 
-								<Grid RowSpacing="0" ColumnSpacing="31" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="*"/>
-										<ColumnDefinition Width="70"/>
-									</Grid.ColumnDefinitions>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="50"/>
-										<RowDefinition Height="1"/>
-									</Grid.RowDefinitions>
-									<controls:CustomEntry
-										Grid.Row="0"
-										Grid.Column="0"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="Address"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding Address}"/>
+                <StackLayout
+                    Grid.Row="24"
+                    Grid.ColumnSpan="2"
+                    Margin="10,24,0,0"
+                    BindableLayout.ItemsSource="{Binding ListOfContactAddressNumber}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="31" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="51" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="51" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="51" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="#F40000"
+                                    ClassId="{Binding Id}"
+                                    Clicked="OnAddressRemoveClicked"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontSize="15"
+                                    HeightRequest="25"
+                                    IsVisible="{Binding IsRemove}"
+                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+                                    TextColor="#242A37"
+                                    VerticalOptions="CenterAndExpand" />
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="0"
-										BackgroundColor="White"/>
+                                <Grid
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    ColumnSpacing="31"
+                                    RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="70" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <controls:CustomEntry
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        Placeholder="Address"
+                                        PlaceholderColor="#797A7D"
+                                        Text="{Binding Address}"
+                                        TextColor="White" />
 
-									<controls:CustomEntry
-										Grid.Row="0"
-										Grid.Column="1"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="No"
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
+
+                                    <controls:CustomEntry
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
                                         Keyboard="Numeric"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding Number}"/>
+                                        Placeholder="No"
+                                        PlaceholderColor="#797A7D"
+                                        Text="{Binding Number}"
+                                        TextColor="White" />
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="1"
-										BackgroundColor="White"/>
-								</Grid>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
+                                </Grid>
 
-								<Grid RowSpacing="0" ColumnSpacing="31" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="100"/>
-										<ColumnDefinition Width="*"/>
-									</Grid.ColumnDefinitions>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="50"/>
-										<RowDefinition Height="1"/>
-									</Grid.RowDefinitions>
-									<controls:CustomEntry
-										Grid.Row="0"
-										Grid.Column="0"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="Zip"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding ZipCode}"/>
+                                <Grid
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    ColumnSpacing="31"
+                                    RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <controls:CustomEntry
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        Placeholder="Zip"
+                                        PlaceholderColor="#797A7D"
+                                        Text="{Binding ZipCode}"
+                                        TextColor="White" />
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="0"
-										BackgroundColor="White"/>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
 
-									<controls:CustomEntry
-										Grid.Row="0"
-										Grid.Column="1"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="City"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding City}"/>
+                                    <controls:CustomEntry
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        Placeholder="City"
+                                        PlaceholderColor="#797A7D"
+                                        Text="{Binding City}"
+                                        TextColor="White" />
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="1"
-										BackgroundColor="White"/>
-								</Grid>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
+                                </Grid>
 
-								<Grid RowSpacing="0" ColumnSpacing="31" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="100"/>
-										<ColumnDefinition Width="*"/>
-									</Grid.ColumnDefinitions>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="50"/>
-										<RowDefinition Height="1"/>
-									</Grid.RowDefinitions>
-									<controls:CustomEntry
-										Grid.Row="0"
-										Grid.Column="0"
-										BackgroundColor="Transparent"
-										FontFamily="PoppinsRegularFontFamily"
-										FontSize="15"
-										Placeholder="State"
-										PlaceholderColor="#797A7D"
-										TextColor="White"
-										Text="{Binding State}"/>
+                                <Grid
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    ColumnSpacing="31"
+                                    RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="1" />
+                                    </Grid.RowDefinitions>
+                                    <controls:CustomEntry
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        Placeholder="State"
+                                        PlaceholderColor="#797A7D"
+                                        Text="{Binding State}"
+                                        TextColor="White" />
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="0"
-										BackgroundColor="White"/>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
 
-									<Grid
-										ColumnSpacing="0"
-										Grid.Row="0"
-										Grid.Column="1">
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="*"/>
-											<ColumnDefinition Width="20"/>
-										</Grid.ColumnDefinitions>
-										<controls:CustomPicker
-											Grid.Column="0"
-			    							FontSize="15"
-			    							TextColor="White"
-											TitleColor="White"
-											ItemsSource="{Binding CountryList}"
-											SelectedItem="{Binding SelectedCountry}"
-											FontFamily="PoppinsRegularFontFamily"
-											ItemDisplayBinding="{Binding CountryName}"
-											BackgroundColor="Transparent"/>
+                                    <Grid
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="20" />
+                                        </Grid.ColumnDefinitions>
+                                        <controls:CustomPicker
+                                            Grid.Column="0"
+                                            BackgroundColor="Transparent"
+                                            FontFamily="PoppinsRegularFontFamily"
+                                            FontSize="15"
+                                            ItemDisplayBinding="{Binding CountryName}"
+                                            ItemsSource="{Binding CountryList}"
+                                            SelectedItem="{Binding SelectedCountry}"
+                                            TextColor="White"
+                                            TitleColor="White" />
 
-										<Label
-											Grid.Column="1"
-											FontFamily="{StaticResource MaterialFontFamily}"
-											FontSize="20"
-											HorizontalTextAlignment="Center"
-											Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-											TextColor="White"
-											Opacity="0.42"
-											VerticalTextAlignment="Center" />
-									</Grid>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontFamily="{StaticResource MaterialFontFamily}"
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Center"
+                                            Opacity="0.42"
+                                            Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
 
 
-									<BoxView
-										Grid.Row="1"
-										Opacity="0.1"
-										Grid.Column="1"
-										BackgroundColor="White"/>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        BackgroundColor="White"
+                                        Opacity="0.1" />
 
-								</Grid>
-							</Grid>
-						</DataTemplate>
-					</BindableLayout.ItemTemplate>
-				</StackLayout>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
 
-				<!--Card-->
-				<Label
-					Grid.Row="25"
-					Grid.Column="0"
-					FontFamily="PoppinsRegularFontFamily"
-					FontSize="15"
-					Opacity="0.42"
-					HorizontalTextAlignment="Start"
-					Text="Card"
-					TextColor="White"
-					VerticalTextAlignment="Center" />
+                <!--  Card  -->
+                <Label
+                    Grid.Row="25"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Card"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
 
-				<Frame
-					Grid.Row="25"
-					Grid.Column="1"
-					Padding="0"
-					BackgroundColor="Transparent"
-					BorderColor="White"
-					CornerRadius="8"
-					IsClippedToBounds="True"
-					Opacity="0.2"
-					WidthRequest="30"
-					HorizontalOptions="EndAndExpand">
-					<Frame.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding AddMoreCardCommand}"/>
-					</Frame.GestureRecognizers>
-				</Frame>
-				
-				<Button
-					Padding="0"
-					FontSize="15"
-					Grid.Row="25"
-					Grid.Column="1"
-					WidthRequest="30"
-					TextColor="White"
-					HorizontalOptions="EndAndExpand"
-					BackgroundColor="Transparent"
-					Command="{Binding AddMoreCardCommand}"
-					FontFamily="{StaticResource MaterialFontFamily}"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"/>
+                <Frame
+                    Grid.Row="25"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    CornerRadius="8"
+                    HorizontalOptions="EndAndExpand"
+                    IsClippedToBounds="True"
+                    Opacity="0.2"
+                    WidthRequest="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddMoreCardCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
 
-				<BoxView
-					Grid.Row="27"
-					Grid.ColumnSpan="2"
-					Opacity="0.67"
-					BackgroundColor="#F4B400"/>
+                <Button
+                    Grid.Row="25"
+                    Grid.Column="1"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding AddMoreCardCommand}"
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Plus}"
+                    TextColor="White"
+                    WidthRequest="30" />
 
-				<StackLayout
-					Grid.Row="28"
-					Grid.ColumnSpan="2"
-					Margin="10,24,0,0" 
-					BindableLayout.ItemsSource="{Binding ListOfContactCard}">
-					<BindableLayout.ItemTemplate>
-						<DataTemplate>
-							<Grid RowSpacing="0" ColumnSpacing="31">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="24"/>
-									<RowDefinition Height="50"/>
-									<RowDefinition Height="1"/>
-									<RowDefinition Height="35"/>
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="25"/>
-									<ColumnDefinition Width="100"/>
-									<ColumnDefinition Width="*"/>
-								</Grid.ColumnDefinitions>
-								<Button
-									Padding="0"
-									FontSize="15"
-									Grid.Row="0"
-									Grid.Column="0"
-									TextColor="#242A37"
-									HeightRequest="25"
-									ClassId="{Binding Id}"
-									BackgroundColor="#F40000"
-									VerticalOptions="CenterAndExpand"
-									IsVisible="{Binding IsRemove}"
-									Clicked="OnCardRemoveClicked"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"/>
+                <BoxView
+                    Grid.Row="27"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#F4B400"
+                    Opacity="0.67" />
 
-								 <Grid
-									ColumnSpacing="0"
-									Grid.Row="0"
-									Grid.Column="1">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="*"/>
-										<ColumnDefinition Width="20"/>
-									</Grid.ColumnDefinitions>
-									<controls:CustomPicker
-										Grid.Column="0"
-			    						FontFamily="PoppinsRegularFontFamily"
-			    						FontSize="15"
-			    						TextColor="White"
-										TitleColor="White"
-										SelectedItem="{Binding CardType}"
-										BackgroundColor="Transparent">
-										<controls:CustomPicker.ItemsSource>
-											<x:Array Type="{x:Type x:String}">
-											<x:String>Visa card</x:String>
-											<x:String>Maestro card</x:String>
-											<x:String>Master card</x:String>
-										</x:Array>
-									</controls:CustomPicker.ItemsSource>
-								</controls:CustomPicker>
+                <StackLayout
+                    Grid.Row="28"
+                    Grid.ColumnSpan="2"
+                    Margin="10,24,0,0"
+                    BindableLayout.ItemsSource="{Binding ListOfContactCard}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="31" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="24" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="#F40000"
+                                    ClassId="{Binding Id}"
+                                    Clicked="OnCardRemoveClicked"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontSize="15"
+                                    HeightRequest="25"
+                                    IsVisible="{Binding IsRemove}"
+                                    Text="{x:Static fontawesome:QloudidAppFlatIcons.Close}"
+                                    TextColor="#242A37"
+                                    VerticalOptions="CenterAndExpand" />
 
-								<Label
-									Grid.Column="1"
-									FontFamily="{StaticResource MaterialFontFamily}"
-									FontSize="20"
-									HorizontalTextAlignment="Center"
-									Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
-									TextColor="White"
-									Opacity="0.42"
-									VerticalTextAlignment="Center" />
-								</Grid>
+                                <Grid
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:CustomPicker
+                                        Grid.Column="0"
+                                        BackgroundColor="Transparent"
+                                        FontFamily="PoppinsRegularFontFamily"
+                                        FontSize="15"
+                                        SelectedItem="{Binding CardType}"
+                                        TextColor="White"
+                                        TitleColor="White">
+                                        <controls:CustomPicker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Visa card</x:String>
+                                                <x:String>Maestro card</x:String>
+                                                <x:String>Master card</x:String>
+                                            </x:Array>
+                                        </controls:CustomPicker.ItemsSource>
+                                    </controls:CustomPicker>
 
-								<BoxView
-									Grid.Row="1"
-									Opacity="0.1"
-									Grid.Column="1"
-									Grid.ColumnSpan="1"
-									BackgroundColor="White"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Opacity="0.42"
+                                        Text="{x:Static fontawesome:QloudidAppFlatIcons.ChevronDown}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
 
-								<controls:CustomEntry
-									Grid.Row="3"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="Transparent"
-									FontFamily="PoppinsRegularFontFamily"
-									FontSize="15"
-									Keyboard="Numeric"
-									Placeholder="Card number"
-									PlaceholderColor="#797A7D"
-									TextColor="White"
-									Text="{Binding CardNumber}"/>
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="1"
+                                    BackgroundColor="White"
+                                    Opacity="0.1" />
 
-								<BoxView
-									Grid.Row="4"
-									Opacity="0.1"
-									Grid.Column="1"
-									Grid.ColumnSpan="2"
-									BackgroundColor="White"/>
-							</Grid>
-						</DataTemplate>
-					</BindableLayout.ItemTemplate>
-				</StackLayout>
-			</Grid>
-		</ScrollView>
+                                <controls:CustomEntry
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="15"
+                                    Keyboard="Numeric"
+                                    Placeholder="Card number"
+                                    PlaceholderColor="#797A7D"
+                                    Text="{Binding CardNumber}"
+                                    TextColor="White" />
 
-		<Button
-			Grid.Row="4"
-			Grid.Column="1"
+                                <BoxView
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="White"
+                                    Opacity="0.1" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
+        <Button
+            Grid.Row="4"
+            Grid.Column="1"
             Grid.ColumnSpan="3"
-            CornerRadius="25"
-            WidthRequest="170"
-            Text="Submit"
-            FontSize="15"
             Padding="0"
-            TextColor="Black"
             BackgroundColor="White"
             Command="{Binding SubmitContactInfoCommand}"
+            CornerRadius="25"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            FontSize="15"
             HorizontalOptions="CenterAndExpand"
-            FontFamily="PoppinsSemiBoldFontFamily"/>
-	</Grid>
+            Text="Submit"
+            TextColor="Black"
+            WidthRequest="170" />
+    </Grid>
 </ContentPage>

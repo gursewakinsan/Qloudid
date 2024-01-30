@@ -49,6 +49,8 @@ namespace Qloudid.ViewModels
 						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelInvoiceAddressListPage());
 					else if (Helper.Helper.TenantInvoicePayNow != null)
 						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelInvoiceAddressListPage());
+					else if (!string.IsNullOrWhiteSpace(Helper.Helper.InvoiceId))
+						Application.Current.MainPage = new NavigationPage(new Views.Hotel.HotelInvoiceAddressListPage());
 					else
 						await Helper.Alert.DisplayAlert("Hotel id is null and response == 1");
 				}

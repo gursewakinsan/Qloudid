@@ -1,300 +1,300 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-	x:Class="Qloudid.Views.Hotel.HotelBookingDetailPage"
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:controls="clr-namespace:Qloudid.Controls"
-	xmlns:fontawesome="clr-namespace:Qloudid.Helper"
-	xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-	ios:Page.UseSafeArea="True"
-	BackgroundColor="#181A1F"
-	NavigationPage.HasNavigationBar="False">
-	<Grid
-		Margin="0,18,0,5"
-		ColumnSpacing="0"
-		RowSpacing="0">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="40" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="56" />
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="28" />
-			<ColumnDefinition Width="65" />
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="65" />
-			<ColumnDefinition Width="28" />
-		</Grid.ColumnDefinitions>
-		<Image
-			Grid.Row="0"
-			Grid.Column="1"
-			Margin="-10,0,0,0"
-			Aspect="AspectFit"
-			BackgroundColor="Transparent"
-			HeightRequest="40"
-			HorizontalOptions="StartAndExpand"
-			Source="iconSmallLogo.png"
-			VerticalOptions="CenterAndExpand"
-			WidthRequest="40" />
+    x:Class="Qloudid.Views.Hotel.HotelBookingDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Qloudid.Controls"
+    xmlns:fontawesome="clr-namespace:Qloudid.Helper"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        Margin="0,18,0,5"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="56" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="65" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="65" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Image
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="-10,0,0,0"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            HeightRequest="40"
+            HorizontalOptions="StartAndExpand"
+            Source="iconSmallLogo.png"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="40" />
 
-		<Label
-			Grid.Row="0"
-			Grid.Column="3"
-			FontAttributes="Bold"
-			FontFamily="PoppinsMediumFontFamily"
-			FontSize="18"
-			HorizontalTextAlignment="End"
-			Opacity="0.42"
-			Text="Cancel"
-			TextColor="White"
-			VerticalTextAlignment="Center">
-			<Label.GestureRecognizers>
-				<TapGestureRecognizer Command="{Binding CancelCommand}" />
-			</Label.GestureRecognizers>
-		</Label>
+        <Label
+            Grid.Row="0"
+            Grid.Column="3"
+            FontAttributes="Bold"
+            FontFamily="PoppinsMediumFontFamily"
+            FontSize="18"
+            HorizontalTextAlignment="End"
+            Opacity="0.42"
+            Text="Cancel"
+            TextColor="White"
+            VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CancelCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
 
-		<ScrollView
-			Grid.Row="1"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			VerticalScrollBarVisibility="Never">
-			<StackLayout VerticalOptions="StartAndExpand">
-				<Label
-					Margin="0,35,0,30"
-					FontAttributes="Bold"
-					FontFamily="PoppinsBoldFontFamily"
-					FontSize="40"
-					Text="Pay"
-					TextColor="White" />
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Label
+                    Margin="0,35,0,30"
+                    FontAttributes="Bold"
+                    FontFamily="PoppinsBoldFontFamily"
+                    FontSize="40"
+                    Text="Pay"
+                    TextColor="White" />
 
-				<Frame
-					Padding="0"
-					BackgroundColor="#242A37"
-					CornerRadius="8"
-					HasShadow="False"
-					HeightRequest="111"
-					IsClippedToBounds="True">
-					<Label
-						FontAttributes="Bold"
-						FontFamily="PoppinsBoldFontFamily"
-						FontSize="40"
-						HorizontalOptions="CenterAndExpand"
-						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						TextColor="White"
-						VerticalOptions="CenterAndExpand">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="{Binding BookingDetail.Price}" />
-								<Span Text=" SEK" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
-				</Frame>
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#242A37"
+                    CornerRadius="8"
+                    HasShadow="False"
+                    HeightRequest="111"
+                    IsClippedToBounds="True">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="PoppinsBoldFontFamily"
+                        FontSize="40"
+                        HorizontalOptions="CenterAndExpand"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding BookingDetail.Price}" />
+                                <Span Text=" SEK" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
 
-				<Grid
-					Margin="0,32,0,10"
-					ColumnSpacing="0"
-					RowSpacing="0">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="1" />
-						<RowDefinition Height="60" />
-						<RowDefinition Height="1" />
-						<RowDefinition Height="60" />
-						<RowDefinition Height="1" />
-						<RowDefinition Height="60" />
-						<RowDefinition Height="1" />
-						<RowDefinition Height="60" />
-						<RowDefinition Height="1" />
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="39" />
-						<ColumnDefinition Width="100" />
-						<ColumnDefinition Width="*" />
-					</Grid.ColumnDefinitions>
-					<BoxView
-						Grid.Row="0"
-						Grid.ColumnSpan="3"
-						BackgroundColor="White"
-						Opacity="0.10" />
+                <Grid
+                    Margin="0,32,0,10"
+                    ColumnSpacing="0"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="39" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                        Grid.Row="0"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="White"
+                        Opacity="0.10" />
 
-					<Label
-						Grid.Row="1"
-						Grid.Column="1"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="Start"
-						Opacity="0.42"
-						Text="To"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="To"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<Label
-						Grid.Row="1"
-						Grid.Column="2"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="End"
-						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						Text="{Binding BookingDetail.HotelName}"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        Text="{Binding BookingDetail.HotelName}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<BoxView
-						Grid.Row="2"
-						Grid.Column="1"
-						Grid.ColumnSpan="2"
-						BackgroundColor="White"
-						Opacity="0.10" />
+                    <BoxView
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"
+                        Opacity="0.10" />
 
-					<Label
-						Grid.Row="3"
-						Grid.Column="1"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="Start"
-						Opacity="0.42"
-						Text="Nights"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="Nights"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<Label
-						Grid.Row="3"
-						Grid.Column="2"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="End"
-						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						TextColor="White"
-						VerticalTextAlignment="Center">
-						<Label.FormattedText>
-							<FormattedString>
-								<Span Text="{Binding BookingDetail.TotalDays}" />
-								<Span Text=" nights" />
-							</FormattedString>
-						</Label.FormattedText>
-					</Label>
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        TextColor="White"
+                        VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding BookingDetail.TotalDays}" />
+                                <Span Text=" nights" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
-					<BoxView
-						Grid.Row="4"
-						Grid.Column="1"
-						Grid.ColumnSpan="2"
-						BackgroundColor="White"
-						Opacity="0.10" />
+                    <BoxView
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"
+                        Opacity="0.10" />
 
-					<Label
-						Grid.Row="5"
-						Grid.Column="1"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="Start"
-						Opacity="0.42"
-						Text="Guests"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="Guests"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<Label
-						Grid.Row="5"
-						Grid.Column="2"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="End"
-						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						Text="{Binding BookingDetail.Guests}"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="5"
+                        Grid.Column="2"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        Text="{Binding BookingDetail.Guests}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<BoxView
-						Grid.Row="6"
-						Grid.Column="1"
-						Grid.ColumnSpan="2"
-						BackgroundColor="White"
-						Opacity="0.10" />
+                    <BoxView
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"
+                        Opacity="0.10" />
 
-					<Label
-						Grid.Row="7"
-						Grid.Column="1"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="Start"
-						Opacity="0.42"
-						Text="Dates"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.42"
+                        Text="Dates"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<Label
-						Grid.Row="7"
-						Grid.Column="2"
-						FontFamily="PoppinsRegularFontFamily"
-						FontSize="14"
-						HorizontalTextAlignment="End"
-						LineBreakMode="TailTruncation"
-						MaxLines="1"
-						Text="{Binding BookingDetail.Booking}"
-						TextColor="White"
-						VerticalTextAlignment="Center" />
+                    <Label
+                        Grid.Row="7"
+                        Grid.Column="2"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="14"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        Text="{Binding BookingDetail.Booking}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
 
-					<BoxView
-						Grid.Row="8"
-						Grid.Column="1"
-						Grid.ColumnSpan="2"
-						BackgroundColor="White"
-						Opacity="0.10" />
-				</Grid>
-			</StackLayout>
-		</ScrollView>
+                    <BoxView
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="White"
+                        Opacity="0.10" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
 
-		<Frame
-			Grid.Row="2"
-			Grid.Column="1"
-			Grid.ColumnSpan="3"
-			Padding="0"
-			BackgroundColor="#4285F4"
-			CornerRadius="12"
-			HasShadow="False"
-			IsClippedToBounds="True">
-			<Frame.GestureRecognizers>
-				<TapGestureRecognizer Command="{Binding ContinueCommand}" />
-			</Frame.GestureRecognizers>
-			<StackLayout
-				HorizontalOptions="CenterAndExpand"
-				Orientation="Horizontal"
-				Spacing="8"
-				VerticalOptions="CenterAndExpand">
-				<StackLayout.GestureRecognizers>
-					<TapGestureRecognizer Command="{Binding ContinueCommand}" />
-				</StackLayout.GestureRecognizers>
-				<Label
-					FontFamily="PoppinsSemiBoldFontFamily"
-					FontSize="16"
-					HorizontalTextAlignment="Center"
-					Text="Signature"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding ContinueCommand}" />
-					</Label.GestureRecognizers>
-				</Label>
+        <Frame
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Padding="0"
+            BackgroundColor="#4285F4"
+            CornerRadius="12"
+            HasShadow="False"
+            IsClippedToBounds="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+            </Frame.GestureRecognizers>
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal"
+                Spacing="8"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+                </StackLayout.GestureRecognizers>
+                <Label
+                    FontFamily="PoppinsSemiBoldFontFamily"
+                    FontSize="16"
+                    HorizontalTextAlignment="Center"
+                    Text="Signature"
+                    TextColor="White"
+                    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
 
-				<Label
-					FontFamily="{StaticResource MaterialFontFamily}"
-					FontSize="20"
-					HorizontalTextAlignment="Center"
-					Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
-					TextColor="White"
-					VerticalTextAlignment="Center">
-					<Label.GestureRecognizers>
-						<TapGestureRecognizer Command="{Binding ContinueCommand}" />
-					</Label.GestureRecognizers>
-				</Label>
-			</StackLayout>
-		</Frame>
-	</Grid>
+                <Label
+                    FontFamily="{StaticResource MaterialFontFamily}"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fontawesome:QloudidAppFlatIcons.ArrowRight}"
+                    TextColor="White"
+                    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Frame>
+    </Grid>
 
-	<!--<ContentPage.Content>
+    <!--<ContentPage.Content>
 		<ScrollView VerticalScrollBarVisibility="Never">
 			<Grid BackgroundColor="White">
 				<Grid.RowDefinitions>

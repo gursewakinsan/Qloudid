@@ -49,7 +49,20 @@ namespace Qloudid.ViewModels
 					});
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
-				else if (response == 3 || response == 1)
+                else if (!string.IsNullOrWhiteSpace(Helper.Helper.InvoiceId))
+                {
+                    IInvoiceService invoiceService = new InvoiceService();
+					await invoiceService.UpdateServiceInvoicePaymentDetailAsync(new Models.UpdateServiceInvoicePaymentDetailRequest()
+					{
+						InvoiceId = Helper.Helper.InvoiceId,
+						IsUser = Helper.Helper.UserOrCompanyAddress,
+						BuyerId = Helper.Helper.InvoiceAddressDetail.Id,
+						CardId = Helper.Helper.CardDetail.id
+					});
+                    Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
+                    Helper.Helper.InvoiceId = string.Empty;
+                }
+                else if (response == 3 || response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
 

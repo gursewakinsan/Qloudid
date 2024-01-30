@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Qloudid.Interfaces
 {
@@ -6,5 +7,7 @@ namespace Qloudid.Interfaces
     {
         Task<string> PayRentInvoiceAsync(Models.PayRentInvoiceRequest model);
         Task<string> ConfirmApartmentReservationAsync(Models.ConfirmApartmentReservationRequest model);
+        Task<Models.GetServiceInvoiceDetailResponse> GetServiceInvoiceDetailAsync(Models.GetServiceInvoiceDetailRequest model);
+        Task<string> UpdateServiceInvoicePaymentDetailAsync(Models.UpdateServiceInvoicePaymentDetailRequest model);
     }
 }

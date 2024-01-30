@@ -269,5 +269,8 @@ namespace Qloudid.Service
 		public const string UserPropertyUrl = "https://www.qloudid.com/user/index.php/QloudidApp/userProperty";
 		public const string AddLandloardUrl = "https://www.qloudid.com/user/index.php/QloudidApp/addLandloard";
 		public const string SendRequestUrl = "https://www.qloudid.com/user/index.php/QloudidApp/sendRequest";
+
+		public const string GetServiceInvoiceDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/getServiceInvoiceDetail";
+		public const string UpdateServiceInvoicePaymentDetailUrl = "https://www.qloudid.com/user/index.php/QloudidApp/updateServiceInvoicePaymentDetail";
     }
 }
