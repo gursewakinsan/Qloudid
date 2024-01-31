@@ -49,19 +49,7 @@ namespace Qloudid.ViewModels
 					});
 					Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
 				}
-                else if (!string.IsNullOrWhiteSpace(Helper.Helper.InvoiceId))
-                {
-                    IInvoiceService invoiceService = new InvoiceService();
-					await invoiceService.UpdateServiceInvoicePaymentDetailAsync(new Models.UpdateServiceInvoicePaymentDetailRequest()
-					{
-						InvoiceId = Helper.Helper.InvoiceId,
-						IsUser = Helper.Helper.UserOrCompanyAddress,
-						BuyerId = Helper.Helper.InvoiceAddressDetail.Id,
-						CardId = Helper.Helper.CardDetail.id
-					});
-                    Helper.Helper.InvoiceId = string.Empty;
-                    Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
-                }
+                
                 else if (response == 3 || response == 1)
 				{
 					Helper.Helper.CountDownWrongPassword = 0;
@@ -115,7 +103,20 @@ namespace Qloudid.ViewModels
 						}
 						Helper.Helper.AppToAppName = string.Empty;
 					}
-					else
+                    else if (!string.IsNullOrWhiteSpace(Helper.Helper.InvoiceId))
+                    {
+                        IInvoiceService invoiceService = new InvoiceService();
+                        await invoiceService.UpdateServiceInvoicePaymentDetailAsync(new Models.UpdateServiceInvoicePaymentDetailRequest()
+                        {
+                            InvoiceId = Helper.Helper.InvoiceId,
+                            IsUser = Helper.Helper.UserOrCompanyAddress,
+                            BuyerId = Helper.Helper.InvoiceAddressDetail.Id,
+                            CardId = Helper.Helper.CardDetail.id
+                        });
+                        Helper.Helper.InvoiceId = string.Empty;
+                        Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
+                    }
+                    else
 					{
 						if (Helper.Helper.IsThirdPartyWebLogin)
 						{
