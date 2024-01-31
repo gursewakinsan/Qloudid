@@ -111,16 +111,6 @@ namespace Qloudid.ViewModels
 					}
 				}
 			}
-			else if (ip.Length == 3)
-			{
-				if (ip[1].Equals("Invoicepayment"))
-				{
-					Helper.Helper.IpFromURL = ip[0];
-                    Helper.Helper.InvoiceId = ip[2];
-                    Application.Current.MainPage = new NavigationPage(new Views.Invoice.GetServiceInvoiceDetailPage());
-                    return;
-                }
-            }
 			int response = await service.UpdateLoginIpAsync(Helper.Helper.QrCertificateKey, new Models.UpdateLoginIP() { ip = ip[0] });
 			if (response == 1)
 			{
@@ -133,7 +123,14 @@ namespace Qloudid.ViewModels
 						Helper.Helper.IsSignIn = true;
 						await Navigation.PushAsync(new Views.VerifyPasswordPage());
 					}
-				}
+                    else if (ip[1].Equals("Invoicepayment"))
+                    {
+                        Helper.Helper.IpFromURL = ip[0];
+                        Helper.Helper.InvoiceId = ip[2];
+                        Application.Current.MainPage = new NavigationPage(new Views.Invoice.GetServiceInvoiceDetailPage());
+                        return;
+                    }
+                }
 				else
 				{
 					Helper.Helper.IpFromURL = ip[0];

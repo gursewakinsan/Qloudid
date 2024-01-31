@@ -167,7 +167,7 @@
                                         FontSize="13"
                                         HorizontalTextAlignment="Start"
                                         Opacity="0.42"
-                                        Text="{Binding CompanyName}"
+                                        Text="One time"
                                         TextColor="White"
                                         VerticalTextAlignment="Center" />
                                 </StackLayout>

@@ -59,8 +59,8 @@ namespace Qloudid.ViewModels
 						BuyerId = Helper.Helper.InvoiceAddressDetail.Id,
 						CardId = Helper.Helper.CardDetail.id
 					});
-                    Application.Current.MainPage = new NavigationPage(new Views.DashboardPage());
                     Helper.Helper.InvoiceId = string.Empty;
+                    Application.Current.MainPage = new NavigationPage(new Views.PurchaseSuccessfulPage());
                 }
                 else if (response == 3 || response == 1)
 				{
